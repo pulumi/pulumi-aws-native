@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, application_id=None, attachments_configuration=None, created_at=None, description=None, display_name=None, identity_center_application_arn=None, q_apps_configuration=None, role_arn=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, application_arn=None, application_id=None, attachments_configuration=None, auto_subscription_configuration=None, created_at=None, description=None, display_name=None, identity_center_application_arn=None, personalization_configuration=None, q_apps_configuration=None, role_arn=None, status=None, tags=None, updated_at=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
@@ -31,6 +31,9 @@ class GetApplicationResult:
         if attachments_configuration and not isinstance(attachments_configuration, dict):
             raise TypeError("Expected argument 'attachments_configuration' to be a dict")
         pulumi.set(__self__, "attachments_configuration", attachments_configuration)
+        if auto_subscription_configuration and not isinstance(auto_subscription_configuration, dict):
+            raise TypeError("Expected argument 'auto_subscription_configuration' to be a dict")
+        pulumi.set(__self__, "auto_subscription_configuration", auto_subscription_configuration)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -43,6 +46,9 @@ class GetApplicationResult:
         if identity_center_application_arn and not isinstance(identity_center_application_arn, str):
             raise TypeError("Expected argument 'identity_center_application_arn' to be a str")
         pulumi.set(__self__, "identity_center_application_arn", identity_center_application_arn)
+        if personalization_configuration and not isinstance(personalization_configuration, dict):
+            raise TypeError("Expected argument 'personalization_configuration' to be a dict")
+        pulumi.set(__self__, "personalization_configuration", personalization_configuration)
         if q_apps_configuration and not isinstance(q_apps_configuration, dict):
             raise TypeError("Expected argument 'q_apps_configuration' to be a dict")
         pulumi.set(__self__, "q_apps_configuration", q_apps_configuration)
@@ -84,6 +90,11 @@ class GetApplicationResult:
         return pulumi.get(self, "attachments_configuration")
 
     @property
+    @pulumi.getter(name="autoSubscriptionConfiguration")
+    def auto_subscription_configuration(self) -> Optional['outputs.ApplicationAutoSubscriptionConfiguration']:
+        return pulumi.get(self, "auto_subscription_configuration")
+
+    @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
@@ -116,10 +127,15 @@ class GetApplicationResult:
         return pulumi.get(self, "identity_center_application_arn")
 
     @property
+    @pulumi.getter(name="personalizationConfiguration")
+    def personalization_configuration(self) -> Optional['outputs.ApplicationPersonalizationConfiguration']:
+        return pulumi.get(self, "personalization_configuration")
+
+    @property
     @pulumi.getter(name="qAppsConfiguration")
     def q_apps_configuration(self) -> Optional['outputs.ApplicationQAppsConfiguration']:
         """
-        Configuration information about Amazon Q Apps. (preview feature)
+        Configuration information about Amazon Q Apps.
         """
         return pulumi.get(self, "q_apps_configuration")
 
@@ -165,10 +181,12 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             application_arn=self.application_arn,
             application_id=self.application_id,
             attachments_configuration=self.attachments_configuration,
+            auto_subscription_configuration=self.auto_subscription_configuration,
             created_at=self.created_at,
             description=self.description,
             display_name=self.display_name,
             identity_center_application_arn=self.identity_center_application_arn,
+            personalization_configuration=self.personalization_configuration,
             q_apps_configuration=self.q_apps_configuration,
             role_arn=self.role_arn,
             status=self.status,
@@ -193,10 +211,12 @@ def get_application(application_id: Optional[str] = None,
         application_arn=pulumi.get(__ret__, 'application_arn'),
         application_id=pulumi.get(__ret__, 'application_id'),
         attachments_configuration=pulumi.get(__ret__, 'attachments_configuration'),
+        auto_subscription_configuration=pulumi.get(__ret__, 'auto_subscription_configuration'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         identity_center_application_arn=pulumi.get(__ret__, 'identity_center_application_arn'),
+        personalization_configuration=pulumi.get(__ret__, 'personalization_configuration'),
         q_apps_configuration=pulumi.get(__ret__, 'q_apps_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),

@@ -78,6 +78,9 @@ export interface GetFleetResult {
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
     readonly fleetVpcConfig?: outputs.codebuild.FleetVpcConfig;
+    /**
+     * The Amazon Machine Image (AMI) of the compute fleet.
+     */
     readonly imageId?: string;
     /**
      * The name of the compute fleet.

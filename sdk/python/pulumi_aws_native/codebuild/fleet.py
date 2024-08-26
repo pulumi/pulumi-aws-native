@@ -63,6 +63,7 @@ class FleetArgs:
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
         :param pulumi.Input['FleetVpcConfigArgs'] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
+        :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[str] name: The name of the compute fleet.
         :param pulumi.Input['FleetOverflowBehavior'] overflow_behavior: The compute fleet overflow behavior.
                
@@ -184,6 +185,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Machine Image (AMI) of the compute fleet.
+        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -287,6 +291,7 @@ class Fleet(pulumi.CustomResource):
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
         :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
+        :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[str] name: The name of the compute fleet.
         :param pulumi.Input['FleetOverflowBehavior'] overflow_behavior: The compute fleet overflow behavior.
                
@@ -463,6 +468,9 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Machine Image (AMI) of the compute fleet.
+        """
         return pulumi.get(self, "image_id")
 
     @property

@@ -34,9 +34,6 @@ export interface GetStageResult {
      * Stage ARN is automatically generated on creation and assigned as the unique identifier.
      */
     readonly arn?: string;
-    /**
-     * An object representing a configuration to record a channel stream.
-     */
     readonly autoParticipantRecordingConfiguration?: outputs.ivs.StageAutoParticipantRecordingConfiguration;
     /**
      * Stage name

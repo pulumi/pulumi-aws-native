@@ -279,6 +279,11 @@ class FlowNodeType(str, Enum):
     LEX = "Lex"
     PROMPT = "Prompt"
     LAMBDA_FUNCTION = "LambdaFunction"
+    AGENT = "Agent"
+    STORAGE = "Storage"
+    RETRIEVAL = "Retrieval"
+    ITERATOR = "Iterator"
+    COLLECTOR = "Collector"
 
 
 class FlowPromptTemplateType(str, Enum):
@@ -328,6 +333,11 @@ class FlowVersionFlowNodeType(str, Enum):
     LEX = "Lex"
     PROMPT = "Prompt"
     LAMBDA_FUNCTION = "LambdaFunction"
+    AGENT = "Agent"
+    ITERATOR = "Iterator"
+    COLLECTOR = "Collector"
+    STORAGE = "Storage"
+    RETRIEVAL = "Retrieval"
 
 
 class FlowVersionFlowStatus(str, Enum):

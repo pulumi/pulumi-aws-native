@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowResult:
-    def __init__(__self__, arn=None, created_at=None, customer_encryption_key_arn=None, definition=None, description=None, execution_role_arn=None, id=None, name=None, status=None, tags=None, test_alias_tags=None, updated_at=None, version=None):
+    def __init__(__self__, arn=None, created_at=None, customer_encryption_key_arn=None, definition=None, description=None, execution_role_arn=None, id=None, name=None, status=None, tags=None, test_alias_tags=None, updated_at=None, validations=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -57,6 +57,9 @@ class GetFlowResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if validations and not isinstance(validations, list):
+            raise TypeError("Expected argument 'validations' to be a list")
+        pulumi.set(__self__, "validations", validations)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -164,6 +167,11 @@ class GetFlowResult:
 
     @property
     @pulumi.getter
+    def validations(self) -> Optional[Sequence['outputs.FlowValidation']]:
+        return pulumi.get(self, "validations")
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[str]:
         """
         Draft Version.
@@ -189,6 +197,7 @@ class AwaitableGetFlowResult(GetFlowResult):
             tags=self.tags,
             test_alias_tags=self.test_alias_tags,
             updated_at=self.updated_at,
+            validations=self.validations,
             version=self.version)
 
 
@@ -218,6 +227,7 @@ def get_flow(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         test_alias_tags=pulumi.get(__ret__, 'test_alias_tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
+        validations=pulumi.get(__ret__, 'validations'),
         version=pulumi.get(__ret__, 'version'))
 
 

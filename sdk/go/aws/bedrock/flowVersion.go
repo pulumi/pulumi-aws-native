@@ -17,8 +17,10 @@ type FlowVersion struct {
 	pulumi.CustomResourceState
 
 	// Time Stamp.
-	CreatedAt  pulumi.StringOutput             `pulumi:"createdAt"`
-	Definition FlowVersionFlowDefinitionOutput `pulumi:"definition"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// A KMS key ARN
+	CustomerEncryptionKeyArn pulumi.StringOutput             `pulumi:"customerEncryptionKeyArn"`
+	Definition               FlowVersionFlowDefinitionOutput `pulumi:"definition"`
 	// Description of the flow version
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ARN of a IAM role
@@ -137,6 +139,11 @@ func (o FlowVersionOutput) ToFlowVersionOutputWithContext(ctx context.Context) F
 // Time Stamp.
 func (o FlowVersionOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowVersion) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// A KMS key ARN
+func (o FlowVersionOutput) CustomerEncryptionKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowVersion) pulumi.StringOutput { return v.CustomerEncryptionKeyArn }).(pulumi.StringOutput)
 }
 
 func (o FlowVersionOutput) Definition() FlowVersionFlowDefinitionOutput {

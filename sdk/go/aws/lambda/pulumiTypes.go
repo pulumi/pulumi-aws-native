@@ -4051,7 +4051,9 @@ func (o FunctionSnapStartResponsePtrOutput) OptimizationStatus() FunctionSnapSta
 }
 
 type FunctionTag struct {
-	Key   string  `pulumi:"key"`
+	// The key for this tag.
+	Key string `pulumi:"key"`
+	// The value for this tag.
 	Value *string `pulumi:"value"`
 }
 

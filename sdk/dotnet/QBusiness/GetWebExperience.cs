@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
         /// </summary>
         public readonly string? DefaultEndpoint;
+        public readonly Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>? IdentityProviderConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service role attached to your web experience.
         /// 
@@ -126,6 +127,8 @@ namespace Pulumi.AwsNative.QBusiness
 
             string? defaultEndpoint,
 
+            Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>? identityProviderConfiguration,
+
             string? roleArn,
 
             Pulumi.AwsNative.QBusiness.WebExperienceSamplePromptsControlMode? samplePromptsControlMode,
@@ -148,6 +151,7 @@ namespace Pulumi.AwsNative.QBusiness
         {
             CreatedAt = createdAt;
             DefaultEndpoint = defaultEndpoint;
+            IdentityProviderConfiguration = identityProviderConfiguration;
             RoleArn = roleArn;
             SamplePromptsControlMode = samplePromptsControlMode;
             Status = status;

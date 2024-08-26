@@ -26,8 +26,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// Indicate whether to enable acceleration for the VPN connection.
-        /// 
-        /// Default: `false`
+        ///  Default: ``false``
         /// </summary>
         [Output("enableAcceleration")]
         public Output<bool?> EnableAcceleration { get; private set; } = null!;
@@ -140,8 +139,7 @@ namespace Pulumi.AwsNative.Ec2
 
         /// <summary>
         /// Indicate whether to enable acceleration for the VPN connection.
-        /// 
-        /// Default: `false`
+        ///  Default: ``false``
         /// </summary>
         [Input("enableAcceleration")]
         public Input<bool>? EnableAcceleration { get; set; }

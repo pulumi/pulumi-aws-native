@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetPromptVersionResult:
-    def __init__(__self__, arn=None, created_at=None, default_variant=None, name=None, prompt_id=None, updated_at=None, variants=None, version=None):
+    def __init__(__self__, arn=None, created_at=None, customer_encryption_key_arn=None, default_variant=None, name=None, prompt_id=None, tags=None, updated_at=None, variants=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if customer_encryption_key_arn and not isinstance(customer_encryption_key_arn, str):
+            raise TypeError("Expected argument 'customer_encryption_key_arn' to be a str")
+        pulumi.set(__self__, "customer_encryption_key_arn", customer_encryption_key_arn)
         if default_variant and not isinstance(default_variant, str):
             raise TypeError("Expected argument 'default_variant' to be a str")
         pulumi.set(__self__, "default_variant", default_variant)
@@ -36,6 +39,9 @@ class GetPromptVersionResult:
         if prompt_id and not isinstance(prompt_id, str):
             raise TypeError("Expected argument 'prompt_id' to be a str")
         pulumi.set(__self__, "prompt_id", prompt_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
@@ -63,6 +69,14 @@ class GetPromptVersionResult:
         return pulumi.get(self, "created_at")
 
     @property
+    @pulumi.getter(name="customerEncryptionKeyArn")
+    def customer_encryption_key_arn(self) -> Optional[str]:
+        """
+        A KMS key ARN
+        """
+        return pulumi.get(self, "customer_encryption_key_arn")
+
+    @property
     @pulumi.getter(name="defaultVariant")
     def default_variant(self) -> Optional[str]:
         """
@@ -85,6 +99,11 @@ class GetPromptVersionResult:
         Identifier for a Prompt
         """
         return pulumi.get(self, "prompt_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
@@ -119,9 +138,11 @@ class AwaitableGetPromptVersionResult(GetPromptVersionResult):
         return GetPromptVersionResult(
             arn=self.arn,
             created_at=self.created_at,
+            customer_encryption_key_arn=self.customer_encryption_key_arn,
             default_variant=self.default_variant,
             name=self.name,
             prompt_id=self.prompt_id,
+            tags=self.tags,
             updated_at=self.updated_at,
             variants=self.variants,
             version=self.version)
@@ -143,9 +164,11 @@ def get_prompt_version(arn: Optional[str] = None,
     return AwaitableGetPromptVersionResult(
         arn=pulumi.get(__ret__, 'arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        customer_encryption_key_arn=pulumi.get(__ret__, 'customer_encryption_key_arn'),
         default_variant=pulumi.get(__ret__, 'default_variant'),
         name=pulumi.get(__ret__, 'name'),
         prompt_id=pulumi.get(__ret__, 'prompt_id'),
+        tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         variants=pulumi.get(__ret__, 'variants'),
         version=pulumi.get(__ret__, 'version'))

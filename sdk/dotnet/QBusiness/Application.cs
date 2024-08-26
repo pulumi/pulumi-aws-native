@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("attachmentsConfiguration")]
         public Output<Outputs.ApplicationAttachmentsConfiguration?> AttachmentsConfiguration { get; private set; } = null!;
 
+        [Output("autoSubscriptionConfiguration")]
+        public Output<Outputs.ApplicationAutoSubscriptionConfiguration?> AutoSubscriptionConfiguration { get; private set; } = null!;
+
+        [Output("clientIdsForOidc")]
+        public Output<ImmutableArray<string>> ClientIdsForOidc { get; private set; } = null!;
+
         /// <summary>
         /// The Unix timestamp when the Amazon Q Business application was created.
         /// </summary>
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("encryptionConfiguration")]
         public Output<Outputs.ApplicationEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
+        [Output("iamIdentityProviderArn")]
+        public Output<string?> IamIdentityProviderArn { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
         /// </summary>
@@ -71,8 +80,14 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("identityCenterInstanceArn")]
         public Output<string?> IdentityCenterInstanceArn { get; private set; } = null!;
 
+        [Output("identityType")]
+        public Output<Pulumi.AwsNative.QBusiness.ApplicationIdentityType?> IdentityType { get; private set; } = null!;
+
+        [Output("personalizationConfiguration")]
+        public Output<Outputs.ApplicationPersonalizationConfiguration?> PersonalizationConfiguration { get; private set; } = null!;
+
         /// <summary>
-        /// Configuration information about Amazon Q Apps. (preview feature)
+        /// Configuration information about Amazon Q Apps.
         /// </summary>
         [Output("qAppsConfiguration")]
         public Output<Outputs.ApplicationQAppsConfiguration?> QAppsConfiguration { get; private set; } = null!;
@@ -126,7 +141,10 @@ namespace Pulumi.AwsNative.QBusiness
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "clientIdsForOidc[*]",
                     "encryptionConfiguration",
+                    "iamIdentityProviderArn",
+                    "identityType",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,6 +174,17 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("attachmentsConfiguration")]
         public Input<Inputs.ApplicationAttachmentsConfigurationArgs>? AttachmentsConfiguration { get; set; }
 
+        [Input("autoSubscriptionConfiguration")]
+        public Input<Inputs.ApplicationAutoSubscriptionConfigurationArgs>? AutoSubscriptionConfiguration { get; set; }
+
+        [Input("clientIdsForOidc")]
+        private InputList<string>? _clientIdsForOidc;
+        public InputList<string> ClientIdsForOidc
+        {
+            get => _clientIdsForOidc ?? (_clientIdsForOidc = new InputList<string>());
+            set => _clientIdsForOidc = value;
+        }
+
         /// <summary>
         /// A description for the Amazon Q Business application.
         /// </summary>
@@ -174,6 +203,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("encryptionConfiguration")]
         public Input<Inputs.ApplicationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        [Input("iamIdentityProviderArn")]
+        public Input<string>? IamIdentityProviderArn { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
         /// 
@@ -182,8 +214,14 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
 
+        [Input("identityType")]
+        public Input<Pulumi.AwsNative.QBusiness.ApplicationIdentityType>? IdentityType { get; set; }
+
+        [Input("personalizationConfiguration")]
+        public Input<Inputs.ApplicationPersonalizationConfigurationArgs>? PersonalizationConfiguration { get; set; }
+
         /// <summary>
-        /// Configuration information about Amazon Q Apps. (preview feature)
+        /// Configuration information about Amazon Q Apps.
         /// </summary>
         [Input("qAppsConfiguration")]
         public Input<Inputs.ApplicationQAppsConfigurationArgs>? QAppsConfiguration { get; set; }

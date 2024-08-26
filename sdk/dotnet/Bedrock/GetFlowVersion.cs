@@ -73,6 +73,10 @@ namespace Pulumi.AwsNative.Bedrock
         /// Time Stamp.
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// A KMS key ARN
+        /// </summary>
+        public readonly string? CustomerEncryptionKeyArn;
         public readonly Outputs.FlowVersionFlowDefinition? Definition;
         /// <summary>
         /// ARN of a IAM role
@@ -99,6 +103,8 @@ namespace Pulumi.AwsNative.Bedrock
         private GetFlowVersionResult(
             string? createdAt,
 
+            string? customerEncryptionKeyArn,
+
             Outputs.FlowVersionFlowDefinition? definition,
 
             string? executionRoleArn,
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.Bedrock
             string? version)
         {
             CreatedAt = createdAt;
+            CustomerEncryptionKeyArn = customerEncryptionKeyArn;
             Definition = definition;
             ExecutionRoleArn = executionRoleArn;
             FlowId = flowId;

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("defaultEndpoint")]
         public Output<string> DefaultEndpoint { get; private set; } = null!;
 
+        [Output("identityProviderConfiguration")]
+        public Output<Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>?> IdentityProviderConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service role attached to your web experience.
         /// 
@@ -149,6 +152,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        [Input("identityProviderConfiguration")]
+        public InputUnion<Inputs.WebExperienceIdentityProviderConfiguration0PropertiesArgs, Inputs.WebExperienceIdentityProviderConfiguration1PropertiesArgs>? IdentityProviderConfiguration { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service role attached to your web experience.

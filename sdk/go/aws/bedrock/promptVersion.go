@@ -20,6 +20,8 @@ type PromptVersion struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Time Stamp.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// A KMS key ARN
+	CustomerEncryptionKeyArn pulumi.StringOutput `pulumi:"customerEncryptionKeyArn"`
 	// Name for a variant.
 	DefaultVariant pulumi.StringOutput `pulumi:"defaultVariant"`
 	// Description for a prompt version resource.
@@ -29,7 +31,8 @@ type PromptVersion struct {
 	// ARN of a prompt resource possibly with a version
 	PromptArn pulumi.StringOutput `pulumi:"promptArn"`
 	// Identifier for a Prompt
-	PromptId pulumi.StringOutput `pulumi:"promptId"`
+	PromptId pulumi.StringOutput    `pulumi:"promptId"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
 	// Time Stamp.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// List of prompt variants
@@ -89,7 +92,8 @@ type promptVersionArgs struct {
 	// Description for a prompt version resource.
 	Description *string `pulumi:"description"`
 	// ARN of a prompt resource possibly with a version
-	PromptArn string `pulumi:"promptArn"`
+	PromptArn string            `pulumi:"promptArn"`
+	Tags      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PromptVersion resource.
@@ -98,6 +102,7 @@ type PromptVersionArgs struct {
 	Description pulumi.StringPtrInput
 	// ARN of a prompt resource possibly with a version
 	PromptArn pulumi.StringInput
+	Tags      pulumi.StringMapInput
 }
 
 func (PromptVersionArgs) ElementType() reflect.Type {
@@ -147,6 +152,11 @@ func (o PromptVersionOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *PromptVersion) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// A KMS key ARN
+func (o PromptVersionOutput) CustomerEncryptionKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PromptVersion) pulumi.StringOutput { return v.CustomerEncryptionKeyArn }).(pulumi.StringOutput)
+}
+
 // Name for a variant.
 func (o PromptVersionOutput) DefaultVariant() pulumi.StringOutput {
 	return o.ApplyT(func(v *PromptVersion) pulumi.StringOutput { return v.DefaultVariant }).(pulumi.StringOutput)
@@ -170,6 +180,10 @@ func (o PromptVersionOutput) PromptArn() pulumi.StringOutput {
 // Identifier for a Prompt
 func (o PromptVersionOutput) PromptId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PromptVersion) pulumi.StringOutput { return v.PromptId }).(pulumi.StringOutput)
+}
+
+func (o PromptVersionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PromptVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Time Stamp.

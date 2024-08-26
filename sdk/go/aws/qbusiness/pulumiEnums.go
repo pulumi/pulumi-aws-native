@@ -175,6 +175,503 @@ func (in *applicationAttachmentsControlModePtr) ToApplicationAttachmentsControlM
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAttachmentsControlModePtrOutput)
 }
 
+type ApplicationAutoSubscriptionStatus string
+
+const (
+	ApplicationAutoSubscriptionStatusEnabled  = ApplicationAutoSubscriptionStatus("ENABLED")
+	ApplicationAutoSubscriptionStatusDisabled = ApplicationAutoSubscriptionStatus("DISABLED")
+)
+
+func (ApplicationAutoSubscriptionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAutoSubscriptionStatus)(nil)).Elem()
+}
+
+func (e ApplicationAutoSubscriptionStatus) ToApplicationAutoSubscriptionStatusOutput() ApplicationAutoSubscriptionStatusOutput {
+	return pulumi.ToOutput(e).(ApplicationAutoSubscriptionStatusOutput)
+}
+
+func (e ApplicationAutoSubscriptionStatus) ToApplicationAutoSubscriptionStatusOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationAutoSubscriptionStatusOutput)
+}
+
+func (e ApplicationAutoSubscriptionStatus) ToApplicationAutoSubscriptionStatusPtrOutput() ApplicationAutoSubscriptionStatusPtrOutput {
+	return e.ToApplicationAutoSubscriptionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationAutoSubscriptionStatus) ToApplicationAutoSubscriptionStatusPtrOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionStatusPtrOutput {
+	return ApplicationAutoSubscriptionStatus(e).ToApplicationAutoSubscriptionStatusOutputWithContext(ctx).ToApplicationAutoSubscriptionStatusPtrOutputWithContext(ctx)
+}
+
+func (e ApplicationAutoSubscriptionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationAutoSubscriptionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationAutoSubscriptionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationAutoSubscriptionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationAutoSubscriptionStatusOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAutoSubscriptionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAutoSubscriptionStatus)(nil)).Elem()
+}
+
+func (o ApplicationAutoSubscriptionStatusOutput) ToApplicationAutoSubscriptionStatusOutput() ApplicationAutoSubscriptionStatusOutput {
+	return o
+}
+
+func (o ApplicationAutoSubscriptionStatusOutput) ToApplicationAutoSubscriptionStatusOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionStatusOutput {
+	return o
+}
+
+func (o ApplicationAutoSubscriptionStatusOutput) ToApplicationAutoSubscriptionStatusPtrOutput() ApplicationAutoSubscriptionStatusPtrOutput {
+	return o.ToApplicationAutoSubscriptionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationAutoSubscriptionStatusOutput) ToApplicationAutoSubscriptionStatusPtrOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationAutoSubscriptionStatus) *ApplicationAutoSubscriptionStatus {
+		return &v
+	}).(ApplicationAutoSubscriptionStatusPtrOutput)
+}
+
+func (o ApplicationAutoSubscriptionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationAutoSubscriptionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationAutoSubscriptionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationAutoSubscriptionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationAutoSubscriptionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationAutoSubscriptionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationAutoSubscriptionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAutoSubscriptionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationAutoSubscriptionStatus)(nil)).Elem()
+}
+
+func (o ApplicationAutoSubscriptionStatusPtrOutput) ToApplicationAutoSubscriptionStatusPtrOutput() ApplicationAutoSubscriptionStatusPtrOutput {
+	return o
+}
+
+func (o ApplicationAutoSubscriptionStatusPtrOutput) ToApplicationAutoSubscriptionStatusPtrOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionStatusPtrOutput {
+	return o
+}
+
+func (o ApplicationAutoSubscriptionStatusPtrOutput) Elem() ApplicationAutoSubscriptionStatusOutput {
+	return o.ApplyT(func(v *ApplicationAutoSubscriptionStatus) ApplicationAutoSubscriptionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationAutoSubscriptionStatus
+		return ret
+	}).(ApplicationAutoSubscriptionStatusOutput)
+}
+
+func (o ApplicationAutoSubscriptionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationAutoSubscriptionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationAutoSubscriptionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationAutoSubscriptionStatusInput is an input type that accepts values of the ApplicationAutoSubscriptionStatus enum
+// A concrete instance of `ApplicationAutoSubscriptionStatusInput` can be one of the following:
+//
+//	ApplicationAutoSubscriptionStatusEnabled
+//	ApplicationAutoSubscriptionStatusDisabled
+type ApplicationAutoSubscriptionStatusInput interface {
+	pulumi.Input
+
+	ToApplicationAutoSubscriptionStatusOutput() ApplicationAutoSubscriptionStatusOutput
+	ToApplicationAutoSubscriptionStatusOutputWithContext(context.Context) ApplicationAutoSubscriptionStatusOutput
+}
+
+var applicationAutoSubscriptionStatusPtrType = reflect.TypeOf((**ApplicationAutoSubscriptionStatus)(nil)).Elem()
+
+type ApplicationAutoSubscriptionStatusPtrInput interface {
+	pulumi.Input
+
+	ToApplicationAutoSubscriptionStatusPtrOutput() ApplicationAutoSubscriptionStatusPtrOutput
+	ToApplicationAutoSubscriptionStatusPtrOutputWithContext(context.Context) ApplicationAutoSubscriptionStatusPtrOutput
+}
+
+type applicationAutoSubscriptionStatusPtr string
+
+func ApplicationAutoSubscriptionStatusPtr(v string) ApplicationAutoSubscriptionStatusPtrInput {
+	return (*applicationAutoSubscriptionStatusPtr)(&v)
+}
+
+func (*applicationAutoSubscriptionStatusPtr) ElementType() reflect.Type {
+	return applicationAutoSubscriptionStatusPtrType
+}
+
+func (in *applicationAutoSubscriptionStatusPtr) ToApplicationAutoSubscriptionStatusPtrOutput() ApplicationAutoSubscriptionStatusPtrOutput {
+	return pulumi.ToOutput(in).(ApplicationAutoSubscriptionStatusPtrOutput)
+}
+
+func (in *applicationAutoSubscriptionStatusPtr) ToApplicationAutoSubscriptionStatusPtrOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAutoSubscriptionStatusPtrOutput)
+}
+
+type ApplicationIdentityType string
+
+const (
+	ApplicationIdentityTypeAwsIamIdpSaml = ApplicationIdentityType("AWS_IAM_IDP_SAML")
+	ApplicationIdentityTypeAwsIamIdpOidc = ApplicationIdentityType("AWS_IAM_IDP_OIDC")
+	ApplicationIdentityTypeAwsIamIdc     = ApplicationIdentityType("AWS_IAM_IDC")
+)
+
+func (ApplicationIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIdentityType)(nil)).Elem()
+}
+
+func (e ApplicationIdentityType) ToApplicationIdentityTypeOutput() ApplicationIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationIdentityTypeOutput)
+}
+
+func (e ApplicationIdentityType) ToApplicationIdentityTypeOutputWithContext(ctx context.Context) ApplicationIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationIdentityTypeOutput)
+}
+
+func (e ApplicationIdentityType) ToApplicationIdentityTypePtrOutput() ApplicationIdentityTypePtrOutput {
+	return e.ToApplicationIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationIdentityType) ToApplicationIdentityTypePtrOutputWithContext(ctx context.Context) ApplicationIdentityTypePtrOutput {
+	return ApplicationIdentityType(e).ToApplicationIdentityTypeOutputWithContext(ctx).ToApplicationIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIdentityType)(nil)).Elem()
+}
+
+func (o ApplicationIdentityTypeOutput) ToApplicationIdentityTypeOutput() ApplicationIdentityTypeOutput {
+	return o
+}
+
+func (o ApplicationIdentityTypeOutput) ToApplicationIdentityTypeOutputWithContext(ctx context.Context) ApplicationIdentityTypeOutput {
+	return o
+}
+
+func (o ApplicationIdentityTypeOutput) ToApplicationIdentityTypePtrOutput() ApplicationIdentityTypePtrOutput {
+	return o.ToApplicationIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationIdentityTypeOutput) ToApplicationIdentityTypePtrOutputWithContext(ctx context.Context) ApplicationIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationIdentityType) *ApplicationIdentityType {
+		return &v
+	}).(ApplicationIdentityTypePtrOutput)
+}
+
+func (o ApplicationIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIdentityType)(nil)).Elem()
+}
+
+func (o ApplicationIdentityTypePtrOutput) ToApplicationIdentityTypePtrOutput() ApplicationIdentityTypePtrOutput {
+	return o
+}
+
+func (o ApplicationIdentityTypePtrOutput) ToApplicationIdentityTypePtrOutputWithContext(ctx context.Context) ApplicationIdentityTypePtrOutput {
+	return o
+}
+
+func (o ApplicationIdentityTypePtrOutput) Elem() ApplicationIdentityTypeOutput {
+	return o.ApplyT(func(v *ApplicationIdentityType) ApplicationIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationIdentityType
+		return ret
+	}).(ApplicationIdentityTypeOutput)
+}
+
+func (o ApplicationIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationIdentityTypeInput is an input type that accepts values of the ApplicationIdentityType enum
+// A concrete instance of `ApplicationIdentityTypeInput` can be one of the following:
+//
+//	ApplicationIdentityTypeAwsIamIdpSaml
+//	ApplicationIdentityTypeAwsIamIdpOidc
+//	ApplicationIdentityTypeAwsIamIdc
+type ApplicationIdentityTypeInput interface {
+	pulumi.Input
+
+	ToApplicationIdentityTypeOutput() ApplicationIdentityTypeOutput
+	ToApplicationIdentityTypeOutputWithContext(context.Context) ApplicationIdentityTypeOutput
+}
+
+var applicationIdentityTypePtrType = reflect.TypeOf((**ApplicationIdentityType)(nil)).Elem()
+
+type ApplicationIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationIdentityTypePtrOutput() ApplicationIdentityTypePtrOutput
+	ToApplicationIdentityTypePtrOutputWithContext(context.Context) ApplicationIdentityTypePtrOutput
+}
+
+type applicationIdentityTypePtr string
+
+func ApplicationIdentityTypePtr(v string) ApplicationIdentityTypePtrInput {
+	return (*applicationIdentityTypePtr)(&v)
+}
+
+func (*applicationIdentityTypePtr) ElementType() reflect.Type {
+	return applicationIdentityTypePtrType
+}
+
+func (in *applicationIdentityTypePtr) ToApplicationIdentityTypePtrOutput() ApplicationIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationIdentityTypePtrOutput)
+}
+
+func (in *applicationIdentityTypePtr) ToApplicationIdentityTypePtrOutputWithContext(ctx context.Context) ApplicationIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationIdentityTypePtrOutput)
+}
+
+type ApplicationPersonalizationControlMode string
+
+const (
+	ApplicationPersonalizationControlModeEnabled  = ApplicationPersonalizationControlMode("ENABLED")
+	ApplicationPersonalizationControlModeDisabled = ApplicationPersonalizationControlMode("DISABLED")
+)
+
+func (ApplicationPersonalizationControlMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPersonalizationControlMode)(nil)).Elem()
+}
+
+func (e ApplicationPersonalizationControlMode) ToApplicationPersonalizationControlModeOutput() ApplicationPersonalizationControlModeOutput {
+	return pulumi.ToOutput(e).(ApplicationPersonalizationControlModeOutput)
+}
+
+func (e ApplicationPersonalizationControlMode) ToApplicationPersonalizationControlModeOutputWithContext(ctx context.Context) ApplicationPersonalizationControlModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationPersonalizationControlModeOutput)
+}
+
+func (e ApplicationPersonalizationControlMode) ToApplicationPersonalizationControlModePtrOutput() ApplicationPersonalizationControlModePtrOutput {
+	return e.ToApplicationPersonalizationControlModePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationPersonalizationControlMode) ToApplicationPersonalizationControlModePtrOutputWithContext(ctx context.Context) ApplicationPersonalizationControlModePtrOutput {
+	return ApplicationPersonalizationControlMode(e).ToApplicationPersonalizationControlModeOutputWithContext(ctx).ToApplicationPersonalizationControlModePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationPersonalizationControlMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationPersonalizationControlMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationPersonalizationControlMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationPersonalizationControlMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationPersonalizationControlModeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPersonalizationControlModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPersonalizationControlMode)(nil)).Elem()
+}
+
+func (o ApplicationPersonalizationControlModeOutput) ToApplicationPersonalizationControlModeOutput() ApplicationPersonalizationControlModeOutput {
+	return o
+}
+
+func (o ApplicationPersonalizationControlModeOutput) ToApplicationPersonalizationControlModeOutputWithContext(ctx context.Context) ApplicationPersonalizationControlModeOutput {
+	return o
+}
+
+func (o ApplicationPersonalizationControlModeOutput) ToApplicationPersonalizationControlModePtrOutput() ApplicationPersonalizationControlModePtrOutput {
+	return o.ToApplicationPersonalizationControlModePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationPersonalizationControlModeOutput) ToApplicationPersonalizationControlModePtrOutputWithContext(ctx context.Context) ApplicationPersonalizationControlModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPersonalizationControlMode) *ApplicationPersonalizationControlMode {
+		return &v
+	}).(ApplicationPersonalizationControlModePtrOutput)
+}
+
+func (o ApplicationPersonalizationControlModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationPersonalizationControlModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationPersonalizationControlMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationPersonalizationControlModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationPersonalizationControlModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationPersonalizationControlMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationPersonalizationControlModePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPersonalizationControlModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPersonalizationControlMode)(nil)).Elem()
+}
+
+func (o ApplicationPersonalizationControlModePtrOutput) ToApplicationPersonalizationControlModePtrOutput() ApplicationPersonalizationControlModePtrOutput {
+	return o
+}
+
+func (o ApplicationPersonalizationControlModePtrOutput) ToApplicationPersonalizationControlModePtrOutputWithContext(ctx context.Context) ApplicationPersonalizationControlModePtrOutput {
+	return o
+}
+
+func (o ApplicationPersonalizationControlModePtrOutput) Elem() ApplicationPersonalizationControlModeOutput {
+	return o.ApplyT(func(v *ApplicationPersonalizationControlMode) ApplicationPersonalizationControlMode {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPersonalizationControlMode
+		return ret
+	}).(ApplicationPersonalizationControlModeOutput)
+}
+
+func (o ApplicationPersonalizationControlModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationPersonalizationControlModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationPersonalizationControlMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationPersonalizationControlModeInput is an input type that accepts values of the ApplicationPersonalizationControlMode enum
+// A concrete instance of `ApplicationPersonalizationControlModeInput` can be one of the following:
+//
+//	ApplicationPersonalizationControlModeEnabled
+//	ApplicationPersonalizationControlModeDisabled
+type ApplicationPersonalizationControlModeInput interface {
+	pulumi.Input
+
+	ToApplicationPersonalizationControlModeOutput() ApplicationPersonalizationControlModeOutput
+	ToApplicationPersonalizationControlModeOutputWithContext(context.Context) ApplicationPersonalizationControlModeOutput
+}
+
+var applicationPersonalizationControlModePtrType = reflect.TypeOf((**ApplicationPersonalizationControlMode)(nil)).Elem()
+
+type ApplicationPersonalizationControlModePtrInput interface {
+	pulumi.Input
+
+	ToApplicationPersonalizationControlModePtrOutput() ApplicationPersonalizationControlModePtrOutput
+	ToApplicationPersonalizationControlModePtrOutputWithContext(context.Context) ApplicationPersonalizationControlModePtrOutput
+}
+
+type applicationPersonalizationControlModePtr string
+
+func ApplicationPersonalizationControlModePtr(v string) ApplicationPersonalizationControlModePtrInput {
+	return (*applicationPersonalizationControlModePtr)(&v)
+}
+
+func (*applicationPersonalizationControlModePtr) ElementType() reflect.Type {
+	return applicationPersonalizationControlModePtrType
+}
+
+func (in *applicationPersonalizationControlModePtr) ToApplicationPersonalizationControlModePtrOutput() ApplicationPersonalizationControlModePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationPersonalizationControlModePtrOutput)
+}
+
+func (in *applicationPersonalizationControlModePtr) ToApplicationPersonalizationControlModePtrOutputWithContext(ctx context.Context) ApplicationPersonalizationControlModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationPersonalizationControlModePtrOutput)
+}
+
 type ApplicationQAppsControlMode string
 
 const (
@@ -431,6 +928,171 @@ func (o ApplicationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSubscriptionType string
+
+const (
+	ApplicationSubscriptionTypeQLite     = ApplicationSubscriptionType("Q_LITE")
+	ApplicationSubscriptionTypeQBusiness = ApplicationSubscriptionType("Q_BUSINESS")
+)
+
+func (ApplicationSubscriptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSubscriptionType)(nil)).Elem()
+}
+
+func (e ApplicationSubscriptionType) ToApplicationSubscriptionTypeOutput() ApplicationSubscriptionTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationSubscriptionTypeOutput)
+}
+
+func (e ApplicationSubscriptionType) ToApplicationSubscriptionTypeOutputWithContext(ctx context.Context) ApplicationSubscriptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationSubscriptionTypeOutput)
+}
+
+func (e ApplicationSubscriptionType) ToApplicationSubscriptionTypePtrOutput() ApplicationSubscriptionTypePtrOutput {
+	return e.ToApplicationSubscriptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationSubscriptionType) ToApplicationSubscriptionTypePtrOutputWithContext(ctx context.Context) ApplicationSubscriptionTypePtrOutput {
+	return ApplicationSubscriptionType(e).ToApplicationSubscriptionTypeOutputWithContext(ctx).ToApplicationSubscriptionTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationSubscriptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationSubscriptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationSubscriptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationSubscriptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationSubscriptionTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSubscriptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSubscriptionType)(nil)).Elem()
+}
+
+func (o ApplicationSubscriptionTypeOutput) ToApplicationSubscriptionTypeOutput() ApplicationSubscriptionTypeOutput {
+	return o
+}
+
+func (o ApplicationSubscriptionTypeOutput) ToApplicationSubscriptionTypeOutputWithContext(ctx context.Context) ApplicationSubscriptionTypeOutput {
+	return o
+}
+
+func (o ApplicationSubscriptionTypeOutput) ToApplicationSubscriptionTypePtrOutput() ApplicationSubscriptionTypePtrOutput {
+	return o.ToApplicationSubscriptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSubscriptionTypeOutput) ToApplicationSubscriptionTypePtrOutputWithContext(ctx context.Context) ApplicationSubscriptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSubscriptionType) *ApplicationSubscriptionType {
+		return &v
+	}).(ApplicationSubscriptionTypePtrOutput)
+}
+
+func (o ApplicationSubscriptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationSubscriptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationSubscriptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationSubscriptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSubscriptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationSubscriptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationSubscriptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSubscriptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSubscriptionType)(nil)).Elem()
+}
+
+func (o ApplicationSubscriptionTypePtrOutput) ToApplicationSubscriptionTypePtrOutput() ApplicationSubscriptionTypePtrOutput {
+	return o
+}
+
+func (o ApplicationSubscriptionTypePtrOutput) ToApplicationSubscriptionTypePtrOutputWithContext(ctx context.Context) ApplicationSubscriptionTypePtrOutput {
+	return o
+}
+
+func (o ApplicationSubscriptionTypePtrOutput) Elem() ApplicationSubscriptionTypeOutput {
+	return o.ApplyT(func(v *ApplicationSubscriptionType) ApplicationSubscriptionType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSubscriptionType
+		return ret
+	}).(ApplicationSubscriptionTypeOutput)
+}
+
+func (o ApplicationSubscriptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSubscriptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationSubscriptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationSubscriptionTypeInput is an input type that accepts values of the ApplicationSubscriptionType enum
+// A concrete instance of `ApplicationSubscriptionTypeInput` can be one of the following:
+//
+//	ApplicationSubscriptionTypeQLite
+//	ApplicationSubscriptionTypeQBusiness
+type ApplicationSubscriptionTypeInput interface {
+	pulumi.Input
+
+	ToApplicationSubscriptionTypeOutput() ApplicationSubscriptionTypeOutput
+	ToApplicationSubscriptionTypeOutputWithContext(context.Context) ApplicationSubscriptionTypeOutput
+}
+
+var applicationSubscriptionTypePtrType = reflect.TypeOf((**ApplicationSubscriptionType)(nil)).Elem()
+
+type ApplicationSubscriptionTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationSubscriptionTypePtrOutput() ApplicationSubscriptionTypePtrOutput
+	ToApplicationSubscriptionTypePtrOutputWithContext(context.Context) ApplicationSubscriptionTypePtrOutput
+}
+
+type applicationSubscriptionTypePtr string
+
+func ApplicationSubscriptionTypePtr(v string) ApplicationSubscriptionTypePtrInput {
+	return (*applicationSubscriptionTypePtr)(&v)
+}
+
+func (*applicationSubscriptionTypePtr) ElementType() reflect.Type {
+	return applicationSubscriptionTypePtrType
+}
+
+func (in *applicationSubscriptionTypePtr) ToApplicationSubscriptionTypePtrOutput() ApplicationSubscriptionTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationSubscriptionTypePtrOutput)
+}
+
+func (in *applicationSubscriptionTypePtr) ToApplicationSubscriptionTypePtrOutputWithContext(ctx context.Context) ApplicationSubscriptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationSubscriptionTypePtrOutput)
 }
 
 type DataSourceAttributeValueOperator string
@@ -2739,8 +3401,16 @@ func (o WebExperienceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAttachmentsControlModeInput)(nil)).Elem(), ApplicationAttachmentsControlMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAttachmentsControlModePtrInput)(nil)).Elem(), ApplicationAttachmentsControlMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoSubscriptionStatusInput)(nil)).Elem(), ApplicationAutoSubscriptionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoSubscriptionStatusPtrInput)(nil)).Elem(), ApplicationAutoSubscriptionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentityTypeInput)(nil)).Elem(), ApplicationIdentityType("AWS_IAM_IDP_SAML"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentityTypePtrInput)(nil)).Elem(), ApplicationIdentityType("AWS_IAM_IDP_SAML"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPersonalizationControlModeInput)(nil)).Elem(), ApplicationPersonalizationControlMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPersonalizationControlModePtrInput)(nil)).Elem(), ApplicationPersonalizationControlMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsControlModeInput)(nil)).Elem(), ApplicationQAppsControlMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsControlModePtrInput)(nil)).Elem(), ApplicationQAppsControlMode("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubscriptionTypeInput)(nil)).Elem(), ApplicationSubscriptionType("Q_LITE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubscriptionTypePtrInput)(nil)).Elem(), ApplicationSubscriptionType("Q_LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAttributeValueOperatorInput)(nil)).Elem(), DataSourceAttributeValueOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAttributeValueOperatorPtrInput)(nil)).Elem(), DataSourceAttributeValueOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentContentOperatorInput)(nil)).Elem(), DataSourceDocumentContentOperator("DELETE"))
@@ -2765,10 +3435,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceSamplePromptsControlModePtrInput)(nil)).Elem(), WebExperienceSamplePromptsControlMode("ENABLED"))
 	pulumi.RegisterOutputType(ApplicationAttachmentsControlModeOutput{})
 	pulumi.RegisterOutputType(ApplicationAttachmentsControlModePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationAutoSubscriptionStatusOutput{})
+	pulumi.RegisterOutputType(ApplicationAutoSubscriptionStatusPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationIdentityTypePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationPersonalizationControlModeOutput{})
+	pulumi.RegisterOutputType(ApplicationPersonalizationControlModePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationQAppsControlModeOutput{})
 	pulumi.RegisterOutputType(ApplicationQAppsControlModePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationStatusOutput{})
 	pulumi.RegisterOutputType(ApplicationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSubscriptionTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationSubscriptionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAttributeValueOperatorOutput{})
 	pulumi.RegisterOutputType(DataSourceAttributeValueOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentContentOperatorOutput{})

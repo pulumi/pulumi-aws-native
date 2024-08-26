@@ -15,6 +15,7 @@ __all__ = [
     'AuthorizerJwtConfigurationArgs',
     'DomainNameConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
+    'IntegrationResponseParameterMapArgs',
     'IntegrationResponseParameterArgs',
     'IntegrationTlsConfigArgs',
     'RouteParameterConstraintsArgs',
@@ -364,6 +365,26 @@ class DomainNameMutualTlsAuthenticationArgs:
     @truststore_version.setter
     def truststore_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "truststore_version", value)
+
+
+@pulumi.input_type
+class IntegrationResponseParameterMapArgs:
+    def __init__(__self__, *,
+                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None):
+        """
+        map of response parameter lists
+        """
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]:
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]):
+        pulumi.set(self, "response_parameters", value)
 
 
 @pulumi.input_type

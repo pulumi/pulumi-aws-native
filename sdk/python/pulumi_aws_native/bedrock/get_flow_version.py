@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowVersionResult:
-    def __init__(__self__, created_at=None, definition=None, execution_role_arn=None, flow_id=None, name=None, status=None, version=None):
+    def __init__(__self__, created_at=None, customer_encryption_key_arn=None, definition=None, execution_role_arn=None, flow_id=None, name=None, status=None, version=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if customer_encryption_key_arn and not isinstance(customer_encryption_key_arn, str):
+            raise TypeError("Expected argument 'customer_encryption_key_arn' to be a str")
+        pulumi.set(__self__, "customer_encryption_key_arn", customer_encryption_key_arn)
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
@@ -50,6 +53,14 @@ class GetFlowVersionResult:
         Time Stamp.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="customerEncryptionKeyArn")
+    def customer_encryption_key_arn(self) -> Optional[str]:
+        """
+        A KMS key ARN
+        """
+        return pulumi.get(self, "customer_encryption_key_arn")
 
     @property
     @pulumi.getter
@@ -104,6 +115,7 @@ class AwaitableGetFlowVersionResult(GetFlowVersionResult):
             yield self
         return GetFlowVersionResult(
             created_at=self.created_at,
+            customer_encryption_key_arn=self.customer_encryption_key_arn,
             definition=self.definition,
             execution_role_arn=self.execution_role_arn,
             flow_id=self.flow_id,
@@ -130,6 +142,7 @@ def get_flow_version(flow_arn: Optional[str] = None,
 
     return AwaitableGetFlowVersionResult(
         created_at=pulumi.get(__ret__, 'created_at'),
+        customer_encryption_key_arn=pulumi.get(__ret__, 'customer_encryption_key_arn'),
         definition=pulumi.get(__ret__, 'definition'),
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         flow_id=pulumi.get(__ret__, 'flow_id'),

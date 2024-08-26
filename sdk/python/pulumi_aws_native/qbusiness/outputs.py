@@ -13,7 +13,9 @@ from ._enums import *
 
 __all__ = [
     'ApplicationAttachmentsConfiguration',
+    'ApplicationAutoSubscriptionConfiguration',
     'ApplicationEncryptionConfiguration',
+    'ApplicationPersonalizationConfiguration',
     'ApplicationQAppsConfiguration',
     'DataSourceDocumentAttributeCondition',
     'DataSourceDocumentAttributeTarget',
@@ -43,6 +45,10 @@ __all__ = [
     'RetrieverConfiguration1Properties',
     'RetrieverKendraIndexConfiguration',
     'RetrieverNativeIndexConfiguration',
+    'WebExperienceIdentityProviderConfiguration0Properties',
+    'WebExperienceIdentityProviderConfiguration1Properties',
+    'WebExperienceOpenIdConnectProviderConfiguration',
+    'WebExperienceSamlProviderConfiguration',
 ]
 
 @pulumi.output_type
@@ -81,6 +87,45 @@ class ApplicationAttachmentsConfiguration(dict):
 
 
 @pulumi.output_type
+class ApplicationAutoSubscriptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoSubscribe":
+            suggest = "auto_subscribe"
+        elif key == "defaultSubscriptionType":
+            suggest = "default_subscription_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationAutoSubscriptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationAutoSubscriptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationAutoSubscriptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_subscribe: 'ApplicationAutoSubscriptionStatus',
+                 default_subscription_type: Optional['ApplicationSubscriptionType'] = None):
+        pulumi.set(__self__, "auto_subscribe", auto_subscribe)
+        if default_subscription_type is not None:
+            pulumi.set(__self__, "default_subscription_type", default_subscription_type)
+
+    @property
+    @pulumi.getter(name="autoSubscribe")
+    def auto_subscribe(self) -> 'ApplicationAutoSubscriptionStatus':
+        return pulumi.get(self, "auto_subscribe")
+
+    @property
+    @pulumi.getter(name="defaultSubscriptionType")
+    def default_subscription_type(self) -> Optional['ApplicationSubscriptionType']:
+        return pulumi.get(self, "default_subscription_type")
+
+
+@pulumi.output_type
 class ApplicationEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -114,6 +159,35 @@ class ApplicationEncryptionConfiguration(dict):
         The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class ApplicationPersonalizationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "personalizationControlMode":
+            suggest = "personalization_control_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationPersonalizationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationPersonalizationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationPersonalizationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 personalization_control_mode: 'ApplicationPersonalizationControlMode'):
+        pulumi.set(__self__, "personalization_control_mode", personalization_control_mode)
+
+    @property
+    @pulumi.getter(name="personalizationControlMode")
+    def personalization_control_mode(self) -> 'ApplicationPersonalizationControlMode':
+        return pulumi.get(self, "personalization_control_mode")
 
 
 @pulumi.output_type
@@ -1170,5 +1244,130 @@ class RetrieverNativeIndexConfiguration(dict):
     @pulumi.getter(name="indexId")
     def index_id(self) -> str:
         return pulumi.get(self, "index_id")
+
+
+@pulumi.output_type
+class WebExperienceIdentityProviderConfiguration0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samlConfiguration":
+            suggest = "saml_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebExperienceIdentityProviderConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebExperienceIdentityProviderConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebExperienceIdentityProviderConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 saml_configuration: 'outputs.WebExperienceSamlProviderConfiguration'):
+        pulumi.set(__self__, "saml_configuration", saml_configuration)
+
+    @property
+    @pulumi.getter(name="samlConfiguration")
+    def saml_configuration(self) -> 'outputs.WebExperienceSamlProviderConfiguration':
+        return pulumi.get(self, "saml_configuration")
+
+
+@pulumi.output_type
+class WebExperienceIdentityProviderConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "openIdConnectConfiguration":
+            suggest = "open_id_connect_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebExperienceIdentityProviderConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebExperienceIdentityProviderConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebExperienceIdentityProviderConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 open_id_connect_configuration: 'outputs.WebExperienceOpenIdConnectProviderConfiguration'):
+        pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
+
+    @property
+    @pulumi.getter(name="openIdConnectConfiguration")
+    def open_id_connect_configuration(self) -> 'outputs.WebExperienceOpenIdConnectProviderConfiguration':
+        return pulumi.get(self, "open_id_connect_configuration")
+
+
+@pulumi.output_type
+class WebExperienceOpenIdConnectProviderConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsArn":
+            suggest = "secrets_arn"
+        elif key == "secretsRole":
+            suggest = "secrets_role"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebExperienceOpenIdConnectProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebExperienceOpenIdConnectProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebExperienceOpenIdConnectProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_arn: str,
+                 secrets_role: str):
+        pulumi.set(__self__, "secrets_arn", secrets_arn)
+        pulumi.set(__self__, "secrets_role", secrets_role)
+
+    @property
+    @pulumi.getter(name="secretsArn")
+    def secrets_arn(self) -> str:
+        return pulumi.get(self, "secrets_arn")
+
+    @property
+    @pulumi.getter(name="secretsRole")
+    def secrets_role(self) -> str:
+        return pulumi.get(self, "secrets_role")
+
+
+@pulumi.output_type
+class WebExperienceSamlProviderConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationUrl":
+            suggest = "authentication_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebExperienceSamlProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebExperienceSamlProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebExperienceSamlProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_url: str):
+        pulumi.set(__self__, "authentication_url", authentication_url)
+
+    @property
+    @pulumi.getter(name="authenticationUrl")
+    def authentication_url(self) -> str:
+        return pulumi.get(self, "authentication_url")
 
 

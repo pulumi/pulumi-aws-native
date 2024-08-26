@@ -104,6 +104,7 @@ export class Flow extends pulumi.CustomResource {
      * Time Stamp.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    public /*out*/ readonly validations!: pulumi.Output<outputs.bedrock.FlowValidation[]>;
     /**
      * Draft Version.
      */
@@ -138,6 +139,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["validations"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -155,6 +157,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["testAliasTags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["validations"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

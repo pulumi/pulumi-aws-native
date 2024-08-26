@@ -17,7 +17,8 @@ __all__ = ['PromptVersionArgs', 'PromptVersion']
 class PromptVersionArgs:
     def __init__(__self__, *,
                  prompt_arn: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PromptVersion resource.
         :param pulumi.Input[str] prompt_arn: ARN of a prompt resource possibly with a version
@@ -26,6 +27,8 @@ class PromptVersionArgs:
         pulumi.set(__self__, "prompt_arn", prompt_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="promptArn")
@@ -51,6 +54,15 @@ class PromptVersionArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class PromptVersion(pulumi.CustomResource):
     @overload
@@ -59,6 +71,7 @@ class PromptVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  prompt_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::PromptVersion Resource Type
@@ -94,6 +107,7 @@ class PromptVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  prompt_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -107,8 +121,10 @@ class PromptVersion(pulumi.CustomResource):
             if prompt_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'prompt_arn'")
             __props__.__dict__["prompt_arn"] = prompt_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["customer_encryption_key_arn"] = None
             __props__.__dict__["default_variant"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["prompt_id"] = None
@@ -141,11 +157,13 @@ class PromptVersion(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["customer_encryption_key_arn"] = None
         __props__.__dict__["default_variant"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["prompt_arn"] = None
         __props__.__dict__["prompt_id"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         __props__.__dict__["variants"] = None
         __props__.__dict__["version"] = None
@@ -166,6 +184,14 @@ class PromptVersion(pulumi.CustomResource):
         Time Stamp.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="customerEncryptionKeyArn")
+    def customer_encryption_key_arn(self) -> pulumi.Output[str]:
+        """
+        A KMS key ARN
+        """
+        return pulumi.get(self, "customer_encryption_key_arn")
 
     @property
     @pulumi.getter(name="defaultVariant")
@@ -206,6 +232,11 @@ class PromptVersion(pulumi.CustomResource):
         Identifier for a Prompt
         """
         return pulumi.get(self, "prompt_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")

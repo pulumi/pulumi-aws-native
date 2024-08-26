@@ -35,6 +35,10 @@ export interface GetPromptVersionResult {
      */
     readonly createdAt?: string;
     /**
+     * A KMS key ARN
+     */
+    readonly customerEncryptionKeyArn?: string;
+    /**
      * Name for a variant.
      */
     readonly defaultVariant?: string;
@@ -46,6 +50,7 @@ export interface GetPromptVersionResult {
      * Identifier for a Prompt
      */
     readonly promptId?: string;
+    readonly tags?: {[key: string]: string};
     /**
      * Time Stamp.
      */

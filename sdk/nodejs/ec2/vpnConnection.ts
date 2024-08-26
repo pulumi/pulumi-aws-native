@@ -46,8 +46,7 @@ export class VpnConnection extends pulumi.CustomResource {
     public readonly customerGatewayId!: pulumi.Output<string>;
     /**
      * Indicate whether to enable acceleration for the VPN connection.
-     *
-     * Default: `false`
+     *  Default: ``false``
      */
     public readonly enableAcceleration!: pulumi.Output<boolean | undefined>;
     /**
@@ -136,8 +135,7 @@ export interface VpnConnectionArgs {
     customerGatewayId: pulumi.Input<string>;
     /**
      * Indicate whether to enable acceleration for the VPN connection.
-     *
-     * Default: `false`
+     *  Default: ``false``
      */
     enableAcceleration?: pulumi.Input<boolean>;
     /**

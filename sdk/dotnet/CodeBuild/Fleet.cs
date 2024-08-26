@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("fleetVpcConfig")]
         public Output<Outputs.FleetVpcConfig?> FleetVpcConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Machine Image (AMI) of the compute fleet.
+        /// </summary>
         [Output("imageId")]
         public Output<string?> ImageId { get; private set; } = null!;
 
@@ -210,6 +213,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("fleetVpcConfig")]
         public Input<Inputs.FleetVpcConfigArgs>? FleetVpcConfig { get; set; }
 
+        /// <summary>
+        /// The Amazon Machine Image (AMI) of the compute fleet.
+        /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 

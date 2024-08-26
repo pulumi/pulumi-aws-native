@@ -816,6 +816,11 @@ namespace Pulumi.AwsNative.Bedrock
         public static FlowNodeType Lex { get; } = new FlowNodeType("Lex");
         public static FlowNodeType Prompt { get; } = new FlowNodeType("Prompt");
         public static FlowNodeType LambdaFunction { get; } = new FlowNodeType("LambdaFunction");
+        public static FlowNodeType Agent { get; } = new FlowNodeType("Agent");
+        public static FlowNodeType Storage { get; } = new FlowNodeType("Storage");
+        public static FlowNodeType Retrieval { get; } = new FlowNodeType("Retrieval");
+        public static FlowNodeType Iterator { get; } = new FlowNodeType("Iterator");
+        public static FlowNodeType Collector { get; } = new FlowNodeType("Collector");
 
         public static bool operator ==(FlowNodeType left, FlowNodeType right) => left.Equals(right);
         public static bool operator !=(FlowNodeType left, FlowNodeType right) => !left.Equals(right);
@@ -980,6 +985,11 @@ namespace Pulumi.AwsNative.Bedrock
         public static FlowVersionFlowNodeType Lex { get; } = new FlowVersionFlowNodeType("Lex");
         public static FlowVersionFlowNodeType Prompt { get; } = new FlowVersionFlowNodeType("Prompt");
         public static FlowVersionFlowNodeType LambdaFunction { get; } = new FlowVersionFlowNodeType("LambdaFunction");
+        public static FlowVersionFlowNodeType Agent { get; } = new FlowVersionFlowNodeType("Agent");
+        public static FlowVersionFlowNodeType Iterator { get; } = new FlowVersionFlowNodeType("Iterator");
+        public static FlowVersionFlowNodeType Collector { get; } = new FlowVersionFlowNodeType("Collector");
+        public static FlowVersionFlowNodeType Storage { get; } = new FlowVersionFlowNodeType("Storage");
+        public static FlowVersionFlowNodeType Retrieval { get; } = new FlowVersionFlowNodeType("Retrieval");
 
         public static bool operator ==(FlowVersionFlowNodeType left, FlowVersionFlowNodeType right) => left.Equals(right);
         public static bool operator !=(FlowVersionFlowNodeType left, FlowVersionFlowNodeType right) => !left.Equals(right);

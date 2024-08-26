@@ -418,6 +418,8 @@ if typing.TYPE_CHECKING:
     ssmcontacts = __ssmcontacts
     import pulumi_aws_native.ssmincidents as __ssmincidents
     ssmincidents = __ssmincidents
+    import pulumi_aws_native.ssmquicksetup as __ssmquicksetup
+    ssmquicksetup = __ssmquicksetup
     import pulumi_aws_native.sso as __sso
     sso = __sso
     import pulumi_aws_native.stepfunctions as __stepfunctions
@@ -649,6 +651,7 @@ else:
     ssm = _utilities.lazy_import('pulumi_aws_native.ssm')
     ssmcontacts = _utilities.lazy_import('pulumi_aws_native.ssmcontacts')
     ssmincidents = _utilities.lazy_import('pulumi_aws_native.ssmincidents')
+    ssmquicksetup = _utilities.lazy_import('pulumi_aws_native.ssmquicksetup')
     sso = _utilities.lazy_import('pulumi_aws_native.sso')
     stepfunctions = _utilities.lazy_import('pulumi_aws_native.stepfunctions')
     supportapp = _utilities.lazy_import('pulumi_aws_native.supportapp')
@@ -3022,6 +3025,14 @@ _utilities.register(
   "classes": {
    "aws-native:ssmincidents:ReplicationSet": "ReplicationSet",
    "aws-native:ssmincidents:ResponsePlan": "ResponsePlan"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "ssmquicksetup",
+  "fqn": "pulumi_aws_native.ssmquicksetup",
+  "classes": {
+   "aws-native:ssmquicksetup:ConfigurationManager": "ConfigurationManager"
   }
  },
  {

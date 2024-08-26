@@ -54,7 +54,8 @@ type Flow struct {
 	Tags          pulumi.StringMapOutput `pulumi:"tags"`
 	TestAliasTags pulumi.StringMapOutput `pulumi:"testAliasTags"`
 	// Time Stamp.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	UpdatedAt   pulumi.StringOutput       `pulumi:"updatedAt"`
+	Validations FlowValidationArrayOutput `pulumi:"validations"`
 	// Draft Version.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -275,6 +276,10 @@ func (o FlowOutput) TestAliasTags() pulumi.StringMapOutput {
 // Time Stamp.
 func (o FlowOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func (o FlowOutput) Validations() FlowValidationArrayOutput {
+	return o.ApplyT(func(v *Flow) FlowValidationArrayOutput { return v.Validations }).(FlowValidationArrayOutput)
 }
 
 // Draft Version.

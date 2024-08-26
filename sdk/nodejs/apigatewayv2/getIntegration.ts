@@ -90,7 +90,7 @@ export interface GetIntegrationResult {
     /**
      * Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      */
-    readonly responseParameters?: {[key: string]: outputs.apigatewayv2.IntegrationResponseParameter[]};
+    readonly responseParameters?: {[key: string]: outputs.apigatewayv2.IntegrationResponseParameterMap};
     /**
      * The template selection expression for the integration. Supported only for WebSocket APIs.
      */

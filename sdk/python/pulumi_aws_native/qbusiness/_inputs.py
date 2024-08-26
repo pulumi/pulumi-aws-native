@@ -12,7 +12,9 @@ from ._enums import *
 
 __all__ = [
     'ApplicationAttachmentsConfigurationArgs',
+    'ApplicationAutoSubscriptionConfigurationArgs',
     'ApplicationEncryptionConfigurationArgs',
+    'ApplicationPersonalizationConfigurationArgs',
     'ApplicationQAppsConfigurationArgs',
     'DataSourceDocumentAttributeConditionArgs',
     'DataSourceDocumentAttributeTargetArgs',
@@ -40,6 +42,10 @@ __all__ = [
     'RetrieverConfiguration1PropertiesArgs',
     'RetrieverKendraIndexConfigurationArgs',
     'RetrieverNativeIndexConfigurationArgs',
+    'WebExperienceIdentityProviderConfiguration0PropertiesArgs',
+    'WebExperienceIdentityProviderConfiguration1PropertiesArgs',
+    'WebExperienceOpenIdConnectProviderConfigurationArgs',
+    'WebExperienceSamlProviderConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -65,6 +71,34 @@ class ApplicationAttachmentsConfigurationArgs:
 
 
 @pulumi.input_type
+class ApplicationAutoSubscriptionConfigurationArgs:
+    def __init__(__self__, *,
+                 auto_subscribe: pulumi.Input['ApplicationAutoSubscriptionStatus'],
+                 default_subscription_type: Optional[pulumi.Input['ApplicationSubscriptionType']] = None):
+        pulumi.set(__self__, "auto_subscribe", auto_subscribe)
+        if default_subscription_type is not None:
+            pulumi.set(__self__, "default_subscription_type", default_subscription_type)
+
+    @property
+    @pulumi.getter(name="autoSubscribe")
+    def auto_subscribe(self) -> pulumi.Input['ApplicationAutoSubscriptionStatus']:
+        return pulumi.get(self, "auto_subscribe")
+
+    @auto_subscribe.setter
+    def auto_subscribe(self, value: pulumi.Input['ApplicationAutoSubscriptionStatus']):
+        pulumi.set(self, "auto_subscribe", value)
+
+    @property
+    @pulumi.getter(name="defaultSubscriptionType")
+    def default_subscription_type(self) -> Optional[pulumi.Input['ApplicationSubscriptionType']]:
+        return pulumi.get(self, "default_subscription_type")
+
+    @default_subscription_type.setter
+    def default_subscription_type(self, value: Optional[pulumi.Input['ApplicationSubscriptionType']]):
+        pulumi.set(self, "default_subscription_type", value)
+
+
+@pulumi.input_type
 class ApplicationEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
@@ -85,6 +119,22 @@ class ApplicationEncryptionConfigurationArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class ApplicationPersonalizationConfigurationArgs:
+    def __init__(__self__, *,
+                 personalization_control_mode: pulumi.Input['ApplicationPersonalizationControlMode']):
+        pulumi.set(__self__, "personalization_control_mode", personalization_control_mode)
+
+    @property
+    @pulumi.getter(name="personalizationControlMode")
+    def personalization_control_mode(self) -> pulumi.Input['ApplicationPersonalizationControlMode']:
+        return pulumi.get(self, "personalization_control_mode")
+
+    @personalization_control_mode.setter
+    def personalization_control_mode(self, value: pulumi.Input['ApplicationPersonalizationControlMode']):
+        pulumi.set(self, "personalization_control_mode", value)
 
 
 @pulumi.input_type
@@ -877,5 +927,80 @@ class RetrieverNativeIndexConfigurationArgs:
     @index_id.setter
     def index_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "index_id", value)
+
+
+@pulumi.input_type
+class WebExperienceIdentityProviderConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 saml_configuration: pulumi.Input['WebExperienceSamlProviderConfigurationArgs']):
+        pulumi.set(__self__, "saml_configuration", saml_configuration)
+
+    @property
+    @pulumi.getter(name="samlConfiguration")
+    def saml_configuration(self) -> pulumi.Input['WebExperienceSamlProviderConfigurationArgs']:
+        return pulumi.get(self, "saml_configuration")
+
+    @saml_configuration.setter
+    def saml_configuration(self, value: pulumi.Input['WebExperienceSamlProviderConfigurationArgs']):
+        pulumi.set(self, "saml_configuration", value)
+
+
+@pulumi.input_type
+class WebExperienceIdentityProviderConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 open_id_connect_configuration: pulumi.Input['WebExperienceOpenIdConnectProviderConfigurationArgs']):
+        pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
+
+    @property
+    @pulumi.getter(name="openIdConnectConfiguration")
+    def open_id_connect_configuration(self) -> pulumi.Input['WebExperienceOpenIdConnectProviderConfigurationArgs']:
+        return pulumi.get(self, "open_id_connect_configuration")
+
+    @open_id_connect_configuration.setter
+    def open_id_connect_configuration(self, value: pulumi.Input['WebExperienceOpenIdConnectProviderConfigurationArgs']):
+        pulumi.set(self, "open_id_connect_configuration", value)
+
+
+@pulumi.input_type
+class WebExperienceOpenIdConnectProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 secrets_arn: pulumi.Input[str],
+                 secrets_role: pulumi.Input[str]):
+        pulumi.set(__self__, "secrets_arn", secrets_arn)
+        pulumi.set(__self__, "secrets_role", secrets_role)
+
+    @property
+    @pulumi.getter(name="secretsArn")
+    def secrets_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "secrets_arn")
+
+    @secrets_arn.setter
+    def secrets_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secrets_arn", value)
+
+    @property
+    @pulumi.getter(name="secretsRole")
+    def secrets_role(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "secrets_role")
+
+    @secrets_role.setter
+    def secrets_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secrets_role", value)
+
+
+@pulumi.input_type
+class WebExperienceSamlProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 authentication_url: pulumi.Input[str]):
+        pulumi.set(__self__, "authentication_url", authentication_url)
+
+    @property
+    @pulumi.getter(name="authenticationUrl")
+    def authentication_url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "authentication_url")
+
+    @authentication_url.setter
+    def authentication_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_url", value)
 
 

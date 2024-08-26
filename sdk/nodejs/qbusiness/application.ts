@@ -49,6 +49,8 @@ export class Application extends pulumi.CustomResource {
      * Configuration information for the file upload during chat feature.
      */
     public readonly attachmentsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationAttachmentsConfiguration | undefined>;
+    public readonly autoSubscriptionConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationAutoSubscriptionConfiguration | undefined>;
+    public readonly clientIdsForOidc!: pulumi.Output<string[] | undefined>;
     /**
      * The Unix timestamp when the Amazon Q Business application was created.
      */
@@ -65,6 +67,7 @@ export class Application extends pulumi.CustomResource {
      * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
      */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationEncryptionConfiguration | undefined>;
+    public readonly iamIdentityProviderArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
      */
@@ -75,8 +78,10 @@ export class Application extends pulumi.CustomResource {
      * *Required* : `Yes`
      */
     public readonly identityCenterInstanceArn!: pulumi.Output<string | undefined>;
+    public readonly identityType!: pulumi.Output<enums.qbusiness.ApplicationIdentityType | undefined>;
+    public readonly personalizationConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationPersonalizationConfiguration | undefined>;
     /**
-     * Configuration information about Amazon Q Apps. (preview feature)
+     * Configuration information about Amazon Q Apps.
      */
     public readonly qAppsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationQAppsConfiguration | undefined>;
     /**
@@ -111,10 +116,15 @@ export class Application extends pulumi.CustomResource {
                 throw new Error("Missing required property 'displayName'");
             }
             resourceInputs["attachmentsConfiguration"] = args ? args.attachmentsConfiguration : undefined;
+            resourceInputs["autoSubscriptionConfiguration"] = args ? args.autoSubscriptionConfiguration : undefined;
+            resourceInputs["clientIdsForOidc"] = args ? args.clientIdsForOidc : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["iamIdentityProviderArn"] = args ? args.iamIdentityProviderArn : undefined;
             resourceInputs["identityCenterInstanceArn"] = args ? args.identityCenterInstanceArn : undefined;
+            resourceInputs["identityType"] = args ? args.identityType : undefined;
+            resourceInputs["personalizationConfiguration"] = args ? args.personalizationConfiguration : undefined;
             resourceInputs["qAppsConfiguration"] = args ? args.qAppsConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -128,12 +138,17 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["attachmentsConfiguration"] = undefined /*out*/;
+            resourceInputs["autoSubscriptionConfiguration"] = undefined /*out*/;
+            resourceInputs["clientIdsForOidc"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["iamIdentityProviderArn"] = undefined /*out*/;
             resourceInputs["identityCenterApplicationArn"] = undefined /*out*/;
             resourceInputs["identityCenterInstanceArn"] = undefined /*out*/;
+            resourceInputs["identityType"] = undefined /*out*/;
+            resourceInputs["personalizationConfiguration"] = undefined /*out*/;
             resourceInputs["qAppsConfiguration"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -141,7 +156,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["encryptionConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["clientIdsForOidc[*]", "encryptionConfiguration", "iamIdentityProviderArn", "identityType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
@@ -155,6 +170,8 @@ export interface ApplicationArgs {
      * Configuration information for the file upload during chat feature.
      */
     attachmentsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfigurationArgs>;
+    autoSubscriptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAutoSubscriptionConfigurationArgs>;
+    clientIdsForOidc?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A description for the Amazon Q Business application.
      */
@@ -167,14 +184,17 @@ export interface ApplicationArgs {
      * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
      */
     encryptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationEncryptionConfigurationArgs>;
+    iamIdentityProviderArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
      *
      * *Required* : `Yes`
      */
     identityCenterInstanceArn?: pulumi.Input<string>;
+    identityType?: pulumi.Input<enums.qbusiness.ApplicationIdentityType>;
+    personalizationConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationPersonalizationConfigurationArgs>;
     /**
-     * Configuration information about Amazon Q Apps. (preview feature)
+     * Configuration information about Amazon Q Apps.
      */
     qAppsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQAppsConfigurationArgs>;
     /**

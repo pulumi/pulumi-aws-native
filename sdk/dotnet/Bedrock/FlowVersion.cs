@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// A KMS key ARN
+        /// </summary>
+        [Output("customerEncryptionKeyArn")]
+        public Output<string> CustomerEncryptionKeyArn { get; private set; } = null!;
+
         [Output("definition")]
         public Output<Outputs.FlowVersionFlowDefinition> Definition { get; private set; } = null!;
 

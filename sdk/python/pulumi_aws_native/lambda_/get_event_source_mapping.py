@@ -170,6 +170,9 @@ class GetEventSourceMappingResult:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
+        """
+        The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property

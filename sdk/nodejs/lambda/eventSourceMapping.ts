@@ -111,6 +111,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
      *  Valid Values: ``ReportBatchItemFailures``
      */
     public readonly functionResponseTypes!: pulumi.Output<enums.lambda.EventSourceMappingFunctionResponseTypesItem[] | undefined>;
+    /**
+     * The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+     */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
@@ -311,6 +314,9 @@ export interface EventSourceMappingArgs {
      *  Valid Values: ``ReportBatchItemFailures``
      */
     functionResponseTypes?: pulumi.Input<pulumi.Input<enums.lambda.EventSourceMappingFunctionResponseTypesItem>[]>;
+    /**
+     * The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+     */
     kmsKeyArn?: pulumi.Input<string>;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.

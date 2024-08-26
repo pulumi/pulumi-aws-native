@@ -3964,6 +3964,11 @@ const (
 	FlowNodeTypeLex            = FlowNodeType("Lex")
 	FlowNodeTypePrompt         = FlowNodeType("Prompt")
 	FlowNodeTypeLambdaFunction = FlowNodeType("LambdaFunction")
+	FlowNodeTypeAgent          = FlowNodeType("Agent")
+	FlowNodeTypeStorage        = FlowNodeType("Storage")
+	FlowNodeTypeRetrieval      = FlowNodeType("Retrieval")
+	FlowNodeTypeIterator       = FlowNodeType("Iterator")
+	FlowNodeTypeCollector      = FlowNodeType("Collector")
 )
 
 func (FlowNodeType) ElementType() reflect.Type {
@@ -4095,6 +4100,11 @@ func (o FlowNodeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	FlowNodeTypeLex
 //	FlowNodeTypePrompt
 //	FlowNodeTypeLambdaFunction
+//	FlowNodeTypeAgent
+//	FlowNodeTypeStorage
+//	FlowNodeTypeRetrieval
+//	FlowNodeTypeIterator
+//	FlowNodeTypeCollector
 type FlowNodeTypeInput interface {
 	pulumi.Input
 
@@ -4582,6 +4592,11 @@ const (
 	FlowVersionFlowNodeTypeLex            = FlowVersionFlowNodeType("Lex")
 	FlowVersionFlowNodeTypePrompt         = FlowVersionFlowNodeType("Prompt")
 	FlowVersionFlowNodeTypeLambdaFunction = FlowVersionFlowNodeType("LambdaFunction")
+	FlowVersionFlowNodeTypeAgent          = FlowVersionFlowNodeType("Agent")
+	FlowVersionFlowNodeTypeIterator       = FlowVersionFlowNodeType("Iterator")
+	FlowVersionFlowNodeTypeCollector      = FlowVersionFlowNodeType("Collector")
+	FlowVersionFlowNodeTypeStorage        = FlowVersionFlowNodeType("Storage")
+	FlowVersionFlowNodeTypeRetrieval      = FlowVersionFlowNodeType("Retrieval")
 )
 
 type FlowVersionFlowNodeTypeOutput struct{ *pulumi.OutputState }

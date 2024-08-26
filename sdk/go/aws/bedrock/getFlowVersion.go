@@ -31,8 +31,10 @@ type LookupFlowVersionArgs struct {
 
 type LookupFlowVersionResult struct {
 	// Time Stamp.
-	CreatedAt  *string                    `pulumi:"createdAt"`
-	Definition *FlowVersionFlowDefinition `pulumi:"definition"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// A KMS key ARN
+	CustomerEncryptionKeyArn *string                    `pulumi:"customerEncryptionKeyArn"`
+	Definition               *FlowVersionFlowDefinition `pulumi:"definition"`
 	// ARN of a IAM role
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Identifier for a Flow
@@ -86,6 +88,11 @@ func (o LookupFlowVersionResultOutput) ToLookupFlowVersionResultOutputWithContex
 // Time Stamp.
 func (o LookupFlowVersionResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowVersionResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// A KMS key ARN
+func (o LookupFlowVersionResultOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFlowVersionResult) *string { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFlowVersionResultOutput) Definition() FlowVersionFlowDefinitionPtrOutput {

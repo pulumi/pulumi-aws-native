@@ -38,6 +38,7 @@ export interface GetApplicationResult {
      * Configuration information for the file upload during chat feature.
      */
     readonly attachmentsConfiguration?: outputs.qbusiness.ApplicationAttachmentsConfiguration;
+    readonly autoSubscriptionConfiguration?: outputs.qbusiness.ApplicationAutoSubscriptionConfiguration;
     /**
      * The Unix timestamp when the Amazon Q Business application was created.
      */
@@ -54,8 +55,9 @@ export interface GetApplicationResult {
      * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
      */
     readonly identityCenterApplicationArn?: string;
+    readonly personalizationConfiguration?: outputs.qbusiness.ApplicationPersonalizationConfiguration;
     /**
-     * Configuration information about Amazon Q Apps. (preview feature)
+     * Configuration information about Amazon Q Apps.
      */
     readonly qAppsConfiguration?: outputs.qbusiness.ApplicationQAppsConfiguration;
     /**

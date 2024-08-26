@@ -125,6 +125,9 @@ namespace Pulumi.AwsNative.Lambda
         /// The event source mapping's ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.

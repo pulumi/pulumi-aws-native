@@ -108,6 +108,7 @@ class FlowVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'flow_arn'")
             __props__.__dict__["flow_arn"] = flow_arn
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["customer_encryption_key_arn"] = None
             __props__.__dict__["definition"] = None
             __props__.__dict__["execution_role_arn"] = None
             __props__.__dict__["flow_id"] = None
@@ -139,6 +140,7 @@ class FlowVersion(pulumi.CustomResource):
         __props__ = FlowVersionArgs.__new__(FlowVersionArgs)
 
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["customer_encryption_key_arn"] = None
         __props__.__dict__["definition"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["execution_role_arn"] = None
@@ -156,6 +158,14 @@ class FlowVersion(pulumi.CustomResource):
         Time Stamp.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="customerEncryptionKeyArn")
+    def customer_encryption_key_arn(self) -> pulumi.Output[str]:
+        """
+        A KMS key ARN
+        """
+        return pulumi.get(self, "customer_encryption_key_arn")
 
     @property
     @pulumi.getter

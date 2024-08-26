@@ -274,6 +274,11 @@ export const FlowNodeType = {
     Lex: "Lex",
     Prompt: "Prompt",
     LambdaFunction: "LambdaFunction",
+    Agent: "Agent",
+    Storage: "Storage",
+    Retrieval: "Retrieval",
+    Iterator: "Iterator",
+    Collector: "Collector",
 } as const;
 
 /**
@@ -333,6 +338,11 @@ export const FlowVersionFlowNodeType = {
     Lex: "Lex",
     Prompt: "Prompt",
     LambdaFunction: "LambdaFunction",
+    Agent: "Agent",
+    Iterator: "Iterator",
+    Collector: "Collector",
+    Storage: "Storage",
+    Retrieval: "Retrieval",
 } as const;
 
 /**

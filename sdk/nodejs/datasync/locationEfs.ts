@@ -42,7 +42,7 @@ export class LocationEfs extends pulumi.CustomResource {
      */
     public readonly accessPointArn!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+     * Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
      */
     public readonly ec2Config!: pulumi.Output<outputs.datasync.LocationEfsEc2Config>;
     /**
@@ -124,7 +124,7 @@ export interface LocationEfsArgs {
      */
     accessPointArn?: pulumi.Input<string>;
     /**
-     * Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+     * Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
      */
     ec2Config: pulumi.Input<inputs.datasync.LocationEfsEc2ConfigArgs>;
     /**

@@ -112,6 +112,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        [Output("validations")]
+        public Output<ImmutableArray<Outputs.FlowValidation>> Validations { get; private set; } = null!;
+
         /// <summary>
         /// Draft Version.
         /// </summary>

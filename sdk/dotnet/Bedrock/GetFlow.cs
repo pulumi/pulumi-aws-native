@@ -110,6 +110,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// Time Stamp.
         /// </summary>
         public readonly string? UpdatedAt;
+        public readonly ImmutableArray<Outputs.FlowValidation> Validations;
         /// <summary>
         /// Draft Version.
         /// </summary>
@@ -141,6 +142,8 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? updatedAt,
 
+            ImmutableArray<Outputs.FlowValidation> validations,
+
             string? version)
         {
             Arn = arn;
@@ -155,6 +158,7 @@ namespace Pulumi.AwsNative.Bedrock
             Tags = tags;
             TestAliasTags = testAliasTags;
             UpdatedAt = updatedAt;
+            Validations = validations;
             Version = version;
         }
     }

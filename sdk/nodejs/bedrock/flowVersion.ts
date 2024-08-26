@@ -41,6 +41,10 @@ export class FlowVersion extends pulumi.CustomResource {
      * Time Stamp.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * A KMS key ARN
+     */
+    public /*out*/ readonly customerEncryptionKeyArn!: pulumi.Output<string>;
     public /*out*/ readonly definition!: pulumi.Output<outputs.bedrock.FlowVersionFlowDefinition>;
     /**
      * Description of the flow version
@@ -88,6 +92,7 @@ export class FlowVersion extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["flowArn"] = args ? args.flowArn : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["flowId"] = undefined /*out*/;
@@ -96,6 +101,7 @@ export class FlowVersion extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;

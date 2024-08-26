@@ -46,6 +46,10 @@ export class PromptVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * A KMS key ARN
+     */
+    public /*out*/ readonly customerEncryptionKeyArn!: pulumi.Output<string>;
+    /**
      * Name for a variant.
      */
     public /*out*/ readonly defaultVariant!: pulumi.Output<string>;
@@ -65,6 +69,7 @@ export class PromptVersion extends pulumi.CustomResource {
      * Identifier for a Prompt
      */
     public /*out*/ readonly promptId!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
      */
@@ -94,8 +99,10 @@ export class PromptVersion extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["promptArn"] = args ? args.promptArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;
             resourceInputs["defaultVariant"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["promptId"] = undefined /*out*/;
@@ -105,11 +112,13 @@ export class PromptVersion extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["customerEncryptionKeyArn"] = undefined /*out*/;
             resourceInputs["defaultVariant"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["promptArn"] = undefined /*out*/;
             resourceInputs["promptId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["variants"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -133,4 +142,5 @@ export interface PromptVersionArgs {
      * ARN of a prompt resource possibly with a version
      */
     promptArn: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

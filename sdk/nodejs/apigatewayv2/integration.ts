@@ -100,7 +100,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      */
-    public readonly responseParameters!: pulumi.Output<{[key: string]: outputs.apigatewayv2.IntegrationResponseParameter[]} | undefined>;
+    public readonly responseParameters!: pulumi.Output<{[key: string]: outputs.apigatewayv2.IntegrationResponseParameterMap} | undefined>;
     /**
      * The template selection expression for the integration. Supported only for WebSocket APIs.
      */
@@ -241,7 +241,7 @@ export interface IntegrationArgs {
     /**
      * Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      */
-    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.apigatewayv2.IntegrationResponseParameterArgs>[]>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.apigatewayv2.IntegrationResponseParameterMapArgs>}>;
     /**
      * The template selection expression for the integration. Supported only for WebSocket APIs.
      */

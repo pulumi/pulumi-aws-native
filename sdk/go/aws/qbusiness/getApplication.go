@@ -34,7 +34,8 @@ type LookupApplicationResult struct {
 	// The identifier for the Amazon Q Business application.
 	ApplicationId *string `pulumi:"applicationId"`
 	// Configuration information for the file upload during chat feature.
-	AttachmentsConfiguration *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
+	AttachmentsConfiguration      *ApplicationAttachmentsConfiguration      `pulumi:"attachmentsConfiguration"`
+	AutoSubscriptionConfiguration *ApplicationAutoSubscriptionConfiguration `pulumi:"autoSubscriptionConfiguration"`
 	// The Unix timestamp when the Amazon Q Business application was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// A description for the Amazon Q Business application.
@@ -42,8 +43,9 @@ type LookupApplicationResult struct {
 	// The name of the Amazon Q Business application.
 	DisplayName *string `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
-	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
-	// Configuration information about Amazon Q Apps. (preview feature)
+	IdentityCenterApplicationArn *string                                  `pulumi:"identityCenterApplicationArn"`
+	PersonalizationConfiguration *ApplicationPersonalizationConfiguration `pulumi:"personalizationConfiguration"`
+	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration *ApplicationQAppsConfiguration `pulumi:"qAppsConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	RoleArn *string `pulumi:"roleArn"`
@@ -108,6 +110,12 @@ func (o LookupApplicationResultOutput) AttachmentsConfiguration() ApplicationAtt
 	}).(ApplicationAttachmentsConfigurationPtrOutput)
 }
 
+func (o LookupApplicationResultOutput) AutoSubscriptionConfiguration() ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationAutoSubscriptionConfiguration {
+		return v.AutoSubscriptionConfiguration
+	}).(ApplicationAutoSubscriptionConfigurationPtrOutput)
+}
+
 // The Unix timestamp when the Amazon Q Business application was created.
 func (o LookupApplicationResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
@@ -128,7 +136,13 @@ func (o LookupApplicationResultOutput) IdentityCenterApplicationArn() pulumi.Str
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
 }
 
-// Configuration information about Amazon Q Apps. (preview feature)
+func (o LookupApplicationResultOutput) PersonalizationConfiguration() ApplicationPersonalizationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationPersonalizationConfiguration {
+		return v.PersonalizationConfiguration
+	}).(ApplicationPersonalizationConfigurationPtrOutput)
+}
+
+// Configuration information about Amazon Q Apps.
 func (o LookupApplicationResultOutput) QAppsConfiguration() ApplicationQAppsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationQAppsConfiguration { return v.QAppsConfiguration }).(ApplicationQAppsConfigurationPtrOutput)
 }

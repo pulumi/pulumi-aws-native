@@ -35,6 +35,10 @@ export interface GetFlowVersionResult {
      * Time Stamp.
      */
     readonly createdAt?: string;
+    /**
+     * A KMS key ARN
+     */
+    readonly customerEncryptionKeyArn?: string;
     readonly definition?: outputs.bedrock.FlowVersionFlowDefinition;
     /**
      * ARN of a IAM role

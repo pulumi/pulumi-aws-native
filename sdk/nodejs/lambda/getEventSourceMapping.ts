@@ -86,6 +86,9 @@ export interface GetEventSourceMappingResult {
      * The event source mapping's ID.
      */
     readonly id?: string;
+    /**
+     * The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+     */
     readonly kmsKeyArn?: string;
     /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.

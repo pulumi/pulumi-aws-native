@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ApiBodyS3Location',
@@ -16,6 +17,7 @@ __all__ = [
     'DomainNameConfiguration',
     'DomainNameMutualTlsAuthentication',
     'IntegrationResponseParameter',
+    'IntegrationResponseParameterMap',
     'IntegrationTlsConfig',
     'RouteParameterConstraints',
     'RouteResponseParameterConstraints',
@@ -402,6 +404,42 @@ class IntegrationResponseParameter(dict):
     @pulumi.getter
     def source(self) -> Optional[str]:
         return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class IntegrationResponseParameterMap(dict):
+    """
+    map of response parameter lists
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseParameters":
+            suggest = "response_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationResponseParameterMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationResponseParameterMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationResponseParameterMap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 response_parameters: Optional[Sequence['outputs.IntegrationResponseParameter']] = None):
+        """
+        map of response parameter lists
+        """
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[Sequence['outputs.IntegrationResponseParameter']]:
+        return pulumi.get(self, "response_parameters")
 
 
 @pulumi.output_type

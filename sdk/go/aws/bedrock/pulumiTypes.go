@@ -7746,6 +7746,146 @@ func (o DataSourceWebSourceConfigurationPtrOutput) UrlConfiguration() DataSource
 	}).(DataSourceUrlConfigurationPtrOutput)
 }
 
+// Agent flow node configuration
+type FlowAgentFlowNodeConfiguration struct {
+	// Arn representation of the Agent Alias.
+	AgentAliasArn string `pulumi:"agentAliasArn"`
+}
+
+// FlowAgentFlowNodeConfigurationInput is an input type that accepts FlowAgentFlowNodeConfigurationArgs and FlowAgentFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowAgentFlowNodeConfigurationInput` via:
+//
+//	FlowAgentFlowNodeConfigurationArgs{...}
+type FlowAgentFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowAgentFlowNodeConfigurationOutput() FlowAgentFlowNodeConfigurationOutput
+	ToFlowAgentFlowNodeConfigurationOutputWithContext(context.Context) FlowAgentFlowNodeConfigurationOutput
+}
+
+// Agent flow node configuration
+type FlowAgentFlowNodeConfigurationArgs struct {
+	// Arn representation of the Agent Alias.
+	AgentAliasArn pulumi.StringInput `pulumi:"agentAliasArn"`
+}
+
+func (FlowAgentFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAgentFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowAgentFlowNodeConfigurationArgs) ToFlowAgentFlowNodeConfigurationOutput() FlowAgentFlowNodeConfigurationOutput {
+	return i.ToFlowAgentFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowAgentFlowNodeConfigurationArgs) ToFlowAgentFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowAgentFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAgentFlowNodeConfigurationOutput)
+}
+
+func (i FlowAgentFlowNodeConfigurationArgs) ToFlowAgentFlowNodeConfigurationPtrOutput() FlowAgentFlowNodeConfigurationPtrOutput {
+	return i.ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowAgentFlowNodeConfigurationArgs) ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowAgentFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAgentFlowNodeConfigurationOutput).ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowAgentFlowNodeConfigurationPtrInput is an input type that accepts FlowAgentFlowNodeConfigurationArgs, FlowAgentFlowNodeConfigurationPtr and FlowAgentFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowAgentFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowAgentFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowAgentFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowAgentFlowNodeConfigurationPtrOutput() FlowAgentFlowNodeConfigurationPtrOutput
+	ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowAgentFlowNodeConfigurationPtrOutput
+}
+
+type flowAgentFlowNodeConfigurationPtrType FlowAgentFlowNodeConfigurationArgs
+
+func FlowAgentFlowNodeConfigurationPtr(v *FlowAgentFlowNodeConfigurationArgs) FlowAgentFlowNodeConfigurationPtrInput {
+	return (*flowAgentFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowAgentFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAgentFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowAgentFlowNodeConfigurationPtrType) ToFlowAgentFlowNodeConfigurationPtrOutput() FlowAgentFlowNodeConfigurationPtrOutput {
+	return i.ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowAgentFlowNodeConfigurationPtrType) ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowAgentFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAgentFlowNodeConfigurationPtrOutput)
+}
+
+// Agent flow node configuration
+type FlowAgentFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowAgentFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAgentFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowAgentFlowNodeConfigurationOutput) ToFlowAgentFlowNodeConfigurationOutput() FlowAgentFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowAgentFlowNodeConfigurationOutput) ToFlowAgentFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowAgentFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowAgentFlowNodeConfigurationOutput) ToFlowAgentFlowNodeConfigurationPtrOutput() FlowAgentFlowNodeConfigurationPtrOutput {
+	return o.ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowAgentFlowNodeConfigurationOutput) ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowAgentFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowAgentFlowNodeConfiguration) *FlowAgentFlowNodeConfiguration {
+		return &v
+	}).(FlowAgentFlowNodeConfigurationPtrOutput)
+}
+
+// Arn representation of the Agent Alias.
+func (o FlowAgentFlowNodeConfigurationOutput) AgentAliasArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowAgentFlowNodeConfiguration) string { return v.AgentAliasArn }).(pulumi.StringOutput)
+}
+
+type FlowAgentFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowAgentFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAgentFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowAgentFlowNodeConfigurationPtrOutput) ToFlowAgentFlowNodeConfigurationPtrOutput() FlowAgentFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowAgentFlowNodeConfigurationPtrOutput) ToFlowAgentFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowAgentFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowAgentFlowNodeConfigurationPtrOutput) Elem() FlowAgentFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowAgentFlowNodeConfiguration) FlowAgentFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowAgentFlowNodeConfiguration
+		return ret
+	}).(FlowAgentFlowNodeConfigurationOutput)
+}
+
+// Arn representation of the Agent Alias.
+func (o FlowAgentFlowNodeConfigurationPtrOutput) AgentAliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowAgentFlowNodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentAliasArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details about the routing configuration for a Flow alias.
 type FlowAliasRoutingConfigurationListItem struct {
 	// Version.
@@ -7844,6 +7984,127 @@ func (o FlowAliasRoutingConfigurationListItemArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowAliasRoutingConfigurationListItem {
 		return vs[0].([]FlowAliasRoutingConfigurationListItem)[vs[1].(int)]
 	}).(FlowAliasRoutingConfigurationListItemOutput)
+}
+
+// Collector flow node configuration
+type FlowCollectorFlowNodeConfiguration struct {
+}
+
+// FlowCollectorFlowNodeConfigurationInput is an input type that accepts FlowCollectorFlowNodeConfigurationArgs and FlowCollectorFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowCollectorFlowNodeConfigurationInput` via:
+//
+//	FlowCollectorFlowNodeConfigurationArgs{...}
+type FlowCollectorFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowCollectorFlowNodeConfigurationOutput() FlowCollectorFlowNodeConfigurationOutput
+	ToFlowCollectorFlowNodeConfigurationOutputWithContext(context.Context) FlowCollectorFlowNodeConfigurationOutput
+}
+
+// Collector flow node configuration
+type FlowCollectorFlowNodeConfigurationArgs struct {
+}
+
+func (FlowCollectorFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowCollectorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowCollectorFlowNodeConfigurationArgs) ToFlowCollectorFlowNodeConfigurationOutput() FlowCollectorFlowNodeConfigurationOutput {
+	return i.ToFlowCollectorFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowCollectorFlowNodeConfigurationArgs) ToFlowCollectorFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowCollectorFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowCollectorFlowNodeConfigurationOutput)
+}
+
+func (i FlowCollectorFlowNodeConfigurationArgs) ToFlowCollectorFlowNodeConfigurationPtrOutput() FlowCollectorFlowNodeConfigurationPtrOutput {
+	return i.ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowCollectorFlowNodeConfigurationArgs) ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowCollectorFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowCollectorFlowNodeConfigurationOutput).ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowCollectorFlowNodeConfigurationPtrInput is an input type that accepts FlowCollectorFlowNodeConfigurationArgs, FlowCollectorFlowNodeConfigurationPtr and FlowCollectorFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowCollectorFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowCollectorFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowCollectorFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowCollectorFlowNodeConfigurationPtrOutput() FlowCollectorFlowNodeConfigurationPtrOutput
+	ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowCollectorFlowNodeConfigurationPtrOutput
+}
+
+type flowCollectorFlowNodeConfigurationPtrType FlowCollectorFlowNodeConfigurationArgs
+
+func FlowCollectorFlowNodeConfigurationPtr(v *FlowCollectorFlowNodeConfigurationArgs) FlowCollectorFlowNodeConfigurationPtrInput {
+	return (*flowCollectorFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowCollectorFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowCollectorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowCollectorFlowNodeConfigurationPtrType) ToFlowCollectorFlowNodeConfigurationPtrOutput() FlowCollectorFlowNodeConfigurationPtrOutput {
+	return i.ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowCollectorFlowNodeConfigurationPtrType) ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowCollectorFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowCollectorFlowNodeConfigurationPtrOutput)
+}
+
+// Collector flow node configuration
+type FlowCollectorFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowCollectorFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowCollectorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowCollectorFlowNodeConfigurationOutput) ToFlowCollectorFlowNodeConfigurationOutput() FlowCollectorFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowCollectorFlowNodeConfigurationOutput) ToFlowCollectorFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowCollectorFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowCollectorFlowNodeConfigurationOutput) ToFlowCollectorFlowNodeConfigurationPtrOutput() FlowCollectorFlowNodeConfigurationPtrOutput {
+	return o.ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowCollectorFlowNodeConfigurationOutput) ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowCollectorFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowCollectorFlowNodeConfiguration) *FlowCollectorFlowNodeConfiguration {
+		return &v
+	}).(FlowCollectorFlowNodeConfigurationPtrOutput)
+}
+
+type FlowCollectorFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowCollectorFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowCollectorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowCollectorFlowNodeConfigurationPtrOutput) ToFlowCollectorFlowNodeConfigurationPtrOutput() FlowCollectorFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowCollectorFlowNodeConfigurationPtrOutput) ToFlowCollectorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowCollectorFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowCollectorFlowNodeConfigurationPtrOutput) Elem() FlowCollectorFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowCollectorFlowNodeConfiguration) FlowCollectorFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowCollectorFlowNodeConfiguration
+		return ret
+	}).(FlowCollectorFlowNodeConfigurationOutput)
 }
 
 // Condition branch for a condition node
@@ -9084,6 +9345,127 @@ func (o FlowInputFlowNodeConfigurationPtrOutput) Elem() FlowInputFlowNodeConfigu
 	}).(FlowInputFlowNodeConfigurationOutput)
 }
 
+// Iterator flow node configuration
+type FlowIteratorFlowNodeConfiguration struct {
+}
+
+// FlowIteratorFlowNodeConfigurationInput is an input type that accepts FlowIteratorFlowNodeConfigurationArgs and FlowIteratorFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowIteratorFlowNodeConfigurationInput` via:
+//
+//	FlowIteratorFlowNodeConfigurationArgs{...}
+type FlowIteratorFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowIteratorFlowNodeConfigurationOutput() FlowIteratorFlowNodeConfigurationOutput
+	ToFlowIteratorFlowNodeConfigurationOutputWithContext(context.Context) FlowIteratorFlowNodeConfigurationOutput
+}
+
+// Iterator flow node configuration
+type FlowIteratorFlowNodeConfigurationArgs struct {
+}
+
+func (FlowIteratorFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowIteratorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowIteratorFlowNodeConfigurationArgs) ToFlowIteratorFlowNodeConfigurationOutput() FlowIteratorFlowNodeConfigurationOutput {
+	return i.ToFlowIteratorFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowIteratorFlowNodeConfigurationArgs) ToFlowIteratorFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowIteratorFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowIteratorFlowNodeConfigurationOutput)
+}
+
+func (i FlowIteratorFlowNodeConfigurationArgs) ToFlowIteratorFlowNodeConfigurationPtrOutput() FlowIteratorFlowNodeConfigurationPtrOutput {
+	return i.ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowIteratorFlowNodeConfigurationArgs) ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowIteratorFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowIteratorFlowNodeConfigurationOutput).ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowIteratorFlowNodeConfigurationPtrInput is an input type that accepts FlowIteratorFlowNodeConfigurationArgs, FlowIteratorFlowNodeConfigurationPtr and FlowIteratorFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowIteratorFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowIteratorFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowIteratorFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowIteratorFlowNodeConfigurationPtrOutput() FlowIteratorFlowNodeConfigurationPtrOutput
+	ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowIteratorFlowNodeConfigurationPtrOutput
+}
+
+type flowIteratorFlowNodeConfigurationPtrType FlowIteratorFlowNodeConfigurationArgs
+
+func FlowIteratorFlowNodeConfigurationPtr(v *FlowIteratorFlowNodeConfigurationArgs) FlowIteratorFlowNodeConfigurationPtrInput {
+	return (*flowIteratorFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowIteratorFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowIteratorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowIteratorFlowNodeConfigurationPtrType) ToFlowIteratorFlowNodeConfigurationPtrOutput() FlowIteratorFlowNodeConfigurationPtrOutput {
+	return i.ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowIteratorFlowNodeConfigurationPtrType) ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowIteratorFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowIteratorFlowNodeConfigurationPtrOutput)
+}
+
+// Iterator flow node configuration
+type FlowIteratorFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowIteratorFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowIteratorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowIteratorFlowNodeConfigurationOutput) ToFlowIteratorFlowNodeConfigurationOutput() FlowIteratorFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowIteratorFlowNodeConfigurationOutput) ToFlowIteratorFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowIteratorFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowIteratorFlowNodeConfigurationOutput) ToFlowIteratorFlowNodeConfigurationPtrOutput() FlowIteratorFlowNodeConfigurationPtrOutput {
+	return o.ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowIteratorFlowNodeConfigurationOutput) ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowIteratorFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowIteratorFlowNodeConfiguration) *FlowIteratorFlowNodeConfiguration {
+		return &v
+	}).(FlowIteratorFlowNodeConfigurationPtrOutput)
+}
+
+type FlowIteratorFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowIteratorFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowIteratorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowIteratorFlowNodeConfigurationPtrOutput) ToFlowIteratorFlowNodeConfigurationPtrOutput() FlowIteratorFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowIteratorFlowNodeConfigurationPtrOutput) ToFlowIteratorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowIteratorFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowIteratorFlowNodeConfigurationPtrOutput) Elem() FlowIteratorFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowIteratorFlowNodeConfiguration) FlowIteratorFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowIteratorFlowNodeConfiguration
+		return ret
+	}).(FlowIteratorFlowNodeConfigurationOutput)
+}
+
 // Knowledge base flow node configuration
 type FlowKnowledgeBaseFlowNodeConfiguration struct {
 	// Identifier of the KnowledgeBase
@@ -9812,6 +10194,278 @@ func (o FlowNodeConfiguration0PropertiesPtrOutput) Input() FlowInputFlowNodeConf
 		}
 		return &v.Input
 	}).(FlowInputFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration10Properties struct {
+	Collector FlowCollectorFlowNodeConfiguration `pulumi:"collector"`
+}
+
+// FlowNodeConfiguration10PropertiesInput is an input type that accepts FlowNodeConfiguration10PropertiesArgs and FlowNodeConfiguration10PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration10PropertiesInput` via:
+//
+//	FlowNodeConfiguration10PropertiesArgs{...}
+type FlowNodeConfiguration10PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration10PropertiesOutput() FlowNodeConfiguration10PropertiesOutput
+	ToFlowNodeConfiguration10PropertiesOutputWithContext(context.Context) FlowNodeConfiguration10PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration10PropertiesArgs struct {
+	Collector FlowCollectorFlowNodeConfigurationInput `pulumi:"collector"`
+}
+
+func (FlowNodeConfiguration10PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration10Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration10PropertiesArgs) ToFlowNodeConfiguration10PropertiesOutput() FlowNodeConfiguration10PropertiesOutput {
+	return i.ToFlowNodeConfiguration10PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration10PropertiesArgs) ToFlowNodeConfiguration10PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration10PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration10PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration10PropertiesArgs) ToFlowNodeConfiguration10PropertiesPtrOutput() FlowNodeConfiguration10PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration10PropertiesArgs) ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration10PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration10PropertiesOutput).ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration10PropertiesPtrInput is an input type that accepts FlowNodeConfiguration10PropertiesArgs, FlowNodeConfiguration10PropertiesPtr and FlowNodeConfiguration10PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration10PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration10PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration10PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration10PropertiesPtrOutput() FlowNodeConfiguration10PropertiesPtrOutput
+	ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration10PropertiesPtrOutput
+}
+
+type flowNodeConfiguration10PropertiesPtrType FlowNodeConfiguration10PropertiesArgs
+
+func FlowNodeConfiguration10PropertiesPtr(v *FlowNodeConfiguration10PropertiesArgs) FlowNodeConfiguration10PropertiesPtrInput {
+	return (*flowNodeConfiguration10PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration10PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration10Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration10PropertiesPtrType) ToFlowNodeConfiguration10PropertiesPtrOutput() FlowNodeConfiguration10PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration10PropertiesPtrType) ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration10PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration10PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration10PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration10PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration10Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration10PropertiesOutput) ToFlowNodeConfiguration10PropertiesOutput() FlowNodeConfiguration10PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration10PropertiesOutput) ToFlowNodeConfiguration10PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration10PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration10PropertiesOutput) ToFlowNodeConfiguration10PropertiesPtrOutput() FlowNodeConfiguration10PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration10PropertiesOutput) ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration10PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration10Properties) *FlowNodeConfiguration10Properties {
+		return &v
+	}).(FlowNodeConfiguration10PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration10PropertiesOutput) Collector() FlowCollectorFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration10Properties) FlowCollectorFlowNodeConfiguration { return v.Collector }).(FlowCollectorFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration10PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration10PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration10Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration10PropertiesPtrOutput) ToFlowNodeConfiguration10PropertiesPtrOutput() FlowNodeConfiguration10PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration10PropertiesPtrOutput) ToFlowNodeConfiguration10PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration10PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration10PropertiesPtrOutput) Elem() FlowNodeConfiguration10PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration10Properties) FlowNodeConfiguration10Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration10Properties
+		return ret
+	}).(FlowNodeConfiguration10PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration10PropertiesPtrOutput) Collector() FlowCollectorFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration10Properties) *FlowCollectorFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Collector
+	}).(FlowCollectorFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration11Properties struct {
+	Retrieval FlowRetrievalFlowNodeConfiguration `pulumi:"retrieval"`
+}
+
+// FlowNodeConfiguration11PropertiesInput is an input type that accepts FlowNodeConfiguration11PropertiesArgs and FlowNodeConfiguration11PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration11PropertiesInput` via:
+//
+//	FlowNodeConfiguration11PropertiesArgs{...}
+type FlowNodeConfiguration11PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration11PropertiesOutput() FlowNodeConfiguration11PropertiesOutput
+	ToFlowNodeConfiguration11PropertiesOutputWithContext(context.Context) FlowNodeConfiguration11PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration11PropertiesArgs struct {
+	Retrieval FlowRetrievalFlowNodeConfigurationInput `pulumi:"retrieval"`
+}
+
+func (FlowNodeConfiguration11PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration11Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration11PropertiesArgs) ToFlowNodeConfiguration11PropertiesOutput() FlowNodeConfiguration11PropertiesOutput {
+	return i.ToFlowNodeConfiguration11PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration11PropertiesArgs) ToFlowNodeConfiguration11PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration11PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration11PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration11PropertiesArgs) ToFlowNodeConfiguration11PropertiesPtrOutput() FlowNodeConfiguration11PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration11PropertiesArgs) ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration11PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration11PropertiesOutput).ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration11PropertiesPtrInput is an input type that accepts FlowNodeConfiguration11PropertiesArgs, FlowNodeConfiguration11PropertiesPtr and FlowNodeConfiguration11PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration11PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration11PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration11PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration11PropertiesPtrOutput() FlowNodeConfiguration11PropertiesPtrOutput
+	ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration11PropertiesPtrOutput
+}
+
+type flowNodeConfiguration11PropertiesPtrType FlowNodeConfiguration11PropertiesArgs
+
+func FlowNodeConfiguration11PropertiesPtr(v *FlowNodeConfiguration11PropertiesArgs) FlowNodeConfiguration11PropertiesPtrInput {
+	return (*flowNodeConfiguration11PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration11PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration11Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration11PropertiesPtrType) ToFlowNodeConfiguration11PropertiesPtrOutput() FlowNodeConfiguration11PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration11PropertiesPtrType) ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration11PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration11PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration11PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration11PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration11Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration11PropertiesOutput) ToFlowNodeConfiguration11PropertiesOutput() FlowNodeConfiguration11PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration11PropertiesOutput) ToFlowNodeConfiguration11PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration11PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration11PropertiesOutput) ToFlowNodeConfiguration11PropertiesPtrOutput() FlowNodeConfiguration11PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration11PropertiesOutput) ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration11PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration11Properties) *FlowNodeConfiguration11Properties {
+		return &v
+	}).(FlowNodeConfiguration11PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration11PropertiesOutput) Retrieval() FlowRetrievalFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration11Properties) FlowRetrievalFlowNodeConfiguration { return v.Retrieval }).(FlowRetrievalFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration11PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration11PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration11Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration11PropertiesPtrOutput) ToFlowNodeConfiguration11PropertiesPtrOutput() FlowNodeConfiguration11PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration11PropertiesPtrOutput) ToFlowNodeConfiguration11PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration11PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration11PropertiesPtrOutput) Elem() FlowNodeConfiguration11PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration11Properties) FlowNodeConfiguration11Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration11Properties
+		return ret
+	}).(FlowNodeConfiguration11PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration11PropertiesPtrOutput) Retrieval() FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration11Properties) *FlowRetrievalFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Retrieval
+	}).(FlowRetrievalFlowNodeConfigurationPtrOutput)
 }
 
 // Node configuration in a flow
@@ -10632,6 +11286,414 @@ func (o FlowNodeConfiguration6PropertiesPtrOutput) LambdaFunction() FlowLambdaFu
 		}
 		return &v.LambdaFunction
 	}).(FlowLambdaFunctionFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration7Properties struct {
+	Agent FlowAgentFlowNodeConfiguration `pulumi:"agent"`
+}
+
+// FlowNodeConfiguration7PropertiesInput is an input type that accepts FlowNodeConfiguration7PropertiesArgs and FlowNodeConfiguration7PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration7PropertiesInput` via:
+//
+//	FlowNodeConfiguration7PropertiesArgs{...}
+type FlowNodeConfiguration7PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration7PropertiesOutput() FlowNodeConfiguration7PropertiesOutput
+	ToFlowNodeConfiguration7PropertiesOutputWithContext(context.Context) FlowNodeConfiguration7PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration7PropertiesArgs struct {
+	Agent FlowAgentFlowNodeConfigurationInput `pulumi:"agent"`
+}
+
+func (FlowNodeConfiguration7PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration7Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration7PropertiesArgs) ToFlowNodeConfiguration7PropertiesOutput() FlowNodeConfiguration7PropertiesOutput {
+	return i.ToFlowNodeConfiguration7PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration7PropertiesArgs) ToFlowNodeConfiguration7PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration7PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration7PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration7PropertiesArgs) ToFlowNodeConfiguration7PropertiesPtrOutput() FlowNodeConfiguration7PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration7PropertiesArgs) ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration7PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration7PropertiesOutput).ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration7PropertiesPtrInput is an input type that accepts FlowNodeConfiguration7PropertiesArgs, FlowNodeConfiguration7PropertiesPtr and FlowNodeConfiguration7PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration7PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration7PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration7PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration7PropertiesPtrOutput() FlowNodeConfiguration7PropertiesPtrOutput
+	ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration7PropertiesPtrOutput
+}
+
+type flowNodeConfiguration7PropertiesPtrType FlowNodeConfiguration7PropertiesArgs
+
+func FlowNodeConfiguration7PropertiesPtr(v *FlowNodeConfiguration7PropertiesArgs) FlowNodeConfiguration7PropertiesPtrInput {
+	return (*flowNodeConfiguration7PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration7PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration7Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration7PropertiesPtrType) ToFlowNodeConfiguration7PropertiesPtrOutput() FlowNodeConfiguration7PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration7PropertiesPtrType) ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration7PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration7PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration7PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration7PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration7Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration7PropertiesOutput) ToFlowNodeConfiguration7PropertiesOutput() FlowNodeConfiguration7PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration7PropertiesOutput) ToFlowNodeConfiguration7PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration7PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration7PropertiesOutput) ToFlowNodeConfiguration7PropertiesPtrOutput() FlowNodeConfiguration7PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration7PropertiesOutput) ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration7PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration7Properties) *FlowNodeConfiguration7Properties {
+		return &v
+	}).(FlowNodeConfiguration7PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration7PropertiesOutput) Agent() FlowAgentFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration7Properties) FlowAgentFlowNodeConfiguration { return v.Agent }).(FlowAgentFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration7PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration7PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration7Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration7PropertiesPtrOutput) ToFlowNodeConfiguration7PropertiesPtrOutput() FlowNodeConfiguration7PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration7PropertiesPtrOutput) ToFlowNodeConfiguration7PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration7PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration7PropertiesPtrOutput) Elem() FlowNodeConfiguration7PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration7Properties) FlowNodeConfiguration7Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration7Properties
+		return ret
+	}).(FlowNodeConfiguration7PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration7PropertiesPtrOutput) Agent() FlowAgentFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration7Properties) *FlowAgentFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Agent
+	}).(FlowAgentFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration8Properties struct {
+	Storage FlowStorageFlowNodeConfiguration `pulumi:"storage"`
+}
+
+// FlowNodeConfiguration8PropertiesInput is an input type that accepts FlowNodeConfiguration8PropertiesArgs and FlowNodeConfiguration8PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration8PropertiesInput` via:
+//
+//	FlowNodeConfiguration8PropertiesArgs{...}
+type FlowNodeConfiguration8PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration8PropertiesOutput() FlowNodeConfiguration8PropertiesOutput
+	ToFlowNodeConfiguration8PropertiesOutputWithContext(context.Context) FlowNodeConfiguration8PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration8PropertiesArgs struct {
+	Storage FlowStorageFlowNodeConfigurationInput `pulumi:"storage"`
+}
+
+func (FlowNodeConfiguration8PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration8Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration8PropertiesArgs) ToFlowNodeConfiguration8PropertiesOutput() FlowNodeConfiguration8PropertiesOutput {
+	return i.ToFlowNodeConfiguration8PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration8PropertiesArgs) ToFlowNodeConfiguration8PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration8PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration8PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration8PropertiesArgs) ToFlowNodeConfiguration8PropertiesPtrOutput() FlowNodeConfiguration8PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration8PropertiesArgs) ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration8PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration8PropertiesOutput).ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration8PropertiesPtrInput is an input type that accepts FlowNodeConfiguration8PropertiesArgs, FlowNodeConfiguration8PropertiesPtr and FlowNodeConfiguration8PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration8PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration8PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration8PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration8PropertiesPtrOutput() FlowNodeConfiguration8PropertiesPtrOutput
+	ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration8PropertiesPtrOutput
+}
+
+type flowNodeConfiguration8PropertiesPtrType FlowNodeConfiguration8PropertiesArgs
+
+func FlowNodeConfiguration8PropertiesPtr(v *FlowNodeConfiguration8PropertiesArgs) FlowNodeConfiguration8PropertiesPtrInput {
+	return (*flowNodeConfiguration8PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration8PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration8Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration8PropertiesPtrType) ToFlowNodeConfiguration8PropertiesPtrOutput() FlowNodeConfiguration8PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration8PropertiesPtrType) ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration8PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration8PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration8PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration8PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration8Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration8PropertiesOutput) ToFlowNodeConfiguration8PropertiesOutput() FlowNodeConfiguration8PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration8PropertiesOutput) ToFlowNodeConfiguration8PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration8PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration8PropertiesOutput) ToFlowNodeConfiguration8PropertiesPtrOutput() FlowNodeConfiguration8PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration8PropertiesOutput) ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration8PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration8Properties) *FlowNodeConfiguration8Properties {
+		return &v
+	}).(FlowNodeConfiguration8PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration8PropertiesOutput) Storage() FlowStorageFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration8Properties) FlowStorageFlowNodeConfiguration { return v.Storage }).(FlowStorageFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration8PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration8PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration8Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration8PropertiesPtrOutput) ToFlowNodeConfiguration8PropertiesPtrOutput() FlowNodeConfiguration8PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration8PropertiesPtrOutput) ToFlowNodeConfiguration8PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration8PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration8PropertiesPtrOutput) Elem() FlowNodeConfiguration8PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration8Properties) FlowNodeConfiguration8Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration8Properties
+		return ret
+	}).(FlowNodeConfiguration8PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration8PropertiesPtrOutput) Storage() FlowStorageFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration8Properties) *FlowStorageFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Storage
+	}).(FlowStorageFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration9Properties struct {
+	Iterator FlowIteratorFlowNodeConfiguration `pulumi:"iterator"`
+}
+
+// FlowNodeConfiguration9PropertiesInput is an input type that accepts FlowNodeConfiguration9PropertiesArgs and FlowNodeConfiguration9PropertiesOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration9PropertiesInput` via:
+//
+//	FlowNodeConfiguration9PropertiesArgs{...}
+type FlowNodeConfiguration9PropertiesInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration9PropertiesOutput() FlowNodeConfiguration9PropertiesOutput
+	ToFlowNodeConfiguration9PropertiesOutputWithContext(context.Context) FlowNodeConfiguration9PropertiesOutput
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration9PropertiesArgs struct {
+	Iterator FlowIteratorFlowNodeConfigurationInput `pulumi:"iterator"`
+}
+
+func (FlowNodeConfiguration9PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration9Properties)(nil)).Elem()
+}
+
+func (i FlowNodeConfiguration9PropertiesArgs) ToFlowNodeConfiguration9PropertiesOutput() FlowNodeConfiguration9PropertiesOutput {
+	return i.ToFlowNodeConfiguration9PropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration9PropertiesArgs) ToFlowNodeConfiguration9PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration9PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration9PropertiesOutput)
+}
+
+func (i FlowNodeConfiguration9PropertiesArgs) ToFlowNodeConfiguration9PropertiesPtrOutput() FlowNodeConfiguration9PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowNodeConfiguration9PropertiesArgs) ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration9PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration9PropertiesOutput).ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowNodeConfiguration9PropertiesPtrInput is an input type that accepts FlowNodeConfiguration9PropertiesArgs, FlowNodeConfiguration9PropertiesPtr and FlowNodeConfiguration9PropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowNodeConfiguration9PropertiesPtrInput` via:
+//
+//	        FlowNodeConfiguration9PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowNodeConfiguration9PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowNodeConfiguration9PropertiesPtrOutput() FlowNodeConfiguration9PropertiesPtrOutput
+	ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(context.Context) FlowNodeConfiguration9PropertiesPtrOutput
+}
+
+type flowNodeConfiguration9PropertiesPtrType FlowNodeConfiguration9PropertiesArgs
+
+func FlowNodeConfiguration9PropertiesPtr(v *FlowNodeConfiguration9PropertiesArgs) FlowNodeConfiguration9PropertiesPtrInput {
+	return (*flowNodeConfiguration9PropertiesPtrType)(v)
+}
+
+func (*flowNodeConfiguration9PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration9Properties)(nil)).Elem()
+}
+
+func (i *flowNodeConfiguration9PropertiesPtrType) ToFlowNodeConfiguration9PropertiesPtrOutput() FlowNodeConfiguration9PropertiesPtrOutput {
+	return i.ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowNodeConfiguration9PropertiesPtrType) ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration9PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowNodeConfiguration9PropertiesPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowNodeConfiguration9PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration9PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowNodeConfiguration9Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration9PropertiesOutput) ToFlowNodeConfiguration9PropertiesOutput() FlowNodeConfiguration9PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration9PropertiesOutput) ToFlowNodeConfiguration9PropertiesOutputWithContext(ctx context.Context) FlowNodeConfiguration9PropertiesOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration9PropertiesOutput) ToFlowNodeConfiguration9PropertiesPtrOutput() FlowNodeConfiguration9PropertiesPtrOutput {
+	return o.ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowNodeConfiguration9PropertiesOutput) ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration9PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowNodeConfiguration9Properties) *FlowNodeConfiguration9Properties {
+		return &v
+	}).(FlowNodeConfiguration9PropertiesPtrOutput)
+}
+
+func (o FlowNodeConfiguration9PropertiesOutput) Iterator() FlowIteratorFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowNodeConfiguration9Properties) FlowIteratorFlowNodeConfiguration { return v.Iterator }).(FlowIteratorFlowNodeConfigurationOutput)
+}
+
+type FlowNodeConfiguration9PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowNodeConfiguration9PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowNodeConfiguration9Properties)(nil)).Elem()
+}
+
+func (o FlowNodeConfiguration9PropertiesPtrOutput) ToFlowNodeConfiguration9PropertiesPtrOutput() FlowNodeConfiguration9PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration9PropertiesPtrOutput) ToFlowNodeConfiguration9PropertiesPtrOutputWithContext(ctx context.Context) FlowNodeConfiguration9PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowNodeConfiguration9PropertiesPtrOutput) Elem() FlowNodeConfiguration9PropertiesOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration9Properties) FlowNodeConfiguration9Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowNodeConfiguration9Properties
+		return ret
+	}).(FlowNodeConfiguration9PropertiesOutput)
+}
+
+func (o FlowNodeConfiguration9PropertiesPtrOutput) Iterator() FlowIteratorFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowNodeConfiguration9Properties) *FlowIteratorFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Iterator
+	}).(FlowIteratorFlowNodeConfigurationPtrOutput)
 }
 
 // Input to a node in a flow
@@ -12323,6 +13385,427 @@ func (o FlowPromptTemplateConfigurationPropertiesPtrOutput) Text() FlowTextPromp
 	}).(FlowTextPromptTemplateConfigurationPtrOutput)
 }
 
+// Retrieval flow node configuration
+type FlowRetrievalFlowNodeConfiguration struct {
+	ServiceConfiguration FlowRetrievalFlowNodeServiceConfigurationProperties `pulumi:"serviceConfiguration"`
+}
+
+// FlowRetrievalFlowNodeConfigurationInput is an input type that accepts FlowRetrievalFlowNodeConfigurationArgs and FlowRetrievalFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowRetrievalFlowNodeConfigurationInput` via:
+//
+//	FlowRetrievalFlowNodeConfigurationArgs{...}
+type FlowRetrievalFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowRetrievalFlowNodeConfigurationOutput() FlowRetrievalFlowNodeConfigurationOutput
+	ToFlowRetrievalFlowNodeConfigurationOutputWithContext(context.Context) FlowRetrievalFlowNodeConfigurationOutput
+}
+
+// Retrieval flow node configuration
+type FlowRetrievalFlowNodeConfigurationArgs struct {
+	ServiceConfiguration FlowRetrievalFlowNodeServiceConfigurationPropertiesInput `pulumi:"serviceConfiguration"`
+}
+
+func (FlowRetrievalFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRetrievalFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowRetrievalFlowNodeConfigurationArgs) ToFlowRetrievalFlowNodeConfigurationOutput() FlowRetrievalFlowNodeConfigurationOutput {
+	return i.ToFlowRetrievalFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowRetrievalFlowNodeConfigurationArgs) ToFlowRetrievalFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeConfigurationOutput)
+}
+
+func (i FlowRetrievalFlowNodeConfigurationArgs) ToFlowRetrievalFlowNodeConfigurationPtrOutput() FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return i.ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRetrievalFlowNodeConfigurationArgs) ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeConfigurationOutput).ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowRetrievalFlowNodeConfigurationPtrInput is an input type that accepts FlowRetrievalFlowNodeConfigurationArgs, FlowRetrievalFlowNodeConfigurationPtr and FlowRetrievalFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowRetrievalFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowRetrievalFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRetrievalFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowRetrievalFlowNodeConfigurationPtrOutput() FlowRetrievalFlowNodeConfigurationPtrOutput
+	ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowRetrievalFlowNodeConfigurationPtrOutput
+}
+
+type flowRetrievalFlowNodeConfigurationPtrType FlowRetrievalFlowNodeConfigurationArgs
+
+func FlowRetrievalFlowNodeConfigurationPtr(v *FlowRetrievalFlowNodeConfigurationArgs) FlowRetrievalFlowNodeConfigurationPtrInput {
+	return (*flowRetrievalFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowRetrievalFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRetrievalFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowRetrievalFlowNodeConfigurationPtrType) ToFlowRetrievalFlowNodeConfigurationPtrOutput() FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return i.ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRetrievalFlowNodeConfigurationPtrType) ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeConfigurationPtrOutput)
+}
+
+// Retrieval flow node configuration
+type FlowRetrievalFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowRetrievalFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRetrievalFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowRetrievalFlowNodeConfigurationOutput) ToFlowRetrievalFlowNodeConfigurationOutput() FlowRetrievalFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeConfigurationOutput) ToFlowRetrievalFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeConfigurationOutput) ToFlowRetrievalFlowNodeConfigurationPtrOutput() FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return o.ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRetrievalFlowNodeConfigurationOutput) ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRetrievalFlowNodeConfiguration) *FlowRetrievalFlowNodeConfiguration {
+		return &v
+	}).(FlowRetrievalFlowNodeConfigurationPtrOutput)
+}
+
+func (o FlowRetrievalFlowNodeConfigurationOutput) ServiceConfiguration() FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v FlowRetrievalFlowNodeConfiguration) FlowRetrievalFlowNodeServiceConfigurationProperties {
+		return v.ServiceConfiguration
+	}).(FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+type FlowRetrievalFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRetrievalFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRetrievalFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowRetrievalFlowNodeConfigurationPtrOutput) ToFlowRetrievalFlowNodeConfigurationPtrOutput() FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeConfigurationPtrOutput) ToFlowRetrievalFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeConfigurationPtrOutput) Elem() FlowRetrievalFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowRetrievalFlowNodeConfiguration) FlowRetrievalFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRetrievalFlowNodeConfiguration
+		return ret
+	}).(FlowRetrievalFlowNodeConfigurationOutput)
+}
+
+func (o FlowRetrievalFlowNodeConfigurationPtrOutput) ServiceConfiguration() FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowRetrievalFlowNodeConfiguration) *FlowRetrievalFlowNodeServiceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceConfiguration
+	}).(FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput)
+}
+
+// s3 Retrieval configuration for Retrieval node
+type FlowRetrievalFlowNodeS3Configuration struct {
+	// bucket name of an s3 that will be used for Retrieval flow node configuration
+	BucketName string `pulumi:"bucketName"`
+}
+
+// FlowRetrievalFlowNodeS3ConfigurationInput is an input type that accepts FlowRetrievalFlowNodeS3ConfigurationArgs and FlowRetrievalFlowNodeS3ConfigurationOutput values.
+// You can construct a concrete instance of `FlowRetrievalFlowNodeS3ConfigurationInput` via:
+//
+//	FlowRetrievalFlowNodeS3ConfigurationArgs{...}
+type FlowRetrievalFlowNodeS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowRetrievalFlowNodeS3ConfigurationOutput() FlowRetrievalFlowNodeS3ConfigurationOutput
+	ToFlowRetrievalFlowNodeS3ConfigurationOutputWithContext(context.Context) FlowRetrievalFlowNodeS3ConfigurationOutput
+}
+
+// s3 Retrieval configuration for Retrieval node
+type FlowRetrievalFlowNodeS3ConfigurationArgs struct {
+	// bucket name of an s3 that will be used for Retrieval flow node configuration
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+}
+
+func (FlowRetrievalFlowNodeS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRetrievalFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (i FlowRetrievalFlowNodeS3ConfigurationArgs) ToFlowRetrievalFlowNodeS3ConfigurationOutput() FlowRetrievalFlowNodeS3ConfigurationOutput {
+	return i.ToFlowRetrievalFlowNodeS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowRetrievalFlowNodeS3ConfigurationArgs) ToFlowRetrievalFlowNodeS3ConfigurationOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeS3ConfigurationOutput)
+}
+
+func (i FlowRetrievalFlowNodeS3ConfigurationArgs) ToFlowRetrievalFlowNodeS3ConfigurationPtrOutput() FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return i.ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRetrievalFlowNodeS3ConfigurationArgs) ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeS3ConfigurationOutput).ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowRetrievalFlowNodeS3ConfigurationPtrInput is an input type that accepts FlowRetrievalFlowNodeS3ConfigurationArgs, FlowRetrievalFlowNodeS3ConfigurationPtr and FlowRetrievalFlowNodeS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowRetrievalFlowNodeS3ConfigurationPtrInput` via:
+//
+//	        FlowRetrievalFlowNodeS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRetrievalFlowNodeS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowRetrievalFlowNodeS3ConfigurationPtrOutput() FlowRetrievalFlowNodeS3ConfigurationPtrOutput
+	ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(context.Context) FlowRetrievalFlowNodeS3ConfigurationPtrOutput
+}
+
+type flowRetrievalFlowNodeS3ConfigurationPtrType FlowRetrievalFlowNodeS3ConfigurationArgs
+
+func FlowRetrievalFlowNodeS3ConfigurationPtr(v *FlowRetrievalFlowNodeS3ConfigurationArgs) FlowRetrievalFlowNodeS3ConfigurationPtrInput {
+	return (*flowRetrievalFlowNodeS3ConfigurationPtrType)(v)
+}
+
+func (*flowRetrievalFlowNodeS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRetrievalFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (i *flowRetrievalFlowNodeS3ConfigurationPtrType) ToFlowRetrievalFlowNodeS3ConfigurationPtrOutput() FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return i.ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRetrievalFlowNodeS3ConfigurationPtrType) ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeS3ConfigurationPtrOutput)
+}
+
+// s3 Retrieval configuration for Retrieval node
+type FlowRetrievalFlowNodeS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowRetrievalFlowNodeS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRetrievalFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (o FlowRetrievalFlowNodeS3ConfigurationOutput) ToFlowRetrievalFlowNodeS3ConfigurationOutput() FlowRetrievalFlowNodeS3ConfigurationOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeS3ConfigurationOutput) ToFlowRetrievalFlowNodeS3ConfigurationOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeS3ConfigurationOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeS3ConfigurationOutput) ToFlowRetrievalFlowNodeS3ConfigurationPtrOutput() FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o.ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRetrievalFlowNodeS3ConfigurationOutput) ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRetrievalFlowNodeS3Configuration) *FlowRetrievalFlowNodeS3Configuration {
+		return &v
+	}).(FlowRetrievalFlowNodeS3ConfigurationPtrOutput)
+}
+
+// bucket name of an s3 that will be used for Retrieval flow node configuration
+func (o FlowRetrievalFlowNodeS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowRetrievalFlowNodeS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+type FlowRetrievalFlowNodeS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRetrievalFlowNodeS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRetrievalFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (o FlowRetrievalFlowNodeS3ConfigurationPtrOutput) ToFlowRetrievalFlowNodeS3ConfigurationPtrOutput() FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeS3ConfigurationPtrOutput) ToFlowRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeS3ConfigurationPtrOutput) Elem() FlowRetrievalFlowNodeS3ConfigurationOutput {
+	return o.ApplyT(func(v *FlowRetrievalFlowNodeS3Configuration) FlowRetrievalFlowNodeS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRetrievalFlowNodeS3Configuration
+		return ret
+	}).(FlowRetrievalFlowNodeS3ConfigurationOutput)
+}
+
+// bucket name of an s3 that will be used for Retrieval flow node configuration
+func (o FlowRetrievalFlowNodeS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowRetrievalFlowNodeS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retrieval service configuration for Retrieval node
+type FlowRetrievalFlowNodeServiceConfiguration0Properties struct {
+	S3 *FlowRetrievalFlowNodeS3Configuration `pulumi:"s3"`
+}
+
+// Retrieval service configuration for Retrieval node
+type FlowRetrievalFlowNodeServiceConfigurationProperties struct {
+	S3 *FlowRetrievalFlowNodeS3Configuration `pulumi:"s3"`
+}
+
+// FlowRetrievalFlowNodeServiceConfigurationPropertiesInput is an input type that accepts FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs and FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `FlowRetrievalFlowNodeServiceConfigurationPropertiesInput` via:
+//
+//	FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs{...}
+type FlowRetrievalFlowNodeServiceConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowRetrievalFlowNodeServiceConfigurationPropertiesOutput() FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput
+	ToFlowRetrievalFlowNodeServiceConfigurationPropertiesOutputWithContext(context.Context) FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput
+}
+
+// Retrieval service configuration for Retrieval node
+type FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs struct {
+	S3 FlowRetrievalFlowNodeS3ConfigurationPtrInput `pulumi:"s3"`
+}
+
+func (FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRetrievalFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (i FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesOutput() FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return i.ToFlowRetrievalFlowNodeServiceConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+func (i FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput() FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return i.ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput).ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrInput is an input type that accepts FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs, FlowRetrievalFlowNodeServiceConfigurationPropertiesPtr and FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrInput` via:
+//
+//	        FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput() FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput
+	ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(context.Context) FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput
+}
+
+type flowRetrievalFlowNodeServiceConfigurationPropertiesPtrType FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs
+
+func FlowRetrievalFlowNodeServiceConfigurationPropertiesPtr(v *FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs) FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrInput {
+	return (*flowRetrievalFlowNodeServiceConfigurationPropertiesPtrType)(v)
+}
+
+func (*flowRetrievalFlowNodeServiceConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRetrievalFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (i *flowRetrievalFlowNodeServiceConfigurationPropertiesPtrType) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput() FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return i.ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowRetrievalFlowNodeServiceConfigurationPropertiesPtrType) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput)
+}
+
+// Retrieval service configuration for Retrieval node
+type FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowRetrievalFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesOutput() FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput() FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o.ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowRetrievalFlowNodeServiceConfigurationProperties) *FlowRetrievalFlowNodeServiceConfigurationProperties {
+		return &v
+	}).(FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput)
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput) S3() FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowRetrievalFlowNodeServiceConfigurationProperties) *FlowRetrievalFlowNodeS3Configuration {
+		return v.S3
+	}).(FlowRetrievalFlowNodeS3ConfigurationPtrOutput)
+}
+
+type FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowRetrievalFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput() FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) ToFlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) Elem() FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *FlowRetrievalFlowNodeServiceConfigurationProperties) FlowRetrievalFlowNodeServiceConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowRetrievalFlowNodeServiceConfigurationProperties
+		return ret
+	}).(FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+func (o FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) S3() FlowRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowRetrievalFlowNodeServiceConfigurationProperties) *FlowRetrievalFlowNodeS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(FlowRetrievalFlowNodeS3ConfigurationPtrOutput)
+}
+
 // A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
 type FlowS3Location struct {
 	// A bucket in S3
@@ -12501,6 +13984,427 @@ func (o FlowS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Storage flow node configuration
+type FlowStorageFlowNodeConfiguration struct {
+	ServiceConfiguration FlowStorageFlowNodeServiceConfigurationProperties `pulumi:"serviceConfiguration"`
+}
+
+// FlowStorageFlowNodeConfigurationInput is an input type that accepts FlowStorageFlowNodeConfigurationArgs and FlowStorageFlowNodeConfigurationOutput values.
+// You can construct a concrete instance of `FlowStorageFlowNodeConfigurationInput` via:
+//
+//	FlowStorageFlowNodeConfigurationArgs{...}
+type FlowStorageFlowNodeConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowStorageFlowNodeConfigurationOutput() FlowStorageFlowNodeConfigurationOutput
+	ToFlowStorageFlowNodeConfigurationOutputWithContext(context.Context) FlowStorageFlowNodeConfigurationOutput
+}
+
+// Storage flow node configuration
+type FlowStorageFlowNodeConfigurationArgs struct {
+	ServiceConfiguration FlowStorageFlowNodeServiceConfigurationPropertiesInput `pulumi:"serviceConfiguration"`
+}
+
+func (FlowStorageFlowNodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStorageFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i FlowStorageFlowNodeConfigurationArgs) ToFlowStorageFlowNodeConfigurationOutput() FlowStorageFlowNodeConfigurationOutput {
+	return i.ToFlowStorageFlowNodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowStorageFlowNodeConfigurationArgs) ToFlowStorageFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowStorageFlowNodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeConfigurationOutput)
+}
+
+func (i FlowStorageFlowNodeConfigurationArgs) ToFlowStorageFlowNodeConfigurationPtrOutput() FlowStorageFlowNodeConfigurationPtrOutput {
+	return i.ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowStorageFlowNodeConfigurationArgs) ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeConfigurationOutput).ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowStorageFlowNodeConfigurationPtrInput is an input type that accepts FlowStorageFlowNodeConfigurationArgs, FlowStorageFlowNodeConfigurationPtr and FlowStorageFlowNodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowStorageFlowNodeConfigurationPtrInput` via:
+//
+//	        FlowStorageFlowNodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowStorageFlowNodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowStorageFlowNodeConfigurationPtrOutput() FlowStorageFlowNodeConfigurationPtrOutput
+	ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(context.Context) FlowStorageFlowNodeConfigurationPtrOutput
+}
+
+type flowStorageFlowNodeConfigurationPtrType FlowStorageFlowNodeConfigurationArgs
+
+func FlowStorageFlowNodeConfigurationPtr(v *FlowStorageFlowNodeConfigurationArgs) FlowStorageFlowNodeConfigurationPtrInput {
+	return (*flowStorageFlowNodeConfigurationPtrType)(v)
+}
+
+func (*flowStorageFlowNodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowStorageFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (i *flowStorageFlowNodeConfigurationPtrType) ToFlowStorageFlowNodeConfigurationPtrOutput() FlowStorageFlowNodeConfigurationPtrOutput {
+	return i.ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowStorageFlowNodeConfigurationPtrType) ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeConfigurationPtrOutput)
+}
+
+// Storage flow node configuration
+type FlowStorageFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowStorageFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStorageFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowStorageFlowNodeConfigurationOutput) ToFlowStorageFlowNodeConfigurationOutput() FlowStorageFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeConfigurationOutput) ToFlowStorageFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowStorageFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeConfigurationOutput) ToFlowStorageFlowNodeConfigurationPtrOutput() FlowStorageFlowNodeConfigurationPtrOutput {
+	return o.ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStorageFlowNodeConfigurationOutput) ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowStorageFlowNodeConfiguration) *FlowStorageFlowNodeConfiguration {
+		return &v
+	}).(FlowStorageFlowNodeConfigurationPtrOutput)
+}
+
+func (o FlowStorageFlowNodeConfigurationOutput) ServiceConfiguration() FlowStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v FlowStorageFlowNodeConfiguration) FlowStorageFlowNodeServiceConfigurationProperties {
+		return v.ServiceConfiguration
+	}).(FlowStorageFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+type FlowStorageFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowStorageFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowStorageFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowStorageFlowNodeConfigurationPtrOutput) ToFlowStorageFlowNodeConfigurationPtrOutput() FlowStorageFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeConfigurationPtrOutput) ToFlowStorageFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeConfigurationPtrOutput) Elem() FlowStorageFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowStorageFlowNodeConfiguration) FlowStorageFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowStorageFlowNodeConfiguration
+		return ret
+	}).(FlowStorageFlowNodeConfigurationOutput)
+}
+
+func (o FlowStorageFlowNodeConfigurationPtrOutput) ServiceConfiguration() FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowStorageFlowNodeConfiguration) *FlowStorageFlowNodeServiceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceConfiguration
+	}).(FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput)
+}
+
+// s3 storage configuration for storage node
+type FlowStorageFlowNodeS3Configuration struct {
+	// bucket name of an s3 that will be used for storage flow node configuration
+	BucketName string `pulumi:"bucketName"`
+}
+
+// FlowStorageFlowNodeS3ConfigurationInput is an input type that accepts FlowStorageFlowNodeS3ConfigurationArgs and FlowStorageFlowNodeS3ConfigurationOutput values.
+// You can construct a concrete instance of `FlowStorageFlowNodeS3ConfigurationInput` via:
+//
+//	FlowStorageFlowNodeS3ConfigurationArgs{...}
+type FlowStorageFlowNodeS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowStorageFlowNodeS3ConfigurationOutput() FlowStorageFlowNodeS3ConfigurationOutput
+	ToFlowStorageFlowNodeS3ConfigurationOutputWithContext(context.Context) FlowStorageFlowNodeS3ConfigurationOutput
+}
+
+// s3 storage configuration for storage node
+type FlowStorageFlowNodeS3ConfigurationArgs struct {
+	// bucket name of an s3 that will be used for storage flow node configuration
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+}
+
+func (FlowStorageFlowNodeS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStorageFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (i FlowStorageFlowNodeS3ConfigurationArgs) ToFlowStorageFlowNodeS3ConfigurationOutput() FlowStorageFlowNodeS3ConfigurationOutput {
+	return i.ToFlowStorageFlowNodeS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowStorageFlowNodeS3ConfigurationArgs) ToFlowStorageFlowNodeS3ConfigurationOutputWithContext(ctx context.Context) FlowStorageFlowNodeS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeS3ConfigurationOutput)
+}
+
+func (i FlowStorageFlowNodeS3ConfigurationArgs) ToFlowStorageFlowNodeS3ConfigurationPtrOutput() FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return i.ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowStorageFlowNodeS3ConfigurationArgs) ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeS3ConfigurationOutput).ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowStorageFlowNodeS3ConfigurationPtrInput is an input type that accepts FlowStorageFlowNodeS3ConfigurationArgs, FlowStorageFlowNodeS3ConfigurationPtr and FlowStorageFlowNodeS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowStorageFlowNodeS3ConfigurationPtrInput` via:
+//
+//	        FlowStorageFlowNodeS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowStorageFlowNodeS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowStorageFlowNodeS3ConfigurationPtrOutput() FlowStorageFlowNodeS3ConfigurationPtrOutput
+	ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(context.Context) FlowStorageFlowNodeS3ConfigurationPtrOutput
+}
+
+type flowStorageFlowNodeS3ConfigurationPtrType FlowStorageFlowNodeS3ConfigurationArgs
+
+func FlowStorageFlowNodeS3ConfigurationPtr(v *FlowStorageFlowNodeS3ConfigurationArgs) FlowStorageFlowNodeS3ConfigurationPtrInput {
+	return (*flowStorageFlowNodeS3ConfigurationPtrType)(v)
+}
+
+func (*flowStorageFlowNodeS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowStorageFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (i *flowStorageFlowNodeS3ConfigurationPtrType) ToFlowStorageFlowNodeS3ConfigurationPtrOutput() FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return i.ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowStorageFlowNodeS3ConfigurationPtrType) ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeS3ConfigurationPtrOutput)
+}
+
+// s3 storage configuration for storage node
+type FlowStorageFlowNodeS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowStorageFlowNodeS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStorageFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (o FlowStorageFlowNodeS3ConfigurationOutput) ToFlowStorageFlowNodeS3ConfigurationOutput() FlowStorageFlowNodeS3ConfigurationOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeS3ConfigurationOutput) ToFlowStorageFlowNodeS3ConfigurationOutputWithContext(ctx context.Context) FlowStorageFlowNodeS3ConfigurationOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeS3ConfigurationOutput) ToFlowStorageFlowNodeS3ConfigurationPtrOutput() FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return o.ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStorageFlowNodeS3ConfigurationOutput) ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowStorageFlowNodeS3Configuration) *FlowStorageFlowNodeS3Configuration {
+		return &v
+	}).(FlowStorageFlowNodeS3ConfigurationPtrOutput)
+}
+
+// bucket name of an s3 that will be used for storage flow node configuration
+func (o FlowStorageFlowNodeS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowStorageFlowNodeS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+type FlowStorageFlowNodeS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowStorageFlowNodeS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowStorageFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (o FlowStorageFlowNodeS3ConfigurationPtrOutput) ToFlowStorageFlowNodeS3ConfigurationPtrOutput() FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeS3ConfigurationPtrOutput) ToFlowStorageFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeS3ConfigurationPtrOutput) Elem() FlowStorageFlowNodeS3ConfigurationOutput {
+	return o.ApplyT(func(v *FlowStorageFlowNodeS3Configuration) FlowStorageFlowNodeS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowStorageFlowNodeS3Configuration
+		return ret
+	}).(FlowStorageFlowNodeS3ConfigurationOutput)
+}
+
+// bucket name of an s3 that will be used for storage flow node configuration
+func (o FlowStorageFlowNodeS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowStorageFlowNodeS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// storage service configuration for storage node
+type FlowStorageFlowNodeServiceConfiguration0Properties struct {
+	S3 *FlowStorageFlowNodeS3Configuration `pulumi:"s3"`
+}
+
+// storage service configuration for storage node
+type FlowStorageFlowNodeServiceConfigurationProperties struct {
+	S3 *FlowStorageFlowNodeS3Configuration `pulumi:"s3"`
+}
+
+// FlowStorageFlowNodeServiceConfigurationPropertiesInput is an input type that accepts FlowStorageFlowNodeServiceConfigurationPropertiesArgs and FlowStorageFlowNodeServiceConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `FlowStorageFlowNodeServiceConfigurationPropertiesInput` via:
+//
+//	FlowStorageFlowNodeServiceConfigurationPropertiesArgs{...}
+type FlowStorageFlowNodeServiceConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowStorageFlowNodeServiceConfigurationPropertiesOutput() FlowStorageFlowNodeServiceConfigurationPropertiesOutput
+	ToFlowStorageFlowNodeServiceConfigurationPropertiesOutputWithContext(context.Context) FlowStorageFlowNodeServiceConfigurationPropertiesOutput
+}
+
+// storage service configuration for storage node
+type FlowStorageFlowNodeServiceConfigurationPropertiesArgs struct {
+	S3 FlowStorageFlowNodeS3ConfigurationPtrInput `pulumi:"s3"`
+}
+
+func (FlowStorageFlowNodeServiceConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStorageFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (i FlowStorageFlowNodeServiceConfigurationPropertiesArgs) ToFlowStorageFlowNodeServiceConfigurationPropertiesOutput() FlowStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return i.ToFlowStorageFlowNodeServiceConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowStorageFlowNodeServiceConfigurationPropertiesArgs) ToFlowStorageFlowNodeServiceConfigurationPropertiesOutputWithContext(ctx context.Context) FlowStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+func (i FlowStorageFlowNodeServiceConfigurationPropertiesArgs) ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput() FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return i.ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowStorageFlowNodeServiceConfigurationPropertiesArgs) ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeServiceConfigurationPropertiesOutput).ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowStorageFlowNodeServiceConfigurationPropertiesPtrInput is an input type that accepts FlowStorageFlowNodeServiceConfigurationPropertiesArgs, FlowStorageFlowNodeServiceConfigurationPropertiesPtr and FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowStorageFlowNodeServiceConfigurationPropertiesPtrInput` via:
+//
+//	        FlowStorageFlowNodeServiceConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowStorageFlowNodeServiceConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput() FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput
+	ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(context.Context) FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput
+}
+
+type flowStorageFlowNodeServiceConfigurationPropertiesPtrType FlowStorageFlowNodeServiceConfigurationPropertiesArgs
+
+func FlowStorageFlowNodeServiceConfigurationPropertiesPtr(v *FlowStorageFlowNodeServiceConfigurationPropertiesArgs) FlowStorageFlowNodeServiceConfigurationPropertiesPtrInput {
+	return (*flowStorageFlowNodeServiceConfigurationPropertiesPtrType)(v)
+}
+
+func (*flowStorageFlowNodeServiceConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowStorageFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (i *flowStorageFlowNodeServiceConfigurationPropertiesPtrType) ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput() FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return i.ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowStorageFlowNodeServiceConfigurationPropertiesPtrType) ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput)
+}
+
+// storage service configuration for storage node
+type FlowStorageFlowNodeServiceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowStorageFlowNodeServiceConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStorageFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesOutput) ToFlowStorageFlowNodeServiceConfigurationPropertiesOutput() FlowStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesOutput) ToFlowStorageFlowNodeServiceConfigurationPropertiesOutputWithContext(ctx context.Context) FlowStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesOutput) ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput() FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o.ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesOutput) ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowStorageFlowNodeServiceConfigurationProperties) *FlowStorageFlowNodeServiceConfigurationProperties {
+		return &v
+	}).(FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput)
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesOutput) S3() FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowStorageFlowNodeServiceConfigurationProperties) *FlowStorageFlowNodeS3Configuration {
+		return v.S3
+	}).(FlowStorageFlowNodeS3ConfigurationPtrOutput)
+}
+
+type FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowStorageFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput) ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput() FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput) ToFlowStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput) Elem() FlowStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *FlowStorageFlowNodeServiceConfigurationProperties) FlowStorageFlowNodeServiceConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowStorageFlowNodeServiceConfigurationProperties
+		return ret
+	}).(FlowStorageFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+func (o FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput) S3() FlowStorageFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowStorageFlowNodeServiceConfigurationProperties) *FlowStorageFlowNodeS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(FlowStorageFlowNodeS3ConfigurationPtrOutput)
+}
+
 // Configuration for text prompt template
 type FlowTextPromptTemplateConfiguration struct {
 	// List of input variables
@@ -12658,6 +14562,155 @@ func (o FlowTextPromptTemplateConfigurationPtrOutput) Text() pulumi.StringPtrOut
 		}
 		return &v.Text
 	}).(pulumi.StringPtrOutput)
+}
+
+// Validation for Flow
+type FlowValidation struct {
+	// validation message
+	Message string `pulumi:"message"`
+}
+
+// Validation for Flow
+type FlowValidationOutput struct{ *pulumi.OutputState }
+
+func (FlowValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowValidation)(nil)).Elem()
+}
+
+func (o FlowValidationOutput) ToFlowValidationOutput() FlowValidationOutput {
+	return o
+}
+
+func (o FlowValidationOutput) ToFlowValidationOutputWithContext(ctx context.Context) FlowValidationOutput {
+	return o
+}
+
+// validation message
+func (o FlowValidationOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowValidation) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type FlowValidationArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowValidationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowValidation)(nil)).Elem()
+}
+
+func (o FlowValidationArrayOutput) ToFlowValidationArrayOutput() FlowValidationArrayOutput {
+	return o
+}
+
+func (o FlowValidationArrayOutput) ToFlowValidationArrayOutputWithContext(ctx context.Context) FlowValidationArrayOutput {
+	return o
+}
+
+func (o FlowValidationArrayOutput) Index(i pulumi.IntInput) FlowValidationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowValidation {
+		return vs[0].([]FlowValidation)[vs[1].(int)]
+	}).(FlowValidationOutput)
+}
+
+// Agent flow node configuration
+type FlowVersionAgentFlowNodeConfiguration struct {
+	// Arn representation of the Agent Alias.
+	AgentAliasArn string `pulumi:"agentAliasArn"`
+}
+
+// Agent flow node configuration
+type FlowVersionAgentFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionAgentFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionAgentFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionAgentFlowNodeConfigurationOutput) ToFlowVersionAgentFlowNodeConfigurationOutput() FlowVersionAgentFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionAgentFlowNodeConfigurationOutput) ToFlowVersionAgentFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionAgentFlowNodeConfigurationOutput {
+	return o
+}
+
+// Arn representation of the Agent Alias.
+func (o FlowVersionAgentFlowNodeConfigurationOutput) AgentAliasArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVersionAgentFlowNodeConfiguration) string { return v.AgentAliasArn }).(pulumi.StringOutput)
+}
+
+type FlowVersionAgentFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionAgentFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionAgentFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionAgentFlowNodeConfigurationPtrOutput) ToFlowVersionAgentFlowNodeConfigurationPtrOutput() FlowVersionAgentFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionAgentFlowNodeConfigurationPtrOutput) ToFlowVersionAgentFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionAgentFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionAgentFlowNodeConfigurationPtrOutput) Elem() FlowVersionAgentFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionAgentFlowNodeConfiguration) FlowVersionAgentFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionAgentFlowNodeConfiguration
+		return ret
+	}).(FlowVersionAgentFlowNodeConfigurationOutput)
+}
+
+// Arn representation of the Agent Alias.
+func (o FlowVersionAgentFlowNodeConfigurationPtrOutput) AgentAliasArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionAgentFlowNodeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentAliasArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Collector flow node configuration
+type FlowVersionCollectorFlowNodeConfiguration struct {
+}
+
+// Collector flow node configuration
+type FlowVersionCollectorFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionCollectorFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionCollectorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionCollectorFlowNodeConfigurationOutput) ToFlowVersionCollectorFlowNodeConfigurationOutput() FlowVersionCollectorFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionCollectorFlowNodeConfigurationOutput) ToFlowVersionCollectorFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionCollectorFlowNodeConfigurationOutput {
+	return o
+}
+
+type FlowVersionCollectorFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionCollectorFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionCollectorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionCollectorFlowNodeConfigurationPtrOutput) ToFlowVersionCollectorFlowNodeConfigurationPtrOutput() FlowVersionCollectorFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionCollectorFlowNodeConfigurationPtrOutput) ToFlowVersionCollectorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionCollectorFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionCollectorFlowNodeConfigurationPtrOutput) Elem() FlowVersionCollectorFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionCollectorFlowNodeConfiguration) FlowVersionCollectorFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionCollectorFlowNodeConfiguration
+		return ret
+	}).(FlowVersionCollectorFlowNodeConfigurationOutput)
 }
 
 // Condition flow node configuration
@@ -13313,6 +15366,124 @@ func (o FlowVersionFlowNodeConfiguration0PropertiesPtrOutput) Input() FlowVersio
 }
 
 // Node configuration in a flow
+type FlowVersionFlowNodeConfiguration10Properties struct {
+	Iterator FlowVersionIteratorFlowNodeConfiguration `pulumi:"iterator"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration10PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration10PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration10Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration10PropertiesOutput) ToFlowVersionFlowNodeConfiguration10PropertiesOutput() FlowVersionFlowNodeConfiguration10PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration10PropertiesOutput) ToFlowVersionFlowNodeConfiguration10PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration10PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration10PropertiesOutput) Iterator() FlowVersionIteratorFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration10Properties) FlowVersionIteratorFlowNodeConfiguration {
+		return v.Iterator
+	}).(FlowVersionIteratorFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration10PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration10PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration10Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration10PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration10PropertiesPtrOutput() FlowVersionFlowNodeConfiguration10PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration10PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration10PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration10PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration10PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration10PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration10Properties) FlowVersionFlowNodeConfiguration10Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration10Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration10PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration10PropertiesPtrOutput) Iterator() FlowVersionIteratorFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration10Properties) *FlowVersionIteratorFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Iterator
+	}).(FlowVersionIteratorFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration11Properties struct {
+	Collector FlowVersionCollectorFlowNodeConfiguration `pulumi:"collector"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration11PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration11PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration11Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration11PropertiesOutput) ToFlowVersionFlowNodeConfiguration11PropertiesOutput() FlowVersionFlowNodeConfiguration11PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration11PropertiesOutput) ToFlowVersionFlowNodeConfiguration11PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration11PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration11PropertiesOutput) Collector() FlowVersionCollectorFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration11Properties) FlowVersionCollectorFlowNodeConfiguration {
+		return v.Collector
+	}).(FlowVersionCollectorFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration11PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration11PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration11Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration11PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration11PropertiesPtrOutput() FlowVersionFlowNodeConfiguration11PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration11PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration11PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration11PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration11PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration11PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration11Properties) FlowVersionFlowNodeConfiguration11Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration11Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration11PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration11PropertiesPtrOutput) Collector() FlowVersionCollectorFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration11Properties) *FlowVersionCollectorFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Collector
+	}).(FlowVersionCollectorFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
 type FlowVersionFlowNodeConfiguration1Properties struct {
 	Output FlowVersionOutputFlowNodeConfiguration `pulumi:"output"`
 }
@@ -13664,6 +15835,183 @@ func (o FlowVersionFlowNodeConfiguration6PropertiesPtrOutput) LambdaFunction() F
 	}).(FlowVersionLambdaFunctionFlowNodeConfigurationPtrOutput)
 }
 
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration7Properties struct {
+	Agent FlowVersionAgentFlowNodeConfiguration `pulumi:"agent"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration7PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration7PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration7Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration7PropertiesOutput) ToFlowVersionFlowNodeConfiguration7PropertiesOutput() FlowVersionFlowNodeConfiguration7PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration7PropertiesOutput) ToFlowVersionFlowNodeConfiguration7PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration7PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration7PropertiesOutput) Agent() FlowVersionAgentFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration7Properties) FlowVersionAgentFlowNodeConfiguration {
+		return v.Agent
+	}).(FlowVersionAgentFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration7PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration7PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration7Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration7PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration7PropertiesPtrOutput() FlowVersionFlowNodeConfiguration7PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration7PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration7PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration7PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration7PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration7PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration7Properties) FlowVersionFlowNodeConfiguration7Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration7Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration7PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration7PropertiesPtrOutput) Agent() FlowVersionAgentFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration7Properties) *FlowVersionAgentFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Agent
+	}).(FlowVersionAgentFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration8Properties struct {
+	Storage FlowVersionStorageFlowNodeConfiguration `pulumi:"storage"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration8PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration8PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration8Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration8PropertiesOutput) ToFlowVersionFlowNodeConfiguration8PropertiesOutput() FlowVersionFlowNodeConfiguration8PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration8PropertiesOutput) ToFlowVersionFlowNodeConfiguration8PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration8PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration8PropertiesOutput) Storage() FlowVersionStorageFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration8Properties) FlowVersionStorageFlowNodeConfiguration {
+		return v.Storage
+	}).(FlowVersionStorageFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration8PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration8PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration8Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration8PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration8PropertiesPtrOutput() FlowVersionFlowNodeConfiguration8PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration8PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration8PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration8PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration8PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration8PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration8Properties) FlowVersionFlowNodeConfiguration8Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration8Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration8PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration8PropertiesPtrOutput) Storage() FlowVersionStorageFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration8Properties) *FlowVersionStorageFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Storage
+	}).(FlowVersionStorageFlowNodeConfigurationPtrOutput)
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration9Properties struct {
+	Retrieval FlowVersionRetrievalFlowNodeConfiguration `pulumi:"retrieval"`
+}
+
+// Node configuration in a flow
+type FlowVersionFlowNodeConfiguration9PropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration9PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionFlowNodeConfiguration9Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration9PropertiesOutput) ToFlowVersionFlowNodeConfiguration9PropertiesOutput() FlowVersionFlowNodeConfiguration9PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration9PropertiesOutput) ToFlowVersionFlowNodeConfiguration9PropertiesOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration9PropertiesOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration9PropertiesOutput) Retrieval() FlowVersionRetrievalFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v FlowVersionFlowNodeConfiguration9Properties) FlowVersionRetrievalFlowNodeConfiguration {
+		return v.Retrieval
+	}).(FlowVersionRetrievalFlowNodeConfigurationOutput)
+}
+
+type FlowVersionFlowNodeConfiguration9PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionFlowNodeConfiguration9PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionFlowNodeConfiguration9Properties)(nil)).Elem()
+}
+
+func (o FlowVersionFlowNodeConfiguration9PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration9PropertiesPtrOutput() FlowVersionFlowNodeConfiguration9PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration9PropertiesPtrOutput) ToFlowVersionFlowNodeConfiguration9PropertiesPtrOutputWithContext(ctx context.Context) FlowVersionFlowNodeConfiguration9PropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionFlowNodeConfiguration9PropertiesPtrOutput) Elem() FlowVersionFlowNodeConfiguration9PropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration9Properties) FlowVersionFlowNodeConfiguration9Properties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionFlowNodeConfiguration9Properties
+		return ret
+	}).(FlowVersionFlowNodeConfiguration9PropertiesOutput)
+}
+
+func (o FlowVersionFlowNodeConfiguration9PropertiesPtrOutput) Retrieval() FlowVersionRetrievalFlowNodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionFlowNodeConfiguration9Properties) *FlowVersionRetrievalFlowNodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Retrieval
+	}).(FlowVersionRetrievalFlowNodeConfigurationPtrOutput)
+}
+
 // Input to a node in a flow
 type FlowVersionFlowNodeInputType struct {
 	// Expression for a node input in a flow
@@ -13818,6 +16166,49 @@ func (o FlowVersionInputFlowNodeConfigurationPtrOutput) Elem() FlowVersionInputF
 		var ret FlowVersionInputFlowNodeConfiguration
 		return ret
 	}).(FlowVersionInputFlowNodeConfigurationOutput)
+}
+
+// Iterator flow node configuration
+type FlowVersionIteratorFlowNodeConfiguration struct {
+}
+
+// Iterator flow node configuration
+type FlowVersionIteratorFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionIteratorFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionIteratorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionIteratorFlowNodeConfigurationOutput) ToFlowVersionIteratorFlowNodeConfigurationOutput() FlowVersionIteratorFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionIteratorFlowNodeConfigurationOutput) ToFlowVersionIteratorFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionIteratorFlowNodeConfigurationOutput {
+	return o
+}
+
+type FlowVersionIteratorFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionIteratorFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionIteratorFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionIteratorFlowNodeConfigurationPtrOutput) ToFlowVersionIteratorFlowNodeConfigurationPtrOutput() FlowVersionIteratorFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionIteratorFlowNodeConfigurationPtrOutput) ToFlowVersionIteratorFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionIteratorFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionIteratorFlowNodeConfigurationPtrOutput) Elem() FlowVersionIteratorFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionIteratorFlowNodeConfiguration) FlowVersionIteratorFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionIteratorFlowNodeConfiguration
+		return ret
+	}).(FlowVersionIteratorFlowNodeConfigurationOutput)
 }
 
 // Knowledge base flow node configuration
@@ -14720,6 +17111,372 @@ func (o FlowVersionPromptTemplateConfigurationPropertiesPtrOutput) Text() FlowVe
 		}
 		return &v.Text
 	}).(FlowVersionTextPromptTemplateConfigurationPtrOutput)
+}
+
+// Retrieval flow node configuration
+type FlowVersionRetrievalFlowNodeConfiguration struct {
+	ServiceConfiguration FlowVersionRetrievalFlowNodeServiceConfigurationProperties `pulumi:"serviceConfiguration"`
+}
+
+// Retrieval flow node configuration
+type FlowVersionRetrievalFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRetrievalFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionRetrievalFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionRetrievalFlowNodeConfigurationOutput) ToFlowVersionRetrievalFlowNodeConfigurationOutput() FlowVersionRetrievalFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeConfigurationOutput) ToFlowVersionRetrievalFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionRetrievalFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeConfigurationOutput) ServiceConfiguration() FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v FlowVersionRetrievalFlowNodeConfiguration) FlowVersionRetrievalFlowNodeServiceConfigurationProperties {
+		return v.ServiceConfiguration
+	}).(FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+type FlowVersionRetrievalFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRetrievalFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionRetrievalFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionRetrievalFlowNodeConfigurationPtrOutput) ToFlowVersionRetrievalFlowNodeConfigurationPtrOutput() FlowVersionRetrievalFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeConfigurationPtrOutput) ToFlowVersionRetrievalFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionRetrievalFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeConfigurationPtrOutput) Elem() FlowVersionRetrievalFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionRetrievalFlowNodeConfiguration) FlowVersionRetrievalFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionRetrievalFlowNodeConfiguration
+		return ret
+	}).(FlowVersionRetrievalFlowNodeConfigurationOutput)
+}
+
+func (o FlowVersionRetrievalFlowNodeConfigurationPtrOutput) ServiceConfiguration() FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowVersionRetrievalFlowNodeConfiguration) *FlowVersionRetrievalFlowNodeServiceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceConfiguration
+	}).(FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput)
+}
+
+// s3 Retrieval configuration for Retrieval node
+type FlowVersionRetrievalFlowNodeS3Configuration struct {
+	// bucket name of an s3 that will be used for Retrieval flow node configuration
+	BucketName string `pulumi:"bucketName"`
+}
+
+// s3 Retrieval configuration for Retrieval node
+type FlowVersionRetrievalFlowNodeS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRetrievalFlowNodeS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionRetrievalFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (o FlowVersionRetrievalFlowNodeS3ConfigurationOutput) ToFlowVersionRetrievalFlowNodeS3ConfigurationOutput() FlowVersionRetrievalFlowNodeS3ConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeS3ConfigurationOutput) ToFlowVersionRetrievalFlowNodeS3ConfigurationOutputWithContext(ctx context.Context) FlowVersionRetrievalFlowNodeS3ConfigurationOutput {
+	return o
+}
+
+// bucket name of an s3 that will be used for Retrieval flow node configuration
+func (o FlowVersionRetrievalFlowNodeS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVersionRetrievalFlowNodeS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+type FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionRetrievalFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (o FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput) ToFlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput() FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput) ToFlowVersionRetrievalFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput) Elem() FlowVersionRetrievalFlowNodeS3ConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionRetrievalFlowNodeS3Configuration) FlowVersionRetrievalFlowNodeS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionRetrievalFlowNodeS3Configuration
+		return ret
+	}).(FlowVersionRetrievalFlowNodeS3ConfigurationOutput)
+}
+
+// bucket name of an s3 that will be used for Retrieval flow node configuration
+func (o FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionRetrievalFlowNodeS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retrieval service configuration for Retrieval node
+type FlowVersionRetrievalFlowNodeServiceConfiguration0Properties struct {
+	S3 *FlowVersionRetrievalFlowNodeS3Configuration `pulumi:"s3"`
+}
+
+// Retrieval service configuration for Retrieval node
+type FlowVersionRetrievalFlowNodeServiceConfigurationProperties struct {
+	S3 *FlowVersionRetrievalFlowNodeS3Configuration `pulumi:"s3"`
+}
+
+// Retrieval service configuration for Retrieval node
+type FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionRetrievalFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput) ToFlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput() FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput) ToFlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutputWithContext(ctx context.Context) FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput) S3() FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVersionRetrievalFlowNodeServiceConfigurationProperties) *FlowVersionRetrievalFlowNodeS3Configuration {
+		return v.S3
+	}).(FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput)
+}
+
+type FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionRetrievalFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) ToFlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput() FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) ToFlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) Elem() FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionRetrievalFlowNodeServiceConfigurationProperties) FlowVersionRetrievalFlowNodeServiceConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionRetrievalFlowNodeServiceConfigurationProperties
+		return ret
+	}).(FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+func (o FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput) S3() FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionRetrievalFlowNodeServiceConfigurationProperties) *FlowVersionRetrievalFlowNodeS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput)
+}
+
+// Storage flow node configuration
+type FlowVersionStorageFlowNodeConfiguration struct {
+	ServiceConfiguration FlowVersionStorageFlowNodeServiceConfigurationProperties `pulumi:"serviceConfiguration"`
+}
+
+// Storage flow node configuration
+type FlowVersionStorageFlowNodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionStorageFlowNodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionStorageFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionStorageFlowNodeConfigurationOutput) ToFlowVersionStorageFlowNodeConfigurationOutput() FlowVersionStorageFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeConfigurationOutput) ToFlowVersionStorageFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionStorageFlowNodeConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeConfigurationOutput) ServiceConfiguration() FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v FlowVersionStorageFlowNodeConfiguration) FlowVersionStorageFlowNodeServiceConfigurationProperties {
+		return v.ServiceConfiguration
+	}).(FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+type FlowVersionStorageFlowNodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionStorageFlowNodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionStorageFlowNodeConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionStorageFlowNodeConfigurationPtrOutput) ToFlowVersionStorageFlowNodeConfigurationPtrOutput() FlowVersionStorageFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeConfigurationPtrOutput) ToFlowVersionStorageFlowNodeConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionStorageFlowNodeConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeConfigurationPtrOutput) Elem() FlowVersionStorageFlowNodeConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionStorageFlowNodeConfiguration) FlowVersionStorageFlowNodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionStorageFlowNodeConfiguration
+		return ret
+	}).(FlowVersionStorageFlowNodeConfigurationOutput)
+}
+
+func (o FlowVersionStorageFlowNodeConfigurationPtrOutput) ServiceConfiguration() FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowVersionStorageFlowNodeConfiguration) *FlowVersionStorageFlowNodeServiceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceConfiguration
+	}).(FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput)
+}
+
+// s3 storage configuration for storage node
+type FlowVersionStorageFlowNodeS3Configuration struct {
+	// bucket name of an s3 that will be used for storage flow node configuration
+	BucketName string `pulumi:"bucketName"`
+}
+
+// s3 storage configuration for storage node
+type FlowVersionStorageFlowNodeS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionStorageFlowNodeS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionStorageFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (o FlowVersionStorageFlowNodeS3ConfigurationOutput) ToFlowVersionStorageFlowNodeS3ConfigurationOutput() FlowVersionStorageFlowNodeS3ConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeS3ConfigurationOutput) ToFlowVersionStorageFlowNodeS3ConfigurationOutputWithContext(ctx context.Context) FlowVersionStorageFlowNodeS3ConfigurationOutput {
+	return o
+}
+
+// bucket name of an s3 that will be used for storage flow node configuration
+func (o FlowVersionStorageFlowNodeS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowVersionStorageFlowNodeS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+type FlowVersionStorageFlowNodeS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionStorageFlowNodeS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionStorageFlowNodeS3Configuration)(nil)).Elem()
+}
+
+func (o FlowVersionStorageFlowNodeS3ConfigurationPtrOutput) ToFlowVersionStorageFlowNodeS3ConfigurationPtrOutput() FlowVersionStorageFlowNodeS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeS3ConfigurationPtrOutput) ToFlowVersionStorageFlowNodeS3ConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionStorageFlowNodeS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeS3ConfigurationPtrOutput) Elem() FlowVersionStorageFlowNodeS3ConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionStorageFlowNodeS3Configuration) FlowVersionStorageFlowNodeS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionStorageFlowNodeS3Configuration
+		return ret
+	}).(FlowVersionStorageFlowNodeS3ConfigurationOutput)
+}
+
+// bucket name of an s3 that will be used for storage flow node configuration
+func (o FlowVersionStorageFlowNodeS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionStorageFlowNodeS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// storage service configuration for storage node
+type FlowVersionStorageFlowNodeServiceConfiguration0Properties struct {
+	S3 *FlowVersionStorageFlowNodeS3Configuration `pulumi:"s3"`
+}
+
+// storage service configuration for storage node
+type FlowVersionStorageFlowNodeServiceConfigurationProperties struct {
+	S3 *FlowVersionStorageFlowNodeS3Configuration `pulumi:"s3"`
+}
+
+// storage service configuration for storage node
+type FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionStorageFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput) ToFlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput() FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput) ToFlowVersionStorageFlowNodeServiceConfigurationPropertiesOutputWithContext(ctx context.Context) FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput) S3() FlowVersionStorageFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVersionStorageFlowNodeServiceConfigurationProperties) *FlowVersionStorageFlowNodeS3Configuration {
+		return v.S3
+	}).(FlowVersionStorageFlowNodeS3ConfigurationPtrOutput)
+}
+
+type FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionStorageFlowNodeServiceConfigurationProperties)(nil)).Elem()
+}
+
+func (o FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput) ToFlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput() FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput) ToFlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput) Elem() FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *FlowVersionStorageFlowNodeServiceConfigurationProperties) FlowVersionStorageFlowNodeServiceConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionStorageFlowNodeServiceConfigurationProperties
+		return ret
+	}).(FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput)
+}
+
+func (o FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput) S3() FlowVersionStorageFlowNodeS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionStorageFlowNodeServiceConfigurationProperties) *FlowVersionStorageFlowNodeS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(FlowVersionStorageFlowNodeS3ConfigurationPtrOutput)
 }
 
 // Configuration for text prompt template
@@ -20409,8 +23166,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAgentFlowNodeConfigurationInput)(nil)).Elem(), FlowAgentFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowAgentFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowAgentFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasRoutingConfigurationListItemInput)(nil)).Elem(), FlowAliasRoutingConfigurationListItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAliasRoutingConfigurationListItemArrayInput)(nil)).Elem(), FlowAliasRoutingConfigurationListItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowCollectorFlowNodeConfigurationInput)(nil)).Elem(), FlowCollectorFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowCollectorFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowCollectorFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionInput)(nil)).Elem(), FlowConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionArrayInput)(nil)).Elem(), FlowConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConditionFlowNodeConfigurationInput)(nil)).Elem(), FlowConditionFlowNodeConfigurationArgs{})
@@ -20429,6 +23190,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionPtrInput)(nil)).Elem(), FlowDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputFlowNodeConfigurationInput)(nil)).Elem(), FlowInputFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowInputFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowIteratorFlowNodeConfigurationInput)(nil)).Elem(), FlowIteratorFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowIteratorFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowIteratorFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowKnowledgeBaseFlowNodeConfigurationInput)(nil)).Elem(), FlowKnowledgeBaseFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowKnowledgeBaseFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowKnowledgeBaseFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLambdaFunctionFlowNodeConfigurationInput)(nil)).Elem(), FlowLambdaFunctionFlowNodeConfigurationArgs{})
@@ -20439,6 +23202,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeArrayInput)(nil)).Elem(), FlowNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration0PropertiesInput)(nil)).Elem(), FlowNodeConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration0PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration10PropertiesInput)(nil)).Elem(), FlowNodeConfiguration10PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration10PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration10PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration11PropertiesInput)(nil)).Elem(), FlowNodeConfiguration11PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration11PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration1PropertiesInput)(nil)).Elem(), FlowNodeConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration1PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration2PropertiesInput)(nil)).Elem(), FlowNodeConfiguration2PropertiesArgs{})
@@ -20451,6 +23218,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration5PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration5PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration6PropertiesInput)(nil)).Elem(), FlowNodeConfiguration6PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration6PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration6PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration7PropertiesInput)(nil)).Elem(), FlowNodeConfiguration7PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration7PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration7PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration8PropertiesInput)(nil)).Elem(), FlowNodeConfiguration8PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration8PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration8PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration9PropertiesInput)(nil)).Elem(), FlowNodeConfiguration9PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeConfiguration9PropertiesPtrInput)(nil)).Elem(), FlowNodeConfiguration9PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeInputTypeInput)(nil)).Elem(), FlowNodeInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeInputTypeArrayInput)(nil)).Elem(), FlowNodeInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNodeOutputTypeInput)(nil)).Elem(), FlowNodeOutputTypeArgs{})
@@ -20475,8 +23248,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptModelInferenceConfigurationPtrInput)(nil)).Elem(), FlowPromptModelInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateConfigurationPropertiesInput)(nil)).Elem(), FlowPromptTemplateConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPromptTemplateConfigurationPropertiesPtrInput)(nil)).Elem(), FlowPromptTemplateConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeConfigurationInput)(nil)).Elem(), FlowRetrievalFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowRetrievalFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeS3ConfigurationInput)(nil)).Elem(), FlowRetrievalFlowNodeS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeS3ConfigurationPtrInput)(nil)).Elem(), FlowRetrievalFlowNodeS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeServiceConfigurationPropertiesInput)(nil)).Elem(), FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrInput)(nil)).Elem(), FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3LocationInput)(nil)).Elem(), FlowS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowS3LocationPtrInput)(nil)).Elem(), FlowS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowStorageFlowNodeConfigurationInput)(nil)).Elem(), FlowStorageFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowStorageFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowStorageFlowNodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowStorageFlowNodeS3ConfigurationInput)(nil)).Elem(), FlowStorageFlowNodeS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowStorageFlowNodeS3ConfigurationPtrInput)(nil)).Elem(), FlowStorageFlowNodeS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowStorageFlowNodeServiceConfigurationPropertiesInput)(nil)).Elem(), FlowStorageFlowNodeServiceConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowStorageFlowNodeServiceConfigurationPropertiesPtrInput)(nil)).Elem(), FlowStorageFlowNodeServiceConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTextPromptTemplateConfigurationInput)(nil)).Elem(), FlowTextPromptTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTextPromptTemplateConfigurationPtrInput)(nil)).Elem(), FlowTextPromptTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentFilterConfigInput)(nil)).Elem(), GuardrailContentFilterConfigArgs{})
@@ -20642,8 +23427,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceWebDataSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowAgentFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowAgentFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowAliasRoutingConfigurationListItemOutput{})
 	pulumi.RegisterOutputType(FlowAliasRoutingConfigurationListItemArrayOutput{})
+	pulumi.RegisterOutputType(FlowCollectorFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowCollectorFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowConditionOutput{})
 	pulumi.RegisterOutputType(FlowConditionArrayOutput{})
 	pulumi.RegisterOutputType(FlowConditionFlowNodeConfigurationOutput{})
@@ -20662,6 +23451,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(FlowInputFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowInputFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowIteratorFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowIteratorFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowKnowledgeBaseFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowKnowledgeBaseFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowLambdaFunctionFlowNodeConfigurationOutput{})
@@ -20672,6 +23463,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowNodeArrayOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration10PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration10PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration11PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration11PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration2PropertiesOutput{})
@@ -20684,6 +23479,12 @@ func init() {
 	pulumi.RegisterOutputType(FlowNodeConfiguration5PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration6PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowNodeConfiguration6PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration7PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration7PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration8PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration8PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration9PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowNodeConfiguration9PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowNodeInputTypeOutput{})
 	pulumi.RegisterOutputType(FlowNodeInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowNodeOutputTypeOutput{})
@@ -20708,10 +23509,28 @@ func init() {
 	pulumi.RegisterOutputType(FlowPromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowPromptTemplateConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowPromptTemplateConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowRetrievalFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowRetrievalFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowRetrievalFlowNodeS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowRetrievalFlowNodeS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowRetrievalFlowNodeServiceConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowS3LocationOutput{})
 	pulumi.RegisterOutputType(FlowS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(FlowStorageFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowStorageFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowStorageFlowNodeS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowStorageFlowNodeS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowStorageFlowNodeServiceConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowStorageFlowNodeServiceConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowTextPromptTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowTextPromptTemplateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowValidationOutput{})
+	pulumi.RegisterOutputType(FlowValidationArrayOutput{})
+	pulumi.RegisterOutputType(FlowVersionAgentFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionAgentFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionCollectorFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionCollectorFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionConditionFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionConditionFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowConditionOutput{})
@@ -20732,6 +23551,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionFlowNodeArrayOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration10PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration10PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration11PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration11PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration2PropertiesOutput{})
@@ -20744,12 +23567,20 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration5PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration6PropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration6PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration7PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration7PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration8PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration8PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration9PropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionFlowNodeConfiguration9PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeInputTypeOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeOutputTypeOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowVersionInputFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionInputFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionIteratorFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionIteratorFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionKnowledgeBaseFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionLambdaFunctionFlowNodeConfigurationOutput{})
@@ -20776,6 +23607,18 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionPromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVersionPromptTemplateConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionRetrievalFlowNodeServiceConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionStorageFlowNodeConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionStorageFlowNodeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionStorageFlowNodeS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionStorageFlowNodeS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowVersionStorageFlowNodeServiceConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowVersionStorageFlowNodeServiceConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionTextPromptTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionTextPromptTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailContentFilterConfigOutput{})

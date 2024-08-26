@@ -28,7 +28,7 @@ class LocationEfsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationEfs resource.
-        :param pulumi.Input['LocationEfsEc2ConfigArgs'] ec2_config: Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+        :param pulumi.Input['LocationEfsEc2ConfigArgs'] ec2_config: Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
         :param pulumi.Input[str] access_point_arn: The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
         :param pulumi.Input[str] efs_filesystem_arn: The Amazon Resource Name (ARN) for the Amazon EFS file system.
         :param pulumi.Input[str] file_system_access_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
@@ -54,7 +54,7 @@ class LocationEfsArgs:
     @pulumi.getter(name="ec2Config")
     def ec2_config(self) -> pulumi.Input['LocationEfsEc2ConfigArgs']:
         """
-        Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+        Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
         """
         return pulumi.get(self, "ec2_config")
 
@@ -154,7 +154,7 @@ class LocationEfs(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_point_arn: The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
-        :param pulumi.Input[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']] ec2_config: Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+        :param pulumi.Input[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']] ec2_config: Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
         :param pulumi.Input[str] efs_filesystem_arn: The Amazon Resource Name (ARN) for the Amazon EFS file system.
         :param pulumi.Input[str] file_system_access_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
         :param pulumi.Input['LocationEfsInTransitEncryption'] in_transit_encryption: Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
@@ -259,7 +259,7 @@ class LocationEfs(pulumi.CustomResource):
     @pulumi.getter(name="ec2Config")
     def ec2_config(self) -> pulumi.Output['outputs.LocationEfsEc2Config']:
         """
-        Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system.
+        Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
         """
         return pulumi.get(self, "ec2_config")
 

@@ -64,7 +64,9 @@ __all__ = [
     'DataSourceWebCrawlerLimits',
     'DataSourceWebDataSourceConfiguration',
     'DataSourceWebSourceConfiguration',
+    'FlowAgentFlowNodeConfiguration',
     'FlowAliasRoutingConfigurationListItem',
+    'FlowCollectorFlowNodeConfiguration',
     'FlowCondition',
     'FlowConditionFlowNodeConfiguration',
     'FlowConditionalConnectionConfiguration',
@@ -74,17 +76,23 @@ __all__ = [
     'FlowDataConnectionConfiguration',
     'FlowDefinition',
     'FlowInputFlowNodeConfiguration',
+    'FlowIteratorFlowNodeConfiguration',
     'FlowKnowledgeBaseFlowNodeConfiguration',
     'FlowLambdaFunctionFlowNodeConfiguration',
     'FlowLexFlowNodeConfiguration',
     'FlowNode',
     'FlowNodeConfiguration0Properties',
+    'FlowNodeConfiguration10Properties',
+    'FlowNodeConfiguration11Properties',
     'FlowNodeConfiguration1Properties',
     'FlowNodeConfiguration2Properties',
     'FlowNodeConfiguration3Properties',
     'FlowNodeConfiguration4Properties',
     'FlowNodeConfiguration5Properties',
     'FlowNodeConfiguration6Properties',
+    'FlowNodeConfiguration7Properties',
+    'FlowNodeConfiguration8Properties',
+    'FlowNodeConfiguration9Properties',
     'FlowNodeInput',
     'FlowNodeOutput',
     'FlowOutputFlowNodeConfiguration',
@@ -97,8 +105,17 @@ __all__ = [
     'FlowPromptInputVariable',
     'FlowPromptModelInferenceConfiguration',
     'FlowPromptTemplateConfigurationProperties',
+    'FlowRetrievalFlowNodeConfiguration',
+    'FlowRetrievalFlowNodeS3Configuration',
+    'FlowRetrievalFlowNodeServiceConfigurationProperties',
     'FlowS3Location',
+    'FlowStorageFlowNodeConfiguration',
+    'FlowStorageFlowNodeS3Configuration',
+    'FlowStorageFlowNodeServiceConfigurationProperties',
     'FlowTextPromptTemplateConfiguration',
+    'FlowValidation',
+    'FlowVersionAgentFlowNodeConfiguration',
+    'FlowVersionCollectorFlowNodeConfiguration',
     'FlowVersionConditionFlowNodeConfiguration',
     'FlowVersionFlowCondition',
     'FlowVersionFlowConditionalConnectionConfiguration',
@@ -109,15 +126,21 @@ __all__ = [
     'FlowVersionFlowDefinition',
     'FlowVersionFlowNode',
     'FlowVersionFlowNodeConfiguration0Properties',
+    'FlowVersionFlowNodeConfiguration10Properties',
+    'FlowVersionFlowNodeConfiguration11Properties',
     'FlowVersionFlowNodeConfiguration1Properties',
     'FlowVersionFlowNodeConfiguration2Properties',
     'FlowVersionFlowNodeConfiguration3Properties',
     'FlowVersionFlowNodeConfiguration4Properties',
     'FlowVersionFlowNodeConfiguration5Properties',
     'FlowVersionFlowNodeConfiguration6Properties',
+    'FlowVersionFlowNodeConfiguration7Properties',
+    'FlowVersionFlowNodeConfiguration8Properties',
+    'FlowVersionFlowNodeConfiguration9Properties',
     'FlowVersionFlowNodeInput',
     'FlowVersionFlowNodeOutput',
     'FlowVersionInputFlowNodeConfiguration',
+    'FlowVersionIteratorFlowNodeConfiguration',
     'FlowVersionKnowledgeBaseFlowNodeConfiguration',
     'FlowVersionLambdaFunctionFlowNodeConfiguration',
     'FlowVersionLexFlowNodeConfiguration',
@@ -131,6 +154,12 @@ __all__ = [
     'FlowVersionPromptInputVariable',
     'FlowVersionPromptModelInferenceConfiguration',
     'FlowVersionPromptTemplateConfigurationProperties',
+    'FlowVersionRetrievalFlowNodeConfiguration',
+    'FlowVersionRetrievalFlowNodeS3Configuration',
+    'FlowVersionRetrievalFlowNodeServiceConfigurationProperties',
+    'FlowVersionStorageFlowNodeConfiguration',
+    'FlowVersionStorageFlowNodeS3Configuration',
+    'FlowVersionStorageFlowNodeServiceConfigurationProperties',
     'FlowVersionTextPromptTemplateConfiguration',
     'GuardrailContentFilterConfig',
     'GuardrailContentPolicyConfig',
@@ -3003,6 +3032,45 @@ class DataSourceWebSourceConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowAgentFlowNodeConfiguration(dict):
+    """
+    Agent flow node configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentAliasArn":
+            suggest = "agent_alias_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowAgentFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowAgentFlowNodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowAgentFlowNodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_alias_arn: str):
+        """
+        Agent flow node configuration
+        :param str agent_alias_arn: Arn representation of the Agent Alias.
+        """
+        pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
+
+    @property
+    @pulumi.getter(name="agentAliasArn")
+    def agent_alias_arn(self) -> str:
+        """
+        Arn representation of the Agent Alias.
+        """
+        return pulumi.get(self, "agent_alias_arn")
+
+
+@pulumi.output_type
 class FlowAliasRoutingConfigurationListItem(dict):
     """
     Details about the routing configuration for a Flow alias.
@@ -3040,6 +3108,18 @@ class FlowAliasRoutingConfigurationListItem(dict):
         Version.
         """
         return pulumi.get(self, "flow_version")
+
+
+@pulumi.output_type
+class FlowCollectorFlowNodeConfiguration(dict):
+    """
+    Collector flow node configuration
+    """
+    def __init__(__self__):
+        """
+        Collector flow node configuration
+        """
+        pass
 
 
 @pulumi.output_type
@@ -3323,6 +3403,18 @@ class FlowInputFlowNodeConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowIteratorFlowNodeConfiguration(dict):
+    """
+    Iterator flow node configuration
+    """
+    def __init__(__self__):
+        """
+        Iterator flow node configuration
+        """
+        pass
+
+
+@pulumi.output_type
 class FlowKnowledgeBaseFlowNodeConfiguration(dict):
     """
     Knowledge base flow node configuration
@@ -3481,7 +3573,7 @@ class FlowNode(dict):
         Internal mixin for flow node
         :param str name: Name of a node in a flow
         :param 'FlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param Union['FlowNodeConfiguration0Properties', 'FlowNodeConfiguration1Properties', 'FlowNodeConfiguration2Properties', 'FlowNodeConfiguration3Properties', 'FlowNodeConfiguration4Properties', 'FlowNodeConfiguration5Properties', 'FlowNodeConfiguration6Properties'] configuration: Contains configurations for the node.
+        :param Union['FlowNodeConfiguration0Properties', 'FlowNodeConfiguration1Properties', 'FlowNodeConfiguration2Properties', 'FlowNodeConfiguration3Properties', 'FlowNodeConfiguration4Properties', 'FlowNodeConfiguration5Properties', 'FlowNodeConfiguration6Properties', 'FlowNodeConfiguration7Properties', 'FlowNodeConfiguration8Properties', 'FlowNodeConfiguration9Properties', 'FlowNodeConfiguration10Properties', 'FlowNodeConfiguration11Properties'] configuration: Contains configurations for the node.
         :param Sequence['FlowNodeInput'] inputs: List of node inputs in a flow
         :param Sequence['FlowNodeOutput'] outputs: List of node outputs in a flow
         """
@@ -3551,6 +3643,42 @@ class FlowNodeConfiguration0Properties(dict):
     @pulumi.getter
     def input(self) -> 'outputs.FlowInputFlowNodeConfiguration':
         return pulumi.get(self, "input")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration10Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 collector: 'outputs.FlowCollectorFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "collector", collector)
+
+    @property
+    @pulumi.getter
+    def collector(self) -> 'outputs.FlowCollectorFlowNodeConfiguration':
+        return pulumi.get(self, "collector")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration11Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 retrieval: 'outputs.FlowRetrievalFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "retrieval", retrieval)
+
+    @property
+    @pulumi.getter
+    def retrieval(self) -> 'outputs.FlowRetrievalFlowNodeConfiguration':
+        return pulumi.get(self, "retrieval")
 
 
 @pulumi.output_type
@@ -3693,6 +3821,60 @@ class FlowNodeConfiguration6Properties(dict):
     @pulumi.getter(name="lambdaFunction")
     def lambda_function(self) -> 'outputs.FlowLambdaFunctionFlowNodeConfiguration':
         return pulumi.get(self, "lambda_function")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration7Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 agent: 'outputs.FlowAgentFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "agent", agent)
+
+    @property
+    @pulumi.getter
+    def agent(self) -> 'outputs.FlowAgentFlowNodeConfiguration':
+        return pulumi.get(self, "agent")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration8Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 storage: 'outputs.FlowStorageFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def storage(self) -> 'outputs.FlowStorageFlowNodeConfiguration':
+        return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
+class FlowNodeConfiguration9Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 iterator: 'outputs.FlowIteratorFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "iterator", iterator)
+
+    @property
+    @pulumi.getter
+    def iterator(self) -> 'outputs.FlowIteratorFlowNodeConfiguration':
+        return pulumi.get(self, "iterator")
 
 
 @pulumi.output_type
@@ -4115,6 +4297,99 @@ class FlowPromptTemplateConfigurationProperties(dict):
 
 
 @pulumi.output_type
+class FlowRetrievalFlowNodeConfiguration(dict):
+    """
+    Retrieval flow node configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceConfiguration":
+            suggest = "service_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowRetrievalFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowRetrievalFlowNodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowRetrievalFlowNodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_configuration: 'outputs.FlowRetrievalFlowNodeServiceConfigurationProperties'):
+        """
+        Retrieval flow node configuration
+        """
+        pulumi.set(__self__, "service_configuration", service_configuration)
+
+    @property
+    @pulumi.getter(name="serviceConfiguration")
+    def service_configuration(self) -> 'outputs.FlowRetrievalFlowNodeServiceConfigurationProperties':
+        return pulumi.get(self, "service_configuration")
+
+
+@pulumi.output_type
+class FlowRetrievalFlowNodeS3Configuration(dict):
+    """
+    s3 Retrieval configuration for Retrieval node
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowRetrievalFlowNodeS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowRetrievalFlowNodeS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowRetrievalFlowNodeS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str):
+        """
+        s3 Retrieval configuration for Retrieval node
+        :param str bucket_name: bucket name of an s3 that will be used for Retrieval flow node configuration
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        bucket name of an s3 that will be used for Retrieval flow node configuration
+        """
+        return pulumi.get(self, "bucket_name")
+
+
+@pulumi.output_type
+class FlowRetrievalFlowNodeServiceConfigurationProperties(dict):
+    """
+    Retrieval service configuration for Retrieval node
+    """
+    def __init__(__self__, *,
+                 s3: Optional['outputs.FlowRetrievalFlowNodeS3Configuration'] = None):
+        """
+        Retrieval service configuration for Retrieval node
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.FlowRetrievalFlowNodeS3Configuration']:
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
 class FlowS3Location(dict):
     """
     A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
@@ -4157,6 +4432,99 @@ class FlowS3Location(dict):
         The version of the the S3 object to use
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class FlowStorageFlowNodeConfiguration(dict):
+    """
+    Storage flow node configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceConfiguration":
+            suggest = "service_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowStorageFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowStorageFlowNodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowStorageFlowNodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_configuration: 'outputs.FlowStorageFlowNodeServiceConfigurationProperties'):
+        """
+        Storage flow node configuration
+        """
+        pulumi.set(__self__, "service_configuration", service_configuration)
+
+    @property
+    @pulumi.getter(name="serviceConfiguration")
+    def service_configuration(self) -> 'outputs.FlowStorageFlowNodeServiceConfigurationProperties':
+        return pulumi.get(self, "service_configuration")
+
+
+@pulumi.output_type
+class FlowStorageFlowNodeS3Configuration(dict):
+    """
+    s3 storage configuration for storage node
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowStorageFlowNodeS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowStorageFlowNodeS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowStorageFlowNodeS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str):
+        """
+        s3 storage configuration for storage node
+        :param str bucket_name: bucket name of an s3 that will be used for storage flow node configuration
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        bucket name of an s3 that will be used for storage flow node configuration
+        """
+        return pulumi.get(self, "bucket_name")
+
+
+@pulumi.output_type
+class FlowStorageFlowNodeServiceConfigurationProperties(dict):
+    """
+    storage service configuration for storage node
+    """
+    def __init__(__self__, *,
+                 s3: Optional['outputs.FlowStorageFlowNodeS3Configuration'] = None):
+        """
+        storage service configuration for storage node
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.FlowStorageFlowNodeS3Configuration']:
+        return pulumi.get(self, "s3")
 
 
 @pulumi.output_type
@@ -4208,6 +4576,79 @@ class FlowTextPromptTemplateConfiguration(dict):
         List of input variables
         """
         return pulumi.get(self, "input_variables")
+
+
+@pulumi.output_type
+class FlowValidation(dict):
+    """
+    Validation for Flow
+    """
+    def __init__(__self__, *,
+                 message: str):
+        """
+        Validation for Flow
+        :param str message: validation message
+        """
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        validation message
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class FlowVersionAgentFlowNodeConfiguration(dict):
+    """
+    Agent flow node configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentAliasArn":
+            suggest = "agent_alias_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionAgentFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionAgentFlowNodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionAgentFlowNodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_alias_arn: str):
+        """
+        Agent flow node configuration
+        :param str agent_alias_arn: Arn representation of the Agent Alias.
+        """
+        pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
+
+    @property
+    @pulumi.getter(name="agentAliasArn")
+    def agent_alias_arn(self) -> str:
+        """
+        Arn representation of the Agent Alias.
+        """
+        return pulumi.get(self, "agent_alias_arn")
+
+
+@pulumi.output_type
+class FlowVersionCollectorFlowNodeConfiguration(dict):
+    """
+    Collector flow node configuration
+    """
+    def __init__(__self__):
+        """
+        Collector flow node configuration
+        """
+        pass
 
 
 @pulumi.output_type
@@ -4493,7 +4934,7 @@ class FlowVersionFlowNode(dict):
         Internal mixin for flow node
         :param str name: Name of a node in a flow
         :param 'FlowVersionFlowNodeType' type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param Union['FlowVersionFlowNodeConfiguration0Properties', 'FlowVersionFlowNodeConfiguration1Properties', 'FlowVersionFlowNodeConfiguration2Properties', 'FlowVersionFlowNodeConfiguration3Properties', 'FlowVersionFlowNodeConfiguration4Properties', 'FlowVersionFlowNodeConfiguration5Properties', 'FlowVersionFlowNodeConfiguration6Properties'] configuration: Contains configurations for the node.
+        :param Union['FlowVersionFlowNodeConfiguration0Properties', 'FlowVersionFlowNodeConfiguration1Properties', 'FlowVersionFlowNodeConfiguration2Properties', 'FlowVersionFlowNodeConfiguration3Properties', 'FlowVersionFlowNodeConfiguration4Properties', 'FlowVersionFlowNodeConfiguration5Properties', 'FlowVersionFlowNodeConfiguration6Properties', 'FlowVersionFlowNodeConfiguration7Properties', 'FlowVersionFlowNodeConfiguration8Properties', 'FlowVersionFlowNodeConfiguration9Properties', 'FlowVersionFlowNodeConfiguration10Properties', 'FlowVersionFlowNodeConfiguration11Properties'] configuration: Contains configurations for the node.
         :param Sequence['FlowVersionFlowNodeInput'] inputs: List of node inputs in a flow
         :param Sequence['FlowVersionFlowNodeOutput'] outputs: List of node outputs in a flow
         """
@@ -4563,6 +5004,42 @@ class FlowVersionFlowNodeConfiguration0Properties(dict):
     @pulumi.getter
     def input(self) -> 'outputs.FlowVersionInputFlowNodeConfiguration':
         return pulumi.get(self, "input")
+
+
+@pulumi.output_type
+class FlowVersionFlowNodeConfiguration10Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 iterator: 'outputs.FlowVersionIteratorFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "iterator", iterator)
+
+    @property
+    @pulumi.getter
+    def iterator(self) -> 'outputs.FlowVersionIteratorFlowNodeConfiguration':
+        return pulumi.get(self, "iterator")
+
+
+@pulumi.output_type
+class FlowVersionFlowNodeConfiguration11Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 collector: 'outputs.FlowVersionCollectorFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "collector", collector)
+
+    @property
+    @pulumi.getter
+    def collector(self) -> 'outputs.FlowVersionCollectorFlowNodeConfiguration':
+        return pulumi.get(self, "collector")
 
 
 @pulumi.output_type
@@ -4708,6 +5185,60 @@ class FlowVersionFlowNodeConfiguration6Properties(dict):
 
 
 @pulumi.output_type
+class FlowVersionFlowNodeConfiguration7Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 agent: 'outputs.FlowVersionAgentFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "agent", agent)
+
+    @property
+    @pulumi.getter
+    def agent(self) -> 'outputs.FlowVersionAgentFlowNodeConfiguration':
+        return pulumi.get(self, "agent")
+
+
+@pulumi.output_type
+class FlowVersionFlowNodeConfiguration8Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 storage: 'outputs.FlowVersionStorageFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def storage(self) -> 'outputs.FlowVersionStorageFlowNodeConfiguration':
+        return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
+class FlowVersionFlowNodeConfiguration9Properties(dict):
+    """
+    Node configuration in a flow
+    """
+    def __init__(__self__, *,
+                 retrieval: 'outputs.FlowVersionRetrievalFlowNodeConfiguration'):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "retrieval", retrieval)
+
+    @property
+    @pulumi.getter
+    def retrieval(self) -> 'outputs.FlowVersionRetrievalFlowNodeConfiguration':
+        return pulumi.get(self, "retrieval")
+
+
+@pulumi.output_type
 class FlowVersionFlowNodeInput(dict):
     """
     Input to a node in a flow
@@ -4792,6 +5323,18 @@ class FlowVersionInputFlowNodeConfiguration(dict):
     def __init__(__self__):
         """
         Input flow node configuration
+        """
+        pass
+
+
+@pulumi.output_type
+class FlowVersionIteratorFlowNodeConfiguration(dict):
+    """
+    Iterator flow node configuration
+    """
+    def __init__(__self__):
+        """
+        Iterator flow node configuration
         """
         pass
 
@@ -5280,6 +5823,192 @@ class FlowVersionPromptTemplateConfigurationProperties(dict):
     @pulumi.getter
     def text(self) -> 'outputs.FlowVersionTextPromptTemplateConfiguration':
         return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class FlowVersionRetrievalFlowNodeConfiguration(dict):
+    """
+    Retrieval flow node configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceConfiguration":
+            suggest = "service_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionRetrievalFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionRetrievalFlowNodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionRetrievalFlowNodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_configuration: 'outputs.FlowVersionRetrievalFlowNodeServiceConfigurationProperties'):
+        """
+        Retrieval flow node configuration
+        """
+        pulumi.set(__self__, "service_configuration", service_configuration)
+
+    @property
+    @pulumi.getter(name="serviceConfiguration")
+    def service_configuration(self) -> 'outputs.FlowVersionRetrievalFlowNodeServiceConfigurationProperties':
+        return pulumi.get(self, "service_configuration")
+
+
+@pulumi.output_type
+class FlowVersionRetrievalFlowNodeS3Configuration(dict):
+    """
+    s3 Retrieval configuration for Retrieval node
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionRetrievalFlowNodeS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionRetrievalFlowNodeS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionRetrievalFlowNodeS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str):
+        """
+        s3 Retrieval configuration for Retrieval node
+        :param str bucket_name: bucket name of an s3 that will be used for Retrieval flow node configuration
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        bucket name of an s3 that will be used for Retrieval flow node configuration
+        """
+        return pulumi.get(self, "bucket_name")
+
+
+@pulumi.output_type
+class FlowVersionRetrievalFlowNodeServiceConfigurationProperties(dict):
+    """
+    Retrieval service configuration for Retrieval node
+    """
+    def __init__(__self__, *,
+                 s3: Optional['outputs.FlowVersionRetrievalFlowNodeS3Configuration'] = None):
+        """
+        Retrieval service configuration for Retrieval node
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.FlowVersionRetrievalFlowNodeS3Configuration']:
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class FlowVersionStorageFlowNodeConfiguration(dict):
+    """
+    Storage flow node configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceConfiguration":
+            suggest = "service_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionStorageFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionStorageFlowNodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionStorageFlowNodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_configuration: 'outputs.FlowVersionStorageFlowNodeServiceConfigurationProperties'):
+        """
+        Storage flow node configuration
+        """
+        pulumi.set(__self__, "service_configuration", service_configuration)
+
+    @property
+    @pulumi.getter(name="serviceConfiguration")
+    def service_configuration(self) -> 'outputs.FlowVersionStorageFlowNodeServiceConfigurationProperties':
+        return pulumi.get(self, "service_configuration")
+
+
+@pulumi.output_type
+class FlowVersionStorageFlowNodeS3Configuration(dict):
+    """
+    s3 storage configuration for storage node
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionStorageFlowNodeS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionStorageFlowNodeS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionStorageFlowNodeS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str):
+        """
+        s3 storage configuration for storage node
+        :param str bucket_name: bucket name of an s3 that will be used for storage flow node configuration
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        bucket name of an s3 that will be used for storage flow node configuration
+        """
+        return pulumi.get(self, "bucket_name")
+
+
+@pulumi.output_type
+class FlowVersionStorageFlowNodeServiceConfigurationProperties(dict):
+    """
+    storage service configuration for storage node
+    """
+    def __init__(__self__, *,
+                 s3: Optional['outputs.FlowVersionStorageFlowNodeS3Configuration'] = None):
+        """
+        storage service configuration for storage node
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.FlowVersionStorageFlowNodeS3Configuration']:
+        return pulumi.get(self, "s3")
 
 
 @pulumi.output_type

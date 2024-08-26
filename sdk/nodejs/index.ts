@@ -263,6 +263,7 @@ import * as sqs from "./sqs";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
 import * as ssmincidents from "./ssmincidents";
+import * as ssmquicksetup from "./ssmquicksetup";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as supportapp from "./supportapp";
@@ -480,6 +481,7 @@ export {
     ssm,
     ssmcontacts,
     ssmincidents,
+    ssmquicksetup,
     sso,
     stepfunctions,
     supportapp,

@@ -111,6 +111,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("functionResponseTypes")]
         public Output<ImmutableArray<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem>> FunctionResponseTypes { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
@@ -341,6 +344,9 @@ namespace Pulumi.AwsNative.Lambda
             set => _functionResponseTypes = value;
         }
 
+        /// <summary>
+        /// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

@@ -6,8 +6,12 @@ from enum import Enum
 
 __all__ = [
     'ApplicationAttachmentsControlMode',
+    'ApplicationAutoSubscriptionStatus',
+    'ApplicationIdentityType',
+    'ApplicationPersonalizationControlMode',
     'ApplicationQAppsControlMode',
     'ApplicationStatus',
+    'ApplicationSubscriptionType',
     'DataSourceAttributeValueOperator',
     'DataSourceDocumentContentOperator',
     'DataSourceDocumentEnrichmentConditionOperator',
@@ -32,6 +36,22 @@ class ApplicationAttachmentsControlMode(str, Enum):
     DISABLED = "DISABLED"
 
 
+class ApplicationAutoSubscriptionStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ApplicationIdentityType(str, Enum):
+    AWS_IAM_IDP_SAML = "AWS_IAM_IDP_SAML"
+    AWS_IAM_IDP_OIDC = "AWS_IAM_IDP_OIDC"
+    AWS_IAM_IDC = "AWS_IAM_IDC"
+
+
+class ApplicationPersonalizationControlMode(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class ApplicationQAppsControlMode(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
@@ -43,6 +63,11 @@ class ApplicationStatus(str, Enum):
     DELETING = "DELETING"
     FAILED = "FAILED"
     UPDATING = "UPDATING"
+
+
+class ApplicationSubscriptionType(str, Enum):
+    Q_LITE = "Q_LITE"
+    Q_BUSINESS = "Q_BUSINESS"
 
 
 class DataSourceAttributeValueOperator(str, Enum):

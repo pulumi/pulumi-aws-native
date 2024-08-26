@@ -109,6 +109,9 @@ namespace Pulumi.AwsNative.CodeBuild
         /// Information about the VPC configuration that AWS CodeBuild accesses.
         /// </summary>
         public readonly Outputs.FleetVpcConfig? FleetVpcConfig;
+        /// <summary>
+        /// The Amazon Machine Image (AMI) of the compute fleet.
+        /// </summary>
         public readonly string? ImageId;
         /// <summary>
         /// The name of the compute fleet.

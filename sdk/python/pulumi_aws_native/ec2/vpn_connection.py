@@ -31,8 +31,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway at your end of the VPN connection.
         :param pulumi.Input[str] type: The type of VPN connection.
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection.
-               
-               Default: `false`
+                Default: ``false``
         :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
                 If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the VPN connection.
@@ -86,8 +85,7 @@ class VpnConnectionArgs:
     def enable_acceleration(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicate whether to enable acceleration for the VPN connection.
-
-        Default: `false`
+         Default: ``false``
         """
         return pulumi.get(self, "enable_acceleration")
 
@@ -183,8 +181,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway at your end of the VPN connection.
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection.
-               
-               Default: `false`
+                Default: ``false``
         :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
                 If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the VPN connection.
@@ -300,8 +297,7 @@ class VpnConnection(pulumi.CustomResource):
     def enable_acceleration(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicate whether to enable acceleration for the VPN connection.
-
-        Default: `false`
+         Default: ``false``
         """
         return pulumi.get(self, "enable_acceleration")
 

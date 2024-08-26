@@ -65,9 +65,6 @@ namespace Pulumi.AwsNative.Ivs
         /// Stage ARN is automatically generated on creation and assigned as the unique identifier.
         /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// An object representing a configuration to record a channel stream.
-        /// </summary>
         public readonly Outputs.StageAutoParticipantRecordingConfiguration? AutoParticipantRecordingConfiguration;
         /// <summary>
         /// Stage name

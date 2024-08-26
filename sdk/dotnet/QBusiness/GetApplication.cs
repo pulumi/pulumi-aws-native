@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// Configuration information for the file upload during chat feature.
         /// </summary>
         public readonly Outputs.ApplicationAttachmentsConfiguration? AttachmentsConfiguration;
+        public readonly Outputs.ApplicationAutoSubscriptionConfiguration? AutoSubscriptionConfiguration;
         /// <summary>
         /// The Unix timestamp when the Amazon Q Business application was created.
         /// </summary>
@@ -85,8 +86,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
         /// </summary>
         public readonly string? IdentityCenterApplicationArn;
+        public readonly Outputs.ApplicationPersonalizationConfiguration? PersonalizationConfiguration;
         /// <summary>
-        /// Configuration information about Amazon Q Apps. (preview feature)
+        /// Configuration information about Amazon Q Apps.
         /// </summary>
         public readonly Outputs.ApplicationQAppsConfiguration? QAppsConfiguration;
         /// <summary>
@@ -114,6 +116,8 @@ namespace Pulumi.AwsNative.QBusiness
 
             Outputs.ApplicationAttachmentsConfiguration? attachmentsConfiguration,
 
+            Outputs.ApplicationAutoSubscriptionConfiguration? autoSubscriptionConfiguration,
+
             string? createdAt,
 
             string? description,
@@ -121,6 +125,8 @@ namespace Pulumi.AwsNative.QBusiness
             string? displayName,
 
             string? identityCenterApplicationArn,
+
+            Outputs.ApplicationPersonalizationConfiguration? personalizationConfiguration,
 
             Outputs.ApplicationQAppsConfiguration? qAppsConfiguration,
 
@@ -135,10 +141,12 @@ namespace Pulumi.AwsNative.QBusiness
             ApplicationArn = applicationArn;
             ApplicationId = applicationId;
             AttachmentsConfiguration = attachmentsConfiguration;
+            AutoSubscriptionConfiguration = autoSubscriptionConfiguration;
             CreatedAt = createdAt;
             Description = description;
             DisplayName = displayName;
             IdentityCenterApplicationArn = identityCenterApplicationArn;
+            PersonalizationConfiguration = personalizationConfiguration;
             QAppsConfiguration = qAppsConfiguration;
             RoleArn = roleArn;
             Status = status;

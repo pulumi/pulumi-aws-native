@@ -62,7 +62,9 @@ __all__ = [
     'DataSourceWebCrawlerLimitsArgs',
     'DataSourceWebDataSourceConfigurationArgs',
     'DataSourceWebSourceConfigurationArgs',
+    'FlowAgentFlowNodeConfigurationArgs',
     'FlowAliasRoutingConfigurationListItemArgs',
+    'FlowCollectorFlowNodeConfigurationArgs',
     'FlowConditionFlowNodeConfigurationArgs',
     'FlowConditionalConnectionConfigurationArgs',
     'FlowConditionArgs',
@@ -72,16 +74,22 @@ __all__ = [
     'FlowDataConnectionConfigurationArgs',
     'FlowDefinitionArgs',
     'FlowInputFlowNodeConfigurationArgs',
+    'FlowIteratorFlowNodeConfigurationArgs',
     'FlowKnowledgeBaseFlowNodeConfigurationArgs',
     'FlowLambdaFunctionFlowNodeConfigurationArgs',
     'FlowLexFlowNodeConfigurationArgs',
     'FlowNodeConfiguration0PropertiesArgs',
+    'FlowNodeConfiguration10PropertiesArgs',
+    'FlowNodeConfiguration11PropertiesArgs',
     'FlowNodeConfiguration1PropertiesArgs',
     'FlowNodeConfiguration2PropertiesArgs',
     'FlowNodeConfiguration3PropertiesArgs',
     'FlowNodeConfiguration4PropertiesArgs',
     'FlowNodeConfiguration5PropertiesArgs',
     'FlowNodeConfiguration6PropertiesArgs',
+    'FlowNodeConfiguration7PropertiesArgs',
+    'FlowNodeConfiguration8PropertiesArgs',
+    'FlowNodeConfiguration9PropertiesArgs',
     'FlowNodeInputArgs',
     'FlowNodeOutputArgs',
     'FlowNodeArgs',
@@ -95,7 +103,13 @@ __all__ = [
     'FlowPromptInputVariableArgs',
     'FlowPromptModelInferenceConfigurationArgs',
     'FlowPromptTemplateConfigurationPropertiesArgs',
+    'FlowRetrievalFlowNodeConfigurationArgs',
+    'FlowRetrievalFlowNodeS3ConfigurationArgs',
+    'FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs',
     'FlowS3LocationArgs',
+    'FlowStorageFlowNodeConfigurationArgs',
+    'FlowStorageFlowNodeS3ConfigurationArgs',
+    'FlowStorageFlowNodeServiceConfigurationPropertiesArgs',
     'FlowTextPromptTemplateConfigurationArgs',
     'GuardrailContentFilterConfigArgs',
     'GuardrailContentPolicyConfigArgs',
@@ -2368,6 +2382,29 @@ class DataSourceWebSourceConfigurationArgs:
 
 
 @pulumi.input_type
+class FlowAgentFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 agent_alias_arn: pulumi.Input[str]):
+        """
+        Agent flow node configuration
+        :param pulumi.Input[str] agent_alias_arn: Arn representation of the Agent Alias.
+        """
+        pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
+
+    @property
+    @pulumi.getter(name="agentAliasArn")
+    def agent_alias_arn(self) -> pulumi.Input[str]:
+        """
+        Arn representation of the Agent Alias.
+        """
+        return pulumi.get(self, "agent_alias_arn")
+
+    @agent_alias_arn.setter
+    def agent_alias_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "agent_alias_arn", value)
+
+
+@pulumi.input_type
 class FlowAliasRoutingConfigurationListItemArgs:
     def __init__(__self__, *,
                  flow_version: Optional[pulumi.Input[str]] = None):
@@ -2389,6 +2426,15 @@ class FlowAliasRoutingConfigurationListItemArgs:
     @flow_version.setter
     def flow_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "flow_version", value)
+
+
+@pulumi.input_type
+class FlowCollectorFlowNodeConfigurationArgs:
+    def __init__(__self__):
+        """
+        Collector flow node configuration
+        """
+        pass
 
 
 @pulumi.input_type
@@ -2686,6 +2732,15 @@ class FlowInputFlowNodeConfigurationArgs:
 
 
 @pulumi.input_type
+class FlowIteratorFlowNodeConfigurationArgs:
+    def __init__(__self__):
+        """
+        Iterator flow node configuration
+        """
+        pass
+
+
+@pulumi.input_type
 class FlowKnowledgeBaseFlowNodeConfigurationArgs:
     def __init__(__self__, *,
                  knowledge_base_id: pulumi.Input[str],
@@ -2805,6 +2860,44 @@ class FlowNodeConfiguration0PropertiesArgs:
 
 
 @pulumi.input_type
+class FlowNodeConfiguration10PropertiesArgs:
+    def __init__(__self__, *,
+                 collector: pulumi.Input['FlowCollectorFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "collector", collector)
+
+    @property
+    @pulumi.getter
+    def collector(self) -> pulumi.Input['FlowCollectorFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "collector")
+
+    @collector.setter
+    def collector(self, value: pulumi.Input['FlowCollectorFlowNodeConfigurationArgs']):
+        pulumi.set(self, "collector", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration11PropertiesArgs:
+    def __init__(__self__, *,
+                 retrieval: pulumi.Input['FlowRetrievalFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "retrieval", retrieval)
+
+    @property
+    @pulumi.getter
+    def retrieval(self) -> pulumi.Input['FlowRetrievalFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "retrieval")
+
+    @retrieval.setter
+    def retrieval(self, value: pulumi.Input['FlowRetrievalFlowNodeConfigurationArgs']):
+        pulumi.set(self, "retrieval", value)
+
+
+@pulumi.input_type
 class FlowNodeConfiguration1PropertiesArgs:
     def __init__(__self__, *,
                  output: pulumi.Input['FlowOutputFlowNodeConfigurationArgs']):
@@ -2919,6 +3012,63 @@ class FlowNodeConfiguration6PropertiesArgs:
 
 
 @pulumi.input_type
+class FlowNodeConfiguration7PropertiesArgs:
+    def __init__(__self__, *,
+                 agent: pulumi.Input['FlowAgentFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "agent", agent)
+
+    @property
+    @pulumi.getter
+    def agent(self) -> pulumi.Input['FlowAgentFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "agent")
+
+    @agent.setter
+    def agent(self, value: pulumi.Input['FlowAgentFlowNodeConfigurationArgs']):
+        pulumi.set(self, "agent", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration8PropertiesArgs:
+    def __init__(__self__, *,
+                 storage: pulumi.Input['FlowStorageFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def storage(self) -> pulumi.Input['FlowStorageFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: pulumi.Input['FlowStorageFlowNodeConfigurationArgs']):
+        pulumi.set(self, "storage", value)
+
+
+@pulumi.input_type
+class FlowNodeConfiguration9PropertiesArgs:
+    def __init__(__self__, *,
+                 iterator: pulumi.Input['FlowIteratorFlowNodeConfigurationArgs']):
+        """
+        Node configuration in a flow
+        """
+        pulumi.set(__self__, "iterator", iterator)
+
+    @property
+    @pulumi.getter
+    def iterator(self) -> pulumi.Input['FlowIteratorFlowNodeConfigurationArgs']:
+        return pulumi.get(self, "iterator")
+
+    @iterator.setter
+    def iterator(self, value: pulumi.Input['FlowIteratorFlowNodeConfigurationArgs']):
+        pulumi.set(self, "iterator", value)
+
+
+@pulumi.input_type
 class FlowNodeInputArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[str],
@@ -3014,14 +3164,14 @@ class FlowNodeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input['FlowNodeType'],
-                 configuration: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs']]] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]] = None):
         """
         Internal mixin for flow node
         :param pulumi.Input[str] name: Name of a node in a flow
         :param pulumi.Input['FlowNodeType'] type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs']] configuration: Contains configurations for the node.
+        :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs']] configuration: Contains configurations for the node.
         :param pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]] inputs: List of node inputs in a flow
         :param pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]] outputs: List of node outputs in a flow
         """
@@ -3060,14 +3210,14 @@ class FlowNodeArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs']]]:
+    def configuration(self) -> Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs']]]:
         """
         Contains configurations for the node.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs']]]):
+    def configuration(self, value: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs']]]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -3392,6 +3542,68 @@ class FlowPromptTemplateConfigurationPropertiesArgs:
 
 
 @pulumi.input_type
+class FlowRetrievalFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 service_configuration: pulumi.Input['FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs']):
+        """
+        Retrieval flow node configuration
+        """
+        pulumi.set(__self__, "service_configuration", service_configuration)
+
+    @property
+    @pulumi.getter(name="serviceConfiguration")
+    def service_configuration(self) -> pulumi.Input['FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs']:
+        return pulumi.get(self, "service_configuration")
+
+    @service_configuration.setter
+    def service_configuration(self, value: pulumi.Input['FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs']):
+        pulumi.set(self, "service_configuration", value)
+
+
+@pulumi.input_type
+class FlowRetrievalFlowNodeS3ConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str]):
+        """
+        s3 Retrieval configuration for Retrieval node
+        :param pulumi.Input[str] bucket_name: bucket name of an s3 that will be used for Retrieval flow node configuration
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        """
+        bucket name of an s3 that will be used for Retrieval flow node configuration
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+
+@pulumi.input_type
+class FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgs']] = None):
+        """
+        Retrieval service configuration for Retrieval node
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgs']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgs']]):
+        pulumi.set(self, "s3", value)
+
+
+@pulumi.input_type
 class FlowS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
@@ -3443,6 +3655,68 @@ class FlowS3LocationArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class FlowStorageFlowNodeConfigurationArgs:
+    def __init__(__self__, *,
+                 service_configuration: pulumi.Input['FlowStorageFlowNodeServiceConfigurationPropertiesArgs']):
+        """
+        Storage flow node configuration
+        """
+        pulumi.set(__self__, "service_configuration", service_configuration)
+
+    @property
+    @pulumi.getter(name="serviceConfiguration")
+    def service_configuration(self) -> pulumi.Input['FlowStorageFlowNodeServiceConfigurationPropertiesArgs']:
+        return pulumi.get(self, "service_configuration")
+
+    @service_configuration.setter
+    def service_configuration(self, value: pulumi.Input['FlowStorageFlowNodeServiceConfigurationPropertiesArgs']):
+        pulumi.set(self, "service_configuration", value)
+
+
+@pulumi.input_type
+class FlowStorageFlowNodeS3ConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str]):
+        """
+        s3 storage configuration for storage node
+        :param pulumi.Input[str] bucket_name: bucket name of an s3 that will be used for storage flow node configuration
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        """
+        bucket name of an s3 that will be used for storage flow node configuration
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+
+@pulumi.input_type
+class FlowStorageFlowNodeServiceConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgs']] = None):
+        """
+        storage service configuration for storage node
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgs']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgs']]):
+        pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type

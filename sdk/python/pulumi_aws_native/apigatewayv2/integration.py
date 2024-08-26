@@ -30,7 +30,7 @@ class IntegrationArgs:
                  payload_format_version: Optional[pulumi.Input[str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['IntegrationResponseParameterMapArgs']]]] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  timeout_in_millis: Optional[pulumi.Input[int]] = None,
                  tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None):
@@ -50,7 +50,7 @@ class IntegrationArgs:
         :param pulumi.Input[str] payload_format_version: Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0 For all other integrations, 1.0 is the only supported value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: A key-value map specifying parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]] response_parameters: Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        :param pulumi.Input[Mapping[str, pulumi.Input['IntegrationResponseParameterMapArgs']]] response_parameters: Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration. Supported only for WebSocket APIs.
         :param pulumi.Input[int] timeout_in_millis: Custom timeout between 50 and 29000 milliseconds for WebSocket APIs and between 50 and 30000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
         :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
@@ -260,14 +260,14 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]]]:
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['IntegrationResponseParameterMapArgs']]]]:
         """
         Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]]]):
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['IntegrationResponseParameterMapArgs']]]]):
         pulumi.set(self, "response_parameters", value)
 
     @property
@@ -326,7 +326,7 @@ class Integration(pulumi.CustomResource):
                  payload_format_version: Optional[pulumi.Input[str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]]]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict']]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  timeout_in_millis: Optional[pulumi.Input[int]] = None,
                  tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
@@ -350,7 +350,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] payload_format_version: Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0 For all other integrations, 1.0 is the only supported value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: A key-value map specifying parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]]] response_parameters: Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict']]]] response_parameters: Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         :param pulumi.Input[str] template_selection_expression: The template selection expression for the integration. Supported only for WebSocket APIs.
         :param pulumi.Input[int] timeout_in_millis: Custom timeout between 50 and 29000 milliseconds for WebSocket APIs and between 50 and 30000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
         :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
@@ -393,7 +393,7 @@ class Integration(pulumi.CustomResource):
                  payload_format_version: Optional[pulumi.Input[str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]]]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict']]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  timeout_in_millis: Optional[pulumi.Input[int]] = None,
                  tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
@@ -596,7 +596,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, Sequence['outputs.IntegrationResponseParameter']]]]:
+    def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.IntegrationResponseParameterMap']]]:
         """
         Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         """

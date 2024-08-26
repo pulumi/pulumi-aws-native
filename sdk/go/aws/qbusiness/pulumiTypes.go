@@ -152,6 +152,158 @@ func (o ApplicationAttachmentsConfigurationPtrOutput) AttachmentsControlMode() A
 	}).(ApplicationAttachmentsControlModePtrOutput)
 }
 
+type ApplicationAutoSubscriptionConfiguration struct {
+	AutoSubscribe           ApplicationAutoSubscriptionStatus `pulumi:"autoSubscribe"`
+	DefaultSubscriptionType *ApplicationSubscriptionType      `pulumi:"defaultSubscriptionType"`
+}
+
+// ApplicationAutoSubscriptionConfigurationInput is an input type that accepts ApplicationAutoSubscriptionConfigurationArgs and ApplicationAutoSubscriptionConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationAutoSubscriptionConfigurationInput` via:
+//
+//	ApplicationAutoSubscriptionConfigurationArgs{...}
+type ApplicationAutoSubscriptionConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationAutoSubscriptionConfigurationOutput() ApplicationAutoSubscriptionConfigurationOutput
+	ToApplicationAutoSubscriptionConfigurationOutputWithContext(context.Context) ApplicationAutoSubscriptionConfigurationOutput
+}
+
+type ApplicationAutoSubscriptionConfigurationArgs struct {
+	AutoSubscribe           ApplicationAutoSubscriptionStatusInput `pulumi:"autoSubscribe"`
+	DefaultSubscriptionType ApplicationSubscriptionTypePtrInput    `pulumi:"defaultSubscriptionType"`
+}
+
+func (ApplicationAutoSubscriptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAutoSubscriptionConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationAutoSubscriptionConfigurationArgs) ToApplicationAutoSubscriptionConfigurationOutput() ApplicationAutoSubscriptionConfigurationOutput {
+	return i.ToApplicationAutoSubscriptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationAutoSubscriptionConfigurationArgs) ToApplicationAutoSubscriptionConfigurationOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAutoSubscriptionConfigurationOutput)
+}
+
+func (i ApplicationAutoSubscriptionConfigurationArgs) ToApplicationAutoSubscriptionConfigurationPtrOutput() ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return i.ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationAutoSubscriptionConfigurationArgs) ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAutoSubscriptionConfigurationOutput).ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationAutoSubscriptionConfigurationPtrInput is an input type that accepts ApplicationAutoSubscriptionConfigurationArgs, ApplicationAutoSubscriptionConfigurationPtr and ApplicationAutoSubscriptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationAutoSubscriptionConfigurationPtrInput` via:
+//
+//	        ApplicationAutoSubscriptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationAutoSubscriptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationAutoSubscriptionConfigurationPtrOutput() ApplicationAutoSubscriptionConfigurationPtrOutput
+	ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(context.Context) ApplicationAutoSubscriptionConfigurationPtrOutput
+}
+
+type applicationAutoSubscriptionConfigurationPtrType ApplicationAutoSubscriptionConfigurationArgs
+
+func ApplicationAutoSubscriptionConfigurationPtr(v *ApplicationAutoSubscriptionConfigurationArgs) ApplicationAutoSubscriptionConfigurationPtrInput {
+	return (*applicationAutoSubscriptionConfigurationPtrType)(v)
+}
+
+func (*applicationAutoSubscriptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationAutoSubscriptionConfiguration)(nil)).Elem()
+}
+
+func (i *applicationAutoSubscriptionConfigurationPtrType) ToApplicationAutoSubscriptionConfigurationPtrOutput() ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return i.ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationAutoSubscriptionConfigurationPtrType) ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAutoSubscriptionConfigurationPtrOutput)
+}
+
+type ApplicationAutoSubscriptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAutoSubscriptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAutoSubscriptionConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationAutoSubscriptionConfigurationOutput) ToApplicationAutoSubscriptionConfigurationOutput() ApplicationAutoSubscriptionConfigurationOutput {
+	return o
+}
+
+func (o ApplicationAutoSubscriptionConfigurationOutput) ToApplicationAutoSubscriptionConfigurationOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionConfigurationOutput {
+	return o
+}
+
+func (o ApplicationAutoSubscriptionConfigurationOutput) ToApplicationAutoSubscriptionConfigurationPtrOutput() ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return o.ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationAutoSubscriptionConfigurationOutput) ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationAutoSubscriptionConfiguration) *ApplicationAutoSubscriptionConfiguration {
+		return &v
+	}).(ApplicationAutoSubscriptionConfigurationPtrOutput)
+}
+
+func (o ApplicationAutoSubscriptionConfigurationOutput) AutoSubscribe() ApplicationAutoSubscriptionStatusOutput {
+	return o.ApplyT(func(v ApplicationAutoSubscriptionConfiguration) ApplicationAutoSubscriptionStatus {
+		return v.AutoSubscribe
+	}).(ApplicationAutoSubscriptionStatusOutput)
+}
+
+func (o ApplicationAutoSubscriptionConfigurationOutput) DefaultSubscriptionType() ApplicationSubscriptionTypePtrOutput {
+	return o.ApplyT(func(v ApplicationAutoSubscriptionConfiguration) *ApplicationSubscriptionType {
+		return v.DefaultSubscriptionType
+	}).(ApplicationSubscriptionTypePtrOutput)
+}
+
+type ApplicationAutoSubscriptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAutoSubscriptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationAutoSubscriptionConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationAutoSubscriptionConfigurationPtrOutput) ToApplicationAutoSubscriptionConfigurationPtrOutput() ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationAutoSubscriptionConfigurationPtrOutput) ToApplicationAutoSubscriptionConfigurationPtrOutputWithContext(ctx context.Context) ApplicationAutoSubscriptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationAutoSubscriptionConfigurationPtrOutput) Elem() ApplicationAutoSubscriptionConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationAutoSubscriptionConfiguration) ApplicationAutoSubscriptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationAutoSubscriptionConfiguration
+		return ret
+	}).(ApplicationAutoSubscriptionConfigurationOutput)
+}
+
+func (o ApplicationAutoSubscriptionConfigurationPtrOutput) AutoSubscribe() ApplicationAutoSubscriptionStatusPtrOutput {
+	return o.ApplyT(func(v *ApplicationAutoSubscriptionConfiguration) *ApplicationAutoSubscriptionStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoSubscribe
+	}).(ApplicationAutoSubscriptionStatusPtrOutput)
+}
+
+func (o ApplicationAutoSubscriptionConfigurationPtrOutput) DefaultSubscriptionType() ApplicationSubscriptionTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationAutoSubscriptionConfiguration) *ApplicationSubscriptionType {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSubscriptionType
+	}).(ApplicationSubscriptionTypePtrOutput)
+}
+
 type ApplicationEncryptionConfiguration struct {
 	// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -287,6 +439,141 @@ func (o ApplicationEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtr
 		}
 		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationPersonalizationConfiguration struct {
+	PersonalizationControlMode ApplicationPersonalizationControlMode `pulumi:"personalizationControlMode"`
+}
+
+// ApplicationPersonalizationConfigurationInput is an input type that accepts ApplicationPersonalizationConfigurationArgs and ApplicationPersonalizationConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationPersonalizationConfigurationInput` via:
+//
+//	ApplicationPersonalizationConfigurationArgs{...}
+type ApplicationPersonalizationConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationPersonalizationConfigurationOutput() ApplicationPersonalizationConfigurationOutput
+	ToApplicationPersonalizationConfigurationOutputWithContext(context.Context) ApplicationPersonalizationConfigurationOutput
+}
+
+type ApplicationPersonalizationConfigurationArgs struct {
+	PersonalizationControlMode ApplicationPersonalizationControlModeInput `pulumi:"personalizationControlMode"`
+}
+
+func (ApplicationPersonalizationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPersonalizationConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationPersonalizationConfigurationArgs) ToApplicationPersonalizationConfigurationOutput() ApplicationPersonalizationConfigurationOutput {
+	return i.ToApplicationPersonalizationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationPersonalizationConfigurationArgs) ToApplicationPersonalizationConfigurationOutputWithContext(ctx context.Context) ApplicationPersonalizationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPersonalizationConfigurationOutput)
+}
+
+func (i ApplicationPersonalizationConfigurationArgs) ToApplicationPersonalizationConfigurationPtrOutput() ApplicationPersonalizationConfigurationPtrOutput {
+	return i.ToApplicationPersonalizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationPersonalizationConfigurationArgs) ToApplicationPersonalizationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPersonalizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPersonalizationConfigurationOutput).ToApplicationPersonalizationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationPersonalizationConfigurationPtrInput is an input type that accepts ApplicationPersonalizationConfigurationArgs, ApplicationPersonalizationConfigurationPtr and ApplicationPersonalizationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationPersonalizationConfigurationPtrInput` via:
+//
+//	        ApplicationPersonalizationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationPersonalizationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationPersonalizationConfigurationPtrOutput() ApplicationPersonalizationConfigurationPtrOutput
+	ToApplicationPersonalizationConfigurationPtrOutputWithContext(context.Context) ApplicationPersonalizationConfigurationPtrOutput
+}
+
+type applicationPersonalizationConfigurationPtrType ApplicationPersonalizationConfigurationArgs
+
+func ApplicationPersonalizationConfigurationPtr(v *ApplicationPersonalizationConfigurationArgs) ApplicationPersonalizationConfigurationPtrInput {
+	return (*applicationPersonalizationConfigurationPtrType)(v)
+}
+
+func (*applicationPersonalizationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPersonalizationConfiguration)(nil)).Elem()
+}
+
+func (i *applicationPersonalizationConfigurationPtrType) ToApplicationPersonalizationConfigurationPtrOutput() ApplicationPersonalizationConfigurationPtrOutput {
+	return i.ToApplicationPersonalizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationPersonalizationConfigurationPtrType) ToApplicationPersonalizationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPersonalizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPersonalizationConfigurationPtrOutput)
+}
+
+type ApplicationPersonalizationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPersonalizationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPersonalizationConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationPersonalizationConfigurationOutput) ToApplicationPersonalizationConfigurationOutput() ApplicationPersonalizationConfigurationOutput {
+	return o
+}
+
+func (o ApplicationPersonalizationConfigurationOutput) ToApplicationPersonalizationConfigurationOutputWithContext(ctx context.Context) ApplicationPersonalizationConfigurationOutput {
+	return o
+}
+
+func (o ApplicationPersonalizationConfigurationOutput) ToApplicationPersonalizationConfigurationPtrOutput() ApplicationPersonalizationConfigurationPtrOutput {
+	return o.ToApplicationPersonalizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationPersonalizationConfigurationOutput) ToApplicationPersonalizationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPersonalizationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPersonalizationConfiguration) *ApplicationPersonalizationConfiguration {
+		return &v
+	}).(ApplicationPersonalizationConfigurationPtrOutput)
+}
+
+func (o ApplicationPersonalizationConfigurationOutput) PersonalizationControlMode() ApplicationPersonalizationControlModeOutput {
+	return o.ApplyT(func(v ApplicationPersonalizationConfiguration) ApplicationPersonalizationControlMode {
+		return v.PersonalizationControlMode
+	}).(ApplicationPersonalizationControlModeOutput)
+}
+
+type ApplicationPersonalizationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPersonalizationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPersonalizationConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationPersonalizationConfigurationPtrOutput) ToApplicationPersonalizationConfigurationPtrOutput() ApplicationPersonalizationConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationPersonalizationConfigurationPtrOutput) ToApplicationPersonalizationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPersonalizationConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationPersonalizationConfigurationPtrOutput) Elem() ApplicationPersonalizationConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationPersonalizationConfiguration) ApplicationPersonalizationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPersonalizationConfiguration
+		return ret
+	}).(ApplicationPersonalizationConfigurationOutput)
+}
+
+func (o ApplicationPersonalizationConfigurationPtrOutput) PersonalizationControlMode() ApplicationPersonalizationControlModePtrOutput {
+	return o.ApplyT(func(v *ApplicationPersonalizationConfiguration) *ApplicationPersonalizationControlMode {
+		if v == nil {
+			return nil
+		}
+		return &v.PersonalizationControlMode
+	}).(ApplicationPersonalizationControlModePtrOutput)
 }
 
 type ApplicationQAppsConfiguration struct {
@@ -3858,6 +4145,557 @@ type RetrieverTag struct {
 	Value string `pulumi:"value"`
 }
 
+type WebExperienceIdentityProviderConfiguration0Properties struct {
+	SamlConfiguration WebExperienceSamlProviderConfiguration `pulumi:"samlConfiguration"`
+}
+
+// WebExperienceIdentityProviderConfiguration0PropertiesInput is an input type that accepts WebExperienceIdentityProviderConfiguration0PropertiesArgs and WebExperienceIdentityProviderConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `WebExperienceIdentityProviderConfiguration0PropertiesInput` via:
+//
+//	WebExperienceIdentityProviderConfiguration0PropertiesArgs{...}
+type WebExperienceIdentityProviderConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToWebExperienceIdentityProviderConfiguration0PropertiesOutput() WebExperienceIdentityProviderConfiguration0PropertiesOutput
+	ToWebExperienceIdentityProviderConfiguration0PropertiesOutputWithContext(context.Context) WebExperienceIdentityProviderConfiguration0PropertiesOutput
+}
+
+type WebExperienceIdentityProviderConfiguration0PropertiesArgs struct {
+	SamlConfiguration WebExperienceSamlProviderConfigurationInput `pulumi:"samlConfiguration"`
+}
+
+func (WebExperienceIdentityProviderConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceIdentityProviderConfiguration0Properties)(nil)).Elem()
+}
+
+func (i WebExperienceIdentityProviderConfiguration0PropertiesArgs) ToWebExperienceIdentityProviderConfiguration0PropertiesOutput() WebExperienceIdentityProviderConfiguration0PropertiesOutput {
+	return i.ToWebExperienceIdentityProviderConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i WebExperienceIdentityProviderConfiguration0PropertiesArgs) ToWebExperienceIdentityProviderConfiguration0PropertiesOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceIdentityProviderConfiguration0PropertiesOutput)
+}
+
+func (i WebExperienceIdentityProviderConfiguration0PropertiesArgs) ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput {
+	return i.ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WebExperienceIdentityProviderConfiguration0PropertiesArgs) ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceIdentityProviderConfiguration0PropertiesOutput).ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(ctx)
+}
+
+// WebExperienceIdentityProviderConfiguration0PropertiesPtrInput is an input type that accepts WebExperienceIdentityProviderConfiguration0PropertiesArgs, WebExperienceIdentityProviderConfiguration0PropertiesPtr and WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `WebExperienceIdentityProviderConfiguration0PropertiesPtrInput` via:
+//
+//	        WebExperienceIdentityProviderConfiguration0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebExperienceIdentityProviderConfiguration0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput
+	ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(context.Context) WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput
+}
+
+type webExperienceIdentityProviderConfiguration0PropertiesPtrType WebExperienceIdentityProviderConfiguration0PropertiesArgs
+
+func WebExperienceIdentityProviderConfiguration0PropertiesPtr(v *WebExperienceIdentityProviderConfiguration0PropertiesArgs) WebExperienceIdentityProviderConfiguration0PropertiesPtrInput {
+	return (*webExperienceIdentityProviderConfiguration0PropertiesPtrType)(v)
+}
+
+func (*webExperienceIdentityProviderConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceIdentityProviderConfiguration0Properties)(nil)).Elem()
+}
+
+func (i *webExperienceIdentityProviderConfiguration0PropertiesPtrType) ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput {
+	return i.ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *webExperienceIdentityProviderConfiguration0PropertiesPtrType) ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput)
+}
+
+type WebExperienceIdentityProviderConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceIdentityProviderConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceIdentityProviderConfiguration0Properties)(nil)).Elem()
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesOutput) ToWebExperienceIdentityProviderConfiguration0PropertiesOutput() WebExperienceIdentityProviderConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesOutput) ToWebExperienceIdentityProviderConfiguration0PropertiesOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesOutput) ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput {
+	return o.ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesOutput) ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebExperienceIdentityProviderConfiguration0Properties) *WebExperienceIdentityProviderConfiguration0Properties {
+		return &v
+	}).(WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput)
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesOutput) SamlConfiguration() WebExperienceSamlProviderConfigurationOutput {
+	return o.ApplyT(func(v WebExperienceIdentityProviderConfiguration0Properties) WebExperienceSamlProviderConfiguration {
+		return v.SamlConfiguration
+	}).(WebExperienceSamlProviderConfigurationOutput)
+}
+
+type WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceIdentityProviderConfiguration0Properties)(nil)).Elem()
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput) ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput) ToWebExperienceIdentityProviderConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput) Elem() WebExperienceIdentityProviderConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *WebExperienceIdentityProviderConfiguration0Properties) WebExperienceIdentityProviderConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret WebExperienceIdentityProviderConfiguration0Properties
+		return ret
+	}).(WebExperienceIdentityProviderConfiguration0PropertiesOutput)
+}
+
+func (o WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput) SamlConfiguration() WebExperienceSamlProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebExperienceIdentityProviderConfiguration0Properties) *WebExperienceSamlProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SamlConfiguration
+	}).(WebExperienceSamlProviderConfigurationPtrOutput)
+}
+
+type WebExperienceIdentityProviderConfiguration1Properties struct {
+	OpenIdConnectConfiguration WebExperienceOpenIdConnectProviderConfiguration `pulumi:"openIdConnectConfiguration"`
+}
+
+// WebExperienceIdentityProviderConfiguration1PropertiesInput is an input type that accepts WebExperienceIdentityProviderConfiguration1PropertiesArgs and WebExperienceIdentityProviderConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `WebExperienceIdentityProviderConfiguration1PropertiesInput` via:
+//
+//	WebExperienceIdentityProviderConfiguration1PropertiesArgs{...}
+type WebExperienceIdentityProviderConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToWebExperienceIdentityProviderConfiguration1PropertiesOutput() WebExperienceIdentityProviderConfiguration1PropertiesOutput
+	ToWebExperienceIdentityProviderConfiguration1PropertiesOutputWithContext(context.Context) WebExperienceIdentityProviderConfiguration1PropertiesOutput
+}
+
+type WebExperienceIdentityProviderConfiguration1PropertiesArgs struct {
+	OpenIdConnectConfiguration WebExperienceOpenIdConnectProviderConfigurationInput `pulumi:"openIdConnectConfiguration"`
+}
+
+func (WebExperienceIdentityProviderConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceIdentityProviderConfiguration1Properties)(nil)).Elem()
+}
+
+func (i WebExperienceIdentityProviderConfiguration1PropertiesArgs) ToWebExperienceIdentityProviderConfiguration1PropertiesOutput() WebExperienceIdentityProviderConfiguration1PropertiesOutput {
+	return i.ToWebExperienceIdentityProviderConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i WebExperienceIdentityProviderConfiguration1PropertiesArgs) ToWebExperienceIdentityProviderConfiguration1PropertiesOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceIdentityProviderConfiguration1PropertiesOutput)
+}
+
+func (i WebExperienceIdentityProviderConfiguration1PropertiesArgs) ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput {
+	return i.ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WebExperienceIdentityProviderConfiguration1PropertiesArgs) ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceIdentityProviderConfiguration1PropertiesOutput).ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// WebExperienceIdentityProviderConfiguration1PropertiesPtrInput is an input type that accepts WebExperienceIdentityProviderConfiguration1PropertiesArgs, WebExperienceIdentityProviderConfiguration1PropertiesPtr and WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `WebExperienceIdentityProviderConfiguration1PropertiesPtrInput` via:
+//
+//	        WebExperienceIdentityProviderConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebExperienceIdentityProviderConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput
+	ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(context.Context) WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput
+}
+
+type webExperienceIdentityProviderConfiguration1PropertiesPtrType WebExperienceIdentityProviderConfiguration1PropertiesArgs
+
+func WebExperienceIdentityProviderConfiguration1PropertiesPtr(v *WebExperienceIdentityProviderConfiguration1PropertiesArgs) WebExperienceIdentityProviderConfiguration1PropertiesPtrInput {
+	return (*webExperienceIdentityProviderConfiguration1PropertiesPtrType)(v)
+}
+
+func (*webExperienceIdentityProviderConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceIdentityProviderConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *webExperienceIdentityProviderConfiguration1PropertiesPtrType) ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput {
+	return i.ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *webExperienceIdentityProviderConfiguration1PropertiesPtrType) ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput)
+}
+
+type WebExperienceIdentityProviderConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceIdentityProviderConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceIdentityProviderConfiguration1Properties)(nil)).Elem()
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesOutput) ToWebExperienceIdentityProviderConfiguration1PropertiesOutput() WebExperienceIdentityProviderConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesOutput) ToWebExperienceIdentityProviderConfiguration1PropertiesOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesOutput) ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput {
+	return o.ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesOutput) ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebExperienceIdentityProviderConfiguration1Properties) *WebExperienceIdentityProviderConfiguration1Properties {
+		return &v
+	}).(WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput)
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesOutput) OpenIdConnectConfiguration() WebExperienceOpenIdConnectProviderConfigurationOutput {
+	return o.ApplyT(func(v WebExperienceIdentityProviderConfiguration1Properties) WebExperienceOpenIdConnectProviderConfiguration {
+		return v.OpenIdConnectConfiguration
+	}).(WebExperienceOpenIdConnectProviderConfigurationOutput)
+}
+
+type WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceIdentityProviderConfiguration1Properties)(nil)).Elem()
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput) ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutput() WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput) ToWebExperienceIdentityProviderConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput) Elem() WebExperienceIdentityProviderConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *WebExperienceIdentityProviderConfiguration1Properties) WebExperienceIdentityProviderConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret WebExperienceIdentityProviderConfiguration1Properties
+		return ret
+	}).(WebExperienceIdentityProviderConfiguration1PropertiesOutput)
+}
+
+func (o WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput) OpenIdConnectConfiguration() WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebExperienceIdentityProviderConfiguration1Properties) *WebExperienceOpenIdConnectProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.OpenIdConnectConfiguration
+	}).(WebExperienceOpenIdConnectProviderConfigurationPtrOutput)
+}
+
+type WebExperienceOpenIdConnectProviderConfiguration struct {
+	SecretsArn  string `pulumi:"secretsArn"`
+	SecretsRole string `pulumi:"secretsRole"`
+}
+
+// WebExperienceOpenIdConnectProviderConfigurationInput is an input type that accepts WebExperienceOpenIdConnectProviderConfigurationArgs and WebExperienceOpenIdConnectProviderConfigurationOutput values.
+// You can construct a concrete instance of `WebExperienceOpenIdConnectProviderConfigurationInput` via:
+//
+//	WebExperienceOpenIdConnectProviderConfigurationArgs{...}
+type WebExperienceOpenIdConnectProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToWebExperienceOpenIdConnectProviderConfigurationOutput() WebExperienceOpenIdConnectProviderConfigurationOutput
+	ToWebExperienceOpenIdConnectProviderConfigurationOutputWithContext(context.Context) WebExperienceOpenIdConnectProviderConfigurationOutput
+}
+
+type WebExperienceOpenIdConnectProviderConfigurationArgs struct {
+	SecretsArn  pulumi.StringInput `pulumi:"secretsArn"`
+	SecretsRole pulumi.StringInput `pulumi:"secretsRole"`
+}
+
+func (WebExperienceOpenIdConnectProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceOpenIdConnectProviderConfiguration)(nil)).Elem()
+}
+
+func (i WebExperienceOpenIdConnectProviderConfigurationArgs) ToWebExperienceOpenIdConnectProviderConfigurationOutput() WebExperienceOpenIdConnectProviderConfigurationOutput {
+	return i.ToWebExperienceOpenIdConnectProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebExperienceOpenIdConnectProviderConfigurationArgs) ToWebExperienceOpenIdConnectProviderConfigurationOutputWithContext(ctx context.Context) WebExperienceOpenIdConnectProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceOpenIdConnectProviderConfigurationOutput)
+}
+
+func (i WebExperienceOpenIdConnectProviderConfigurationArgs) ToWebExperienceOpenIdConnectProviderConfigurationPtrOutput() WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return i.ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebExperienceOpenIdConnectProviderConfigurationArgs) ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceOpenIdConnectProviderConfigurationOutput).ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebExperienceOpenIdConnectProviderConfigurationPtrInput is an input type that accepts WebExperienceOpenIdConnectProviderConfigurationArgs, WebExperienceOpenIdConnectProviderConfigurationPtr and WebExperienceOpenIdConnectProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebExperienceOpenIdConnectProviderConfigurationPtrInput` via:
+//
+//	        WebExperienceOpenIdConnectProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebExperienceOpenIdConnectProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebExperienceOpenIdConnectProviderConfigurationPtrOutput() WebExperienceOpenIdConnectProviderConfigurationPtrOutput
+	ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(context.Context) WebExperienceOpenIdConnectProviderConfigurationPtrOutput
+}
+
+type webExperienceOpenIdConnectProviderConfigurationPtrType WebExperienceOpenIdConnectProviderConfigurationArgs
+
+func WebExperienceOpenIdConnectProviderConfigurationPtr(v *WebExperienceOpenIdConnectProviderConfigurationArgs) WebExperienceOpenIdConnectProviderConfigurationPtrInput {
+	return (*webExperienceOpenIdConnectProviderConfigurationPtrType)(v)
+}
+
+func (*webExperienceOpenIdConnectProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceOpenIdConnectProviderConfiguration)(nil)).Elem()
+}
+
+func (i *webExperienceOpenIdConnectProviderConfigurationPtrType) ToWebExperienceOpenIdConnectProviderConfigurationPtrOutput() WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return i.ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webExperienceOpenIdConnectProviderConfigurationPtrType) ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceOpenIdConnectProviderConfigurationPtrOutput)
+}
+
+type WebExperienceOpenIdConnectProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceOpenIdConnectProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceOpenIdConnectProviderConfiguration)(nil)).Elem()
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationOutput) ToWebExperienceOpenIdConnectProviderConfigurationOutput() WebExperienceOpenIdConnectProviderConfigurationOutput {
+	return o
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationOutput) ToWebExperienceOpenIdConnectProviderConfigurationOutputWithContext(ctx context.Context) WebExperienceOpenIdConnectProviderConfigurationOutput {
+	return o
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationOutput) ToWebExperienceOpenIdConnectProviderConfigurationPtrOutput() WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return o.ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationOutput) ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebExperienceOpenIdConnectProviderConfiguration) *WebExperienceOpenIdConnectProviderConfiguration {
+		return &v
+	}).(WebExperienceOpenIdConnectProviderConfigurationPtrOutput)
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationOutput) SecretsArn() pulumi.StringOutput {
+	return o.ApplyT(func(v WebExperienceOpenIdConnectProviderConfiguration) string { return v.SecretsArn }).(pulumi.StringOutput)
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationOutput) SecretsRole() pulumi.StringOutput {
+	return o.ApplyT(func(v WebExperienceOpenIdConnectProviderConfiguration) string { return v.SecretsRole }).(pulumi.StringOutput)
+}
+
+type WebExperienceOpenIdConnectProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceOpenIdConnectProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceOpenIdConnectProviderConfiguration)(nil)).Elem()
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationPtrOutput) ToWebExperienceOpenIdConnectProviderConfigurationPtrOutput() WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationPtrOutput) ToWebExperienceOpenIdConnectProviderConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceOpenIdConnectProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationPtrOutput) Elem() WebExperienceOpenIdConnectProviderConfigurationOutput {
+	return o.ApplyT(func(v *WebExperienceOpenIdConnectProviderConfiguration) WebExperienceOpenIdConnectProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebExperienceOpenIdConnectProviderConfiguration
+		return ret
+	}).(WebExperienceOpenIdConnectProviderConfigurationOutput)
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationPtrOutput) SecretsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebExperienceOpenIdConnectProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretsArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebExperienceOpenIdConnectProviderConfigurationPtrOutput) SecretsRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebExperienceOpenIdConnectProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretsRole
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebExperienceSamlProviderConfiguration struct {
+	AuthenticationUrl string `pulumi:"authenticationUrl"`
+}
+
+// WebExperienceSamlProviderConfigurationInput is an input type that accepts WebExperienceSamlProviderConfigurationArgs and WebExperienceSamlProviderConfigurationOutput values.
+// You can construct a concrete instance of `WebExperienceSamlProviderConfigurationInput` via:
+//
+//	WebExperienceSamlProviderConfigurationArgs{...}
+type WebExperienceSamlProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToWebExperienceSamlProviderConfigurationOutput() WebExperienceSamlProviderConfigurationOutput
+	ToWebExperienceSamlProviderConfigurationOutputWithContext(context.Context) WebExperienceSamlProviderConfigurationOutput
+}
+
+type WebExperienceSamlProviderConfigurationArgs struct {
+	AuthenticationUrl pulumi.StringInput `pulumi:"authenticationUrl"`
+}
+
+func (WebExperienceSamlProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceSamlProviderConfiguration)(nil)).Elem()
+}
+
+func (i WebExperienceSamlProviderConfigurationArgs) ToWebExperienceSamlProviderConfigurationOutput() WebExperienceSamlProviderConfigurationOutput {
+	return i.ToWebExperienceSamlProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebExperienceSamlProviderConfigurationArgs) ToWebExperienceSamlProviderConfigurationOutputWithContext(ctx context.Context) WebExperienceSamlProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceSamlProviderConfigurationOutput)
+}
+
+func (i WebExperienceSamlProviderConfigurationArgs) ToWebExperienceSamlProviderConfigurationPtrOutput() WebExperienceSamlProviderConfigurationPtrOutput {
+	return i.ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebExperienceSamlProviderConfigurationArgs) ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceSamlProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceSamlProviderConfigurationOutput).ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebExperienceSamlProviderConfigurationPtrInput is an input type that accepts WebExperienceSamlProviderConfigurationArgs, WebExperienceSamlProviderConfigurationPtr and WebExperienceSamlProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebExperienceSamlProviderConfigurationPtrInput` via:
+//
+//	        WebExperienceSamlProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebExperienceSamlProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebExperienceSamlProviderConfigurationPtrOutput() WebExperienceSamlProviderConfigurationPtrOutput
+	ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(context.Context) WebExperienceSamlProviderConfigurationPtrOutput
+}
+
+type webExperienceSamlProviderConfigurationPtrType WebExperienceSamlProviderConfigurationArgs
+
+func WebExperienceSamlProviderConfigurationPtr(v *WebExperienceSamlProviderConfigurationArgs) WebExperienceSamlProviderConfigurationPtrInput {
+	return (*webExperienceSamlProviderConfigurationPtrType)(v)
+}
+
+func (*webExperienceSamlProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceSamlProviderConfiguration)(nil)).Elem()
+}
+
+func (i *webExperienceSamlProviderConfigurationPtrType) ToWebExperienceSamlProviderConfigurationPtrOutput() WebExperienceSamlProviderConfigurationPtrOutput {
+	return i.ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webExperienceSamlProviderConfigurationPtrType) ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceSamlProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceSamlProviderConfigurationPtrOutput)
+}
+
+type WebExperienceSamlProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceSamlProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceSamlProviderConfiguration)(nil)).Elem()
+}
+
+func (o WebExperienceSamlProviderConfigurationOutput) ToWebExperienceSamlProviderConfigurationOutput() WebExperienceSamlProviderConfigurationOutput {
+	return o
+}
+
+func (o WebExperienceSamlProviderConfigurationOutput) ToWebExperienceSamlProviderConfigurationOutputWithContext(ctx context.Context) WebExperienceSamlProviderConfigurationOutput {
+	return o
+}
+
+func (o WebExperienceSamlProviderConfigurationOutput) ToWebExperienceSamlProviderConfigurationPtrOutput() WebExperienceSamlProviderConfigurationPtrOutput {
+	return o.ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceSamlProviderConfigurationOutput) ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceSamlProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebExperienceSamlProviderConfiguration) *WebExperienceSamlProviderConfiguration {
+		return &v
+	}).(WebExperienceSamlProviderConfigurationPtrOutput)
+}
+
+func (o WebExperienceSamlProviderConfigurationOutput) AuthenticationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v WebExperienceSamlProviderConfiguration) string { return v.AuthenticationUrl }).(pulumi.StringOutput)
+}
+
+type WebExperienceSamlProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceSamlProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceSamlProviderConfiguration)(nil)).Elem()
+}
+
+func (o WebExperienceSamlProviderConfigurationPtrOutput) ToWebExperienceSamlProviderConfigurationPtrOutput() WebExperienceSamlProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o WebExperienceSamlProviderConfigurationPtrOutput) ToWebExperienceSamlProviderConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceSamlProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o WebExperienceSamlProviderConfigurationPtrOutput) Elem() WebExperienceSamlProviderConfigurationOutput {
+	return o.ApplyT(func(v *WebExperienceSamlProviderConfiguration) WebExperienceSamlProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebExperienceSamlProviderConfiguration
+		return ret
+	}).(WebExperienceSamlProviderConfigurationOutput)
+}
+
+func (o WebExperienceSamlProviderConfigurationPtrOutput) AuthenticationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebExperienceSamlProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebExperienceTag struct {
 	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
 	Key string `pulumi:"key"`
@@ -3868,8 +4706,12 @@ type WebExperienceTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAttachmentsConfigurationInput)(nil)).Elem(), ApplicationAttachmentsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAttachmentsConfigurationPtrInput)(nil)).Elem(), ApplicationAttachmentsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoSubscriptionConfigurationInput)(nil)).Elem(), ApplicationAutoSubscriptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoSubscriptionConfigurationPtrInput)(nil)).Elem(), ApplicationAutoSubscriptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationInput)(nil)).Elem(), ApplicationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEncryptionConfigurationPtrInput)(nil)).Elem(), ApplicationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPersonalizationConfigurationInput)(nil)).Elem(), ApplicationPersonalizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPersonalizationConfigurationPtrInput)(nil)).Elem(), ApplicationPersonalizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsConfigurationInput)(nil)).Elem(), ApplicationQAppsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsConfigurationPtrInput)(nil)).Elem(), ApplicationQAppsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
@@ -3914,10 +4756,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverConfiguration1PropertiesInput)(nil)).Elem(), RetrieverConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverKendraIndexConfigurationInput)(nil)).Elem(), RetrieverKendraIndexConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverNativeIndexConfigurationInput)(nil)).Elem(), RetrieverNativeIndexConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceIdentityProviderConfiguration0PropertiesInput)(nil)).Elem(), WebExperienceIdentityProviderConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceIdentityProviderConfiguration0PropertiesPtrInput)(nil)).Elem(), WebExperienceIdentityProviderConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceIdentityProviderConfiguration1PropertiesInput)(nil)).Elem(), WebExperienceIdentityProviderConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceIdentityProviderConfiguration1PropertiesPtrInput)(nil)).Elem(), WebExperienceIdentityProviderConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceOpenIdConnectProviderConfigurationInput)(nil)).Elem(), WebExperienceOpenIdConnectProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceOpenIdConnectProviderConfigurationPtrInput)(nil)).Elem(), WebExperienceOpenIdConnectProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceSamlProviderConfigurationInput)(nil)).Elem(), WebExperienceSamlProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceSamlProviderConfigurationPtrInput)(nil)).Elem(), WebExperienceSamlProviderConfigurationArgs{})
 	pulumi.RegisterOutputType(ApplicationAttachmentsConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationAttachmentsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationAutoSubscriptionConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationAutoSubscriptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationPersonalizationConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationPersonalizationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationQAppsConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationQAppsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionOutput{})
@@ -3976,4 +4830,12 @@ func init() {
 	pulumi.RegisterOutputType(RetrieverKendraIndexConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RetrieverNativeIndexConfigurationOutput{})
 	pulumi.RegisterOutputType(RetrieverNativeIndexConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebExperienceIdentityProviderConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebExperienceIdentityProviderConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(WebExperienceIdentityProviderConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebExperienceOpenIdConnectProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(WebExperienceOpenIdConnectProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebExperienceSamlProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(WebExperienceSamlProviderConfigurationPtrOutput{})
 }

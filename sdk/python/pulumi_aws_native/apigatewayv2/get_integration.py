@@ -189,7 +189,7 @@ class GetIntegrationResult:
 
     @property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[Mapping[str, Sequence['outputs.IntegrationResponseParameter']]]:
+    def response_parameters(self) -> Optional[Mapping[str, 'outputs.IntegrationResponseParameterMap']]:
         """
         Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         """

@@ -89,6 +89,9 @@ export class Fleet extends pulumi.CustomResource {
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
     public readonly fleetVpcConfig!: pulumi.Output<outputs.codebuild.FleetVpcConfig | undefined>;
+    /**
+     * The Amazon Machine Image (AMI) of the compute fleet.
+     */
     public readonly imageId!: pulumi.Output<string | undefined>;
     /**
      * The name of the compute fleet.
@@ -200,6 +203,9 @@ export interface FleetArgs {
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
     fleetVpcConfig?: pulumi.Input<inputs.codebuild.FleetVpcConfigArgs>;
+    /**
+     * The Amazon Machine Image (AMI) of the compute fleet.
+     */
     imageId?: pulumi.Input<string>;
     /**
      * The name of the compute fleet.

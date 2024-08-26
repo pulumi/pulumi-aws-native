@@ -75,6 +75,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams and SQS) A list of current response type enums applied to the event source mapping.
                 Valid Values: ``ReportBatchItemFailures``
+        :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
                  *Default (, , event sources)*: 0
                  *Default (, Kafka, , event sources)*: 500 ms
@@ -289,6 +290,9 @@ class EventSourceMappingArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -534,6 +538,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams and SQS) A list of current response type enums applied to the event source mapping.
                 Valid Values: ``ReportBatchItemFailures``
+        :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
                  *Default (, , event sources)*: 0
                  *Default (, Kafka, , event sources)*: 500 ms
@@ -811,6 +816,9 @@ class EventSourceMapping(pulumi.CustomResource):
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @property

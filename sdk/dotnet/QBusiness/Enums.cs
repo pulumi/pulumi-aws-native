@@ -36,6 +36,91 @@ namespace Pulumi.AwsNative.QBusiness
     }
 
     [EnumType]
+    public readonly struct ApplicationAutoSubscriptionStatus : IEquatable<ApplicationAutoSubscriptionStatus>
+    {
+        private readonly string _value;
+
+        private ApplicationAutoSubscriptionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationAutoSubscriptionStatus Enabled { get; } = new ApplicationAutoSubscriptionStatus("ENABLED");
+        public static ApplicationAutoSubscriptionStatus Disabled { get; } = new ApplicationAutoSubscriptionStatus("DISABLED");
+
+        public static bool operator ==(ApplicationAutoSubscriptionStatus left, ApplicationAutoSubscriptionStatus right) => left.Equals(right);
+        public static bool operator !=(ApplicationAutoSubscriptionStatus left, ApplicationAutoSubscriptionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationAutoSubscriptionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationAutoSubscriptionStatus other && Equals(other);
+        public bool Equals(ApplicationAutoSubscriptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ApplicationIdentityType : IEquatable<ApplicationIdentityType>
+    {
+        private readonly string _value;
+
+        private ApplicationIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationIdentityType AwsIamIdpSaml { get; } = new ApplicationIdentityType("AWS_IAM_IDP_SAML");
+        public static ApplicationIdentityType AwsIamIdpOidc { get; } = new ApplicationIdentityType("AWS_IAM_IDP_OIDC");
+        public static ApplicationIdentityType AwsIamIdc { get; } = new ApplicationIdentityType("AWS_IAM_IDC");
+
+        public static bool operator ==(ApplicationIdentityType left, ApplicationIdentityType right) => left.Equals(right);
+        public static bool operator !=(ApplicationIdentityType left, ApplicationIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationIdentityType other && Equals(other);
+        public bool Equals(ApplicationIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ApplicationPersonalizationControlMode : IEquatable<ApplicationPersonalizationControlMode>
+    {
+        private readonly string _value;
+
+        private ApplicationPersonalizationControlMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationPersonalizationControlMode Enabled { get; } = new ApplicationPersonalizationControlMode("ENABLED");
+        public static ApplicationPersonalizationControlMode Disabled { get; } = new ApplicationPersonalizationControlMode("DISABLED");
+
+        public static bool operator ==(ApplicationPersonalizationControlMode left, ApplicationPersonalizationControlMode right) => left.Equals(right);
+        public static bool operator !=(ApplicationPersonalizationControlMode left, ApplicationPersonalizationControlMode right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationPersonalizationControlMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationPersonalizationControlMode other && Equals(other);
+        public bool Equals(ApplicationPersonalizationControlMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ApplicationQAppsControlMode : IEquatable<ApplicationQAppsControlMode>
     {
         private readonly string _value;
@@ -87,6 +172,34 @@ namespace Pulumi.AwsNative.QBusiness
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ApplicationStatus other && Equals(other);
         public bool Equals(ApplicationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ApplicationSubscriptionType : IEquatable<ApplicationSubscriptionType>
+    {
+        private readonly string _value;
+
+        private ApplicationSubscriptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationSubscriptionType QLite { get; } = new ApplicationSubscriptionType("Q_LITE");
+        public static ApplicationSubscriptionType QBusiness { get; } = new ApplicationSubscriptionType("Q_BUSINESS");
+
+        public static bool operator ==(ApplicationSubscriptionType left, ApplicationSubscriptionType right) => left.Equals(right);
+        public static bool operator !=(ApplicationSubscriptionType left, ApplicationSubscriptionType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationSubscriptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationSubscriptionType other && Equals(other);
+        public bool Equals(ApplicationSubscriptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

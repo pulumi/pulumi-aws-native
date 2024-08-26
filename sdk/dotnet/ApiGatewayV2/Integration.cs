@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         /// </summary>
         [Output("responseParameters")]
-        public Output<ImmutableDictionary<string, ImmutableArray<Outputs.IntegrationResponseParameter>>?> ResponseParameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.IntegrationResponseParameterMap>?> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
         /// The template selection expression for the integration. Supported only for WebSocket APIs.
@@ -275,14 +275,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         }
 
         [Input("responseParameters")]
-        private InputMap<ImmutableArray<Inputs.IntegrationResponseParameterArgs>>? _responseParameters;
+        private InputMap<Inputs.IntegrationResponseParameterMapArgs>? _responseParameters;
 
         /// <summary>
         /// Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         /// </summary>
-        public InputMap<ImmutableArray<Inputs.IntegrationResponseParameterArgs>> ResponseParameters
+        public InputMap<Inputs.IntegrationResponseParameterMapArgs> ResponseParameters
         {
-            get => _responseParameters ?? (_responseParameters = new InputMap<ImmutableArray<Inputs.IntegrationResponseParameterArgs>>());
+            get => _responseParameters ?? (_responseParameters = new InputMap<Inputs.IntegrationResponseParameterMapArgs>());
             set => _responseParameters = value;
         }
 

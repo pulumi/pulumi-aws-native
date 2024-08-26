@@ -283,6 +283,7 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
+            __props__.__dict__["validations"] = None
             __props__.__dict__["version"] = None
         super(Flow, __self__).__init__(
             'aws-native:bedrock:Flow',
@@ -321,6 +322,7 @@ class Flow(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["test_alias_tags"] = None
         __props__.__dict__["updated_at"] = None
+        __props__.__dict__["validations"] = None
         __props__.__dict__["version"] = None
         return Flow(resource_name, opts=opts, __props__=__props__)
 
@@ -450,6 +452,11 @@ class Flow(pulumi.CustomResource):
         Time Stamp.
         """
         return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter
+    def validations(self) -> pulumi.Output[Sequence['outputs.FlowValidation']]:
+        return pulumi.get(self, "validations")
 
     @property
     @pulumi.getter

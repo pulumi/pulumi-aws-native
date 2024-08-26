@@ -32,12 +32,15 @@ type LookupPromptVersionResult struct {
 	Arn *string `pulumi:"arn"`
 	// Time Stamp.
 	CreatedAt *string `pulumi:"createdAt"`
+	// A KMS key ARN
+	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
 	// Name for a variant.
 	DefaultVariant *string `pulumi:"defaultVariant"`
 	// Name for a prompt resource.
 	Name *string `pulumi:"name"`
 	// Identifier for a Prompt
-	PromptId *string `pulumi:"promptId"`
+	PromptId *string           `pulumi:"promptId"`
+	Tags     map[string]string `pulumi:"tags"`
 	// Time Stamp.
 	UpdatedAt *string `pulumi:"updatedAt"`
 	// List of prompt variants
@@ -92,6 +95,11 @@ func (o LookupPromptVersionResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPromptVersionResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// A KMS key ARN
+func (o LookupPromptVersionResultOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPromptVersionResult) *string { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
 // Name for a variant.
 func (o LookupPromptVersionResultOutput) DefaultVariant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPromptVersionResult) *string { return v.DefaultVariant }).(pulumi.StringPtrOutput)
@@ -105,6 +113,10 @@ func (o LookupPromptVersionResultOutput) Name() pulumi.StringPtrOutput {
 // Identifier for a Prompt
 func (o LookupPromptVersionResultOutput) PromptId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPromptVersionResult) *string { return v.PromptId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPromptVersionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPromptVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Time Stamp.

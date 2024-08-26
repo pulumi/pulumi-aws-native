@@ -28,6 +28,16 @@
           }
         },
         "required" : [ "TimestreamConfig" ]
+      }, {
+        "type" : "object",
+        "title" : "MqttTopicConfig",
+        "properties" : {
+          "MqttTopicConfig" : {
+            "$ref" : "#/definitions/MqttTopicConfig"
+          }
+        },
+        "required" : [ "MqttTopicConfig" ],
+        "additionalProperties" : false
       } ]
     },
     "S3Config" : {
@@ -73,6 +83,25 @@
         }
       },
       "required" : [ "TimestreamTableArn", "ExecutionRoleArn" ]
+    },
+    "MqttTopicConfig" : {
+      "type" : "object",
+      "properties" : {
+        "MqttTopicArn" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 20,
+          "pattern" : "^arn:.*"
+        },
+        "ExecutionRoleArn" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 20,
+          "pattern" : "^arn:(aws[a-zA-Z0-9-]*):iam::(\\d{12})?:(role((\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F))[\\w+=,.@-]+)$"
+        }
+      },
+      "required" : [ "ExecutionRoleArn", "MqttTopicArn" ],
+      "additionalProperties" : false
     },
     "UpdateCampaignAction" : {
       "type" : "string",

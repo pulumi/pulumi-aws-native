@@ -58,7 +58,8 @@ type LookupFlowResult struct {
 	Tags          map[string]string `pulumi:"tags"`
 	TestAliasTags map[string]string `pulumi:"testAliasTags"`
 	// Time Stamp.
-	UpdatedAt *string `pulumi:"updatedAt"`
+	UpdatedAt   *string          `pulumi:"updatedAt"`
+	Validations []FlowValidation `pulumi:"validations"`
 	// Draft Version.
 	Version *string `pulumi:"version"`
 }
@@ -164,6 +165,10 @@ func (o LookupFlowResultOutput) TestAliasTags() pulumi.StringMapOutput {
 // Time Stamp.
 func (o LookupFlowResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFlowResultOutput) Validations() FlowValidationArrayOutput {
+	return o.ApplyT(func(v LookupFlowResult) []FlowValidation { return v.Validations }).(FlowValidationArrayOutput)
 }
 
 // Draft Version.

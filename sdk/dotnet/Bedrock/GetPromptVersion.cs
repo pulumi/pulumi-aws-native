@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// A KMS key ARN
+        /// </summary>
+        public readonly string? CustomerEncryptionKeyArn;
+        /// <summary>
         /// Name for a variant.
         /// </summary>
         public readonly string? DefaultVariant;
@@ -77,6 +81,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// Identifier for a Prompt
         /// </summary>
         public readonly string? PromptId;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Time Stamp.
         /// </summary>
@@ -96,11 +101,15 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? createdAt,
 
+            string? customerEncryptionKeyArn,
+
             string? defaultVariant,
 
             string? name,
 
             string? promptId,
+
+            ImmutableDictionary<string, string>? tags,
 
             string? updatedAt,
 
@@ -110,9 +119,11 @@ namespace Pulumi.AwsNative.Bedrock
         {
             Arn = arn;
             CreatedAt = createdAt;
+            CustomerEncryptionKeyArn = customerEncryptionKeyArn;
             DefaultVariant = defaultVariant;
             Name = name;
             PromptId = promptId;
+            Tags = tags;
             UpdatedAt = updatedAt;
             Variants = variants;
             Version = version;

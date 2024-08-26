@@ -1008,6 +1008,103 @@ func (o IntegrationResponseParameterArrayOutput) Index(i pulumi.IntInput) Integr
 	}).(IntegrationResponseParameterOutput)
 }
 
+// map of response parameter lists
+type IntegrationResponseParameterMap struct {
+	ResponseParameters []IntegrationResponseParameter `pulumi:"responseParameters"`
+}
+
+// IntegrationResponseParameterMapInput is an input type that accepts IntegrationResponseParameterMap and IntegrationResponseParameterMapOutput values.
+// You can construct a concrete instance of `IntegrationResponseParameterMapInput` via:
+//
+//	IntegrationResponseParameterMap{ "key": IntegrationResponseParameterArgs{...} }
+type IntegrationResponseParameterMapInput interface {
+	pulumi.Input
+
+	ToIntegrationResponseParameterMapOutput() IntegrationResponseParameterMapOutput
+	ToIntegrationResponseParameterMapOutputWithContext(context.Context) IntegrationResponseParameterMapOutput
+}
+
+// map of response parameter lists
+type IntegrationResponseParameterMapArgs struct {
+	ResponseParameters IntegrationResponseParameterArrayInput `pulumi:"responseParameters"`
+}
+
+func (IntegrationResponseParameterMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationResponseParameterMap)(nil)).Elem()
+}
+
+func (i IntegrationResponseParameterMapArgs) ToIntegrationResponseParameterMapOutput() IntegrationResponseParameterMapOutput {
+	return i.ToIntegrationResponseParameterMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationResponseParameterMapArgs) ToIntegrationResponseParameterMapOutputWithContext(ctx context.Context) IntegrationResponseParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseParameterMapOutput)
+}
+
+// IntegrationResponseParameterMapMapInput is an input type that accepts IntegrationResponseParameterMapMap and IntegrationResponseParameterMapMapOutput values.
+// You can construct a concrete instance of `IntegrationResponseParameterMapMapInput` via:
+//
+//	IntegrationResponseParameterMapMap{ "key": IntegrationResponseParameterMapArgs{...} }
+type IntegrationResponseParameterMapMapInput interface {
+	pulumi.Input
+
+	ToIntegrationResponseParameterMapMapOutput() IntegrationResponseParameterMapMapOutput
+	ToIntegrationResponseParameterMapMapOutputWithContext(context.Context) IntegrationResponseParameterMapMapOutput
+}
+
+type IntegrationResponseParameterMapMap map[string]IntegrationResponseParameterMapInput
+
+func (IntegrationResponseParameterMapMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IntegrationResponseParameterMap)(nil)).Elem()
+}
+
+func (i IntegrationResponseParameterMapMap) ToIntegrationResponseParameterMapMapOutput() IntegrationResponseParameterMapMapOutput {
+	return i.ToIntegrationResponseParameterMapMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationResponseParameterMapMap) ToIntegrationResponseParameterMapMapOutputWithContext(ctx context.Context) IntegrationResponseParameterMapMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseParameterMapMapOutput)
+}
+
+// map of response parameter lists
+type IntegrationResponseParameterMapOutput struct{ *pulumi.OutputState }
+
+func (IntegrationResponseParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationResponseParameterMap)(nil)).Elem()
+}
+
+func (o IntegrationResponseParameterMapOutput) ToIntegrationResponseParameterMapOutput() IntegrationResponseParameterMapOutput {
+	return o
+}
+
+func (o IntegrationResponseParameterMapOutput) ToIntegrationResponseParameterMapOutputWithContext(ctx context.Context) IntegrationResponseParameterMapOutput {
+	return o
+}
+
+func (o IntegrationResponseParameterMapOutput) ResponseParameters() IntegrationResponseParameterArrayOutput {
+	return o.ApplyT(func(v IntegrationResponseParameterMap) []IntegrationResponseParameter { return v.ResponseParameters }).(IntegrationResponseParameterArrayOutput)
+}
+
+type IntegrationResponseParameterMapMapOutput struct{ *pulumi.OutputState }
+
+func (IntegrationResponseParameterMapMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IntegrationResponseParameterMap)(nil)).Elem()
+}
+
+func (o IntegrationResponseParameterMapMapOutput) ToIntegrationResponseParameterMapMapOutput() IntegrationResponseParameterMapMapOutput {
+	return o
+}
+
+func (o IntegrationResponseParameterMapMapOutput) ToIntegrationResponseParameterMapMapOutputWithContext(ctx context.Context) IntegrationResponseParameterMapMapOutput {
+	return o
+}
+
+func (o IntegrationResponseParameterMapMapOutput) MapIndex(k pulumi.StringInput) IntegrationResponseParameterMapOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationResponseParameterMap {
+		return vs[0].(map[string]IntegrationResponseParameterMap)[vs[1].(string)]
+	}).(IntegrationResponseParameterMapOutput)
+}
+
 // The TlsConfig property specifies the TLS configuration for a private integration. Supported only for HTTP APIs.
 type IntegrationTlsConfig struct {
 	// If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
@@ -1342,51 +1439,6 @@ func (o RouteResponseParameterConstraintsMapOutput) MapIndex(k pulumi.StringInpu
 	}).(RouteResponseParameterConstraintsOutput)
 }
 
-type IntegrationResponseParameterArrayMap map[string]IntegrationResponseParameterArrayInput
-
-func (IntegrationResponseParameterArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string][]IntegrationResponseParameter)(nil)).Elem()
-}
-
-func (i IntegrationResponseParameterArrayMap) ToIntegrationResponseParameterArrayMapOutput() IntegrationResponseParameterArrayMapOutput {
-	return i.ToIntegrationResponseParameterArrayMapOutputWithContext(context.Background())
-}
-
-func (i IntegrationResponseParameterArrayMap) ToIntegrationResponseParameterArrayMapOutputWithContext(ctx context.Context) IntegrationResponseParameterArrayMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseParameterArrayMapOutput)
-}
-
-// IntegrationResponseParameterArrayMapInput is an input type that accepts IntegrationResponseParameterArrayMap and IntegrationResponseParameterArrayMapOutput values.
-// You can construct a concrete instance of `IntegrationResponseParameterArrayMapInput` via:
-//
-//	IntegrationResponseParameterArrayMap{ "key": IntegrationResponseParameterArray{ IntegrationResponseParameterArgs{...} } }
-type IntegrationResponseParameterArrayMapInput interface {
-	pulumi.Input
-
-	ToIntegrationResponseParameterArrayMapOutput() IntegrationResponseParameterArrayMapOutput
-	ToIntegrationResponseParameterArrayMapOutputWithContext(context.Context) IntegrationResponseParameterArrayMapOutput
-}
-
-type IntegrationResponseParameterArrayMapOutput struct{ *pulumi.OutputState }
-
-func (IntegrationResponseParameterArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string][]IntegrationResponseParameter)(nil)).Elem()
-}
-
-func (o IntegrationResponseParameterArrayMapOutput) ToIntegrationResponseParameterArrayMapOutput() IntegrationResponseParameterArrayMapOutput {
-	return o
-}
-
-func (o IntegrationResponseParameterArrayMapOutput) ToIntegrationResponseParameterArrayMapOutputWithContext(ctx context.Context) IntegrationResponseParameterArrayMapOutput {
-	return o
-}
-
-func (o IntegrationResponseParameterArrayMapOutput) MapIndex(k pulumi.StringInput) IntegrationResponseParameterArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []IntegrationResponseParameter {
-		return vs[0].(map[string][]IntegrationResponseParameter)[vs[1].(string)]
-	}).(IntegrationResponseParameterArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiBodyS3LocationInput)(nil)).Elem(), ApiBodyS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiBodyS3LocationPtrInput)(nil)).Elem(), ApiBodyS3LocationArgs{})
@@ -1400,13 +1452,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationPtrInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseParameterInput)(nil)).Elem(), IntegrationResponseParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseParameterArrayInput)(nil)).Elem(), IntegrationResponseParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseParameterMapInput)(nil)).Elem(), IntegrationResponseParameterMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseParameterMapMapInput)(nil)).Elem(), IntegrationResponseParameterMapMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigPtrInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteParameterConstraintsInput)(nil)).Elem(), RouteParameterConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteParameterConstraintsArrayInput)(nil)).Elem(), RouteParameterConstraintsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsInput)(nil)).Elem(), RouteResponseParameterConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsMapInput)(nil)).Elem(), RouteResponseParameterConstraintsMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseParameterArrayMapInput)(nil)).Elem(), IntegrationResponseParameterArrayMap{})
 	pulumi.RegisterOutputType(ApiBodyS3LocationOutput{})
 	pulumi.RegisterOutputType(ApiBodyS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ApiCorsOutput{})
@@ -1419,11 +1472,12 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationResponseParameterOutput{})
 	pulumi.RegisterOutputType(IntegrationResponseParameterArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationResponseParameterMapOutput{})
+	pulumi.RegisterOutputType(IntegrationResponseParameterMapMapOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(RouteParameterConstraintsOutput{})
 	pulumi.RegisterOutputType(RouteParameterConstraintsArrayOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsMapOutput{})
-	pulumi.RegisterOutputType(IntegrationResponseParameterArrayMapOutput{})
 }

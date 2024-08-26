@@ -59,7 +59,7 @@ type LookupIntegrationResult struct {
 	// A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
-	ResponseParameters map[string][]IntegrationResponseParameter `pulumi:"responseParameters"`
+	ResponseParameters map[string]IntegrationResponseParameterMap `pulumi:"responseParameters"`
 	// The template selection expression for the integration. Supported only for WebSocket APIs.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
 	// Custom timeout between 50 and 29000 milliseconds for WebSocket APIs and between 50 and 30000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
@@ -177,8 +177,10 @@ func (o LookupIntegrationResultOutput) RequestTemplates() pulumi.StringMapOutput
 }
 
 // Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
-func (o LookupIntegrationResultOutput) ResponseParameters() IntegrationResponseParameterArrayMapOutput {
-	return o.ApplyT(func(v LookupIntegrationResult) map[string][]IntegrationResponseParameter { return v.ResponseParameters }).(IntegrationResponseParameterArrayMapOutput)
+func (o LookupIntegrationResultOutput) ResponseParameters() IntegrationResponseParameterMapMapOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) map[string]IntegrationResponseParameterMap {
+		return v.ResponseParameters
+	}).(IntegrationResponseParameterMapMapOutput)
 }
 
 // The template selection expression for the integration. Supported only for WebSocket APIs.

@@ -79,6 +79,7 @@ export interface GetFlowResult {
      * Time Stamp.
      */
     readonly updatedAt?: string;
+    readonly validations?: outputs.bedrock.FlowValidation[];
     /**
      * Draft Version.
      */

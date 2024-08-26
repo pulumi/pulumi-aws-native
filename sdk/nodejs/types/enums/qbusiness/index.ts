@@ -9,6 +9,28 @@ export const ApplicationAttachmentsControlMode = {
 
 export type ApplicationAttachmentsControlMode = (typeof ApplicationAttachmentsControlMode)[keyof typeof ApplicationAttachmentsControlMode];
 
+export const ApplicationAutoSubscriptionStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type ApplicationAutoSubscriptionStatus = (typeof ApplicationAutoSubscriptionStatus)[keyof typeof ApplicationAutoSubscriptionStatus];
+
+export const ApplicationIdentityType = {
+    AwsIamIdpSaml: "AWS_IAM_IDP_SAML",
+    AwsIamIdpOidc: "AWS_IAM_IDP_OIDC",
+    AwsIamIdc: "AWS_IAM_IDC",
+} as const;
+
+export type ApplicationIdentityType = (typeof ApplicationIdentityType)[keyof typeof ApplicationIdentityType];
+
+export const ApplicationPersonalizationControlMode = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type ApplicationPersonalizationControlMode = (typeof ApplicationPersonalizationControlMode)[keyof typeof ApplicationPersonalizationControlMode];
+
 export const ApplicationQAppsControlMode = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -25,6 +47,13 @@ export const ApplicationStatus = {
 } as const;
 
 export type ApplicationStatus = (typeof ApplicationStatus)[keyof typeof ApplicationStatus];
+
+export const ApplicationSubscriptionType = {
+    QLite: "Q_LITE",
+    QBusiness: "Q_BUSINESS",
+} as const;
+
+export type ApplicationSubscriptionType = (typeof ApplicationSubscriptionType)[keyof typeof ApplicationSubscriptionType];
 
 export const DataSourceAttributeValueOperator = {
     Delete: "DELETE",

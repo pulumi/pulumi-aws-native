@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// A KMS key ARN
+        /// </summary>
+        [Output("customerEncryptionKeyArn")]
+        public Output<string> CustomerEncryptionKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// Name for a variant.
         /// </summary>
         [Output("defaultVariant")]
@@ -56,6 +62,9 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         [Output("promptId")]
         public Output<string> PromptId { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Time Stamp.
@@ -136,6 +145,14 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         [Input("promptArn", required: true)]
         public Input<string> PromptArn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public PromptVersionArgs()
         {
