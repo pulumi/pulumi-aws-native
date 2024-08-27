@@ -23,6 +23,7 @@ __all__ = [
     'IdNamespaceNamespaceProviderPropertiesArgs',
     'IdNamespaceNamespaceRuleBasedPropertiesArgs',
     'IdNamespaceRuleArgs',
+    'MatchingWorkflowIncrementalRunConfigArgs',
     'MatchingWorkflowInputSourceArgs',
     'MatchingWorkflowIntermediateSourceConfigurationArgs',
     'MatchingWorkflowOutputAttributeArgs',
@@ -639,6 +640,22 @@ class IdNamespaceRuleArgs:
     @rule_name.setter
     def rule_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_name", value)
+
+
+@pulumi.input_type
+class MatchingWorkflowIncrementalRunConfigArgs:
+    def __init__(__self__, *,
+                 incremental_run_type: pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']):
+        pulumi.set(__self__, "incremental_run_type", incremental_run_type)
+
+    @property
+    @pulumi.getter(name="incrementalRunType")
+    def incremental_run_type(self) -> pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']:
+        return pulumi.get(self, "incremental_run_type")
+
+    @incremental_run_type.setter
+    def incremental_run_type(self, value: pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']):
+        pulumi.set(self, "incremental_run_type", value)
 
 
 @pulumi.input_type

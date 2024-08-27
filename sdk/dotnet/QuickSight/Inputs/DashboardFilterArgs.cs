@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("categoryFilter")]
         public Input<Inputs.DashboardCategoryFilterArgs>? CategoryFilter { get; set; }
 
+        [Input("nestedFilter")]
+        public Input<Inputs.DashboardNestedFilterArgs>? NestedFilter { get; set; }
+
         /// <summary>
         /// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
         /// </summary>

@@ -24,6 +24,7 @@ class MatchingWorkflowArgs:
                  resolution_techniques: pulumi.Input['MatchingWorkflowResolutionTechniquesArgs'],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 incremental_run_config: Optional[pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None):
         """
@@ -42,6 +43,8 @@ class MatchingWorkflowArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if incremental_run_config is not None:
+            pulumi.set(__self__, "incremental_run_config", incremental_run_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workflow_name is not None:
@@ -108,6 +111,15 @@ class MatchingWorkflowArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="incrementalRunConfig")
+    def incremental_run_config(self) -> Optional[pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs']]:
+        return pulumi.get(self, "incremental_run_config")
+
+    @incremental_run_config.setter
+    def incremental_run_config(self, value: Optional[pulumi.Input['MatchingWorkflowIncrementalRunConfigArgs']]):
+        pulumi.set(self, "incremental_run_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -138,6 +150,7 @@ class MatchingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 incremental_run_config: Optional[pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']]] = None,
                  input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
                  output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
                  resolution_techniques: Optional[pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
@@ -183,6 +196,7 @@ class MatchingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 incremental_run_config: Optional[pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']]] = None,
                  input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
                  output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
                  resolution_techniques: Optional[pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
@@ -199,6 +213,7 @@ class MatchingWorkflow(pulumi.CustomResource):
             __props__ = MatchingWorkflowArgs.__new__(MatchingWorkflowArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["incremental_run_config"] = incremental_run_config
             if input_source_config is None and not opts.urn:
                 raise TypeError("Missing required property 'input_source_config'")
             __props__.__dict__["input_source_config"] = input_source_config
@@ -242,6 +257,7 @@ class MatchingWorkflow(pulumi.CustomResource):
 
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["incremental_run_config"] = None
         __props__.__dict__["input_source_config"] = None
         __props__.__dict__["output_source_config"] = None
         __props__.__dict__["resolution_techniques"] = None
@@ -264,6 +280,11 @@ class MatchingWorkflow(pulumi.CustomResource):
         The description of the MatchingWorkflow
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="incrementalRunConfig")
+    def incremental_run_config(self) -> pulumi.Output[Optional['outputs.MatchingWorkflowIncrementalRunConfig']]:
+        return pulumi.get(self, "incremental_run_config")
 
     @property
     @pulumi.getter(name="inputSourceConfig")

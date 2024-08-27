@@ -15,6 +15,7 @@ __all__ = [
     'IdNamespaceRecordMatchingModel',
     'IdNamespaceRuleDefinitionType',
     'IdNamespaceType',
+    'MatchingWorkflowIncrementalRunConfigIncrementalRunType',
     'MatchingWorkflowResolutionType',
     'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
     'MatchingWorkflowRuleBasedPropertiesMatchPurpose',
@@ -115,6 +116,10 @@ class IdNamespaceType(str, Enum):
     """
     SOURCE = "SOURCE"
     TARGET = "TARGET"
+
+
+class MatchingWorkflowIncrementalRunConfigIncrementalRunType(str, Enum):
+    IMMEDIATE = "IMMEDIATE"
 
 
 class MatchingWorkflowResolutionType(str, Enum):

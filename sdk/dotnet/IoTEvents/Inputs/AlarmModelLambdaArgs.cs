@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
+    /// <summary>
+    /// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+    /// </summary>
     public sealed class AlarmModelLambdaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 
+        /// <summary>
+        /// You can configure the action payload when you send a message to a Lambda function.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.AlarmModelPayloadArgs>? Payload { get; set; }
 

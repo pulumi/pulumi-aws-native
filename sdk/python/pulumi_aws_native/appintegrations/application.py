@@ -20,25 +20,24 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  application_source_config: pulumi.Input['ApplicationSourceConfigPropertiesArgs'],
                  description: pulumi.Input[str],
+                 namespace: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input['ApplicationSourceConfigPropertiesArgs'] application_source_config: Application source config
         :param pulumi.Input[str] description: The application description.
-        :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[str] namespace: The namespace of the application.
+        :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The configuration of events or requests that the application has access to.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the application.
         """
         pulumi.set(__self__, "application_source_config", application_source_config)
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "namespace", namespace)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
@@ -70,6 +69,18 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace of the application.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the application.
@@ -79,18 +90,6 @@ class ApplicationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace of the application.
-        """
-        return pulumi.get(self, "namespace")
-
-    @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "namespace", value)
 
     @property
     @pulumi.getter
@@ -187,6 +186,8 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if namespace is None and not opts.urn:
+                raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["tags"] = tags
@@ -266,7 +267,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def namespace(self) -> pulumi.Output[Optional[str]]:
+    def namespace(self) -> pulumi.Output[str]:
         """
         The namespace of the application.
         """

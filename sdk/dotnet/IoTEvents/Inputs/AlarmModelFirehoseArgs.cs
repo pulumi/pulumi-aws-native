@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
     /// <summary>
-    /// Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+    /// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
     /// </summary>
     public sealed class AlarmModelFirehoseArgs : global::Pulumi.ResourceArgs
     {
@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("deliveryStreamName", required: true)]
         public Input<string> DeliveryStreamName { get; set; } = null!;
 
+        /// <summary>
+        /// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.AlarmModelPayloadArgs>? Payload { get; set; }
 

@@ -8,7 +8,7 @@
       "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DescribeAnalysisPermissions", "quicksight:CreateAnalysis", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DescribeAnalysisPermissions", "quicksight:UpdateAnalysis", "quicksight:UpdateAnalysisPermissions", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DescribeAnalysisPermissions", "quicksight:UpdateAnalysis", "quicksight:UpdateAnalysisPermissions", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "quicksight:ListAnalyses" ],
@@ -2160,6 +2160,15 @@
         }
       }
     },
+    "InnerFilter" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CategoryInnerFilter" : {
+          "$ref" : "#/definitions/CategoryInnerFilter"
+        }
+      }
+    },
     "PivotTableFieldCollapseStateTarget" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -4176,6 +4185,22 @@
           "$ref" : "#/definitions/ConditionalFormattingColor"
         }
       }
+    },
+    "CategoryInnerFilter" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Configuration" : {
+          "$ref" : "#/definitions/CategoryFilterConfiguration"
+        },
+        "Column" : {
+          "$ref" : "#/definitions/ColumnIdentifier"
+        },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
+        }
+      },
+      "required" : [ "Column", "Configuration" ]
     },
     "PivotTableCellConditionalFormatting" : {
       "additionalProperties" : false,
@@ -7312,6 +7337,29 @@
         }
       }
     },
+    "NestedFilter" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Column" : {
+          "$ref" : "#/definitions/ColumnIdentifier"
+        },
+        "InnerFilter" : {
+          "$ref" : "#/definitions/InnerFilter"
+        },
+        "IncludeInnerSet" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "FilterId" : {
+          "minLength" : 1,
+          "pattern" : "^[\\w\\-]+$",
+          "type" : "string",
+          "maxLength" : 512
+        }
+      },
+      "required" : [ "Column", "FilterId", "IncludeInnerSet", "InnerFilter" ]
+    },
     "StringParameter" : {
       "description" : "<p>A string parameter.</p>",
       "additionalProperties" : false,
@@ -7558,6 +7606,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "NestedFilter" : {
+          "$ref" : "#/definitions/NestedFilter"
+        },
         "NumericEqualityFilter" : {
           "$ref" : "#/definitions/NumericEqualityFilter"
         },

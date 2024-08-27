@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
     /// <summary>
-    /// Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
+    /// Specifies the ``actions`` to be performed when the ``condition`` evaluates to TRUE.
     /// </summary>
     public sealed class DetectorModelEventArgs : global::Pulumi.ResourceArgs
     {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         }
 
         /// <summary>
-        /// The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
+        /// Optional. The Boolean expression that, when TRUE, causes the ``actions`` to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }

@@ -28,7 +28,7 @@ type Application struct {
 	// The name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The namespace of the application.
-	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
+	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// The configuration of events or requests that the application has access to.
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// The tags (keys and values) associated with the application.
@@ -47,6 +47,9 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.Namespace == nil {
+		return nil, errors.New("invalid value for required argument 'Namespace'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
@@ -88,7 +91,7 @@ type applicationArgs struct {
 	// The name of the application.
 	Name *string `pulumi:"name"`
 	// The namespace of the application.
-	Namespace *string `pulumi:"namespace"`
+	Namespace string `pulumi:"namespace"`
 	// The configuration of events or requests that the application has access to.
 	Permissions []string `pulumi:"permissions"`
 	// The tags (keys and values) associated with the application.
@@ -104,7 +107,7 @@ type ApplicationArgs struct {
 	// The name of the application.
 	Name pulumi.StringPtrInput
 	// The namespace of the application.
-	Namespace pulumi.StringPtrInput
+	Namespace pulumi.StringInput
 	// The configuration of events or requests that the application has access to.
 	Permissions pulumi.StringArrayInput
 	// The tags (keys and values) associated with the application.
@@ -174,8 +177,8 @@ func (o ApplicationOutput) Name() pulumi.StringOutput {
 }
 
 // The namespace of the application.
-func (o ApplicationOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+func (o ApplicationOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
 
 // The configuration of events or requests that the application has access to.

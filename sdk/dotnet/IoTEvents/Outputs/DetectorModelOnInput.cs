@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
+    /// Specifies the actions performed when the ``condition`` evaluates to TRUE.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelOnInput
     {
         /// <summary>
-        /// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
+        /// Specifies the actions performed when the ``condition`` evaluates to TRUE.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorModelEvent> Events;
         /// <summary>
-        /// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
+        /// Specifies the actions performed, and the next state entered, when a ``condition`` evaluates to TRUE.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorModelTransitionEvent> TransitionEvents;
 

@@ -31,7 +31,8 @@ type LookupMatchingWorkflowArgs struct {
 type LookupMatchingWorkflowResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the MatchingWorkflow
-	Description *string `pulumi:"description"`
+	Description          *string                               `pulumi:"description"`
+	IncrementalRunConfig *MatchingWorkflowIncrementalRunConfig `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
 	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
@@ -89,6 +90,12 @@ func (o LookupMatchingWorkflowResultOutput) CreatedAt() pulumi.StringPtrOutput {
 // The description of the MatchingWorkflow
 func (o LookupMatchingWorkflowResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupMatchingWorkflowResultOutput) IncrementalRunConfig() MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return o.ApplyT(func(v LookupMatchingWorkflowResult) *MatchingWorkflowIncrementalRunConfig {
+		return v.IncrementalRunConfig
+	}).(MatchingWorkflowIncrementalRunConfigPtrOutput)
 }
 
 // A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .

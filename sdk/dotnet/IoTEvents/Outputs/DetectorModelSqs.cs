@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
+    /// <summary>
+    /// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
+    /// </summary>
     [OutputType]
     public sealed class DetectorModelSqs
     {
@@ -22,7 +25,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// </summary>
         public readonly string QueueUrl;
         /// <summary>
-        /// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+        /// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
         /// </summary>
         public readonly bool? UseBase64;
 

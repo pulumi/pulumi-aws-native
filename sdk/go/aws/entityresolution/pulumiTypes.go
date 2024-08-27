@@ -1765,6 +1765,141 @@ type IdNamespaceTag struct {
 	Value string `pulumi:"value"`
 }
 
+type MatchingWorkflowIncrementalRunConfig struct {
+	IncrementalRunType MatchingWorkflowIncrementalRunConfigIncrementalRunType `pulumi:"incrementalRunType"`
+}
+
+// MatchingWorkflowIncrementalRunConfigInput is an input type that accepts MatchingWorkflowIncrementalRunConfigArgs and MatchingWorkflowIncrementalRunConfigOutput values.
+// You can construct a concrete instance of `MatchingWorkflowIncrementalRunConfigInput` via:
+//
+//	MatchingWorkflowIncrementalRunConfigArgs{...}
+type MatchingWorkflowIncrementalRunConfigInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowIncrementalRunConfigOutput() MatchingWorkflowIncrementalRunConfigOutput
+	ToMatchingWorkflowIncrementalRunConfigOutputWithContext(context.Context) MatchingWorkflowIncrementalRunConfigOutput
+}
+
+type MatchingWorkflowIncrementalRunConfigArgs struct {
+	IncrementalRunType MatchingWorkflowIncrementalRunConfigIncrementalRunTypeInput `pulumi:"incrementalRunType"`
+}
+
+func (MatchingWorkflowIncrementalRunConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowIncrementalRunConfig)(nil)).Elem()
+}
+
+func (i MatchingWorkflowIncrementalRunConfigArgs) ToMatchingWorkflowIncrementalRunConfigOutput() MatchingWorkflowIncrementalRunConfigOutput {
+	return i.ToMatchingWorkflowIncrementalRunConfigOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowIncrementalRunConfigArgs) ToMatchingWorkflowIncrementalRunConfigOutputWithContext(ctx context.Context) MatchingWorkflowIncrementalRunConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowIncrementalRunConfigOutput)
+}
+
+func (i MatchingWorkflowIncrementalRunConfigArgs) ToMatchingWorkflowIncrementalRunConfigPtrOutput() MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return i.ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowIncrementalRunConfigArgs) ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowIncrementalRunConfigOutput).ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(ctx)
+}
+
+// MatchingWorkflowIncrementalRunConfigPtrInput is an input type that accepts MatchingWorkflowIncrementalRunConfigArgs, MatchingWorkflowIncrementalRunConfigPtr and MatchingWorkflowIncrementalRunConfigPtrOutput values.
+// You can construct a concrete instance of `MatchingWorkflowIncrementalRunConfigPtrInput` via:
+//
+//	        MatchingWorkflowIncrementalRunConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MatchingWorkflowIncrementalRunConfigPtrInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowIncrementalRunConfigPtrOutput() MatchingWorkflowIncrementalRunConfigPtrOutput
+	ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(context.Context) MatchingWorkflowIncrementalRunConfigPtrOutput
+}
+
+type matchingWorkflowIncrementalRunConfigPtrType MatchingWorkflowIncrementalRunConfigArgs
+
+func MatchingWorkflowIncrementalRunConfigPtr(v *MatchingWorkflowIncrementalRunConfigArgs) MatchingWorkflowIncrementalRunConfigPtrInput {
+	return (*matchingWorkflowIncrementalRunConfigPtrType)(v)
+}
+
+func (*matchingWorkflowIncrementalRunConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowIncrementalRunConfig)(nil)).Elem()
+}
+
+func (i *matchingWorkflowIncrementalRunConfigPtrType) ToMatchingWorkflowIncrementalRunConfigPtrOutput() MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return i.ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *matchingWorkflowIncrementalRunConfigPtrType) ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowIncrementalRunConfigPtrOutput)
+}
+
+type MatchingWorkflowIncrementalRunConfigOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowIncrementalRunConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowIncrementalRunConfig)(nil)).Elem()
+}
+
+func (o MatchingWorkflowIncrementalRunConfigOutput) ToMatchingWorkflowIncrementalRunConfigOutput() MatchingWorkflowIncrementalRunConfigOutput {
+	return o
+}
+
+func (o MatchingWorkflowIncrementalRunConfigOutput) ToMatchingWorkflowIncrementalRunConfigOutputWithContext(ctx context.Context) MatchingWorkflowIncrementalRunConfigOutput {
+	return o
+}
+
+func (o MatchingWorkflowIncrementalRunConfigOutput) ToMatchingWorkflowIncrementalRunConfigPtrOutput() MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return o.ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MatchingWorkflowIncrementalRunConfigOutput) ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchingWorkflowIncrementalRunConfig) *MatchingWorkflowIncrementalRunConfig {
+		return &v
+	}).(MatchingWorkflowIncrementalRunConfigPtrOutput)
+}
+
+func (o MatchingWorkflowIncrementalRunConfigOutput) IncrementalRunType() MatchingWorkflowIncrementalRunConfigIncrementalRunTypeOutput {
+	return o.ApplyT(func(v MatchingWorkflowIncrementalRunConfig) MatchingWorkflowIncrementalRunConfigIncrementalRunType {
+		return v.IncrementalRunType
+	}).(MatchingWorkflowIncrementalRunConfigIncrementalRunTypeOutput)
+}
+
+type MatchingWorkflowIncrementalRunConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowIncrementalRunConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowIncrementalRunConfig)(nil)).Elem()
+}
+
+func (o MatchingWorkflowIncrementalRunConfigPtrOutput) ToMatchingWorkflowIncrementalRunConfigPtrOutput() MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowIncrementalRunConfigPtrOutput) ToMatchingWorkflowIncrementalRunConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowIncrementalRunConfigPtrOutput) Elem() MatchingWorkflowIncrementalRunConfigOutput {
+	return o.ApplyT(func(v *MatchingWorkflowIncrementalRunConfig) MatchingWorkflowIncrementalRunConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MatchingWorkflowIncrementalRunConfig
+		return ret
+	}).(MatchingWorkflowIncrementalRunConfigOutput)
+}
+
+func (o MatchingWorkflowIncrementalRunConfigPtrOutput) IncrementalRunType() MatchingWorkflowIncrementalRunConfigIncrementalRunTypePtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowIncrementalRunConfig) *MatchingWorkflowIncrementalRunConfigIncrementalRunType {
+		if v == nil {
+			return nil
+		}
+		return &v.IncrementalRunType
+	}).(MatchingWorkflowIncrementalRunConfigIncrementalRunTypePtrOutput)
+}
+
 type MatchingWorkflowInputSource struct {
 	// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
 	ApplyNormalization *bool `pulumi:"applyNormalization"`
@@ -3036,6 +3171,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceNamespaceRuleBasedPropertiesPtrInput)(nil)).Elem(), IdNamespaceNamespaceRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceRuleInput)(nil)).Elem(), IdNamespaceRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceRuleArrayInput)(nil)).Elem(), IdNamespaceRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIncrementalRunConfigInput)(nil)).Elem(), MatchingWorkflowIncrementalRunConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIncrementalRunConfigPtrInput)(nil)).Elem(), MatchingWorkflowIncrementalRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceInput)(nil)).Elem(), MatchingWorkflowInputSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceArrayInput)(nil)).Elem(), MatchingWorkflowInputSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIntermediateSourceConfigurationInput)(nil)).Elem(), MatchingWorkflowIntermediateSourceConfigurationArgs{})
@@ -3077,6 +3214,8 @@ func init() {
 	pulumi.RegisterOutputType(IdNamespaceNamespaceRuleBasedPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdNamespaceRuleOutput{})
 	pulumi.RegisterOutputType(IdNamespaceRuleArrayOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowIncrementalRunConfigOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowIncrementalRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceArrayOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowIntermediateSourceConfigurationOutput{})

@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.AnalysisCategoryFilter? CategoryFilter;
+        public readonly Outputs.AnalysisNestedFilter? NestedFilter;
         /// <summary>
         /// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
         /// </summary>
@@ -48,6 +49,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisFilter(
             Outputs.AnalysisCategoryFilter? categoryFilter,
 
+            Outputs.AnalysisNestedFilter? nestedFilter,
+
             Outputs.AnalysisNumericEqualityFilter? numericEqualityFilter,
 
             Outputs.AnalysisNumericRangeFilter? numericRangeFilter,
@@ -61,6 +64,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.AnalysisTopBottomFilter? topBottomFilter)
         {
             CategoryFilter = categoryFilter;
+            NestedFilter = nestedFilter;
             NumericEqualityFilter = numericEqualityFilter;
             NumericRangeFilter = numericRangeFilter;
             RelativeDatesFilter = relativeDatesFilter;

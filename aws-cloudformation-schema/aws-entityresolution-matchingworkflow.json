@@ -120,6 +120,17 @@
       },
       "additionalProperties" : false
     },
+    "IncrementalRunConfig" : {
+      "type" : "object",
+      "properties" : {
+        "IncrementalRunType" : {
+          "type" : "string",
+          "enum" : [ "IMMEDIATE" ]
+        }
+      },
+      "required" : [ "IncrementalRunType" ],
+      "additionalProperties" : false
+    },
     "RuleBasedProperties" : {
       "type" : "object",
       "properties" : {
@@ -274,6 +285,9 @@
     },
     "UpdatedAt" : {
       "$ref" : "#/definitions/UpdatedAt"
+    },
+    "IncrementalRunConfig" : {
+      "$ref" : "#/definitions/IncrementalRunConfig"
     }
   },
   "createOnlyProperties" : [ "/properties/WorkflowName" ],
@@ -288,19 +302,19 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "entityresolution:CreateMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:TagResource", "kms:CreateGrant", "kms:DescribeKey", "iam:PassRole" ]
+      "permissions" : [ "entityresolution:CreateMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:TagResource", "kms:CreateGrant", "kms:DescribeKey", "iam:PassRole", "events:PutRule", "events:DeleteRule", "events:PutTargets", "events:ListTargetsByRule" ]
     },
     "read" : {
       "permissions" : [ "entityresolution:GetMatchingWorkflow", "entityresolution:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "entityresolution:DeleteMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:UntagResource" ]
+      "permissions" : [ "entityresolution:DeleteMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:UntagResource", "events:PutRule", "events:DeleteRule", "events:PutTargets", "events:RemoveTargets", "events:ListTargetsByRule" ]
     },
     "list" : {
       "permissions" : [ "entityresolution:ListMatchingWorkflows" ]
     },
     "update" : {
-      "permissions" : [ "entityresolution:GetMatchingWorkflow", "entityresolution:UpdateMatchingWorkflow", "entityresolution:ListTagsForResource", "entityresolution:TagResource", "entityresolution:UntagResource", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey" ]
+      "permissions" : [ "entityresolution:GetMatchingWorkflow", "entityresolution:UpdateMatchingWorkflow", "entityresolution:ListTagsForResource", "entityresolution:TagResource", "entityresolution:UntagResource", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "events:PutRule", "events:DeleteRule", "events:PutTargets", "events:RemoveTargets", "events:ListTargetsByRule" ]
     }
   },
   "required" : [ "WorkflowName", "InputSourceConfig", "OutputSourceConfig", "ResolutionTechniques", "RoleArn" ],

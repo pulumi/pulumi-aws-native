@@ -12,17 +12,13 @@ namespace Pulumi.AwsNative.IoTEvents
     public static class GetAlarmModel
     {
         /// <summary>
-        /// The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
-        /// 
-        /// Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
+        /// Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
         /// </summary>
         public static Task<GetAlarmModelResult> InvokeAsync(GetAlarmModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlarmModelResult>("aws-native:iotevents:getAlarmModel", args ?? new GetAlarmModelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
-        /// 
-        /// Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
+        /// Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
         /// </summary>
         public static Output<GetAlarmModelResult> Invoke(GetAlarmModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlarmModelResult>("aws-native:iotevents:getAlarmModel", args ?? new GetAlarmModelInvokeArgs(), options.WithDefaults());
@@ -70,7 +66,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// </summary>
         public readonly Outputs.AlarmModelAlarmEventActions? AlarmEventActions;
         /// <summary>
-        /// A brief description of the alarm model.
+        /// The description of the alarm model.
         /// </summary>
         public readonly string? AlarmModelDescription;
         /// <summary>
@@ -78,7 +74,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// </summary>
         public readonly Outputs.AlarmModelAlarmRule? AlarmRule;
         /// <summary>
-        /// The ARN of the role that grants permission to AWS IoT Events to perform its operations.
+        /// The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
@@ -86,9 +82,8 @@ namespace Pulumi.AwsNative.IoTEvents
         /// </summary>
         public readonly int? Severity;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        /// A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
+        ///  You can create up to 50 tags for one alarm model.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

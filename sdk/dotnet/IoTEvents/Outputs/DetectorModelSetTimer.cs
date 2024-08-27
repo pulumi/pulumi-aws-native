@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     public sealed class DetectorModelSetTimer
     {
         /// <summary>
-        /// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.&lt;variable-name&gt;`), and input values (`$input.&lt;input-name&gt;.&lt;path-to-datum&gt;`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
+        /// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (``$variable.&lt;variable-name&gt;``), and input values (``$input.&lt;input-name&gt;.&lt;path-to-datum&gt;``) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
         /// </summary>
         public readonly string? DurationExpression;
         /// <summary>
-        /// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
+        /// The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
         /// </summary>
         public readonly int? Seconds;
         /// <summary>

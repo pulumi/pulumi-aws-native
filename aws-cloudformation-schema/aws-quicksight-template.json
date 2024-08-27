@@ -2031,6 +2031,15 @@
         }
       }
     },
+    "InnerFilter" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CategoryInnerFilter" : {
+          "$ref" : "#/definitions/CategoryInnerFilter"
+        }
+      }
+    },
     "PivotTableFieldCollapseStateTarget" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -4127,6 +4136,22 @@
           "$ref" : "#/definitions/ConditionalFormattingColor"
         }
       }
+    },
+    "CategoryInnerFilter" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Configuration" : {
+          "$ref" : "#/definitions/CategoryFilterConfiguration"
+        },
+        "Column" : {
+          "$ref" : "#/definitions/ColumnIdentifier"
+        },
+        "DefaultFilterControlConfiguration" : {
+          "$ref" : "#/definitions/DefaultFilterControlConfiguration"
+        }
+      },
+      "required" : [ "Column", "Configuration" ]
     },
     "PivotTableCellConditionalFormatting" : {
       "additionalProperties" : false,
@@ -7358,6 +7383,29 @@
         }
       }
     },
+    "NestedFilter" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Column" : {
+          "$ref" : "#/definitions/ColumnIdentifier"
+        },
+        "InnerFilter" : {
+          "$ref" : "#/definitions/InnerFilter"
+        },
+        "IncludeInnerSet" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "FilterId" : {
+          "minLength" : 1,
+          "pattern" : "^[\\w\\-]+$",
+          "type" : "string",
+          "maxLength" : 512
+        }
+      },
+      "required" : [ "Column", "FilterId", "IncludeInnerSet", "InnerFilter" ]
+    },
     "MaximumMinimumComputation" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -7588,6 +7636,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "NestedFilter" : {
+          "$ref" : "#/definitions/NestedFilter"
+        },
         "NumericEqualityFilter" : {
           "$ref" : "#/definitions/NumericEqualityFilter"
         },

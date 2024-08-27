@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// </summary>
     public sealed class AlarmModelSnsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// You can configure the action payload when you send a message as an Amazon SNS push notification.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.AlarmModelPayloadArgs>? Payload { get; set; }
 

@@ -332,6 +332,33 @@ namespace Pulumi.AwsNative.EntityResolution
     }
 
     [EnumType]
+    public readonly struct MatchingWorkflowIncrementalRunConfigIncrementalRunType : IEquatable<MatchingWorkflowIncrementalRunConfigIncrementalRunType>
+    {
+        private readonly string _value;
+
+        private MatchingWorkflowIncrementalRunConfigIncrementalRunType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MatchingWorkflowIncrementalRunConfigIncrementalRunType Immediate { get; } = new MatchingWorkflowIncrementalRunConfigIncrementalRunType("IMMEDIATE");
+
+        public static bool operator ==(MatchingWorkflowIncrementalRunConfigIncrementalRunType left, MatchingWorkflowIncrementalRunConfigIncrementalRunType right) => left.Equals(right);
+        public static bool operator !=(MatchingWorkflowIncrementalRunConfigIncrementalRunType left, MatchingWorkflowIncrementalRunConfigIncrementalRunType right) => !left.Equals(right);
+
+        public static explicit operator string(MatchingWorkflowIncrementalRunConfigIncrementalRunType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MatchingWorkflowIncrementalRunConfigIncrementalRunType other && Equals(other);
+        public bool Equals(MatchingWorkflowIncrementalRunConfigIncrementalRunType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MatchingWorkflowResolutionType : IEquatable<MatchingWorkflowResolutionType>
     {
         private readonly string _value;

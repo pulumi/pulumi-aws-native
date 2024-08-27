@@ -19,7 +19,8 @@ type MatchingWorkflow struct {
 
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the MatchingWorkflow
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description          pulumi.StringPtrOutput                        `pulumi:"description"`
+	IncrementalRunConfig MatchingWorkflowIncrementalRunConfigPtrOutput `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig MatchingWorkflowInputSourceArrayOutput `pulumi:"inputSourceConfig"`
 	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
@@ -93,7 +94,8 @@ func (MatchingWorkflowState) ElementType() reflect.Type {
 
 type matchingWorkflowArgs struct {
 	// The description of the MatchingWorkflow
-	Description *string `pulumi:"description"`
+	Description          *string                               `pulumi:"description"`
+	IncrementalRunConfig *MatchingWorkflowIncrementalRunConfig `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
 	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
@@ -111,7 +113,8 @@ type matchingWorkflowArgs struct {
 // The set of arguments for constructing a MatchingWorkflow resource.
 type MatchingWorkflowArgs struct {
 	// The description of the MatchingWorkflow
-	Description pulumi.StringPtrInput
+	Description          pulumi.StringPtrInput
+	IncrementalRunConfig MatchingWorkflowIncrementalRunConfigPtrInput
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig MatchingWorkflowInputSourceArrayInput
 	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
@@ -170,6 +173,10 @@ func (o MatchingWorkflowOutput) CreatedAt() pulumi.StringOutput {
 // The description of the MatchingWorkflow
 func (o MatchingWorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MatchingWorkflowOutput) IncrementalRunConfig() MatchingWorkflowIncrementalRunConfigPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflow) MatchingWorkflowIncrementalRunConfigPtrOutput { return v.IncrementalRunConfig }).(MatchingWorkflowIncrementalRunConfigPtrOutput)
 }
 
 // A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .

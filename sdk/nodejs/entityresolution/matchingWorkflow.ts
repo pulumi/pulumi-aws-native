@@ -42,6 +42,7 @@ export class MatchingWorkflow extends pulumi.CustomResource {
      * The description of the MatchingWorkflow
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly incrementalRunConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowIncrementalRunConfig | undefined>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
@@ -93,6 +94,7 @@ export class MatchingWorkflow extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["incrementalRunConfig"] = args ? args.incrementalRunConfig : undefined;
             resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
             resourceInputs["outputSourceConfig"] = args ? args.outputSourceConfig : undefined;
             resourceInputs["resolutionTechniques"] = args ? args.resolutionTechniques : undefined;
@@ -105,6 +107,7 @@ export class MatchingWorkflow extends pulumi.CustomResource {
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["incrementalRunConfig"] = undefined /*out*/;
             resourceInputs["inputSourceConfig"] = undefined /*out*/;
             resourceInputs["outputSourceConfig"] = undefined /*out*/;
             resourceInputs["resolutionTechniques"] = undefined /*out*/;
@@ -129,6 +132,7 @@ export interface MatchingWorkflowArgs {
      * The description of the MatchingWorkflow
      */
     description?: pulumi.Input<string>;
+    incrementalRunConfig?: pulumi.Input<inputs.entityresolution.MatchingWorkflowIncrementalRunConfigArgs>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */

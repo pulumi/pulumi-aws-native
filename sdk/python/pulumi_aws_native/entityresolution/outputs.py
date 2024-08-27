@@ -24,6 +24,7 @@ __all__ = [
     'IdNamespaceNamespaceProviderProperties',
     'IdNamespaceNamespaceRuleBasedProperties',
     'IdNamespaceRule',
+    'MatchingWorkflowIncrementalRunConfig',
     'MatchingWorkflowInputSource',
     'MatchingWorkflowIntermediateSourceConfiguration',
     'MatchingWorkflowOutputAttribute',
@@ -752,6 +753,35 @@ class IdNamespaceRule(dict):
         A name for the matching rule.
         """
         return pulumi.get(self, "rule_name")
+
+
+@pulumi.output_type
+class MatchingWorkflowIncrementalRunConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incrementalRunType":
+            suggest = "incremental_run_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowIncrementalRunConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchingWorkflowIncrementalRunConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchingWorkflowIncrementalRunConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 incremental_run_type: 'MatchingWorkflowIncrementalRunConfigIncrementalRunType'):
+        pulumi.set(__self__, "incremental_run_type", incremental_run_type)
+
+    @property
+    @pulumi.getter(name="incrementalRunType")
+    def incremental_run_type(self) -> 'MatchingWorkflowIncrementalRunConfigIncrementalRunType':
+        return pulumi.get(self, "incremental_run_type")
 
 
 @pulumi.output_type

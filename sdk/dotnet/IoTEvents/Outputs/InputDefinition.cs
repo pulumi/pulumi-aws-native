@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     public sealed class InputDefinition
     {
         /// <summary>
-        /// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+        /// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using ``BatchPutMessage``. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the ``condition`` expressions used by detectors that monitor this input.
         /// </summary>
         public readonly ImmutableArray<Outputs.InputAttribute> Attributes;
 

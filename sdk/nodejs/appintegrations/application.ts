@@ -60,7 +60,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The namespace of the application.
      */
-    public readonly namespace!: pulumi.Output<string | undefined>;
+    public readonly namespace!: pulumi.Output<string>;
     /**
      * The configuration of events or requests that the application has access to.
      */
@@ -86,6 +86,9 @@ export class Application extends pulumi.CustomResource {
             }
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
+            }
+            if ((!args || args.namespace === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'namespace'");
             }
             resourceInputs["applicationSourceConfig"] = args ? args.applicationSourceConfig : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -129,7 +132,7 @@ export interface ApplicationArgs {
     /**
      * The namespace of the application.
      */
-    namespace?: pulumi.Input<string>;
+    namespace: pulumi.Input<string>;
     /**
      * The configuration of events or requests that the application has access to.
      */

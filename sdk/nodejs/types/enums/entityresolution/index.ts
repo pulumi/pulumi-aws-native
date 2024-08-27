@@ -116,6 +116,12 @@ export const IdNamespaceType = {
  */
 export type IdNamespaceType = (typeof IdNamespaceType)[keyof typeof IdNamespaceType];
 
+export const MatchingWorkflowIncrementalRunConfigIncrementalRunType = {
+    Immediate: "IMMEDIATE",
+} as const;
+
+export type MatchingWorkflowIncrementalRunConfigIncrementalRunType = (typeof MatchingWorkflowIncrementalRunConfigIncrementalRunType)[keyof typeof MatchingWorkflowIncrementalRunConfigIncrementalRunType];
+
 export const MatchingWorkflowResolutionType = {
     RuleMatching: "RULE_MATCHING",
     MlMatching: "ML_MATCHING",

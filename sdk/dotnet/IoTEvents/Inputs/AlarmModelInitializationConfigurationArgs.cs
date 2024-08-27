@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     public sealed class AlarmModelInitializationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+        /// The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
         /// </summary>
         [Input("disabledOnInitialization", required: true)]
         public Input<bool> DisabledOnInitialization { get; set; } = null!;

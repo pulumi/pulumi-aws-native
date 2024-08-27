@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+    /// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
     /// </summary>
     [OutputType]
     public sealed class AlarmModelFirehose
@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// The name of the Kinesis Data Firehose delivery stream where the data is written.
         /// </summary>
         public readonly string DeliveryStreamName;
+        /// <summary>
+        /// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+        /// </summary>
         public readonly Outputs.AlarmModelPayload? Payload;
         /// <summary>
         /// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).

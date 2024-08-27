@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
+// The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
 func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.InvokeOption) (*LookupInputResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInputResult
@@ -34,8 +34,7 @@ type LookupInputResult struct {
 	// A brief description of the input.
 	InputDescription *string `pulumi:"inputDescription"`
 	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -87,7 +86,7 @@ func (o LookupInputResultOutput) InputDescription() pulumi.StringPtrOutput {
 
 // An array of key-value pairs to apply to this resource.
 //
-// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 func (o LookupInputResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

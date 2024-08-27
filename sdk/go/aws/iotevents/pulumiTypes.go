@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // Specifies whether to get notified for alarm state changes.
 type AlarmModelAcknowledgeFlow struct {
-	// The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+	// The value must be ``TRUE`` or ``FALSE``. If ``TRUE``, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to ``NORMAL``. If ``FALSE``, you won't receive notifications. The alarm automatically changes to the ``NORMAL`` state when the input property value returns to the specified range.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -32,7 +32,7 @@ type AlarmModelAcknowledgeFlowInput interface {
 
 // Specifies whether to get notified for alarm state changes.
 type AlarmModelAcknowledgeFlowArgs struct {
-	// The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+	// The value must be ``TRUE`` or ``FALSE``. If ``TRUE``, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to ``NORMAL``. If ``FALSE``, you won't receive notifications. The alarm automatically changes to the ``NORMAL`` state when the input property value returns to the specified range.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -114,7 +114,7 @@ func (o AlarmModelAcknowledgeFlowOutput) ToAlarmModelAcknowledgeFlowPtrOutputWit
 	}).(AlarmModelAcknowledgeFlowPtrOutput)
 }
 
-// The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+// The value must be “TRUE“ or “FALSE“. If “TRUE“, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to “NORMAL“. If “FALSE“, you won't receive notifications. The alarm automatically changes to the “NORMAL“ state when the input property value returns to the specified range.
 func (o AlarmModelAcknowledgeFlowOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AlarmModelAcknowledgeFlow) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -143,7 +143,7 @@ func (o AlarmModelAcknowledgeFlowPtrOutput) Elem() AlarmModelAcknowledgeFlowOutp
 	}).(AlarmModelAcknowledgeFlowOutput)
 }
 
-// The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+// The value must be “TRUE“ or “FALSE“. If “TRUE“, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to “NORMAL“. If “FALSE“, you won't receive notifications. The alarm automatically changes to the “NORMAL“ state when the input property value returns to the specified range.
 func (o AlarmModelAcknowledgeFlowPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAcknowledgeFlow) *bool {
 		if v == nil {
@@ -153,17 +153,62 @@ func (o AlarmModelAcknowledgeFlowPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The actions to be performed.
+// Specifies one of the following actions to receive notifications when the alarm state changes.
 type AlarmModelAlarmAction struct {
-	DynamoDBv2      *AlarmModelDynamoDBv2      `pulumi:"dynamoDBv2"`
-	DynamoDb        *AlarmModelDynamoDb        `pulumi:"dynamoDb"`
-	Firehose        *AlarmModelFirehose        `pulumi:"firehose"`
-	IotEvents       *AlarmModelIotEvents       `pulumi:"iotEvents"`
-	IotSiteWise     *AlarmModelIotSiteWise     `pulumi:"iotSiteWise"`
+	// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+	//  You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+	//   **Examples**
+	//  +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+	//   +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+	//   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+	//        ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+	//   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+	//        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+	//
+	//  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+	//  The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
+	DynamoDBv2 *AlarmModelDynamoDBv2 `pulumi:"dynamoDBv2"`
+	// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+	//  You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+	//   **Examples**
+	//  +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+	//   +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+	//   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+	//        ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+	//   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+	//        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+	//
+	//  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+	//  If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+	DynamoDb *AlarmModelDynamoDb `pulumi:"dynamoDb"`
+	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+	Firehose *AlarmModelFirehose `pulumi:"firehose"`
+	// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+	IotEvents *AlarmModelIotEvents `pulumi:"iotEvents"`
+	// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+	//  You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+	//   **Examples**
+	//  +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+	//   +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+	//   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+	//        ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+	//
+	//  You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+	//  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+	IotSiteWise *AlarmModelIotSiteWise `pulumi:"iotSiteWise"`
+	// Information required to publish the MQTT message through the IoT message broker.
 	IotTopicPublish *AlarmModelIotTopicPublish `pulumi:"iotTopicPublish"`
-	Lambda          *AlarmModelLambda          `pulumi:"lambda"`
-	Sns             *AlarmModelSns             `pulumi:"sns"`
-	Sqs             *AlarmModelSqs             `pulumi:"sqs"`
+	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+	Lambda *AlarmModelLambda `pulumi:"lambda"`
+	// Information required to publish the Amazon SNS message.
+	Sns *AlarmModelSns `pulumi:"sns"`
+	// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
+	Sqs *AlarmModelSqs `pulumi:"sqs"`
 }
 
 // AlarmModelAlarmActionInput is an input type that accepts AlarmModelAlarmActionArgs and AlarmModelAlarmActionOutput values.
@@ -177,17 +222,62 @@ type AlarmModelAlarmActionInput interface {
 	ToAlarmModelAlarmActionOutputWithContext(context.Context) AlarmModelAlarmActionOutput
 }
 
-// The actions to be performed.
+// Specifies one of the following actions to receive notifications when the alarm state changes.
 type AlarmModelAlarmActionArgs struct {
-	DynamoDBv2      AlarmModelDynamoDBv2PtrInput      `pulumi:"dynamoDBv2"`
-	DynamoDb        AlarmModelDynamoDbPtrInput        `pulumi:"dynamoDb"`
-	Firehose        AlarmModelFirehosePtrInput        `pulumi:"firehose"`
-	IotEvents       AlarmModelIotEventsPtrInput       `pulumi:"iotEvents"`
-	IotSiteWise     AlarmModelIotSiteWisePtrInput     `pulumi:"iotSiteWise"`
+	// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+	//  You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+	//   **Examples**
+	//  +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+	//   +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+	//   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+	//        ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+	//   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+	//        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+	//
+	//  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+	//  The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
+	DynamoDBv2 AlarmModelDynamoDBv2PtrInput `pulumi:"dynamoDBv2"`
+	// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+	//  You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+	//   **Examples**
+	//  +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+	//   +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+	//   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+	//        ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+	//   +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+	//        ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+	//
+	//  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+	//  If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+	DynamoDb AlarmModelDynamoDbPtrInput `pulumi:"dynamoDb"`
+	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+	Firehose AlarmModelFirehosePtrInput `pulumi:"firehose"`
+	// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+	IotEvents AlarmModelIotEventsPtrInput `pulumi:"iotEvents"`
+	// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+	//  You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+	//   **Examples**
+	//  +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+	//   +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+	//   +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+	//       In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+	//        ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+	//
+	//  You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+	//  For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+	IotSiteWise AlarmModelIotSiteWisePtrInput `pulumi:"iotSiteWise"`
+	// Information required to publish the MQTT message through the IoT message broker.
 	IotTopicPublish AlarmModelIotTopicPublishPtrInput `pulumi:"iotTopicPublish"`
-	Lambda          AlarmModelLambdaPtrInput          `pulumi:"lambda"`
-	Sns             AlarmModelSnsPtrInput             `pulumi:"sns"`
-	Sqs             AlarmModelSqsPtrInput             `pulumi:"sqs"`
+	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+	Lambda AlarmModelLambdaPtrInput `pulumi:"lambda"`
+	// Information required to publish the Amazon SNS message.
+	Sns AlarmModelSnsPtrInput `pulumi:"sns"`
+	// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
+	Sqs AlarmModelSqsPtrInput `pulumi:"sqs"`
 }
 
 func (AlarmModelAlarmActionArgs) ElementType() reflect.Type {
@@ -227,7 +317,7 @@ func (i AlarmModelAlarmActionArray) ToAlarmModelAlarmActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmActionArrayOutput)
 }
 
-// The actions to be performed.
+// Specifies one of the following actions to receive notifications when the alarm state changes.
 type AlarmModelAlarmActionOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelAlarmActionOutput) ElementType() reflect.Type {
@@ -242,38 +332,86 @@ func (o AlarmModelAlarmActionOutput) ToAlarmModelAlarmActionOutputWithContext(ct
 	return o
 }
 
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+//
+//	You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+//	      ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 func (o AlarmModelAlarmActionOutput) DynamoDBv2() AlarmModelDynamoDBv2PtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelDynamoDBv2 { return v.DynamoDBv2 }).(AlarmModelDynamoDBv2PtrOutput)
 }
 
+// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+//
+//	You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+//	      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 func (o AlarmModelAlarmActionOutput) DynamoDb() AlarmModelDynamoDbPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelDynamoDb { return v.DynamoDb }).(AlarmModelDynamoDbPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 func (o AlarmModelAlarmActionOutput) Firehose() AlarmModelFirehosePtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelFirehose { return v.Firehose }).(AlarmModelFirehosePtrOutput)
 }
 
+// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
 func (o AlarmModelAlarmActionOutput) IotEvents() AlarmModelIotEventsPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelIotEvents { return v.IotEvents }).(AlarmModelIotEventsPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+//
+//	You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+//	      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+//
+//	You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 func (o AlarmModelAlarmActionOutput) IotSiteWise() AlarmModelIotSiteWisePtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelIotSiteWise { return v.IotSiteWise }).(AlarmModelIotSiteWisePtrOutput)
 }
 
+// Information required to publish the MQTT message through the IoT message broker.
 func (o AlarmModelAlarmActionOutput) IotTopicPublish() AlarmModelIotTopicPublishPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelIotTopicPublish { return v.IotTopicPublish }).(AlarmModelIotTopicPublishPtrOutput)
 }
 
+// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 func (o AlarmModelAlarmActionOutput) Lambda() AlarmModelLambdaPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelLambda { return v.Lambda }).(AlarmModelLambdaPtrOutput)
 }
 
+// Information required to publish the Amazon SNS message.
 func (o AlarmModelAlarmActionOutput) Sns() AlarmModelSnsPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelSns { return v.Sns }).(AlarmModelSnsPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 func (o AlarmModelAlarmActionOutput) Sqs() AlarmModelSqsPtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelSqs { return v.Sqs }).(AlarmModelSqsPtrOutput)
 }
@@ -298,7 +436,7 @@ func (o AlarmModelAlarmActionArrayOutput) Index(i pulumi.IntInput) AlarmModelAla
 	}).(AlarmModelAlarmActionOutput)
 }
 
-// Contains the configuration information of alarm state changes
+// Contains the configuration information of alarm state changes.
 type AlarmModelAlarmCapabilities struct {
 	// Specifies whether to get notified for alarm state changes.
 	AcknowledgeFlow *AlarmModelAcknowledgeFlow `pulumi:"acknowledgeFlow"`
@@ -317,7 +455,7 @@ type AlarmModelAlarmCapabilitiesInput interface {
 	ToAlarmModelAlarmCapabilitiesOutputWithContext(context.Context) AlarmModelAlarmCapabilitiesOutput
 }
 
-// Contains the configuration information of alarm state changes
+// Contains the configuration information of alarm state changes.
 type AlarmModelAlarmCapabilitiesArgs struct {
 	// Specifies whether to get notified for alarm state changes.
 	AcknowledgeFlow AlarmModelAcknowledgeFlowPtrInput `pulumi:"acknowledgeFlow"`
@@ -378,7 +516,7 @@ func (i *alarmModelAlarmCapabilitiesPtrType) ToAlarmModelAlarmCapabilitiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAlarmCapabilitiesPtrOutput)
 }
 
-// Contains the configuration information of alarm state changes
+// Contains the configuration information of alarm state changes.
 type AlarmModelAlarmCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelAlarmCapabilitiesOutput) ElementType() reflect.Type {
@@ -688,11 +826,21 @@ func (o AlarmModelAlarmRulePtrOutput) SimpleRule() AlarmModelSimpleRulePtrOutput
 	}).(AlarmModelSimpleRulePtrOutput)
 }
 
-// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelAssetPropertyTimestamp struct {
-	// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+	// The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
 	OffsetInNanos *string `pulumi:"offsetInNanos"`
-	// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+	// The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
 	TimeInSeconds string `pulumi:"timeInSeconds"`
 }
 
@@ -707,11 +855,21 @@ type AlarmModelAssetPropertyTimestampInput interface {
 	ToAlarmModelAssetPropertyTimestampOutputWithContext(context.Context) AlarmModelAssetPropertyTimestampOutput
 }
 
-// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelAssetPropertyTimestampArgs struct {
-	// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+	// The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
 	OffsetInNanos pulumi.StringPtrInput `pulumi:"offsetInNanos"`
-	// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+	// The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
 	TimeInSeconds pulumi.StringInput `pulumi:"timeInSeconds"`
 }
 
@@ -768,7 +926,17 @@ func (i *alarmModelAssetPropertyTimestampPtrType) ToAlarmModelAssetPropertyTimes
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyTimestampPtrOutput)
 }
 
-// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelAssetPropertyTimestampOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelAssetPropertyTimestampOutput) ElementType() reflect.Type {
@@ -793,12 +961,12 @@ func (o AlarmModelAssetPropertyTimestampOutput) ToAlarmModelAssetPropertyTimesta
 	}).(AlarmModelAssetPropertyTimestampPtrOutput)
 }
 
-// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+// The nanosecond offset converted from “timeInSeconds“. The valid range is between 0-999999999.
 func (o AlarmModelAssetPropertyTimestampOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyTimestamp) *string { return v.OffsetInNanos }).(pulumi.StringPtrOutput)
 }
 
-// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+// The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
 func (o AlarmModelAssetPropertyTimestampOutput) TimeInSeconds() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyTimestamp) string { return v.TimeInSeconds }).(pulumi.StringOutput)
 }
@@ -827,7 +995,7 @@ func (o AlarmModelAssetPropertyTimestampPtrOutput) Elem() AlarmModelAssetPropert
 	}).(AlarmModelAssetPropertyTimestampOutput)
 }
 
-// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+// The nanosecond offset converted from “timeInSeconds“. The valid range is between 0-999999999.
 func (o AlarmModelAssetPropertyTimestampPtrOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyTimestamp) *string {
 		if v == nil {
@@ -837,7 +1005,7 @@ func (o AlarmModelAssetPropertyTimestampPtrOutput) OffsetInNanos() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+// The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
 func (o AlarmModelAssetPropertyTimestampPtrOutput) TimeInSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyTimestamp) *string {
 		if v == nil {
@@ -847,12 +1015,21 @@ func (o AlarmModelAssetPropertyTimestampPtrOutput) TimeInSeconds() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelAssetPropertyValue struct {
-	// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
-	Quality   *string                           `pulumi:"quality"`
+	// The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
+	Quality *string `pulumi:"quality"`
+	// The timestamp associated with the asset property value. The default is the current event time.
 	Timestamp *AlarmModelAssetPropertyTimestamp `pulumi:"timestamp"`
-	Value     AlarmModelAssetPropertyVariant    `pulumi:"value"`
+	// The value to send to an asset property.
+	Value AlarmModelAssetPropertyVariant `pulumi:"value"`
 }
 
 // AlarmModelAssetPropertyValueInput is an input type that accepts AlarmModelAssetPropertyValueArgs and AlarmModelAssetPropertyValueOutput values.
@@ -866,12 +1043,21 @@ type AlarmModelAssetPropertyValueInput interface {
 	ToAlarmModelAssetPropertyValueOutputWithContext(context.Context) AlarmModelAssetPropertyValueOutput
 }
 
-// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelAssetPropertyValueArgs struct {
-	// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
-	Quality   pulumi.StringPtrInput                    `pulumi:"quality"`
+	// The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
+	Quality pulumi.StringPtrInput `pulumi:"quality"`
+	// The timestamp associated with the asset property value. The default is the current event time.
 	Timestamp AlarmModelAssetPropertyTimestampPtrInput `pulumi:"timestamp"`
-	Value     AlarmModelAssetPropertyVariantInput      `pulumi:"value"`
+	// The value to send to an asset property.
+	Value AlarmModelAssetPropertyVariantInput `pulumi:"value"`
 }
 
 func (AlarmModelAssetPropertyValueArgs) ElementType() reflect.Type {
@@ -927,7 +1113,14 @@ func (i *alarmModelAssetPropertyValuePtrType) ToAlarmModelAssetPropertyValuePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyValuePtrOutput)
 }
 
-// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelAssetPropertyValueOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelAssetPropertyValueOutput) ElementType() reflect.Type {
@@ -952,15 +1145,17 @@ func (o AlarmModelAssetPropertyValueOutput) ToAlarmModelAssetPropertyValuePtrOut
 	}).(AlarmModelAssetPropertyValuePtrOutput)
 }
 
-// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+// The quality of the asset property value. The value must be “'GOOD'“, “'BAD'“, or “'UNCERTAIN'“.
 func (o AlarmModelAssetPropertyValueOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyValue) *string { return v.Quality }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp associated with the asset property value. The default is the current event time.
 func (o AlarmModelAssetPropertyValueOutput) Timestamp() AlarmModelAssetPropertyTimestampPtrOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyValue) *AlarmModelAssetPropertyTimestamp { return v.Timestamp }).(AlarmModelAssetPropertyTimestampPtrOutput)
 }
 
+// The value to send to an asset property.
 func (o AlarmModelAssetPropertyValueOutput) Value() AlarmModelAssetPropertyVariantOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyValue) AlarmModelAssetPropertyVariant { return v.Value }).(AlarmModelAssetPropertyVariantOutput)
 }
@@ -989,7 +1184,7 @@ func (o AlarmModelAssetPropertyValuePtrOutput) Elem() AlarmModelAssetPropertyVal
 	}).(AlarmModelAssetPropertyValueOutput)
 }
 
-// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+// The quality of the asset property value. The value must be “'GOOD'“, “'BAD'“, or “'UNCERTAIN'“.
 func (o AlarmModelAssetPropertyValuePtrOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyValue) *string {
 		if v == nil {
@@ -999,6 +1194,7 @@ func (o AlarmModelAssetPropertyValuePtrOutput) Quality() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The timestamp associated with the asset property value. The default is the current event time.
 func (o AlarmModelAssetPropertyValuePtrOutput) Timestamp() AlarmModelAssetPropertyTimestampPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyValue) *AlarmModelAssetPropertyTimestamp {
 		if v == nil {
@@ -1008,6 +1204,7 @@ func (o AlarmModelAssetPropertyValuePtrOutput) Timestamp() AlarmModelAssetProper
 	}).(AlarmModelAssetPropertyTimestampPtrOutput)
 }
 
+// The value to send to an asset property.
 func (o AlarmModelAssetPropertyValuePtrOutput) Value() AlarmModelAssetPropertyVariantPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyValue) *AlarmModelAssetPropertyVariant {
 		if v == nil {
@@ -1017,15 +1214,26 @@ func (o AlarmModelAssetPropertyValuePtrOutput) Value() AlarmModelAssetPropertyVa
 	}).(AlarmModelAssetPropertyVariantPtrOutput)
 }
 
-// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
+//	 +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
 type AlarmModelAssetPropertyVariant struct {
-	// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+	// The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
 	BooleanValue *string `pulumi:"booleanValue"`
-	// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+	// The asset property value is a double. You must use an expression, and the evaluated result should be a double.
 	DoubleValue *string `pulumi:"doubleValue"`
-	// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+	// The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
 	IntegerValue *string `pulumi:"integerValue"`
-	// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+	// The asset property value is a string. You must use an expression, and the evaluated result should be a string.
 	StringValue *string `pulumi:"stringValue"`
 }
 
@@ -1040,15 +1248,26 @@ type AlarmModelAssetPropertyVariantInput interface {
 	ToAlarmModelAssetPropertyVariantOutputWithContext(context.Context) AlarmModelAssetPropertyVariantOutput
 }
 
-// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
+//	 +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
 type AlarmModelAssetPropertyVariantArgs struct {
-	// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+	// The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
 	BooleanValue pulumi.StringPtrInput `pulumi:"booleanValue"`
-	// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+	// The asset property value is a double. You must use an expression, and the evaluated result should be a double.
 	DoubleValue pulumi.StringPtrInput `pulumi:"doubleValue"`
-	// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+	// The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
 	IntegerValue pulumi.StringPtrInput `pulumi:"integerValue"`
-	// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+	// The asset property value is a string. You must use an expression, and the evaluated result should be a string.
 	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
@@ -1105,7 +1324,18 @@ func (i *alarmModelAssetPropertyVariantPtrType) ToAlarmModelAssetPropertyVariant
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelAssetPropertyVariantPtrOutput)
 }
 
-// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
+//	 +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
 type AlarmModelAssetPropertyVariantOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelAssetPropertyVariantOutput) ElementType() reflect.Type {
@@ -1130,22 +1360,22 @@ func (o AlarmModelAssetPropertyVariantOutput) ToAlarmModelAssetPropertyVariantPt
 	}).(AlarmModelAssetPropertyVariantPtrOutput)
 }
 
-// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+// The asset property value is a Boolean value that must be “'TRUE'“ or “'FALSE'“. You must use an expression, and the evaluated result should be a Boolean value.
 func (o AlarmModelAssetPropertyVariantOutput) BooleanValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyVariant) *string { return v.BooleanValue }).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+// The asset property value is a double. You must use an expression, and the evaluated result should be a double.
 func (o AlarmModelAssetPropertyVariantOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyVariant) *string { return v.DoubleValue }).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+// The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
 func (o AlarmModelAssetPropertyVariantOutput) IntegerValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyVariant) *string { return v.IntegerValue }).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+// The asset property value is a string. You must use an expression, and the evaluated result should be a string.
 func (o AlarmModelAssetPropertyVariantOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelAssetPropertyVariant) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
@@ -1174,7 +1404,7 @@ func (o AlarmModelAssetPropertyVariantPtrOutput) Elem() AlarmModelAssetPropertyV
 	}).(AlarmModelAssetPropertyVariantOutput)
 }
 
-// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+// The asset property value is a Boolean value that must be “'TRUE'“ or “'FALSE'“. You must use an expression, and the evaluated result should be a Boolean value.
 func (o AlarmModelAssetPropertyVariantPtrOutput) BooleanValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -1184,7 +1414,7 @@ func (o AlarmModelAssetPropertyVariantPtrOutput) BooleanValue() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+// The asset property value is a double. You must use an expression, and the evaluated result should be a double.
 func (o AlarmModelAssetPropertyVariantPtrOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -1194,7 +1424,7 @@ func (o AlarmModelAssetPropertyVariantPtrOutput) DoubleValue() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+// The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
 func (o AlarmModelAssetPropertyVariantPtrOutput) IntegerValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -1204,7 +1434,7 @@ func (o AlarmModelAssetPropertyVariantPtrOutput) IntegerValue() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+// The asset property value is a string. You must use an expression, and the evaluated result should be a string.
 func (o AlarmModelAssetPropertyVariantPtrOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -1214,10 +1444,24 @@ func (o AlarmModelAssetPropertyVariantPtrOutput) StringValue() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
-// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+//	You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+//	      ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 type AlarmModelDynamoDBv2 struct {
+	// Information needed to configure the payload.
+	//  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 	Payload *AlarmModelPayload `pulumi:"payload"`
 	// The name of the DynamoDB table.
 	TableName string `pulumi:"tableName"`
@@ -1234,10 +1478,24 @@ type AlarmModelDynamoDBv2Input interface {
 	ToAlarmModelDynamoDBv2OutputWithContext(context.Context) AlarmModelDynamoDBv2Output
 }
 
-// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
-// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+//	You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+//	      ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 type AlarmModelDynamoDBv2Args struct {
+	// Information needed to configure the payload.
+	//  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 	Payload AlarmModelPayloadPtrInput `pulumi:"payload"`
 	// The name of the DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
@@ -1296,9 +1554,21 @@ func (i *alarmModelDynamoDBv2PtrType) ToAlarmModelDynamoDBv2PtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDBv2PtrOutput)
 }
 
-// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
-// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+//	You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+//	      ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 type AlarmModelDynamoDBv2Output struct{ *pulumi.OutputState }
 
 func (AlarmModelDynamoDBv2Output) ElementType() reflect.Type {
@@ -1323,6 +1593,9 @@ func (o AlarmModelDynamoDBv2Output) ToAlarmModelDynamoDBv2PtrOutputWithContext(c
 	}).(AlarmModelDynamoDBv2PtrOutput)
 }
 
+// Information needed to configure the payload.
+//
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 func (o AlarmModelDynamoDBv2Output) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDBv2) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -1356,6 +1629,9 @@ func (o AlarmModelDynamoDBv2PtrOutput) Elem() AlarmModelDynamoDBv2Output {
 	}).(AlarmModelDynamoDBv2Output)
 }
 
+// Information needed to configure the payload.
+//
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 func (o AlarmModelDynamoDBv2PtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDBv2) *AlarmModelPayload {
 		if v == nil {
@@ -1375,48 +1651,56 @@ func (o AlarmModelDynamoDBv2PtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+//
+//	You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+//	      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 type AlarmModelDynamoDb struct {
-	// The name of the hash key (also called the partition key).
+	// The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
 	HashKeyField string `pulumi:"hashKeyField"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//   +   ``'STRING'`` - The hash key is a string.
+	//   +   ``'NUMBER'`` - The hash key is a number.
 	//
-	// * `STRING` - The hash key is a string.
-	//
-	// * `NUMBER` - The hash key is a number.
-	//
-	// If you don't specify `hashKeyType`, the default value is `STRING`.
+	//  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
 	HashKeyType *string `pulumi:"hashKeyType"`
 	// The value of the hash key (also called the partition key).
 	HashKeyValue string `pulumi:"hashKeyValue"`
 	// The type of operation to perform. You can specify the following values:
+	//   +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//   +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
-	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//
-	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-	Operation *string            `pulumi:"operation"`
-	Payload   *AlarmModelPayload `pulumi:"payload"`
+	//  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
+	Operation *string `pulumi:"operation"`
+	// Information needed to configure the payload.
+	//  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+	Payload *AlarmModelPayload `pulumi:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
-	//
-	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+	//  If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
 	PayloadField *string `pulumi:"payloadField"`
-	// The name of the range key (also called the sort key).
+	// The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
 	RangeKeyField *string `pulumi:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:
+	//   +   ``'STRING'`` - The range key is a string.
+	//   +   ``'NUMBER'`` - The range key is number.
 	//
-	// * `STRING` - The range key is a string.
-	//
-	// * `NUMBER` - The range key is number.
-	//
-	// If you don't specify `rangeKeyField`, the default value is `STRING`.
+	//  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
 	RangeKeyType *string `pulumi:"rangeKeyType"`
 	// The value of the range key (also called the sort key).
 	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	// The name of the DynamoDB table.
+	// The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -1431,48 +1715,56 @@ type AlarmModelDynamoDbInput interface {
 	ToAlarmModelDynamoDbOutputWithContext(context.Context) AlarmModelDynamoDbOutput
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+//
+//	You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+//	      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 type AlarmModelDynamoDbArgs struct {
-	// The name of the hash key (also called the partition key).
+	// The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
 	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//   +   ``'STRING'`` - The hash key is a string.
+	//   +   ``'NUMBER'`` - The hash key is a number.
 	//
-	// * `STRING` - The hash key is a string.
-	//
-	// * `NUMBER` - The hash key is a number.
-	//
-	// If you don't specify `hashKeyType`, the default value is `STRING`.
+	//  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
 	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
 	// The value of the hash key (also called the partition key).
 	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
 	// The type of operation to perform. You can specify the following values:
+	//   +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//   +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
-	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//
-	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
-	Operation pulumi.StringPtrInput     `pulumi:"operation"`
-	Payload   AlarmModelPayloadPtrInput `pulumi:"payload"`
+	//  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// Information needed to configure the payload.
+	//  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+	Payload AlarmModelPayloadPtrInput `pulumi:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
-	//
-	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+	//  If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
 	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
-	// The name of the range key (also called the sort key).
+	// The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:
+	//   +   ``'STRING'`` - The range key is a string.
+	//   +   ``'NUMBER'`` - The range key is number.
 	//
-	// * `STRING` - The range key is a string.
-	//
-	// * `NUMBER` - The range key is number.
-	//
-	// If you don't specify `rangeKeyField`, the default value is `STRING`.
+	//  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
 	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
 	// The value of the range key (also called the sort key).
 	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	// The name of the DynamoDB table.
+	// The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -1529,7 +1821,21 @@ func (i *alarmModelDynamoDbPtrType) ToAlarmModelDynamoDbPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelDynamoDbPtrOutput)
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+//
+//	You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+//	      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 type AlarmModelDynamoDbOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelDynamoDbOutput) ElementType() reflect.Type {
@@ -1554,18 +1860,18 @@ func (o AlarmModelDynamoDbOutput) ToAlarmModelDynamoDbPtrOutputWithContext(ctx c
 	}).(AlarmModelDynamoDbPtrOutput)
 }
 
-// The name of the hash key (also called the partition key).
+// The name of the hash key (also called the partition key). The “hashKeyField“ value must match the partition key of the target DynamoDB table.
 func (o AlarmModelDynamoDbOutput) HashKeyField() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) string { return v.HashKeyField }).(pulumi.StringOutput)
 }
 
 // The data type for the hash key (also called the partition key). You can specify the following values:
 //
-// * `STRING` - The hash key is a string.
+//   - “'STRING'“ - The hash key is a string.
 //
-// * `NUMBER` - The hash key is a number.
+//   - “'NUMBER'“ - The hash key is a number.
 //
-// If you don't specify `hashKeyType`, the default value is `STRING`.
+//     If you don't specify “hashKeyType“, the default value is “'STRING'“.
 func (o AlarmModelDynamoDbOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
 }
@@ -1577,40 +1883,43 @@ func (o AlarmModelDynamoDbOutput) HashKeyValue() pulumi.StringOutput {
 
 // The type of operation to perform. You can specify the following values:
 //
-// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//   - “'INSERT'“ - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
 //
-// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//   - “'UPDATE'“ - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 //
-// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//   - “'DELETE'“ - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 //
-// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+//     If you don't specify this parameter, ITE triggers the “'INSERT'“ operation.
 func (o AlarmModelDynamoDbOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
+// Information needed to configure the payload.
+//
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 func (o AlarmModelDynamoDbOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
 
 // The name of the DynamoDB column that receives the action payload.
 //
-// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+//	If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
 func (o AlarmModelDynamoDbOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
 }
 
-// The name of the range key (also called the sort key).
+// The name of the range key (also called the sort key). The “rangeKeyField“ value must match the sort key of the target DynamoDB table.
 func (o AlarmModelDynamoDbOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
 }
 
 // The data type for the range key (also called the sort key), You can specify the following values:
 //
-// * `STRING` - The range key is a string.
+//   - “'STRING'“ - The range key is a string.
 //
-// * `NUMBER` - The range key is number.
+//   - “'NUMBER'“ - The range key is number.
 //
-// If you don't specify `rangeKeyField`, the default value is `STRING`.
+//     If you don't specify “rangeKeyField“, the default value is “'STRING'“.
 func (o AlarmModelDynamoDbOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
 }
@@ -1620,7 +1929,7 @@ func (o AlarmModelDynamoDbOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DynamoDB table.
+// The name of the DynamoDB table. The “tableName“ value must match the table name of the target DynamoDB table.
 func (o AlarmModelDynamoDbOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelDynamoDb) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -1649,7 +1958,7 @@ func (o AlarmModelDynamoDbPtrOutput) Elem() AlarmModelDynamoDbOutput {
 	}).(AlarmModelDynamoDbOutput)
 }
 
-// The name of the hash key (also called the partition key).
+// The name of the hash key (also called the partition key). The “hashKeyField“ value must match the partition key of the target DynamoDB table.
 func (o AlarmModelDynamoDbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
 		if v == nil {
@@ -1661,11 +1970,11 @@ func (o AlarmModelDynamoDbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 
 // The data type for the hash key (also called the partition key). You can specify the following values:
 //
-// * `STRING` - The hash key is a string.
+//   - “'STRING'“ - The hash key is a string.
 //
-// * `NUMBER` - The hash key is a number.
+//   - “'NUMBER'“ - The hash key is a number.
 //
-// If you don't specify `hashKeyType`, the default value is `STRING`.
+//     If you don't specify “hashKeyType“, the default value is “'STRING'“.
 func (o AlarmModelDynamoDbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
 		if v == nil {
@@ -1687,13 +1996,13 @@ func (o AlarmModelDynamoDbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 
 // The type of operation to perform. You can specify the following values:
 //
-// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//   - “'INSERT'“ - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
 //
-// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//   - “'UPDATE'“ - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 //
-// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//   - “'DELETE'“ - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 //
-// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+//     If you don't specify this parameter, ITE triggers the “'INSERT'“ operation.
 func (o AlarmModelDynamoDbPtrOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
 		if v == nil {
@@ -1703,6 +2012,9 @@ func (o AlarmModelDynamoDbPtrOutput) Operation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information needed to configure the payload.
+//
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 func (o AlarmModelDynamoDbPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDb) *AlarmModelPayload {
 		if v == nil {
@@ -1714,7 +2026,7 @@ func (o AlarmModelDynamoDbPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 
 // The name of the DynamoDB column that receives the action payload.
 //
-// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+//	If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
 func (o AlarmModelDynamoDbPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
 		if v == nil {
@@ -1724,7 +2036,7 @@ func (o AlarmModelDynamoDbPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the range key (also called the sort key).
+// The name of the range key (also called the sort key). The “rangeKeyField“ value must match the sort key of the target DynamoDB table.
 func (o AlarmModelDynamoDbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
 		if v == nil {
@@ -1736,11 +2048,11 @@ func (o AlarmModelDynamoDbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 
 // The data type for the range key (also called the sort key), You can specify the following values:
 //
-// * `STRING` - The range key is a string.
+//   - “'STRING'“ - The range key is a string.
 //
-// * `NUMBER` - The range key is number.
+//   - “'NUMBER'“ - The range key is number.
 //
-// If you don't specify `rangeKeyField`, the default value is `STRING`.
+//     If you don't specify “rangeKeyField“, the default value is “'STRING'“.
 func (o AlarmModelDynamoDbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
 		if v == nil {
@@ -1760,7 +2072,7 @@ func (o AlarmModelDynamoDbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the DynamoDB table.
+// The name of the DynamoDB table. The “tableName“ value must match the table name of the target DynamoDB table.
 func (o AlarmModelDynamoDbPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelDynamoDb) *string {
 		if v == nil {
@@ -1770,11 +2082,12 @@ func (o AlarmModelDynamoDbPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type AlarmModelFirehose struct {
 	// The name of the Kinesis Data Firehose delivery stream where the data is written.
-	DeliveryStreamName string             `pulumi:"deliveryStreamName"`
-	Payload            *AlarmModelPayload `pulumi:"payload"`
+	DeliveryStreamName string `pulumi:"deliveryStreamName"`
+	// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+	Payload *AlarmModelPayload `pulumi:"payload"`
 	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 	Separator *string `pulumi:"separator"`
 }
@@ -1790,11 +2103,12 @@ type AlarmModelFirehoseInput interface {
 	ToAlarmModelFirehoseOutputWithContext(context.Context) AlarmModelFirehoseOutput
 }
 
-// Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type AlarmModelFirehoseArgs struct {
 	// The name of the Kinesis Data Firehose delivery stream where the data is written.
-	DeliveryStreamName pulumi.StringInput        `pulumi:"deliveryStreamName"`
-	Payload            AlarmModelPayloadPtrInput `pulumi:"payload"`
+	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
+	// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+	Payload AlarmModelPayloadPtrInput `pulumi:"payload"`
 	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 	Separator pulumi.StringPtrInput `pulumi:"separator"`
 }
@@ -1852,7 +2166,7 @@ func (i *alarmModelFirehosePtrType) ToAlarmModelFirehosePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelFirehosePtrOutput)
 }
 
-// Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type AlarmModelFirehoseOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelFirehoseOutput) ElementType() reflect.Type {
@@ -1882,6 +2196,7 @@ func (o AlarmModelFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
 
+// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
 func (o AlarmModelFirehoseOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelFirehose) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -1925,6 +2240,7 @@ func (o AlarmModelFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
 func (o AlarmModelFirehosePtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v *AlarmModelFirehose) *AlarmModelPayload {
 		if v == nil {
@@ -1946,7 +2262,7 @@ func (o AlarmModelFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 
 // Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
 type AlarmModelInitializationConfiguration struct {
-	// The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+	// The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
 	DisabledOnInitialization bool `pulumi:"disabledOnInitialization"`
 }
 
@@ -1963,7 +2279,7 @@ type AlarmModelInitializationConfigurationInput interface {
 
 // Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
 type AlarmModelInitializationConfigurationArgs struct {
-	// The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+	// The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
 	DisabledOnInitialization pulumi.BoolInput `pulumi:"disabledOnInitialization"`
 }
 
@@ -2045,7 +2361,7 @@ func (o AlarmModelInitializationConfigurationOutput) ToAlarmModelInitializationC
 	}).(AlarmModelInitializationConfigurationPtrOutput)
 }
 
-// The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+// The value must be “TRUE“ or “FALSE“. If “FALSE“, all alarm instances created based on the alarm model are activated. The default value is “TRUE“.
 func (o AlarmModelInitializationConfigurationOutput) DisabledOnInitialization() pulumi.BoolOutput {
 	return o.ApplyT(func(v AlarmModelInitializationConfiguration) bool { return v.DisabledOnInitialization }).(pulumi.BoolOutput)
 }
@@ -2074,7 +2390,7 @@ func (o AlarmModelInitializationConfigurationPtrOutput) Elem() AlarmModelInitial
 	}).(AlarmModelInitializationConfigurationOutput)
 }
 
-// The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+// The value must be “TRUE“ or “FALSE“. If “FALSE“, all alarm instances created based on the alarm model are activated. The default value is “TRUE“.
 func (o AlarmModelInitializationConfigurationPtrOutput) DisabledOnInitialization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlarmModelInitializationConfiguration) *bool {
 		if v == nil {
@@ -2084,11 +2400,12 @@ func (o AlarmModelInitializationConfigurationPtrOutput) DisabledOnInitialization
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
+// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
 type AlarmModelIotEvents struct {
-	// The name of the AWS IoT Events input where the data is sent.
-	InputName string             `pulumi:"inputName"`
-	Payload   *AlarmModelPayload `pulumi:"payload"`
+	// The name of the ITE input where the data is sent.
+	InputName string `pulumi:"inputName"`
+	// You can configure the action payload when you send a message to an ITE input.
+	Payload *AlarmModelPayload `pulumi:"payload"`
 }
 
 // AlarmModelIotEventsInput is an input type that accepts AlarmModelIotEventsArgs and AlarmModelIotEventsOutput values.
@@ -2102,11 +2419,12 @@ type AlarmModelIotEventsInput interface {
 	ToAlarmModelIotEventsOutputWithContext(context.Context) AlarmModelIotEventsOutput
 }
 
-// Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
+// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
 type AlarmModelIotEventsArgs struct {
-	// The name of the AWS IoT Events input where the data is sent.
-	InputName pulumi.StringInput        `pulumi:"inputName"`
-	Payload   AlarmModelPayloadPtrInput `pulumi:"payload"`
+	// The name of the ITE input where the data is sent.
+	InputName pulumi.StringInput `pulumi:"inputName"`
+	// You can configure the action payload when you send a message to an ITE input.
+	Payload AlarmModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (AlarmModelIotEventsArgs) ElementType() reflect.Type {
@@ -2162,7 +2480,7 @@ func (i *alarmModelIotEventsPtrType) ToAlarmModelIotEventsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotEventsPtrOutput)
 }
 
-// Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
+// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
 type AlarmModelIotEventsOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelIotEventsOutput) ElementType() reflect.Type {
@@ -2187,11 +2505,12 @@ func (o AlarmModelIotEventsOutput) ToAlarmModelIotEventsPtrOutputWithContext(ctx
 	}).(AlarmModelIotEventsPtrOutput)
 }
 
-// The name of the AWS IoT Events input where the data is sent.
+// The name of the ITE input where the data is sent.
 func (o AlarmModelIotEventsOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelIotEvents) string { return v.InputName }).(pulumi.StringOutput)
 }
 
+// You can configure the action payload when you send a message to an ITE input.
 func (o AlarmModelIotEventsOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelIotEvents) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -2220,7 +2539,7 @@ func (o AlarmModelIotEventsPtrOutput) Elem() AlarmModelIotEventsOutput {
 	}).(AlarmModelIotEventsOutput)
 }
 
-// The name of the AWS IoT Events input where the data is sent.
+// The name of the ITE input where the data is sent.
 func (o AlarmModelIotEventsPtrOutput) InputName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotEvents) *string {
 		if v == nil {
@@ -2230,6 +2549,7 @@ func (o AlarmModelIotEventsPtrOutput) InputName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// You can configure the action payload when you send a message to an ITE input.
 func (o AlarmModelIotEventsPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotEvents) *AlarmModelPayload {
 		if v == nil {
@@ -2239,16 +2559,28 @@ func (o AlarmModelIotEventsPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	}).(AlarmModelPayloadPtrOutput)
 }
 
-// Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+//
+//	You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+//	      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+//
+//	You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelIotSiteWise struct {
-	// The ID of the asset that has the specified property. You can specify an expression.
+	// The ID of the asset that has the specified property.
 	AssetId *string `pulumi:"assetId"`
-	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
 	EntryId *string `pulumi:"entryId"`
-	// The alias of the asset property. You can also specify an expression.
+	// The alias of the asset property.
 	PropertyAlias *string `pulumi:"propertyAlias"`
-	// The ID of the asset property. You can specify an expression.
-	PropertyId    *string                       `pulumi:"propertyId"`
+	// The ID of the asset property.
+	PropertyId *string `pulumi:"propertyId"`
+	// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 	PropertyValue *AlarmModelAssetPropertyValue `pulumi:"propertyValue"`
 }
 
@@ -2263,16 +2595,28 @@ type AlarmModelIotSiteWiseInput interface {
 	ToAlarmModelIotSiteWiseOutputWithContext(context.Context) AlarmModelIotSiteWiseOutput
 }
 
-// Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+//
+//	You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+//	      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+//
+//	You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelIotSiteWiseArgs struct {
-	// The ID of the asset that has the specified property. You can specify an expression.
+	// The ID of the asset that has the specified property.
 	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
-	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
 	EntryId pulumi.StringPtrInput `pulumi:"entryId"`
-	// The alias of the asset property. You can also specify an expression.
+	// The alias of the asset property.
 	PropertyAlias pulumi.StringPtrInput `pulumi:"propertyAlias"`
-	// The ID of the asset property. You can specify an expression.
-	PropertyId    pulumi.StringPtrInput                `pulumi:"propertyId"`
+	// The ID of the asset property.
+	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
+	// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 	PropertyValue AlarmModelAssetPropertyValuePtrInput `pulumi:"propertyValue"`
 }
 
@@ -2329,7 +2673,18 @@ func (i *alarmModelIotSiteWisePtrType) ToAlarmModelIotSiteWisePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotSiteWisePtrOutput)
 }
 
-// Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+//
+//	You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+//	      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+//
+//	You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type AlarmModelIotSiteWiseOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelIotSiteWiseOutput) ElementType() reflect.Type {
@@ -2354,26 +2709,27 @@ func (o AlarmModelIotSiteWiseOutput) ToAlarmModelIotSiteWisePtrOutputWithContext
 	}).(AlarmModelIotSiteWisePtrOutput)
 }
 
-// The ID of the asset that has the specified property. You can specify an expression.
+// The ID of the asset that has the specified property.
 func (o AlarmModelIotSiteWiseOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelIotSiteWise) *string { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
-// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
 func (o AlarmModelIotSiteWiseOutput) EntryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelIotSiteWise) *string { return v.EntryId }).(pulumi.StringPtrOutput)
 }
 
-// The alias of the asset property. You can also specify an expression.
+// The alias of the asset property.
 func (o AlarmModelIotSiteWiseOutput) PropertyAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelIotSiteWise) *string { return v.PropertyAlias }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the asset property. You can specify an expression.
+// The ID of the asset property.
 func (o AlarmModelIotSiteWiseOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmModelIotSiteWise) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
+// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 func (o AlarmModelIotSiteWiseOutput) PropertyValue() AlarmModelAssetPropertyValuePtrOutput {
 	return o.ApplyT(func(v AlarmModelIotSiteWise) *AlarmModelAssetPropertyValue { return v.PropertyValue }).(AlarmModelAssetPropertyValuePtrOutput)
 }
@@ -2402,7 +2758,7 @@ func (o AlarmModelIotSiteWisePtrOutput) Elem() AlarmModelIotSiteWiseOutput {
 	}).(AlarmModelIotSiteWiseOutput)
 }
 
-// The ID of the asset that has the specified property. You can specify an expression.
+// The ID of the asset that has the specified property.
 func (o AlarmModelIotSiteWisePtrOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotSiteWise) *string {
 		if v == nil {
@@ -2412,7 +2768,7 @@ func (o AlarmModelIotSiteWisePtrOutput) AssetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
 func (o AlarmModelIotSiteWisePtrOutput) EntryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotSiteWise) *string {
 		if v == nil {
@@ -2422,7 +2778,7 @@ func (o AlarmModelIotSiteWisePtrOutput) EntryId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The alias of the asset property. You can also specify an expression.
+// The alias of the asset property.
 func (o AlarmModelIotSiteWisePtrOutput) PropertyAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotSiteWise) *string {
 		if v == nil {
@@ -2432,7 +2788,7 @@ func (o AlarmModelIotSiteWisePtrOutput) PropertyAlias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the asset property. You can specify an expression.
+// The ID of the asset property.
 func (o AlarmModelIotSiteWisePtrOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotSiteWise) *string {
 		if v == nil {
@@ -2442,6 +2798,7 @@ func (o AlarmModelIotSiteWisePtrOutput) PropertyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 func (o AlarmModelIotSiteWisePtrOutput) PropertyValue() AlarmModelAssetPropertyValuePtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotSiteWise) *AlarmModelAssetPropertyValue {
 		if v == nil {
@@ -2451,11 +2808,12 @@ func (o AlarmModelIotSiteWisePtrOutput) PropertyValue() AlarmModelAssetPropertyV
 	}).(AlarmModelAssetPropertyValuePtrOutput)
 }
 
-// Information required to publish the MQTT message through the AWS IoT message broker.
+// Information required to publish the MQTT message through the IoT message broker.
 type AlarmModelIotTopicPublish struct {
-	// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
-	MqttTopic string             `pulumi:"mqttTopic"`
-	Payload   *AlarmModelPayload `pulumi:"payload"`
+	// The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
+	MqttTopic string `pulumi:"mqttTopic"`
+	// You can configure the action payload when you publish a message to an IoTCore topic.
+	Payload *AlarmModelPayload `pulumi:"payload"`
 }
 
 // AlarmModelIotTopicPublishInput is an input type that accepts AlarmModelIotTopicPublishArgs and AlarmModelIotTopicPublishOutput values.
@@ -2469,11 +2827,12 @@ type AlarmModelIotTopicPublishInput interface {
 	ToAlarmModelIotTopicPublishOutputWithContext(context.Context) AlarmModelIotTopicPublishOutput
 }
 
-// Information required to publish the MQTT message through the AWS IoT message broker.
+// Information required to publish the MQTT message through the IoT message broker.
 type AlarmModelIotTopicPublishArgs struct {
-	// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
-	MqttTopic pulumi.StringInput        `pulumi:"mqttTopic"`
-	Payload   AlarmModelPayloadPtrInput `pulumi:"payload"`
+	// The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
+	MqttTopic pulumi.StringInput `pulumi:"mqttTopic"`
+	// You can configure the action payload when you publish a message to an IoTCore topic.
+	Payload AlarmModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (AlarmModelIotTopicPublishArgs) ElementType() reflect.Type {
@@ -2529,7 +2888,7 @@ func (i *alarmModelIotTopicPublishPtrType) ToAlarmModelIotTopicPublishPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelIotTopicPublishPtrOutput)
 }
 
-// Information required to publish the MQTT message through the AWS IoT message broker.
+// Information required to publish the MQTT message through the IoT message broker.
 type AlarmModelIotTopicPublishOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelIotTopicPublishOutput) ElementType() reflect.Type {
@@ -2554,11 +2913,12 @@ func (o AlarmModelIotTopicPublishOutput) ToAlarmModelIotTopicPublishPtrOutputWit
 	}).(AlarmModelIotTopicPublishPtrOutput)
 }
 
-// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+// The MQTT topic of the message. You can use a string expression that includes variables (“$variable.<variable-name>“) and input values (“$input.<input-name>.<path-to-datum>“) as the topic string.
 func (o AlarmModelIotTopicPublishOutput) MqttTopic() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelIotTopicPublish) string { return v.MqttTopic }).(pulumi.StringOutput)
 }
 
+// You can configure the action payload when you publish a message to an IoTCore topic.
 func (o AlarmModelIotTopicPublishOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelIotTopicPublish) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -2587,7 +2947,7 @@ func (o AlarmModelIotTopicPublishPtrOutput) Elem() AlarmModelIotTopicPublishOutp
 	}).(AlarmModelIotTopicPublishOutput)
 }
 
-// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+// The MQTT topic of the message. You can use a string expression that includes variables (“$variable.<variable-name>“) and input values (“$input.<input-name>.<path-to-datum>“) as the topic string.
 func (o AlarmModelIotTopicPublishPtrOutput) MqttTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotTopicPublish) *string {
 		if v == nil {
@@ -2597,6 +2957,7 @@ func (o AlarmModelIotTopicPublishPtrOutput) MqttTopic() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// You can configure the action payload when you publish a message to an IoTCore topic.
 func (o AlarmModelIotTopicPublishPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v *AlarmModelIotTopicPublish) *AlarmModelPayload {
 		if v == nil {
@@ -2606,10 +2967,12 @@ func (o AlarmModelIotTopicPublishPtrOutput) Payload() AlarmModelPayloadPtrOutput
 	}).(AlarmModelPayloadPtrOutput)
 }
 
+// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 type AlarmModelLambda struct {
 	// The ARN of the Lambda function that is executed.
-	FunctionArn string             `pulumi:"functionArn"`
-	Payload     *AlarmModelPayload `pulumi:"payload"`
+	FunctionArn string `pulumi:"functionArn"`
+	// You can configure the action payload when you send a message to a Lambda function.
+	Payload *AlarmModelPayload `pulumi:"payload"`
 }
 
 // AlarmModelLambdaInput is an input type that accepts AlarmModelLambdaArgs and AlarmModelLambdaOutput values.
@@ -2623,10 +2986,12 @@ type AlarmModelLambdaInput interface {
 	ToAlarmModelLambdaOutputWithContext(context.Context) AlarmModelLambdaOutput
 }
 
+// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 type AlarmModelLambdaArgs struct {
 	// The ARN of the Lambda function that is executed.
-	FunctionArn pulumi.StringInput        `pulumi:"functionArn"`
-	Payload     AlarmModelPayloadPtrInput `pulumi:"payload"`
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+	// You can configure the action payload when you send a message to a Lambda function.
+	Payload AlarmModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (AlarmModelLambdaArgs) ElementType() reflect.Type {
@@ -2682,6 +3047,7 @@ func (i *alarmModelLambdaPtrType) ToAlarmModelLambdaPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelLambdaPtrOutput)
 }
 
+// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 type AlarmModelLambdaOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelLambdaOutput) ElementType() reflect.Type {
@@ -2711,6 +3077,7 @@ func (o AlarmModelLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
+// You can configure the action payload when you send a message to a Lambda function.
 func (o AlarmModelLambdaOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelLambda) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -2749,6 +3116,7 @@ func (o AlarmModelLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// You can configure the action payload when you send a message to a Lambda function.
 func (o AlarmModelLambdaPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v *AlarmModelLambda) *AlarmModelPayload {
 		if v == nil {
@@ -2760,11 +3128,11 @@ func (o AlarmModelLambdaPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 type AlarmModelPayload struct {
-	// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+	// The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
 	ContentExpression string `pulumi:"contentExpression"`
-	// The value of the payload type can be either `STRING` or `JSON`.
+	// The value of the payload type can be either ``STRING`` or ``JSON``.
 	Type string `pulumi:"type"`
 }
 
@@ -2781,11 +3149,11 @@ type AlarmModelPayloadInput interface {
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 type AlarmModelPayloadArgs struct {
-	// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+	// The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
 	ContentExpression pulumi.StringInput `pulumi:"contentExpression"`
-	// The value of the payload type can be either `STRING` or `JSON`.
+	// The value of the payload type can be either ``STRING`` or ``JSON``.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2844,7 +3212,7 @@ func (i *alarmModelPayloadPtrType) ToAlarmModelPayloadPtrOutputWithContext(ctx c
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 type AlarmModelPayloadOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelPayloadOutput) ElementType() reflect.Type {
@@ -2869,12 +3237,12 @@ func (o AlarmModelPayloadOutput) ToAlarmModelPayloadPtrOutputWithContext(ctx con
 	}).(AlarmModelPayloadPtrOutput)
 }
 
-// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+// The content of the payload. You can use a string expression that includes quoted strings (“'<string>'“), variables (“$variable.<variable-name>“), input values (“$input.<input-name>.<path-to-datum>“), string concatenations, and quoted strings that contain “${}“ as the content. The recommended maximum size of a content expression is 1 KB.
 func (o AlarmModelPayloadOutput) ContentExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelPayload) string { return v.ContentExpression }).(pulumi.StringOutput)
 }
 
-// The value of the payload type can be either `STRING` or `JSON`.
+// The value of the payload type can be either “STRING“ or “JSON“.
 func (o AlarmModelPayloadOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelPayload) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2903,7 +3271,7 @@ func (o AlarmModelPayloadPtrOutput) Elem() AlarmModelPayloadOutput {
 	}).(AlarmModelPayloadOutput)
 }
 
-// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+// The content of the payload. You can use a string expression that includes quoted strings (“'<string>'“), variables (“$variable.<variable-name>“), input values (“$input.<input-name>.<path-to-datum>“), string concatenations, and quoted strings that contain “${}“ as the content. The recommended maximum size of a content expression is 1 KB.
 func (o AlarmModelPayloadPtrOutput) ContentExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelPayload) *string {
 		if v == nil {
@@ -2913,7 +3281,7 @@ func (o AlarmModelPayloadPtrOutput) ContentExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the payload type can be either `STRING` or `JSON`.
+// The value of the payload type can be either “STRING“ or “JSON“.
 func (o AlarmModelPayloadPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelPayload) *string {
 		if v == nil {
@@ -2927,9 +3295,9 @@ func (o AlarmModelPayloadPtrOutput) Type() pulumi.StringPtrOutput {
 type AlarmModelSimpleRule struct {
 	// The comparison operator.
 	ComparisonOperator AlarmModelSimpleRuleComparisonOperator `pulumi:"comparisonOperator"`
-	// The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+	// The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
 	InputProperty string `pulumi:"inputProperty"`
-	// The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+	// The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
 	Threshold string `pulumi:"threshold"`
 }
 
@@ -2948,9 +3316,9 @@ type AlarmModelSimpleRuleInput interface {
 type AlarmModelSimpleRuleArgs struct {
 	// The comparison operator.
 	ComparisonOperator AlarmModelSimpleRuleComparisonOperatorInput `pulumi:"comparisonOperator"`
-	// The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+	// The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
 	InputProperty pulumi.StringInput `pulumi:"inputProperty"`
-	// The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+	// The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
 	Threshold pulumi.StringInput `pulumi:"threshold"`
 }
 
@@ -3037,12 +3405,12 @@ func (o AlarmModelSimpleRuleOutput) ComparisonOperator() AlarmModelSimpleRuleCom
 	return o.ApplyT(func(v AlarmModelSimpleRule) AlarmModelSimpleRuleComparisonOperator { return v.ComparisonOperator }).(AlarmModelSimpleRuleComparisonOperatorOutput)
 }
 
-// The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+// The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
 func (o AlarmModelSimpleRuleOutput) InputProperty() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelSimpleRule) string { return v.InputProperty }).(pulumi.StringOutput)
 }
 
-// The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+// The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
 func (o AlarmModelSimpleRuleOutput) Threshold() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelSimpleRule) string { return v.Threshold }).(pulumi.StringOutput)
 }
@@ -3081,7 +3449,7 @@ func (o AlarmModelSimpleRulePtrOutput) ComparisonOperator() AlarmModelSimpleRule
 	}).(AlarmModelSimpleRuleComparisonOperatorPtrOutput)
 }
 
-// The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+// The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
 func (o AlarmModelSimpleRulePtrOutput) InputProperty() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelSimpleRule) *string {
 		if v == nil {
@@ -3091,7 +3459,7 @@ func (o AlarmModelSimpleRulePtrOutput) InputProperty() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+// The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
 func (o AlarmModelSimpleRulePtrOutput) Threshold() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmModelSimpleRule) *string {
 		if v == nil {
@@ -3103,6 +3471,7 @@ func (o AlarmModelSimpleRulePtrOutput) Threshold() pulumi.StringPtrOutput {
 
 // Information required to publish the Amazon SNS message.
 type AlarmModelSns struct {
+	// You can configure the action payload when you send a message as an Amazon SNS push notification.
 	Payload *AlarmModelPayload `pulumi:"payload"`
 	// The ARN of the Amazon SNS target where the message is sent.
 	TargetArn string `pulumi:"targetArn"`
@@ -3121,6 +3490,7 @@ type AlarmModelSnsInput interface {
 
 // Information required to publish the Amazon SNS message.
 type AlarmModelSnsArgs struct {
+	// You can configure the action payload when you send a message as an Amazon SNS push notification.
 	Payload AlarmModelPayloadPtrInput `pulumi:"payload"`
 	// The ARN of the Amazon SNS target where the message is sent.
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
@@ -3204,6 +3574,7 @@ func (o AlarmModelSnsOutput) ToAlarmModelSnsPtrOutputWithContext(ctx context.Con
 	}).(AlarmModelSnsPtrOutput)
 }
 
+// You can configure the action payload when you send a message as an Amazon SNS push notification.
 func (o AlarmModelSnsOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelSns) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -3237,6 +3608,7 @@ func (o AlarmModelSnsPtrOutput) Elem() AlarmModelSnsOutput {
 	}).(AlarmModelSnsOutput)
 }
 
+// You can configure the action payload when you send a message as an Amazon SNS push notification.
 func (o AlarmModelSnsPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v *AlarmModelSns) *AlarmModelPayload {
 		if v == nil {
@@ -3256,11 +3628,13 @@ func (o AlarmModelSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 type AlarmModelSqs struct {
+	// You can configure the action payload when you send a message to an Amazon SQS queue.
 	Payload *AlarmModelPayload `pulumi:"payload"`
 	// The URL of the SQS queue where the data is written.
 	QueueUrl string `pulumi:"queueUrl"`
-	// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+	// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
 	UseBase64 *bool `pulumi:"useBase64"`
 }
 
@@ -3275,11 +3649,13 @@ type AlarmModelSqsInput interface {
 	ToAlarmModelSqsOutputWithContext(context.Context) AlarmModelSqsOutput
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 type AlarmModelSqsArgs struct {
+	// You can configure the action payload when you send a message to an Amazon SQS queue.
 	Payload AlarmModelPayloadPtrInput `pulumi:"payload"`
 	// The URL of the SQS queue where the data is written.
 	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
-	// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+	// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
 	UseBase64 pulumi.BoolPtrInput `pulumi:"useBase64"`
 }
 
@@ -3336,6 +3712,7 @@ func (i *alarmModelSqsPtrType) ToAlarmModelSqsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmModelSqsPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 type AlarmModelSqsOutput struct{ *pulumi.OutputState }
 
 func (AlarmModelSqsOutput) ElementType() reflect.Type {
@@ -3360,6 +3737,7 @@ func (o AlarmModelSqsOutput) ToAlarmModelSqsPtrOutputWithContext(ctx context.Con
 	}).(AlarmModelSqsPtrOutput)
 }
 
+// You can configure the action payload when you send a message to an Amazon SQS queue.
 func (o AlarmModelSqsOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v AlarmModelSqs) *AlarmModelPayload { return v.Payload }).(AlarmModelPayloadPtrOutput)
 }
@@ -3369,7 +3747,7 @@ func (o AlarmModelSqsOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmModelSqs) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
-// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
 func (o AlarmModelSqsOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AlarmModelSqs) *bool { return v.UseBase64 }).(pulumi.BoolPtrOutput)
 }
@@ -3398,6 +3776,7 @@ func (o AlarmModelSqsPtrOutput) Elem() AlarmModelSqsOutput {
 	}).(AlarmModelSqsOutput)
 }
 
+// You can configure the action payload when you send a message to an Amazon SQS queue.
 func (o AlarmModelSqsPtrOutput) Payload() AlarmModelPayloadPtrOutput {
 	return o.ApplyT(func(v *AlarmModelSqs) *AlarmModelPayload {
 		if v == nil {
@@ -3417,7 +3796,7 @@ func (o AlarmModelSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
 func (o AlarmModelSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlarmModelSqs) *bool {
 		if v == nil {
@@ -3427,29 +3806,29 @@ func (o AlarmModelSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Tags to be applied to Input.
+// Metadata that can be used to manage the resource.
 type AlarmModelTag struct {
-	// Key of the Tag.
+	// The tag's key.
 	Key string `pulumi:"key"`
-	// Value of the Tag.
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
-// The actions to be performed.
+// An action to be performed when the “condition“ is TRUE.
 type DetectorModelAction struct {
 	// Information needed to clear the timer.
 	ClearTimer *DetectorModelClearTimer `pulumi:"clearTimer"`
-	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
 	DynamoDBv2 *DetectorModelDynamoDBv2 `pulumi:"dynamoDBv2"`
-	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
 	DynamoDb *DetectorModelDynamoDb `pulumi:"dynamoDb"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 	Firehose *DetectorModelFirehose `pulumi:"firehose"`
-	// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+	// Sends ITE input, which passes information about the detector model instance and the event that triggered the action.
 	IotEvents *DetectorModelIotEvents `pulumi:"iotEvents"`
-	// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+	// Sends information about the detector model instance and the event that triggered the action to an asset property in ITSW .
 	IotSiteWise *DetectorModelIotSiteWise `pulumi:"iotSiteWise"`
-	// Publishes an MQTT message with the given topic to the AWS IoT message broker.
+	// Publishes an MQTT message with the given topic to the IoT message broker.
 	IotTopicPublish *DetectorModelIotTopicPublish `pulumi:"iotTopicPublish"`
 	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 	Lambda *DetectorModelLambda `pulumi:"lambda"`
@@ -3476,21 +3855,21 @@ type DetectorModelActionInput interface {
 	ToDetectorModelActionOutputWithContext(context.Context) DetectorModelActionOutput
 }
 
-// The actions to be performed.
+// An action to be performed when the “condition“ is TRUE.
 type DetectorModelActionArgs struct {
 	// Information needed to clear the timer.
 	ClearTimer DetectorModelClearTimerPtrInput `pulumi:"clearTimer"`
-	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
 	DynamoDBv2 DetectorModelDynamoDBv2PtrInput `pulumi:"dynamoDBv2"`
-	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+	// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
 	DynamoDb DetectorModelDynamoDbPtrInput `pulumi:"dynamoDb"`
 	// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 	Firehose DetectorModelFirehosePtrInput `pulumi:"firehose"`
-	// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+	// Sends ITE input, which passes information about the detector model instance and the event that triggered the action.
 	IotEvents DetectorModelIotEventsPtrInput `pulumi:"iotEvents"`
-	// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+	// Sends information about the detector model instance and the event that triggered the action to an asset property in ITSW .
 	IotSiteWise DetectorModelIotSiteWisePtrInput `pulumi:"iotSiteWise"`
-	// Publishes an MQTT message with the given topic to the AWS IoT message broker.
+	// Publishes an MQTT message with the given topic to the IoT message broker.
 	IotTopicPublish DetectorModelIotTopicPublishPtrInput `pulumi:"iotTopicPublish"`
 	// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 	Lambda DetectorModelLambdaPtrInput `pulumi:"lambda"`
@@ -3543,7 +3922,7 @@ func (i DetectorModelActionArray) ToDetectorModelActionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelActionArrayOutput)
 }
 
-// The actions to be performed.
+// An action to be performed when the “condition“ is TRUE.
 type DetectorModelActionOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelActionOutput) ElementType() reflect.Type {
@@ -3563,12 +3942,12 @@ func (o DetectorModelActionOutput) ClearTimer() DetectorModelClearTimerPtrOutput
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelClearTimer { return v.ClearTimer }).(DetectorModelClearTimerPtrOutput)
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
 func (o DetectorModelActionOutput) DynamoDBv2() DetectorModelDynamoDBv2PtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDBv2 { return v.DynamoDBv2 }).(DetectorModelDynamoDBv2PtrOutput)
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
 func (o DetectorModelActionOutput) DynamoDb() DetectorModelDynamoDbPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDb { return v.DynamoDb }).(DetectorModelDynamoDbPtrOutput)
 }
@@ -3578,17 +3957,17 @@ func (o DetectorModelActionOutput) Firehose() DetectorModelFirehosePtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelFirehose { return v.Firehose }).(DetectorModelFirehosePtrOutput)
 }
 
-// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+// Sends ITE input, which passes information about the detector model instance and the event that triggered the action.
 func (o DetectorModelActionOutput) IotEvents() DetectorModelIotEventsPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotEvents { return v.IotEvents }).(DetectorModelIotEventsPtrOutput)
 }
 
-// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+// Sends information about the detector model instance and the event that triggered the action to an asset property in ITSW .
 func (o DetectorModelActionOutput) IotSiteWise() DetectorModelIotSiteWisePtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotSiteWise { return v.IotSiteWise }).(DetectorModelIotSiteWisePtrOutput)
 }
 
-// Publishes an MQTT message with the given topic to the AWS IoT message broker.
+// Publishes an MQTT message with the given topic to the IoT message broker.
 func (o DetectorModelActionOutput) IotTopicPublish() DetectorModelIotTopicPublishPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotTopicPublish { return v.IotTopicPublish }).(DetectorModelIotTopicPublishPtrOutput)
 }
@@ -3643,11 +4022,21 @@ func (o DetectorModelActionArrayOutput) Index(i pulumi.IntInput) DetectorModelAc
 	}).(DetectorModelActionOutput)
 }
 
-// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelAssetPropertyTimestamp struct {
-	// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+	// The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
 	OffsetInNanos *string `pulumi:"offsetInNanos"`
-	// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+	// The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
 	TimeInSeconds string `pulumi:"timeInSeconds"`
 }
 
@@ -3662,11 +4051,21 @@ type DetectorModelAssetPropertyTimestampInput interface {
 	ToDetectorModelAssetPropertyTimestampOutputWithContext(context.Context) DetectorModelAssetPropertyTimestampOutput
 }
 
-// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelAssetPropertyTimestampArgs struct {
-	// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+	// The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
 	OffsetInNanos pulumi.StringPtrInput `pulumi:"offsetInNanos"`
-	// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+	// The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
 	TimeInSeconds pulumi.StringInput `pulumi:"timeInSeconds"`
 }
 
@@ -3723,7 +4122,17 @@ func (i *detectorModelAssetPropertyTimestampPtrType) ToDetectorModelAssetPropert
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
-// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelAssetPropertyTimestampOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelAssetPropertyTimestampOutput) ElementType() reflect.Type {
@@ -3748,12 +4157,12 @@ func (o DetectorModelAssetPropertyTimestampOutput) ToDetectorModelAssetPropertyT
 	}).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
-// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+// The nanosecond offset converted from “timeInSeconds“. The valid range is between 0-999999999.
 func (o DetectorModelAssetPropertyTimestampOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyTimestamp) *string { return v.OffsetInNanos }).(pulumi.StringPtrOutput)
 }
 
-// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+// The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
 func (o DetectorModelAssetPropertyTimestampOutput) TimeInSeconds() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyTimestamp) string { return v.TimeInSeconds }).(pulumi.StringOutput)
 }
@@ -3782,7 +4191,7 @@ func (o DetectorModelAssetPropertyTimestampPtrOutput) Elem() DetectorModelAssetP
 	}).(DetectorModelAssetPropertyTimestampOutput)
 }
 
-// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+// The nanosecond offset converted from “timeInSeconds“. The valid range is between 0-999999999.
 func (o DetectorModelAssetPropertyTimestampPtrOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyTimestamp) *string {
 		if v == nil {
@@ -3792,7 +4201,7 @@ func (o DetectorModelAssetPropertyTimestampPtrOutput) OffsetInNanos() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+// The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
 func (o DetectorModelAssetPropertyTimestampPtrOutput) TimeInSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyTimestamp) *string {
 		if v == nil {
@@ -3802,9 +4211,16 @@ func (o DetectorModelAssetPropertyTimestampPtrOutput) TimeInSeconds() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelAssetPropertyValue struct {
-	// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+	// The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
 	Quality *string `pulumi:"quality"`
 	// The timestamp associated with the asset property value. The default is the current event time.
 	Timestamp *DetectorModelAssetPropertyTimestamp `pulumi:"timestamp"`
@@ -3823,9 +4239,16 @@ type DetectorModelAssetPropertyValueInput interface {
 	ToDetectorModelAssetPropertyValueOutputWithContext(context.Context) DetectorModelAssetPropertyValueOutput
 }
 
-// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelAssetPropertyValueArgs struct {
-	// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+	// The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
 	Quality pulumi.StringPtrInput `pulumi:"quality"`
 	// The timestamp associated with the asset property value. The default is the current event time.
 	Timestamp DetectorModelAssetPropertyTimestampPtrInput `pulumi:"timestamp"`
@@ -3886,7 +4309,14 @@ func (i *detectorModelAssetPropertyValuePtrType) ToDetectorModelAssetPropertyVal
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyValuePtrOutput)
 }
 
-// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelAssetPropertyValueOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelAssetPropertyValueOutput) ElementType() reflect.Type {
@@ -3911,7 +4341,7 @@ func (o DetectorModelAssetPropertyValueOutput) ToDetectorModelAssetPropertyValue
 	}).(DetectorModelAssetPropertyValuePtrOutput)
 }
 
-// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+// The quality of the asset property value. The value must be “'GOOD'“, “'BAD'“, or “'UNCERTAIN'“.
 func (o DetectorModelAssetPropertyValueOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyValue) *string { return v.Quality }).(pulumi.StringPtrOutput)
 }
@@ -3950,7 +4380,7 @@ func (o DetectorModelAssetPropertyValuePtrOutput) Elem() DetectorModelAssetPrope
 	}).(DetectorModelAssetPropertyValueOutput)
 }
 
-// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+// The quality of the asset property value. The value must be “'GOOD'“, “'BAD'“, or “'UNCERTAIN'“.
 func (o DetectorModelAssetPropertyValuePtrOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyValue) *string {
 		if v == nil {
@@ -3980,15 +4410,26 @@ func (o DetectorModelAssetPropertyValuePtrOutput) Value() DetectorModelAssetProp
 	}).(DetectorModelAssetPropertyVariantPtrOutput)
 }
 
-// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
+//	 +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
 type DetectorModelAssetPropertyVariant struct {
-	// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+	// The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
 	BooleanValue *string `pulumi:"booleanValue"`
-	// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+	// The asset property value is a double. You must use an expression, and the evaluated result should be a double.
 	DoubleValue *string `pulumi:"doubleValue"`
-	// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+	// The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
 	IntegerValue *string `pulumi:"integerValue"`
-	// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+	// The asset property value is a string. You must use an expression, and the evaluated result should be a string.
 	StringValue *string `pulumi:"stringValue"`
 }
 
@@ -4003,15 +4444,26 @@ type DetectorModelAssetPropertyVariantInput interface {
 	ToDetectorModelAssetPropertyVariantOutputWithContext(context.Context) DetectorModelAssetPropertyVariantOutput
 }
 
-// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
+//	 +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
 type DetectorModelAssetPropertyVariantArgs struct {
-	// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+	// The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
 	BooleanValue pulumi.StringPtrInput `pulumi:"booleanValue"`
-	// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+	// The asset property value is a double. You must use an expression, and the evaluated result should be a double.
 	DoubleValue pulumi.StringPtrInput `pulumi:"doubleValue"`
-	// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+	// The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
 	IntegerValue pulumi.StringPtrInput `pulumi:"integerValue"`
-	// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+	// The asset property value is a string. You must use an expression, and the evaluated result should be a string.
 	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
@@ -4068,7 +4520,18 @@ func (i *detectorModelAssetPropertyVariantPtrType) ToDetectorModelAssetPropertyV
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyVariantPtrOutput)
 }
 
-// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
+//
+//	You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
+//	 +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+//	      ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
 type DetectorModelAssetPropertyVariantOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelAssetPropertyVariantOutput) ElementType() reflect.Type {
@@ -4093,22 +4556,22 @@ func (o DetectorModelAssetPropertyVariantOutput) ToDetectorModelAssetPropertyVar
 	}).(DetectorModelAssetPropertyVariantPtrOutput)
 }
 
-// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+// The asset property value is a Boolean value that must be “'TRUE'“ or “'FALSE'“. You must use an expression, and the evaluated result should be a Boolean value.
 func (o DetectorModelAssetPropertyVariantOutput) BooleanValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyVariant) *string { return v.BooleanValue }).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+// The asset property value is a double. You must use an expression, and the evaluated result should be a double.
 func (o DetectorModelAssetPropertyVariantOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyVariant) *string { return v.DoubleValue }).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+// The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
 func (o DetectorModelAssetPropertyVariantOutput) IntegerValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyVariant) *string { return v.IntegerValue }).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+// The asset property value is a string. You must use an expression, and the evaluated result should be a string.
 func (o DetectorModelAssetPropertyVariantOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyVariant) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
@@ -4137,7 +4600,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) Elem() DetectorModelAssetPro
 	}).(DetectorModelAssetPropertyVariantOutput)
 }
 
-// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+// The asset property value is a Boolean value that must be “'TRUE'“ or “'FALSE'“. You must use an expression, and the evaluated result should be a Boolean value.
 func (o DetectorModelAssetPropertyVariantPtrOutput) BooleanValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -4147,7 +4610,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) BooleanValue() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+// The asset property value is a double. You must use an expression, and the evaluated result should be a double.
 func (o DetectorModelAssetPropertyVariantPtrOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -4157,7 +4620,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) DoubleValue() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+// The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
 func (o DetectorModelAssetPropertyVariantPtrOutput) IntegerValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -4167,7 +4630,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) IntegerValue() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+// The asset property value is a string. You must use an expression, and the evaluated result should be a string.
 func (o DetectorModelAssetPropertyVariantPtrOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -4425,13 +4888,24 @@ func (o DetectorModelDefinitionPtrOutput) States() DetectorModelStateTypeArrayOu
 	}).(DetectorModelStateTypeArrayOutput)
 }
 
-// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
-// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+//	You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+//	      ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 type DetectorModelDynamoDBv2 struct {
 	// Information needed to configure the payload.
-	//
-	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+	//  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 	Payload *DetectorModelPayload `pulumi:"payload"`
 	// The name of the DynamoDB table.
 	TableName string `pulumi:"tableName"`
@@ -4448,13 +4922,24 @@ type DetectorModelDynamoDBv2Input interface {
 	ToDetectorModelDynamoDBv2OutputWithContext(context.Context) DetectorModelDynamoDBv2Output
 }
 
-// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
-// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+//	You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+//	      ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 type DetectorModelDynamoDBv2Args struct {
 	// Information needed to configure the payload.
-	//
-	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+	//  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 	// The name of the DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
@@ -4513,9 +4998,21 @@ func (i *detectorModelDynamoDBv2PtrType) ToDetectorModelDynamoDBv2PtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDBv2PtrOutput)
 }
 
-// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
 //
-// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+//	You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+//	      ``'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\": \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 type DetectorModelDynamoDBv2Output struct{ *pulumi.OutputState }
 
 func (DetectorModelDynamoDBv2Output) ElementType() reflect.Type {
@@ -4542,7 +5039,7 @@ func (o DetectorModelDynamoDBv2Output) ToDetectorModelDynamoDBv2PtrOutputWithCon
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 func (o DetectorModelDynamoDBv2Output) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDBv2) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -4578,7 +5075,7 @@ func (o DetectorModelDynamoDBv2PtrOutput) Elem() DetectorModelDynamoDBv2Output {
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 func (o DetectorModelDynamoDBv2PtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDBv2) *DetectorModelPayload {
 		if v == nil {
@@ -4598,51 +5095,56 @@ func (o DetectorModelDynamoDBv2PtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+//
+//	You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+//	      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 type DetectorModelDynamoDb struct {
-	// The name of the hash key (also called the partition key).
+	// The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
 	HashKeyField string `pulumi:"hashKeyField"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//   +   ``'STRING'`` - The hash key is a string.
+	//   +   ``'NUMBER'`` - The hash key is a number.
 	//
-	// * `STRING` - The hash key is a string.
-	//
-	// * `NUMBER` - The hash key is a number.
-	//
-	// If you don't specify `hashKeyType`, the default value is `STRING`.
+	//  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
 	HashKeyType *string `pulumi:"hashKeyType"`
 	// The value of the hash key (also called the partition key).
 	HashKeyValue string `pulumi:"hashKeyValue"`
 	// The type of operation to perform. You can specify the following values:
+	//   +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//   +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
-	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//
-	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+	//  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
 	Operation *string `pulumi:"operation"`
 	// Information needed to configure the payload.
-	//
-	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+	//  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 	Payload *DetectorModelPayload `pulumi:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
-	//
-	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+	//  If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
 	PayloadField *string `pulumi:"payloadField"`
-	// The name of the range key (also called the sort key).
+	// The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
 	RangeKeyField *string `pulumi:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:
+	//   +   ``'STRING'`` - The range key is a string.
+	//   +   ``'NUMBER'`` - The range key is number.
 	//
-	// * `STRING` - The range key is a string.
-	//
-	// * `NUMBER` - The range key is number.
-	//
-	// If you don't specify `rangeKeyField`, the default value is `STRING`.
+	//  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
 	RangeKeyType *string `pulumi:"rangeKeyType"`
 	// The value of the range key (also called the sort key).
 	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	// The name of the DynamoDB table.
+	// The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -4657,51 +5159,56 @@ type DetectorModelDynamoDbInput interface {
 	ToDetectorModelDynamoDbOutputWithContext(context.Context) DetectorModelDynamoDbOutput
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+//
+//	You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+//	      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 type DetectorModelDynamoDbArgs struct {
-	// The name of the hash key (also called the partition key).
+	// The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
 	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
 	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//   +   ``'STRING'`` - The hash key is a string.
+	//   +   ``'NUMBER'`` - The hash key is a number.
 	//
-	// * `STRING` - The hash key is a string.
-	//
-	// * `NUMBER` - The hash key is a number.
-	//
-	// If you don't specify `hashKeyType`, the default value is `STRING`.
+	//  If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
 	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
 	// The value of the hash key (also called the partition key).
 	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
 	// The type of operation to perform. You can specify the following values:
+	//   +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//   +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//   +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 	//
-	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-	//
-	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-	//
-	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+	//  If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
 	Operation pulumi.StringPtrInput `pulumi:"operation"`
 	// Information needed to configure the payload.
-	//
-	// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+	//  By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 	// The name of the DynamoDB column that receives the action payload.
-	//
-	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+	//  If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
 	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
-	// The name of the range key (also called the sort key).
+	// The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
 	// The data type for the range key (also called the sort key), You can specify the following values:
+	//   +   ``'STRING'`` - The range key is a string.
+	//   +   ``'NUMBER'`` - The range key is number.
 	//
-	// * `STRING` - The range key is a string.
-	//
-	// * `NUMBER` - The range key is number.
-	//
-	// If you don't specify `rangeKeyField`, the default value is `STRING`.
+	//  If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
 	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
 	// The value of the range key (also called the sort key).
 	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	// The name of the DynamoDB table.
+	// The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -4758,7 +5265,21 @@ func (i *detectorModelDynamoDbPtrType) ToDetectorModelDynamoDbPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDbPtrOutput)
 }
 
-// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
+// Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+//
+//	You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+//	      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
+//	 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+//	      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+//
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+//	If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 type DetectorModelDynamoDbOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelDynamoDbOutput) ElementType() reflect.Type {
@@ -4783,18 +5304,18 @@ func (o DetectorModelDynamoDbOutput) ToDetectorModelDynamoDbPtrOutputWithContext
 	}).(DetectorModelDynamoDbPtrOutput)
 }
 
-// The name of the hash key (also called the partition key).
+// The name of the hash key (also called the partition key). The “hashKeyField“ value must match the partition key of the target DynamoDB table.
 func (o DetectorModelDynamoDbOutput) HashKeyField() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) string { return v.HashKeyField }).(pulumi.StringOutput)
 }
 
 // The data type for the hash key (also called the partition key). You can specify the following values:
 //
-// * `STRING` - The hash key is a string.
+//   - “'STRING'“ - The hash key is a string.
 //
-// * `NUMBER` - The hash key is a number.
+//   - “'NUMBER'“ - The hash key is a number.
 //
-// If you don't specify `hashKeyType`, the default value is `STRING`.
+//     If you don't specify “hashKeyType“, the default value is “'STRING'“.
 func (o DetectorModelDynamoDbOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
 }
@@ -4806,43 +5327,43 @@ func (o DetectorModelDynamoDbOutput) HashKeyValue() pulumi.StringOutput {
 
 // The type of operation to perform. You can specify the following values:
 //
-// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//   - “'INSERT'“ - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
 //
-// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//   - “'UPDATE'“ - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 //
-// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//   - “'DELETE'“ - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 //
-// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+//     If you don't specify this parameter, ITE triggers the “'INSERT'“ operation.
 func (o DetectorModelDynamoDbOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 func (o DetectorModelDynamoDbOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
 
 // The name of the DynamoDB column that receives the action payload.
 //
-// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+//	If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
 func (o DetectorModelDynamoDbOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
 }
 
-// The name of the range key (also called the sort key).
+// The name of the range key (also called the sort key). The “rangeKeyField“ value must match the sort key of the target DynamoDB table.
 func (o DetectorModelDynamoDbOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
 }
 
 // The data type for the range key (also called the sort key), You can specify the following values:
 //
-// * `STRING` - The range key is a string.
+//   - “'STRING'“ - The range key is a string.
 //
-// * `NUMBER` - The range key is number.
+//   - “'NUMBER'“ - The range key is number.
 //
-// If you don't specify `rangeKeyField`, the default value is `STRING`.
+//     If you don't specify “rangeKeyField“, the default value is “'STRING'“.
 func (o DetectorModelDynamoDbOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
 }
@@ -4852,7 +5373,7 @@ func (o DetectorModelDynamoDbOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DynamoDB table.
+// The name of the DynamoDB table. The “tableName“ value must match the table name of the target DynamoDB table.
 func (o DetectorModelDynamoDbOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDb) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -4881,7 +5402,7 @@ func (o DetectorModelDynamoDbPtrOutput) Elem() DetectorModelDynamoDbOutput {
 	}).(DetectorModelDynamoDbOutput)
 }
 
-// The name of the hash key (also called the partition key).
+// The name of the hash key (also called the partition key). The “hashKeyField“ value must match the partition key of the target DynamoDB table.
 func (o DetectorModelDynamoDbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
 		if v == nil {
@@ -4893,11 +5414,11 @@ func (o DetectorModelDynamoDbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 
 // The data type for the hash key (also called the partition key). You can specify the following values:
 //
-// * `STRING` - The hash key is a string.
+//   - “'STRING'“ - The hash key is a string.
 //
-// * `NUMBER` - The hash key is a number.
+//   - “'NUMBER'“ - The hash key is a number.
 //
-// If you don't specify `hashKeyType`, the default value is `STRING`.
+//     If you don't specify “hashKeyType“, the default value is “'STRING'“.
 func (o DetectorModelDynamoDbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
 		if v == nil {
@@ -4919,13 +5440,13 @@ func (o DetectorModelDynamoDbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 
 // The type of operation to perform. You can specify the following values:
 //
-// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//   - “'INSERT'“ - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
 //
-// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//   - “'UPDATE'“ - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 //
-// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//   - “'DELETE'“ - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
 //
-// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+//     If you don't specify this parameter, ITE triggers the “'INSERT'“ operation.
 func (o DetectorModelDynamoDbPtrOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
 		if v == nil {
@@ -4937,7 +5458,7 @@ func (o DetectorModelDynamoDbPtrOutput) Operation() pulumi.StringPtrOutput {
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 func (o DetectorModelDynamoDbPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *DetectorModelPayload {
 		if v == nil {
@@ -4949,7 +5470,7 @@ func (o DetectorModelDynamoDbPtrOutput) Payload() DetectorModelPayloadPtrOutput 
 
 // The name of the DynamoDB column that receives the action payload.
 //
-// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+//	If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
 func (o DetectorModelDynamoDbPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
 		if v == nil {
@@ -4959,7 +5480,7 @@ func (o DetectorModelDynamoDbPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the range key (also called the sort key).
+// The name of the range key (also called the sort key). The “rangeKeyField“ value must match the sort key of the target DynamoDB table.
 func (o DetectorModelDynamoDbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
 		if v == nil {
@@ -4971,11 +5492,11 @@ func (o DetectorModelDynamoDbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 
 // The data type for the range key (also called the sort key), You can specify the following values:
 //
-// * `STRING` - The range key is a string.
+//   - “'STRING'“ - The range key is a string.
 //
-// * `NUMBER` - The range key is number.
+//   - “'NUMBER'“ - The range key is number.
 //
-// If you don't specify `rangeKeyField`, the default value is `STRING`.
+//     If you don't specify “rangeKeyField“, the default value is “'STRING'“.
 func (o DetectorModelDynamoDbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
 		if v == nil {
@@ -4995,7 +5516,7 @@ func (o DetectorModelDynamoDbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the DynamoDB table.
+// The name of the DynamoDB table. The “tableName“ value must match the table name of the target DynamoDB table.
 func (o DetectorModelDynamoDbPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDb) *string {
 		if v == nil {
@@ -5005,11 +5526,11 @@ func (o DetectorModelDynamoDbPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
+// Specifies the “actions“ to be performed when the “condition“ evaluates to TRUE.
 type DetectorModelEvent struct {
 	// The actions to be performed.
 	Actions []DetectorModelAction `pulumi:"actions"`
-	// The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
+	// Optional. The Boolean expression that, when TRUE, causes the ``actions`` to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
 	Condition *string `pulumi:"condition"`
 	// The name of the event.
 	EventName string `pulumi:"eventName"`
@@ -5026,11 +5547,11 @@ type DetectorModelEventInput interface {
 	ToDetectorModelEventOutputWithContext(context.Context) DetectorModelEventOutput
 }
 
-// Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
+// Specifies the “actions“ to be performed when the “condition“ evaluates to TRUE.
 type DetectorModelEventArgs struct {
 	// The actions to be performed.
 	Actions DetectorModelActionArrayInput `pulumi:"actions"`
-	// The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
+	// Optional. The Boolean expression that, when TRUE, causes the ``actions`` to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
 	// The name of the event.
 	EventName pulumi.StringInput `pulumi:"eventName"`
@@ -5073,7 +5594,7 @@ func (i DetectorModelEventArray) ToDetectorModelEventArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelEventArrayOutput)
 }
 
-// Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
+// Specifies the “actions“ to be performed when the “condition“ evaluates to TRUE.
 type DetectorModelEventOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelEventOutput) ElementType() reflect.Type {
@@ -5093,7 +5614,7 @@ func (o DetectorModelEventOutput) Actions() DetectorModelActionArrayOutput {
 	return o.ApplyT(func(v DetectorModelEvent) []DetectorModelAction { return v.Actions }).(DetectorModelActionArrayOutput)
 }
 
-// The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
+// Optional. The Boolean expression that, when TRUE, causes the “actions“ to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
 func (o DetectorModelEventOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelEvent) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
@@ -5301,11 +5822,11 @@ func (o DetectorModelFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
+// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEvents struct {
-	// The name of the AWS IoT Events input where the data is sent.
+	// The name of the ITE input where the data is sent.
 	InputName string `pulumi:"inputName"`
-	// You can configure the action payload when you send a message to an AWS IoT Events input.
+	// You can configure the action payload when you send a message to an ITE input.
 	Payload *DetectorModelPayload `pulumi:"payload"`
 }
 
@@ -5320,11 +5841,11 @@ type DetectorModelIotEventsInput interface {
 	ToDetectorModelIotEventsOutputWithContext(context.Context) DetectorModelIotEventsOutput
 }
 
-// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
+// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEventsArgs struct {
-	// The name of the AWS IoT Events input where the data is sent.
+	// The name of the ITE input where the data is sent.
 	InputName pulumi.StringInput `pulumi:"inputName"`
-	// You can configure the action payload when you send a message to an AWS IoT Events input.
+	// You can configure the action payload when you send a message to an ITE input.
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 }
 
@@ -5381,7 +5902,7 @@ func (i *detectorModelIotEventsPtrType) ToDetectorModelIotEventsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotEventsPtrOutput)
 }
 
-// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
+// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEventsOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelIotEventsOutput) ElementType() reflect.Type {
@@ -5406,12 +5927,12 @@ func (o DetectorModelIotEventsOutput) ToDetectorModelIotEventsPtrOutputWithConte
 	}).(DetectorModelIotEventsPtrOutput)
 }
 
-// The name of the AWS IoT Events input where the data is sent.
+// The name of the ITE input where the data is sent.
 func (o DetectorModelIotEventsOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelIotEvents) string { return v.InputName }).(pulumi.StringOutput)
 }
 
-// You can configure the action payload when you send a message to an AWS IoT Events input.
+// You can configure the action payload when you send a message to an ITE input.
 func (o DetectorModelIotEventsOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotEvents) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -5440,7 +5961,7 @@ func (o DetectorModelIotEventsPtrOutput) Elem() DetectorModelIotEventsOutput {
 	}).(DetectorModelIotEventsOutput)
 }
 
-// The name of the AWS IoT Events input where the data is sent.
+// The name of the ITE input where the data is sent.
 func (o DetectorModelIotEventsPtrOutput) InputName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotEvents) *string {
 		if v == nil {
@@ -5450,7 +5971,7 @@ func (o DetectorModelIotEventsPtrOutput) InputName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// You can configure the action payload when you send a message to an AWS IoT Events input.
+// You can configure the action payload when you send a message to an ITE input.
 func (o DetectorModelIotEventsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotEvents) *DetectorModelPayload {
 		if v == nil {
@@ -5460,15 +5981,26 @@ func (o DetectorModelIotEventsPtrOutput) Payload() DetectorModelPayloadPtrOutput
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+//
+//	You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+//	      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+//
+//	You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelIotSiteWise struct {
-	// The ID of the asset that has the specified property. You can specify an expression.
+	// The ID of the asset that has the specified property.
 	AssetId *string `pulumi:"assetId"`
-	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
 	EntryId *string `pulumi:"entryId"`
-	// The alias of the asset property. You can also specify an expression.
+	// The alias of the asset property.
 	PropertyAlias *string `pulumi:"propertyAlias"`
-	// The ID of the asset property. You can specify an expression.
+	// The ID of the asset property.
 	PropertyId *string `pulumi:"propertyId"`
 	// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 	PropertyValue DetectorModelAssetPropertyValue `pulumi:"propertyValue"`
@@ -5485,15 +6017,26 @@ type DetectorModelIotSiteWiseInput interface {
 	ToDetectorModelIotSiteWiseOutputWithContext(context.Context) DetectorModelIotSiteWiseOutput
 }
 
-// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+//
+//	You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+//	      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+//
+//	You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelIotSiteWiseArgs struct {
-	// The ID of the asset that has the specified property. You can specify an expression.
+	// The ID of the asset that has the specified property.
 	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
-	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
 	EntryId pulumi.StringPtrInput `pulumi:"entryId"`
-	// The alias of the asset property. You can also specify an expression.
+	// The alias of the asset property.
 	PropertyAlias pulumi.StringPtrInput `pulumi:"propertyAlias"`
-	// The ID of the asset property. You can specify an expression.
+	// The ID of the asset property.
 	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
 	// The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
 	PropertyValue DetectorModelAssetPropertyValueInput `pulumi:"propertyValue"`
@@ -5552,7 +6095,18 @@ func (i *detectorModelIotSiteWisePtrType) ToDetectorModelIotSiteWisePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotSiteWisePtrOutput)
 }
 
-// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+//
+//	You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+//	 **Examples**
+//	+  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+//	 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+//	 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+//	     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+//	      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+//
+//	You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+//	For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 type DetectorModelIotSiteWiseOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelIotSiteWiseOutput) ElementType() reflect.Type {
@@ -5577,22 +6131,22 @@ func (o DetectorModelIotSiteWiseOutput) ToDetectorModelIotSiteWisePtrOutputWithC
 	}).(DetectorModelIotSiteWisePtrOutput)
 }
 
-// The ID of the asset that has the specified property. You can specify an expression.
+// The ID of the asset that has the specified property.
 func (o DetectorModelIotSiteWiseOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
-// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
 func (o DetectorModelIotSiteWiseOutput) EntryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.EntryId }).(pulumi.StringPtrOutput)
 }
 
-// The alias of the asset property. You can also specify an expression.
+// The alias of the asset property.
 func (o DetectorModelIotSiteWiseOutput) PropertyAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.PropertyAlias }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the asset property. You can specify an expression.
+// The ID of the asset property.
 func (o DetectorModelIotSiteWiseOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
@@ -5626,7 +6180,7 @@ func (o DetectorModelIotSiteWisePtrOutput) Elem() DetectorModelIotSiteWiseOutput
 	}).(DetectorModelIotSiteWiseOutput)
 }
 
-// The ID of the asset that has the specified property. You can specify an expression.
+// The ID of the asset that has the specified property.
 func (o DetectorModelIotSiteWisePtrOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *string {
 		if v == nil {
@@ -5636,7 +6190,7 @@ func (o DetectorModelIotSiteWisePtrOutput) AssetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
 func (o DetectorModelIotSiteWisePtrOutput) EntryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *string {
 		if v == nil {
@@ -5646,7 +6200,7 @@ func (o DetectorModelIotSiteWisePtrOutput) EntryId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The alias of the asset property. You can also specify an expression.
+// The alias of the asset property.
 func (o DetectorModelIotSiteWisePtrOutput) PropertyAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *string {
 		if v == nil {
@@ -5656,7 +6210,7 @@ func (o DetectorModelIotSiteWisePtrOutput) PropertyAlias() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the asset property. You can specify an expression.
+// The ID of the asset property.
 func (o DetectorModelIotSiteWisePtrOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *string {
 		if v == nil {
@@ -5676,11 +6230,11 @@ func (o DetectorModelIotSiteWisePtrOutput) PropertyValue() DetectorModelAssetPro
 	}).(DetectorModelAssetPropertyValuePtrOutput)
 }
 
-// Information required to publish the MQTT message through the AWS IoT message broker.
+// Information required to publish the MQTT message through the IoT message broker.
 type DetectorModelIotTopicPublish struct {
-	// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+	// The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
 	MqttTopic string `pulumi:"mqttTopic"`
-	// You can configure the action payload when you publish a message to an AWS IoT Core topic.
+	// You can configure the action payload when you publish a message to an IoTCore topic.
 	Payload *DetectorModelPayload `pulumi:"payload"`
 }
 
@@ -5695,11 +6249,11 @@ type DetectorModelIotTopicPublishInput interface {
 	ToDetectorModelIotTopicPublishOutputWithContext(context.Context) DetectorModelIotTopicPublishOutput
 }
 
-// Information required to publish the MQTT message through the AWS IoT message broker.
+// Information required to publish the MQTT message through the IoT message broker.
 type DetectorModelIotTopicPublishArgs struct {
-	// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+	// The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
 	MqttTopic pulumi.StringInput `pulumi:"mqttTopic"`
-	// You can configure the action payload when you publish a message to an AWS IoT Core topic.
+	// You can configure the action payload when you publish a message to an IoTCore topic.
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 }
 
@@ -5756,7 +6310,7 @@ func (i *detectorModelIotTopicPublishPtrType) ToDetectorModelIotTopicPublishPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotTopicPublishPtrOutput)
 }
 
-// Information required to publish the MQTT message through the AWS IoT message broker.
+// Information required to publish the MQTT message through the IoT message broker.
 type DetectorModelIotTopicPublishOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelIotTopicPublishOutput) ElementType() reflect.Type {
@@ -5781,12 +6335,12 @@ func (o DetectorModelIotTopicPublishOutput) ToDetectorModelIotTopicPublishPtrOut
 	}).(DetectorModelIotTopicPublishPtrOutput)
 }
 
-// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+// The MQTT topic of the message. You can use a string expression that includes variables (“$variable.<variable-name>“) and input values (“$input.<input-name>.<path-to-datum>“) as the topic string.
 func (o DetectorModelIotTopicPublishOutput) MqttTopic() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelIotTopicPublish) string { return v.MqttTopic }).(pulumi.StringOutput)
 }
 
-// You can configure the action payload when you publish a message to an AWS IoT Core topic.
+// You can configure the action payload when you publish a message to an IoTCore topic.
 func (o DetectorModelIotTopicPublishOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotTopicPublish) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -5815,7 +6369,7 @@ func (o DetectorModelIotTopicPublishPtrOutput) Elem() DetectorModelIotTopicPubli
 	}).(DetectorModelIotTopicPublishOutput)
 }
 
-// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+// The MQTT topic of the message. You can use a string expression that includes variables (“$variable.<variable-name>“) and input values (“$input.<input-name>.<path-to-datum>“) as the topic string.
 func (o DetectorModelIotTopicPublishPtrOutput) MqttTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotTopicPublish) *string {
 		if v == nil {
@@ -5825,7 +6379,7 @@ func (o DetectorModelIotTopicPublishPtrOutput) MqttTopic() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// You can configure the action payload when you publish a message to an AWS IoT Core topic.
+// You can configure the action payload when you publish a message to an IoTCore topic.
 func (o DetectorModelIotTopicPublishPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotTopicPublish) *DetectorModelPayload {
 		if v == nil {
@@ -5835,6 +6389,7 @@ func (o DetectorModelIotTopicPublishPtrOutput) Payload() DetectorModelPayloadPtr
 	}).(DetectorModelPayloadPtrOutput)
 }
 
+// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelLambda struct {
 	// The ARN of the Lambda function that is executed.
 	FunctionArn string `pulumi:"functionArn"`
@@ -5853,6 +6408,7 @@ type DetectorModelLambdaInput interface {
 	ToDetectorModelLambdaOutputWithContext(context.Context) DetectorModelLambdaOutput
 }
 
+// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelLambdaArgs struct {
 	// The ARN of the Lambda function that is executed.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
@@ -5913,6 +6469,7 @@ func (i *detectorModelLambdaPtrType) ToDetectorModelLambdaPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelLambdaPtrOutput)
 }
 
+// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelLambdaOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelLambdaOutput) ElementType() reflect.Type {
@@ -5991,9 +6548,9 @@ func (o DetectorModelLambdaPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// When entering this state, perform these `actions` if the `condition` is `TRUE`.
+// When entering this state, perform these “actions“ if the “condition“ is TRUE.
 type DetectorModelOnEnter struct {
-	// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
+	// Specifies the actions that are performed when the state is entered and the ``condition`` is ``TRUE``.
 	Events []DetectorModelEvent `pulumi:"events"`
 }
 
@@ -6008,9 +6565,9 @@ type DetectorModelOnEnterInput interface {
 	ToDetectorModelOnEnterOutputWithContext(context.Context) DetectorModelOnEnterOutput
 }
 
-// When entering this state, perform these `actions` if the `condition` is `TRUE`.
+// When entering this state, perform these “actions“ if the “condition“ is TRUE.
 type DetectorModelOnEnterArgs struct {
-	// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
+	// Specifies the actions that are performed when the state is entered and the ``condition`` is ``TRUE``.
 	Events DetectorModelEventArrayInput `pulumi:"events"`
 }
 
@@ -6067,7 +6624,7 @@ func (i *detectorModelOnEnterPtrType) ToDetectorModelOnEnterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnEnterPtrOutput)
 }
 
-// When entering this state, perform these `actions` if the `condition` is `TRUE`.
+// When entering this state, perform these “actions“ if the “condition“ is TRUE.
 type DetectorModelOnEnterOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelOnEnterOutput) ElementType() reflect.Type {
@@ -6092,7 +6649,7 @@ func (o DetectorModelOnEnterOutput) ToDetectorModelOnEnterPtrOutputWithContext(c
 	}).(DetectorModelOnEnterPtrOutput)
 }
 
-// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
+// Specifies the actions that are performed when the state is entered and the “condition“ is “TRUE“.
 func (o DetectorModelOnEnterOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnEnter) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
 }
@@ -6121,7 +6678,7 @@ func (o DetectorModelOnEnterPtrOutput) Elem() DetectorModelOnEnterOutput {
 	}).(DetectorModelOnEnterOutput)
 }
 
-// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
+// Specifies the actions that are performed when the state is entered and the “condition“ is “TRUE“.
 func (o DetectorModelOnEnterPtrOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v *DetectorModelOnEnter) []DetectorModelEvent {
 		if v == nil {
@@ -6131,9 +6688,9 @@ func (o DetectorModelOnEnterPtrOutput) Events() DetectorModelEventArrayOutput {
 	}).(DetectorModelEventArrayOutput)
 }
 
-// When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
+// When exiting this state, perform these “actions“ if the specified “condition“ is “TRUE“.
 type DetectorModelOnExit struct {
-	// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
+	// Specifies the ``actions`` that are performed when the state is exited and the ``condition`` is ``TRUE``.
 	Events []DetectorModelEvent `pulumi:"events"`
 }
 
@@ -6148,9 +6705,9 @@ type DetectorModelOnExitInput interface {
 	ToDetectorModelOnExitOutputWithContext(context.Context) DetectorModelOnExitOutput
 }
 
-// When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
+// When exiting this state, perform these “actions“ if the specified “condition“ is “TRUE“.
 type DetectorModelOnExitArgs struct {
-	// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
+	// Specifies the ``actions`` that are performed when the state is exited and the ``condition`` is ``TRUE``.
 	Events DetectorModelEventArrayInput `pulumi:"events"`
 }
 
@@ -6207,7 +6764,7 @@ func (i *detectorModelOnExitPtrType) ToDetectorModelOnExitPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnExitPtrOutput)
 }
 
-// When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
+// When exiting this state, perform these “actions“ if the specified “condition“ is “TRUE“.
 type DetectorModelOnExitOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelOnExitOutput) ElementType() reflect.Type {
@@ -6232,7 +6789,7 @@ func (o DetectorModelOnExitOutput) ToDetectorModelOnExitPtrOutputWithContext(ctx
 	}).(DetectorModelOnExitPtrOutput)
 }
 
-// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
+// Specifies the “actions“ that are performed when the state is exited and the “condition“ is “TRUE“.
 func (o DetectorModelOnExitOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnExit) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
 }
@@ -6261,7 +6818,7 @@ func (o DetectorModelOnExitPtrOutput) Elem() DetectorModelOnExitOutput {
 	}).(DetectorModelOnExitOutput)
 }
 
-// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
+// Specifies the “actions“ that are performed when the state is exited and the “condition“ is “TRUE“.
 func (o DetectorModelOnExitPtrOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v *DetectorModelOnExit) []DetectorModelEvent {
 		if v == nil {
@@ -6271,11 +6828,11 @@ func (o DetectorModelOnExitPtrOutput) Events() DetectorModelEventArrayOutput {
 	}).(DetectorModelEventArrayOutput)
 }
 
-// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
+// Specifies the actions performed when the “condition“ evaluates to TRUE.
 type DetectorModelOnInput struct {
-	// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
+	// Specifies the actions performed when the ``condition`` evaluates to TRUE.
 	Events []DetectorModelEvent `pulumi:"events"`
-	// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
+	// Specifies the actions performed, and the next state entered, when a ``condition`` evaluates to TRUE.
 	TransitionEvents []DetectorModelTransitionEvent `pulumi:"transitionEvents"`
 }
 
@@ -6290,11 +6847,11 @@ type DetectorModelOnInputInput interface {
 	ToDetectorModelOnInputOutputWithContext(context.Context) DetectorModelOnInputOutput
 }
 
-// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
+// Specifies the actions performed when the “condition“ evaluates to TRUE.
 type DetectorModelOnInputArgs struct {
-	// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
+	// Specifies the actions performed when the ``condition`` evaluates to TRUE.
 	Events DetectorModelEventArrayInput `pulumi:"events"`
-	// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
+	// Specifies the actions performed, and the next state entered, when a ``condition`` evaluates to TRUE.
 	TransitionEvents DetectorModelTransitionEventArrayInput `pulumi:"transitionEvents"`
 }
 
@@ -6351,7 +6908,7 @@ func (i *detectorModelOnInputPtrType) ToDetectorModelOnInputPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnInputPtrOutput)
 }
 
-// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
+// Specifies the actions performed when the “condition“ evaluates to TRUE.
 type DetectorModelOnInputOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelOnInputOutput) ElementType() reflect.Type {
@@ -6376,12 +6933,12 @@ func (o DetectorModelOnInputOutput) ToDetectorModelOnInputPtrOutputWithContext(c
 	}).(DetectorModelOnInputPtrOutput)
 }
 
-// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
+// Specifies the actions performed when the “condition“ evaluates to TRUE.
 func (o DetectorModelOnInputOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnInput) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
 }
 
-// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
+// Specifies the actions performed, and the next state entered, when a “condition“ evaluates to TRUE.
 func (o DetectorModelOnInputOutput) TransitionEvents() DetectorModelTransitionEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnInput) []DetectorModelTransitionEvent { return v.TransitionEvents }).(DetectorModelTransitionEventArrayOutput)
 }
@@ -6410,7 +6967,7 @@ func (o DetectorModelOnInputPtrOutput) Elem() DetectorModelOnInputOutput {
 	}).(DetectorModelOnInputOutput)
 }
 
-// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
+// Specifies the actions performed when the “condition“ evaluates to TRUE.
 func (o DetectorModelOnInputPtrOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v *DetectorModelOnInput) []DetectorModelEvent {
 		if v == nil {
@@ -6420,7 +6977,7 @@ func (o DetectorModelOnInputPtrOutput) Events() DetectorModelEventArrayOutput {
 	}).(DetectorModelEventArrayOutput)
 }
 
-// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
+// Specifies the actions performed, and the next state entered, when a “condition“ evaluates to TRUE.
 func (o DetectorModelOnInputPtrOutput) TransitionEvents() DetectorModelTransitionEventArrayOutput {
 	return o.ApplyT(func(v *DetectorModelOnInput) []DetectorModelTransitionEvent {
 		if v == nil {
@@ -6432,11 +6989,11 @@ func (o DetectorModelOnInputPtrOutput) TransitionEvents() DetectorModelTransitio
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 type DetectorModelPayload struct {
-	// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+	// The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
 	ContentExpression string `pulumi:"contentExpression"`
-	// The value of the payload type can be either `STRING` or `JSON`.
+	// The value of the payload type can be either ``STRING`` or ``JSON``.
 	Type string `pulumi:"type"`
 }
 
@@ -6453,11 +7010,11 @@ type DetectorModelPayloadInput interface {
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 type DetectorModelPayloadArgs struct {
-	// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+	// The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
 	ContentExpression pulumi.StringInput `pulumi:"contentExpression"`
-	// The value of the payload type can be either `STRING` or `JSON`.
+	// The value of the payload type can be either ``STRING`` or ``JSON``.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6516,7 +7073,7 @@ func (i *detectorModelPayloadPtrType) ToDetectorModelPayloadPtrOutputWithContext
 
 // Information needed to configure the payload.
 //
-// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
+//	By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
 type DetectorModelPayloadOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelPayloadOutput) ElementType() reflect.Type {
@@ -6541,12 +7098,12 @@ func (o DetectorModelPayloadOutput) ToDetectorModelPayloadPtrOutputWithContext(c
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+// The content of the payload. You can use a string expression that includes quoted strings (“'<string>'“), variables (“$variable.<variable-name>“), input values (“$input.<input-name>.<path-to-datum>“), string concatenations, and quoted strings that contain “${}“ as the content. The recommended maximum size of a content expression is 1 KB.
 func (o DetectorModelPayloadOutput) ContentExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelPayload) string { return v.ContentExpression }).(pulumi.StringOutput)
 }
 
-// The value of the payload type can be either `STRING` or `JSON`.
+// The value of the payload type can be either “STRING“ or “JSON“.
 func (o DetectorModelPayloadOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelPayload) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6575,7 +7132,7 @@ func (o DetectorModelPayloadPtrOutput) Elem() DetectorModelPayloadOutput {
 	}).(DetectorModelPayloadOutput)
 }
 
-// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+// The content of the payload. You can use a string expression that includes quoted strings (“'<string>'“), variables (“$variable.<variable-name>“), input values (“$input.<input-name>.<path-to-datum>“), string concatenations, and quoted strings that contain “${}“ as the content. The recommended maximum size of a content expression is 1 KB.
 func (o DetectorModelPayloadPtrOutput) ContentExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelPayload) *string {
 		if v == nil {
@@ -6585,7 +7142,7 @@ func (o DetectorModelPayloadPtrOutput) ContentExpression() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the payload type can be either `STRING` or `JSON`.
+// The value of the payload type can be either “STRING“ or “JSON“.
 func (o DetectorModelPayloadPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelPayload) *string {
 		if v == nil {
@@ -6737,9 +7294,9 @@ func (o DetectorModelResetTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 
 // Information needed to set the timer.
 type DetectorModelSetTimer struct {
-	// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
+	// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (``$variable.<variable-name>``), and input values (``$input.<input-name>.<path-to-datum>``) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
 	DurationExpression *string `pulumi:"durationExpression"`
-	// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
+	// The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
 	Seconds *int `pulumi:"seconds"`
 	// The name of the timer.
 	TimerName string `pulumi:"timerName"`
@@ -6758,9 +7315,9 @@ type DetectorModelSetTimerInput interface {
 
 // Information needed to set the timer.
 type DetectorModelSetTimerArgs struct {
-	// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
+	// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (``$variable.<variable-name>``), and input values (``$input.<input-name>.<path-to-datum>``) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
 	DurationExpression pulumi.StringPtrInput `pulumi:"durationExpression"`
-	// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
+	// The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
 	Seconds pulumi.IntPtrInput `pulumi:"seconds"`
 	// The name of the timer.
 	TimerName pulumi.StringInput `pulumi:"timerName"`
@@ -6844,12 +7401,12 @@ func (o DetectorModelSetTimerOutput) ToDetectorModelSetTimerPtrOutputWithContext
 	}).(DetectorModelSetTimerPtrOutput)
 }
 
-// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
+// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (“$variable.<variable-name>“), and input values (“$input.<input-name>.<path-to-datum>“) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
 func (o DetectorModelSetTimerOutput) DurationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelSetTimer) *string { return v.DurationExpression }).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
+// The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
 func (o DetectorModelSetTimerOutput) Seconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DetectorModelSetTimer) *int { return v.Seconds }).(pulumi.IntPtrOutput)
 }
@@ -6883,7 +7440,7 @@ func (o DetectorModelSetTimerPtrOutput) Elem() DetectorModelSetTimerOutput {
 	}).(DetectorModelSetTimerOutput)
 }
 
-// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
+// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (“$variable.<variable-name>“), and input values (“$input.<input-name>.<path-to-datum>“) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
 func (o DetectorModelSetTimerPtrOutput) DurationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSetTimer) *string {
 		if v == nil {
@@ -6893,7 +7450,7 @@ func (o DetectorModelSetTimerPtrOutput) DurationExpression() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
+// The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
 func (o DetectorModelSetTimerPtrOutput) Seconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSetTimer) *int {
 		if v == nil {
@@ -7231,12 +7788,13 @@ func (o DetectorModelSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 type DetectorModelSqs struct {
 	// You can configure the action payload when you send a message to an Amazon SQS queue.
 	Payload *DetectorModelPayload `pulumi:"payload"`
 	// The URL of the SQS queue where the data is written.
 	QueueUrl string `pulumi:"queueUrl"`
-	// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+	// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
 	UseBase64 *bool `pulumi:"useBase64"`
 }
 
@@ -7251,12 +7809,13 @@ type DetectorModelSqsInput interface {
 	ToDetectorModelSqsOutputWithContext(context.Context) DetectorModelSqsOutput
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 type DetectorModelSqsArgs struct {
 	// You can configure the action payload when you send a message to an Amazon SQS queue.
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
 	// The URL of the SQS queue where the data is written.
 	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
-	// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+	// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
 	UseBase64 pulumi.BoolPtrInput `pulumi:"useBase64"`
 }
 
@@ -7313,6 +7872,7 @@ func (i *detectorModelSqsPtrType) ToDetectorModelSqsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSqsPtrOutput)
 }
 
+// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
 type DetectorModelSqsOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelSqsOutput) ElementType() reflect.Type {
@@ -7347,7 +7907,7 @@ func (o DetectorModelSqsOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelSqs) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
-// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
 func (o DetectorModelSqsOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorModelSqs) *bool { return v.UseBase64 }).(pulumi.BoolPtrOutput)
 }
@@ -7396,7 +7956,7 @@ func (o DetectorModelSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+// Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
 func (o DetectorModelSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSqs) *bool {
 		if v == nil {
@@ -7408,11 +7968,11 @@ func (o DetectorModelSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 
 // Information that defines a state of a detector.
 type DetectorModelStateType struct {
-	// When entering this state, perform these `actions` if the `condition` is TRUE.
+	// When entering this state, perform these ``actions`` if the ``condition`` is TRUE.
 	OnEnter *DetectorModelOnEnter `pulumi:"onEnter"`
-	// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+	// When exiting this state, perform these ``actions`` if the specified ``condition`` is ``TRUE``.
 	OnExit *DetectorModelOnExit `pulumi:"onExit"`
-	// When an input is received and the `condition` is TRUE, perform the specified `actions` .
+	// When an input is received and the ``condition`` is TRUE, perform the specified ``actions``.
 	OnInput *DetectorModelOnInput `pulumi:"onInput"`
 	// The name of the state.
 	StateName string `pulumi:"stateName"`
@@ -7431,11 +7991,11 @@ type DetectorModelStateTypeInput interface {
 
 // Information that defines a state of a detector.
 type DetectorModelStateTypeArgs struct {
-	// When entering this state, perform these `actions` if the `condition` is TRUE.
+	// When entering this state, perform these ``actions`` if the ``condition`` is TRUE.
 	OnEnter DetectorModelOnEnterPtrInput `pulumi:"onEnter"`
-	// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+	// When exiting this state, perform these ``actions`` if the specified ``condition`` is ``TRUE``.
 	OnExit DetectorModelOnExitPtrInput `pulumi:"onExit"`
-	// When an input is received and the `condition` is TRUE, perform the specified `actions` .
+	// When an input is received and the ``condition`` is TRUE, perform the specified ``actions``.
 	OnInput DetectorModelOnInputPtrInput `pulumi:"onInput"`
 	// The name of the state.
 	StateName pulumi.StringInput `pulumi:"stateName"`
@@ -7493,17 +8053,17 @@ func (o DetectorModelStateTypeOutput) ToDetectorModelStateTypeOutputWithContext(
 	return o
 }
 
-// When entering this state, perform these `actions` if the `condition` is TRUE.
+// When entering this state, perform these “actions“ if the “condition“ is TRUE.
 func (o DetectorModelStateTypeOutput) OnEnter() DetectorModelOnEnterPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnEnter { return v.OnEnter }).(DetectorModelOnEnterPtrOutput)
 }
 
-// When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+// When exiting this state, perform these “actions“ if the specified “condition“ is “TRUE“.
 func (o DetectorModelStateTypeOutput) OnExit() DetectorModelOnExitPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnExit { return v.OnExit }).(DetectorModelOnExitPtrOutput)
 }
 
-// When an input is received and the `condition` is TRUE, perform the specified `actions` .
+// When an input is received and the “condition“ is TRUE, perform the specified “actions“.
 func (o DetectorModelStateTypeOutput) OnInput() DetectorModelOnInputPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnInput { return v.OnInput }).(DetectorModelOnInputPtrOutput)
 }
@@ -7533,21 +8093,21 @@ func (o DetectorModelStateTypeArrayOutput) Index(i pulumi.IntInput) DetectorMode
 	}).(DetectorModelStateTypeOutput)
 }
 
-// Tags to be applied to Input.
+// Metadata that can be used to manage the resource.
 type DetectorModelTag struct {
-	// Key of the Tag.
+	// The tag's key.
 	Key string `pulumi:"key"`
-	// Value of the Tag.
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 
-// Specifies the ` actions  `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
+// Specifies the actions performed and the next state entered when a “condition“ evaluates to TRUE.
 type DetectorModelTransitionEvent struct {
 	// The actions to be performed.
 	Actions []DetectorModelAction `pulumi:"actions"`
-	// A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
+	// Required. A Boolean expression that when TRUE causes the actions to be performed and the ``nextState`` to be entered.
 	Condition string `pulumi:"condition"`
-	// The name of the event.
+	// The name of the transition event.
 	EventName string `pulumi:"eventName"`
 	// The next state to enter.
 	NextState string `pulumi:"nextState"`
@@ -7564,13 +8124,13 @@ type DetectorModelTransitionEventInput interface {
 	ToDetectorModelTransitionEventOutputWithContext(context.Context) DetectorModelTransitionEventOutput
 }
 
-// Specifies the ` actions  `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
+// Specifies the actions performed and the next state entered when a “condition“ evaluates to TRUE.
 type DetectorModelTransitionEventArgs struct {
 	// The actions to be performed.
 	Actions DetectorModelActionArrayInput `pulumi:"actions"`
-	// A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
+	// Required. A Boolean expression that when TRUE causes the actions to be performed and the ``nextState`` to be entered.
 	Condition pulumi.StringInput `pulumi:"condition"`
-	// The name of the event.
+	// The name of the transition event.
 	EventName pulumi.StringInput `pulumi:"eventName"`
 	// The next state to enter.
 	NextState pulumi.StringInput `pulumi:"nextState"`
@@ -7613,7 +8173,7 @@ func (i DetectorModelTransitionEventArray) ToDetectorModelTransitionEventArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTransitionEventArrayOutput)
 }
 
-// Specifies the ` actions  `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
+// Specifies the actions performed and the next state entered when a “condition“ evaluates to TRUE.
 type DetectorModelTransitionEventOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelTransitionEventOutput) ElementType() reflect.Type {
@@ -7633,12 +8193,12 @@ func (o DetectorModelTransitionEventOutput) Actions() DetectorModelActionArrayOu
 	return o.ApplyT(func(v DetectorModelTransitionEvent) []DetectorModelAction { return v.Actions }).(DetectorModelActionArrayOutput)
 }
 
-// A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
+// Required. A Boolean expression that when TRUE causes the actions to be performed and the “nextState“ to be entered.
 func (o DetectorModelTransitionEventOutput) Condition() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelTransitionEvent) string { return v.Condition }).(pulumi.StringOutput)
 }
 
-// The name of the event.
+// The name of the transition event.
 func (o DetectorModelTransitionEventOutput) EventName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelTransitionEvent) string { return v.EventName }).(pulumi.StringOutput)
 }
@@ -7668,11 +8228,10 @@ func (o DetectorModelTransitionEventArrayOutput) Index(i pulumi.IntInput) Detect
 	}).(DetectorModelTransitionEventOutput)
 }
 
-// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using “BatchPutMessage“. Each such message contains a JSON payload. Those attributes (and their paired values) specified here are available for use in the “condition“ expressions used by detectors.
 type InputAttribute struct {
-	// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
-	//
-	// _Syntax_: `<field-name>.<field-name>...`
+	// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (``BatchPutMessage``). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the ``condition`` expressions used by detectors.
+	//  Syntax: ``<field-name>.<field-name>...``
 	JsonPath string `pulumi:"jsonPath"`
 }
 
@@ -7687,11 +8246,10 @@ type InputAttributeInput interface {
 	ToInputAttributeOutputWithContext(context.Context) InputAttributeOutput
 }
 
-// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using “BatchPutMessage“. Each such message contains a JSON payload. Those attributes (and their paired values) specified here are available for use in the “condition“ expressions used by detectors.
 type InputAttributeArgs struct {
-	// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
-	//
-	// _Syntax_: `<field-name>.<field-name>...`
+	// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (``BatchPutMessage``). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the ``condition`` expressions used by detectors.
+	//  Syntax: ``<field-name>.<field-name>...``
 	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
 }
 
@@ -7732,7 +8290,7 @@ func (i InputAttributeArray) ToInputAttributeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InputAttributeArrayOutput)
 }
 
-// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using “BatchPutMessage“. Each such message contains a JSON payload. Those attributes (and their paired values) specified here are available for use in the “condition“ expressions used by detectors.
 type InputAttributeOutput struct{ *pulumi.OutputState }
 
 func (InputAttributeOutput) ElementType() reflect.Type {
@@ -7747,9 +8305,9 @@ func (o InputAttributeOutput) ToInputAttributeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
+// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (“BatchPutMessage“). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the “condition“ expressions used by detectors.
 //
-// _Syntax_: `<field-name>.<field-name>...`
+//	Syntax: ``<field-name>.<field-name>...``
 func (o InputAttributeOutput) JsonPath() pulumi.StringOutput {
 	return o.ApplyT(func(v InputAttribute) string { return v.JsonPath }).(pulumi.StringOutput)
 }
@@ -7776,7 +8334,7 @@ func (o InputAttributeArrayOutput) Index(i pulumi.IntInput) InputAttributeOutput
 
 // The definition of the input.
 type InputDefinition struct {
-	// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+	// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using ``BatchPutMessage``. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the ``condition`` expressions used by detectors that monitor this input.
 	Attributes []InputAttribute `pulumi:"attributes"`
 }
 
@@ -7793,7 +8351,7 @@ type InputDefinitionInput interface {
 
 // The definition of the input.
 type InputDefinitionArgs struct {
-	// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+	// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using ``BatchPutMessage``. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the ``condition`` expressions used by detectors that monitor this input.
 	Attributes InputAttributeArrayInput `pulumi:"attributes"`
 }
 
@@ -7824,7 +8382,7 @@ func (o InputDefinitionOutput) ToInputDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
-// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using “BatchPutMessage“. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the “condition“ expressions used by detectors that monitor this input.
 func (o InputDefinitionOutput) Attributes() InputAttributeArrayOutput {
 	return o.ApplyT(func(v InputDefinition) []InputAttribute { return v.Attributes }).(InputAttributeArrayOutput)
 }
@@ -7853,7 +8411,7 @@ func (o InputDefinitionPtrOutput) Elem() InputDefinitionOutput {
 	}).(InputDefinitionOutput)
 }
 
-// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using “BatchPutMessage“. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the “condition“ expressions used by detectors that monitor this input.
 func (o InputDefinitionPtrOutput) Attributes() InputAttributeArrayOutput {
 	return o.ApplyT(func(v *InputDefinition) []InputAttribute {
 		if v == nil {
@@ -7863,11 +8421,11 @@ func (o InputDefinitionPtrOutput) Attributes() InputAttributeArrayOutput {
 	}).(InputAttributeArrayOutput)
 }
 
-// Tags to be applied to Input.
+// Metadata that can be used to manage the resource.
 type InputTag struct {
-	// Key of the Tag.
+	// The tag's key.
 	Key string `pulumi:"key"`
-	// Value of the Tag.
+	// The tag's value.
 	Value string `pulumi:"value"`
 }
 

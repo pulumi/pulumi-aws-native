@@ -126,7 +126,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "Name", "Description", "ApplicationSourceConfig" ],
+  "required" : [ "Name", "Namespace", "Description", "ApplicationSourceConfig" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,

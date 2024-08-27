@@ -13,6 +13,1395 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTableFieldWells struct {
+	// The aggregated field well for the table.
+	TableAggregatedFieldWells *TemplateTableAggregatedFieldWells `pulumi:"tableAggregatedFieldWells"`
+	// The unaggregated field well for the table.
+	TableUnaggregatedFieldWells *TemplateTableUnaggregatedFieldWells `pulumi:"tableUnaggregatedFieldWells"`
+}
+
+// TemplateTableFieldWellsInput is an input type that accepts TemplateTableFieldWellsArgs and TemplateTableFieldWellsOutput values.
+// You can construct a concrete instance of `TemplateTableFieldWellsInput` via:
+//
+//	TemplateTableFieldWellsArgs{...}
+type TemplateTableFieldWellsInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldWellsOutput() TemplateTableFieldWellsOutput
+	ToTemplateTableFieldWellsOutputWithContext(context.Context) TemplateTableFieldWellsOutput
+}
+
+type TemplateTableFieldWellsArgs struct {
+	// The aggregated field well for the table.
+	TableAggregatedFieldWells TemplateTableAggregatedFieldWellsPtrInput `pulumi:"tableAggregatedFieldWells"`
+	// The unaggregated field well for the table.
+	TableUnaggregatedFieldWells TemplateTableUnaggregatedFieldWellsPtrInput `pulumi:"tableUnaggregatedFieldWells"`
+}
+
+func (TemplateTableFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldWells)(nil)).Elem()
+}
+
+func (i TemplateTableFieldWellsArgs) ToTemplateTableFieldWellsOutput() TemplateTableFieldWellsOutput {
+	return i.ToTemplateTableFieldWellsOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldWellsArgs) ToTemplateTableFieldWellsOutputWithContext(ctx context.Context) TemplateTableFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldWellsOutput)
+}
+
+func (i TemplateTableFieldWellsArgs) ToTemplateTableFieldWellsPtrOutput() TemplateTableFieldWellsPtrOutput {
+	return i.ToTemplateTableFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldWellsArgs) ToTemplateTableFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldWellsOutput).ToTemplateTableFieldWellsPtrOutputWithContext(ctx)
+}
+
+// TemplateTableFieldWellsPtrInput is an input type that accepts TemplateTableFieldWellsArgs, TemplateTableFieldWellsPtr and TemplateTableFieldWellsPtrOutput values.
+// You can construct a concrete instance of `TemplateTableFieldWellsPtrInput` via:
+//
+//	        TemplateTableFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldWellsPtrOutput() TemplateTableFieldWellsPtrOutput
+	ToTemplateTableFieldWellsPtrOutputWithContext(context.Context) TemplateTableFieldWellsPtrOutput
+}
+
+type templateTableFieldWellsPtrType TemplateTableFieldWellsArgs
+
+func TemplateTableFieldWellsPtr(v *TemplateTableFieldWellsArgs) TemplateTableFieldWellsPtrInput {
+	return (*templateTableFieldWellsPtrType)(v)
+}
+
+func (*templateTableFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldWells)(nil)).Elem()
+}
+
+func (i *templateTableFieldWellsPtrType) ToTemplateTableFieldWellsPtrOutput() TemplateTableFieldWellsPtrOutput {
+	return i.ToTemplateTableFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableFieldWellsPtrType) ToTemplateTableFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldWellsPtrOutput)
+}
+
+type TemplateTableFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldWells)(nil)).Elem()
+}
+
+func (o TemplateTableFieldWellsOutput) ToTemplateTableFieldWellsOutput() TemplateTableFieldWellsOutput {
+	return o
+}
+
+func (o TemplateTableFieldWellsOutput) ToTemplateTableFieldWellsOutputWithContext(ctx context.Context) TemplateTableFieldWellsOutput {
+	return o
+}
+
+func (o TemplateTableFieldWellsOutput) ToTemplateTableFieldWellsPtrOutput() TemplateTableFieldWellsPtrOutput {
+	return o.ToTemplateTableFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableFieldWellsOutput) ToTemplateTableFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldWells) *TemplateTableFieldWells {
+		return &v
+	}).(TemplateTableFieldWellsPtrOutput)
+}
+
+// The aggregated field well for the table.
+func (o TemplateTableFieldWellsOutput) TableAggregatedFieldWells() TemplateTableAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldWells) *TemplateTableAggregatedFieldWells { return v.TableAggregatedFieldWells }).(TemplateTableAggregatedFieldWellsPtrOutput)
+}
+
+// The unaggregated field well for the table.
+func (o TemplateTableFieldWellsOutput) TableUnaggregatedFieldWells() TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldWells) *TemplateTableUnaggregatedFieldWells {
+		return v.TableUnaggregatedFieldWells
+	}).(TemplateTableUnaggregatedFieldWellsPtrOutput)
+}
+
+type TemplateTableFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldWells)(nil)).Elem()
+}
+
+func (o TemplateTableFieldWellsPtrOutput) ToTemplateTableFieldWellsPtrOutput() TemplateTableFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldWellsPtrOutput) ToTemplateTableFieldWellsPtrOutputWithContext(ctx context.Context) TemplateTableFieldWellsPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldWellsPtrOutput) Elem() TemplateTableFieldWellsOutput {
+	return o.ApplyT(func(v *TemplateTableFieldWells) TemplateTableFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableFieldWells
+		return ret
+	}).(TemplateTableFieldWellsOutput)
+}
+
+// The aggregated field well for the table.
+func (o TemplateTableFieldWellsPtrOutput) TableAggregatedFieldWells() TemplateTableAggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldWells) *TemplateTableAggregatedFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.TableAggregatedFieldWells
+	}).(TemplateTableAggregatedFieldWellsPtrOutput)
+}
+
+// The unaggregated field well for the table.
+func (o TemplateTableFieldWellsPtrOutput) TableUnaggregatedFieldWells() TemplateTableUnaggregatedFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldWells) *TemplateTableUnaggregatedFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.TableUnaggregatedFieldWells
+	}).(TemplateTableUnaggregatedFieldWellsPtrOutput)
+}
+
+type TemplateTableInlineVisualization struct {
+	// The configuration of the inline visualization of the data bars within a chart.
+	DataBars *TemplateDataBarsOptions `pulumi:"dataBars"`
+}
+
+// TemplateTableInlineVisualizationInput is an input type that accepts TemplateTableInlineVisualizationArgs and TemplateTableInlineVisualizationOutput values.
+// You can construct a concrete instance of `TemplateTableInlineVisualizationInput` via:
+//
+//	TemplateTableInlineVisualizationArgs{...}
+type TemplateTableInlineVisualizationInput interface {
+	pulumi.Input
+
+	ToTemplateTableInlineVisualizationOutput() TemplateTableInlineVisualizationOutput
+	ToTemplateTableInlineVisualizationOutputWithContext(context.Context) TemplateTableInlineVisualizationOutput
+}
+
+type TemplateTableInlineVisualizationArgs struct {
+	// The configuration of the inline visualization of the data bars within a chart.
+	DataBars TemplateDataBarsOptionsPtrInput `pulumi:"dataBars"`
+}
+
+func (TemplateTableInlineVisualizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableInlineVisualization)(nil)).Elem()
+}
+
+func (i TemplateTableInlineVisualizationArgs) ToTemplateTableInlineVisualizationOutput() TemplateTableInlineVisualizationOutput {
+	return i.ToTemplateTableInlineVisualizationOutputWithContext(context.Background())
+}
+
+func (i TemplateTableInlineVisualizationArgs) ToTemplateTableInlineVisualizationOutputWithContext(ctx context.Context) TemplateTableInlineVisualizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableInlineVisualizationOutput)
+}
+
+// TemplateTableInlineVisualizationArrayInput is an input type that accepts TemplateTableInlineVisualizationArray and TemplateTableInlineVisualizationArrayOutput values.
+// You can construct a concrete instance of `TemplateTableInlineVisualizationArrayInput` via:
+//
+//	TemplateTableInlineVisualizationArray{ TemplateTableInlineVisualizationArgs{...} }
+type TemplateTableInlineVisualizationArrayInput interface {
+	pulumi.Input
+
+	ToTemplateTableInlineVisualizationArrayOutput() TemplateTableInlineVisualizationArrayOutput
+	ToTemplateTableInlineVisualizationArrayOutputWithContext(context.Context) TemplateTableInlineVisualizationArrayOutput
+}
+
+type TemplateTableInlineVisualizationArray []TemplateTableInlineVisualizationInput
+
+func (TemplateTableInlineVisualizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTableInlineVisualization)(nil)).Elem()
+}
+
+func (i TemplateTableInlineVisualizationArray) ToTemplateTableInlineVisualizationArrayOutput() TemplateTableInlineVisualizationArrayOutput {
+	return i.ToTemplateTableInlineVisualizationArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateTableInlineVisualizationArray) ToTemplateTableInlineVisualizationArrayOutputWithContext(ctx context.Context) TemplateTableInlineVisualizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableInlineVisualizationArrayOutput)
+}
+
+type TemplateTableInlineVisualizationOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableInlineVisualizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableInlineVisualization)(nil)).Elem()
+}
+
+func (o TemplateTableInlineVisualizationOutput) ToTemplateTableInlineVisualizationOutput() TemplateTableInlineVisualizationOutput {
+	return o
+}
+
+func (o TemplateTableInlineVisualizationOutput) ToTemplateTableInlineVisualizationOutputWithContext(ctx context.Context) TemplateTableInlineVisualizationOutput {
+	return o
+}
+
+// The configuration of the inline visualization of the data bars within a chart.
+func (o TemplateTableInlineVisualizationOutput) DataBars() TemplateDataBarsOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableInlineVisualization) *TemplateDataBarsOptions { return v.DataBars }).(TemplateDataBarsOptionsPtrOutput)
+}
+
+type TemplateTableInlineVisualizationArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableInlineVisualizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTableInlineVisualization)(nil)).Elem()
+}
+
+func (o TemplateTableInlineVisualizationArrayOutput) ToTemplateTableInlineVisualizationArrayOutput() TemplateTableInlineVisualizationArrayOutput {
+	return o
+}
+
+func (o TemplateTableInlineVisualizationArrayOutput) ToTemplateTableInlineVisualizationArrayOutputWithContext(ctx context.Context) TemplateTableInlineVisualizationArrayOutput {
+	return o
+}
+
+func (o TemplateTableInlineVisualizationArrayOutput) Index(i pulumi.IntInput) TemplateTableInlineVisualizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTableInlineVisualization {
+		return vs[0].([]TemplateTableInlineVisualization)[vs[1].(int)]
+	}).(TemplateTableInlineVisualizationOutput)
+}
+
+type TemplateTableOptions struct {
+	// The table cell style of table cells.
+	CellStyle *TemplateTableCellStyle `pulumi:"cellStyle"`
+	// The table cell style of a table header.
+	HeaderStyle *TemplateTableCellStyle `pulumi:"headerStyle"`
+	// The orientation (vertical, horizontal) for a table.
+	Orientation *TemplateTableOrientation `pulumi:"orientation"`
+	// The row alternate color options (widget status, row alternate colors) for a table.
+	RowAlternateColorOptions *TemplateRowAlternateColorOptions `pulumi:"rowAlternateColorOptions"`
+}
+
+// TemplateTableOptionsInput is an input type that accepts TemplateTableOptionsArgs and TemplateTableOptionsOutput values.
+// You can construct a concrete instance of `TemplateTableOptionsInput` via:
+//
+//	TemplateTableOptionsArgs{...}
+type TemplateTableOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateTableOptionsOutput() TemplateTableOptionsOutput
+	ToTemplateTableOptionsOutputWithContext(context.Context) TemplateTableOptionsOutput
+}
+
+type TemplateTableOptionsArgs struct {
+	// The table cell style of table cells.
+	CellStyle TemplateTableCellStylePtrInput `pulumi:"cellStyle"`
+	// The table cell style of a table header.
+	HeaderStyle TemplateTableCellStylePtrInput `pulumi:"headerStyle"`
+	// The orientation (vertical, horizontal) for a table.
+	Orientation TemplateTableOrientationPtrInput `pulumi:"orientation"`
+	// The row alternate color options (widget status, row alternate colors) for a table.
+	RowAlternateColorOptions TemplateRowAlternateColorOptionsPtrInput `pulumi:"rowAlternateColorOptions"`
+}
+
+func (TemplateTableOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableOptions)(nil)).Elem()
+}
+
+func (i TemplateTableOptionsArgs) ToTemplateTableOptionsOutput() TemplateTableOptionsOutput {
+	return i.ToTemplateTableOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateTableOptionsArgs) ToTemplateTableOptionsOutputWithContext(ctx context.Context) TemplateTableOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableOptionsOutput)
+}
+
+func (i TemplateTableOptionsArgs) ToTemplateTableOptionsPtrOutput() TemplateTableOptionsPtrOutput {
+	return i.ToTemplateTableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableOptionsArgs) ToTemplateTableOptionsPtrOutputWithContext(ctx context.Context) TemplateTableOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableOptionsOutput).ToTemplateTableOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateTableOptionsPtrInput is an input type that accepts TemplateTableOptionsArgs, TemplateTableOptionsPtr and TemplateTableOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateTableOptionsPtrInput` via:
+//
+//	        TemplateTableOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableOptionsPtrOutput() TemplateTableOptionsPtrOutput
+	ToTemplateTableOptionsPtrOutputWithContext(context.Context) TemplateTableOptionsPtrOutput
+}
+
+type templateTableOptionsPtrType TemplateTableOptionsArgs
+
+func TemplateTableOptionsPtr(v *TemplateTableOptionsArgs) TemplateTableOptionsPtrInput {
+	return (*templateTableOptionsPtrType)(v)
+}
+
+func (*templateTableOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableOptions)(nil)).Elem()
+}
+
+func (i *templateTableOptionsPtrType) ToTemplateTableOptionsPtrOutput() TemplateTableOptionsPtrOutput {
+	return i.ToTemplateTableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableOptionsPtrType) ToTemplateTableOptionsPtrOutputWithContext(ctx context.Context) TemplateTableOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableOptionsPtrOutput)
+}
+
+type TemplateTableOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableOptions)(nil)).Elem()
+}
+
+func (o TemplateTableOptionsOutput) ToTemplateTableOptionsOutput() TemplateTableOptionsOutput {
+	return o
+}
+
+func (o TemplateTableOptionsOutput) ToTemplateTableOptionsOutputWithContext(ctx context.Context) TemplateTableOptionsOutput {
+	return o
+}
+
+func (o TemplateTableOptionsOutput) ToTemplateTableOptionsPtrOutput() TemplateTableOptionsPtrOutput {
+	return o.ToTemplateTableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableOptionsOutput) ToTemplateTableOptionsPtrOutputWithContext(ctx context.Context) TemplateTableOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableOptions) *TemplateTableOptions {
+		return &v
+	}).(TemplateTableOptionsPtrOutput)
+}
+
+// The table cell style of table cells.
+func (o TemplateTableOptionsOutput) CellStyle() TemplateTableCellStylePtrOutput {
+	return o.ApplyT(func(v TemplateTableOptions) *TemplateTableCellStyle { return v.CellStyle }).(TemplateTableCellStylePtrOutput)
+}
+
+// The table cell style of a table header.
+func (o TemplateTableOptionsOutput) HeaderStyle() TemplateTableCellStylePtrOutput {
+	return o.ApplyT(func(v TemplateTableOptions) *TemplateTableCellStyle { return v.HeaderStyle }).(TemplateTableCellStylePtrOutput)
+}
+
+// The orientation (vertical, horizontal) for a table.
+func (o TemplateTableOptionsOutput) Orientation() TemplateTableOrientationPtrOutput {
+	return o.ApplyT(func(v TemplateTableOptions) *TemplateTableOrientation { return v.Orientation }).(TemplateTableOrientationPtrOutput)
+}
+
+// The row alternate color options (widget status, row alternate colors) for a table.
+func (o TemplateTableOptionsOutput) RowAlternateColorOptions() TemplateRowAlternateColorOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableOptions) *TemplateRowAlternateColorOptions { return v.RowAlternateColorOptions }).(TemplateRowAlternateColorOptionsPtrOutput)
+}
+
+type TemplateTableOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableOptions)(nil)).Elem()
+}
+
+func (o TemplateTableOptionsPtrOutput) ToTemplateTableOptionsPtrOutput() TemplateTableOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTableOptionsPtrOutput) ToTemplateTableOptionsPtrOutputWithContext(ctx context.Context) TemplateTableOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTableOptionsPtrOutput) Elem() TemplateTableOptionsOutput {
+	return o.ApplyT(func(v *TemplateTableOptions) TemplateTableOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableOptions
+		return ret
+	}).(TemplateTableOptionsOutput)
+}
+
+// The table cell style of table cells.
+func (o TemplateTableOptionsPtrOutput) CellStyle() TemplateTableCellStylePtrOutput {
+	return o.ApplyT(func(v *TemplateTableOptions) *TemplateTableCellStyle {
+		if v == nil {
+			return nil
+		}
+		return v.CellStyle
+	}).(TemplateTableCellStylePtrOutput)
+}
+
+// The table cell style of a table header.
+func (o TemplateTableOptionsPtrOutput) HeaderStyle() TemplateTableCellStylePtrOutput {
+	return o.ApplyT(func(v *TemplateTableOptions) *TemplateTableCellStyle {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderStyle
+	}).(TemplateTableCellStylePtrOutput)
+}
+
+// The orientation (vertical, horizontal) for a table.
+func (o TemplateTableOptionsPtrOutput) Orientation() TemplateTableOrientationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableOptions) *TemplateTableOrientation {
+		if v == nil {
+			return nil
+		}
+		return v.Orientation
+	}).(TemplateTableOrientationPtrOutput)
+}
+
+// The row alternate color options (widget status, row alternate colors) for a table.
+func (o TemplateTableOptionsPtrOutput) RowAlternateColorOptions() TemplateRowAlternateColorOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableOptions) *TemplateRowAlternateColorOptions {
+		if v == nil {
+			return nil
+		}
+		return v.RowAlternateColorOptions
+	}).(TemplateRowAlternateColorOptionsPtrOutput)
+}
+
+type TemplateTablePaginatedReportOptions struct {
+	// The visibility of repeating header rows on each page.
+	OverflowColumnHeaderVisibility *TemplateVisibility `pulumi:"overflowColumnHeaderVisibility"`
+	// The visibility of printing table overflow across pages.
+	VerticalOverflowVisibility *TemplateVisibility `pulumi:"verticalOverflowVisibility"`
+}
+
+// TemplateTablePaginatedReportOptionsInput is an input type that accepts TemplateTablePaginatedReportOptionsArgs and TemplateTablePaginatedReportOptionsOutput values.
+// You can construct a concrete instance of `TemplateTablePaginatedReportOptionsInput` via:
+//
+//	TemplateTablePaginatedReportOptionsArgs{...}
+type TemplateTablePaginatedReportOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateTablePaginatedReportOptionsOutput() TemplateTablePaginatedReportOptionsOutput
+	ToTemplateTablePaginatedReportOptionsOutputWithContext(context.Context) TemplateTablePaginatedReportOptionsOutput
+}
+
+type TemplateTablePaginatedReportOptionsArgs struct {
+	// The visibility of repeating header rows on each page.
+	OverflowColumnHeaderVisibility TemplateVisibilityPtrInput `pulumi:"overflowColumnHeaderVisibility"`
+	// The visibility of printing table overflow across pages.
+	VerticalOverflowVisibility TemplateVisibilityPtrInput `pulumi:"verticalOverflowVisibility"`
+}
+
+func (TemplateTablePaginatedReportOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTablePaginatedReportOptions)(nil)).Elem()
+}
+
+func (i TemplateTablePaginatedReportOptionsArgs) ToTemplateTablePaginatedReportOptionsOutput() TemplateTablePaginatedReportOptionsOutput {
+	return i.ToTemplateTablePaginatedReportOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateTablePaginatedReportOptionsArgs) ToTemplateTablePaginatedReportOptionsOutputWithContext(ctx context.Context) TemplateTablePaginatedReportOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTablePaginatedReportOptionsOutput)
+}
+
+func (i TemplateTablePaginatedReportOptionsArgs) ToTemplateTablePaginatedReportOptionsPtrOutput() TemplateTablePaginatedReportOptionsPtrOutput {
+	return i.ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTablePaginatedReportOptionsArgs) ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(ctx context.Context) TemplateTablePaginatedReportOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTablePaginatedReportOptionsOutput).ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateTablePaginatedReportOptionsPtrInput is an input type that accepts TemplateTablePaginatedReportOptionsArgs, TemplateTablePaginatedReportOptionsPtr and TemplateTablePaginatedReportOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateTablePaginatedReportOptionsPtrInput` via:
+//
+//	        TemplateTablePaginatedReportOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTablePaginatedReportOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTablePaginatedReportOptionsPtrOutput() TemplateTablePaginatedReportOptionsPtrOutput
+	ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(context.Context) TemplateTablePaginatedReportOptionsPtrOutput
+}
+
+type templateTablePaginatedReportOptionsPtrType TemplateTablePaginatedReportOptionsArgs
+
+func TemplateTablePaginatedReportOptionsPtr(v *TemplateTablePaginatedReportOptionsArgs) TemplateTablePaginatedReportOptionsPtrInput {
+	return (*templateTablePaginatedReportOptionsPtrType)(v)
+}
+
+func (*templateTablePaginatedReportOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTablePaginatedReportOptions)(nil)).Elem()
+}
+
+func (i *templateTablePaginatedReportOptionsPtrType) ToTemplateTablePaginatedReportOptionsPtrOutput() TemplateTablePaginatedReportOptionsPtrOutput {
+	return i.ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTablePaginatedReportOptionsPtrType) ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(ctx context.Context) TemplateTablePaginatedReportOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTablePaginatedReportOptionsPtrOutput)
+}
+
+type TemplateTablePaginatedReportOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTablePaginatedReportOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTablePaginatedReportOptions)(nil)).Elem()
+}
+
+func (o TemplateTablePaginatedReportOptionsOutput) ToTemplateTablePaginatedReportOptionsOutput() TemplateTablePaginatedReportOptionsOutput {
+	return o
+}
+
+func (o TemplateTablePaginatedReportOptionsOutput) ToTemplateTablePaginatedReportOptionsOutputWithContext(ctx context.Context) TemplateTablePaginatedReportOptionsOutput {
+	return o
+}
+
+func (o TemplateTablePaginatedReportOptionsOutput) ToTemplateTablePaginatedReportOptionsPtrOutput() TemplateTablePaginatedReportOptionsPtrOutput {
+	return o.ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTablePaginatedReportOptionsOutput) ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(ctx context.Context) TemplateTablePaginatedReportOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTablePaginatedReportOptions) *TemplateTablePaginatedReportOptions {
+		return &v
+	}).(TemplateTablePaginatedReportOptionsPtrOutput)
+}
+
+// The visibility of repeating header rows on each page.
+func (o TemplateTablePaginatedReportOptionsOutput) OverflowColumnHeaderVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateTablePaginatedReportOptions) *TemplateVisibility {
+		return v.OverflowColumnHeaderVisibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+// The visibility of printing table overflow across pages.
+func (o TemplateTablePaginatedReportOptionsOutput) VerticalOverflowVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateTablePaginatedReportOptions) *TemplateVisibility { return v.VerticalOverflowVisibility }).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateTablePaginatedReportOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTablePaginatedReportOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTablePaginatedReportOptions)(nil)).Elem()
+}
+
+func (o TemplateTablePaginatedReportOptionsPtrOutput) ToTemplateTablePaginatedReportOptionsPtrOutput() TemplateTablePaginatedReportOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTablePaginatedReportOptionsPtrOutput) ToTemplateTablePaginatedReportOptionsPtrOutputWithContext(ctx context.Context) TemplateTablePaginatedReportOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTablePaginatedReportOptionsPtrOutput) Elem() TemplateTablePaginatedReportOptionsOutput {
+	return o.ApplyT(func(v *TemplateTablePaginatedReportOptions) TemplateTablePaginatedReportOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTablePaginatedReportOptions
+		return ret
+	}).(TemplateTablePaginatedReportOptionsOutput)
+}
+
+// The visibility of repeating header rows on each page.
+func (o TemplateTablePaginatedReportOptionsPtrOutput) OverflowColumnHeaderVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateTablePaginatedReportOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.OverflowColumnHeaderVisibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+// The visibility of printing table overflow across pages.
+func (o TemplateTablePaginatedReportOptionsPtrOutput) VerticalOverflowVisibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v *TemplateTablePaginatedReportOptions) *TemplateVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.VerticalOverflowVisibility
+	}).(TemplateVisibilityPtrOutput)
+}
+
+type TemplateTablePinnedFieldOptions struct {
+	// A list of columns to be pinned to the left of a table visual.
+	PinnedLeftFields []string `pulumi:"pinnedLeftFields"`
+}
+
+// TemplateTablePinnedFieldOptionsInput is an input type that accepts TemplateTablePinnedFieldOptionsArgs and TemplateTablePinnedFieldOptionsOutput values.
+// You can construct a concrete instance of `TemplateTablePinnedFieldOptionsInput` via:
+//
+//	TemplateTablePinnedFieldOptionsArgs{...}
+type TemplateTablePinnedFieldOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateTablePinnedFieldOptionsOutput() TemplateTablePinnedFieldOptionsOutput
+	ToTemplateTablePinnedFieldOptionsOutputWithContext(context.Context) TemplateTablePinnedFieldOptionsOutput
+}
+
+type TemplateTablePinnedFieldOptionsArgs struct {
+	// A list of columns to be pinned to the left of a table visual.
+	PinnedLeftFields pulumi.StringArrayInput `pulumi:"pinnedLeftFields"`
+}
+
+func (TemplateTablePinnedFieldOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTablePinnedFieldOptions)(nil)).Elem()
+}
+
+func (i TemplateTablePinnedFieldOptionsArgs) ToTemplateTablePinnedFieldOptionsOutput() TemplateTablePinnedFieldOptionsOutput {
+	return i.ToTemplateTablePinnedFieldOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateTablePinnedFieldOptionsArgs) ToTemplateTablePinnedFieldOptionsOutputWithContext(ctx context.Context) TemplateTablePinnedFieldOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTablePinnedFieldOptionsOutput)
+}
+
+func (i TemplateTablePinnedFieldOptionsArgs) ToTemplateTablePinnedFieldOptionsPtrOutput() TemplateTablePinnedFieldOptionsPtrOutput {
+	return i.ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTablePinnedFieldOptionsArgs) ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateTablePinnedFieldOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTablePinnedFieldOptionsOutput).ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateTablePinnedFieldOptionsPtrInput is an input type that accepts TemplateTablePinnedFieldOptionsArgs, TemplateTablePinnedFieldOptionsPtr and TemplateTablePinnedFieldOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateTablePinnedFieldOptionsPtrInput` via:
+//
+//	        TemplateTablePinnedFieldOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTablePinnedFieldOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTablePinnedFieldOptionsPtrOutput() TemplateTablePinnedFieldOptionsPtrOutput
+	ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(context.Context) TemplateTablePinnedFieldOptionsPtrOutput
+}
+
+type templateTablePinnedFieldOptionsPtrType TemplateTablePinnedFieldOptionsArgs
+
+func TemplateTablePinnedFieldOptionsPtr(v *TemplateTablePinnedFieldOptionsArgs) TemplateTablePinnedFieldOptionsPtrInput {
+	return (*templateTablePinnedFieldOptionsPtrType)(v)
+}
+
+func (*templateTablePinnedFieldOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTablePinnedFieldOptions)(nil)).Elem()
+}
+
+func (i *templateTablePinnedFieldOptionsPtrType) ToTemplateTablePinnedFieldOptionsPtrOutput() TemplateTablePinnedFieldOptionsPtrOutput {
+	return i.ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTablePinnedFieldOptionsPtrType) ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateTablePinnedFieldOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTablePinnedFieldOptionsPtrOutput)
+}
+
+type TemplateTablePinnedFieldOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTablePinnedFieldOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTablePinnedFieldOptions)(nil)).Elem()
+}
+
+func (o TemplateTablePinnedFieldOptionsOutput) ToTemplateTablePinnedFieldOptionsOutput() TemplateTablePinnedFieldOptionsOutput {
+	return o
+}
+
+func (o TemplateTablePinnedFieldOptionsOutput) ToTemplateTablePinnedFieldOptionsOutputWithContext(ctx context.Context) TemplateTablePinnedFieldOptionsOutput {
+	return o
+}
+
+func (o TemplateTablePinnedFieldOptionsOutput) ToTemplateTablePinnedFieldOptionsPtrOutput() TemplateTablePinnedFieldOptionsPtrOutput {
+	return o.ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTablePinnedFieldOptionsOutput) ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateTablePinnedFieldOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTablePinnedFieldOptions) *TemplateTablePinnedFieldOptions {
+		return &v
+	}).(TemplateTablePinnedFieldOptionsPtrOutput)
+}
+
+// A list of columns to be pinned to the left of a table visual.
+func (o TemplateTablePinnedFieldOptionsOutput) PinnedLeftFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TemplateTablePinnedFieldOptions) []string { return v.PinnedLeftFields }).(pulumi.StringArrayOutput)
+}
+
+type TemplateTablePinnedFieldOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTablePinnedFieldOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTablePinnedFieldOptions)(nil)).Elem()
+}
+
+func (o TemplateTablePinnedFieldOptionsPtrOutput) ToTemplateTablePinnedFieldOptionsPtrOutput() TemplateTablePinnedFieldOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTablePinnedFieldOptionsPtrOutput) ToTemplateTablePinnedFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateTablePinnedFieldOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTablePinnedFieldOptionsPtrOutput) Elem() TemplateTablePinnedFieldOptionsOutput {
+	return o.ApplyT(func(v *TemplateTablePinnedFieldOptions) TemplateTablePinnedFieldOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTablePinnedFieldOptions
+		return ret
+	}).(TemplateTablePinnedFieldOptionsOutput)
+}
+
+// A list of columns to be pinned to the left of a table visual.
+func (o TemplateTablePinnedFieldOptionsPtrOutput) PinnedLeftFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplateTablePinnedFieldOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PinnedLeftFields
+	}).(pulumi.StringArrayOutput)
+}
+
+type TemplateTableRowConditionalFormatting struct {
+	// The conditional formatting color (solid, gradient) of the background for a table row.
+	BackgroundColor *TemplateConditionalFormattingColor `pulumi:"backgroundColor"`
+	// The conditional formatting color (solid, gradient) of the text for a table row.
+	TextColor *TemplateConditionalFormattingColor `pulumi:"textColor"`
+}
+
+// TemplateTableRowConditionalFormattingInput is an input type that accepts TemplateTableRowConditionalFormattingArgs and TemplateTableRowConditionalFormattingOutput values.
+// You can construct a concrete instance of `TemplateTableRowConditionalFormattingInput` via:
+//
+//	TemplateTableRowConditionalFormattingArgs{...}
+type TemplateTableRowConditionalFormattingInput interface {
+	pulumi.Input
+
+	ToTemplateTableRowConditionalFormattingOutput() TemplateTableRowConditionalFormattingOutput
+	ToTemplateTableRowConditionalFormattingOutputWithContext(context.Context) TemplateTableRowConditionalFormattingOutput
+}
+
+type TemplateTableRowConditionalFormattingArgs struct {
+	// The conditional formatting color (solid, gradient) of the background for a table row.
+	BackgroundColor TemplateConditionalFormattingColorPtrInput `pulumi:"backgroundColor"`
+	// The conditional formatting color (solid, gradient) of the text for a table row.
+	TextColor TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
+}
+
+func (TemplateTableRowConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableRowConditionalFormatting)(nil)).Elem()
+}
+
+func (i TemplateTableRowConditionalFormattingArgs) ToTemplateTableRowConditionalFormattingOutput() TemplateTableRowConditionalFormattingOutput {
+	return i.ToTemplateTableRowConditionalFormattingOutputWithContext(context.Background())
+}
+
+func (i TemplateTableRowConditionalFormattingArgs) ToTemplateTableRowConditionalFormattingOutputWithContext(ctx context.Context) TemplateTableRowConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableRowConditionalFormattingOutput)
+}
+
+func (i TemplateTableRowConditionalFormattingArgs) ToTemplateTableRowConditionalFormattingPtrOutput() TemplateTableRowConditionalFormattingPtrOutput {
+	return i.ToTemplateTableRowConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableRowConditionalFormattingArgs) ToTemplateTableRowConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateTableRowConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableRowConditionalFormattingOutput).ToTemplateTableRowConditionalFormattingPtrOutputWithContext(ctx)
+}
+
+// TemplateTableRowConditionalFormattingPtrInput is an input type that accepts TemplateTableRowConditionalFormattingArgs, TemplateTableRowConditionalFormattingPtr and TemplateTableRowConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `TemplateTableRowConditionalFormattingPtrInput` via:
+//
+//	        TemplateTableRowConditionalFormattingArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableRowConditionalFormattingPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableRowConditionalFormattingPtrOutput() TemplateTableRowConditionalFormattingPtrOutput
+	ToTemplateTableRowConditionalFormattingPtrOutputWithContext(context.Context) TemplateTableRowConditionalFormattingPtrOutput
+}
+
+type templateTableRowConditionalFormattingPtrType TemplateTableRowConditionalFormattingArgs
+
+func TemplateTableRowConditionalFormattingPtr(v *TemplateTableRowConditionalFormattingArgs) TemplateTableRowConditionalFormattingPtrInput {
+	return (*templateTableRowConditionalFormattingPtrType)(v)
+}
+
+func (*templateTableRowConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableRowConditionalFormatting)(nil)).Elem()
+}
+
+func (i *templateTableRowConditionalFormattingPtrType) ToTemplateTableRowConditionalFormattingPtrOutput() TemplateTableRowConditionalFormattingPtrOutput {
+	return i.ToTemplateTableRowConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableRowConditionalFormattingPtrType) ToTemplateTableRowConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateTableRowConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableRowConditionalFormattingPtrOutput)
+}
+
+type TemplateTableRowConditionalFormattingOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableRowConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableRowConditionalFormatting)(nil)).Elem()
+}
+
+func (o TemplateTableRowConditionalFormattingOutput) ToTemplateTableRowConditionalFormattingOutput() TemplateTableRowConditionalFormattingOutput {
+	return o
+}
+
+func (o TemplateTableRowConditionalFormattingOutput) ToTemplateTableRowConditionalFormattingOutputWithContext(ctx context.Context) TemplateTableRowConditionalFormattingOutput {
+	return o
+}
+
+func (o TemplateTableRowConditionalFormattingOutput) ToTemplateTableRowConditionalFormattingPtrOutput() TemplateTableRowConditionalFormattingPtrOutput {
+	return o.ToTemplateTableRowConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableRowConditionalFormattingOutput) ToTemplateTableRowConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateTableRowConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableRowConditionalFormatting) *TemplateTableRowConditionalFormatting {
+		return &v
+	}).(TemplateTableRowConditionalFormattingPtrOutput)
+}
+
+// The conditional formatting color (solid, gradient) of the background for a table row.
+func (o TemplateTableRowConditionalFormattingOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v TemplateTableRowConditionalFormatting) *TemplateConditionalFormattingColor {
+		return v.BackgroundColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+// The conditional formatting color (solid, gradient) of the text for a table row.
+func (o TemplateTableRowConditionalFormattingOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v TemplateTableRowConditionalFormatting) *TemplateConditionalFormattingColor { return v.TextColor }).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+type TemplateTableRowConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableRowConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableRowConditionalFormatting)(nil)).Elem()
+}
+
+func (o TemplateTableRowConditionalFormattingPtrOutput) ToTemplateTableRowConditionalFormattingPtrOutput() TemplateTableRowConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o TemplateTableRowConditionalFormattingPtrOutput) ToTemplateTableRowConditionalFormattingPtrOutputWithContext(ctx context.Context) TemplateTableRowConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o TemplateTableRowConditionalFormattingPtrOutput) Elem() TemplateTableRowConditionalFormattingOutput {
+	return o.ApplyT(func(v *TemplateTableRowConditionalFormatting) TemplateTableRowConditionalFormatting {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableRowConditionalFormatting
+		return ret
+	}).(TemplateTableRowConditionalFormattingOutput)
+}
+
+// The conditional formatting color (solid, gradient) of the background for a table row.
+func (o TemplateTableRowConditionalFormattingPtrOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *TemplateTableRowConditionalFormatting) *TemplateConditionalFormattingColor {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+// The conditional formatting color (solid, gradient) of the text for a table row.
+func (o TemplateTableRowConditionalFormattingPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
+	return o.ApplyT(func(v *TemplateTableRowConditionalFormatting) *TemplateConditionalFormattingColor {
+		if v == nil {
+			return nil
+		}
+		return v.TextColor
+	}).(TemplateConditionalFormattingColorPtrOutput)
+}
+
+type TemplateTableSideBorderOptions struct {
+	// The table border options of the bottom border.
+	Bottom *TemplateTableBorderOptions `pulumi:"bottom"`
+	// The table border options of the inner horizontal border.
+	InnerHorizontal *TemplateTableBorderOptions `pulumi:"innerHorizontal"`
+	// The table border options of the inner vertical border.
+	InnerVertical *TemplateTableBorderOptions `pulumi:"innerVertical"`
+	// The table border options of the left border.
+	Left *TemplateTableBorderOptions `pulumi:"left"`
+	// The table border options of the right border.
+	Right *TemplateTableBorderOptions `pulumi:"right"`
+	// The table border options of the top border.
+	Top *TemplateTableBorderOptions `pulumi:"top"`
+}
+
+// TemplateTableSideBorderOptionsInput is an input type that accepts TemplateTableSideBorderOptionsArgs and TemplateTableSideBorderOptionsOutput values.
+// You can construct a concrete instance of `TemplateTableSideBorderOptionsInput` via:
+//
+//	TemplateTableSideBorderOptionsArgs{...}
+type TemplateTableSideBorderOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateTableSideBorderOptionsOutput() TemplateTableSideBorderOptionsOutput
+	ToTemplateTableSideBorderOptionsOutputWithContext(context.Context) TemplateTableSideBorderOptionsOutput
+}
+
+type TemplateTableSideBorderOptionsArgs struct {
+	// The table border options of the bottom border.
+	Bottom TemplateTableBorderOptionsPtrInput `pulumi:"bottom"`
+	// The table border options of the inner horizontal border.
+	InnerHorizontal TemplateTableBorderOptionsPtrInput `pulumi:"innerHorizontal"`
+	// The table border options of the inner vertical border.
+	InnerVertical TemplateTableBorderOptionsPtrInput `pulumi:"innerVertical"`
+	// The table border options of the left border.
+	Left TemplateTableBorderOptionsPtrInput `pulumi:"left"`
+	// The table border options of the right border.
+	Right TemplateTableBorderOptionsPtrInput `pulumi:"right"`
+	// The table border options of the top border.
+	Top TemplateTableBorderOptionsPtrInput `pulumi:"top"`
+}
+
+func (TemplateTableSideBorderOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableSideBorderOptions)(nil)).Elem()
+}
+
+func (i TemplateTableSideBorderOptionsArgs) ToTemplateTableSideBorderOptionsOutput() TemplateTableSideBorderOptionsOutput {
+	return i.ToTemplateTableSideBorderOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateTableSideBorderOptionsArgs) ToTemplateTableSideBorderOptionsOutputWithContext(ctx context.Context) TemplateTableSideBorderOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableSideBorderOptionsOutput)
+}
+
+func (i TemplateTableSideBorderOptionsArgs) ToTemplateTableSideBorderOptionsPtrOutput() TemplateTableSideBorderOptionsPtrOutput {
+	return i.ToTemplateTableSideBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableSideBorderOptionsArgs) ToTemplateTableSideBorderOptionsPtrOutputWithContext(ctx context.Context) TemplateTableSideBorderOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableSideBorderOptionsOutput).ToTemplateTableSideBorderOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateTableSideBorderOptionsPtrInput is an input type that accepts TemplateTableSideBorderOptionsArgs, TemplateTableSideBorderOptionsPtr and TemplateTableSideBorderOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateTableSideBorderOptionsPtrInput` via:
+//
+//	        TemplateTableSideBorderOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableSideBorderOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableSideBorderOptionsPtrOutput() TemplateTableSideBorderOptionsPtrOutput
+	ToTemplateTableSideBorderOptionsPtrOutputWithContext(context.Context) TemplateTableSideBorderOptionsPtrOutput
+}
+
+type templateTableSideBorderOptionsPtrType TemplateTableSideBorderOptionsArgs
+
+func TemplateTableSideBorderOptionsPtr(v *TemplateTableSideBorderOptionsArgs) TemplateTableSideBorderOptionsPtrInput {
+	return (*templateTableSideBorderOptionsPtrType)(v)
+}
+
+func (*templateTableSideBorderOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableSideBorderOptions)(nil)).Elem()
+}
+
+func (i *templateTableSideBorderOptionsPtrType) ToTemplateTableSideBorderOptionsPtrOutput() TemplateTableSideBorderOptionsPtrOutput {
+	return i.ToTemplateTableSideBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableSideBorderOptionsPtrType) ToTemplateTableSideBorderOptionsPtrOutputWithContext(ctx context.Context) TemplateTableSideBorderOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableSideBorderOptionsPtrOutput)
+}
+
+type TemplateTableSideBorderOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableSideBorderOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableSideBorderOptions)(nil)).Elem()
+}
+
+func (o TemplateTableSideBorderOptionsOutput) ToTemplateTableSideBorderOptionsOutput() TemplateTableSideBorderOptionsOutput {
+	return o
+}
+
+func (o TemplateTableSideBorderOptionsOutput) ToTemplateTableSideBorderOptionsOutputWithContext(ctx context.Context) TemplateTableSideBorderOptionsOutput {
+	return o
+}
+
+func (o TemplateTableSideBorderOptionsOutput) ToTemplateTableSideBorderOptionsPtrOutput() TemplateTableSideBorderOptionsPtrOutput {
+	return o.ToTemplateTableSideBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableSideBorderOptionsOutput) ToTemplateTableSideBorderOptionsPtrOutputWithContext(ctx context.Context) TemplateTableSideBorderOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableSideBorderOptions) *TemplateTableSideBorderOptions {
+		return &v
+	}).(TemplateTableSideBorderOptionsPtrOutput)
+}
+
+// The table border options of the bottom border.
+func (o TemplateTableSideBorderOptionsOutput) Bottom() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.Bottom }).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the inner horizontal border.
+func (o TemplateTableSideBorderOptionsOutput) InnerHorizontal() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.InnerHorizontal }).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the inner vertical border.
+func (o TemplateTableSideBorderOptionsOutput) InnerVertical() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.InnerVertical }).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the left border.
+func (o TemplateTableSideBorderOptionsOutput) Left() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.Left }).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the right border.
+func (o TemplateTableSideBorderOptionsOutput) Right() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.Right }).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the top border.
+func (o TemplateTableSideBorderOptionsOutput) Top() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.Top }).(TemplateTableBorderOptionsPtrOutput)
+}
+
+type TemplateTableSideBorderOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableSideBorderOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableSideBorderOptions)(nil)).Elem()
+}
+
+func (o TemplateTableSideBorderOptionsPtrOutput) ToTemplateTableSideBorderOptionsPtrOutput() TemplateTableSideBorderOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTableSideBorderOptionsPtrOutput) ToTemplateTableSideBorderOptionsPtrOutputWithContext(ctx context.Context) TemplateTableSideBorderOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTableSideBorderOptionsPtrOutput) Elem() TemplateTableSideBorderOptionsOutput {
+	return o.ApplyT(func(v *TemplateTableSideBorderOptions) TemplateTableSideBorderOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableSideBorderOptions
+		return ret
+	}).(TemplateTableSideBorderOptionsOutput)
+}
+
+// The table border options of the bottom border.
+func (o TemplateTableSideBorderOptionsPtrOutput) Bottom() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Bottom
+	}).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the inner horizontal border.
+func (o TemplateTableSideBorderOptionsPtrOutput) InnerHorizontal() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InnerHorizontal
+	}).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the inner vertical border.
+func (o TemplateTableSideBorderOptionsPtrOutput) InnerVertical() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InnerVertical
+	}).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the left border.
+func (o TemplateTableSideBorderOptionsPtrOutput) Left() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Left
+	}).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the right border.
+func (o TemplateTableSideBorderOptionsPtrOutput) Right() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Right
+	}).(TemplateTableBorderOptionsPtrOutput)
+}
+
+// The table border options of the top border.
+func (o TemplateTableSideBorderOptionsPtrOutput) Top() TemplateTableBorderOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Top
+	}).(TemplateTableBorderOptionsPtrOutput)
+}
+
+type TemplateTableSortConfiguration struct {
+	// The pagination configuration (page size, page number) for the table.
+	PaginationConfiguration *TemplatePaginationConfiguration `pulumi:"paginationConfiguration"`
+	// The field sort options for rows in the table.
+	RowSort []TemplateFieldSortOptions `pulumi:"rowSort"`
+}
+
+// TemplateTableSortConfigurationInput is an input type that accepts TemplateTableSortConfigurationArgs and TemplateTableSortConfigurationOutput values.
+// You can construct a concrete instance of `TemplateTableSortConfigurationInput` via:
+//
+//	TemplateTableSortConfigurationArgs{...}
+type TemplateTableSortConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateTableSortConfigurationOutput() TemplateTableSortConfigurationOutput
+	ToTemplateTableSortConfigurationOutputWithContext(context.Context) TemplateTableSortConfigurationOutput
+}
+
+type TemplateTableSortConfigurationArgs struct {
+	// The pagination configuration (page size, page number) for the table.
+	PaginationConfiguration TemplatePaginationConfigurationPtrInput `pulumi:"paginationConfiguration"`
+	// The field sort options for rows in the table.
+	RowSort TemplateFieldSortOptionsArrayInput `pulumi:"rowSort"`
+}
+
+func (TemplateTableSortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableSortConfiguration)(nil)).Elem()
+}
+
+func (i TemplateTableSortConfigurationArgs) ToTemplateTableSortConfigurationOutput() TemplateTableSortConfigurationOutput {
+	return i.ToTemplateTableSortConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateTableSortConfigurationArgs) ToTemplateTableSortConfigurationOutputWithContext(ctx context.Context) TemplateTableSortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableSortConfigurationOutput)
+}
+
+func (i TemplateTableSortConfigurationArgs) ToTemplateTableSortConfigurationPtrOutput() TemplateTableSortConfigurationPtrOutput {
+	return i.ToTemplateTableSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableSortConfigurationArgs) ToTemplateTableSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableSortConfigurationOutput).ToTemplateTableSortConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateTableSortConfigurationPtrInput is an input type that accepts TemplateTableSortConfigurationArgs, TemplateTableSortConfigurationPtr and TemplateTableSortConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateTableSortConfigurationPtrInput` via:
+//
+//	        TemplateTableSortConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableSortConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableSortConfigurationPtrOutput() TemplateTableSortConfigurationPtrOutput
+	ToTemplateTableSortConfigurationPtrOutputWithContext(context.Context) TemplateTableSortConfigurationPtrOutput
+}
+
+type templateTableSortConfigurationPtrType TemplateTableSortConfigurationArgs
+
+func TemplateTableSortConfigurationPtr(v *TemplateTableSortConfigurationArgs) TemplateTableSortConfigurationPtrInput {
+	return (*templateTableSortConfigurationPtrType)(v)
+}
+
+func (*templateTableSortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableSortConfiguration)(nil)).Elem()
+}
+
+func (i *templateTableSortConfigurationPtrType) ToTemplateTableSortConfigurationPtrOutput() TemplateTableSortConfigurationPtrOutput {
+	return i.ToTemplateTableSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableSortConfigurationPtrType) ToTemplateTableSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableSortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableSortConfigurationPtrOutput)
+}
+
+type TemplateTableSortConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableSortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableSortConfigurationOutput) ToTemplateTableSortConfigurationOutput() TemplateTableSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableSortConfigurationOutput) ToTemplateTableSortConfigurationOutputWithContext(ctx context.Context) TemplateTableSortConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableSortConfigurationOutput) ToTemplateTableSortConfigurationPtrOutput() TemplateTableSortConfigurationPtrOutput {
+	return o.ToTemplateTableSortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableSortConfigurationOutput) ToTemplateTableSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableSortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableSortConfiguration) *TemplateTableSortConfiguration {
+		return &v
+	}).(TemplateTableSortConfigurationPtrOutput)
+}
+
+// The pagination configuration (page size, page number) for the table.
+func (o TemplateTableSortConfigurationOutput) PaginationConfiguration() TemplatePaginationConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateTableSortConfiguration) *TemplatePaginationConfiguration {
+		return v.PaginationConfiguration
+	}).(TemplatePaginationConfigurationPtrOutput)
+}
+
+// The field sort options for rows in the table.
+func (o TemplateTableSortConfigurationOutput) RowSort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v TemplateTableSortConfiguration) []TemplateFieldSortOptions { return v.RowSort }).(TemplateFieldSortOptionsArrayOutput)
+}
+
+type TemplateTableSortConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableSortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableSortConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableSortConfigurationPtrOutput) ToTemplateTableSortConfigurationPtrOutput() TemplateTableSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableSortConfigurationPtrOutput) ToTemplateTableSortConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableSortConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableSortConfigurationPtrOutput) Elem() TemplateTableSortConfigurationOutput {
+	return o.ApplyT(func(v *TemplateTableSortConfiguration) TemplateTableSortConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableSortConfiguration
+		return ret
+	}).(TemplateTableSortConfigurationOutput)
+}
+
+// The pagination configuration (page size, page number) for the table.
+func (o TemplateTableSortConfigurationPtrOutput) PaginationConfiguration() TemplatePaginationConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableSortConfiguration) *TemplatePaginationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PaginationConfiguration
+	}).(TemplatePaginationConfigurationPtrOutput)
+}
+
+// The field sort options for rows in the table.
+func (o TemplateTableSortConfigurationPtrOutput) RowSort() TemplateFieldSortOptionsArrayOutput {
+	return o.ApplyT(func(v *TemplateTableSortConfiguration) []TemplateFieldSortOptions {
+		if v == nil {
+			return nil
+		}
+		return v.RowSort
+	}).(TemplateFieldSortOptionsArrayOutput)
+}
+
+type TemplateTableStyleTarget struct {
+	// The cell type of the table style target.
+	CellType TemplateStyledCellType `pulumi:"cellType"`
+}
+
+// TemplateTableStyleTargetInput is an input type that accepts TemplateTableStyleTargetArgs and TemplateTableStyleTargetOutput values.
+// You can construct a concrete instance of `TemplateTableStyleTargetInput` via:
+//
+//	TemplateTableStyleTargetArgs{...}
+type TemplateTableStyleTargetInput interface {
+	pulumi.Input
+
+	ToTemplateTableStyleTargetOutput() TemplateTableStyleTargetOutput
+	ToTemplateTableStyleTargetOutputWithContext(context.Context) TemplateTableStyleTargetOutput
+}
+
+type TemplateTableStyleTargetArgs struct {
+	// The cell type of the table style target.
+	CellType TemplateStyledCellTypeInput `pulumi:"cellType"`
+}
+
+func (TemplateTableStyleTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableStyleTarget)(nil)).Elem()
+}
+
+func (i TemplateTableStyleTargetArgs) ToTemplateTableStyleTargetOutput() TemplateTableStyleTargetOutput {
+	return i.ToTemplateTableStyleTargetOutputWithContext(context.Background())
+}
+
+func (i TemplateTableStyleTargetArgs) ToTemplateTableStyleTargetOutputWithContext(ctx context.Context) TemplateTableStyleTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableStyleTargetOutput)
+}
+
+// TemplateTableStyleTargetArrayInput is an input type that accepts TemplateTableStyleTargetArray and TemplateTableStyleTargetArrayOutput values.
+// You can construct a concrete instance of `TemplateTableStyleTargetArrayInput` via:
+//
+//	TemplateTableStyleTargetArray{ TemplateTableStyleTargetArgs{...} }
+type TemplateTableStyleTargetArrayInput interface {
+	pulumi.Input
+
+	ToTemplateTableStyleTargetArrayOutput() TemplateTableStyleTargetArrayOutput
+	ToTemplateTableStyleTargetArrayOutputWithContext(context.Context) TemplateTableStyleTargetArrayOutput
+}
+
+type TemplateTableStyleTargetArray []TemplateTableStyleTargetInput
+
+func (TemplateTableStyleTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTableStyleTarget)(nil)).Elem()
+}
+
+func (i TemplateTableStyleTargetArray) ToTemplateTableStyleTargetArrayOutput() TemplateTableStyleTargetArrayOutput {
+	return i.ToTemplateTableStyleTargetArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateTableStyleTargetArray) ToTemplateTableStyleTargetArrayOutputWithContext(ctx context.Context) TemplateTableStyleTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableStyleTargetArrayOutput)
+}
+
+type TemplateTableStyleTargetOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableStyleTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableStyleTarget)(nil)).Elem()
+}
+
+func (o TemplateTableStyleTargetOutput) ToTemplateTableStyleTargetOutput() TemplateTableStyleTargetOutput {
+	return o
+}
+
+func (o TemplateTableStyleTargetOutput) ToTemplateTableStyleTargetOutputWithContext(ctx context.Context) TemplateTableStyleTargetOutput {
+	return o
+}
+
+// The cell type of the table style target.
+func (o TemplateTableStyleTargetOutput) CellType() TemplateStyledCellTypeOutput {
+	return o.ApplyT(func(v TemplateTableStyleTarget) TemplateStyledCellType { return v.CellType }).(TemplateStyledCellTypeOutput)
+}
+
+type TemplateTableStyleTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableStyleTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTableStyleTarget)(nil)).Elem()
+}
+
+func (o TemplateTableStyleTargetArrayOutput) ToTemplateTableStyleTargetArrayOutput() TemplateTableStyleTargetArrayOutput {
+	return o
+}
+
+func (o TemplateTableStyleTargetArrayOutput) ToTemplateTableStyleTargetArrayOutputWithContext(ctx context.Context) TemplateTableStyleTargetArrayOutput {
+	return o
+}
+
+func (o TemplateTableStyleTargetArrayOutput) Index(i pulumi.IntInput) TemplateTableStyleTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTableStyleTarget {
+		return vs[0].([]TemplateTableStyleTarget)[vs[1].(int)]
+	}).(TemplateTableStyleTargetOutput)
+}
+
 type TemplateTableUnaggregatedFieldWells struct {
 	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
 	Values []TemplateUnaggregatedField `pulumi:"values"`
@@ -17273,6 +18662,24 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldWellsInput)(nil)).Elem(), TemplateTableFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldWellsPtrInput)(nil)).Elem(), TemplateTableFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableInlineVisualizationInput)(nil)).Elem(), TemplateTableInlineVisualizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableInlineVisualizationArrayInput)(nil)).Elem(), TemplateTableInlineVisualizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableOptionsInput)(nil)).Elem(), TemplateTableOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableOptionsPtrInput)(nil)).Elem(), TemplateTableOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTablePaginatedReportOptionsInput)(nil)).Elem(), TemplateTablePaginatedReportOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTablePaginatedReportOptionsPtrInput)(nil)).Elem(), TemplateTablePaginatedReportOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTablePinnedFieldOptionsInput)(nil)).Elem(), TemplateTablePinnedFieldOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTablePinnedFieldOptionsPtrInput)(nil)).Elem(), TemplateTablePinnedFieldOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableRowConditionalFormattingInput)(nil)).Elem(), TemplateTableRowConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableRowConditionalFormattingPtrInput)(nil)).Elem(), TemplateTableRowConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableSideBorderOptionsInput)(nil)).Elem(), TemplateTableSideBorderOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableSideBorderOptionsPtrInput)(nil)).Elem(), TemplateTableSideBorderOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableSortConfigurationInput)(nil)).Elem(), TemplateTableSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableSortConfigurationPtrInput)(nil)).Elem(), TemplateTableSortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableStyleTargetInput)(nil)).Elem(), TemplateTableStyleTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableStyleTargetArrayInput)(nil)).Elem(), TemplateTableStyleTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableUnaggregatedFieldWellsInput)(nil)).Elem(), TemplateTableUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableUnaggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateTableUnaggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableVisualInput)(nil)).Elem(), TemplateTableVisualArgs{})
@@ -17453,6 +18860,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTableFieldWellsOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableInlineVisualizationOutput{})
+	pulumi.RegisterOutputType(TemplateTableInlineVisualizationArrayOutput{})
+	pulumi.RegisterOutputType(TemplateTableOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateTableOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTablePaginatedReportOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateTablePaginatedReportOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTablePinnedFieldOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateTablePinnedFieldOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableRowConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(TemplateTableRowConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableSideBorderOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateTableSideBorderOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableSortConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateTableSortConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableStyleTargetOutput{})
+	pulumi.RegisterOutputType(TemplateTableStyleTargetArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTableUnaggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateTableUnaggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableVisualOutput{})

@@ -11,16 +11,19 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
     /// <summary>
-    /// Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
+    /// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
     /// </summary>
     public sealed class AlarmModelIotEventsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the AWS IoT Events input where the data is sent.
+        /// The name of the ITE input where the data is sent.
         /// </summary>
         [Input("inputName", required: true)]
         public Input<string> InputName { get; set; } = null!;
 
+        /// <summary>
+        /// You can configure the action payload when you send a message to an ITE input.
+        /// </summary>
         [Input("payload")]
         public Input<Inputs.AlarmModelPayloadArgs>? Payload { get; set; }
 

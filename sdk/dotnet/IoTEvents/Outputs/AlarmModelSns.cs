@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     [OutputType]
     public sealed class AlarmModelSns
     {
+        /// <summary>
+        /// You can configure the action payload when you send a message as an Amazon SNS push notification.
+        /// </summary>
         public readonly Outputs.AlarmModelPayload? Payload;
         /// <summary>
         /// The ARN of the Amazon SNS target where the message is sent.

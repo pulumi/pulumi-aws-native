@@ -66,7 +66,7 @@ class AlarmModelAcknowledgeFlowArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         Specifies whether to get notified for alarm state changes.
-        :param pulumi.Input[bool] enabled: The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+        :param pulumi.Input[bool] enabled: The value must be ``TRUE`` or ``FALSE``. If ``TRUE``, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to ``NORMAL``. If ``FALSE``, you won't receive notifications. The alarm automatically changes to the ``NORMAL`` state when the input property value returns to the specified range.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -75,7 +75,7 @@ class AlarmModelAcknowledgeFlowArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
+        The value must be ``TRUE`` or ``FALSE``. If ``TRUE``, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to ``NORMAL``. If ``FALSE``, you won't receive notifications. The alarm automatically changes to the ``NORMAL`` state when the input property value returns to the specified range.
         """
         return pulumi.get(self, "enabled")
 
@@ -97,7 +97,52 @@ class AlarmModelAlarmActionArgs:
                  sns: Optional[pulumi.Input['AlarmModelSnsArgs']] = None,
                  sqs: Optional[pulumi.Input['AlarmModelSqsArgs']] = None):
         """
-        The actions to be performed.
+        Specifies one of the following actions to receive notifications when the alarm state changes.
+        :param pulumi.Input['AlarmModelDynamoDBv2Args'] dynamo_d_bv2: Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+                You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+                 **Examples**
+                +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+                 +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+                 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+                In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
+                 ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+                 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+                In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
+                 ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
+                 
+                For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+                The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
+        :param pulumi.Input['AlarmModelDynamoDbArgs'] dynamo_db: Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+                You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+                 **Examples**
+                +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+                 +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+                 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+                In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
+                 ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+                 +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+                In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
+                 ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
+                 
+                For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+                If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+        :param pulumi.Input['AlarmModelFirehoseArgs'] firehose: Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+        :param pulumi.Input['AlarmModelIotEventsArgs'] iot_events: Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+        :param pulumi.Input['AlarmModelIotSiteWiseArgs'] iot_site_wise: Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+                You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+                 **Examples**
+                +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+                 +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+                 +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+                In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
+                 ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
+                 
+                You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+                For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+        :param pulumi.Input['AlarmModelIotTopicPublishArgs'] iot_topic_publish: Information required to publish the MQTT message through the IoT message broker.
+        :param pulumi.Input['AlarmModelLambdaArgs'] lambda_: Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+        :param pulumi.Input['AlarmModelSnsArgs'] sns: Information required to publish the Amazon SNS message.
+        :param pulumi.Input['AlarmModelSqsArgs'] sqs: Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
         """
         if dynamo_d_bv2 is not None:
             pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
@@ -121,6 +166,22 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional[pulumi.Input['AlarmModelDynamoDBv2Args']]:
+        """
+        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+         You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
+          ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
+          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
+        """
         return pulumi.get(self, "dynamo_d_bv2")
 
     @dynamo_d_bv2.setter
@@ -130,6 +191,22 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter(name="dynamoDb")
     def dynamo_db(self) -> Optional[pulumi.Input['AlarmModelDynamoDbArgs']]:
+        """
+        Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+         You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
+          ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
+          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+        """
         return pulumi.get(self, "dynamo_db")
 
     @dynamo_db.setter
@@ -139,6 +216,9 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter
     def firehose(self) -> Optional[pulumi.Input['AlarmModelFirehoseArgs']]:
+        """
+        Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+        """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
@@ -148,6 +228,9 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter(name="iotEvents")
     def iot_events(self) -> Optional[pulumi.Input['AlarmModelIotEventsArgs']]:
+        """
+        Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+        """
         return pulumi.get(self, "iot_events")
 
     @iot_events.setter
@@ -157,6 +240,19 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter(name="iotSiteWise")
     def iot_site_wise(self) -> Optional[pulumi.Input['AlarmModelIotSiteWiseArgs']]:
+        """
+        Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+         You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
+          ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
+          
+         You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+        """
         return pulumi.get(self, "iot_site_wise")
 
     @iot_site_wise.setter
@@ -166,6 +262,9 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter(name="iotTopicPublish")
     def iot_topic_publish(self) -> Optional[pulumi.Input['AlarmModelIotTopicPublishArgs']]:
+        """
+        Information required to publish the MQTT message through the IoT message broker.
+        """
         return pulumi.get(self, "iot_topic_publish")
 
     @iot_topic_publish.setter
@@ -175,6 +274,9 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[pulumi.Input['AlarmModelLambdaArgs']]:
+        """
+        Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+        """
         return pulumi.get(self, "lambda_")
 
     @lambda_.setter
@@ -184,6 +286,9 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['AlarmModelSnsArgs']]:
+        """
+        Information required to publish the Amazon SNS message.
+        """
         return pulumi.get(self, "sns")
 
     @sns.setter
@@ -193,6 +298,9 @@ class AlarmModelAlarmActionArgs:
     @property
     @pulumi.getter
     def sqs(self) -> Optional[pulumi.Input['AlarmModelSqsArgs']]:
+        """
+        Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
+        """
         return pulumi.get(self, "sqs")
 
     @sqs.setter
@@ -206,7 +314,7 @@ class AlarmModelAlarmCapabilitiesArgs:
                  acknowledge_flow: Optional[pulumi.Input['AlarmModelAcknowledgeFlowArgs']] = None,
                  initialization_configuration: Optional[pulumi.Input['AlarmModelInitializationConfigurationArgs']] = None):
         """
-        Contains the configuration information of alarm state changes
+        Contains the configuration information of alarm state changes.
         :param pulumi.Input['AlarmModelAcknowledgeFlowArgs'] acknowledge_flow: Specifies whether to get notified for alarm state changes.
         :param pulumi.Input['AlarmModelInitializationConfigurationArgs'] initialization_configuration: Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
         """
@@ -294,9 +402,18 @@ class AlarmModelAssetPropertyTimestampArgs:
                  time_in_seconds: pulumi.Input[str],
                  offset_in_nanos: Optional[pulumi.Input[str]] = None):
         """
-        A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
-        :param pulumi.Input[str] time_in_seconds: The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
-        :param pulumi.Input[str] offset_in_nanos: The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+        A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
+         You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+          ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+        :param pulumi.Input[str] time_in_seconds: The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
+        :param pulumi.Input[str] offset_in_nanos: The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
         """
         pulumi.set(__self__, "time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
@@ -306,7 +423,7 @@ class AlarmModelAssetPropertyTimestampArgs:
     @pulumi.getter(name="timeInSeconds")
     def time_in_seconds(self) -> pulumi.Input[str]:
         """
-        The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+        The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
         """
         return pulumi.get(self, "time_in_seconds")
 
@@ -318,7 +435,7 @@ class AlarmModelAssetPropertyTimestampArgs:
     @pulumi.getter(name="offsetInNanos")
     def offset_in_nanos(self) -> Optional[pulumi.Input[str]]:
         """
-        The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+        The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
         """
         return pulumi.get(self, "offset_in_nanos")
 
@@ -334,8 +451,16 @@ class AlarmModelAssetPropertyValueArgs:
                  quality: Optional[pulumi.Input[str]] = None,
                  timestamp: Optional[pulumi.Input['AlarmModelAssetPropertyTimestampArgs']] = None):
         """
-        A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
-        :param pulumi.Input[str] quality: The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+        A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
+         You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+        :param pulumi.Input['AlarmModelAssetPropertyVariantArgs'] value: The value to send to an asset property.
+        :param pulumi.Input[str] quality: The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
+        :param pulumi.Input['AlarmModelAssetPropertyTimestampArgs'] timestamp: The timestamp associated with the asset property value. The default is the current event time.
         """
         pulumi.set(__self__, "value", value)
         if quality is not None:
@@ -346,6 +471,9 @@ class AlarmModelAssetPropertyValueArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input['AlarmModelAssetPropertyVariantArgs']:
+        """
+        The value to send to an asset property.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -356,7 +484,7 @@ class AlarmModelAssetPropertyValueArgs:
     @pulumi.getter
     def quality(self) -> Optional[pulumi.Input[str]]:
         """
-        The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+        The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
         """
         return pulumi.get(self, "quality")
 
@@ -367,6 +495,9 @@ class AlarmModelAssetPropertyValueArgs:
     @property
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input['AlarmModelAssetPropertyTimestampArgs']]:
+        """
+        The timestamp associated with the asset property value. The default is the current event time.
+        """
         return pulumi.get(self, "timestamp")
 
     @timestamp.setter
@@ -382,11 +513,21 @@ class AlarmModelAssetPropertyVariantArgs:
                  integer_value: Optional[pulumi.Input[str]] = None,
                  string_value: Optional[pulumi.Input[str]] = None):
         """
-        A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
-        :param pulumi.Input[str] boolean_value: The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
-        :param pulumi.Input[str] double_value: The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
-        :param pulumi.Input[str] integer_value: The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
-        :param pulumi.Input[str] string_value: The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+        A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
+         You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
+          +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates. 
+         In the following example, the value for the ``doubleValue`` parameter uses a substitution template. 
+          ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
+        :param pulumi.Input[str] boolean_value: The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
+        :param pulumi.Input[str] double_value: The asset property value is a double. You must use an expression, and the evaluated result should be a double.
+        :param pulumi.Input[str] integer_value: The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
+        :param pulumi.Input[str] string_value: The asset property value is a string. You must use an expression, and the evaluated result should be a string.
         """
         if boolean_value is not None:
             pulumi.set(__self__, "boolean_value", boolean_value)
@@ -401,7 +542,7 @@ class AlarmModelAssetPropertyVariantArgs:
     @pulumi.getter(name="booleanValue")
     def boolean_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+        The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
         """
         return pulumi.get(self, "boolean_value")
 
@@ -413,7 +554,7 @@ class AlarmModelAssetPropertyVariantArgs:
     @pulumi.getter(name="doubleValue")
     def double_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+        The asset property value is a double. You must use an expression, and the evaluated result should be a double.
         """
         return pulumi.get(self, "double_value")
 
@@ -425,7 +566,7 @@ class AlarmModelAssetPropertyVariantArgs:
     @pulumi.getter(name="integerValue")
     def integer_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+        The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
         """
         return pulumi.get(self, "integer_value")
 
@@ -437,7 +578,7 @@ class AlarmModelAssetPropertyVariantArgs:
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+        The asset property value is a string. You must use an expression, and the evaluated result should be a string.
         """
         return pulumi.get(self, "string_value")
 
@@ -452,10 +593,23 @@ class AlarmModelDynamoDBv2Args:
                  table_name: pulumi.Input[str],
                  payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None):
         """
-        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-
-        You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+         You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
+          ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
+          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
         :param pulumi.Input[str] table_name: The name of the DynamoDB table.
+        :param pulumi.Input['AlarmModelPayloadArgs'] payload: Information needed to configure the payload.
+                By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
         """
         pulumi.set(__self__, "table_name", table_name)
         if payload is not None:
@@ -476,6 +630,10 @@ class AlarmModelDynamoDBv2Args:
     @property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['AlarmModelPayloadArgs']]:
+        """
+        Information needed to configure the payload.
+         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -497,37 +655,44 @@ class AlarmModelDynamoDbArgs:
                  range_key_type: Optional[pulumi.Input[str]] = None,
                  range_key_value: Optional[pulumi.Input[str]] = None):
         """
-        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the alarm model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
-        :param pulumi.Input[str] hash_key_field: The name of the hash key (also called the partition key).
+        Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+         You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
+          ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
+          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+        :param pulumi.Input[str] hash_key_field: The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
         :param pulumi.Input[str] hash_key_value: The value of the hash key (also called the partition key).
-        :param pulumi.Input[str] table_name: The name of the DynamoDB table.
+        :param pulumi.Input[str] table_name: The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
         :param pulumi.Input[str] hash_key_type: The data type for the hash key (also called the partition key). You can specify the following values:
-               
-               * `STRING` - The hash key is a string.
-               
-               * `NUMBER` - The hash key is a number.
-               
-               If you don't specify `hashKeyType`, the default value is `STRING`.
-        :param pulumi.Input[str] operation: The type of operation to perform. You can specify the following values:
-               
-               * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-               
-               * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-               
-               * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-               
-               If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+                 +   ``'STRING'`` - The hash key is a string.
+                 +   ``'NUMBER'`` - The hash key is a number.
+                 
+                If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
+        :param pulumi.Input[str] operation: The type of operation to perform. You can specify the following values: 
+                 +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+                 +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+                 +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+                 
+                If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
+        :param pulumi.Input['AlarmModelPayloadArgs'] payload: Information needed to configure the payload.
+                By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
         :param pulumi.Input[str] payload_field: The name of the DynamoDB column that receives the action payload.
-               
-               If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-        :param pulumi.Input[str] range_key_field: The name of the range key (also called the sort key).
+                If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
+        :param pulumi.Input[str] range_key_field: The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
         :param pulumi.Input[str] range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
-               
-               * `STRING` - The range key is a string.
-               
-               * `NUMBER` - The range key is number.
-               
-               If you don't specify `rangeKeyField`, the default value is `STRING`.
+                 +   ``'STRING'`` - The range key is a string.
+                 +   ``'NUMBER'`` - The range key is number.
+                 
+                If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         :param pulumi.Input[str] range_key_value: The value of the range key (also called the sort key).
         """
         pulumi.set(__self__, "hash_key_field", hash_key_field)
@@ -552,7 +717,7 @@ class AlarmModelDynamoDbArgs:
     @pulumi.getter(name="hashKeyField")
     def hash_key_field(self) -> pulumi.Input[str]:
         """
-        The name of the hash key (also called the partition key).
+        The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
         """
         return pulumi.get(self, "hash_key_field")
 
@@ -576,7 +741,7 @@ class AlarmModelDynamoDbArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
-        The name of the DynamoDB table.
+        The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
         """
         return pulumi.get(self, "table_name")
 
@@ -589,12 +754,10 @@ class AlarmModelDynamoDbArgs:
     def hash_key_type(self) -> Optional[pulumi.Input[str]]:
         """
         The data type for the hash key (also called the partition key). You can specify the following values:
-
-        * `STRING` - The hash key is a string.
-
-        * `NUMBER` - The hash key is a number.
-
-        If you don't specify `hashKeyType`, the default value is `STRING`.
+          +   ``'STRING'`` - The hash key is a string.
+          +   ``'NUMBER'`` - The hash key is a number.
+          
+         If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         """
         return pulumi.get(self, "hash_key_type")
 
@@ -606,15 +769,12 @@ class AlarmModelDynamoDbArgs:
     @pulumi.getter
     def operation(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of operation to perform. You can specify the following values:
-
-        * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-
-        * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-
-        * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-
-        If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+        The type of operation to perform. You can specify the following values: 
+          +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+          +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+          +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+          
+         If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         """
         return pulumi.get(self, "operation")
 
@@ -625,6 +785,10 @@ class AlarmModelDynamoDbArgs:
     @property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['AlarmModelPayloadArgs']]:
+        """
+        Information needed to configure the payload.
+         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -636,8 +800,7 @@ class AlarmModelDynamoDbArgs:
     def payload_field(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the DynamoDB column that receives the action payload.
-
-        If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+         If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
         """
         return pulumi.get(self, "payload_field")
 
@@ -649,7 +812,7 @@ class AlarmModelDynamoDbArgs:
     @pulumi.getter(name="rangeKeyField")
     def range_key_field(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the range key (also called the sort key).
+        The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
         """
         return pulumi.get(self, "range_key_field")
 
@@ -662,12 +825,10 @@ class AlarmModelDynamoDbArgs:
     def range_key_type(self) -> Optional[pulumi.Input[str]]:
         """
         The data type for the range key (also called the sort key), You can specify the following values:
-
-        * `STRING` - The range key is a string.
-
-        * `NUMBER` - The range key is number.
-
-        If you don't specify `rangeKeyField`, the default value is `STRING`.
+          +   ``'STRING'`` - The range key is a string.
+          +   ``'NUMBER'`` - The range key is number.
+          
+         If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         """
         return pulumi.get(self, "range_key_type")
 
@@ -695,8 +856,9 @@ class AlarmModelFirehoseArgs:
                  payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
                  separator: Optional[pulumi.Input[str]] = None):
         """
-        Sends information about the alarm model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
+        Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
         :param pulumi.Input[str] delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
+        :param pulumi.Input['AlarmModelPayloadArgs'] payload: You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
         :param pulumi.Input[str] separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
@@ -720,6 +882,9 @@ class AlarmModelFirehoseArgs:
     @property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['AlarmModelPayloadArgs']]:
+        """
+        You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
+        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -745,7 +910,7 @@ class AlarmModelInitializationConfigurationArgs:
                  disabled_on_initialization: pulumi.Input[bool]):
         """
         Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
-        :param pulumi.Input[bool] disabled_on_initialization: The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+        :param pulumi.Input[bool] disabled_on_initialization: The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
         """
         pulumi.set(__self__, "disabled_on_initialization", disabled_on_initialization)
 
@@ -753,7 +918,7 @@ class AlarmModelInitializationConfigurationArgs:
     @pulumi.getter(name="disabledOnInitialization")
     def disabled_on_initialization(self) -> pulumi.Input[bool]:
         """
-        The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
+        The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
         """
         return pulumi.get(self, "disabled_on_initialization")
 
@@ -768,8 +933,9 @@ class AlarmModelIotEventsArgs:
                  input_name: pulumi.Input[str],
                  payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None):
         """
-        Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
-        :param pulumi.Input[str] input_name: The name of the AWS IoT Events input where the data is sent.
+        Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+        :param pulumi.Input[str] input_name: The name of the ITE input where the data is sent.
+        :param pulumi.Input['AlarmModelPayloadArgs'] payload: You can configure the action payload when you send a message to an ITE input.
         """
         pulumi.set(__self__, "input_name", input_name)
         if payload is not None:
@@ -779,7 +945,7 @@ class AlarmModelIotEventsArgs:
     @pulumi.getter(name="inputName")
     def input_name(self) -> pulumi.Input[str]:
         """
-        The name of the AWS IoT Events input where the data is sent.
+        The name of the ITE input where the data is sent.
         """
         return pulumi.get(self, "input_name")
 
@@ -790,6 +956,9 @@ class AlarmModelIotEventsArgs:
     @property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['AlarmModelPayloadArgs']]:
+        """
+        You can configure the action payload when you send a message to an ITE input.
+        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -806,11 +975,22 @@ class AlarmModelIotSiteWiseArgs:
                  property_id: Optional[pulumi.Input[str]] = None,
                  property_value: Optional[pulumi.Input['AlarmModelAssetPropertyValueArgs']] = None):
         """
-        Sends information about the alarm model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
-        :param pulumi.Input[str] asset_id: The ID of the asset that has the specified property. You can specify an expression.
-        :param pulumi.Input[str] entry_id: A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
-        :param pulumi.Input[str] property_alias: The alias of the asset property. You can also specify an expression.
-        :param pulumi.Input[str] property_id: The ID of the asset property. You can specify an expression.
+        Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+         You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
+          ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
+          
+         You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+        :param pulumi.Input[str] asset_id: The ID of the asset that has the specified property.
+        :param pulumi.Input[str] entry_id: A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
+        :param pulumi.Input[str] property_alias: The alias of the asset property.
+        :param pulumi.Input[str] property_id: The ID of the asset property.
+        :param pulumi.Input['AlarmModelAssetPropertyValueArgs'] property_value: The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
         """
         if asset_id is not None:
             pulumi.set(__self__, "asset_id", asset_id)
@@ -827,7 +1007,7 @@ class AlarmModelIotSiteWiseArgs:
     @pulumi.getter(name="assetId")
     def asset_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the asset that has the specified property. You can specify an expression.
+        The ID of the asset that has the specified property.
         """
         return pulumi.get(self, "asset_id")
 
@@ -839,7 +1019,7 @@ class AlarmModelIotSiteWiseArgs:
     @pulumi.getter(name="entryId")
     def entry_id(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+        A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
         """
         return pulumi.get(self, "entry_id")
 
@@ -851,7 +1031,7 @@ class AlarmModelIotSiteWiseArgs:
     @pulumi.getter(name="propertyAlias")
     def property_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The alias of the asset property. You can also specify an expression.
+        The alias of the asset property.
         """
         return pulumi.get(self, "property_alias")
 
@@ -863,7 +1043,7 @@ class AlarmModelIotSiteWiseArgs:
     @pulumi.getter(name="propertyId")
     def property_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the asset property. You can specify an expression.
+        The ID of the asset property.
         """
         return pulumi.get(self, "property_id")
 
@@ -874,6 +1054,9 @@ class AlarmModelIotSiteWiseArgs:
     @property
     @pulumi.getter(name="propertyValue")
     def property_value(self) -> Optional[pulumi.Input['AlarmModelAssetPropertyValueArgs']]:
+        """
+        The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
+        """
         return pulumi.get(self, "property_value")
 
     @property_value.setter
@@ -887,8 +1070,9 @@ class AlarmModelIotTopicPublishArgs:
                  mqtt_topic: pulumi.Input[str],
                  payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None):
         """
-        Information required to publish the MQTT message through the AWS IoT message broker.
-        :param pulumi.Input[str] mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+        Information required to publish the MQTT message through the IoT message broker.
+        :param pulumi.Input[str] mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
+        :param pulumi.Input['AlarmModelPayloadArgs'] payload: You can configure the action payload when you publish a message to an IoTCore topic.
         """
         pulumi.set(__self__, "mqtt_topic", mqtt_topic)
         if payload is not None:
@@ -898,7 +1082,7 @@ class AlarmModelIotTopicPublishArgs:
     @pulumi.getter(name="mqttTopic")
     def mqtt_topic(self) -> pulumi.Input[str]:
         """
-        The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+        The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
         """
         return pulumi.get(self, "mqtt_topic")
 
@@ -909,6 +1093,9 @@ class AlarmModelIotTopicPublishArgs:
     @property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['AlarmModelPayloadArgs']]:
+        """
+        You can configure the action payload when you publish a message to an IoTCore topic.
+        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -922,7 +1109,9 @@ class AlarmModelLambdaArgs:
                  function_arn: pulumi.Input[str],
                  payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None):
         """
+        Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
         :param pulumi.Input[str] function_arn: The ARN of the Lambda function that is executed.
+        :param pulumi.Input['AlarmModelPayloadArgs'] payload: You can configure the action payload when you send a message to a Lambda function.
         """
         pulumi.set(__self__, "function_arn", function_arn)
         if payload is not None:
@@ -943,6 +1132,9 @@ class AlarmModelLambdaArgs:
     @property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['AlarmModelPayloadArgs']]:
+        """
+        You can configure the action payload when you send a message to a Lambda function.
+        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -957,10 +1149,9 @@ class AlarmModelPayloadArgs:
                  type: pulumi.Input[str]):
         """
         Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the alarm model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
-        :param pulumi.Input[str] content_expression: The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
-        :param pulumi.Input[str] type: The value of the payload type can be either `STRING` or `JSON`.
+         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+        :param pulumi.Input[str] content_expression: The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
+        :param pulumi.Input[str] type: The value of the payload type can be either ``STRING`` or ``JSON``.
         """
         pulumi.set(__self__, "content_expression", content_expression)
         pulumi.set(__self__, "type", type)
@@ -969,7 +1160,7 @@ class AlarmModelPayloadArgs:
     @pulumi.getter(name="contentExpression")
     def content_expression(self) -> pulumi.Input[str]:
         """
-        The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+        The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
         """
         return pulumi.get(self, "content_expression")
 
@@ -981,7 +1172,7 @@ class AlarmModelPayloadArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The value of the payload type can be either `STRING` or `JSON`.
+        The value of the payload type can be either ``STRING`` or ``JSON``.
         """
         return pulumi.get(self, "type")
 
@@ -999,8 +1190,8 @@ class AlarmModelSimpleRuleArgs:
         """
         A rule that compares an input property value to a threshold value with a comparison operator.
         :param pulumi.Input['AlarmModelSimpleRuleComparisonOperator'] comparison_operator: The comparison operator.
-        :param pulumi.Input[str] input_property: The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
-        :param pulumi.Input[str] threshold: The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+        :param pulumi.Input[str] input_property: The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
+        :param pulumi.Input[str] threshold: The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "input_property", input_property)
@@ -1022,7 +1213,7 @@ class AlarmModelSimpleRuleArgs:
     @pulumi.getter(name="inputProperty")
     def input_property(self) -> pulumi.Input[str]:
         """
-        The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+        The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
         """
         return pulumi.get(self, "input_property")
 
@@ -1034,7 +1225,7 @@ class AlarmModelSimpleRuleArgs:
     @pulumi.getter
     def threshold(self) -> pulumi.Input[str]:
         """
-        The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+        The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
         """
         return pulumi.get(self, "threshold")
 
@@ -1051,6 +1242,7 @@ class AlarmModelSnsArgs:
         """
         Information required to publish the Amazon SNS message.
         :param pulumi.Input[str] target_arn: The ARN of the Amazon SNS target where the message is sent.
+        :param pulumi.Input['AlarmModelPayloadArgs'] payload: You can configure the action payload when you send a message as an Amazon SNS push notification.
         """
         pulumi.set(__self__, "target_arn", target_arn)
         if payload is not None:
@@ -1071,6 +1263,9 @@ class AlarmModelSnsArgs:
     @property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['AlarmModelPayloadArgs']]:
+        """
+        You can configure the action payload when you send a message as an Amazon SNS push notification.
+        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -1085,8 +1280,10 @@ class AlarmModelSqsArgs:
                  payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
                  use_base64: Optional[pulumi.Input[bool]] = None):
         """
+        Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
         :param pulumi.Input[str] queue_url: The URL of the SQS queue where the data is written.
-        :param pulumi.Input[bool] use_base64: Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+        :param pulumi.Input['AlarmModelPayloadArgs'] payload: You can configure the action payload when you send a message to an Amazon SQS queue.
+        :param pulumi.Input[bool] use_base64: Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
         """
         pulumi.set(__self__, "queue_url", queue_url)
         if payload is not None:
@@ -1109,6 +1306,9 @@ class AlarmModelSqsArgs:
     @property
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['AlarmModelPayloadArgs']]:
+        """
+        You can configure the action payload when you send a message to an Amazon SQS queue.
+        """
         return pulumi.get(self, "payload")
 
     @payload.setter
@@ -1119,7 +1319,7 @@ class AlarmModelSqsArgs:
     @pulumi.getter(name="useBase64")
     def use_base64(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+        Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
         """
         return pulumi.get(self, "use_base64")
 
@@ -1145,14 +1345,14 @@ class DetectorModelActionArgs:
                  sns: Optional[pulumi.Input['DetectorModelSnsArgs']] = None,
                  sqs: Optional[pulumi.Input['DetectorModelSqsArgs']] = None):
         """
-        The actions to be performed.
+        An action to be performed when the ``condition`` is TRUE.
         :param pulumi.Input['DetectorModelClearTimerArgs'] clear_timer: Information needed to clear the timer.
-        :param pulumi.Input['DetectorModelDynamoDBv2Args'] dynamo_d_bv2: Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
-        :param pulumi.Input['DetectorModelDynamoDbArgs'] dynamo_db: Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        :param pulumi.Input['DetectorModelDynamoDBv2Args'] dynamo_d_bv2: Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
+        :param pulumi.Input['DetectorModelDynamoDbArgs'] dynamo_db: Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
         :param pulumi.Input['DetectorModelFirehoseArgs'] firehose: Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-        :param pulumi.Input['DetectorModelIotEventsArgs'] iot_events: Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
-        :param pulumi.Input['DetectorModelIotSiteWiseArgs'] iot_site_wise: Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
-        :param pulumi.Input['DetectorModelIotTopicPublishArgs'] iot_topic_publish: Publishes an MQTT message with the given topic to the AWS IoT message broker.
+        :param pulumi.Input['DetectorModelIotEventsArgs'] iot_events: Sends ITE input, which passes information about the detector model instance and the event that triggered the action.
+        :param pulumi.Input['DetectorModelIotSiteWiseArgs'] iot_site_wise: Sends information about the detector model instance and the event that triggered the action to an asset property in ITSW .
+        :param pulumi.Input['DetectorModelIotTopicPublishArgs'] iot_topic_publish: Publishes an MQTT message with the given topic to the IoT message broker.
         :param pulumi.Input['DetectorModelLambdaArgs'] lambda_: Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
         :param pulumi.Input['DetectorModelResetTimerArgs'] reset_timer: Information needed to reset the timer.
         :param pulumi.Input['DetectorModelSetTimerArgs'] set_timer: Information needed to set the timer.
@@ -1203,7 +1403,7 @@ class DetectorModelActionArgs:
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional[pulumi.Input['DetectorModelDynamoDBv2Args']]:
         """
-        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
         """
         return pulumi.get(self, "dynamo_d_bv2")
 
@@ -1215,7 +1415,7 @@ class DetectorModelActionArgs:
     @pulumi.getter(name="dynamoDb")
     def dynamo_db(self) -> Optional[pulumi.Input['DetectorModelDynamoDbArgs']]:
         """
-        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
         """
         return pulumi.get(self, "dynamo_db")
 
@@ -1239,7 +1439,7 @@ class DetectorModelActionArgs:
     @pulumi.getter(name="iotEvents")
     def iot_events(self) -> Optional[pulumi.Input['DetectorModelIotEventsArgs']]:
         """
-        Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+        Sends ITE input, which passes information about the detector model instance and the event that triggered the action.
         """
         return pulumi.get(self, "iot_events")
 
@@ -1251,7 +1451,7 @@ class DetectorModelActionArgs:
     @pulumi.getter(name="iotSiteWise")
     def iot_site_wise(self) -> Optional[pulumi.Input['DetectorModelIotSiteWiseArgs']]:
         """
-        Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+        Sends information about the detector model instance and the event that triggered the action to an asset property in ITSW .
         """
         return pulumi.get(self, "iot_site_wise")
 
@@ -1263,7 +1463,7 @@ class DetectorModelActionArgs:
     @pulumi.getter(name="iotTopicPublish")
     def iot_topic_publish(self) -> Optional[pulumi.Input['DetectorModelIotTopicPublishArgs']]:
         """
-        Publishes an MQTT message with the given topic to the AWS IoT message broker.
+        Publishes an MQTT message with the given topic to the IoT message broker.
         """
         return pulumi.get(self, "iot_topic_publish")
 
@@ -1350,9 +1550,18 @@ class DetectorModelAssetPropertyTimestampArgs:
                  time_in_seconds: pulumi.Input[str],
                  offset_in_nanos: Optional[pulumi.Input[str]] = None):
         """
-        A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
-        :param pulumi.Input[str] time_in_seconds: The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
-        :param pulumi.Input[str] offset_in_nanos: The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+        A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *API Reference*.
+         You must use expressions for all parameters in ``AssetPropertyTimestamp``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+          ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+        :param pulumi.Input[str] time_in_seconds: The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
+        :param pulumi.Input[str] offset_in_nanos: The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
         """
         pulumi.set(__self__, "time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
@@ -1362,7 +1571,7 @@ class DetectorModelAssetPropertyTimestampArgs:
     @pulumi.getter(name="timeInSeconds")
     def time_in_seconds(self) -> pulumi.Input[str]:
         """
-        The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
+        The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
         """
         return pulumi.get(self, "time_in_seconds")
 
@@ -1374,7 +1583,7 @@ class DetectorModelAssetPropertyTimestampArgs:
     @pulumi.getter(name="offsetInNanos")
     def offset_in_nanos(self) -> Optional[pulumi.Input[str]]:
         """
-        The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
+        The nanosecond offset converted from ``timeInSeconds``. The valid range is between 0-999999999.
         """
         return pulumi.get(self, "offset_in_nanos")
 
@@ -1390,9 +1599,15 @@ class DetectorModelAssetPropertyValueArgs:
                  quality: Optional[pulumi.Input[str]] = None,
                  timestamp: Optional[pulumi.Input['DetectorModelAssetPropertyTimestampArgs']] = None):
         """
-        A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
+        A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *API Reference*.
+         You must use expressions for all parameters in ``AssetPropertyValue``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
         :param pulumi.Input['DetectorModelAssetPropertyVariantArgs'] value: The value to send to an asset property.
-        :param pulumi.Input[str] quality: The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+        :param pulumi.Input[str] quality: The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
         :param pulumi.Input['DetectorModelAssetPropertyTimestampArgs'] timestamp: The timestamp associated with the asset property value. The default is the current event time.
         """
         pulumi.set(__self__, "value", value)
@@ -1417,7 +1632,7 @@ class DetectorModelAssetPropertyValueArgs:
     @pulumi.getter
     def quality(self) -> Optional[pulumi.Input[str]]:
         """
-        The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+        The quality of the asset property value. The value must be ``'GOOD'``, ``'BAD'``, or ``'UNCERTAIN'``.
         """
         return pulumi.get(self, "quality")
 
@@ -1446,11 +1661,21 @@ class DetectorModelAssetPropertyVariantArgs:
                  integer_value: Optional[pulumi.Input[str]] = None,
                  string_value: Optional[pulumi.Input[str]] = None):
         """
-        A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
-        :param pulumi.Input[str] boolean_value: The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
-        :param pulumi.Input[str] double_value: The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
-        :param pulumi.Input[str] integer_value: The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
-        :param pulumi.Input[str] string_value: The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+        A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *API Reference*.
+         You must use expressions for all parameters in ``AssetPropertyVariant``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
+          +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates. 
+         In the following example, the value for the ``doubleValue`` parameter uses a substitution template. 
+          ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
+        :param pulumi.Input[str] boolean_value: The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
+        :param pulumi.Input[str] double_value: The asset property value is a double. You must use an expression, and the evaluated result should be a double.
+        :param pulumi.Input[str] integer_value: The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
+        :param pulumi.Input[str] string_value: The asset property value is a string. You must use an expression, and the evaluated result should be a string.
         """
         if boolean_value is not None:
             pulumi.set(__self__, "boolean_value", boolean_value)
@@ -1465,7 +1690,7 @@ class DetectorModelAssetPropertyVariantArgs:
     @pulumi.getter(name="booleanValue")
     def boolean_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
+        The asset property value is a Boolean value that must be ``'TRUE'`` or ``'FALSE'``. You must use an expression, and the evaluated result should be a Boolean value.
         """
         return pulumi.get(self, "boolean_value")
 
@@ -1477,7 +1702,7 @@ class DetectorModelAssetPropertyVariantArgs:
     @pulumi.getter(name="doubleValue")
     def double_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
+        The asset property value is a double. You must use an expression, and the evaluated result should be a double.
         """
         return pulumi.get(self, "double_value")
 
@@ -1489,7 +1714,7 @@ class DetectorModelAssetPropertyVariantArgs:
     @pulumi.getter(name="integerValue")
     def integer_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
+        The asset property value is an integer. You must use an expression, and the evaluated result should be an integer.
         """
         return pulumi.get(self, "integer_value")
 
@@ -1501,7 +1726,7 @@ class DetectorModelAssetPropertyVariantArgs:
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
+        The asset property value is a string. You must use an expression, and the evaluated result should be a string.
         """
         return pulumi.get(self, "string_value")
 
@@ -1577,13 +1802,23 @@ class DetectorModelDynamoDBv2Args:
                  table_name: pulumi.Input[str],
                  payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None):
         """
-        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-
-        You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
+        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+         You must use expressions for all parameters in ``DynamoDBv2Action``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
+          ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
+          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
         :param pulumi.Input[str] table_name: The name of the DynamoDB table.
         :param pulumi.Input['DetectorModelPayloadArgs'] payload: Information needed to configure the payload.
-               
-               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+                By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
         """
         pulumi.set(__self__, "table_name", table_name)
         if payload is not None:
@@ -1606,8 +1841,7 @@ class DetectorModelDynamoDBv2Args:
     def payload(self) -> Optional[pulumi.Input['DetectorModelPayloadArgs']]:
         """
         Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
         """
         return pulumi.get(self, "payload")
 
@@ -1630,40 +1864,44 @@ class DetectorModelDynamoDbArgs:
                  range_key_type: Optional[pulumi.Input[str]] = None,
                  range_key_value: Optional[pulumi.Input[str]] = None):
         """
-        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
-        :param pulumi.Input[str] hash_key_field: The name of the hash key (also called the partition key).
+        Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
+         You must use expressions for all parameters in ``DynamoDBAction``. The expressions accept literals, operators, functions, references, and substitution templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
+          ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+          +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
+          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
+          
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
+         If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
+        :param pulumi.Input[str] hash_key_field: The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
         :param pulumi.Input[str] hash_key_value: The value of the hash key (also called the partition key).
-        :param pulumi.Input[str] table_name: The name of the DynamoDB table.
+        :param pulumi.Input[str] table_name: The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
         :param pulumi.Input[str] hash_key_type: The data type for the hash key (also called the partition key). You can specify the following values:
-               
-               * `STRING` - The hash key is a string.
-               
-               * `NUMBER` - The hash key is a number.
-               
-               If you don't specify `hashKeyType`, the default value is `STRING`.
-        :param pulumi.Input[str] operation: The type of operation to perform. You can specify the following values:
-               
-               * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-               
-               * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-               
-               * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-               
-               If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+                 +   ``'STRING'`` - The hash key is a string.
+                 +   ``'NUMBER'`` - The hash key is a number.
+                 
+                If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
+        :param pulumi.Input[str] operation: The type of operation to perform. You can specify the following values: 
+                 +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+                 +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+                 +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+                 
+                If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         :param pulumi.Input['DetectorModelPayloadArgs'] payload: Information needed to configure the payload.
-               
-               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+                By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
         :param pulumi.Input[str] payload_field: The name of the DynamoDB column that receives the action payload.
-               
-               If you don't specify this parameter, the name of the DynamoDB column is `payload`.
-        :param pulumi.Input[str] range_key_field: The name of the range key (also called the sort key).
+                If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
+        :param pulumi.Input[str] range_key_field: The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
         :param pulumi.Input[str] range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
-               
-               * `STRING` - The range key is a string.
-               
-               * `NUMBER` - The range key is number.
-               
-               If you don't specify `rangeKeyField`, the default value is `STRING`.
+                 +   ``'STRING'`` - The range key is a string.
+                 +   ``'NUMBER'`` - The range key is number.
+                 
+                If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         :param pulumi.Input[str] range_key_value: The value of the range key (also called the sort key).
         """
         pulumi.set(__self__, "hash_key_field", hash_key_field)
@@ -1688,7 +1926,7 @@ class DetectorModelDynamoDbArgs:
     @pulumi.getter(name="hashKeyField")
     def hash_key_field(self) -> pulumi.Input[str]:
         """
-        The name of the hash key (also called the partition key).
+        The name of the hash key (also called the partition key). The ``hashKeyField`` value must match the partition key of the target DynamoDB table.
         """
         return pulumi.get(self, "hash_key_field")
 
@@ -1712,7 +1950,7 @@ class DetectorModelDynamoDbArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
-        The name of the DynamoDB table.
+        The name of the DynamoDB table. The ``tableName`` value must match the table name of the target DynamoDB table.
         """
         return pulumi.get(self, "table_name")
 
@@ -1725,12 +1963,10 @@ class DetectorModelDynamoDbArgs:
     def hash_key_type(self) -> Optional[pulumi.Input[str]]:
         """
         The data type for the hash key (also called the partition key). You can specify the following values:
-
-        * `STRING` - The hash key is a string.
-
-        * `NUMBER` - The hash key is a number.
-
-        If you don't specify `hashKeyType`, the default value is `STRING`.
+          +   ``'STRING'`` - The hash key is a string.
+          +   ``'NUMBER'`` - The hash key is a number.
+          
+         If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         """
         return pulumi.get(self, "hash_key_type")
 
@@ -1742,15 +1978,12 @@ class DetectorModelDynamoDbArgs:
     @pulumi.getter
     def operation(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of operation to perform. You can specify the following values:
-
-        * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
-
-        * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-
-        * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-
-        If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+        The type of operation to perform. You can specify the following values: 
+          +   ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+          +   ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+          +   ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+          
+         If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         """
         return pulumi.get(self, "operation")
 
@@ -1763,8 +1996,7 @@ class DetectorModelDynamoDbArgs:
     def payload(self) -> Optional[pulumi.Input['DetectorModelPayloadArgs']]:
         """
         Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
         """
         return pulumi.get(self, "payload")
 
@@ -1777,8 +2009,7 @@ class DetectorModelDynamoDbArgs:
     def payload_field(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the DynamoDB column that receives the action payload.
-
-        If you don't specify this parameter, the name of the DynamoDB column is `payload`.
+         If you don't specify this parameter, the name of the DynamoDB column is ``payload``.
         """
         return pulumi.get(self, "payload_field")
 
@@ -1790,7 +2021,7 @@ class DetectorModelDynamoDbArgs:
     @pulumi.getter(name="rangeKeyField")
     def range_key_field(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the range key (also called the sort key).
+        The name of the range key (also called the sort key). The ``rangeKeyField`` value must match the sort key of the target DynamoDB table.
         """
         return pulumi.get(self, "range_key_field")
 
@@ -1803,12 +2034,10 @@ class DetectorModelDynamoDbArgs:
     def range_key_type(self) -> Optional[pulumi.Input[str]]:
         """
         The data type for the range key (also called the sort key), You can specify the following values:
-
-        * `STRING` - The range key is a string.
-
-        * `NUMBER` - The range key is number.
-
-        If you don't specify `rangeKeyField`, the default value is `STRING`.
+          +   ``'STRING'`` - The range key is a string.
+          +   ``'NUMBER'`` - The range key is number.
+          
+         If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         """
         return pulumi.get(self, "range_key_type")
 
@@ -1836,10 +2065,10 @@ class DetectorModelEventArgs:
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelActionArgs']]]] = None,
                  condition: Optional[pulumi.Input[str]] = None):
         """
-        Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
+        Specifies the ``actions`` to be performed when the ``condition`` evaluates to TRUE.
         :param pulumi.Input[str] event_name: The name of the event.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorModelActionArgs']]] actions: The actions to be performed.
-        :param pulumi.Input[str] condition: The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
+        :param pulumi.Input[str] condition: Optional. The Boolean expression that, when TRUE, causes the ``actions`` to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
         """
         pulumi.set(__self__, "event_name", event_name)
         if actions is not None:
@@ -1875,7 +2104,7 @@ class DetectorModelEventArgs:
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
         """
-        The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
+        Optional. The Boolean expression that, when TRUE, causes the ``actions`` to be performed. If not present, the actions are performed (=TRUE). If the expression result is not a Boolean value, the actions are not performed (=FALSE).
         """
         return pulumi.get(self, "condition")
 
@@ -1945,9 +2174,9 @@ class DetectorModelIotEventsArgs:
                  input_name: pulumi.Input[str],
                  payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None):
         """
-        Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
-        :param pulumi.Input[str] input_name: The name of the AWS IoT Events input where the data is sent.
-        :param pulumi.Input['DetectorModelPayloadArgs'] payload: You can configure the action payload when you send a message to an AWS IoT Events input.
+        Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
+        :param pulumi.Input[str] input_name: The name of the ITE input where the data is sent.
+        :param pulumi.Input['DetectorModelPayloadArgs'] payload: You can configure the action payload when you send a message to an ITE input.
         """
         pulumi.set(__self__, "input_name", input_name)
         if payload is not None:
@@ -1957,7 +2186,7 @@ class DetectorModelIotEventsArgs:
     @pulumi.getter(name="inputName")
     def input_name(self) -> pulumi.Input[str]:
         """
-        The name of the AWS IoT Events input where the data is sent.
+        The name of the ITE input where the data is sent.
         """
         return pulumi.get(self, "input_name")
 
@@ -1969,7 +2198,7 @@ class DetectorModelIotEventsArgs:
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['DetectorModelPayloadArgs']]:
         """
-        You can configure the action payload when you send a message to an AWS IoT Events input.
+        You can configure the action payload when you send a message to an ITE input.
         """
         return pulumi.get(self, "payload")
 
@@ -1987,12 +2216,22 @@ class DetectorModelIotSiteWiseArgs:
                  property_alias: Optional[pulumi.Input[str]] = None,
                  property_id: Optional[pulumi.Input[str]] = None):
         """
-        Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
+        Sends information about the detector model instance and the event that triggered the action to a specified asset property in ITSW.
+         You must use expressions for all parameters in ``IotSiteWiseAction``. The expressions accept literals, operators, functions, references, and substitutions templates.
+          **Examples**
+         +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
+          +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+         In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
+          ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
+          
+         You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
+         For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
         :param pulumi.Input['DetectorModelAssetPropertyValueArgs'] property_value: The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
-        :param pulumi.Input[str] asset_id: The ID of the asset that has the specified property. You can specify an expression.
-        :param pulumi.Input[str] entry_id: A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
-        :param pulumi.Input[str] property_alias: The alias of the asset property. You can also specify an expression.
-        :param pulumi.Input[str] property_id: The ID of the asset property. You can specify an expression.
+        :param pulumi.Input[str] asset_id: The ID of the asset that has the specified property.
+        :param pulumi.Input[str] entry_id: A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
+        :param pulumi.Input[str] property_alias: The alias of the asset property.
+        :param pulumi.Input[str] property_id: The ID of the asset property.
         """
         pulumi.set(__self__, "property_value", property_value)
         if asset_id is not None:
@@ -2020,7 +2259,7 @@ class DetectorModelIotSiteWiseArgs:
     @pulumi.getter(name="assetId")
     def asset_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the asset that has the specified property. You can specify an expression.
+        The ID of the asset that has the specified property.
         """
         return pulumi.get(self, "asset_id")
 
@@ -2032,7 +2271,7 @@ class DetectorModelIotSiteWiseArgs:
     @pulumi.getter(name="entryId")
     def entry_id(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
+        A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier.
         """
         return pulumi.get(self, "entry_id")
 
@@ -2044,7 +2283,7 @@ class DetectorModelIotSiteWiseArgs:
     @pulumi.getter(name="propertyAlias")
     def property_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        The alias of the asset property. You can also specify an expression.
+        The alias of the asset property.
         """
         return pulumi.get(self, "property_alias")
 
@@ -2056,7 +2295,7 @@ class DetectorModelIotSiteWiseArgs:
     @pulumi.getter(name="propertyId")
     def property_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the asset property. You can specify an expression.
+        The ID of the asset property.
         """
         return pulumi.get(self, "property_id")
 
@@ -2071,9 +2310,9 @@ class DetectorModelIotTopicPublishArgs:
                  mqtt_topic: pulumi.Input[str],
                  payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None):
         """
-        Information required to publish the MQTT message through the AWS IoT message broker.
-        :param pulumi.Input[str] mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
-        :param pulumi.Input['DetectorModelPayloadArgs'] payload: You can configure the action payload when you publish a message to an AWS IoT Core topic.
+        Information required to publish the MQTT message through the IoT message broker.
+        :param pulumi.Input[str] mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
+        :param pulumi.Input['DetectorModelPayloadArgs'] payload: You can configure the action payload when you publish a message to an IoTCore topic.
         """
         pulumi.set(__self__, "mqtt_topic", mqtt_topic)
         if payload is not None:
@@ -2083,7 +2322,7 @@ class DetectorModelIotTopicPublishArgs:
     @pulumi.getter(name="mqttTopic")
     def mqtt_topic(self) -> pulumi.Input[str]:
         """
-        The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+        The MQTT topic of the message. You can use a string expression that includes variables (``$variable.<variable-name>``) and input values (``$input.<input-name>.<path-to-datum>``) as the topic string.
         """
         return pulumi.get(self, "mqtt_topic")
 
@@ -2095,7 +2334,7 @@ class DetectorModelIotTopicPublishArgs:
     @pulumi.getter
     def payload(self) -> Optional[pulumi.Input['DetectorModelPayloadArgs']]:
         """
-        You can configure the action payload when you publish a message to an AWS IoT Core topic.
+        You can configure the action payload when you publish a message to an IoTCore topic.
         """
         return pulumi.get(self, "payload")
 
@@ -2110,6 +2349,7 @@ class DetectorModelLambdaArgs:
                  function_arn: pulumi.Input[str],
                  payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None):
         """
+        Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
         :param pulumi.Input[str] function_arn: The ARN of the Lambda function that is executed.
         :param pulumi.Input['DetectorModelPayloadArgs'] payload: You can configure the action payload when you send a message to a Lambda function.
         """
@@ -2147,8 +2387,8 @@ class DetectorModelOnEnterArgs:
     def __init__(__self__, *,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None):
         """
-        When entering this state, perform these `actions` if the `condition` is `TRUE`.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]] events: Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
+        When entering this state, perform these ``actions`` if the ``condition`` is TRUE.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]] events: Specifies the actions that are performed when the state is entered and the ``condition`` is ``TRUE``.
         """
         if events is not None:
             pulumi.set(__self__, "events", events)
@@ -2157,7 +2397,7 @@ class DetectorModelOnEnterArgs:
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]]:
         """
-        Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
+        Specifies the actions that are performed when the state is entered and the ``condition`` is ``TRUE``.
         """
         return pulumi.get(self, "events")
 
@@ -2171,8 +2411,8 @@ class DetectorModelOnExitArgs:
     def __init__(__self__, *,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None):
         """
-        When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]] events: Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
+        When exiting this state, perform these ``actions`` if the specified ``condition`` is ``TRUE``.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]] events: Specifies the ``actions`` that are performed when the state is exited and the ``condition`` is ``TRUE``.
         """
         if events is not None:
             pulumi.set(__self__, "events", events)
@@ -2181,7 +2421,7 @@ class DetectorModelOnExitArgs:
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]]:
         """
-        Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
+        Specifies the ``actions`` that are performed when the state is exited and the ``condition`` is ``TRUE``.
         """
         return pulumi.get(self, "events")
 
@@ -2196,9 +2436,9 @@ class DetectorModelOnInputArgs:
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None,
                  transition_events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelTransitionEventArgs']]]] = None):
         """
-        When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]] events: Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelTransitionEventArgs']]] transition_events: Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
+        Specifies the actions performed when the ``condition`` evaluates to TRUE.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]] events: Specifies the actions performed when the ``condition`` evaluates to TRUE.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelTransitionEventArgs']]] transition_events: Specifies the actions performed, and the next state entered, when a ``condition`` evaluates to TRUE.
         """
         if events is not None:
             pulumi.set(__self__, "events", events)
@@ -2209,7 +2449,7 @@ class DetectorModelOnInputArgs:
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]]:
         """
-        Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
+        Specifies the actions performed when the ``condition`` evaluates to TRUE.
         """
         return pulumi.get(self, "events")
 
@@ -2221,7 +2461,7 @@ class DetectorModelOnInputArgs:
     @pulumi.getter(name="transitionEvents")
     def transition_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelTransitionEventArgs']]]]:
         """
-        Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
+        Specifies the actions performed, and the next state entered, when a ``condition`` evaluates to TRUE.
         """
         return pulumi.get(self, "transition_events")
 
@@ -2237,10 +2477,9 @@ class DetectorModelPayloadArgs:
                  type: pulumi.Input[str]):
         """
         Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
-        :param pulumi.Input[str] content_expression: The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
-        :param pulumi.Input[str] type: The value of the payload type can be either `STRING` or `JSON`.
+         By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
+        :param pulumi.Input[str] content_expression: The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
+        :param pulumi.Input[str] type: The value of the payload type can be either ``STRING`` or ``JSON``.
         """
         pulumi.set(__self__, "content_expression", content_expression)
         pulumi.set(__self__, "type", type)
@@ -2249,7 +2488,7 @@ class DetectorModelPayloadArgs:
     @pulumi.getter(name="contentExpression")
     def content_expression(self) -> pulumi.Input[str]:
         """
-        The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
+        The content of the payload. You can use a string expression that includes quoted strings (``'<string>'``), variables (``$variable.<variable-name>``), input values (``$input.<input-name>.<path-to-datum>``), string concatenations, and quoted strings that contain ``${}`` as the content. The recommended maximum size of a content expression is 1 KB.
         """
         return pulumi.get(self, "content_expression")
 
@@ -2261,7 +2500,7 @@ class DetectorModelPayloadArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The value of the payload type can be either `STRING` or `JSON`.
+        The value of the payload type can be either ``STRING`` or ``JSON``.
         """
         return pulumi.get(self, "type")
 
@@ -2302,8 +2541,8 @@ class DetectorModelSetTimerArgs:
         """
         Information needed to set the timer.
         :param pulumi.Input[str] timer_name: The name of the timer.
-        :param pulumi.Input[str] duration_expression: The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
-        :param pulumi.Input[int] seconds: The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
+        :param pulumi.Input[str] duration_expression: The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (``$variable.<variable-name>``), and input values (``$input.<input-name>.<path-to-datum>``) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
+        :param pulumi.Input[int] seconds: The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
         """
         pulumi.set(__self__, "timer_name", timer_name)
         if duration_expression is not None:
@@ -2327,7 +2566,7 @@ class DetectorModelSetTimerArgs:
     @pulumi.getter(name="durationExpression")
     def duration_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
+        The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (``$variable.<variable-name>``), and input values (``$input.<input-name>.<path-to-datum>``) as the duration. The range of the duration is 1-31622400 seconds. To ensure accuracy, the minimum duration is 60 seconds. The evaluated result of the duration is rounded down to the nearest whole number.
         """
         return pulumi.get(self, "duration_expression")
 
@@ -2339,7 +2578,7 @@ class DetectorModelSetTimerArgs:
     @pulumi.getter
     def seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
+        The number of seconds until the timer expires. The minimum value is 60 seconds to ensure accuracy. The maximum value is 31622400 seconds.
         """
         return pulumi.get(self, "seconds")
 
@@ -2432,9 +2671,10 @@ class DetectorModelSqsArgs:
                  payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
                  use_base64: Optional[pulumi.Input[bool]] = None):
         """
+        Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
         :param pulumi.Input[str] queue_url: The URL of the SQS queue where the data is written.
         :param pulumi.Input['DetectorModelPayloadArgs'] payload: You can configure the action payload when you send a message to an Amazon SQS queue.
-        :param pulumi.Input[bool] use_base64: Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+        :param pulumi.Input[bool] use_base64: Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
         """
         pulumi.set(__self__, "queue_url", queue_url)
         if payload is not None:
@@ -2470,7 +2710,7 @@ class DetectorModelSqsArgs:
     @pulumi.getter(name="useBase64")
     def use_base64(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
+        Set this to TRUE if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to FALSE.
         """
         return pulumi.get(self, "use_base64")
 
@@ -2489,9 +2729,9 @@ class DetectorModelStateArgs:
         """
         Information that defines a state of a detector.
         :param pulumi.Input[str] state_name: The name of the state.
-        :param pulumi.Input['DetectorModelOnEnterArgs'] on_enter: When entering this state, perform these `actions` if the `condition` is TRUE.
-        :param pulumi.Input['DetectorModelOnExitArgs'] on_exit: When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
-        :param pulumi.Input['DetectorModelOnInputArgs'] on_input: When an input is received and the `condition` is TRUE, perform the specified `actions` .
+        :param pulumi.Input['DetectorModelOnEnterArgs'] on_enter: When entering this state, perform these ``actions`` if the ``condition`` is TRUE.
+        :param pulumi.Input['DetectorModelOnExitArgs'] on_exit: When exiting this state, perform these ``actions`` if the specified ``condition`` is ``TRUE``.
+        :param pulumi.Input['DetectorModelOnInputArgs'] on_input: When an input is received and the ``condition`` is TRUE, perform the specified ``actions``.
         """
         pulumi.set(__self__, "state_name", state_name)
         if on_enter is not None:
@@ -2517,7 +2757,7 @@ class DetectorModelStateArgs:
     @pulumi.getter(name="onEnter")
     def on_enter(self) -> Optional[pulumi.Input['DetectorModelOnEnterArgs']]:
         """
-        When entering this state, perform these `actions` if the `condition` is TRUE.
+        When entering this state, perform these ``actions`` if the ``condition`` is TRUE.
         """
         return pulumi.get(self, "on_enter")
 
@@ -2529,7 +2769,7 @@ class DetectorModelStateArgs:
     @pulumi.getter(name="onExit")
     def on_exit(self) -> Optional[pulumi.Input['DetectorModelOnExitArgs']]:
         """
-        When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
+        When exiting this state, perform these ``actions`` if the specified ``condition`` is ``TRUE``.
         """
         return pulumi.get(self, "on_exit")
 
@@ -2541,7 +2781,7 @@ class DetectorModelStateArgs:
     @pulumi.getter(name="onInput")
     def on_input(self) -> Optional[pulumi.Input['DetectorModelOnInputArgs']]:
         """
-        When an input is received and the `condition` is TRUE, perform the specified `actions` .
+        When an input is received and the ``condition`` is TRUE, perform the specified ``actions``.
         """
         return pulumi.get(self, "on_input")
 
@@ -2558,9 +2798,9 @@ class DetectorModelTransitionEventArgs:
                  next_state: pulumi.Input[str],
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelActionArgs']]]] = None):
         """
-        Specifies the `actions `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
-        :param pulumi.Input[str] condition: A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
-        :param pulumi.Input[str] event_name: The name of the event.
+        Specifies the actions performed and the next state entered when a ``condition`` evaluates to TRUE.
+        :param pulumi.Input[str] condition: Required. A Boolean expression that when TRUE causes the actions to be performed and the ``nextState`` to be entered.
+        :param pulumi.Input[str] event_name: The name of the transition event.
         :param pulumi.Input[str] next_state: The next state to enter.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorModelActionArgs']]] actions: The actions to be performed.
         """
@@ -2574,7 +2814,7 @@ class DetectorModelTransitionEventArgs:
     @pulumi.getter
     def condition(self) -> pulumi.Input[str]:
         """
-        A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
+        Required. A Boolean expression that when TRUE causes the actions to be performed and the ``nextState`` to be entered.
         """
         return pulumi.get(self, "condition")
 
@@ -2586,7 +2826,7 @@ class DetectorModelTransitionEventArgs:
     @pulumi.getter(name="eventName")
     def event_name(self) -> pulumi.Input[str]:
         """
-        The name of the event.
+        The name of the transition event.
         """
         return pulumi.get(self, "event_name")
 
@@ -2624,10 +2864,9 @@ class InputAttributeArgs:
     def __init__(__self__, *,
                  json_path: pulumi.Input[str]):
         """
-        The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
-        :param pulumi.Input[str] json_path: An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
-               
-               _Syntax_: `<field-name>.<field-name>...`
+        The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using ``BatchPutMessage``. Each such message contains a JSON payload. Those attributes (and their paired values) specified here are available for use in the ``condition`` expressions used by detectors.
+        :param pulumi.Input[str] json_path: An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (``BatchPutMessage``). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the ``condition`` expressions used by detectors. 
+                Syntax: ``<field-name>.<field-name>...``
         """
         pulumi.set(__self__, "json_path", json_path)
 
@@ -2635,9 +2874,8 @@ class InputAttributeArgs:
     @pulumi.getter(name="jsonPath")
     def json_path(self) -> pulumi.Input[str]:
         """
-        An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
-
-        _Syntax_: `<field-name>.<field-name>...`
+        An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (``BatchPutMessage``). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the ``condition`` expressions used by detectors. 
+         Syntax: ``<field-name>.<field-name>...``
         """
         return pulumi.get(self, "json_path")
 
@@ -2652,7 +2890,7 @@ class InputDefinitionArgs:
                  attributes: pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]]):
         """
         The definition of the input.
-        :param pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]] attributes: The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+        :param pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]] attributes: The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using ``BatchPutMessage``. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the ``condition`` expressions used by detectors that monitor this input.
         """
         pulumi.set(__self__, "attributes", attributes)
 
@@ -2660,7 +2898,7 @@ class InputDefinitionArgs:
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]]:
         """
-        The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
+        The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using ``BatchPutMessage``. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the ``condition`` expressions used by detectors that monitor this input.
         """
         return pulumi.get(self, "attributes")
 

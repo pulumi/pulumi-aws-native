@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
     /// <summary>
-    /// Information required to publish the MQTT message through the AWS IoT message broker.
+    /// Information required to publish the MQTT message through the IoT message broker.
     /// </summary>
     public sealed class DetectorModelIotTopicPublishArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.&lt;variable-name&gt;`) and input values (`$input.&lt;input-name&gt;.&lt;path-to-datum&gt;`) as the topic string.
+        /// The MQTT topic of the message. You can use a string expression that includes variables (``$variable.&lt;variable-name&gt;``) and input values (``$input.&lt;input-name&gt;.&lt;path-to-datum&gt;``) as the topic string.
         /// </summary>
         [Input("mqttTopic", required: true)]
         public Input<string> MqttTopic { get; set; } = null!;
 
         /// <summary>
-        /// You can configure the action payload when you publish a message to an AWS IoT Core topic.
+        /// You can configure the action payload when you publish a message to an IoTCore topic.
         /// </summary>
         [Input("payload")]
         public Input<Inputs.DetectorModelPayloadArgs>? Payload { get; set; }

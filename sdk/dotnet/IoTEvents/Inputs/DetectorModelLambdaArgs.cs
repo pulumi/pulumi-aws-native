@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
+    /// <summary>
+    /// Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
+    /// </summary>
     public sealed class DetectorModelLambdaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

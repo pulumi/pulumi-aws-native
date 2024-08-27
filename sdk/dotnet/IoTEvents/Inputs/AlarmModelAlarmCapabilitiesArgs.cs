@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
     /// <summary>
-    /// Contains the configuration information of alarm state changes
+    /// Contains the configuration information of alarm state changes.
     /// </summary>
     public sealed class AlarmModelAlarmCapabilitiesArgs : global::Pulumi.ResourceArgs
     {

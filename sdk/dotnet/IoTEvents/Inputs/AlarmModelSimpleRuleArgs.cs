@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public Input<Pulumi.AwsNative.IoTEvents.AlarmModelSimpleRuleComparisonOperator> ComparisonOperator { get; set; } = null!;
 
         /// <summary>
-        /// The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
+        /// The value on the left side of the comparison operator. You can specify an ITE input attribute as an input property.
         /// </summary>
         [Input("inputProperty", required: true)]
         public Input<string> InputProperty { get; set; } = null!;
 
         /// <summary>
-        /// The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
+        /// The value on the right side of the comparison operator. You can enter a number or specify an ITE input attribute.
         /// </summary>
         [Input("threshold", required: true)]
         public Input<string> Threshold { get; set; } = null!;

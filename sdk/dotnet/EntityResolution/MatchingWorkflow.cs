@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.EntityResolution
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("incrementalRunConfig")]
+        public Output<Outputs.MatchingWorkflowIncrementalRunConfig?> IncrementalRunConfig { get; private set; } = null!;
+
         /// <summary>
         /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("incrementalRunConfig")]
+        public Input<Inputs.MatchingWorkflowIncrementalRunConfigArgs>? IncrementalRunConfig { get; set; }
 
         [Input("inputSourceConfig", required: true)]
         private InputList<Inputs.MatchingWorkflowInputSourceArgs>? _inputSourceConfig;

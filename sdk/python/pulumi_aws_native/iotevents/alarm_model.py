@@ -31,18 +31,15 @@ class AlarmModelArgs:
         """
         The set of arguments for constructing a AlarmModel resource.
         :param pulumi.Input['AlarmModelAlarmRuleArgs'] alarm_rule: Defines when your alarm is invoked.
-        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT Events to perform its operations.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
         :param pulumi.Input['AlarmModelAlarmCapabilitiesArgs'] alarm_capabilities: Contains the configuration information of alarm state changes.
         :param pulumi.Input['AlarmModelAlarmEventActionsArgs'] alarm_event_actions: Contains information about one or more alarm actions.
-        :param pulumi.Input[str] alarm_model_description: A brief description of the alarm model.
+        :param pulumi.Input[str] alarm_model_description: The description of the alarm model.
         :param pulumi.Input[str] alarm_model_name: The name of the alarm model.
-        :param pulumi.Input[str] key: The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
-               
-               This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
+        :param pulumi.Input[str] key: An input attribute used as a key to create an alarm. ITE routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
         :param pulumi.Input[int] severity: A non-negative integer that reflects the severity level of the alarm.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
+                You can create up to 50 tags for one alarm model.
         """
         pulumi.set(__self__, "alarm_rule", alarm_rule)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -77,7 +74,7 @@ class AlarmModelArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the role that grants permission to AWS IoT Events to perform its operations.
+        The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
         """
         return pulumi.get(self, "role_arn")
 
@@ -113,7 +110,7 @@ class AlarmModelArgs:
     @pulumi.getter(name="alarmModelDescription")
     def alarm_model_description(self) -> Optional[pulumi.Input[str]]:
         """
-        A brief description of the alarm model.
+        The description of the alarm model.
         """
         return pulumi.get(self, "alarm_model_description")
 
@@ -137,9 +134,7 @@ class AlarmModelArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
-
-        This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
+        An input attribute used as a key to create an alarm. ITE routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
         """
         return pulumi.get(self, "key")
 
@@ -163,9 +158,8 @@ class AlarmModelArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
+         You can create up to 50 tags for one alarm model.
         """
         return pulumi.get(self, "tags")
 
@@ -190,25 +184,20 @@ class AlarmModel(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
-
-        Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
+        Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AlarmModelAlarmCapabilitiesArgs', 'AlarmModelAlarmCapabilitiesArgsDict']] alarm_capabilities: Contains the configuration information of alarm state changes.
         :param pulumi.Input[Union['AlarmModelAlarmEventActionsArgs', 'AlarmModelAlarmEventActionsArgsDict']] alarm_event_actions: Contains information about one or more alarm actions.
-        :param pulumi.Input[str] alarm_model_description: A brief description of the alarm model.
+        :param pulumi.Input[str] alarm_model_description: The description of the alarm model.
         :param pulumi.Input[str] alarm_model_name: The name of the alarm model.
         :param pulumi.Input[Union['AlarmModelAlarmRuleArgs', 'AlarmModelAlarmRuleArgsDict']] alarm_rule: Defines when your alarm is invoked.
-        :param pulumi.Input[str] key: The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
-               
-               This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
-        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT Events to perform its operations.
+        :param pulumi.Input[str] key: An input attribute used as a key to create an alarm. ITE routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
         :param pulumi.Input[int] severity: A non-negative integer that reflects the severity level of the alarm.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
+                You can create up to 50 tags for one alarm model.
         """
         ...
     @overload
@@ -217,9 +206,7 @@ class AlarmModel(pulumi.CustomResource):
                  args: AlarmModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
-
-        Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
+        Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param AlarmModelArgs args: The arguments to use to populate this resource's properties.
@@ -322,7 +309,7 @@ class AlarmModel(pulumi.CustomResource):
     @pulumi.getter(name="alarmModelDescription")
     def alarm_model_description(self) -> pulumi.Output[Optional[str]]:
         """
-        A brief description of the alarm model.
+        The description of the alarm model.
         """
         return pulumi.get(self, "alarm_model_description")
 
@@ -346,9 +333,7 @@ class AlarmModel(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[Optional[str]]:
         """
-        The value used to identify a alarm instance. When a device or system sends input, a new alarm instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding alarm instance based on this identifying information.
-
-        This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct alarm instance, the device must send a message payload that contains the same attribute-value.
+        An input attribute used as a key to create an alarm. ITE routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
         """
         return pulumi.get(self, "key")
 
@@ -356,7 +341,7 @@ class AlarmModel(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the role that grants permission to AWS IoT Events to perform its operations.
+        The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
         """
         return pulumi.get(self, "role_arn")
 
@@ -372,9 +357,8 @@ class AlarmModel(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
+         You can create up to 50 tags for one alarm model.
         """
         return pulumi.get(self, "tags")
 

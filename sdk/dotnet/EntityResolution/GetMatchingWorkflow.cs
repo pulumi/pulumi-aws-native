@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// The description of the MatchingWorkflow
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.MatchingWorkflowIncrementalRunConfig? IncrementalRunConfig;
         /// <summary>
         /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
@@ -91,6 +92,8 @@ namespace Pulumi.AwsNative.EntityResolution
 
             string? description,
 
+            Outputs.MatchingWorkflowIncrementalRunConfig? incrementalRunConfig,
+
             ImmutableArray<Outputs.MatchingWorkflowInputSource> inputSourceConfig,
 
             ImmutableArray<Outputs.MatchingWorkflowOutputSource> outputSourceConfig,
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.EntityResolution
         {
             CreatedAt = createdAt;
             Description = description;
+            IncrementalRunConfig = incrementalRunConfig;
             InputSourceConfig = inputSourceConfig;
             OutputSourceConfig = outputSourceConfig;
             ResolutionTechniques = resolutionTechniques;

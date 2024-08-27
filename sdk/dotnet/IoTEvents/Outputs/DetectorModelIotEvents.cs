@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
+    /// Sends an ITE input, passing in information about the detector model instance and the event that triggered the action.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelIotEvents
     {
         /// <summary>
-        /// The name of the AWS IoT Events input where the data is sent.
+        /// The name of the ITE input where the data is sent.
         /// </summary>
         public readonly string InputName;
         /// <summary>
-        /// You can configure the action payload when you send a message to an AWS IoT Events input.
+        /// You can configure the action payload when you send a message to an ITE input.
         /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
 

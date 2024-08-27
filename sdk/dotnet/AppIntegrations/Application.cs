@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The namespace of the application.
         /// </summary>
         [Output("namespace")]
-        public Output<string?> Namespace { get; private set; } = null!;
+        public Output<string> Namespace { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of events or requests that the application has access to.
@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The namespace of the application.
         /// </summary>
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
+        [Input("namespace", required: true)]
+        public Input<string> Namespace { get; set; } = null!;
 
         [Input("permissions")]
         private InputList<string>? _permissions;

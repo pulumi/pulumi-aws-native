@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// The actions to be performed.
+    /// An action to be performed when the ``condition`` is TRUE.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelAction
@@ -21,11 +21,11 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// </summary>
         public readonly Outputs.DetectorModelClearTimer? ClearTimer;
         /// <summary>
-        /// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        /// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
         /// </summary>
         public readonly Outputs.DetectorModelDynamoDBv2? DynamoDBv2;
         /// <summary>
-        /// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        /// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *Developer Guide*.
         /// </summary>
         public readonly Outputs.DetectorModelDynamoDb? DynamoDb;
         /// <summary>
@@ -33,15 +33,15 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// </summary>
         public readonly Outputs.DetectorModelFirehose? Firehose;
         /// <summary>
-        /// Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+        /// Sends ITE input, which passes information about the detector model instance and the event that triggered the action.
         /// </summary>
         public readonly Outputs.DetectorModelIotEvents? IotEvents;
         /// <summary>
-        /// Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+        /// Sends information about the detector model instance and the event that triggered the action to an asset property in ITSW .
         /// </summary>
         public readonly Outputs.DetectorModelIotSiteWise? IotSiteWise;
         /// <summary>
-        /// Publishes an MQTT message with the given topic to the AWS IoT message broker.
+        /// Publishes an MQTT message with the given topic to the IoT message broker.
         /// </summary>
         public readonly Outputs.DetectorModelIotTopicPublish? IotTopicPublish;
         /// <summary>

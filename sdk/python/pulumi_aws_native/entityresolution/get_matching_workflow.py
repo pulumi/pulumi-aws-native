@@ -21,13 +21,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetMatchingWorkflowResult:
-    def __init__(__self__, created_at=None, description=None, input_source_config=None, output_source_config=None, resolution_techniques=None, role_arn=None, tags=None, updated_at=None, workflow_arn=None):
+    def __init__(__self__, created_at=None, description=None, incremental_run_config=None, input_source_config=None, output_source_config=None, resolution_techniques=None, role_arn=None, tags=None, updated_at=None, workflow_arn=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if incremental_run_config and not isinstance(incremental_run_config, dict):
+            raise TypeError("Expected argument 'incremental_run_config' to be a dict")
+        pulumi.set(__self__, "incremental_run_config", incremental_run_config)
         if input_source_config and not isinstance(input_source_config, list):
             raise TypeError("Expected argument 'input_source_config' to be a list")
         pulumi.set(__self__, "input_source_config", input_source_config)
@@ -62,6 +65,11 @@ class GetMatchingWorkflowResult:
         The description of the MatchingWorkflow
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="incrementalRunConfig")
+    def incremental_run_config(self) -> Optional['outputs.MatchingWorkflowIncrementalRunConfig']:
+        return pulumi.get(self, "incremental_run_config")
 
     @property
     @pulumi.getter(name="inputSourceConfig")
@@ -122,6 +130,7 @@ class AwaitableGetMatchingWorkflowResult(GetMatchingWorkflowResult):
         return GetMatchingWorkflowResult(
             created_at=self.created_at,
             description=self.description,
+            incremental_run_config=self.incremental_run_config,
             input_source_config=self.input_source_config,
             output_source_config=self.output_source_config,
             resolution_techniques=self.resolution_techniques,
@@ -147,6 +156,7 @@ def get_matching_workflow(workflow_name: Optional[str] = None,
     return AwaitableGetMatchingWorkflowResult(
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
+        incremental_run_config=pulumi.get(__ret__, 'incremental_run_config'),
         input_source_config=pulumi.get(__ret__, 'input_source_config'),
         output_source_config=pulumi.get(__ret__, 'output_source_config'),
         resolution_techniques=pulumi.get(__ret__, 'resolution_techniques'),
