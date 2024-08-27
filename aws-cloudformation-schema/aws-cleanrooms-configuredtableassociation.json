@@ -204,6 +204,7 @@
   "readOnlyProperties" : [ "/properties/ConfiguredTableAssociationIdentifier", "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ConfiguredTableIdentifier", "/properties/Name", "/properties/MembershipIdentifier" ],
   "primaryIdentifier" : [ "/properties/ConfiguredTableAssociationIdentifier", "/properties/MembershipIdentifier" ],
+  "replacementStrategy" : "delete_then_create",
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
