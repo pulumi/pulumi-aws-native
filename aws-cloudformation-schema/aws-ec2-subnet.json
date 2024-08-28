@@ -133,7 +133,7 @@
   "createOnlyProperties" : [ "/properties/VpcId", "/properties/AvailabilityZone", "/properties/AvailabilityZoneId", "/properties/CidrBlock", "/properties/OutpostArn", "/properties/Ipv6Native", "/properties/Ipv4IpamPoolId", "/properties/Ipv4NetmaskLength", "/properties/Ipv6IpamPoolId", "/properties/Ipv6NetmaskLength" ],
   "conditionalCreateOnlyProperties" : [ "/properties/Ipv6CidrBlock" ],
   "primaryIdentifier" : [ "/properties/SubnetId" ],
-  "readOnlyProperties" : [ "/properties/NetworkAclAssociationId", "/properties/SubnetId" ],
+  "readOnlyProperties" : [ "/properties/NetworkAclAssociationId", "/properties/SubnetId", "/properties/Ipv6CidrBlocks" ],
   "writeOnlyProperties" : [ "/properties/EnableLniAtDeviceIndex", "/properties/Ipv4IpamPoolId", "/properties/Ipv4NetmaskLength", "/properties/Ipv6IpamPoolId", "/properties/Ipv6NetmaskLength" ],
   "handlers" : {
     "create" : {
