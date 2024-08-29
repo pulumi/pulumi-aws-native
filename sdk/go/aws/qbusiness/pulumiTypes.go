@@ -153,8 +153,10 @@ func (o ApplicationAttachmentsConfigurationPtrOutput) AttachmentsControlMode() A
 }
 
 type ApplicationAutoSubscriptionConfiguration struct {
-	AutoSubscribe           ApplicationAutoSubscriptionStatus `pulumi:"autoSubscribe"`
-	DefaultSubscriptionType *ApplicationSubscriptionType      `pulumi:"defaultSubscriptionType"`
+	// Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
+	AutoSubscribe ApplicationAutoSubscriptionStatus `pulumi:"autoSubscribe"`
+	// Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
+	DefaultSubscriptionType *ApplicationSubscriptionType `pulumi:"defaultSubscriptionType"`
 }
 
 // ApplicationAutoSubscriptionConfigurationInput is an input type that accepts ApplicationAutoSubscriptionConfigurationArgs and ApplicationAutoSubscriptionConfigurationOutput values.
@@ -169,8 +171,10 @@ type ApplicationAutoSubscriptionConfigurationInput interface {
 }
 
 type ApplicationAutoSubscriptionConfigurationArgs struct {
-	AutoSubscribe           ApplicationAutoSubscriptionStatusInput `pulumi:"autoSubscribe"`
-	DefaultSubscriptionType ApplicationSubscriptionTypePtrInput    `pulumi:"defaultSubscriptionType"`
+	// Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
+	AutoSubscribe ApplicationAutoSubscriptionStatusInput `pulumi:"autoSubscribe"`
+	// Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
+	DefaultSubscriptionType ApplicationSubscriptionTypePtrInput `pulumi:"defaultSubscriptionType"`
 }
 
 func (ApplicationAutoSubscriptionConfigurationArgs) ElementType() reflect.Type {
@@ -250,12 +254,14 @@ func (o ApplicationAutoSubscriptionConfigurationOutput) ToApplicationAutoSubscri
 	}).(ApplicationAutoSubscriptionConfigurationPtrOutput)
 }
 
+// Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
 func (o ApplicationAutoSubscriptionConfigurationOutput) AutoSubscribe() ApplicationAutoSubscriptionStatusOutput {
 	return o.ApplyT(func(v ApplicationAutoSubscriptionConfiguration) ApplicationAutoSubscriptionStatus {
 		return v.AutoSubscribe
 	}).(ApplicationAutoSubscriptionStatusOutput)
 }
 
+// Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
 func (o ApplicationAutoSubscriptionConfigurationOutput) DefaultSubscriptionType() ApplicationSubscriptionTypePtrOutput {
 	return o.ApplyT(func(v ApplicationAutoSubscriptionConfiguration) *ApplicationSubscriptionType {
 		return v.DefaultSubscriptionType
@@ -286,6 +292,7 @@ func (o ApplicationAutoSubscriptionConfigurationPtrOutput) Elem() ApplicationAut
 	}).(ApplicationAutoSubscriptionConfigurationOutput)
 }
 
+// Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
 func (o ApplicationAutoSubscriptionConfigurationPtrOutput) AutoSubscribe() ApplicationAutoSubscriptionStatusPtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoSubscriptionConfiguration) *ApplicationAutoSubscriptionStatus {
 		if v == nil {
@@ -295,6 +302,7 @@ func (o ApplicationAutoSubscriptionConfigurationPtrOutput) AutoSubscribe() Appli
 	}).(ApplicationAutoSubscriptionStatusPtrOutput)
 }
 
+// Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
 func (o ApplicationAutoSubscriptionConfigurationPtrOutput) DefaultSubscriptionType() ApplicationSubscriptionTypePtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoSubscriptionConfiguration) *ApplicationSubscriptionType {
 		if v == nil {
@@ -442,6 +450,7 @@ func (o ApplicationEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtr
 }
 
 type ApplicationPersonalizationConfiguration struct {
+	// An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
 	PersonalizationControlMode ApplicationPersonalizationControlMode `pulumi:"personalizationControlMode"`
 }
 
@@ -457,6 +466,7 @@ type ApplicationPersonalizationConfigurationInput interface {
 }
 
 type ApplicationPersonalizationConfigurationArgs struct {
+	// An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
 	PersonalizationControlMode ApplicationPersonalizationControlModeInput `pulumi:"personalizationControlMode"`
 }
 
@@ -537,6 +547,7 @@ func (o ApplicationPersonalizationConfigurationOutput) ToApplicationPersonalizat
 	}).(ApplicationPersonalizationConfigurationPtrOutput)
 }
 
+// An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
 func (o ApplicationPersonalizationConfigurationOutput) PersonalizationControlMode() ApplicationPersonalizationControlModeOutput {
 	return o.ApplyT(func(v ApplicationPersonalizationConfiguration) ApplicationPersonalizationControlMode {
 		return v.PersonalizationControlMode
@@ -567,6 +578,7 @@ func (o ApplicationPersonalizationConfigurationPtrOutput) Elem() ApplicationPers
 	}).(ApplicationPersonalizationConfigurationOutput)
 }
 
+// An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
 func (o ApplicationPersonalizationConfigurationPtrOutput) PersonalizationControlMode() ApplicationPersonalizationControlModePtrOutput {
 	return o.ApplyT(func(v *ApplicationPersonalizationConfiguration) *ApplicationPersonalizationControlMode {
 		if v == nil {

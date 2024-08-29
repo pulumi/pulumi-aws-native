@@ -152,8 +152,6 @@ type subnetArgs struct {
 	// The IPv6 CIDR block.
 	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The IPv6 network ranges for the subnet, in CIDR notation.
-	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// An IPv6 IPAM pool ID for the subnet.
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
 	// Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
@@ -203,8 +201,6 @@ type SubnetArgs struct {
 	// The IPv6 CIDR block.
 	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 	Ipv6CidrBlock pulumi.StringPtrInput
-	// The IPv6 network ranges for the subnet, in CIDR notation.
-	Ipv6CidrBlocks pulumi.StringArrayInput
 	// An IPv6 IPAM pool ID for the subnet.
 	Ipv6IpamPoolId pulumi.StringPtrInput
 	// Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.

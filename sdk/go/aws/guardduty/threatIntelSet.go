@@ -21,7 +21,10 @@ type ThreatIntelSet struct {
 	Activate pulumi.BoolPtrOutput `pulumi:"activate"`
 	// The unique ID of the `threatIntelSet` .
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
 	// The format of the file that contains the ThreatIntelSet.
 	Format pulumi.StringOutput `pulumi:"format"`
@@ -88,7 +91,10 @@ func (ThreatIntelSetState) ElementType() reflect.Type {
 type threatIntelSetArgs struct {
 	// A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate *bool `pulumi:"activate"`
-	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId *string `pulumi:"detectorId"`
 	// The format of the file that contains the ThreatIntelSet.
 	Format string `pulumi:"format"`
@@ -106,7 +112,10 @@ type threatIntelSetArgs struct {
 type ThreatIntelSetArgs struct {
 	// A Boolean value that indicates whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate pulumi.BoolPtrInput
-	// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId pulumi.StringPtrInput
 	// The format of the file that contains the ThreatIntelSet.
 	Format pulumi.StringInput
@@ -167,7 +176,10 @@ func (o ThreatIntelSetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+// The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+//
+// To find the `detectorId` in the current Region, see the
+// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 func (o ThreatIntelSetOutput) DetectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }

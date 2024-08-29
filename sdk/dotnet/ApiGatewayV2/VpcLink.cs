@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGatewayV2::VpcLink
+    /// The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigatewayv2:VpcLink")]
     public partial class VpcLink : global::Pulumi.CustomResource
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// This resource type use map for Tags, suggest to use List of Tag
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// This resource type use map for Tags, suggest to use List of Tag
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public InputMap<string> Tags
         {

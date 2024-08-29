@@ -28,7 +28,6 @@ class SubnetArgs:
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
-                 ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -54,7 +53,6 @@ class SubnetArgs:
         :param pulumi.Input[int] ipv4_netmask_length: An IPv4 netmask length for the subnet.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
                 If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: The IPv6 network ranges for the subnet, in CIDR notation.
         :param pulumi.Input[str] ipv6_ipam_pool_id: An IPv6 IPAM pool ID for the subnet.
         :param pulumi.Input[bool] ipv6_native: Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
         :param pulumi.Input[int] ipv6_netmask_length: An IPv6 netmask length for the subnet.
@@ -87,8 +85,6 @@ class SubnetArgs:
             pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
-        if ipv6_cidr_blocks is not None:
-            pulumi.set(__self__, "ipv6_cidr_blocks", ipv6_cidr_blocks)
         if ipv6_ipam_pool_id is not None:
             pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_native is not None:
@@ -231,18 +227,6 @@ class SubnetArgs:
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @property
-    @pulumi.getter(name="ipv6CidrBlocks")
-    def ipv6_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The IPv6 network ranges for the subnet, in CIDR notation.
-        """
-        return pulumi.get(self, "ipv6_cidr_blocks")
-
-    @ipv6_cidr_blocks.setter
-    def ipv6_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "ipv6_cidr_blocks", value)
-
-    @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -346,7 +330,6 @@ class Subnet(pulumi.CustomResource):
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
-                 ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -377,7 +360,6 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[int] ipv4_netmask_length: An IPv4 netmask length for the subnet.
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
                 If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: The IPv6 network ranges for the subnet, in CIDR notation.
         :param pulumi.Input[str] ipv6_ipam_pool_id: An IPv6 IPAM pool ID for the subnet.
         :param pulumi.Input[bool] ipv6_native: Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
         :param pulumi.Input[int] ipv6_netmask_length: An IPv6 netmask length for the subnet.
@@ -428,7 +410,6 @@ class Subnet(pulumi.CustomResource):
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
-                 ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_native: Optional[pulumi.Input[bool]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -455,7 +436,6 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
             __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
-            __props__.__dict__["ipv6_cidr_blocks"] = ipv6_cidr_blocks
             __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
             __props__.__dict__["ipv6_native"] = ipv6_native
             __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
@@ -466,6 +446,7 @@ class Subnet(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["ipv6_cidr_blocks"] = None
             __props__.__dict__["network_acl_association_id"] = None
             __props__.__dict__["subnet_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "availabilityZoneId", "cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "ipv6IpamPoolId", "ipv6Native", "ipv6NetmaskLength", "outpostArn", "vpcId"])
@@ -593,7 +574,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
-    def ipv6_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def ipv6_cidr_blocks(self) -> pulumi.Output[Sequence[str]]:
         """
         The IPv6 network ranges for the subnet, in CIDR notation.
         """

@@ -16,14 +16,22 @@ import (
 type ConfigurationManager struct {
 	pulumi.CustomResourceState
 
+	// The definition of the Quick Setup configuration that the configuration manager deploys.
 	ConfigurationDefinitions ConfigurationManagerConfigurationDefinitionArrayOutput `pulumi:"configurationDefinitions"`
-	CreatedAt                pulumi.StringOutput                                    `pulumi:"createdAt"`
-	Description              pulumi.StringPtrOutput                                 `pulumi:"description"`
-	LastModifiedAt           pulumi.StringOutput                                    `pulumi:"lastModifiedAt"`
-	ManagerArn               pulumi.StringOutput                                    `pulumi:"managerArn"`
-	Name                     pulumi.StringPtrOutput                                 `pulumi:"name"`
-	StatusSummaries          ConfigurationManagerStatusSummaryArrayOutput           `pulumi:"statusSummaries"`
-	Tags                     pulumi.StringMapOutput                                 `pulumi:"tags"`
+	// The datetime stamp when the configuration manager was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The description of the configuration.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The datetime stamp when the configuration manager was last updated.
+	LastModifiedAt pulumi.StringOutput `pulumi:"lastModifiedAt"`
+	// The ARN of the Quick Setup configuration.
+	ManagerArn pulumi.StringOutput `pulumi:"managerArn"`
+	// The name of the configuration
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
+	StatusSummaries ConfigurationManagerStatusSummaryArrayOutput `pulumi:"statusSummaries"`
+	// Key-value pairs of metadata to assign to the configuration manager.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewConfigurationManager registers a new resource with the given unique name, arguments, and options.
@@ -74,18 +82,26 @@ func (ConfigurationManagerState) ElementType() reflect.Type {
 }
 
 type configurationManagerArgs struct {
+	// The definition of the Quick Setup configuration that the configuration manager deploys.
 	ConfigurationDefinitions []ConfigurationManagerConfigurationDefinition `pulumi:"configurationDefinitions"`
-	Description              *string                                       `pulumi:"description"`
-	Name                     *string                                       `pulumi:"name"`
-	Tags                     map[string]string                             `pulumi:"tags"`
+	// The description of the configuration.
+	Description *string `pulumi:"description"`
+	// The name of the configuration
+	Name *string `pulumi:"name"`
+	// Key-value pairs of metadata to assign to the configuration manager.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationManager resource.
 type ConfigurationManagerArgs struct {
+	// The definition of the Quick Setup configuration that the configuration manager deploys.
 	ConfigurationDefinitions ConfigurationManagerConfigurationDefinitionArrayInput
-	Description              pulumi.StringPtrInput
-	Name                     pulumi.StringPtrInput
-	Tags                     pulumi.StringMapInput
+	// The description of the configuration.
+	Description pulumi.StringPtrInput
+	// The name of the configuration
+	Name pulumi.StringPtrInput
+	// Key-value pairs of metadata to assign to the configuration manager.
+	Tags pulumi.StringMapInput
 }
 
 func (ConfigurationManagerArgs) ElementType() reflect.Type {
@@ -125,36 +141,44 @@ func (o ConfigurationManagerOutput) ToConfigurationManagerOutputWithContext(ctx 
 	return o
 }
 
+// The definition of the Quick Setup configuration that the configuration manager deploys.
 func (o ConfigurationManagerOutput) ConfigurationDefinitions() ConfigurationManagerConfigurationDefinitionArrayOutput {
 	return o.ApplyT(func(v *ConfigurationManager) ConfigurationManagerConfigurationDefinitionArrayOutput {
 		return v.ConfigurationDefinitions
 	}).(ConfigurationManagerConfigurationDefinitionArrayOutput)
 }
 
+// The datetime stamp when the configuration manager was created.
 func (o ConfigurationManagerOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationManager) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The description of the configuration.
 func (o ConfigurationManagerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationManager) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The datetime stamp when the configuration manager was last updated.
 func (o ConfigurationManagerOutput) LastModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationManager) pulumi.StringOutput { return v.LastModifiedAt }).(pulumi.StringOutput)
 }
 
+// The ARN of the Quick Setup configuration.
 func (o ConfigurationManagerOutput) ManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationManager) pulumi.StringOutput { return v.ManagerArn }).(pulumi.StringOutput)
 }
 
+// The name of the configuration
 func (o ConfigurationManagerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationManager) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
 func (o ConfigurationManagerOutput) StatusSummaries() ConfigurationManagerStatusSummaryArrayOutput {
 	return o.ApplyT(func(v *ConfigurationManager) ConfigurationManagerStatusSummaryArrayOutput { return v.StatusSummaries }).(ConfigurationManagerStatusSummaryArrayOutput)
 }
 
+// Key-value pairs of metadata to assign to the configuration manager.
 func (o ConfigurationManagerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationManager) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

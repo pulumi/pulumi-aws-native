@@ -49,6 +49,11 @@ export class VpnConnection extends pulumi.CustomResource {
      *  Default: ``false``
      */
     public readonly enableAcceleration!: pulumi.Output<boolean | undefined>;
+    public readonly localIpv4NetworkCidr!: pulumi.Output<string | undefined>;
+    public readonly localIpv6NetworkCidr!: pulumi.Output<string | undefined>;
+    public readonly outsideIpAddressType!: pulumi.Output<string | undefined>;
+    public readonly remoteIpv4NetworkCidr!: pulumi.Output<string | undefined>;
+    public readonly remoteIpv6NetworkCidr!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
      *  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
@@ -63,6 +68,8 @@ export class VpnConnection extends pulumi.CustomResource {
      *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
     public readonly transitGatewayId!: pulumi.Output<string | undefined>;
+    public readonly transportTransitGatewayAttachmentId!: pulumi.Output<string | undefined>;
+    public readonly tunnelInsideIpVersion!: pulumi.Output<string | undefined>;
     /**
      * The type of VPN connection.
      */
@@ -100,9 +107,16 @@ export class VpnConnection extends pulumi.CustomResource {
             }
             resourceInputs["customerGatewayId"] = args ? args.customerGatewayId : undefined;
             resourceInputs["enableAcceleration"] = args ? args.enableAcceleration : undefined;
+            resourceInputs["localIpv4NetworkCidr"] = args ? args.localIpv4NetworkCidr : undefined;
+            resourceInputs["localIpv6NetworkCidr"] = args ? args.localIpv6NetworkCidr : undefined;
+            resourceInputs["outsideIpAddressType"] = args ? args.outsideIpAddressType : undefined;
+            resourceInputs["remoteIpv4NetworkCidr"] = args ? args.remoteIpv4NetworkCidr : undefined;
+            resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
             resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
+            resourceInputs["tunnelInsideIpVersion"] = args ? args.tunnelInsideIpVersion : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             resourceInputs["vpnTunnelOptionsSpecifications"] = args ? args.vpnTunnelOptionsSpecifications : undefined;
@@ -110,16 +124,23 @@ export class VpnConnection extends pulumi.CustomResource {
         } else {
             resourceInputs["customerGatewayId"] = undefined /*out*/;
             resourceInputs["enableAcceleration"] = undefined /*out*/;
+            resourceInputs["localIpv4NetworkCidr"] = undefined /*out*/;
+            resourceInputs["localIpv6NetworkCidr"] = undefined /*out*/;
+            resourceInputs["outsideIpAddressType"] = undefined /*out*/;
+            resourceInputs["remoteIpv4NetworkCidr"] = undefined /*out*/;
+            resourceInputs["remoteIpv6NetworkCidr"] = undefined /*out*/;
             resourceInputs["staticRoutesOnly"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
+            resourceInputs["transportTransitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["tunnelInsideIpVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vpnConnectionId"] = undefined /*out*/;
             resourceInputs["vpnGatewayId"] = undefined /*out*/;
             resourceInputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "enableAcceleration", "staticRoutesOnly", "transitGatewayId", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,6 +159,11 @@ export interface VpnConnectionArgs {
      *  Default: ``false``
      */
     enableAcceleration?: pulumi.Input<boolean>;
+    localIpv4NetworkCidr?: pulumi.Input<string>;
+    localIpv6NetworkCidr?: pulumi.Input<string>;
+    outsideIpAddressType?: pulumi.Input<string>;
+    remoteIpv4NetworkCidr?: pulumi.Input<string>;
+    remoteIpv6NetworkCidr?: pulumi.Input<string>;
     /**
      * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
      *  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
@@ -152,6 +178,8 @@ export interface VpnConnectionArgs {
      *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
     transitGatewayId?: pulumi.Input<string>;
+    transportTransitGatewayAttachmentId?: pulumi.Input<string>;
+    tunnelInsideIpVersion?: pulumi.Input<string>;
     /**
      * The type of VPN connection.
      */

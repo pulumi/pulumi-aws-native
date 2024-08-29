@@ -49,6 +49,9 @@ export class Application extends pulumi.CustomResource {
      * Configuration information for the file upload during chat feature.
      */
     public readonly attachmentsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationAttachmentsConfiguration | undefined>;
+    /**
+     * Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+     */
     public readonly autoSubscriptionConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationAutoSubscriptionConfiguration | undefined>;
     public readonly clientIdsForOidc!: pulumi.Output<string[] | undefined>;
     /**
@@ -67,6 +70,9 @@ export class Application extends pulumi.CustomResource {
      * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
      */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationEncryptionConfiguration | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+     */
     public readonly iamIdentityProviderArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
@@ -78,7 +84,13 @@ export class Application extends pulumi.CustomResource {
      * *Required* : `Yes`
      */
     public readonly identityCenterInstanceArn!: pulumi.Output<string | undefined>;
+    /**
+     * The authentication type being used by a Amazon Q Business application.
+     */
     public readonly identityType!: pulumi.Output<enums.qbusiness.ApplicationIdentityType | undefined>;
+    /**
+     * Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+     */
     public readonly personalizationConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationPersonalizationConfiguration | undefined>;
     /**
      * Configuration information about Amazon Q Apps.
@@ -170,6 +182,9 @@ export interface ApplicationArgs {
      * Configuration information for the file upload during chat feature.
      */
     attachmentsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAttachmentsConfigurationArgs>;
+    /**
+     * Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+     */
     autoSubscriptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAutoSubscriptionConfigurationArgs>;
     clientIdsForOidc?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -184,6 +199,9 @@ export interface ApplicationArgs {
      * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
      */
     encryptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationEncryptionConfigurationArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+     */
     iamIdentityProviderArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
@@ -191,7 +209,13 @@ export interface ApplicationArgs {
      * *Required* : `Yes`
      */
     identityCenterInstanceArn?: pulumi.Input<string>;
+    /**
+     * The authentication type being used by a Amazon Q Business application.
+     */
     identityType?: pulumi.Input<enums.qbusiness.ApplicationIdentityType>;
+    /**
+     * Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+     */
     personalizationConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationPersonalizationConfigurationArgs>;
     /**
      * Configuration information about Amazon Q Apps.

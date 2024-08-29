@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.SsmQuickSetup
     [AwsNativeResourceType("aws-native:ssmquicksetup:ConfigurationManager")]
     public partial class ConfigurationManager : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The definition of the Quick Setup configuration that the configuration manager deploys.
+        /// </summary>
         [Output("configurationDefinitions")]
         public Output<ImmutableArray<Outputs.ConfigurationManagerConfigurationDefinition>> ConfigurationDefinitions { get; private set; } = null!;
 
+        /// <summary>
+        /// The datetime stamp when the configuration manager was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the configuration.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The datetime stamp when the configuration manager was last updated.
+        /// </summary>
         [Output("lastModifiedAt")]
         public Output<string> LastModifiedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the Quick Setup configuration.
+        /// </summary>
         [Output("managerArn")]
         public Output<string> ManagerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the configuration
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
+        /// </summary>
         [Output("statusSummaries")]
         public Output<ImmutableArray<Outputs.ConfigurationManagerStatusSummary>> StatusSummaries { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value pairs of metadata to assign to the configuration manager.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -91,20 +115,34 @@ namespace Pulumi.AwsNative.SsmQuickSetup
     {
         [Input("configurationDefinitions", required: true)]
         private InputList<Inputs.ConfigurationManagerConfigurationDefinitionArgs>? _configurationDefinitions;
+
+        /// <summary>
+        /// The definition of the Quick Setup configuration that the configuration manager deploys.
+        /// </summary>
         public InputList<Inputs.ConfigurationManagerConfigurationDefinitionArgs> ConfigurationDefinitions
         {
             get => _configurationDefinitions ?? (_configurationDefinitions = new InputList<Inputs.ConfigurationManagerConfigurationDefinitionArgs>());
             set => _configurationDefinitions = value;
         }
 
+        /// <summary>
+        /// The description of the configuration.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the configuration
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value pairs of metadata to assign to the configuration manager.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

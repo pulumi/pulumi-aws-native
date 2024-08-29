@@ -7957,7 +7957,7 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
                  vpc_peering_connection_id: Optional[str] = None):
         """
         :param str destination_cidr: The destination IPv4 address, in CIDR notation.
-        :param str destination_prefix_list_id: The prefix of the AWS-service .
+        :param str destination_prefix_list_id: The prefix of the AWS service.
         :param str egress_only_internet_gateway_id: The ID of an egress-only internet gateway.
         :param str gateway_id: The ID of the gateway, such as an internet gateway or virtual private gateway.
         :param str instance_id: The ID of the instance, such as a NAT instance.
@@ -8010,7 +8010,7 @@ class NetworkInsightsAnalysisAnalysisRouteTableRoute(dict):
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> Optional[str]:
         """
-        The prefix of the AWS-service .
+        The prefix of the AWS service.
         """
         return pulumi.get(self, "destination_prefix_list_id")
 

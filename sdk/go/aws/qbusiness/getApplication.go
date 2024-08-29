@@ -34,7 +34,8 @@ type LookupApplicationResult struct {
 	// The identifier for the Amazon Q Business application.
 	ApplicationId *string `pulumi:"applicationId"`
 	// Configuration information for the file upload during chat feature.
-	AttachmentsConfiguration      *ApplicationAttachmentsConfiguration      `pulumi:"attachmentsConfiguration"`
+	AttachmentsConfiguration *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
+	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 	AutoSubscriptionConfiguration *ApplicationAutoSubscriptionConfiguration `pulumi:"autoSubscriptionConfiguration"`
 	// The Unix timestamp when the Amazon Q Business application was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -43,7 +44,8 @@ type LookupApplicationResult struct {
 	// The name of the Amazon Q Business application.
 	DisplayName *string `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
-	IdentityCenterApplicationArn *string                                  `pulumi:"identityCenterApplicationArn"`
+	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
+	// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 	PersonalizationConfiguration *ApplicationPersonalizationConfiguration `pulumi:"personalizationConfiguration"`
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration *ApplicationQAppsConfiguration `pulumi:"qAppsConfiguration"`
@@ -110,6 +112,7 @@ func (o LookupApplicationResultOutput) AttachmentsConfiguration() ApplicationAtt
 	}).(ApplicationAttachmentsConfigurationPtrOutput)
 }
 
+// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 func (o LookupApplicationResultOutput) AutoSubscriptionConfiguration() ApplicationAutoSubscriptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationAutoSubscriptionConfiguration {
 		return v.AutoSubscriptionConfiguration
@@ -136,6 +139,7 @@ func (o LookupApplicationResultOutput) IdentityCenterApplicationArn() pulumi.Str
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 func (o LookupApplicationResultOutput) PersonalizationConfiguration() ApplicationPersonalizationConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationPersonalizationConfiguration {
 		return v.PersonalizationConfiguration

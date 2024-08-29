@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("attachmentsConfiguration")]
         public Output<Outputs.ApplicationAttachmentsConfiguration?> AttachmentsConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        /// </summary>
         [Output("autoSubscriptionConfiguration")]
         public Output<Outputs.ApplicationAutoSubscriptionConfiguration?> AutoSubscriptionConfiguration { get; private set; } = null!;
 
@@ -63,6 +66,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("encryptionConfiguration")]
         public Output<Outputs.ApplicationEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+        /// </summary>
         [Output("iamIdentityProviderArn")]
         public Output<string?> IamIdentityProviderArn { get; private set; } = null!;
 
@@ -80,9 +86,15 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("identityCenterInstanceArn")]
         public Output<string?> IdentityCenterInstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The authentication type being used by a Amazon Q Business application.
+        /// </summary>
         [Output("identityType")]
         public Output<Pulumi.AwsNative.QBusiness.ApplicationIdentityType?> IdentityType { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+        /// </summary>
         [Output("personalizationConfiguration")]
         public Output<Outputs.ApplicationPersonalizationConfiguration?> PersonalizationConfiguration { get; private set; } = null!;
 
@@ -174,6 +186,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("attachmentsConfiguration")]
         public Input<Inputs.ApplicationAttachmentsConfigurationArgs>? AttachmentsConfiguration { get; set; }
 
+        /// <summary>
+        /// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        /// </summary>
         [Input("autoSubscriptionConfiguration")]
         public Input<Inputs.ApplicationAutoSubscriptionConfigurationArgs>? AutoSubscriptionConfiguration { get; set; }
 
@@ -203,6 +218,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("encryptionConfiguration")]
         public Input<Inputs.ApplicationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+        /// </summary>
         [Input("iamIdentityProviderArn")]
         public Input<string>? IamIdentityProviderArn { get; set; }
 
@@ -214,9 +232,15 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
 
+        /// <summary>
+        /// The authentication type being used by a Amazon Q Business application.
+        /// </summary>
         [Input("identityType")]
         public Input<Pulumi.AwsNative.QBusiness.ApplicationIdentityType>? IdentityType { get; set; }
 
+        /// <summary>
+        /// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+        /// </summary>
         [Input("personalizationConfiguration")]
         public Input<Inputs.ApplicationPersonalizationConfigurationArgs>? PersonalizationConfiguration { get; set; }
 

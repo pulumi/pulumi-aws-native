@@ -83,7 +83,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The IPv6 network ranges for the subnet, in CIDR notation.
      */
-    public readonly ipv6CidrBlocks!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly ipv6CidrBlocks!: pulumi.Output<string[]>;
     /**
      * An IPv6 IPAM pool ID for the subnet.
      */
@@ -154,7 +154,6 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            resourceInputs["ipv6CidrBlocks"] = args ? args.ipv6CidrBlocks : undefined;
             resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
             resourceInputs["ipv6Native"] = args ? args.ipv6Native : undefined;
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
@@ -163,6 +162,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["privateDnsNameOptionsOnLaunch"] = args ? args.privateDnsNameOptionsOnLaunch : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
             resourceInputs["networkAclAssociationId"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
         } else {
@@ -239,10 +239,6 @@ export interface SubnetArgs {
      *  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
-    /**
-     * The IPv6 network ranges for the subnet, in CIDR notation.
-     */
-    ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An IPv6 IPAM pool ID for the subnet.
      */

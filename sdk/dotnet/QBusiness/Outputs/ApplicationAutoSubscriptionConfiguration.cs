@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class ApplicationAutoSubscriptionConfiguration
     {
+        /// <summary>
+        /// Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.ApplicationAutoSubscriptionStatus AutoSubscribe;
+        /// <summary>
+        /// Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.ApplicationSubscriptionType? DefaultSubscriptionType;
 
         [OutputConstructor]

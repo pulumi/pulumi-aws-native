@@ -16665,7 +16665,7 @@ type LocalGatewayRouteTableVpcAssociationTag struct {
 	Value *string `pulumi:"value"`
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type NatGatewayTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -18163,7 +18163,7 @@ func (o NetworkInsightsAnalysisAnalysisPacketHeaderPtrOutput) SourcePortRanges()
 type NetworkInsightsAnalysisAnalysisRouteTableRoute struct {
 	// The destination IPv4 address, in CIDR notation.
 	DestinationCidr *string `pulumi:"destinationCidr"`
-	// The prefix of the AWS-service .
+	// The prefix of the AWS service.
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// The ID of an egress-only internet gateway.
 	EgressOnlyInternetGatewayId *string `pulumi:"egressOnlyInternetGatewayId"`
@@ -18211,7 +18211,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationCidr() 
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.DestinationCidr }).(pulumi.StringPtrOutput)
 }
 
-// The prefix of the AWS-service .
+// The prefix of the AWS service.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRouteOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAnalysisRouteTableRoute) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
@@ -18302,7 +18302,7 @@ func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationCidr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prefix of the AWS-service .
+// The prefix of the AWS service.
 func (o NetworkInsightsAnalysisAnalysisRouteTableRoutePtrOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysisAnalysisRouteTableRoute) *string {
 		if v == nil {

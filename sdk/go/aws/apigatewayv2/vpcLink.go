@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::VpcLink
+// The “AWS::ApiGatewayV2::VpcLink“ resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from “PENDING“ to “AVAILABLE“ to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
 type VpcLink struct {
 	pulumi.CustomResourceState
 
@@ -22,7 +22,7 @@ type VpcLink struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// A list of subnet IDs to include in the VPC link.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// This resource type use map for Tags, suggest to use List of Tag
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The VPC link ID.
 	VpcLinkId pulumi.StringOutput `pulumi:"vpcLinkId"`
@@ -82,7 +82,7 @@ type vpcLinkArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of subnet IDs to include in the VPC link.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// This resource type use map for Tags, suggest to use List of Tag
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -94,7 +94,7 @@ type VpcLinkArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// A list of subnet IDs to include in the VPC link.
 	SubnetIds pulumi.StringArrayInput
-	// This resource type use map for Tags, suggest to use List of Tag
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -150,7 +150,7 @@ func (o VpcLinkOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// This resource type use map for Tags, suggest to use List of Tag
+// The collection of tags. Each tag element is associated with a given resource.
 func (o VpcLinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

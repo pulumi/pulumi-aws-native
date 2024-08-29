@@ -1078,17 +1078,21 @@ func (o PatchBaselinePatchSourceArrayOutput) Index(i pulumi.IntInput) PatchBasel
 type PatchBaselineRule struct {
 	// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 	//
-	// > This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
+	// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 	//
 	// Not supported for Debian Server or Ubuntu Server.
+	//
+	// > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
 	ApproveAfterDays *int `pulumi:"approveAfterDays"`
 	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 	//
 	// Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
 	//
-	// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+	// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
 	//
 	// Not supported for Debian Server or Ubuntu Server.
+	//
+	// > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
 	ApproveUntilDate *string `pulumi:"approveUntilDate"`
 	// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
 	ComplianceLevel *PatchBaselineRuleComplianceLevel `pulumi:"complianceLevel"`
@@ -1113,17 +1117,21 @@ type PatchBaselineRuleInput interface {
 type PatchBaselineRuleArgs struct {
 	// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 	//
-	// > This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
+	// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 	//
 	// Not supported for Debian Server or Ubuntu Server.
+	//
+	// > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
 	ApproveAfterDays pulumi.IntPtrInput `pulumi:"approveAfterDays"`
 	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
 	//
 	// Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
 	//
-	// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+	// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
 	//
 	// Not supported for Debian Server or Ubuntu Server.
+	//
+	// > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
 	ApproveUntilDate pulumi.StringPtrInput `pulumi:"approveUntilDate"`
 	// A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
 	ComplianceLevel PatchBaselineRuleComplianceLevelPtrInput `pulumi:"complianceLevel"`
@@ -1187,9 +1195,11 @@ func (o PatchBaselineRuleOutput) ToPatchBaselineRuleOutputWithContext(ctx contex
 
 // The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
 //
-// > This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
+// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
 //
 // Not supported for Debian Server or Ubuntu Server.
+//
+// > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
 func (o PatchBaselineRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
 }
@@ -1198,9 +1208,11 @@ func (o PatchBaselineRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
 //
 // Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
 //
-// > This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
+// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
 //
 // Not supported for Debian Server or Ubuntu Server.
+//
+// > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
 func (o PatchBaselineRuleOutput) ApproveUntilDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *string { return v.ApproveUntilDate }).(pulumi.StringPtrOutput)
 }

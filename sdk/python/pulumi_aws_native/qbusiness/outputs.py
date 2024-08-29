@@ -110,6 +110,10 @@ class ApplicationAutoSubscriptionConfiguration(dict):
     def __init__(__self__, *,
                  auto_subscribe: 'ApplicationAutoSubscriptionStatus',
                  default_subscription_type: Optional['ApplicationSubscriptionType'] = None):
+        """
+        :param 'ApplicationAutoSubscriptionStatus' auto_subscribe: Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
+        :param 'ApplicationSubscriptionType' default_subscription_type: Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
+        """
         pulumi.set(__self__, "auto_subscribe", auto_subscribe)
         if default_subscription_type is not None:
             pulumi.set(__self__, "default_subscription_type", default_subscription_type)
@@ -117,11 +121,17 @@ class ApplicationAutoSubscriptionConfiguration(dict):
     @property
     @pulumi.getter(name="autoSubscribe")
     def auto_subscribe(self) -> 'ApplicationAutoSubscriptionStatus':
+        """
+        Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
+        """
         return pulumi.get(self, "auto_subscribe")
 
     @property
     @pulumi.getter(name="defaultSubscriptionType")
     def default_subscription_type(self) -> Optional['ApplicationSubscriptionType']:
+        """
+        Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
+        """
         return pulumi.get(self, "default_subscription_type")
 
 
@@ -182,11 +192,17 @@ class ApplicationPersonalizationConfiguration(dict):
 
     def __init__(__self__, *,
                  personalization_control_mode: 'ApplicationPersonalizationControlMode'):
+        """
+        :param 'ApplicationPersonalizationControlMode' personalization_control_mode: An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
+        """
         pulumi.set(__self__, "personalization_control_mode", personalization_control_mode)
 
     @property
     @pulumi.getter(name="personalizationControlMode")
     def personalization_control_mode(self) -> 'ApplicationPersonalizationControlMode':
+        """
+        An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
+        """
         return pulumi.get(self, "personalization_control_mode")
 
 

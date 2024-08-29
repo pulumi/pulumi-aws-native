@@ -46,7 +46,10 @@ export class Filter extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+     * The detector ID associated with the GuardDuty account for which you want to create a filter.
+     *
+     * To find the `detectorId` in the current Region, see the
+     * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     public readonly detectorId!: pulumi.Output<string>;
     /**
@@ -123,7 +126,10 @@ export interface FilterArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+     * The detector ID associated with the GuardDuty account for which you want to create a filter.
+     *
+     * To find the `detectorId` in the current Region, see the
+     * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     detectorId: pulumi.Input<string>;
     /**

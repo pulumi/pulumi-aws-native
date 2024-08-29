@@ -24,7 +24,10 @@ func LookupFilter(ctx *pulumi.Context, args *LookupFilterArgs, opts ...pulumi.In
 }
 
 type LookupFilterArgs struct {
-	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	// The detector ID associated with the GuardDuty account for which you want to create a filter.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId string `pulumi:"detectorId"`
 	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 	Name string `pulumi:"name"`
@@ -61,7 +64,10 @@ func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts .
 }
 
 type LookupFilterOutputArgs struct {
-	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	// The detector ID associated with the GuardDuty account for which you want to create a filter.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId pulumi.StringInput `pulumi:"detectorId"`
 	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 	Name pulumi.StringInput `pulumi:"name"`

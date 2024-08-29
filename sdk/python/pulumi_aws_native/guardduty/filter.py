@@ -27,7 +27,10 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Filter resource.
-        :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        :param pulumi.Input[str] detector_id: The detector ID associated with the GuardDuty account for which you want to create a filter.
+               
+               To find the `detectorId` in the current Region, see the
+               Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings.
         :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter.
         :param pulumi.Input[str] description: The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
@@ -56,7 +59,10 @@ class FilterArgs:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[str]:
         """
-        The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        The detector ID associated with the GuardDuty account for which you want to create a filter.
+
+        To find the `detectorId` in the current Region, see the
+        Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         """
         return pulumi.get(self, "detector_id")
 
@@ -161,7 +167,10 @@ class Filter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter.
         :param pulumi.Input[str] description: The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
-        :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        :param pulumi.Input[str] detector_id: The detector ID associated with the GuardDuty account for which you want to create a filter.
+               
+               To find the `detectorId` in the current Region, see the
+               Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings.
         :param pulumi.Input[str] name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
         :param pulumi.Input[int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
@@ -275,7 +284,10 @@ class Filter(pulumi.CustomResource):
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[str]:
         """
-        The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+        The detector ID associated with the GuardDuty account for which you want to create a filter.
+
+        To find the `detectorId` in the current Region, see the
+        Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         """
         return pulumi.get(self, "detector_id")
 

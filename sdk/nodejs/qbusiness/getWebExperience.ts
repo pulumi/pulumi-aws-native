@@ -39,6 +39,9 @@ export interface GetWebExperienceResult {
      * The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
      */
     readonly defaultEndpoint?: string;
+    /**
+     * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+     */
     readonly identityProviderConfiguration?: outputs.qbusiness.WebExperienceIdentityProviderConfiguration0Properties | outputs.qbusiness.WebExperienceIdentityProviderConfiguration1Properties;
     /**
      * The Amazon Resource Name (ARN) of the service role attached to your web experience.

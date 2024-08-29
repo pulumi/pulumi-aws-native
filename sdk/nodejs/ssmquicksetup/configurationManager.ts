@@ -37,13 +37,37 @@ export class ConfigurationManager extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationManager.__pulumiType;
     }
 
+    /**
+     * The definition of the Quick Setup configuration that the configuration manager deploys.
+     */
     public readonly configurationDefinitions!: pulumi.Output<outputs.ssmquicksetup.ConfigurationManagerConfigurationDefinition[]>;
+    /**
+     * The datetime stamp when the configuration manager was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The description of the configuration.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The datetime stamp when the configuration manager was last updated.
+     */
     public /*out*/ readonly lastModifiedAt!: pulumi.Output<string>;
+    /**
+     * The ARN of the Quick Setup configuration.
+     */
     public /*out*/ readonly managerArn!: pulumi.Output<string>;
+    /**
+     * The name of the configuration
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
+     */
     public /*out*/ readonly statusSummaries!: pulumi.Output<outputs.ssmquicksetup.ConfigurationManagerStatusSummary[]>;
+    /**
+     * Key-value pairs of metadata to assign to the configuration manager.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -89,8 +113,20 @@ export class ConfigurationManager extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationManager resource.
  */
 export interface ConfigurationManagerArgs {
+    /**
+     * The definition of the Quick Setup configuration that the configuration manager deploys.
+     */
     configurationDefinitions: pulumi.Input<pulumi.Input<inputs.ssmquicksetup.ConfigurationManagerConfigurationDefinitionArgs>[]>;
+    /**
+     * The description of the configuration.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the configuration
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value pairs of metadata to assign to the configuration manager.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

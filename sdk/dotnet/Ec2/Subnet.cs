@@ -265,18 +265,6 @@ namespace Pulumi.AwsNative.Ec2
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
-        [Input("ipv6CidrBlocks")]
-        private InputList<string>? _ipv6CidrBlocks;
-
-        /// <summary>
-        /// The IPv6 network ranges for the subnet, in CIDR notation.
-        /// </summary>
-        public InputList<string> Ipv6CidrBlocks
-        {
-            get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
-            set => _ipv6CidrBlocks = value;
-        }
-
         /// <summary>
         /// An IPv6 IPAM pool ID for the subnet.
         /// </summary>

@@ -21,7 +21,10 @@ type Filter struct {
 	Action pulumi.StringPtrOutput `pulumi:"action"`
 	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	// The detector ID associated with the GuardDuty account for which you want to create a filter.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteriaOutput `pulumi:"findingCriteria"`
@@ -92,7 +95,10 @@ type filterArgs struct {
 	Action *string `pulumi:"action"`
 	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description *string `pulumi:"description"`
-	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	// The detector ID associated with the GuardDuty account for which you want to create a filter.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId string `pulumi:"detectorId"`
 	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteria `pulumi:"findingCriteria"`
@@ -114,7 +120,10 @@ type FilterArgs struct {
 	Action pulumi.StringPtrInput
 	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description pulumi.StringPtrInput
-	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+	// The detector ID associated with the GuardDuty account for which you want to create a filter.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId pulumi.StringInput
 	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteriaInput
@@ -177,7 +186,10 @@ func (o FilterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+// The detector ID associated with the GuardDuty account for which you want to create a filter.
+//
+// To find the `detectorId` in the current Region, see the
+// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 func (o FilterOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }

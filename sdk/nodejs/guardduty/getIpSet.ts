@@ -21,7 +21,10 @@ export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetIpSetArgs {
     /**
-     * The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+     * The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+     *
+     * To find the `detectorId` in the current Region, see the
+     * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     detectorId: string;
     id: string;
@@ -55,7 +58,10 @@ export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOpt
 
 export interface GetIpSetOutputArgs {
     /**
-     * The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+     * The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+     *
+     * To find the `detectorId` in the current Region, see the
+     * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     detectorId: pulumi.Input<string>;
     id: pulumi.Input<string>;

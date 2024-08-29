@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.TemplateCategoryFilter? CategoryFilter;
+        /// <summary>
+        /// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+        /// </summary>
         public readonly Outputs.TemplateNestedFilter? NestedFilter;
         /// <summary>
         /// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.

@@ -18,9 +18,11 @@ namespace Pulumi.AwsNative.Ssm.Inputs
         /// <summary>
         /// The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
         /// 
-        /// &gt; This parameter is marked as not required, but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` . 
+        /// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
         /// 
         /// Not supported for Debian Server or Ubuntu Server.
+        /// 
+        /// &gt; Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
         /// </summary>
         [Input("approveAfterDays")]
         public Input<int>? ApproveAfterDays { get; set; }
@@ -30,9 +32,11 @@ namespace Pulumi.AwsNative.Ssm.Inputs
         /// 
         /// Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
         /// 
-        /// &gt; This parameter is marked as not required, but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` . 
+        /// This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
         /// 
         /// Not supported for Debian Server or Ubuntu Server.
+        /// 
+        /// &gt; Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
         /// </summary>
         [Input("approveUntilDate")]
         public Input<string>? ApproveUntilDate { get; set; }

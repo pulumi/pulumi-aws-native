@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateInnerFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `CategoryInnerFilter` filters text values for the `NestedFilter` .
+        /// </summary>
         [Input("categoryInnerFilter")]
         public Input<Inputs.TemplateCategoryInnerFilterArgs>? CategoryInnerFilter { get; set; }
 

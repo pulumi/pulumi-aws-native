@@ -102,7 +102,10 @@ def get_filter(detector_id: Optional[str] = None,
     Resource Type definition for AWS::GuardDuty::Filter
 
 
-    :param str detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+    :param str detector_id: The detector ID associated with the GuardDuty account for which you want to create a filter.
+           
+           To find the `detectorId` in the current Region, see the
+           Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
     :param str name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
     """
     __args__ = dict()
@@ -127,7 +130,10 @@ def get_filter_output(detector_id: Optional[pulumi.Input[str]] = None,
     Resource Type definition for AWS::GuardDuty::Filter
 
 
-    :param str detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
+    :param str detector_id: The detector ID associated with the GuardDuty account for which you want to create a filter.
+           
+           To find the `detectorId` in the current Region, see the
+           Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
     :param str name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
     """
     ...

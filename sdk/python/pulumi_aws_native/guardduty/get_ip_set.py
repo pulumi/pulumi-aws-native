@@ -86,7 +86,10 @@ def get_ip_set(detector_id: Optional[str] = None,
     Resource Type definition for AWS::GuardDuty::IPSet
 
 
-    :param str detector_id: The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+    :param str detector_id: The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+           
+           To find the `detectorId` in the current Region, see the
+           Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
@@ -109,6 +112,9 @@ def get_ip_set_output(detector_id: Optional[pulumi.Input[str]] = None,
     Resource Type definition for AWS::GuardDuty::IPSet
 
 
-    :param str detector_id: The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+    :param str detector_id: The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+           
+           To find the `detectorId` in the current Region, see the
+           Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
     """
     ...

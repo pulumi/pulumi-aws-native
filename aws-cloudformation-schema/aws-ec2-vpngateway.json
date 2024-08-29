@@ -51,7 +51,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags" ]
   },
   "createOnlyProperties" : [ "/properties/AmazonSideAsn", "/properties/Type" ],
   "readOnlyProperties" : [ "/properties/VPNGatewayId" ],
@@ -67,7 +68,7 @@
       "permissions" : [ "ec2:DescribeVpnGateways", "ec2:CreateTags", "ec2:DeleteTags" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteVpnGateway", "ec2:DescribeVpnGateways", "ec2:DeleteTags" ]
+      "permissions" : [ "ec2:DeleteVpnGateway", "ec2:DescribeVpnGateways" ]
     },
     "list" : {
       "permissions" : [ "ec2:DescribeVpnGateways" ]

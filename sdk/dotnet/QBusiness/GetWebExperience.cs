@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
         /// </summary>
         public readonly string? DefaultEndpoint;
+        /// <summary>
+        /// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+        /// </summary>
         public readonly Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>? IdentityProviderConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service role attached to your web experience.

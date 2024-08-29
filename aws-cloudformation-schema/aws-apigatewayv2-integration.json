@@ -182,6 +182,14 @@
       "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ApiId" : {
+            "$ref" : "resource-schema.json#/properties/ApiId"
+          }
+        },
+        "required" : [ "ApiId" ]
+      },
       "permissions" : [ "apigateway:GET" ]
     }
   }

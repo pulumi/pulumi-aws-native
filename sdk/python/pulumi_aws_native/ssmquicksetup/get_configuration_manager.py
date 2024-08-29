@@ -49,41 +49,65 @@ class GetConfigurationManagerResult:
     @property
     @pulumi.getter(name="configurationDefinitions")
     def configuration_definitions(self) -> Optional[Sequence['outputs.ConfigurationManagerConfigurationDefinition']]:
+        """
+        The definition of the Quick Setup configuration that the configuration manager deploys.
+        """
         return pulumi.get(self, "configuration_definitions")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The datetime stamp when the configuration manager was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
+        """
+        The datetime stamp when the configuration manager was last updated.
+        """
         return pulumi.get(self, "last_modified_at")
 
     @property
     @pulumi.getter(name="managerArn")
     def manager_arn(self) -> Optional[str]:
+        """
+        The ARN of the Quick Setup configuration.
+        """
         return pulumi.get(self, "manager_arn")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the configuration
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="statusSummaries")
     def status_summaries(self) -> Optional[Sequence['outputs.ConfigurationManagerStatusSummary']]:
+        """
+        Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
+        """
         return pulumi.get(self, "status_summaries")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value pairs of metadata to assign to the configuration manager.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -107,6 +131,9 @@ def get_configuration_manager(manager_arn: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationManagerResult:
     """
     Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
+
+
+    :param str manager_arn: The ARN of the Quick Setup configuration.
     """
     __args__ = dict()
     __args__['managerArn'] = manager_arn
@@ -129,5 +156,8 @@ def get_configuration_manager_output(manager_arn: Optional[pulumi.Input[str]] = 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationManagerResult]:
     """
     Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
+
+
+    :param str manager_arn: The ARN of the Quick Setup configuration.
     """
     ...

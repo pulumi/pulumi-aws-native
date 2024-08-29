@@ -359,6 +359,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
             set => _resourceRequirements = value;
         }
 
+        /// <summary>
+        /// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         [Input("restartPolicy")]
         public Input<Inputs.TaskDefinitionRestartPolicyArgs>? RestartPolicy { get; set; }
 

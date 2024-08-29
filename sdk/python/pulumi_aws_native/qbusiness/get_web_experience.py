@@ -81,6 +81,9 @@ class GetWebExperienceResult:
     @property
     @pulumi.getter(name="identityProviderConfiguration")
     def identity_provider_configuration(self) -> Optional[Any]:
+        """
+        Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+        """
         return pulumi.get(self, "identity_provider_configuration")
 
     @property

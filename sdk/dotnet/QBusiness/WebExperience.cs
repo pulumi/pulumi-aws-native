@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("defaultEndpoint")]
         public Output<string> DefaultEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+        /// </summary>
         [Output("identityProviderConfiguration")]
         public Output<Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>?> IdentityProviderConfiguration { get; private set; } = null!;
 
@@ -153,6 +156,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+        /// </summary>
         [Input("identityProviderConfiguration")]
         public InputUnion<Inputs.WebExperienceIdentityProviderConfiguration0PropertiesArgs, Inputs.WebExperienceIdentityProviderConfiguration1PropertiesArgs>? IdentityProviderConfiguration { get; set; }
 

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class ApplicationPersonalizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
+        /// </summary>
         [Input("personalizationControlMode", required: true)]
         public Input<Pulumi.AwsNative.QBusiness.ApplicationPersonalizationControlMode> PersonalizationControlMode { get; set; } = null!;
 

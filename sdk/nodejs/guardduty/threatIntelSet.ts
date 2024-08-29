@@ -46,7 +46,10 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+     * The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+     *
+     * To find the `detectorId` in the current Region, see the
+     * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     public readonly detectorId!: pulumi.Output<string | undefined>;
     /**
@@ -117,7 +120,10 @@ export interface ThreatIntelSetArgs {
      */
     activate?: pulumi.Input<boolean>;
     /**
-     * The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+     * The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+     *
+     * To find the `detectorId` in the current Region, see the
+     * Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
      */
     detectorId?: pulumi.Input<string>;
     /**

@@ -23,7 +23,7 @@ class VpcLinkArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to include in the VPC link.
         :param pulumi.Input[str] name: The name of the VPC link.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs for the VPC link.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: This resource type use map for Tags, suggest to use List of Tag
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if name is not None:
@@ -73,7 +73,7 @@ class VpcLinkArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        This resource type use map for Tags, suggest to use List of Tag
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
@@ -93,14 +93,14 @@ class VpcLink(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::VpcLink
+        The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the VPC link.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs for the VPC link.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs to include in the VPC link.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: This resource type use map for Tags, suggest to use List of Tag
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class VpcLink(pulumi.CustomResource):
                  args: VpcLinkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::VpcLink
+        The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param VpcLinkArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        This resource type use map for Tags, suggest to use List of Tag
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 

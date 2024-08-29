@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? DestinationCidr;
         /// <summary>
-        /// The prefix of the AWS-service .
+        /// The prefix of the AWS service.
         /// </summary>
         public readonly string? DestinationPrefixListId;
         /// <summary>

@@ -5896,7 +5896,8 @@ type TaskDefinitionContainerDefinition struct {
 	RepositoryCredentials *TaskDefinitionRepositoryCredentials `pulumi:"repositoryCredentials"`
 	// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
 	ResourceRequirements []TaskDefinitionResourceRequirement `pulumi:"resourceRequirements"`
-	RestartPolicy        *TaskDefinitionRestartPolicy        `pulumi:"restartPolicy"`
+	// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
+	RestartPolicy *TaskDefinitionRestartPolicy `pulumi:"restartPolicy"`
 	// The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
 	Secrets []TaskDefinitionSecret `pulumi:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE``, ``SUCCESS``, or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it doesn't reach the desired status within that time then containerA gives up and not start. This results in the task transitioning to a ``STOPPED`` state.
@@ -6079,7 +6080,8 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	RepositoryCredentials TaskDefinitionRepositoryCredentialsPtrInput `pulumi:"repositoryCredentials"`
 	// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
 	ResourceRequirements TaskDefinitionResourceRequirementArrayInput `pulumi:"resourceRequirements"`
-	RestartPolicy        TaskDefinitionRestartPolicyPtrInput         `pulumi:"restartPolicy"`
+	// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
+	RestartPolicy TaskDefinitionRestartPolicyPtrInput `pulumi:"restartPolicy"`
 	// The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
 	Secrets TaskDefinitionSecretArrayInput `pulumi:"secrets"`
 	// Time duration (in seconds) to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE``, ``SUCCESS``, or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it doesn't reach the desired status within that time then containerA gives up and not start. This results in the task transitioning to a ``STOPPED`` state.
@@ -6425,6 +6427,7 @@ func (o TaskDefinitionContainerDefinitionOutput) ResourceRequirements() TaskDefi
 	}).(TaskDefinitionResourceRequirementArrayOutput)
 }
 
+// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
 func (o TaskDefinitionContainerDefinitionOutput) RestartPolicy() TaskDefinitionRestartPolicyPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *TaskDefinitionRestartPolicy { return v.RestartPolicy }).(TaskDefinitionRestartPolicyPtrOutput)
 }
@@ -7509,8 +7512,10 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput
 }
 
 type TaskDefinitionFSxAuthorizationConfig struct {
+	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
 	CredentialsParameter string `pulumi:"credentialsParameter"`
-	Domain               string `pulumi:"domain"`
+	// A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	Domain string `pulumi:"domain"`
 }
 
 // TaskDefinitionFSxAuthorizationConfigInput is an input type that accepts TaskDefinitionFSxAuthorizationConfigArgs and TaskDefinitionFSxAuthorizationConfigOutput values.
@@ -7525,8 +7530,10 @@ type TaskDefinitionFSxAuthorizationConfigInput interface {
 }
 
 type TaskDefinitionFSxAuthorizationConfigArgs struct {
+	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
 	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
-	Domain               pulumi.StringInput `pulumi:"domain"`
+	// A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	Domain pulumi.StringInput `pulumi:"domain"`
 }
 
 func (TaskDefinitionFSxAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -7606,10 +7613,12 @@ func (o TaskDefinitionFSxAuthorizationConfigOutput) ToTaskDefinitionFSxAuthoriza
 	}).(TaskDefinitionFSxAuthorizationConfigPtrOutput)
 }
 
+// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
 func (o TaskDefinitionFSxAuthorizationConfigOutput) CredentialsParameter() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionFSxAuthorizationConfig) string { return v.CredentialsParameter }).(pulumi.StringOutput)
 }
 
+// A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 func (o TaskDefinitionFSxAuthorizationConfigOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionFSxAuthorizationConfig) string { return v.Domain }).(pulumi.StringOutput)
 }
@@ -7638,6 +7647,7 @@ func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) Elem() TaskDefinitionFSxA
 	}).(TaskDefinitionFSxAuthorizationConfigOutput)
 }
 
+// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
 func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionFSxAuthorizationConfig) *string {
 		if v == nil {
@@ -7647,6 +7657,7 @@ func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) CredentialsParameter() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 func (o TaskDefinitionFSxAuthorizationConfigPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionFSxAuthorizationConfig) *string {
 		if v == nil {
@@ -10402,9 +10413,12 @@ func (o TaskDefinitionResourceRequirementArrayOutput) Index(i pulumi.IntInput) T
 }
 
 type TaskDefinitionRestartPolicy struct {
-	Enabled              *bool `pulumi:"enabled"`
-	IgnoredExitCodes     []int `pulumi:"ignoredExitCodes"`
-	RestartAttemptPeriod *int  `pulumi:"restartAttemptPeriod"`
+	// Specifies whether a restart policy is enabled for the container.
+	Enabled *bool `pulumi:"enabled"`
+	// A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
+	IgnoredExitCodes []int `pulumi:"ignoredExitCodes"`
+	// A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+	RestartAttemptPeriod *int `pulumi:"restartAttemptPeriod"`
 }
 
 // TaskDefinitionRestartPolicyInput is an input type that accepts TaskDefinitionRestartPolicyArgs and TaskDefinitionRestartPolicyOutput values.
@@ -10419,9 +10433,12 @@ type TaskDefinitionRestartPolicyInput interface {
 }
 
 type TaskDefinitionRestartPolicyArgs struct {
-	Enabled              pulumi.BoolPtrInput  `pulumi:"enabled"`
-	IgnoredExitCodes     pulumi.IntArrayInput `pulumi:"ignoredExitCodes"`
-	RestartAttemptPeriod pulumi.IntPtrInput   `pulumi:"restartAttemptPeriod"`
+	// Specifies whether a restart policy is enabled for the container.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
+	IgnoredExitCodes pulumi.IntArrayInput `pulumi:"ignoredExitCodes"`
+	// A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+	RestartAttemptPeriod pulumi.IntPtrInput `pulumi:"restartAttemptPeriod"`
 }
 
 func (TaskDefinitionRestartPolicyArgs) ElementType() reflect.Type {
@@ -10501,14 +10518,17 @@ func (o TaskDefinitionRestartPolicyOutput) ToTaskDefinitionRestartPolicyPtrOutpu
 	}).(TaskDefinitionRestartPolicyPtrOutput)
 }
 
+// Specifies whether a restart policy is enabled for the container.
 func (o TaskDefinitionRestartPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionRestartPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
 func (o TaskDefinitionRestartPolicyOutput) IgnoredExitCodes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionRestartPolicy) []int { return v.IgnoredExitCodes }).(pulumi.IntArrayOutput)
 }
 
+// A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
 func (o TaskDefinitionRestartPolicyOutput) RestartAttemptPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionRestartPolicy) *int { return v.RestartAttemptPeriod }).(pulumi.IntPtrOutput)
 }
@@ -10537,6 +10557,7 @@ func (o TaskDefinitionRestartPolicyPtrOutput) Elem() TaskDefinitionRestartPolicy
 	}).(TaskDefinitionRestartPolicyOutput)
 }
 
+// Specifies whether a restart policy is enabled for the container.
 func (o TaskDefinitionRestartPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionRestartPolicy) *bool {
 		if v == nil {
@@ -10546,6 +10567,7 @@ func (o TaskDefinitionRestartPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
 func (o TaskDefinitionRestartPolicyPtrOutput) IgnoredExitCodes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionRestartPolicy) []int {
 		if v == nil {
@@ -10555,6 +10577,7 @@ func (o TaskDefinitionRestartPolicyPtrOutput) IgnoredExitCodes() pulumi.IntArray
 	}).(pulumi.IntArrayOutput)
 }
 
+// A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
 func (o TaskDefinitionRestartPolicyPtrOutput) RestartAttemptPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionRestartPolicy) *int {
 		if v == nil {

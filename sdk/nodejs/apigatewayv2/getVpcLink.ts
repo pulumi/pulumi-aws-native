@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGatewayV2::VpcLink
+ * The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
  */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
 
@@ -28,7 +28,7 @@ export interface GetVpcLinkResult {
      */
     readonly name?: string;
     /**
-     * This resource type use map for Tags, suggest to use List of Tag
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -37,7 +37,7 @@ export interface GetVpcLinkResult {
     readonly vpcLinkId?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGatewayV2::VpcLink
+ * The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
  */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
     return pulumi.output(args).apply((a: any) => getVpcLink(a, opts))

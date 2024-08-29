@@ -4920,13 +4920,6 @@
         "type": "string",
         "description": "The IPv6 CIDR block.\n If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block."
       },
-      "ipv6CidrBlocks": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "The IPv6 network ranges for the subnet, in CIDR notation."
-      },
       "ipv6IpamPoolId": {
         "type": "string",
         "description": "An IPv6 IPAM pool ID for the subnet."
@@ -5522,11 +5515,11 @@
       },
       "encrypted": {
         "type": "boolean",
-        "description": "Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide*.\n Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances)."
+        "description": "Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.\n Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances)."
       },
       "iops": {
         "type": "integer",
-        "description": "The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.\n The following are the supported values for each volume type:\n  +   ``gp3``: 3,000 - 16,000 IOPS\n  +   ``io1``: 100 - 64,000 IOPS\n  +   ``io2``: 100 - 256,000 IOPS\n  \n For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.\n This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes."
+        "description": "The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.\n The following are the supported values for each volume type:\n  +   ``gp3``: 3,000 - 16,000 IOPS\n  +   ``io1``: 100 - 64,000 IOPS\n  +   ``io2``: 100 - 256,000 IOPS\n  \n For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.\n This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes."
       },
       "kmsKeyId": {
         "type": "string",
@@ -5534,7 +5527,7 @@
       },
       "multiAttachEnabled": {
         "type": "boolean",
-        "description": "Indicates whether Amazon EBS Multi-Attach is enabled.\n CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume."
+        "description": "Indicates whether Amazon EBS Multi-Attach is enabled.\n  CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume."
       },
       "outpostArn": {
         "type": "string",
@@ -5561,7 +5554,7 @@
       },
       "volumeType": {
         "type": "string",
-        "description": "The volume type. This parameter can be one of the following values:\n  +  General Purpose SSD: ``gp2`` | ``gp3`` \n  +  Provisioned IOPS SSD: ``io1`` | ``io2`` \n  +  Throughput Optimized HDD: ``st1`` \n  +  Cold HDD: ``sc1`` \n  +  Magnetic: ``standard`` \n  \n For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.\n Default: ``gp2``"
+        "description": "The volume type. This parameter can be one of the following values:\n  +  General Purpose SSD: ``gp2`` | ``gp3`` \n  +  Provisioned IOPS SSD: ``io1`` | ``io2`` \n  +  Throughput Optimized HDD: ``st1`` \n  +  Cold HDD: ``sc1`` \n  +  Magnetic: ``standard`` \n  \n For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).\n Default: ``gp2``"
       }
     }
   },
@@ -5849,6 +5842,21 @@
         "type": "boolean",
         "description": "Indicate whether to enable acceleration for the VPN connection.\n Default: ``false``"
       },
+      "localIpv4NetworkCidr": {
+        "type": "string"
+      },
+      "localIpv6NetworkCidr": {
+        "type": "string"
+      },
+      "outsideIpAddressType": {
+        "type": "string"
+      },
+      "remoteIpv4NetworkCidr": {
+        "type": "string"
+      },
+      "remoteIpv6NetworkCidr": {
+        "type": "string"
+      },
       "staticRoutesOnly": {
         "type": "boolean",
         "description": "Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.\n If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``."
@@ -5863,6 +5871,12 @@
       "transitGatewayId": {
         "type": "string",
         "description": "The ID of the transit gateway associated with the VPN connection.\n You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both."
+      },
+      "transportTransitGatewayAttachmentId": {
+        "type": "string"
+      },
+      "tunnelInsideIpVersion": {
+        "type": "string"
       },
       "type": {
         "type": "string",
@@ -9585,7 +9599,8 @@
         "description": "Configuration information for the file upload during chat feature."
       },
       "autoSubscriptionConfiguration": {
-        "$ref": "#/types/aws-native:qbusiness:ApplicationAutoSubscriptionConfiguration"
+        "$ref": "#/types/aws-native:qbusiness:ApplicationAutoSubscriptionConfiguration",
+        "description": "Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management."
       },
       "clientIdsForOidc": {
         "type": "array",
@@ -9606,17 +9621,20 @@
         "description": "Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys."
       },
       "iamIdentityProviderArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application."
       },
       "identityCenterInstanceArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.\n\n*Required* : `Yes`"
       },
       "identityType": {
-        "$ref": "#/types/aws-native:qbusiness:ApplicationIdentityType"
+        "$ref": "#/types/aws-native:qbusiness:ApplicationIdentityType",
+        "description": "The authentication type being used by a Amazon Q Business application."
       },
       "personalizationConfiguration": {
-        "$ref": "#/types/aws-native:qbusiness:ApplicationPersonalizationConfiguration"
+        "$ref": "#/types/aws-native:qbusiness:ApplicationPersonalizationConfiguration",
+        "description": "Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) ."
       },
       "qAppsConfiguration": {
         "$ref": "#/types/aws-native:qbusiness:ApplicationQAppsConfiguration",
@@ -9826,7 +9844,8 @@
           {
             "$ref": "#/types/aws-native:qbusiness:WebExperienceIdentityProviderConfiguration1Properties"
           }
-        ]
+        ],
+        "description": "Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience."
       },
       "roleArn": {
         "type": "string",

@@ -92,6 +92,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="autoSubscriptionConfiguration")
     def auto_subscription_configuration(self) -> Optional['outputs.ApplicationAutoSubscriptionConfiguration']:
+        """
+        Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        """
         return pulumi.get(self, "auto_subscription_configuration")
 
     @property
@@ -129,6 +132,9 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="personalizationConfiguration")
     def personalization_configuration(self) -> Optional['outputs.ApplicationPersonalizationConfiguration']:
+        """
+        Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+        """
         return pulumi.get(self, "personalization_configuration")
 
     @property

@@ -31,6 +31,21 @@ namespace Pulumi.AwsNative.Ec2
         [Output("enableAcceleration")]
         public Output<bool?> EnableAcceleration { get; private set; } = null!;
 
+        [Output("localIpv4NetworkCidr")]
+        public Output<string?> LocalIpv4NetworkCidr { get; private set; } = null!;
+
+        [Output("localIpv6NetworkCidr")]
+        public Output<string?> LocalIpv6NetworkCidr { get; private set; } = null!;
+
+        [Output("outsideIpAddressType")]
+        public Output<string?> OutsideIpAddressType { get; private set; } = null!;
+
+        [Output("remoteIpv4NetworkCidr")]
+        public Output<string?> RemoteIpv4NetworkCidr { get; private set; } = null!;
+
+        [Output("remoteIpv6NetworkCidr")]
+        public Output<string?> RemoteIpv6NetworkCidr { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
         ///  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
@@ -50,6 +65,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("transitGatewayId")]
         public Output<string?> TransitGatewayId { get; private set; } = null!;
+
+        [Output("transportTransitGatewayAttachmentId")]
+        public Output<string?> TransportTransitGatewayAttachmentId { get; private set; } = null!;
+
+        [Output("tunnelInsideIpVersion")]
+        public Output<string?> TunnelInsideIpVersion { get; private set; } = null!;
 
         /// <summary>
         /// The type of VPN connection.
@@ -103,8 +124,15 @@ namespace Pulumi.AwsNative.Ec2
                 {
                     "customerGatewayId",
                     "enableAcceleration",
+                    "localIpv4NetworkCidr",
+                    "localIpv6NetworkCidr",
+                    "outsideIpAddressType",
+                    "remoteIpv4NetworkCidr",
+                    "remoteIpv6NetworkCidr",
                     "staticRoutesOnly",
                     "transitGatewayId",
+                    "transportTransitGatewayAttachmentId",
+                    "tunnelInsideIpVersion",
                     "type",
                     "vpnGatewayId",
                     "vpnTunnelOptionsSpecifications[*]",
@@ -144,6 +172,21 @@ namespace Pulumi.AwsNative.Ec2
         [Input("enableAcceleration")]
         public Input<bool>? EnableAcceleration { get; set; }
 
+        [Input("localIpv4NetworkCidr")]
+        public Input<string>? LocalIpv4NetworkCidr { get; set; }
+
+        [Input("localIpv6NetworkCidr")]
+        public Input<string>? LocalIpv6NetworkCidr { get; set; }
+
+        [Input("outsideIpAddressType")]
+        public Input<string>? OutsideIpAddressType { get; set; }
+
+        [Input("remoteIpv4NetworkCidr")]
+        public Input<string>? RemoteIpv4NetworkCidr { get; set; }
+
+        [Input("remoteIpv6NetworkCidr")]
+        public Input<string>? RemoteIpv6NetworkCidr { get; set; }
+
         /// <summary>
         /// Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
         ///  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
@@ -169,6 +212,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
+
+        [Input("transportTransitGatewayAttachmentId")]
+        public Input<string>? TransportTransitGatewayAttachmentId { get; set; }
+
+        [Input("tunnelInsideIpVersion")]
+        public Input<string>? TunnelInsideIpVersion { get; set; }
 
         /// <summary>
         /// The type of VPN connection.

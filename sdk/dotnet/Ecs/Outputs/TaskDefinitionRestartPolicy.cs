@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class TaskDefinitionRestartPolicy
     {
+        /// <summary>
+        /// Specifies whether a restart policy is enabled for the container.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
+        /// </summary>
         public readonly ImmutableArray<int> IgnoredExitCodes;
+        /// <summary>
+        /// A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+        /// </summary>
         public readonly int? RestartAttemptPeriod;
 
         [OutputConstructor]

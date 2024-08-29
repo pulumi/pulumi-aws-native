@@ -23,18 +23,27 @@ func LookupConfigurationManager(ctx *pulumi.Context, args *LookupConfigurationMa
 }
 
 type LookupConfigurationManagerArgs struct {
+	// The ARN of the Quick Setup configuration.
 	ManagerArn string `pulumi:"managerArn"`
 }
 
 type LookupConfigurationManagerResult struct {
+	// The definition of the Quick Setup configuration that the configuration manager deploys.
 	ConfigurationDefinitions []ConfigurationManagerConfigurationDefinition `pulumi:"configurationDefinitions"`
-	CreatedAt                *string                                       `pulumi:"createdAt"`
-	Description              *string                                       `pulumi:"description"`
-	LastModifiedAt           *string                                       `pulumi:"lastModifiedAt"`
-	ManagerArn               *string                                       `pulumi:"managerArn"`
-	Name                     *string                                       `pulumi:"name"`
-	StatusSummaries          []ConfigurationManagerStatusSummary           `pulumi:"statusSummaries"`
-	Tags                     map[string]string                             `pulumi:"tags"`
+	// The datetime stamp when the configuration manager was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The description of the configuration.
+	Description *string `pulumi:"description"`
+	// The datetime stamp when the configuration manager was last updated.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The ARN of the Quick Setup configuration.
+	ManagerArn *string `pulumi:"managerArn"`
+	// The name of the configuration
+	Name *string `pulumi:"name"`
+	// Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
+	StatusSummaries []ConfigurationManagerStatusSummary `pulumi:"statusSummaries"`
+	// Key-value pairs of metadata to assign to the configuration manager.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupConfigurationManagerOutput(ctx *pulumi.Context, args LookupConfigurationManagerOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationManagerResultOutput {
@@ -51,6 +60,7 @@ func LookupConfigurationManagerOutput(ctx *pulumi.Context, args LookupConfigurat
 }
 
 type LookupConfigurationManagerOutputArgs struct {
+	// The ARN of the Quick Setup configuration.
 	ManagerArn pulumi.StringInput `pulumi:"managerArn"`
 }
 
@@ -72,36 +82,44 @@ func (o LookupConfigurationManagerResultOutput) ToLookupConfigurationManagerResu
 	return o
 }
 
+// The definition of the Quick Setup configuration that the configuration manager deploys.
 func (o LookupConfigurationManagerResultOutput) ConfigurationDefinitions() ConfigurationManagerConfigurationDefinitionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationManagerResult) []ConfigurationManagerConfigurationDefinition {
 		return v.ConfigurationDefinitions
 	}).(ConfigurationManagerConfigurationDefinitionArrayOutput)
 }
 
+// The datetime stamp when the configuration manager was created.
 func (o LookupConfigurationManagerResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationManagerResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The description of the configuration.
 func (o LookupConfigurationManagerResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationManagerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The datetime stamp when the configuration manager was last updated.
 func (o LookupConfigurationManagerResultOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationManagerResult) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Quick Setup configuration.
 func (o LookupConfigurationManagerResultOutput) ManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationManagerResult) *string { return v.ManagerArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the configuration
 func (o LookupConfigurationManagerResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationManagerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
 func (o LookupConfigurationManagerResultOutput) StatusSummaries() ConfigurationManagerStatusSummaryArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationManagerResult) []ConfigurationManagerStatusSummary { return v.StatusSummaries }).(ConfigurationManagerStatusSummaryArrayOutput)
 }
 
+// Key-value pairs of metadata to assign to the configuration manager.
 func (o LookupConfigurationManagerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConfigurationManagerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

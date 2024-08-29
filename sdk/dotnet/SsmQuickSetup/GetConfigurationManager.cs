@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SsmQuickSetup
 
     public sealed class GetConfigurationManagerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the Quick Setup configuration.
+        /// </summary>
         [Input("managerArn", required: true)]
         public string ManagerArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.SsmQuickSetup
 
     public sealed class GetConfigurationManagerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the Quick Setup configuration.
+        /// </summary>
         [Input("managerArn", required: true)]
         public Input<string> ManagerArn { get; set; } = null!;
 
@@ -51,13 +57,37 @@ namespace Pulumi.AwsNative.SsmQuickSetup
     [OutputType]
     public sealed class GetConfigurationManagerResult
     {
+        /// <summary>
+        /// The definition of the Quick Setup configuration that the configuration manager deploys.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationManagerConfigurationDefinition> ConfigurationDefinitions;
+        /// <summary>
+        /// The datetime stamp when the configuration manager was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The description of the configuration.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The datetime stamp when the configuration manager was last updated.
+        /// </summary>
         public readonly string? LastModifiedAt;
+        /// <summary>
+        /// The ARN of the Quick Setup configuration.
+        /// </summary>
         public readonly string? ManagerArn;
+        /// <summary>
+        /// The name of the configuration
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationManagerStatusSummary> StatusSummaries;
+        /// <summary>
+        /// Key-value pairs of metadata to assign to the configuration manager.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

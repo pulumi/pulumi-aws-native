@@ -36,11 +36,15 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] display_name: The name of the Amazon Q Business application.
         :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Configuration information for the file upload during chat feature.
+        :param pulumi.Input['ApplicationAutoSubscriptionConfigurationArgs'] auto_subscription_configuration: Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
         :param pulumi.Input[str] description: A description for the Amazon Q Business application.
         :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input[str] iam_identity_provider_arn: The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
         :param pulumi.Input[str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
                
                *Required* : `Yes`
+        :param pulumi.Input['ApplicationIdentityType'] identity_type: The authentication type being used by a Amazon Q Business application.
+        :param pulumi.Input['ApplicationPersonalizationConfigurationArgs'] personalization_configuration: Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
         :param pulumi.Input['ApplicationQAppsConfigurationArgs'] q_apps_configuration: Configuration information about Amazon Q Apps.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
@@ -98,6 +102,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="autoSubscriptionConfiguration")
     def auto_subscription_configuration(self) -> Optional[pulumi.Input['ApplicationAutoSubscriptionConfigurationArgs']]:
+        """
+        Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        """
         return pulumi.get(self, "auto_subscription_configuration")
 
     @auto_subscription_configuration.setter
@@ -140,6 +147,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="iamIdentityProviderArn")
     def iam_identity_provider_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+        """
         return pulumi.get(self, "iam_identity_provider_arn")
 
     @iam_identity_provider_arn.setter
@@ -163,6 +173,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="identityType")
     def identity_type(self) -> Optional[pulumi.Input['ApplicationIdentityType']]:
+        """
+        The authentication type being used by a Amazon Q Business application.
+        """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
@@ -172,6 +185,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="personalizationConfiguration")
     def personalization_configuration(self) -> Optional[pulumi.Input['ApplicationPersonalizationConfigurationArgs']]:
+        """
+        Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+        """
         return pulumi.get(self, "personalization_configuration")
 
     @personalization_configuration.setter
@@ -240,12 +256,16 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Configuration information for the file upload during chat feature.
+        :param pulumi.Input[Union['ApplicationAutoSubscriptionConfigurationArgs', 'ApplicationAutoSubscriptionConfigurationArgsDict']] auto_subscription_configuration: Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
         :param pulumi.Input[str] description: A description for the Amazon Q Business application.
         :param pulumi.Input[str] display_name: The name of the Amazon Q Business application.
         :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input[str] iam_identity_provider_arn: The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
         :param pulumi.Input[str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
                
                *Required* : `Yes`
+        :param pulumi.Input['ApplicationIdentityType'] identity_type: The authentication type being used by a Amazon Q Business application.
+        :param pulumi.Input[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict']] personalization_configuration: Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
         :param pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']] q_apps_configuration: Configuration information about Amazon Q Apps.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
@@ -389,6 +409,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoSubscriptionConfiguration")
     def auto_subscription_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationAutoSubscriptionConfiguration']]:
+        """
+        Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        """
         return pulumi.get(self, "auto_subscription_configuration")
 
     @property
@@ -431,6 +454,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="iamIdentityProviderArn")
     def iam_identity_provider_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+        """
         return pulumi.get(self, "iam_identity_provider_arn")
 
     @property
@@ -454,11 +480,17 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="identityType")
     def identity_type(self) -> pulumi.Output[Optional['ApplicationIdentityType']]:
+        """
+        The authentication type being used by a Amazon Q Business application.
+        """
         return pulumi.get(self, "identity_type")
 
     @property
     @pulumi.getter(name="personalizationConfiguration")
     def personalization_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationPersonalizationConfiguration']]:
+        """
+        Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+        """
         return pulumi.get(self, "personalization_configuration")
 
     @property

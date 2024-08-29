@@ -49,6 +49,9 @@ export class WebExperience extends pulumi.CustomResource {
      * The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
      */
     public /*out*/ readonly defaultEndpoint!: pulumi.Output<string>;
+    /**
+     * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+     */
     public readonly identityProviderConfiguration!: pulumi.Output<outputs.qbusiness.WebExperienceIdentityProviderConfiguration0Properties | outputs.qbusiness.WebExperienceIdentityProviderConfiguration1Properties | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service role attached to your web experience.
@@ -152,6 +155,9 @@ export interface WebExperienceArgs {
      * The identifier of the Amazon Q Business web experience.
      */
     applicationId: pulumi.Input<string>;
+    /**
+     * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+     */
     identityProviderConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceIdentityProviderConfiguration0PropertiesArgs | inputs.qbusiness.WebExperienceIdentityProviderConfiguration1PropertiesArgs>;
     /**
      * The Amazon Resource Name (ARN) of the service role attached to your web experience.

@@ -87,7 +87,10 @@ def get_threat_intel_set(detector_id: Optional[str] = None,
     Resource Type definition for AWS::GuardDuty::ThreatIntelSet
 
 
-    :param str detector_id: The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+    :param str detector_id: The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+           
+           To find the `detectorId` in the current Region, see the
+           Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
     :param str id: The unique ID of the `threatIntelSet` .
     """
     __args__ = dict()
@@ -111,7 +114,10 @@ def get_threat_intel_set_output(detector_id: Optional[pulumi.Input[str]] = None,
     Resource Type definition for AWS::GuardDuty::ThreatIntelSet
 
 
-    :param str detector_id: The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+    :param str detector_id: The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+           
+           To find the `detectorId` in the current Region, see the
+           Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
     :param str id: The unique ID of the `threatIntelSet` .
     """
     ...

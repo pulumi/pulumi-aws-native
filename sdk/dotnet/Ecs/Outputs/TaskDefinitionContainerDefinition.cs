@@ -206,6 +206,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// The type and amount of a resource to assign to a container. The only supported resource is a GPU.
         /// </summary>
         public readonly ImmutableArray<Outputs.TaskDefinitionResourceRequirement> ResourceRequirements;
+        /// <summary>
+        /// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         public readonly Outputs.TaskDefinitionRestartPolicy? RestartPolicy;
         /// <summary>
         /// The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.

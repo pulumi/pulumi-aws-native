@@ -20,7 +20,10 @@ type IpSet struct {
 	// Indicates whether or not GuardDuty uses the `IPSet` .
 	Activate pulumi.BoolPtrOutput `pulumi:"activate"`
 	AwsId    pulumi.StringOutput  `pulumi:"awsId"`
-	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet.
 	Format pulumi.StringOutput `pulumi:"format"`
@@ -89,7 +92,10 @@ func (IpSetState) ElementType() reflect.Type {
 type ipSetArgs struct {
 	// Indicates whether or not GuardDuty uses the `IPSet` .
 	Activate *bool `pulumi:"activate"`
-	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId *string `pulumi:"detectorId"`
 	// The format of the file that contains the IPSet.
 	Format string `pulumi:"format"`
@@ -109,7 +115,10 @@ type ipSetArgs struct {
 type IpSetArgs struct {
 	// Indicates whether or not GuardDuty uses the `IPSet` .
 	Activate pulumi.BoolPtrInput
-	// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+	// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+	//
+	// To find the `detectorId` in the current Region, see the
+	// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 	DetectorId pulumi.StringPtrInput
 	// The format of the file that contains the IPSet.
 	Format pulumi.StringInput
@@ -171,7 +180,10 @@ func (o IpSetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+//
+// To find the `detectorId` in the current Region, see the
+// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 func (o IpSetOutput) DetectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }

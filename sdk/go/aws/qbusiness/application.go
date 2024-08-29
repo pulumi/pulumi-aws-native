@@ -22,7 +22,8 @@ type Application struct {
 	// The identifier for the Amazon Q Business application.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Configuration information for the file upload during chat feature.
-	AttachmentsConfiguration      ApplicationAttachmentsConfigurationPtrOutput      `pulumi:"attachmentsConfiguration"`
+	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrOutput `pulumi:"attachmentsConfiguration"`
+	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 	AutoSubscriptionConfiguration ApplicationAutoSubscriptionConfigurationPtrOutput `pulumi:"autoSubscriptionConfiguration"`
 	ClientIdsForOidc              pulumi.StringArrayOutput                          `pulumi:"clientIdsForOidc"`
 	// The Unix timestamp when the Amazon Q Business application was created.
@@ -33,14 +34,17 @@ type Application struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
 	EncryptionConfiguration ApplicationEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	IamIdentityProviderArn  pulumi.StringPtrOutput                      `pulumi:"iamIdentityProviderArn"`
+	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+	IamIdentityProviderArn pulumi.StringPtrOutput `pulumi:"iamIdentityProviderArn"`
 	// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
 	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
 	//
 	// *Required* : `Yes`
-	IdentityCenterInstanceArn    pulumi.StringPtrOutput                           `pulumi:"identityCenterInstanceArn"`
-	IdentityType                 ApplicationIdentityTypePtrOutput                 `pulumi:"identityType"`
+	IdentityCenterInstanceArn pulumi.StringPtrOutput `pulumi:"identityCenterInstanceArn"`
+	// The authentication type being used by a Amazon Q Business application.
+	IdentityType ApplicationIdentityTypePtrOutput `pulumi:"identityType"`
+	// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 	PersonalizationConfiguration ApplicationPersonalizationConfigurationPtrOutput `pulumi:"personalizationConfiguration"`
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration ApplicationQAppsConfigurationPtrOutput `pulumi:"qAppsConfiguration"`
@@ -105,7 +109,8 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	// Configuration information for the file upload during chat feature.
-	AttachmentsConfiguration      *ApplicationAttachmentsConfiguration      `pulumi:"attachmentsConfiguration"`
+	AttachmentsConfiguration *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
+	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 	AutoSubscriptionConfiguration *ApplicationAutoSubscriptionConfiguration `pulumi:"autoSubscriptionConfiguration"`
 	ClientIdsForOidc              []string                                  `pulumi:"clientIdsForOidc"`
 	// A description for the Amazon Q Business application.
@@ -114,12 +119,15 @@ type applicationArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
 	EncryptionConfiguration *ApplicationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	IamIdentityProviderArn  *string                             `pulumi:"iamIdentityProviderArn"`
+	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+	IamIdentityProviderArn *string `pulumi:"iamIdentityProviderArn"`
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
 	//
 	// *Required* : `Yes`
-	IdentityCenterInstanceArn    *string                                  `pulumi:"identityCenterInstanceArn"`
-	IdentityType                 *ApplicationIdentityType                 `pulumi:"identityType"`
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+	// The authentication type being used by a Amazon Q Business application.
+	IdentityType *ApplicationIdentityType `pulumi:"identityType"`
+	// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 	PersonalizationConfiguration *ApplicationPersonalizationConfiguration `pulumi:"personalizationConfiguration"`
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration *ApplicationQAppsConfiguration `pulumi:"qAppsConfiguration"`
@@ -132,7 +140,8 @@ type applicationArgs struct {
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// Configuration information for the file upload during chat feature.
-	AttachmentsConfiguration      ApplicationAttachmentsConfigurationPtrInput
+	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrInput
+	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 	AutoSubscriptionConfiguration ApplicationAutoSubscriptionConfigurationPtrInput
 	ClientIdsForOidc              pulumi.StringArrayInput
 	// A description for the Amazon Q Business application.
@@ -141,12 +150,15 @@ type ApplicationArgs struct {
 	DisplayName pulumi.StringInput
 	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
 	EncryptionConfiguration ApplicationEncryptionConfigurationPtrInput
-	IamIdentityProviderArn  pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
+	IamIdentityProviderArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
 	//
 	// *Required* : `Yes`
-	IdentityCenterInstanceArn    pulumi.StringPtrInput
-	IdentityType                 ApplicationIdentityTypePtrInput
+	IdentityCenterInstanceArn pulumi.StringPtrInput
+	// The authentication type being used by a Amazon Q Business application.
+	IdentityType ApplicationIdentityTypePtrInput
+	// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 	PersonalizationConfiguration ApplicationPersonalizationConfigurationPtrInput
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration ApplicationQAppsConfigurationPtrInput
@@ -208,6 +220,7 @@ func (o ApplicationOutput) AttachmentsConfiguration() ApplicationAttachmentsConf
 	return o.ApplyT(func(v *Application) ApplicationAttachmentsConfigurationPtrOutput { return v.AttachmentsConfiguration }).(ApplicationAttachmentsConfigurationPtrOutput)
 }
 
+// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 func (o ApplicationOutput) AutoSubscriptionConfiguration() ApplicationAutoSubscriptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationAutoSubscriptionConfigurationPtrOutput {
 		return v.AutoSubscriptionConfiguration
@@ -238,6 +251,7 @@ func (o ApplicationOutput) EncryptionConfiguration() ApplicationEncryptionConfig
 	return o.ApplyT(func(v *Application) ApplicationEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(ApplicationEncryptionConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
 func (o ApplicationOutput) IamIdentityProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.IamIdentityProviderArn }).(pulumi.StringPtrOutput)
 }
@@ -254,10 +268,12 @@ func (o ApplicationOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
 }
 
+// The authentication type being used by a Amazon Q Business application.
 func (o ApplicationOutput) IdentityType() ApplicationIdentityTypePtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationIdentityTypePtrOutput { return v.IdentityType }).(ApplicationIdentityTypePtrOutput)
 }
 
+// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 func (o ApplicationOutput) PersonalizationConfiguration() ApplicationPersonalizationConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationPersonalizationConfigurationPtrOutput {
 		return v.PersonalizationConfiguration

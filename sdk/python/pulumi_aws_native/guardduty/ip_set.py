@@ -27,7 +27,10 @@ class IpSetArgs:
         :param pulumi.Input[str] format: The format of the file that contains the IPSet.
         :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[bool] activate: Indicates whether or not GuardDuty uses the `IPSet` .
-        :param pulumi.Input[str] detector_id: The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        :param pulumi.Input[str] detector_id: The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+               
+               To find the `detectorId` in the current Region, see the
+               Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         :param pulumi.Input[str] name: The user-friendly name to identify the IPSet.
                
                Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).
@@ -86,7 +89,10 @@ class IpSetArgs:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+
+        To find the `detectorId` in the current Region, see the
+        Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         """
         return pulumi.get(self, "detector_id")
 
@@ -141,7 +147,10 @@ class IpSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] activate: Indicates whether or not GuardDuty uses the `IPSet` .
-        :param pulumi.Input[str] detector_id: The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        :param pulumi.Input[str] detector_id: The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+               
+               To find the `detectorId` in the current Region, see the
+               Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         :param pulumi.Input[str] format: The format of the file that contains the IPSet.
         :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
         :param pulumi.Input[str] name: The user-friendly name to identify the IPSet.
@@ -251,7 +260,10 @@ class IpSet(pulumi.CustomResource):
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+
+        To find the `detectorId` in the current Region, see the
+        Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         """
         return pulumi.get(self, "detector_id")
 

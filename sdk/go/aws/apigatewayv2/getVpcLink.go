@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ApiGatewayV2::VpcLink
+// The “AWS::ApiGatewayV2::VpcLink“ resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from “PENDING“ to “AVAILABLE“ to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
 func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.InvokeOption) (*LookupVpcLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcLinkResult
@@ -30,7 +30,7 @@ type LookupVpcLinkArgs struct {
 type LookupVpcLinkResult struct {
 	// The name of the VPC link.
 	Name *string `pulumi:"name"`
-	// This resource type use map for Tags, suggest to use List of Tag
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The VPC link ID.
 	VpcLinkId *string `pulumi:"vpcLinkId"`
@@ -77,7 +77,7 @@ func (o LookupVpcLinkResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// This resource type use map for Tags, suggest to use List of Tag
+// The collection of tags. Each tag element is associated with a given resource.
 func (o LookupVpcLinkResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

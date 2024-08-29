@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("categoryFilter")]
         public Input<Inputs.AnalysisCategoryFilterArgs>? CategoryFilter { get; set; }
 
+        /// <summary>
+        /// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+        /// </summary>
         [Input("nestedFilter")]
         public Input<Inputs.AnalysisNestedFilterArgs>? NestedFilter { get; set; }
 

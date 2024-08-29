@@ -2314,6 +2314,7 @@ class TaskDefinitionContainerDefinitionArgs:
                  This parameter is not supported for Windows containers.
         :param pulumi.Input['TaskDefinitionRepositoryCredentialsArgs'] repository_credentials: The private repository authentication credentials to use.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionResourceRequirementArgs']]] resource_requirements: The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+        :param pulumi.Input['TaskDefinitionRestartPolicyArgs'] restart_policy: The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionSecretArgs']]] secrets: The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[int] start_timeout: Time duration (in seconds) to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE``, ``SUCCESS``, or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it doesn't reach the desired status within that time then containerA gives up and not start. This results in the task transitioning to a ``STOPPED`` state.
                  When the ``ECS_CONTAINER_START_TIMEOUT`` container agent configuration variable is used, it's enforced independently from this start timeout value.
@@ -2878,6 +2879,9 @@ class TaskDefinitionContainerDefinitionArgs:
     @property
     @pulumi.getter(name="restartPolicy")
     def restart_policy(self) -> Optional[pulumi.Input['TaskDefinitionRestartPolicyArgs']]:
+        """
+        The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
         return pulumi.get(self, "restart_policy")
 
     @restart_policy.setter
@@ -3373,12 +3377,19 @@ class TaskDefinitionFSxAuthorizationConfigArgs:
     def __init__(__self__, *,
                  credentials_parameter: pulumi.Input[str],
                  domain: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] credentials_parameter: The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
+        :param pulumi.Input[str] domain: A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        """
         pulumi.set(__self__, "credentials_parameter", credentials_parameter)
         pulumi.set(__self__, "domain", domain)
 
     @property
     @pulumi.getter(name="credentialsParameter")
     def credentials_parameter(self) -> pulumi.Input[str]:
+        """
+        The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
+        """
         return pulumi.get(self, "credentials_parameter")
 
     @credentials_parameter.setter
@@ -3388,6 +3399,9 @@ class TaskDefinitionFSxAuthorizationConfigArgs:
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
+        """
+        A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -4411,6 +4425,11 @@ class TaskDefinitionRestartPolicyArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ignored_exit_codes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  restart_attempt_period: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Specifies whether a restart policy is enabled for the container.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] ignored_exit_codes: A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
+        :param pulumi.Input[int] restart_attempt_period: A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if ignored_exit_codes is not None:
@@ -4421,6 +4440,9 @@ class TaskDefinitionRestartPolicyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether a restart policy is enabled for the container.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -4430,6 +4452,9 @@ class TaskDefinitionRestartPolicyArgs:
     @property
     @pulumi.getter(name="ignoredExitCodes")
     def ignored_exit_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
+        """
         return pulumi.get(self, "ignored_exit_codes")
 
     @ignored_exit_codes.setter
@@ -4439,6 +4464,9 @@ class TaskDefinitionRestartPolicyArgs:
     @property
     @pulumi.getter(name="restartAttemptPeriod")
     def restart_attempt_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+        """
         return pulumi.get(self, "restart_attempt_period")
 
     @restart_attempt_period.setter

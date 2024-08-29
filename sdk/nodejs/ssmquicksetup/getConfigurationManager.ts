@@ -19,17 +19,44 @@ export function getConfigurationManager(args: GetConfigurationManagerArgs, opts?
 }
 
 export interface GetConfigurationManagerArgs {
+    /**
+     * The ARN of the Quick Setup configuration.
+     */
     managerArn: string;
 }
 
 export interface GetConfigurationManagerResult {
+    /**
+     * The definition of the Quick Setup configuration that the configuration manager deploys.
+     */
     readonly configurationDefinitions?: outputs.ssmquicksetup.ConfigurationManagerConfigurationDefinition[];
+    /**
+     * The datetime stamp when the configuration manager was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The description of the configuration.
+     */
     readonly description?: string;
+    /**
+     * The datetime stamp when the configuration manager was last updated.
+     */
     readonly lastModifiedAt?: string;
+    /**
+     * The ARN of the Quick Setup configuration.
+     */
     readonly managerArn?: string;
+    /**
+     * The name of the configuration
+     */
     readonly name?: string;
+    /**
+     * Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
+     */
     readonly statusSummaries?: outputs.ssmquicksetup.ConfigurationManagerStatusSummary[];
+    /**
+     * Key-value pairs of metadata to assign to the configuration manager.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -40,5 +67,8 @@ export function getConfigurationManagerOutput(args: GetConfigurationManagerOutpu
 }
 
 export interface GetConfigurationManagerOutputArgs {
+    /**
+     * The ARN of the Quick Setup configuration.
+     */
     managerArn: pulumi.Input<string>;
 }

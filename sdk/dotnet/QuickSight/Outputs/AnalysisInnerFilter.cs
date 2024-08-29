@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisInnerFilter
     {
+        /// <summary>
+        /// A `CategoryInnerFilter` filters text values for the `NestedFilter` .
+        /// </summary>
         public readonly Outputs.AnalysisCategoryInnerFilter? CategoryInnerFilter;
 
         [OutputConstructor]

@@ -21,9 +21,16 @@ class VpnConnectionArgs:
                  customer_gateway_id: pulumi.Input[str],
                  type: pulumi.Input[str],
                  enable_acceleration: Optional[pulumi.Input[bool]] = None,
+                 local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
+                 local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
+                 outside_ip_address_type: Optional[pulumi.Input[str]] = None,
+                 remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
+                 remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+                 tunnel_inside_ip_version: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None):
         """
@@ -45,12 +52,26 @@ class VpnConnectionArgs:
         pulumi.set(__self__, "type", type)
         if enable_acceleration is not None:
             pulumi.set(__self__, "enable_acceleration", enable_acceleration)
+        if local_ipv4_network_cidr is not None:
+            pulumi.set(__self__, "local_ipv4_network_cidr", local_ipv4_network_cidr)
+        if local_ipv6_network_cidr is not None:
+            pulumi.set(__self__, "local_ipv6_network_cidr", local_ipv6_network_cidr)
+        if outside_ip_address_type is not None:
+            pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
+        if remote_ipv4_network_cidr is not None:
+            pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
+        if remote_ipv6_network_cidr is not None:
+            pulumi.set(__self__, "remote_ipv6_network_cidr", remote_ipv6_network_cidr)
         if static_routes_only is not None:
             pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if transport_transit_gateway_attachment_id is not None:
+            pulumi.set(__self__, "transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
+        if tunnel_inside_ip_version is not None:
+            pulumi.set(__self__, "tunnel_inside_ip_version", tunnel_inside_ip_version)
         if vpn_gateway_id is not None:
             pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
         if vpn_tunnel_options_specifications is not None:
@@ -94,6 +115,51 @@ class VpnConnectionArgs:
         pulumi.set(self, "enable_acceleration", value)
 
     @property
+    @pulumi.getter(name="localIpv4NetworkCidr")
+    def local_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "local_ipv4_network_cidr")
+
+    @local_ipv4_network_cidr.setter
+    def local_ipv4_network_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_ipv4_network_cidr", value)
+
+    @property
+    @pulumi.getter(name="localIpv6NetworkCidr")
+    def local_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "local_ipv6_network_cidr")
+
+    @local_ipv6_network_cidr.setter
+    def local_ipv6_network_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_ipv6_network_cidr", value)
+
+    @property
+    @pulumi.getter(name="outsideIpAddressType")
+    def outside_ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outside_ip_address_type")
+
+    @outside_ip_address_type.setter
+    def outside_ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outside_ip_address_type", value)
+
+    @property
+    @pulumi.getter(name="remoteIpv4NetworkCidr")
+    def remote_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "remote_ipv4_network_cidr")
+
+    @remote_ipv4_network_cidr.setter
+    def remote_ipv4_network_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_ipv4_network_cidr", value)
+
+    @property
+    @pulumi.getter(name="remoteIpv6NetworkCidr")
+    def remote_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "remote_ipv6_network_cidr")
+
+    @remote_ipv6_network_cidr.setter
+    def remote_ipv6_network_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_ipv6_network_cidr", value)
+
+    @property
     @pulumi.getter(name="staticRoutesOnly")
     def static_routes_only(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -132,6 +198,24 @@ class VpnConnectionArgs:
         pulumi.set(self, "transit_gateway_id", value)
 
     @property
+    @pulumi.getter(name="transportTransitGatewayAttachmentId")
+    def transport_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "transport_transit_gateway_attachment_id")
+
+    @transport_transit_gateway_attachment_id.setter
+    def transport_transit_gateway_attachment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transport_transit_gateway_attachment_id", value)
+
+    @property
+    @pulumi.getter(name="tunnelInsideIpVersion")
+    def tunnel_inside_ip_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tunnel_inside_ip_version")
+
+    @tunnel_inside_ip_version.setter
+    def tunnel_inside_ip_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tunnel_inside_ip_version", value)
+
+    @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -164,9 +248,16 @@ class VpnConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_gateway_id: Optional[pulumi.Input[str]] = None,
                  enable_acceleration: Optional[pulumi.Input[bool]] = None,
+                 local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
+                 local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
+                 outside_ip_address_type: Optional[pulumi.Input[str]] = None,
+                 remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
+                 remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+                 tunnel_inside_ip_version: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
@@ -221,9 +312,16 @@ class VpnConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_gateway_id: Optional[pulumi.Input[str]] = None,
                  enable_acceleration: Optional[pulumi.Input[bool]] = None,
+                 local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
+                 local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
+                 outside_ip_address_type: Optional[pulumi.Input[str]] = None,
+                 remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
+                 remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+                 tunnel_inside_ip_version: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
@@ -240,16 +338,23 @@ class VpnConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'customer_gateway_id'")
             __props__.__dict__["customer_gateway_id"] = customer_gateway_id
             __props__.__dict__["enable_acceleration"] = enable_acceleration
+            __props__.__dict__["local_ipv4_network_cidr"] = local_ipv4_network_cidr
+            __props__.__dict__["local_ipv6_network_cidr"] = local_ipv6_network_cidr
+            __props__.__dict__["outside_ip_address_type"] = outside_ip_address_type
+            __props__.__dict__["remote_ipv4_network_cidr"] = remote_ipv4_network_cidr
+            __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
             __props__.__dict__["static_routes_only"] = static_routes_only
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
+            __props__.__dict__["transport_transit_gateway_attachment_id"] = transport_transit_gateway_attachment_id
+            __props__.__dict__["tunnel_inside_ip_version"] = tunnel_inside_ip_version
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["vpn_tunnel_options_specifications"] = vpn_tunnel_options_specifications
             __props__.__dict__["vpn_connection_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "enableAcceleration", "staticRoutesOnly", "transitGatewayId", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpnConnection, __self__).__init__(
             'aws-native:ec2:VpnConnection',
@@ -275,9 +380,16 @@ class VpnConnection(pulumi.CustomResource):
 
         __props__.__dict__["customer_gateway_id"] = None
         __props__.__dict__["enable_acceleration"] = None
+        __props__.__dict__["local_ipv4_network_cidr"] = None
+        __props__.__dict__["local_ipv6_network_cidr"] = None
+        __props__.__dict__["outside_ip_address_type"] = None
+        __props__.__dict__["remote_ipv4_network_cidr"] = None
+        __props__.__dict__["remote_ipv6_network_cidr"] = None
         __props__.__dict__["static_routes_only"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_gateway_id"] = None
+        __props__.__dict__["transport_transit_gateway_attachment_id"] = None
+        __props__.__dict__["tunnel_inside_ip_version"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vpn_connection_id"] = None
         __props__.__dict__["vpn_gateway_id"] = None
@@ -300,6 +412,31 @@ class VpnConnection(pulumi.CustomResource):
          Default: ``false``
         """
         return pulumi.get(self, "enable_acceleration")
+
+    @property
+    @pulumi.getter(name="localIpv4NetworkCidr")
+    def local_ipv4_network_cidr(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "local_ipv4_network_cidr")
+
+    @property
+    @pulumi.getter(name="localIpv6NetworkCidr")
+    def local_ipv6_network_cidr(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "local_ipv6_network_cidr")
+
+    @property
+    @pulumi.getter(name="outsideIpAddressType")
+    def outside_ip_address_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "outside_ip_address_type")
+
+    @property
+    @pulumi.getter(name="remoteIpv4NetworkCidr")
+    def remote_ipv4_network_cidr(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "remote_ipv4_network_cidr")
+
+    @property
+    @pulumi.getter(name="remoteIpv6NetworkCidr")
+    def remote_ipv6_network_cidr(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "remote_ipv6_network_cidr")
 
     @property
     @pulumi.getter(name="staticRoutesOnly")
@@ -326,6 +463,16 @@ class VpnConnection(pulumi.CustomResource):
          You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         """
         return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="transportTransitGatewayAttachmentId")
+    def transport_transit_gateway_attachment_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "transport_transit_gateway_attachment_id")
+
+    @property
+    @pulumi.getter(name="tunnelInsideIpVersion")
+    def tunnel_inside_ip_version(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "tunnel_inside_ip_version")
 
     @property
     @pulumi.getter

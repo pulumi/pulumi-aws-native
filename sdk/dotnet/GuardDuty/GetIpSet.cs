@@ -28,7 +28,10 @@ namespace Pulumi.AwsNative.GuardDuty
     public sealed class GetIpSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        /// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+        /// 
+        /// To find the `detectorId` in the current Region, see the
+        /// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         /// </summary>
         [Input("detectorId", required: true)]
         public string DetectorId { get; set; } = null!;
@@ -45,7 +48,10 @@ namespace Pulumi.AwsNative.GuardDuty
     public sealed class GetIpSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique ID of the detector of the GuardDuty account that you want to create an IPSet for.
+        /// The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
+        /// 
+        /// To find the `detectorId` in the current Region, see the
+        /// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;

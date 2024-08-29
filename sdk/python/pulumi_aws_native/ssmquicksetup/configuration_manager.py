@@ -23,6 +23,10 @@ class ConfigurationManagerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationManager resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationManagerConfigurationDefinitionArgs']]] configuration_definitions: The definition of the Quick Setup configuration that the configuration manager deploys.
+        :param pulumi.Input[str] description: The description of the configuration.
+        :param pulumi.Input[str] name: The name of the configuration
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of metadata to assign to the configuration manager.
         """
         pulumi.set(__self__, "configuration_definitions", configuration_definitions)
         if description is not None:
@@ -35,6 +39,9 @@ class ConfigurationManagerArgs:
     @property
     @pulumi.getter(name="configurationDefinitions")
     def configuration_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['ConfigurationManagerConfigurationDefinitionArgs']]]:
+        """
+        The definition of the Quick Setup configuration that the configuration manager deploys.
+        """
         return pulumi.get(self, "configuration_definitions")
 
     @configuration_definitions.setter
@@ -44,6 +51,9 @@ class ConfigurationManagerArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -53,6 +63,9 @@ class ConfigurationManagerArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the configuration
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62,6 +75,9 @@ class ConfigurationManagerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs of metadata to assign to the configuration manager.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -84,6 +100,10 @@ class ConfigurationManager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationManagerConfigurationDefinitionArgs', 'ConfigurationManagerConfigurationDefinitionArgsDict']]]] configuration_definitions: The definition of the Quick Setup configuration that the configuration manager deploys.
+        :param pulumi.Input[str] description: The description of the configuration.
+        :param pulumi.Input[str] name: The name of the configuration
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of metadata to assign to the configuration manager.
         """
         ...
     @overload
@@ -169,40 +189,64 @@ class ConfigurationManager(pulumi.CustomResource):
     @property
     @pulumi.getter(name="configurationDefinitions")
     def configuration_definitions(self) -> pulumi.Output[Sequence['outputs.ConfigurationManagerConfigurationDefinition']]:
+        """
+        The definition of the Quick Setup configuration that the configuration manager deploys.
+        """
         return pulumi.get(self, "configuration_definitions")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The datetime stamp when the configuration manager was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> pulumi.Output[str]:
+        """
+        The datetime stamp when the configuration manager was last updated.
+        """
         return pulumi.get(self, "last_modified_at")
 
     @property
     @pulumi.getter(name="managerArn")
     def manager_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Quick Setup configuration.
+        """
         return pulumi.get(self, "manager_arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the configuration
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="statusSummaries")
     def status_summaries(self) -> pulumi.Output[Sequence['outputs.ConfigurationManagerStatusSummary']]:
+        """
+        Summaries of the state of the configuration manager. These summaries include an aggregate of the statuses from the configuration definition associated with the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more.
+        """
         return pulumi.get(self, "status_summaries")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value pairs of metadata to assign to the configuration manager.
+        """
         return pulumi.get(self, "tags")
 

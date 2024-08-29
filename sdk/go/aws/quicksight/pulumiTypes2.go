@@ -38992,7 +38992,8 @@ type TemplateFilter struct {
 	//
 	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
 	CategoryFilter *TemplateCategoryFilter `pulumi:"categoryFilter"`
-	NestedFilter   *TemplateNestedFilter   `pulumi:"nestedFilter"`
+	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+	NestedFilter *TemplateNestedFilter `pulumi:"nestedFilter"`
 	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
 	NumericEqualityFilter *TemplateNumericEqualityFilter `pulumi:"numericEqualityFilter"`
 	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
@@ -39023,7 +39024,8 @@ type TemplateFilterArgs struct {
 	//
 	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
 	CategoryFilter TemplateCategoryFilterPtrInput `pulumi:"categoryFilter"`
-	NestedFilter   TemplateNestedFilterPtrInput   `pulumi:"nestedFilter"`
+	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+	NestedFilter TemplateNestedFilterPtrInput `pulumi:"nestedFilter"`
 	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
 	NumericEqualityFilter TemplateNumericEqualityFilterPtrInput `pulumi:"numericEqualityFilter"`
 	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
@@ -39096,6 +39098,7 @@ func (o TemplateFilterOutput) CategoryFilter() TemplateCategoryFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateCategoryFilter { return v.CategoryFilter }).(TemplateCategoryFilterPtrOutput)
 }
 
+// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
 func (o TemplateFilterOutput) NestedFilter() TemplateNestedFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateNestedFilter { return v.NestedFilter }).(TemplateNestedFilterPtrOutput)
 }
@@ -52097,6 +52100,7 @@ func (o TemplateHistogramVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateInnerFilter struct {
+	// A `CategoryInnerFilter` filters text values for the `NestedFilter` .
 	CategoryInnerFilter *TemplateCategoryInnerFilter `pulumi:"categoryInnerFilter"`
 }
 
@@ -52112,6 +52116,7 @@ type TemplateInnerFilterInput interface {
 }
 
 type TemplateInnerFilterArgs struct {
+	// A `CategoryInnerFilter` filters text values for the `NestedFilter` .
 	CategoryInnerFilter TemplateCategoryInnerFilterPtrInput `pulumi:"categoryInnerFilter"`
 }
 
@@ -52192,6 +52197,7 @@ func (o TemplateInnerFilterOutput) ToTemplateInnerFilterPtrOutputWithContext(ctx
 	}).(TemplateInnerFilterPtrOutput)
 }
 
+// A `CategoryInnerFilter` filters text values for the `NestedFilter` .
 func (o TemplateInnerFilterOutput) CategoryInnerFilter() TemplateCategoryInnerFilterPtrOutput {
 	return o.ApplyT(func(v TemplateInnerFilter) *TemplateCategoryInnerFilter { return v.CategoryInnerFilter }).(TemplateCategoryInnerFilterPtrOutput)
 }
@@ -52220,6 +52226,7 @@ func (o TemplateInnerFilterPtrOutput) Elem() TemplateInnerFilterOutput {
 	}).(TemplateInnerFilterOutput)
 }
 
+// A `CategoryInnerFilter` filters text values for the `NestedFilter` .
 func (o TemplateInnerFilterPtrOutput) CategoryInnerFilter() TemplateCategoryInnerFilterPtrOutput {
 	return o.ApplyT(func(v *TemplateInnerFilter) *TemplateCategoryInnerFilter {
 		if v == nil {
@@ -60706,10 +60713,14 @@ func (o TemplateNegativeValueConfigurationPtrOutput) DisplayMode() TemplateNegat
 }
 
 type TemplateNestedFilter struct {
-	Column          TemplateColumnIdentifier `pulumi:"column"`
-	FilterId        string                   `pulumi:"filterId"`
-	IncludeInnerSet bool                     `pulumi:"includeInnerSet"`
-	InnerFilter     TemplateInnerFilter      `pulumi:"innerFilter"`
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifier `pulumi:"column"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId string `pulumi:"filterId"`
+	// A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
+	IncludeInnerSet bool `pulumi:"includeInnerSet"`
+	// The `InnerFilter` defines the subset of data to be used with the `NestedFilter` .
+	InnerFilter TemplateInnerFilter `pulumi:"innerFilter"`
 }
 
 // TemplateNestedFilterInput is an input type that accepts TemplateNestedFilterArgs and TemplateNestedFilterOutput values.
@@ -60724,10 +60735,14 @@ type TemplateNestedFilterInput interface {
 }
 
 type TemplateNestedFilterArgs struct {
-	Column          TemplateColumnIdentifierInput `pulumi:"column"`
-	FilterId        pulumi.StringInput            `pulumi:"filterId"`
-	IncludeInnerSet pulumi.BoolInput              `pulumi:"includeInnerSet"`
-	InnerFilter     TemplateInnerFilterInput      `pulumi:"innerFilter"`
+	// The column that the filter is applied to.
+	Column TemplateColumnIdentifierInput `pulumi:"column"`
+	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+	FilterId pulumi.StringInput `pulumi:"filterId"`
+	// A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
+	IncludeInnerSet pulumi.BoolInput `pulumi:"includeInnerSet"`
+	// The `InnerFilter` defines the subset of data to be used with the `NestedFilter` .
+	InnerFilter TemplateInnerFilterInput `pulumi:"innerFilter"`
 }
 
 func (TemplateNestedFilterArgs) ElementType() reflect.Type {
@@ -60807,18 +60822,22 @@ func (o TemplateNestedFilterOutput) ToTemplateNestedFilterPtrOutputWithContext(c
 	}).(TemplateNestedFilterPtrOutput)
 }
 
+// The column that the filter is applied to.
 func (o TemplateNestedFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateNestedFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 func (o TemplateNestedFilterOutput) FilterId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateNestedFilter) string { return v.FilterId }).(pulumi.StringOutput)
 }
 
+// A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
 func (o TemplateNestedFilterOutput) IncludeInnerSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v TemplateNestedFilter) bool { return v.IncludeInnerSet }).(pulumi.BoolOutput)
 }
 
+// The `InnerFilter` defines the subset of data to be used with the `NestedFilter` .
 func (o TemplateNestedFilterOutput) InnerFilter() TemplateInnerFilterOutput {
 	return o.ApplyT(func(v TemplateNestedFilter) TemplateInnerFilter { return v.InnerFilter }).(TemplateInnerFilterOutput)
 }
@@ -60847,6 +60866,7 @@ func (o TemplateNestedFilterPtrOutput) Elem() TemplateNestedFilterOutput {
 	}).(TemplateNestedFilterOutput)
 }
 
+// The column that the filter is applied to.
 func (o TemplateNestedFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateNestedFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -60856,6 +60876,7 @@ func (o TemplateNestedFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutpu
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
+// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 func (o TemplateNestedFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateNestedFilter) *string {
 		if v == nil {
@@ -60865,6 +60886,7 @@ func (o TemplateNestedFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
 func (o TemplateNestedFilterPtrOutput) IncludeInnerSet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TemplateNestedFilter) *bool {
 		if v == nil {
@@ -60874,6 +60896,7 @@ func (o TemplateNestedFilterPtrOutput) IncludeInnerSet() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The `InnerFilter` defines the subset of data to be used with the `NestedFilter` .
 func (o TemplateNestedFilterPtrOutput) InnerFilter() TemplateInnerFilterPtrOutput {
 	return o.ApplyT(func(v *TemplateNestedFilter) *TemplateInnerFilter {
 		if v == nil {

@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// Configuration information for the file upload during chat feature.
         /// </summary>
         public readonly Outputs.ApplicationAttachmentsConfiguration? AttachmentsConfiguration;
+        /// <summary>
+        /// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        /// </summary>
         public readonly Outputs.ApplicationAutoSubscriptionConfiguration? AutoSubscriptionConfiguration;
         /// <summary>
         /// The Unix timestamp when the Amazon Q Business application was created.
@@ -86,6 +89,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// The Amazon Resource Name (ARN) of the AWS IAM Identity Center instance attached to your Amazon Q Business application.
         /// </summary>
         public readonly string? IdentityCenterApplicationArn;
+        /// <summary>
+        /// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+        /// </summary>
         public readonly Outputs.ApplicationPersonalizationConfiguration? PersonalizationConfiguration;
         /// <summary>
         /// Configuration information about Amazon Q Apps.

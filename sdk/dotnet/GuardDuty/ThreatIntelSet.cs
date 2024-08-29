@@ -28,7 +28,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+        /// The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+        /// 
+        /// To find the `detectorId` in the current Region, see the
+        /// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         /// </summary>
         [Output("detectorId")]
         public Output<string?> DetectorId { get; private set; } = null!;
@@ -116,7 +119,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<bool>? Activate { get; set; }
 
         /// <summary>
-        /// The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet for.
+        /// The unique ID of the detector of the GuardDuty account for which you want to create a `ThreatIntelSet` .
+        /// 
+        /// To find the `detectorId` in the current Region, see the
+        /// Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
