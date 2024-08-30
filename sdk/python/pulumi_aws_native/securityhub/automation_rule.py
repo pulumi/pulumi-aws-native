@@ -17,37 +17,33 @@ __all__ = ['AutomationRuleArgs', 'AutomationRule']
 @pulumi.input_type
 class AutomationRuleArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]]] = None,
-                 criteria: Optional[pulumi.Input['AutomationRulesFindingFiltersArgs']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
+                 actions: pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]],
+                 criteria: pulumi.Input['AutomationRulesFindingFiltersArgs'],
+                 description: pulumi.Input[str],
+                 rule_order: pulumi.Input[int],
                  is_terminal: Optional[pulumi.Input[bool]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 rule_order: Optional[pulumi.Input[int]] = None,
                  rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]] actions: One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]] actions: One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         :param pulumi.Input['AutomationRulesFindingFiltersArgs'] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[str] description: A description of the rule.
+        :param pulumi.Input[int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         :param pulumi.Input['AutomationRuleRuleStatus'] rule_status: Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: User-defined tags associated with an automation rule.
         """
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "rule_order", rule_order)
         if is_terminal is not None:
             pulumi.set(__self__, "is_terminal", is_terminal)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
-        if rule_order is not None:
-            pulumi.set(__self__, "rule_order", rule_order)
         if rule_status is not None:
             pulumi.set(__self__, "rule_status", rule_status)
         if tags is not None:
@@ -55,39 +51,51 @@ class AutomationRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]]:
         """
-        One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['AutomationRulesFindingFiltersArgs']]:
+    def criteria(self) -> pulumi.Input['AutomationRulesFindingFiltersArgs']:
         """
         A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['AutomationRulesFindingFiltersArgs']]):
+    def criteria(self, value: pulumi.Input['AutomationRulesFindingFiltersArgs']):
         pulumi.set(self, "criteria", value)
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
+    def description(self) -> pulumi.Input[str]:
         """
         A description of the rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
+    def description(self, value: pulumi.Input[str]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ruleOrder")
+    def rule_order(self) -> pulumi.Input[int]:
+        """
+        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        """
+        return pulumi.get(self, "rule_order")
+
+    @rule_order.setter
+    def rule_order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "rule_order", value)
 
     @property
     @pulumi.getter(name="isTerminal")
@@ -112,18 +120,6 @@ class AutomationRuleArgs:
     @rule_name.setter
     def rule_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rule_name", value)
-
-    @property
-    @pulumi.getter(name="ruleOrder")
-    def rule_order(self) -> Optional[pulumi.Input[int]]:
-        """
-        An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        """
-        return pulumi.get(self, "rule_order")
-
-    @rule_order.setter
-    def rule_order(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "rule_order", value)
 
     @property
     @pulumi.getter(name="ruleStatus")
@@ -727,7 +723,7 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         :param pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[str] description: A description of the rule.
         :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
@@ -740,7 +736,7 @@ class AutomationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AutomationRuleArgs] = None,
+                 args: AutomationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
@@ -1335,11 +1331,19 @@ class AutomationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AutomationRuleArgs.__new__(AutomationRuleArgs)
 
+            if actions is None and not opts.urn:
+                raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
+            if criteria is None and not opts.urn:
+                raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria
+            if description is None and not opts.urn:
+                raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["is_terminal"] = is_terminal
             __props__.__dict__["rule_name"] = rule_name
+            if rule_order is None and not opts.urn:
+                raise TypeError("Missing required property 'rule_order'")
             __props__.__dict__["rule_order"] = rule_order
             __props__.__dict__["rule_status"] = rule_status
             __props__.__dict__["tags"] = tags
@@ -1385,9 +1389,9 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[Sequence['outputs.AutomationRulesAction']]]:
+    def actions(self) -> pulumi.Output[Sequence['outputs.AutomationRulesAction']]:
         """
-        One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         """
         return pulumi.get(self, "actions")
 
@@ -1411,7 +1415,7 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Output[Optional['outputs.AutomationRulesFindingFilters']]:
+    def criteria(self) -> pulumi.Output['outputs.AutomationRulesFindingFilters']:
         """
         A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         """
@@ -1419,7 +1423,7 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         A description of the rule.
         """
@@ -1443,7 +1447,7 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Output[Optional[str]]:
+    def rule_name(self) -> pulumi.Output[str]:
         """
         The name of the rule.
         """
@@ -1451,7 +1455,7 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleOrder")
-    def rule_order(self) -> pulumi.Output[Optional[int]]:
+    def rule_order(self) -> pulumi.Output[int]:
         """
         An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         """

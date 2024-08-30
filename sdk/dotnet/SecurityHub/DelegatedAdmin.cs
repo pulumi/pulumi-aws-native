@@ -10,25 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub
 {
     /// <summary>
-    /// The AWS::SecurityHub::DelegatedAdmin resource represents the AWS Security Hub delegated admin account in your organization. One delegated admin resource is allowed to create for the organization in each region in which you configure the AdminAccountId.
+    /// The ``AWS::SecurityHub::DelegatedAdmin`` resource designates the delegated ASHlong administrator account for an organization. You must enable the integration between ASH and AOlong before you can designate a delegated ASH administrator. Only the management account for an organization can designate the delegated ASH administrator account. For more information, see [Designating the delegated administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *User Guide*.
+    ///  To change the delegated administrator account, remove the current delegated administrator account, and then designate the new account.
+    ///  To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).
+    ///  Tags aren't supported for this resource.
     /// </summary>
     [AwsNativeResourceType("aws-native:securityhub:DelegatedAdmin")]
     public partial class DelegatedAdmin : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Web Services account identifier of the account to designate as the Security Hub administrator account
+        /// The AWS-account identifier of the account to designate as the Security Hub administrator account.
         /// </summary>
         [Output("adminAccountId")]
         public Output<string> AdminAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the DelegatedAdmin being created and assigned as the unique identifier
+        /// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
         /// </summary>
         [Output("delegatedAdminIdentifier")]
         public Output<string> DelegatedAdminIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
+        /// Whether the delegated Security Hub administrator is set for the organization.
         /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.SecurityHub.DelegatedAdminStatus> Status { get; private set; } = null!;
@@ -83,7 +86,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class DelegatedAdminArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Web Services account identifier of the account to designate as the Security Hub administrator account
+        /// The AWS-account identifier of the account to designate as the Security Hub administrator account.
         /// </summary>
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;

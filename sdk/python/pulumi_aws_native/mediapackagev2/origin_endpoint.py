@@ -21,7 +21,7 @@ class OriginEndpointArgs:
     def __init__(__self__, *,
                  channel_group_name: pulumi.Input[str],
                  channel_name: pulumi.Input[str],
-                 container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
+                 container_type: pulumi.Input['OriginEndpointContainerType'],
                  dash_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashManifestConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_endpoint_error_configuration: Optional[pulumi.Input['OriginEndpointForceEndpointErrorConfigurationArgs']] = None,
@@ -47,8 +47,7 @@ class OriginEndpointArgs:
         """
         pulumi.set(__self__, "channel_group_name", channel_group_name)
         pulumi.set(__self__, "channel_name", channel_name)
-        if container_type is not None:
-            pulumi.set(__self__, "container_type", container_type)
+        pulumi.set(__self__, "container_type", container_type)
         if dash_manifests is not None:
             pulumi.set(__self__, "dash_manifests", dash_manifests)
         if description is not None:
@@ -94,14 +93,14 @@ class OriginEndpointArgs:
 
     @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[pulumi.Input['OriginEndpointContainerType']]:
+    def container_type(self) -> pulumi.Input['OriginEndpointContainerType']:
         """
         The container type associated with the origin endpoint configuration.
         """
         return pulumi.get(self, "container_type")
 
     @container_type.setter
-    def container_type(self, value: Optional[pulumi.Input['OriginEndpointContainerType']]):
+    def container_type(self, value: pulumi.Input['OriginEndpointContainerType']):
         pulumi.set(self, "container_type", value)
 
     @property
@@ -296,6 +295,8 @@ class OriginEndpoint(pulumi.CustomResource):
             if channel_name is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
+            if container_type is None and not opts.urn:
+                raise TypeError("Missing required property 'container_type'")
             __props__.__dict__["container_type"] = container_type
             __props__.__dict__["dash_manifests"] = dash_manifests
             __props__.__dict__["description"] = description
@@ -382,7 +383,7 @@ class OriginEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> pulumi.Output[Optional['OriginEndpointContainerType']]:
+    def container_type(self) -> pulumi.Output['OriginEndpointContainerType']:
         """
         The container type associated with the origin endpoint configuration.
         """

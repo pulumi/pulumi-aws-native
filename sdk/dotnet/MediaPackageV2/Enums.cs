@@ -276,6 +276,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public static OriginEndpointDrmSystem Fairplay { get; } = new OriginEndpointDrmSystem("FAIRPLAY");
         public static OriginEndpointDrmSystem Playready { get; } = new OriginEndpointDrmSystem("PLAYREADY");
         public static OriginEndpointDrmSystem Widevine { get; } = new OriginEndpointDrmSystem("WIDEVINE");
+        public static OriginEndpointDrmSystem Irdeto { get; } = new OriginEndpointDrmSystem("IRDETO");
 
         public static bool operator ==(OriginEndpointDrmSystem left, OriginEndpointDrmSystem right) => left.Equals(right);
         public static bool operator !=(OriginEndpointDrmSystem left, OriginEndpointDrmSystem right) => !left.Equals(right);

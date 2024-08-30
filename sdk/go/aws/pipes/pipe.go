@@ -142,6 +142,10 @@ func NewPipe(ctx *pulumi.Context,
 		"sourceParameters.managedStreamingKafkaParameters.topicName",
 		"sourceParameters.rabbitMqBrokerParameters.queueName",
 		"sourceParameters.rabbitMqBrokerParameters.virtualHost",
+		"sourceParameters.selfManagedKafkaParameters.additionalBootstrapServers[*]",
+		"sourceParameters.selfManagedKafkaParameters.consumerGroupId",
+		"sourceParameters.selfManagedKafkaParameters.startingPosition",
+		"sourceParameters.selfManagedKafkaParameters.topicName",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

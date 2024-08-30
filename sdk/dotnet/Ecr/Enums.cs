@@ -145,6 +145,7 @@ namespace Pulumi.AwsNative.Ecr
 
         public static RepositoryEncryptionType Aes256 { get; } = new RepositoryEncryptionType("AES256");
         public static RepositoryEncryptionType Kms { get; } = new RepositoryEncryptionType("KMS");
+        public static RepositoryEncryptionType KmsDsse { get; } = new RepositoryEncryptionType("KMS_DSSE");
 
         public static bool operator ==(RepositoryEncryptionType left, RepositoryEncryptionType right) => left.Equals(right);
         public static bool operator !=(RepositoryEncryptionType left, RepositoryEncryptionType right) => !left.Equals(right);

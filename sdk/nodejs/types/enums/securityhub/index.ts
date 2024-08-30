@@ -20,26 +20,19 @@ export const AutomationRuleMapFilterComparison = {
 
 /**
  * The condition to apply to the key value when filtering Security Hub findings with a map filter.
- *
- * To search for values that have the filter value, use one of the following comparison operators:
- *
- * - To search for values that include the filter value, use `CONTAINS` . For example, for the `ResourceTags` field, the filter `Department CONTAINS Security` matches findings that include the value `Security` for the `Department` tag. In the same example, a finding with a value of `Security team` for the `Department` tag is a match.
- * - To search for values that exactly match the filter value, use `EQUALS` . For example, for the `ResourceTags` field, the filter `Department EQUALS Security` matches findings that have the value `Security` for the `Department` tag.
- *
- * `CONTAINS` and `EQUALS` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Department CONTAINS Security OR Department CONTAINS Finance` match a finding that includes either `Security` , `Finance` , or both values.
- *
- * To search for values that don't have the filter value, use one of the following comparison operators:
- *
- * - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, for the `ResourceTags` field, the filter `Department NOT_CONTAINS Finance` matches findings that exclude the value `Finance` for the `Department` tag.
- * - To search for values other than the filter value, use `NOT_EQUALS` . For example, for the `ResourceTags` field, the filter `Department NOT_EQUALS Finance` matches findings that don’t have the value `Finance` for the `Department` tag.
- *
- * `NOT_CONTAINS` and `NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance` match a finding that excludes both the `Security` and `Finance` values.
- *
- * `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
- *
- * You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can’t have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field. Combining filters in this way returns an error.
- *
- * `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+ *  To search for values that have the filter value, use one of the following comparison operators:
+ *   +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
+ *   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
+ *   
+ *   ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
+ *  To search for values that don't have the filter value, use one of the following comparison operators:
+ *   +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
+ *   +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
+ *   
+ *   ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
+ *   ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+ *  You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. 
+ *   ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
  */
 export type AutomationRuleMapFilterComparison = (typeof AutomationRuleMapFilterComparison)[keyof typeof AutomationRuleMapFilterComparison];
 
@@ -63,12 +56,11 @@ export const AutomationRuleSeverityUpdateLabel = {
 
 /**
  * The severity value of the finding. The allowed values are the following.
- *
- * - `INFORMATIONAL` - No issue was found.
- * - `LOW` - The issue does not require action on its own.
- * - `MEDIUM` - The issue must be addressed but not urgently.
- * - `HIGH` - The issue must be addressed as a priority.
- * - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+ *   +   ``INFORMATIONAL`` - No issue was found.
+ *   +   ``LOW`` - The issue does not require action on its own.
+ *   +   ``MEDIUM`` - The issue must be addressed but not urgently.
+ *   +   ``HIGH`` - The issue must be addressed as a priority.
+ *   +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
  */
 export type AutomationRuleSeverityUpdateLabel = (typeof AutomationRuleSeverityUpdateLabel)[keyof typeof AutomationRuleSeverityUpdateLabel];
 
@@ -94,19 +86,16 @@ export const AutomationRuleWorkflowUpdateStatus = {
 } as const;
 
 /**
- * The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
- *
- * The allowed values are the following.
- *
- * - `NEW` - The initial state of a finding, before it is reviewed.
- *
- * Security Hub also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
- *
- * - The record state changes from `ARCHIVED` to `ACTIVE` .
- * - The compliance status changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .
- * - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
- * - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
- * - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+ * The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
+ *  The allowed values are the following.
+ *   +   ``NEW`` - The initial state of a finding, before it is reviewed.
+ *  Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+ *   +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+ *   +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
+ *   
+ *   +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+ *   +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+ *   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
  */
 export type AutomationRuleWorkflowUpdateStatus = (typeof AutomationRuleWorkflowUpdateStatus)[keyof typeof AutomationRuleWorkflowUpdateStatus];
 
@@ -115,7 +104,7 @@ export const AutomationRulesActionType = {
 } as const;
 
 /**
- * Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+ * Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
  */
 export type AutomationRulesActionType = (typeof AutomationRulesActionType)[keyof typeof AutomationRulesActionType];
 
@@ -127,7 +116,7 @@ export const AutomationRulesFindingFieldsUpdateVerificationState = {
 } as const;
 
 /**
- * The rule action updates the `VerificationState` field of a finding.
+ * The rule action updates the ``VerificationState`` field of a finding.
  */
 export type AutomationRulesFindingFieldsUpdateVerificationState = (typeof AutomationRulesFindingFieldsUpdateVerificationState)[keyof typeof AutomationRulesFindingFieldsUpdateVerificationState];
 
@@ -147,7 +136,7 @@ export const DelegatedAdminStatus = {
 } as const;
 
 /**
- * The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
+ * Whether the delegated Security Hub administrator is set for the organization.
  */
 export type DelegatedAdminStatus = (typeof DelegatedAdminStatus)[keyof typeof DelegatedAdminStatus];
 
@@ -158,7 +147,13 @@ export const FindingAggregatorRegionLinkingMode = {
 } as const;
 
 /**
- * Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
+ * Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+ *  The selected option also determines how to use the Regions provided in the Regions list.
+ *  The options are as follows:
+ *   +   ``ALL_REGIONS`` - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+ *   +   ``ALL_REGIONS_EXCEPT_SPECIFIED`` - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the ``Regions`` parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+ *   +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions. 
+ *   +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
  */
 export type FindingAggregatorRegionLinkingMode = (typeof FindingAggregatorRegionLinkingMode)[keyof typeof FindingAggregatorRegionLinkingMode];
 

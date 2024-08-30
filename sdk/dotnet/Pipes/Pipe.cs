@@ -201,6 +201,10 @@ namespace Pulumi.AwsNative.Pipes
                     "sourceParameters.managedStreamingKafkaParameters.topicName",
                     "sourceParameters.rabbitMqBrokerParameters.queueName",
                     "sourceParameters.rabbitMqBrokerParameters.virtualHost",
+                    "sourceParameters.selfManagedKafkaParameters.additionalBootstrapServers[*]",
+                    "sourceParameters.selfManagedKafkaParameters.consumerGroupId",
+                    "sourceParameters.selfManagedKafkaParameters.startingPosition",
+                    "sourceParameters.selfManagedKafkaParameters.topicName",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

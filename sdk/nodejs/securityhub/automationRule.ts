@@ -598,9 +598,9 @@ export class AutomationRule extends pulumi.CustomResource {
     }
 
     /**
-     * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+     * One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
      */
-    public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRulesAction[] | undefined>;
+    public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRulesAction[]>;
     /**
      * A timestamp that indicates when the rule was created.
      *
@@ -614,11 +614,11 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
-    public readonly criteria!: pulumi.Output<outputs.securityhub.AutomationRulesFindingFilters | undefined>;
+    public readonly criteria!: pulumi.Output<outputs.securityhub.AutomationRulesFindingFilters>;
     /**
      * A description of the rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
      */
@@ -630,11 +630,11 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * The name of the rule.
      */
-    public readonly ruleName!: pulumi.Output<string | undefined>;
+    public readonly ruleName!: pulumi.Output<string>;
     /**
      * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
      */
-    public readonly ruleOrder!: pulumi.Output<number | undefined>;
+    public readonly ruleOrder!: pulumi.Output<number>;
     /**
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
@@ -657,10 +657,22 @@ export class AutomationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AutomationRuleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AutomationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.actions === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'actions'");
+            }
+            if ((!args || args.criteria === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'criteria'");
+            }
+            if ((!args || args.description === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'description'");
+            }
+            if ((!args || args.ruleOrder === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ruleOrder'");
+            }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["criteria"] = args ? args.criteria : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -697,17 +709,17 @@ export class AutomationRule extends pulumi.CustomResource {
  */
 export interface AutomationRuleArgs {
     /**
-     * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+     * One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRulesActionArgs>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRulesActionArgs>[]>;
     /**
      * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
      */
-    criteria?: pulumi.Input<inputs.securityhub.AutomationRulesFindingFiltersArgs>;
+    criteria: pulumi.Input<inputs.securityhub.AutomationRulesFindingFiltersArgs>;
     /**
      * A description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
      */
@@ -719,7 +731,7 @@ export interface AutomationRuleArgs {
     /**
      * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
      */
-    ruleOrder?: pulumi.Input<number>;
+    ruleOrder: pulumi.Input<number>;
     /**
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */

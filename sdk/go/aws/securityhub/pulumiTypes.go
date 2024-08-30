@@ -13,28 +13,25 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A date filter for querying findings.
 type AutomationRuleDateFilter struct {
 	// A date range for the date filter.
 	DateRange *AutomationRuleDateRange `pulumi:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
-	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	End *string `pulumi:"end"`
 	// A timestamp that provides the start date for the date filter.
-	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	Start *string `pulumi:"start"`
 }
 
@@ -49,28 +46,25 @@ type AutomationRuleDateFilterInput interface {
 	ToAutomationRuleDateFilterOutputWithContext(context.Context) AutomationRuleDateFilterOutput
 }
 
+// A date filter for querying findings.
 type AutomationRuleDateFilterArgs struct {
 	// A date range for the date filter.
 	DateRange AutomationRuleDateRangePtrInput `pulumi:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
-	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// A timestamp that provides the start date for the date filter.
-	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -111,6 +105,7 @@ func (i AutomationRuleDateFilterArray) ToAutomationRuleDateFilterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleDateFilterArrayOutput)
 }
 
+// A date filter for querying findings.
 type AutomationRuleDateFilterOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleDateFilterOutput) ElementType() reflect.Type {
@@ -132,26 +127,24 @@ func (o AutomationRuleDateFilterOutput) DateRange() AutomationRuleDateRangePtrOu
 
 // A timestamp that provides the end date for the date filter.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 func (o AutomationRuleDateFilterOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleDateFilter) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
 // A timestamp that provides the start date for the date filter.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 func (o AutomationRuleDateFilterOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleDateFilter) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -176,6 +169,7 @@ func (o AutomationRuleDateFilterArrayOutput) Index(i pulumi.IntInput) Automation
 	}).(AutomationRuleDateFilterOutput)
 }
 
+// A date range for the date filter.
 type AutomationRuleDateRange struct {
 	// A date range unit for the date filter.
 	Unit AutomationRuleDateRangeUnit `pulumi:"unit"`
@@ -194,6 +188,7 @@ type AutomationRuleDateRangeInput interface {
 	ToAutomationRuleDateRangeOutputWithContext(context.Context) AutomationRuleDateRangeOutput
 }
 
+// A date range for the date filter.
 type AutomationRuleDateRangeArgs struct {
 	// A date range unit for the date filter.
 	Unit AutomationRuleDateRangeUnitInput `pulumi:"unit"`
@@ -254,6 +249,7 @@ func (i *automationRuleDateRangePtrType) ToAutomationRuleDateRangePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleDateRangePtrOutput)
 }
 
+// A date range for the date filter.
 type AutomationRuleDateRangeOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleDateRangeOutput) ElementType() reflect.Type {
@@ -332,32 +328,26 @@ func (o AutomationRuleDateRangePtrOutput) Value() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
 type AutomationRuleMapFilter struct {
 	// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+	//  To search for values that have the filter value, use one of the following comparison operators:
+	//   +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
+	//   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
 	//
-	// To search for values that have the filter value, use one of the following comparison operators:
+	//   ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
+	//  To search for values that don't have the filter value, use one of the following comparison operators:
+	//   +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
+	//   +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
 	//
-	// - To search for values that include the filter value, use `CONTAINS` . For example, for the `ResourceTags` field, the filter `Department CONTAINS Security` matches findings that include the value `Security` for the `Department` tag. In the same example, a finding with a value of `Security team` for the `Department` tag is a match.
-	// - To search for values that exactly match the filter value, use `EQUALS` . For example, for the `ResourceTags` field, the filter `Department EQUALS Security` matches findings that have the value `Security` for the `Department` tag.
-	//
-	// `CONTAINS` and `EQUALS` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Department CONTAINS Security OR Department CONTAINS Finance` match a finding that includes either `Security` , `Finance` , or both values.
-	//
-	// To search for values that don't have the filter value, use one of the following comparison operators:
-	//
-	// - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, for the `ResourceTags` field, the filter `Department NOT_CONTAINS Finance` matches findings that exclude the value `Finance` for the `Department` tag.
-	// - To search for values other than the filter value, use `NOT_EQUALS` . For example, for the `ResourceTags` field, the filter `Department NOT_EQUALS Finance` matches findings that don’t have the value `Finance` for the `Department` tag.
-	//
-	// `NOT_CONTAINS` and `NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance` match a finding that excludes both the `Security` and `Finance` values.
-	//
-	// `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-	//
-	// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can’t have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field. Combining filters in this way returns an error.
-	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+	//   ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
+	//   ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+	//  You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error.
+	//   ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 	Comparison AutomationRuleMapFilterComparison `pulumi:"comparison"`
-	// The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
+	// The key of the map filter. For example, for ``ResourceTags``, ``Key`` identifies the name of the tag. For ``UserDefinedFields``, ``Key`` is the name of the field.
 	Key string `pulumi:"key"`
-	// The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
+	// The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called ``Department`` might be ``Security``. If you provide ``security`` as the filter value, then there's no match.
 	Value string `pulumi:"value"`
 }
 
@@ -372,32 +362,26 @@ type AutomationRuleMapFilterInput interface {
 	ToAutomationRuleMapFilterOutputWithContext(context.Context) AutomationRuleMapFilterOutput
 }
 
+// A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
 type AutomationRuleMapFilterArgs struct {
 	// The condition to apply to the key value when filtering Security Hub findings with a map filter.
+	//  To search for values that have the filter value, use one of the following comparison operators:
+	//   +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
+	//   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
 	//
-	// To search for values that have the filter value, use one of the following comparison operators:
+	//   ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
+	//  To search for values that don't have the filter value, use one of the following comparison operators:
+	//   +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
+	//   +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
 	//
-	// - To search for values that include the filter value, use `CONTAINS` . For example, for the `ResourceTags` field, the filter `Department CONTAINS Security` matches findings that include the value `Security` for the `Department` tag. In the same example, a finding with a value of `Security team` for the `Department` tag is a match.
-	// - To search for values that exactly match the filter value, use `EQUALS` . For example, for the `ResourceTags` field, the filter `Department EQUALS Security` matches findings that have the value `Security` for the `Department` tag.
-	//
-	// `CONTAINS` and `EQUALS` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Department CONTAINS Security OR Department CONTAINS Finance` match a finding that includes either `Security` , `Finance` , or both values.
-	//
-	// To search for values that don't have the filter value, use one of the following comparison operators:
-	//
-	// - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, for the `ResourceTags` field, the filter `Department NOT_CONTAINS Finance` matches findings that exclude the value `Finance` for the `Department` tag.
-	// - To search for values other than the filter value, use `NOT_EQUALS` . For example, for the `ResourceTags` field, the filter `Department NOT_EQUALS Finance` matches findings that don’t have the value `Finance` for the `Department` tag.
-	//
-	// `NOT_CONTAINS` and `NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance` match a finding that excludes both the `Security` and `Finance` values.
-	//
-	// `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-	//
-	// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can’t have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field. Combining filters in this way returns an error.
-	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+	//   ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
+	//   ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+	//  You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error.
+	//   ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 	Comparison AutomationRuleMapFilterComparisonInput `pulumi:"comparison"`
-	// The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
+	// The key of the map filter. For example, for ``ResourceTags``, ``Key`` identifies the name of the tag. For ``UserDefinedFields``, ``Key`` is the name of the field.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
+	// The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called ``Department`` might be ``Security``. If you provide ``security`` as the filter value, then there's no match.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -438,6 +422,7 @@ func (i AutomationRuleMapFilterArray) ToAutomationRuleMapFilterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleMapFilterArrayOutput)
 }
 
+// A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
 type AutomationRuleMapFilterOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleMapFilterOutput) ElementType() reflect.Type {
@@ -454,35 +439,29 @@ func (o AutomationRuleMapFilterOutput) ToAutomationRuleMapFilterOutputWithContex
 
 // The condition to apply to the key value when filtering Security Hub findings with a map filter.
 //
-// To search for values that have the filter value, use one of the following comparison operators:
+//	To search for values that have the filter value, use one of the following comparison operators:
+//	 +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
+//	 +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
 //
-// - To search for values that include the filter value, use `CONTAINS` . For example, for the `ResourceTags` field, the filter `Department CONTAINS Security` matches findings that include the value `Security` for the `Department` tag. In the same example, a finding with a value of `Security team` for the `Department` tag is a match.
-// - To search for values that exactly match the filter value, use `EQUALS` . For example, for the `ResourceTags` field, the filter `Department EQUALS Security` matches findings that have the value `Security` for the `Department` tag.
+//	 ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
+//	To search for values that don't have the filter value, use one of the following comparison operators:
+//	 +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
+//	 +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
 //
-// `CONTAINS` and `EQUALS` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Department CONTAINS Security OR Department CONTAINS Finance` match a finding that includes either `Security` , `Finance` , or both values.
-//
-// To search for values that don't have the filter value, use one of the following comparison operators:
-//
-// - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, for the `ResourceTags` field, the filter `Department NOT_CONTAINS Finance` matches findings that exclude the value `Finance` for the `Department` tag.
-// - To search for values other than the filter value, use `NOT_EQUALS` . For example, for the `ResourceTags` field, the filter `Department NOT_EQUALS Finance` matches findings that don’t have the value `Finance` for the `Department` tag.
-//
-// `NOT_CONTAINS` and `NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance` match a finding that excludes both the `Security` and `Finance` values.
-//
-// `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-//
-// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can’t have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field. Combining filters in this way returns an error.
-//
-// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+//	 ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
+//	 ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+//	You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error.
+//	 ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 func (o AutomationRuleMapFilterOutput) Comparison() AutomationRuleMapFilterComparisonOutput {
 	return o.ApplyT(func(v AutomationRuleMapFilter) AutomationRuleMapFilterComparison { return v.Comparison }).(AutomationRuleMapFilterComparisonOutput)
 }
 
-// The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
+// The key of the map filter. For example, for “ResourceTags“, “Key“ identifies the name of the tag. For “UserDefinedFields“, “Key“ is the name of the field.
 func (o AutomationRuleMapFilterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleMapFilter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
+// The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called “Department“ might be “Security“. If you provide “security“ as the filter value, then there's no match.
 func (o AutomationRuleMapFilterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleMapFilter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -507,6 +486,7 @@ func (o AutomationRuleMapFilterArrayOutput) Index(i pulumi.IntInput) AutomationR
 	}).(AutomationRuleMapFilterOutput)
 }
 
+// The updated note.
 type AutomationRuleNoteUpdate struct {
 	// The updated note text.
 	Text string `pulumi:"text"`
@@ -525,6 +505,7 @@ type AutomationRuleNoteUpdateInput interface {
 	ToAutomationRuleNoteUpdateOutputWithContext(context.Context) AutomationRuleNoteUpdateOutput
 }
 
+// The updated note.
 type AutomationRuleNoteUpdateArgs struct {
 	// The updated note text.
 	Text pulumi.StringInput `pulumi:"text"`
@@ -585,6 +566,7 @@ func (i *automationRuleNoteUpdatePtrType) ToAutomationRuleNoteUpdatePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleNoteUpdatePtrOutput)
 }
 
+// The updated note.
 type AutomationRuleNoteUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleNoteUpdateOutput) ElementType() reflect.Type {
@@ -663,6 +645,7 @@ func (o AutomationRuleNoteUpdatePtrOutput) UpdatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A number filter for querying findings.
 type AutomationRuleNumberFilter struct {
 	// The equal-to condition to be applied to a single field when querying for findings.
 	Eq *float64 `pulumi:"eq"`
@@ -683,6 +666,7 @@ type AutomationRuleNumberFilterInput interface {
 	ToAutomationRuleNumberFilterOutputWithContext(context.Context) AutomationRuleNumberFilterOutput
 }
 
+// A number filter for querying findings.
 type AutomationRuleNumberFilterArgs struct {
 	// The equal-to condition to be applied to a single field when querying for findings.
 	Eq pulumi.Float64PtrInput `pulumi:"eq"`
@@ -729,6 +713,7 @@ func (i AutomationRuleNumberFilterArray) ToAutomationRuleNumberFilterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleNumberFilterArrayOutput)
 }
 
+// A number filter for querying findings.
 type AutomationRuleNumberFilterOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleNumberFilterOutput) ElementType() reflect.Type {
@@ -781,8 +766,7 @@ func (o AutomationRuleNumberFilterArrayOutput) Index(i pulumi.IntInput) Automati
 // Provides details about a list of findings that the current finding relates to.
 type AutomationRuleRelatedFinding struct {
 	// The product-generated identifier for a related finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Id string `pulumi:"id"`
 	// The Amazon Resource Name (ARN) for the product that generated a related finding.
 	ProductArn string `pulumi:"productArn"`
@@ -802,8 +786,7 @@ type AutomationRuleRelatedFindingInput interface {
 // Provides details about a list of findings that the current finding relates to.
 type AutomationRuleRelatedFindingArgs struct {
 	// The product-generated identifier for a related finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The Amazon Resource Name (ARN) for the product that generated a related finding.
 	ProductArn pulumi.StringInput `pulumi:"productArn"`
@@ -863,7 +846,7 @@ func (o AutomationRuleRelatedFindingOutput) ToAutomationRuleRelatedFindingOutput
 
 // The product-generated identifier for a related finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRuleRelatedFindingOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleRelatedFinding) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -893,24 +876,22 @@ func (o AutomationRuleRelatedFindingArrayOutput) Index(i pulumi.IntInput) Automa
 	}).(AutomationRuleRelatedFindingOutput)
 }
 
+// Updates to the severity information for a finding.
 type AutomationRuleSeverityUpdate struct {
 	// The severity value of the finding. The allowed values are the following.
-	//
-	// - `INFORMATIONAL` - No issue was found.
-	// - `LOW` - The issue does not require action on its own.
-	// - `MEDIUM` - The issue must be addressed but not urgently.
-	// - `HIGH` - The issue must be addressed as a priority.
-	// - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+	//   +   ``INFORMATIONAL`` - No issue was found.
+	//   +   ``LOW`` - The issue does not require action on its own.
+	//   +   ``MEDIUM`` - The issue must be addressed but not urgently.
+	//   +   ``HIGH`` - The issue must be addressed as a priority.
+	//   +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
 	Label *AutomationRuleSeverityUpdateLabel `pulumi:"label"`
-	// The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
-	//
-	// If you provide `Normalized` and do not provide `Label` , `Label` is set automatically as follows.
-	//
-	// - 0 - `INFORMATIONAL`
-	// - 1–39 - `LOW`
-	// - 40–69 - `MEDIUM`
-	// - 70–89 - `HIGH`
-	// - 90–100 - `CRITICAL`
+	// The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
+	//  If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+	//   +  0 - ``INFORMATIONAL``
+	//   +  1–39 - ``LOW``
+	//   +  40–69 - ``MEDIUM``
+	//   +  70–89 - ``HIGH``
+	//   +  90–100 - ``CRITICAL``
 	Normalized *int `pulumi:"normalized"`
 	// The native severity as defined by the AWS service or integrated partner product that generated the finding.
 	Product *float64 `pulumi:"product"`
@@ -927,24 +908,22 @@ type AutomationRuleSeverityUpdateInput interface {
 	ToAutomationRuleSeverityUpdateOutputWithContext(context.Context) AutomationRuleSeverityUpdateOutput
 }
 
+// Updates to the severity information for a finding.
 type AutomationRuleSeverityUpdateArgs struct {
 	// The severity value of the finding. The allowed values are the following.
-	//
-	// - `INFORMATIONAL` - No issue was found.
-	// - `LOW` - The issue does not require action on its own.
-	// - `MEDIUM` - The issue must be addressed but not urgently.
-	// - `HIGH` - The issue must be addressed as a priority.
-	// - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+	//   +   ``INFORMATIONAL`` - No issue was found.
+	//   +   ``LOW`` - The issue does not require action on its own.
+	//   +   ``MEDIUM`` - The issue must be addressed but not urgently.
+	//   +   ``HIGH`` - The issue must be addressed as a priority.
+	//   +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
 	Label AutomationRuleSeverityUpdateLabelPtrInput `pulumi:"label"`
-	// The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
-	//
-	// If you provide `Normalized` and do not provide `Label` , `Label` is set automatically as follows.
-	//
-	// - 0 - `INFORMATIONAL`
-	// - 1–39 - `LOW`
-	// - 40–69 - `MEDIUM`
-	// - 70–89 - `HIGH`
-	// - 90–100 - `CRITICAL`
+	// The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
+	//  If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+	//   +  0 - ``INFORMATIONAL``
+	//   +  1–39 - ``LOW``
+	//   +  40–69 - ``MEDIUM``
+	//   +  70–89 - ``HIGH``
+	//   +  90–100 - ``CRITICAL``
 	Normalized pulumi.IntPtrInput `pulumi:"normalized"`
 	// The native severity as defined by the AWS service or integrated partner product that generated the finding.
 	Product pulumi.Float64PtrInput `pulumi:"product"`
@@ -1003,6 +982,7 @@ func (i *automationRuleSeverityUpdatePtrType) ToAutomationRuleSeverityUpdatePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSeverityUpdatePtrOutput)
 }
 
+// Updates to the severity information for a finding.
 type AutomationRuleSeverityUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleSeverityUpdateOutput) ElementType() reflect.Type {
@@ -1028,25 +1008,23 @@ func (o AutomationRuleSeverityUpdateOutput) ToAutomationRuleSeverityUpdatePtrOut
 }
 
 // The severity value of the finding. The allowed values are the following.
-//
-// - `INFORMATIONAL` - No issue was found.
-// - `LOW` - The issue does not require action on its own.
-// - `MEDIUM` - The issue must be addressed but not urgently.
-// - `HIGH` - The issue must be addressed as a priority.
-// - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+//   - “INFORMATIONAL“ - No issue was found.
+//   - “LOW“ - The issue does not require action on its own.
+//   - “MEDIUM“ - The issue must be addressed but not urgently.
+//   - “HIGH“ - The issue must be addressed as a priority.
+//   - “CRITICAL“ - The issue must be remediated immediately to avoid it escalating.
 func (o AutomationRuleSeverityUpdateOutput) Label() AutomationRuleSeverityUpdateLabelPtrOutput {
 	return o.ApplyT(func(v AutomationRuleSeverityUpdate) *AutomationRuleSeverityUpdateLabel { return v.Label }).(AutomationRuleSeverityUpdateLabelPtrOutput)
 }
 
-// The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
+// The normalized severity for the finding. This attribute is to be deprecated in favor of “Label“.
 //
-// If you provide `Normalized` and do not provide `Label` , `Label` is set automatically as follows.
-//
-// - 0 - `INFORMATIONAL`
-// - 1–39 - `LOW`
-// - 40–69 - `MEDIUM`
-// - 70–89 - `HIGH`
-// - 90–100 - `CRITICAL`
+//	If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+//	 +  0 - ``INFORMATIONAL``
+//	 +  1–39 - ``LOW``
+//	 +  40–69 - ``MEDIUM``
+//	 +  70–89 - ``HIGH``
+//	 +  90–100 - ``CRITICAL``
 func (o AutomationRuleSeverityUpdateOutput) Normalized() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutomationRuleSeverityUpdate) *int { return v.Normalized }).(pulumi.IntPtrOutput)
 }
@@ -1081,12 +1059,11 @@ func (o AutomationRuleSeverityUpdatePtrOutput) Elem() AutomationRuleSeverityUpda
 }
 
 // The severity value of the finding. The allowed values are the following.
-//
-// - `INFORMATIONAL` - No issue was found.
-// - `LOW` - The issue does not require action on its own.
-// - `MEDIUM` - The issue must be addressed but not urgently.
-// - `HIGH` - The issue must be addressed as a priority.
-// - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+//   - “INFORMATIONAL“ - No issue was found.
+//   - “LOW“ - The issue does not require action on its own.
+//   - “MEDIUM“ - The issue must be addressed but not urgently.
+//   - “HIGH“ - The issue must be addressed as a priority.
+//   - “CRITICAL“ - The issue must be remediated immediately to avoid it escalating.
 func (o AutomationRuleSeverityUpdatePtrOutput) Label() AutomationRuleSeverityUpdateLabelPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleSeverityUpdate) *AutomationRuleSeverityUpdateLabel {
 		if v == nil {
@@ -1096,15 +1073,14 @@ func (o AutomationRuleSeverityUpdatePtrOutput) Label() AutomationRuleSeverityUpd
 	}).(AutomationRuleSeverityUpdateLabelPtrOutput)
 }
 
-// The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
+// The normalized severity for the finding. This attribute is to be deprecated in favor of “Label“.
 //
-// If you provide `Normalized` and do not provide `Label` , `Label` is set automatically as follows.
-//
-// - 0 - `INFORMATIONAL`
-// - 1–39 - `LOW`
-// - 40–69 - `MEDIUM`
-// - 70–89 - `HIGH`
-// - 90–100 - `CRITICAL`
+//	If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+//	 +  0 - ``INFORMATIONAL``
+//	 +  1–39 - ``LOW``
+//	 +  40–69 - ``MEDIUM``
+//	 +  70–89 - ``HIGH``
+//	 +  90–100 - ``CRITICAL``
 func (o AutomationRuleSeverityUpdatePtrOutput) Normalized() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleSeverityUpdate) *int {
 		if v == nil {
@@ -1124,39 +1100,32 @@ func (o AutomationRuleSeverityUpdatePtrOutput) Product() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
+// A string filter for filtering ASHlong findings.
 type AutomationRuleStringFilter struct {
 	// The condition to apply to a string value when filtering Security Hub findings.
+	//  To search for values that have the filter value, use one of the following comparison operators:
+	//   +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+	//   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
+	//   +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
 	//
-	// To search for values that have the filter value, use one of the following comparison operators:
+	//   ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
+	//  To search for values that don’t have the filter value, use one of the following comparison operators:
+	//   +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
+	//   +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
+	//   +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
 	//
-	// - To search for values that include the filter value, use `CONTAINS` . For example, the filter `Title CONTAINS CloudFront` matches findings that have a `Title` that includes the string CloudFront.
-	// - To search for values that exactly match the filter value, use `EQUALS` . For example, the filter `AwsAccountId EQUALS 123456789012` only matches findings that have an account ID of `123456789012` .
-	// - To search for values that start with the filter value, use `PREFIX` . For example, the filter `ResourceRegion PREFIX us` matches findings that have a `ResourceRegion` that starts with `us` . A `ResourceRegion` that starts with a different value, such as `af` , `ap` , or `ca` , doesn't match.
+	//   ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
+	//  You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+	//  You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+	//  For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+	//   +   ``ResourceType PREFIX AwsIam``
+	//   +   ``ResourceType PREFIX AwsEc2``
+	//   +   ``ResourceType NOT_EQUALS AwsIamPolicy``
+	//   +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 	//
-	// `CONTAINS` , `EQUALS` , and `PREFIX` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Title CONTAINS CloudFront OR Title CONTAINS CloudWatch` match a finding that includes either `CloudFront` , `CloudWatch` , or both strings in the title.
-	//
-	// To search for values that don’t have the filter value, use one of the following comparison operators:
-	//
-	// - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, the filter `Title NOT_CONTAINS CloudFront` matches findings that have a `Title` that excludes the string CloudFront.
-	// - To search for values other than the filter value, use `NOT_EQUALS` . For example, the filter `AwsAccountId NOT_EQUALS 123456789012` only matches findings that have an account ID other than `123456789012` .
-	// - To search for values that don't start with the filter value, use `PREFIX_NOT_EQUALS` . For example, the filter `ResourceRegion PREFIX_NOT_EQUALS us` matches findings with a `ResourceRegion` that starts with a value other than `us` .
-	//
-	// `NOT_CONTAINS` , `NOT_EQUALS` , and `PREFIX_NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch` match a finding that excludes both `CloudFront` and `CloudWatch` in the title.
-	//
-	// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-	//
-	// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
-	//
-	// For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
-	//
-	// - `ResourceType PREFIX AwsIam`
-	// - `ResourceType PREFIX AwsEc2`
-	// - `ResourceType NOT_EQUALS AwsIamPolicy`
-	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
-	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+	//   ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 	Comparison AutomationRuleStringFilterComparison `pulumi:"comparison"`
-	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
 	Value string `pulumi:"value"`
 }
 
@@ -1171,39 +1140,32 @@ type AutomationRuleStringFilterInput interface {
 	ToAutomationRuleStringFilterOutputWithContext(context.Context) AutomationRuleStringFilterOutput
 }
 
+// A string filter for filtering ASHlong findings.
 type AutomationRuleStringFilterArgs struct {
 	// The condition to apply to a string value when filtering Security Hub findings.
+	//  To search for values that have the filter value, use one of the following comparison operators:
+	//   +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+	//   +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
+	//   +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
 	//
-	// To search for values that have the filter value, use one of the following comparison operators:
+	//   ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
+	//  To search for values that don’t have the filter value, use one of the following comparison operators:
+	//   +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
+	//   +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
+	//   +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
 	//
-	// - To search for values that include the filter value, use `CONTAINS` . For example, the filter `Title CONTAINS CloudFront` matches findings that have a `Title` that includes the string CloudFront.
-	// - To search for values that exactly match the filter value, use `EQUALS` . For example, the filter `AwsAccountId EQUALS 123456789012` only matches findings that have an account ID of `123456789012` .
-	// - To search for values that start with the filter value, use `PREFIX` . For example, the filter `ResourceRegion PREFIX us` matches findings that have a `ResourceRegion` that starts with `us` . A `ResourceRegion` that starts with a different value, such as `af` , `ap` , or `ca` , doesn't match.
+	//   ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
+	//  You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+	//  You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+	//  For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+	//   +   ``ResourceType PREFIX AwsIam``
+	//   +   ``ResourceType PREFIX AwsEc2``
+	//   +   ``ResourceType NOT_EQUALS AwsIamPolicy``
+	//   +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 	//
-	// `CONTAINS` , `EQUALS` , and `PREFIX` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Title CONTAINS CloudFront OR Title CONTAINS CloudWatch` match a finding that includes either `CloudFront` , `CloudWatch` , or both strings in the title.
-	//
-	// To search for values that don’t have the filter value, use one of the following comparison operators:
-	//
-	// - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, the filter `Title NOT_CONTAINS CloudFront` matches findings that have a `Title` that excludes the string CloudFront.
-	// - To search for values other than the filter value, use `NOT_EQUALS` . For example, the filter `AwsAccountId NOT_EQUALS 123456789012` only matches findings that have an account ID other than `123456789012` .
-	// - To search for values that don't start with the filter value, use `PREFIX_NOT_EQUALS` . For example, the filter `ResourceRegion PREFIX_NOT_EQUALS us` matches findings with a `ResourceRegion` that starts with a value other than `us` .
-	//
-	// `NOT_CONTAINS` , `NOT_EQUALS` , and `PREFIX_NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch` match a finding that excludes both `CloudFront` and `CloudWatch` in the title.
-	//
-	// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-	//
-	// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
-	//
-	// For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
-	//
-	// - `ResourceType PREFIX AwsIam`
-	// - `ResourceType PREFIX AwsEc2`
-	// - `ResourceType NOT_EQUALS AwsIamPolicy`
-	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
-	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+	//   ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 	Comparison AutomationRuleStringFilterComparisonInput `pulumi:"comparison"`
-	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1244,6 +1206,7 @@ func (i AutomationRuleStringFilterArray) ToAutomationRuleStringFilterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleStringFilterArrayOutput)
 }
 
+// A string filter for filtering ASHlong findings.
 type AutomationRuleStringFilterOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleStringFilterOutput) ElementType() reflect.Type {
@@ -1260,39 +1223,32 @@ func (o AutomationRuleStringFilterOutput) ToAutomationRuleStringFilterOutputWith
 
 // The condition to apply to a string value when filtering Security Hub findings.
 //
-// To search for values that have the filter value, use one of the following comparison operators:
+//	To search for values that have the filter value, use one of the following comparison operators:
+//	 +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+//	 +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
+//	 +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
 //
-// - To search for values that include the filter value, use `CONTAINS` . For example, the filter `Title CONTAINS CloudFront` matches findings that have a `Title` that includes the string CloudFront.
-// - To search for values that exactly match the filter value, use `EQUALS` . For example, the filter `AwsAccountId EQUALS 123456789012` only matches findings that have an account ID of `123456789012` .
-// - To search for values that start with the filter value, use `PREFIX` . For example, the filter `ResourceRegion PREFIX us` matches findings that have a `ResourceRegion` that starts with `us` . A `ResourceRegion` that starts with a different value, such as `af` , `ap` , or `ca` , doesn't match.
+//	 ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
+//	To search for values that don’t have the filter value, use one of the following comparison operators:
+//	 +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
+//	 +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
+//	 +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
 //
-// `CONTAINS` , `EQUALS` , and `PREFIX` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Title CONTAINS CloudFront OR Title CONTAINS CloudWatch` match a finding that includes either `CloudFront` , `CloudWatch` , or both strings in the title.
+//	 ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
+//	You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+//	You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+//	For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+//	 +   ``ResourceType PREFIX AwsIam``
+//	 +   ``ResourceType PREFIX AwsEc2``
+//	 +   ``ResourceType NOT_EQUALS AwsIamPolicy``
+//	 +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 //
-// To search for values that don’t have the filter value, use one of the following comparison operators:
-//
-// - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, the filter `Title NOT_CONTAINS CloudFront` matches findings that have a `Title` that excludes the string CloudFront.
-// - To search for values other than the filter value, use `NOT_EQUALS` . For example, the filter `AwsAccountId NOT_EQUALS 123456789012` only matches findings that have an account ID other than `123456789012` .
-// - To search for values that don't start with the filter value, use `PREFIX_NOT_EQUALS` . For example, the filter `ResourceRegion PREFIX_NOT_EQUALS us` matches findings with a `ResourceRegion` that starts with a value other than `us` .
-//
-// `NOT_CONTAINS` , `NOT_EQUALS` , and `PREFIX_NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch` match a finding that excludes both `CloudFront` and `CloudWatch` in the title.
-//
-// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-//
-// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
-//
-// For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
-//
-// - `ResourceType PREFIX AwsIam`
-// - `ResourceType PREFIX AwsEc2`
-// - `ResourceType NOT_EQUALS AwsIamPolicy`
-// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
-//
-// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+//	 ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 func (o AutomationRuleStringFilterOutput) Comparison() AutomationRuleStringFilterComparisonOutput {
 	return o.ApplyT(func(v AutomationRuleStringFilter) AutomationRuleStringFilterComparison { return v.Comparison }).(AutomationRuleStringFilterComparisonOutput)
 }
 
-// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is “Security Hub“. If you provide “security hub“ as the filter value, there's no match.
 func (o AutomationRuleStringFilterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleStringFilter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1317,20 +1273,18 @@ func (o AutomationRuleStringFilterArrayOutput) Index(i pulumi.IntInput) Automati
 	}).(AutomationRuleStringFilterOutput)
 }
 
+// Used to update information about the investigation into the finding.
 type AutomationRuleWorkflowUpdate struct {
-	// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
+	// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
+	//  The allowed values are the following.
+	//   +   ``NEW`` - The initial state of a finding, before it is reviewed.
+	//  Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+	//   +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+	//   +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 	//
-	// The allowed values are the following.
-	//
-	// - `NEW` - The initial state of a finding, before it is reviewed.
-	//
-	// Security Hub also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
-	//
-	// - The record state changes from `ARCHIVED` to `ACTIVE` .
-	// - The compliance status changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .
-	// - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
-	// - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
-	// - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+	//   +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+	//   +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+	//   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
 	Status AutomationRuleWorkflowUpdateStatus `pulumi:"status"`
 }
 
@@ -1345,20 +1299,18 @@ type AutomationRuleWorkflowUpdateInput interface {
 	ToAutomationRuleWorkflowUpdateOutputWithContext(context.Context) AutomationRuleWorkflowUpdateOutput
 }
 
+// Used to update information about the investigation into the finding.
 type AutomationRuleWorkflowUpdateArgs struct {
-	// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
+	// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
+	//  The allowed values are the following.
+	//   +   ``NEW`` - The initial state of a finding, before it is reviewed.
+	//  Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+	//   +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+	//   +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 	//
-	// The allowed values are the following.
-	//
-	// - `NEW` - The initial state of a finding, before it is reviewed.
-	//
-	// Security Hub also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
-	//
-	// - The record state changes from `ARCHIVED` to `ACTIVE` .
-	// - The compliance status changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .
-	// - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
-	// - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
-	// - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+	//   +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+	//   +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+	//   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
 	Status AutomationRuleWorkflowUpdateStatusInput `pulumi:"status"`
 }
 
@@ -1415,6 +1367,7 @@ func (i *automationRuleWorkflowUpdatePtrType) ToAutomationRuleWorkflowUpdatePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleWorkflowUpdatePtrOutput)
 }
 
+// Used to update information about the investigation into the finding.
 type AutomationRuleWorkflowUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleWorkflowUpdateOutput) ElementType() reflect.Type {
@@ -1439,19 +1392,17 @@ func (o AutomationRuleWorkflowUpdateOutput) ToAutomationRuleWorkflowUpdatePtrOut
 	}).(AutomationRuleWorkflowUpdatePtrOutput)
 }
 
-// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
+// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to “SUPPRESSED“ or “RESOLVED“ does not prevent a new finding for the same issue.
 //
-// The allowed values are the following.
+//	The allowed values are the following.
+//	 +   ``NEW`` - The initial state of a finding, before it is reviewed.
+//	Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+//	 +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+//	 +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 //
-// - `NEW` - The initial state of a finding, before it is reviewed.
-//
-// Security Hub also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
-//
-// - The record state changes from `ARCHIVED` to `ACTIVE` .
-// - The compliance status changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .
-// - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
-// - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
-// - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+//	 +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+//	 +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+//	 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
 func (o AutomationRuleWorkflowUpdateOutput) Status() AutomationRuleWorkflowUpdateStatusOutput {
 	return o.ApplyT(func(v AutomationRuleWorkflowUpdate) AutomationRuleWorkflowUpdateStatus { return v.Status }).(AutomationRuleWorkflowUpdateStatusOutput)
 }
@@ -1480,19 +1431,17 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Elem() AutomationRuleWorkflowUpda
 	}).(AutomationRuleWorkflowUpdateOutput)
 }
 
-// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
+// The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to “SUPPRESSED“ or “RESOLVED“ does not prevent a new finding for the same issue.
 //
-// The allowed values are the following.
+//	The allowed values are the following.
+//	 +   ``NEW`` - The initial state of a finding, before it is reviewed.
+//	Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+//	 +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+//	 +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
 //
-// - `NEW` - The initial state of a finding, before it is reviewed.
-//
-// Security Hub also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
-//
-// - The record state changes from `ARCHIVED` to `ACTIVE` .
-// - The compliance status changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .
-// - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
-// - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
-// - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+//	 +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+//	 +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+//	 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
 func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUpdateStatusPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleWorkflowUpdate) *AutomationRuleWorkflowUpdateStatus {
 		if v == nil {
@@ -1502,10 +1451,11 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUp
 	}).(AutomationRuleWorkflowUpdateStatusPtrOutput)
 }
 
+// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
 type AutomationRulesAction struct {
 	// Specifies that the automation rule action is an update to a finding field.
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdate `pulumi:"findingFieldsUpdate"`
-	// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+	// Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
 	Type AutomationRulesActionType `pulumi:"type"`
 }
 
@@ -1520,10 +1470,11 @@ type AutomationRulesActionInput interface {
 	ToAutomationRulesActionOutputWithContext(context.Context) AutomationRulesActionOutput
 }
 
+// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
 type AutomationRulesActionArgs struct {
 	// Specifies that the automation rule action is an update to a finding field.
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdateInput `pulumi:"findingFieldsUpdate"`
-	// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+	// Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
 	Type AutomationRulesActionTypeInput `pulumi:"type"`
 }
 
@@ -1564,6 +1515,7 @@ func (i AutomationRulesActionArray) ToAutomationRulesActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesActionArrayOutput)
 }
 
+// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
 type AutomationRulesActionOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulesActionOutput) ElementType() reflect.Type {
@@ -1583,7 +1535,7 @@ func (o AutomationRulesActionOutput) FindingFieldsUpdate() AutomationRulesFindin
 	return o.ApplyT(func(v AutomationRulesAction) AutomationRulesFindingFieldsUpdate { return v.FindingFieldsUpdate }).(AutomationRulesFindingFieldsUpdateOutput)
 }
 
-// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+// Specifies that the rule action should update the “Types“ finding field. The “Types“ finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
 func (o AutomationRulesActionOutput) Type() AutomationRulesActionTypeOutput {
 	return o.ApplyT(func(v AutomationRulesAction) AutomationRulesActionType { return v.Type }).(AutomationRulesActionTypeOutput)
 }
@@ -1608,11 +1560,11 @@ func (o AutomationRulesActionArrayOutput) Index(i pulumi.IntInput) AutomationRul
 	}).(AutomationRulesActionOutput)
 }
 
-// The rule action will update the “Note“ field of a finding.
+// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
 type AutomationRulesFindingFieldsUpdate struct {
-	// The rule action updates the `Confidence` field of a finding.
+	// The rule action updates the ``Confidence`` field of a finding.
 	Confidence *int `pulumi:"confidence"`
-	// The rule action updates the `Criticality` field of a finding.
+	// The rule action updates the ``Criticality`` field of a finding.
 	Criticality *int `pulumi:"criticality"`
 	// The rule action will update the ``Note`` field of a finding.
 	Note *AutomationRuleNoteUpdate `pulumi:"note"`
@@ -1620,11 +1572,11 @@ type AutomationRulesFindingFieldsUpdate struct {
 	RelatedFindings []AutomationRuleRelatedFinding `pulumi:"relatedFindings"`
 	// The rule action will update the ``Severity`` field of a finding.
 	Severity *AutomationRuleSeverityUpdate `pulumi:"severity"`
-	// The rule action updates the `Types` field of a finding.
+	// The rule action updates the ``Types`` field of a finding.
 	Types []string `pulumi:"types"`
-	// The rule action updates the `UserDefinedFields` field of a finding.
+	// The rule action updates the ``UserDefinedFields`` field of a finding.
 	UserDefinedFields map[string]string `pulumi:"userDefinedFields"`
-	// The rule action updates the `VerificationState` field of a finding.
+	// The rule action updates the ``VerificationState`` field of a finding.
 	VerificationState *AutomationRulesFindingFieldsUpdateVerificationState `pulumi:"verificationState"`
 	// The rule action will update the ``Workflow`` field of a finding.
 	Workflow *AutomationRuleWorkflowUpdate `pulumi:"workflow"`
@@ -1641,11 +1593,11 @@ type AutomationRulesFindingFieldsUpdateInput interface {
 	ToAutomationRulesFindingFieldsUpdateOutputWithContext(context.Context) AutomationRulesFindingFieldsUpdateOutput
 }
 
-// The rule action will update the “Note“ field of a finding.
+// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
 type AutomationRulesFindingFieldsUpdateArgs struct {
-	// The rule action updates the `Confidence` field of a finding.
+	// The rule action updates the ``Confidence`` field of a finding.
 	Confidence pulumi.IntPtrInput `pulumi:"confidence"`
-	// The rule action updates the `Criticality` field of a finding.
+	// The rule action updates the ``Criticality`` field of a finding.
 	Criticality pulumi.IntPtrInput `pulumi:"criticality"`
 	// The rule action will update the ``Note`` field of a finding.
 	Note AutomationRuleNoteUpdatePtrInput `pulumi:"note"`
@@ -1653,11 +1605,11 @@ type AutomationRulesFindingFieldsUpdateArgs struct {
 	RelatedFindings AutomationRuleRelatedFindingArrayInput `pulumi:"relatedFindings"`
 	// The rule action will update the ``Severity`` field of a finding.
 	Severity AutomationRuleSeverityUpdatePtrInput `pulumi:"severity"`
-	// The rule action updates the `Types` field of a finding.
+	// The rule action updates the ``Types`` field of a finding.
 	Types pulumi.StringArrayInput `pulumi:"types"`
-	// The rule action updates the `UserDefinedFields` field of a finding.
+	// The rule action updates the ``UserDefinedFields`` field of a finding.
 	UserDefinedFields pulumi.StringMapInput `pulumi:"userDefinedFields"`
-	// The rule action updates the `VerificationState` field of a finding.
+	// The rule action updates the ``VerificationState`` field of a finding.
 	VerificationState AutomationRulesFindingFieldsUpdateVerificationStatePtrInput `pulumi:"verificationState"`
 	// The rule action will update the ``Workflow`` field of a finding.
 	Workflow AutomationRuleWorkflowUpdatePtrInput `pulumi:"workflow"`
@@ -1675,7 +1627,7 @@ func (i AutomationRulesFindingFieldsUpdateArgs) ToAutomationRulesFindingFieldsUp
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesFindingFieldsUpdateOutput)
 }
 
-// The rule action will update the “Note“ field of a finding.
+// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
 type AutomationRulesFindingFieldsUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulesFindingFieldsUpdateOutput) ElementType() reflect.Type {
@@ -1690,12 +1642,12 @@ func (o AutomationRulesFindingFieldsUpdateOutput) ToAutomationRulesFindingFields
 	return o
 }
 
-// The rule action updates the `Confidence` field of a finding.
+// The rule action updates the “Confidence“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) Confidence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *int { return v.Confidence }).(pulumi.IntPtrOutput)
 }
 
-// The rule action updates the `Criticality` field of a finding.
+// The rule action updates the “Criticality“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) Criticality() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *int { return v.Criticality }).(pulumi.IntPtrOutput)
 }
@@ -1715,17 +1667,17 @@ func (o AutomationRulesFindingFieldsUpdateOutput) Severity() AutomationRuleSever
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *AutomationRuleSeverityUpdate { return v.Severity }).(AutomationRuleSeverityUpdatePtrOutput)
 }
 
-// The rule action updates the `Types` field of a finding.
+// The rule action updates the “Types“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
 
-// The rule action updates the `UserDefinedFields` field of a finding.
+// The rule action updates the “UserDefinedFields“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) UserDefinedFields() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) map[string]string { return v.UserDefinedFields }).(pulumi.StringMapOutput)
 }
 
-// The rule action updates the `VerificationState` field of a finding.
+// The rule action updates the “VerificationState“ field of a finding.
 func (o AutomationRulesFindingFieldsUpdateOutput) VerificationState() AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *AutomationRulesFindingFieldsUpdateVerificationState {
 		return v.VerificationState
@@ -1737,186 +1689,147 @@ func (o AutomationRulesFindingFieldsUpdateOutput) Workflow() AutomationRuleWorkf
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *AutomationRuleWorkflowUpdate { return v.Workflow }).(AutomationRuleWorkflowUpdatePtrOutput)
 }
 
+// The criteria that determine which findings a rule applies to.
 type AutomationRulesFindingFilters struct {
-	// The AWS account ID in which a finding was generated.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	// The AWS-account ID in which a finding was generated.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	AwsAccountId []AutomationRuleStringFilter `pulumi:"awsAccountId"`
-	// The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	CompanyName []AutomationRuleStringFilter `pulumi:"companyName"`
 	// The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ComplianceAssociatedStandardsId []AutomationRuleStringFilter `pulumi:"complianceAssociatedStandardsId"`
 	// The security control ID for which a finding was generated. Security control IDs are the same across standards.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ComplianceSecurityControlId []AutomationRuleStringFilter `pulumi:"complianceSecurityControlId"`
 	// The result of a security check. This field is only used for findings generated from controls.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ComplianceStatus []AutomationRuleStringFilter `pulumi:"complianceStatus"`
-	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. ``Confidence`` is scored on a 0–100 basis using a ratio scale. A value of ``0`` means 0 percent confidence, and a value of ``100`` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Confidence []AutomationRuleNumberFilter `pulumi:"confidence"`
 	// A timestamp that indicates when this finding record was created.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	CreatedAt []AutomationRuleDateFilter `pulumi:"createdAt"`
-	// The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Criticality []AutomationRuleNumberFilter `pulumi:"criticality"`
 	// A finding's description.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Description []AutomationRuleStringFilter `pulumi:"description"`
 	// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	FirstObservedAt []AutomationRuleDateFilter `pulumi:"firstObservedAt"`
 	// The identifier for the solution-specific component that generated a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	GeneratorId []AutomationRuleStringFilter `pulumi:"generatorId"`
 	// The product-specific identifier for a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Id []AutomationRuleStringFilter `pulumi:"id"`
 	// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	LastObservedAt []AutomationRuleDateFilter `pulumi:"lastObservedAt"`
 	// The text of a user-defined note that's added to a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteText []AutomationRuleStringFilter `pulumi:"noteText"`
 	// The timestamp of when the note was updated.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteUpdatedAt []AutomationRuleDateFilter `pulumi:"noteUpdatedAt"`
 	// The principal that created a note.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteUpdatedBy []AutomationRuleStringFilter `pulumi:"noteUpdatedBy"`
 	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ProductArn []AutomationRuleStringFilter `pulumi:"productArn"`
 	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ProductName []AutomationRuleStringFilter `pulumi:"productName"`
 	// Provides the current state of a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	RecordState []AutomationRuleStringFilter `pulumi:"recordState"`
 	// The product-generated identifier for a related finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	RelatedFindingsId []AutomationRuleStringFilter `pulumi:"relatedFindingsId"`
 	// The ARN for the product that generated a related finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	RelatedFindingsProductArn []AutomationRuleStringFilter `pulumi:"relatedFindingsProductArn"`
 	// Custom fields and values about the resource that a finding pertains to.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceDetailsOther []AutomationRuleMapFilter `pulumi:"resourceDetailsOther"`
-	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	ResourceId []AutomationRuleStringFilter `pulumi:"resourceId"`
-	// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourcePartition []AutomationRuleStringFilter `pulumi:"resourcePartition"`
-	// The AWS Region where the resource that a finding pertains to is located.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The AWS-Region where the resource that a finding pertains to is located.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceRegion []AutomationRuleStringFilter `pulumi:"resourceRegion"`
 	// A list of AWS tags associated with a resource at the time the finding was processed.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceTags []AutomationRuleMapFilter `pulumi:"resourceTags"`
 	// A finding's title.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	ResourceType []AutomationRuleStringFilter `pulumi:"resourceType"`
 	// The severity value of the finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	SeverityLabel []AutomationRuleStringFilter `pulumi:"severityLabel"`
 	// Provides a URL that links to a page about the current finding in the finding product.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	SourceUrl []AutomationRuleStringFilter `pulumi:"sourceUrl"`
 	// A finding's title.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	Title []AutomationRuleStringFilter `pulumi:"title"`
-	// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Type []AutomationRuleStringFilter `pulumi:"type"`
 	// A timestamp that indicates when the finding record was most recently updated.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	UpdatedAt []AutomationRuleDateFilter `pulumi:"updatedAt"`
 	// A list of user-defined name and value string pairs added to a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	UserDefinedFields []AutomationRuleMapFilter `pulumi:"userDefinedFields"`
 	// Provides the veracity of a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	VerificationState []AutomationRuleStringFilter `pulumi:"verificationState"`
 	// Provides information about the status of the investigation into a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	WorkflowStatus []AutomationRuleStringFilter `pulumi:"workflowStatus"`
 }
 
@@ -1931,186 +1844,147 @@ type AutomationRulesFindingFiltersInput interface {
 	ToAutomationRulesFindingFiltersOutputWithContext(context.Context) AutomationRulesFindingFiltersOutput
 }
 
+// The criteria that determine which findings a rule applies to.
 type AutomationRulesFindingFiltersArgs struct {
-	// The AWS account ID in which a finding was generated.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	// The AWS-account ID in which a finding was generated.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	AwsAccountId AutomationRuleStringFilterArrayInput `pulumi:"awsAccountId"`
-	// The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	CompanyName AutomationRuleStringFilterArrayInput `pulumi:"companyName"`
 	// The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ComplianceAssociatedStandardsId AutomationRuleStringFilterArrayInput `pulumi:"complianceAssociatedStandardsId"`
 	// The security control ID for which a finding was generated. Security control IDs are the same across standards.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ComplianceSecurityControlId AutomationRuleStringFilterArrayInput `pulumi:"complianceSecurityControlId"`
 	// The result of a security check. This field is only used for findings generated from controls.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ComplianceStatus AutomationRuleStringFilterArrayInput `pulumi:"complianceStatus"`
-	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. ``Confidence`` is scored on a 0–100 basis using a ratio scale. A value of ``0`` means 0 percent confidence, and a value of ``100`` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Confidence AutomationRuleNumberFilterArrayInput `pulumi:"confidence"`
 	// A timestamp that indicates when this finding record was created.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	CreatedAt AutomationRuleDateFilterArrayInput `pulumi:"createdAt"`
-	// The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Criticality AutomationRuleNumberFilterArrayInput `pulumi:"criticality"`
 	// A finding's description.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Description AutomationRuleStringFilterArrayInput `pulumi:"description"`
 	// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	FirstObservedAt AutomationRuleDateFilterArrayInput `pulumi:"firstObservedAt"`
 	// The identifier for the solution-specific component that generated a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	GeneratorId AutomationRuleStringFilterArrayInput `pulumi:"generatorId"`
 	// The product-specific identifier for a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Id AutomationRuleStringFilterArrayInput `pulumi:"id"`
 	// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	LastObservedAt AutomationRuleDateFilterArrayInput `pulumi:"lastObservedAt"`
 	// The text of a user-defined note that's added to a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteText AutomationRuleStringFilterArrayInput `pulumi:"noteText"`
 	// The timestamp of when the note was updated.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteUpdatedAt AutomationRuleDateFilterArrayInput `pulumi:"noteUpdatedAt"`
 	// The principal that created a note.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteUpdatedBy AutomationRuleStringFilterArrayInput `pulumi:"noteUpdatedBy"`
 	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ProductArn AutomationRuleStringFilterArrayInput `pulumi:"productArn"`
 	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ProductName AutomationRuleStringFilterArrayInput `pulumi:"productName"`
 	// Provides the current state of a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	RecordState AutomationRuleStringFilterArrayInput `pulumi:"recordState"`
 	// The product-generated identifier for a related finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	RelatedFindingsId AutomationRuleStringFilterArrayInput `pulumi:"relatedFindingsId"`
 	// The ARN for the product that generated a related finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	RelatedFindingsProductArn AutomationRuleStringFilterArrayInput `pulumi:"relatedFindingsProductArn"`
 	// Custom fields and values about the resource that a finding pertains to.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceDetailsOther AutomationRuleMapFilterArrayInput `pulumi:"resourceDetailsOther"`
-	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	ResourceId AutomationRuleStringFilterArrayInput `pulumi:"resourceId"`
-	// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourcePartition AutomationRuleStringFilterArrayInput `pulumi:"resourcePartition"`
-	// The AWS Region where the resource that a finding pertains to is located.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// The AWS-Region where the resource that a finding pertains to is located.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceRegion AutomationRuleStringFilterArrayInput `pulumi:"resourceRegion"`
 	// A list of AWS tags associated with a resource at the time the finding was processed.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceTags AutomationRuleMapFilterArrayInput `pulumi:"resourceTags"`
 	// A finding's title.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	ResourceType AutomationRuleStringFilterArrayInput `pulumi:"resourceType"`
 	// The severity value of the finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	SeverityLabel AutomationRuleStringFilterArrayInput `pulumi:"severityLabel"`
 	// Provides a URL that links to a page about the current finding in the finding product.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	SourceUrl AutomationRuleStringFilterArrayInput `pulumi:"sourceUrl"`
 	// A finding's title.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	Title AutomationRuleStringFilterArrayInput `pulumi:"title"`
-	// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Type AutomationRuleStringFilterArrayInput `pulumi:"type"`
 	// A timestamp that indicates when the finding record was most recently updated.
+	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 	//
-	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//
-	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	UpdatedAt AutomationRuleDateFilterArrayInput `pulumi:"updatedAt"`
 	// A list of user-defined name and value string pairs added to a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	UserDefinedFields AutomationRuleMapFilterArrayInput `pulumi:"userDefinedFields"`
 	// Provides the veracity of a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	VerificationState AutomationRuleStringFilterArrayInput `pulumi:"verificationState"`
 	// Provides information about the status of the investigation into a finding.
-	//
-	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	WorkflowStatus AutomationRuleStringFilterArrayInput `pulumi:"workflowStatus"`
 }
 
@@ -2126,47 +2000,7 @@ func (i AutomationRulesFindingFiltersArgs) ToAutomationRulesFindingFiltersOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesFindingFiltersOutput)
 }
 
-func (i AutomationRulesFindingFiltersArgs) ToAutomationRulesFindingFiltersPtrOutput() AutomationRulesFindingFiltersPtrOutput {
-	return i.ToAutomationRulesFindingFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i AutomationRulesFindingFiltersArgs) ToAutomationRulesFindingFiltersPtrOutputWithContext(ctx context.Context) AutomationRulesFindingFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesFindingFiltersOutput).ToAutomationRulesFindingFiltersPtrOutputWithContext(ctx)
-}
-
-// AutomationRulesFindingFiltersPtrInput is an input type that accepts AutomationRulesFindingFiltersArgs, AutomationRulesFindingFiltersPtr and AutomationRulesFindingFiltersPtrOutput values.
-// You can construct a concrete instance of `AutomationRulesFindingFiltersPtrInput` via:
-//
-//	        AutomationRulesFindingFiltersArgs{...}
-//
-//	or:
-//
-//	        nil
-type AutomationRulesFindingFiltersPtrInput interface {
-	pulumi.Input
-
-	ToAutomationRulesFindingFiltersPtrOutput() AutomationRulesFindingFiltersPtrOutput
-	ToAutomationRulesFindingFiltersPtrOutputWithContext(context.Context) AutomationRulesFindingFiltersPtrOutput
-}
-
-type automationRulesFindingFiltersPtrType AutomationRulesFindingFiltersArgs
-
-func AutomationRulesFindingFiltersPtr(v *AutomationRulesFindingFiltersArgs) AutomationRulesFindingFiltersPtrInput {
-	return (*automationRulesFindingFiltersPtrType)(v)
-}
-
-func (*automationRulesFindingFiltersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutomationRulesFindingFilters)(nil)).Elem()
-}
-
-func (i *automationRulesFindingFiltersPtrType) ToAutomationRulesFindingFiltersPtrOutput() AutomationRulesFindingFiltersPtrOutput {
-	return i.ToAutomationRulesFindingFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i *automationRulesFindingFiltersPtrType) ToAutomationRulesFindingFiltersPtrOutputWithContext(ctx context.Context) AutomationRulesFindingFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesFindingFiltersPtrOutput)
-}
-
+// The criteria that determine which findings a rule applies to.
 type AutomationRulesFindingFiltersOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulesFindingFiltersOutput) ElementType() reflect.Type {
@@ -2181,33 +2015,23 @@ func (o AutomationRulesFindingFiltersOutput) ToAutomationRulesFindingFiltersOutp
 	return o
 }
 
-func (o AutomationRulesFindingFiltersOutput) ToAutomationRulesFindingFiltersPtrOutput() AutomationRulesFindingFiltersPtrOutput {
-	return o.ToAutomationRulesFindingFiltersPtrOutputWithContext(context.Background())
-}
-
-func (o AutomationRulesFindingFiltersOutput) ToAutomationRulesFindingFiltersPtrOutputWithContext(ctx context.Context) AutomationRulesFindingFiltersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRulesFindingFilters) *AutomationRulesFindingFilters {
-		return &v
-	}).(AutomationRulesFindingFiltersPtrOutput)
-}
-
-// The AWS account ID in which a finding was generated.
+// The AWS-account ID in which a finding was generated.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersOutput) AwsAccountId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.AwsAccountId }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
+// The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) CompanyName() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.CompanyName }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ComplianceAssociatedStandardsId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		return v.ComplianceAssociatedStandardsId
@@ -2216,7 +2040,7 @@ func (o AutomationRulesFindingFiltersOutput) ComplianceAssociatedStandardsId() A
 
 // The security control ID for which a finding was generated. Security control IDs are the same across standards.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ComplianceSecurityControlId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		return v.ComplianceSecurityControlId
@@ -2225,257 +2049,252 @@ func (o AutomationRulesFindingFiltersOutput) ComplianceSecurityControlId() Autom
 
 // The result of a security check. This field is only used for findings generated from controls.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ComplianceStatus() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ComplianceStatus }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. “Confidence“ is scored on a 0–100 basis using a ratio scale. A value of “0“ means 0 percent confidence, and a value of “100“ means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) Confidence() AutomationRuleNumberFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleNumberFilter { return v.Confidence }).(AutomationRuleNumberFilterArrayOutput)
 }
 
 // A timestamp that indicates when this finding record was created.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) CreatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.CreatedAt }).(AutomationRuleDateFilterArrayOutput)
 }
 
-// The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
+// The level of importance that is assigned to the resources that are associated with a finding. “Criticality“ is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of “0“ means that the underlying resources have no criticality, and a score of “100“ is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) Criticality() AutomationRuleNumberFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleNumberFilter { return v.Criticality }).(AutomationRuleNumberFilterArrayOutput)
 }
 
 // A finding's description.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) Description() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.Description }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) FirstObservedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.FirstObservedAt }).(AutomationRuleDateFilterArrayOutput)
 }
 
 // The identifier for the solution-specific component that generated a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersOutput) GeneratorId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.GeneratorId }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // The product-specific identifier for a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) Id() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.Id }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) LastObservedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.LastObservedAt }).(AutomationRuleDateFilterArrayOutput)
 }
 
 // The text of a user-defined note that's added to a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) NoteText() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.NoteText }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // The timestamp of when the note was updated.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) NoteUpdatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.NoteUpdatedAt }).(AutomationRuleDateFilterArrayOutput)
 }
 
 // The principal that created a note.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) NoteUpdatedBy() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.NoteUpdatedBy }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ProductArn() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ProductArn }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ProductName() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ProductName }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // Provides the current state of a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) RecordState() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.RecordState }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // The product-generated identifier for a related finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) RelatedFindingsId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.RelatedFindingsId }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // The ARN for the product that generated a related finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) RelatedFindingsProductArn() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.RelatedFindingsProductArn }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // Custom fields and values about the resource that a finding pertains to.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ResourceDetailsOther() AutomationRuleMapFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleMapFilter { return v.ResourceDetailsOther }).(AutomationRuleMapFilterArrayOutput)
 }
 
-// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersOutput) ResourceId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ResourceId }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
+// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ResourcePartition() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ResourcePartition }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The AWS Region where the resource that a finding pertains to is located.
+// The AWS-Region where the resource that a finding pertains to is located.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ResourceRegion() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ResourceRegion }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // A list of AWS tags associated with a resource at the time the finding was processed.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ResourceTags() AutomationRuleMapFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleMapFilter { return v.ResourceTags }).(AutomationRuleMapFilterArrayOutput)
 }
 
 // A finding's title.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersOutput) ResourceType() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ResourceType }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // The severity value of the finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) SeverityLabel() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.SeverityLabel }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // Provides a URL that links to a page about the current finding in the finding product.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) SourceUrl() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.SourceUrl }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // A finding's title.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersOutput) Title() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.Title }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) Type() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.Type }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // A timestamp that indicates when the finding record was most recently updated.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) UpdatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.UpdatedAt }).(AutomationRuleDateFilterArrayOutput)
 }
 
 // A list of user-defined name and value string pairs added to a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) UserDefinedFields() AutomationRuleMapFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleMapFilter { return v.UserDefinedFields }).(AutomationRuleMapFilterArrayOutput)
 }
 
 // Provides the veracity of a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) VerificationState() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.VerificationState }).(AutomationRuleStringFilterArrayOutput)
 }
 
 // Provides information about the status of the investigation into a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) WorkflowStatus() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.WorkflowStatus }).(AutomationRuleStringFilterArrayOutput)
 }
@@ -2504,9 +2323,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) Elem() AutomationRulesFindingFil
 	}).(AutomationRulesFindingFiltersOutput)
 }
 
-// The AWS account ID in which a finding was generated.
+// The AWS-account ID in which a finding was generated.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersPtrOutput) AwsAccountId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2516,9 +2335,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) AwsAccountId() AutomationRuleStr
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
+// The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) CompanyName() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2530,7 +2349,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) CompanyName() AutomationRuleStri
 
 // The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ComplianceAssociatedStandardsId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2542,7 +2361,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ComplianceAssociatedStandardsId(
 
 // The security control ID for which a finding was generated. Security control IDs are the same across standards.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ComplianceSecurityControlId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2554,7 +2373,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ComplianceSecurityControlId() Au
 
 // The result of a security check. This field is only used for findings generated from controls.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ComplianceStatus() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2564,9 +2383,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) ComplianceStatus() AutomationRul
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. “Confidence“ is scored on a 0–100 basis using a ratio scale. A value of “0“ means 0 percent confidence, and a value of “100“ means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) Confidence() AutomationRuleNumberFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleNumberFilter {
 		if v == nil {
@@ -2578,15 +2397,14 @@ func (o AutomationRulesFindingFiltersPtrOutput) Confidence() AutomationRuleNumbe
 
 // A timestamp that indicates when this finding record was created.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) CreatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
 		if v == nil {
@@ -2596,9 +2414,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) CreatedAt() AutomationRuleDateFi
 	}).(AutomationRuleDateFilterArrayOutput)
 }
 
-// The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
+// The level of importance that is assigned to the resources that are associated with a finding. “Criticality“ is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of “0“ means that the underlying resources have no criticality, and a score of “100“ is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) Criticality() AutomationRuleNumberFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleNumberFilter {
 		if v == nil {
@@ -2610,7 +2428,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) Criticality() AutomationRuleNumb
 
 // A finding's description.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) Description() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2622,15 +2440,14 @@ func (o AutomationRulesFindingFiltersPtrOutput) Description() AutomationRuleStri
 
 // A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) FirstObservedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
 		if v == nil {
@@ -2642,7 +2459,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) FirstObservedAt() AutomationRule
 
 // The identifier for the solution-specific component that generated a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersPtrOutput) GeneratorId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2654,7 +2471,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) GeneratorId() AutomationRuleStri
 
 // The product-specific identifier for a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) Id() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2666,15 +2483,14 @@ func (o AutomationRulesFindingFiltersPtrOutput) Id() AutomationRuleStringFilterA
 
 // A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) LastObservedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
 		if v == nil {
@@ -2686,7 +2502,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) LastObservedAt() AutomationRuleD
 
 // The text of a user-defined note that's added to a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) NoteText() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2698,15 +2514,14 @@ func (o AutomationRulesFindingFiltersPtrOutput) NoteText() AutomationRuleStringF
 
 // The timestamp of when the note was updated.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) NoteUpdatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
 		if v == nil {
@@ -2718,7 +2533,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) NoteUpdatedAt() AutomationRuleDa
 
 // The principal that created a note.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) NoteUpdatedBy() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2730,7 +2545,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) NoteUpdatedBy() AutomationRuleSt
 
 // The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ProductArn() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2742,7 +2557,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ProductArn() AutomationRuleStrin
 
 // Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ProductName() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2754,7 +2569,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ProductName() AutomationRuleStri
 
 // Provides the current state of a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) RecordState() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2766,7 +2581,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) RecordState() AutomationRuleStri
 
 // The product-generated identifier for a related finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) RelatedFindingsId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2778,7 +2593,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) RelatedFindingsId() AutomationRu
 
 // The ARN for the product that generated a related finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) RelatedFindingsProductArn() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2790,7 +2605,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) RelatedFindingsProductArn() Auto
 
 // Custom fields and values about the resource that a finding pertains to.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ResourceDetailsOther() AutomationRuleMapFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleMapFilter {
 		if v == nil {
@@ -2800,9 +2615,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) ResourceDetailsOther() Automatio
 	}).(AutomationRuleMapFilterArrayOutput)
 }
 
-// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
+// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ResourceId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2812,9 +2627,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) ResourceId() AutomationRuleStrin
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
+// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ResourcePartition() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2824,9 +2639,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) ResourcePartition() AutomationRu
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// The AWS Region where the resource that a finding pertains to is located.
+// The AWS-Region where the resource that a finding pertains to is located.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ResourceRegion() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2838,7 +2653,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ResourceRegion() AutomationRuleS
 
 // A list of AWS tags associated with a resource at the time the finding was processed.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ResourceTags() AutomationRuleMapFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleMapFilter {
 		if v == nil {
@@ -2850,7 +2665,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ResourceTags() AutomationRuleMap
 
 // A finding's title.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ResourceType() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2862,7 +2677,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) ResourceType() AutomationRuleStr
 
 // The severity value of the finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) SeverityLabel() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2874,7 +2689,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) SeverityLabel() AutomationRuleSt
 
 // Provides a URL that links to a page about the current finding in the finding product.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) SourceUrl() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2886,7 +2701,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) SourceUrl() AutomationRuleString
 
 // A finding's title.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 100 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersPtrOutput) Title() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2896,9 +2711,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) Title() AutomationRuleStringFilt
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+// One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) Type() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2910,15 +2725,14 @@ func (o AutomationRulesFindingFiltersPtrOutput) Type() AutomationRuleStringFilte
 
 // A timestamp that indicates when the finding record was most recently updated.
 //
-// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
 //
-// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-//
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) UpdatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
 		if v == nil {
@@ -2930,7 +2744,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) UpdatedAt() AutomationRuleDateFi
 
 // A list of user-defined name and value string pairs added to a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) UserDefinedFields() AutomationRuleMapFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleMapFilter {
 		if v == nil {
@@ -2942,7 +2756,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) UserDefinedFields() AutomationRu
 
 // Provides the veracity of a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) VerificationState() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2954,7 +2768,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) VerificationState() AutomationRu
 
 // Provides information about the status of the investigation into a finding.
 //
-// Array Members: Minimum number of 1 item. Maximum number of 20 items.
+//	Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) WorkflowStatus() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -7580,7 +7394,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesActionArrayInput)(nil)).Elem(), AutomationRulesActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFiltersInput)(nil)).Elem(), AutomationRulesFindingFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFiltersPtrInput)(nil)).Elem(), AutomationRulesFindingFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyParameterConfigurationInput)(nil)).Elem(), ConfigurationPolicyParameterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyParameterConfigurationMapInput)(nil)).Elem(), ConfigurationPolicyParameterConfigurationMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyParameterValueInput)(nil)).Elem(), ConfigurationPolicyParameterValueArgs{})

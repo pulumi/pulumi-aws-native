@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
+    /// <summary>
+    /// A number filter for querying findings.
+    /// </summary>
     [OutputType]
     public sealed class AutomationRuleNumberFilter
     {

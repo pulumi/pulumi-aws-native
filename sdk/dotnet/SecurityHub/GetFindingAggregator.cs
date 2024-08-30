@@ -12,13 +12,17 @@ namespace Pulumi.AwsNative.SecurityHub
     public static class GetFindingAggregator
     {
         /// <summary>
-        /// The AWS::SecurityHub::FindingAggregator resource represents the AWS Security Hub Finding Aggregator in your account. One finding aggregator resource is created for each account in non opt-in region in which you configure region linking mode.
+        /// The ``AWS::SecurityHub::FindingAggregator`` resource enables cross-Region aggregation. When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *User Guide* 
+        ///  This resource must be created in the Region that you want to designate as your aggregation Region.
+        ///  Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
         /// </summary>
         public static Task<GetFindingAggregatorResult> InvokeAsync(GetFindingAggregatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFindingAggregatorResult>("aws-native:securityhub:getFindingAggregator", args ?? new GetFindingAggregatorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::SecurityHub::FindingAggregator resource represents the AWS Security Hub Finding Aggregator in your account. One finding aggregator resource is created for each account in non opt-in region in which you configure region linking mode.
+        /// The ``AWS::SecurityHub::FindingAggregator`` resource enables cross-Region aggregation. When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *User Guide* 
+        ///  This resource must be created in the Region that you want to designate as your aggregation Region.
+        ///  Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
         /// </summary>
         public static Output<GetFindingAggregatorResult> Invoke(GetFindingAggregatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFindingAggregatorResult>("aws-native:securityhub:getFindingAggregator", args ?? new GetFindingAggregatorInvokeArgs(), options.WithDefaults());
@@ -28,7 +32,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetFindingAggregatorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the FindingAggregator being created and assigned as the unique identifier
+        /// The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
         /// </summary>
         [Input("findingAggregatorArn", required: true)]
         public string FindingAggregatorArn { get; set; } = null!;
@@ -42,7 +46,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetFindingAggregatorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the FindingAggregator being created and assigned as the unique identifier
+        /// The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
         /// </summary>
         [Input("findingAggregatorArn", required: true)]
         public Input<string> FindingAggregatorArn { get; set; } = null!;
@@ -58,19 +62,27 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetFindingAggregatorResult
     {
         /// <summary>
-        /// The aggregation Region of the FindingAggregator
+        /// The aggregation Region.
         /// </summary>
         public readonly string? FindingAggregationRegion;
         /// <summary>
-        /// The ARN of the FindingAggregator being created and assigned as the unique identifier
+        /// The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
         /// </summary>
         public readonly string? FindingAggregatorArn;
         /// <summary>
-        /// Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
+        /// Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+        ///  The selected option also determines how to use the Regions provided in the Regions list.
+        ///  The options are as follows:
+        ///   +   ``ALL_REGIONS`` - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+        ///   +   ``ALL_REGIONS_EXCEPT_SPECIFIED`` - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the ``Regions`` parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+        ///   +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions. 
+        ///   +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.FindingAggregatorRegionLinkingMode? RegionLinkingMode;
         /// <summary>
-        /// The list of excluded Regions or included Regions
+        /// If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
+        ///  If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region. 
+        ///  An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
         /// </summary>
         public readonly ImmutableArray<string> Regions;
 

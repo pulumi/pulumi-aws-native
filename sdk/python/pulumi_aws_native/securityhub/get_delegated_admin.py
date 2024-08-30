@@ -31,7 +31,7 @@ class GetDelegatedAdminResult:
     @pulumi.getter(name="delegatedAdminIdentifier")
     def delegated_admin_identifier(self) -> Optional[str]:
         """
-        The identifier of the DelegatedAdmin being created and assigned as the unique identifier
+        The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
         """
         return pulumi.get(self, "delegated_admin_identifier")
 
@@ -39,7 +39,7 @@ class GetDelegatedAdminResult:
     @pulumi.getter
     def status(self) -> Optional['DelegatedAdminStatus']:
         """
-        The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator
+        Whether the delegated Security Hub administrator is set for the organization.
         """
         return pulumi.get(self, "status")
 
@@ -57,10 +57,13 @@ class AwaitableGetDelegatedAdminResult(GetDelegatedAdminResult):
 def get_delegated_admin(delegated_admin_identifier: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedAdminResult:
     """
-    The AWS::SecurityHub::DelegatedAdmin resource represents the AWS Security Hub delegated admin account in your organization. One delegated admin resource is allowed to create for the organization in each region in which you configure the AdminAccountId.
+    The ``AWS::SecurityHub::DelegatedAdmin`` resource designates the delegated ASHlong administrator account for an organization. You must enable the integration between ASH and AOlong before you can designate a delegated ASH administrator. Only the management account for an organization can designate the delegated ASH administrator account. For more information, see [Designating the delegated administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *User Guide*.
+     To change the delegated administrator account, remove the current delegated administrator account, and then designate the new account.
+     To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).
+     Tags aren't supported for this resource.
 
 
-    :param str delegated_admin_identifier: The identifier of the DelegatedAdmin being created and assigned as the unique identifier
+    :param str delegated_admin_identifier: The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
     """
     __args__ = dict()
     __args__['delegatedAdminIdentifier'] = delegated_admin_identifier
@@ -76,9 +79,12 @@ def get_delegated_admin(delegated_admin_identifier: Optional[str] = None,
 def get_delegated_admin_output(delegated_admin_identifier: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedAdminResult]:
     """
-    The AWS::SecurityHub::DelegatedAdmin resource represents the AWS Security Hub delegated admin account in your organization. One delegated admin resource is allowed to create for the organization in each region in which you configure the AdminAccountId.
+    The ``AWS::SecurityHub::DelegatedAdmin`` resource designates the delegated ASHlong administrator account for an organization. You must enable the integration between ASH and AOlong before you can designate a delegated ASH administrator. Only the management account for an organization can designate the delegated ASH administrator account. For more information, see [Designating the delegated administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *User Guide*.
+     To change the delegated administrator account, remove the current delegated administrator account, and then designate the new account.
+     To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).
+     Tags aren't supported for this resource.
 
 
-    :param str delegated_admin_identifier: The identifier of the DelegatedAdmin being created and assigned as the unique identifier
+    :param str delegated_admin_identifier: The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
     """
     ...

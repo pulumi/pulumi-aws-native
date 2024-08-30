@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetAutomationRuleResult
     {
         /// <summary>
-        /// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        /// One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRulesAction> Actions;
         /// <summary>

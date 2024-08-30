@@ -24,7 +24,7 @@ type OriginEndpoint struct {
 	// The channel name associated with the origin endpoint.
 	ChannelName pulumi.StringOutput `pulumi:"channelName"`
 	// The container type associated with the origin endpoint configuration.
-	ContainerType OriginEndpointContainerTypePtrOutput `pulumi:"containerType"`
+	ContainerType OriginEndpointContainerTypeOutput `pulumi:"containerType"`
 	// <p>The date and time the origin endpoint was created.</p>
 	CreatedAt        pulumi.StringOutput      `pulumi:"createdAt"`
 	DashManifestUrls pulumi.StringArrayOutput `pulumi:"dashManifestUrls"`
@@ -63,6 +63,9 @@ func NewOriginEndpoint(ctx *pulumi.Context,
 	}
 	if args.ChannelName == nil {
 		return nil, errors.New("invalid value for required argument 'ChannelName'")
+	}
+	if args.ContainerType == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerType'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"channelGroupName",
@@ -108,7 +111,7 @@ type originEndpointArgs struct {
 	// The channel name associated with the origin endpoint.
 	ChannelName string `pulumi:"channelName"`
 	// The container type associated with the origin endpoint configuration.
-	ContainerType *OriginEndpointContainerType `pulumi:"containerType"`
+	ContainerType OriginEndpointContainerType `pulumi:"containerType"`
 	// <p>A DASH manifest configuration.</p>
 	DashManifests []OriginEndpointDashManifestConfiguration `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
@@ -135,7 +138,7 @@ type OriginEndpointArgs struct {
 	// The channel name associated with the origin endpoint.
 	ChannelName pulumi.StringInput
 	// The container type associated with the origin endpoint configuration.
-	ContainerType OriginEndpointContainerTypePtrInput
+	ContainerType OriginEndpointContainerTypeInput
 	// <p>A DASH manifest configuration.</p>
 	DashManifests OriginEndpointDashManifestConfigurationArrayInput
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
@@ -208,8 +211,8 @@ func (o OriginEndpointOutput) ChannelName() pulumi.StringOutput {
 }
 
 // The container type associated with the origin endpoint configuration.
-func (o OriginEndpointOutput) ContainerType() OriginEndpointContainerTypePtrOutput {
-	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointContainerTypePtrOutput { return v.ContainerType }).(OriginEndpointContainerTypePtrOutput)
+func (o OriginEndpointOutput) ContainerType() OriginEndpointContainerTypeOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointContainerTypeOutput { return v.ContainerType }).(OriginEndpointContainerTypeOutput)
 }
 
 // <p>The date and time the origin endpoint was created.</p>

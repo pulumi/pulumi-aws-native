@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// The container type associated with the origin endpoint configuration.
         /// </summary>
         [Output("containerType")]
-        public Output<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType?> ContainerType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType> ContainerType { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The date and time the origin endpoint was created.&lt;/p&gt;
@@ -177,8 +177,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// <summary>
         /// The container type associated with the origin endpoint configuration.
         /// </summary>
-        [Input("containerType")]
-        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType>? ContainerType { get; set; }
+        [Input("containerType", required: true)]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType> ContainerType { get; set; } = null!;
 
         [Input("dashManifests")]
         private InputList<Inputs.OriginEndpointDashManifestConfigurationArgs>? _dashManifests;

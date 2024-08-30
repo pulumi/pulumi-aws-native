@@ -721,8 +721,9 @@ func (in *repositoryCreationTemplateImageTagMutabilityPtr) ToRepositoryCreationT
 type RepositoryEncryptionType string
 
 const (
-	RepositoryEncryptionTypeAes256 = RepositoryEncryptionType("AES256")
-	RepositoryEncryptionTypeKms    = RepositoryEncryptionType("KMS")
+	RepositoryEncryptionTypeAes256  = RepositoryEncryptionType("AES256")
+	RepositoryEncryptionTypeKms     = RepositoryEncryptionType("KMS")
+	RepositoryEncryptionTypeKmsDsse = RepositoryEncryptionType("KMS_DSSE")
 )
 
 func (RepositoryEncryptionType) ElementType() reflect.Type {
@@ -849,6 +850,7 @@ func (o RepositoryEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //
 //	RepositoryEncryptionTypeAes256
 //	RepositoryEncryptionTypeKms
+//	RepositoryEncryptionTypeKmsDsse
 type RepositoryEncryptionTypeInput interface {
 	pulumi.Input
 

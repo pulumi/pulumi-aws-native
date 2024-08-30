@@ -1553,6 +1553,7 @@ const (
 	OriginEndpointDrmSystemFairplay       = OriginEndpointDrmSystem("FAIRPLAY")
 	OriginEndpointDrmSystemPlayready      = OriginEndpointDrmSystem("PLAYREADY")
 	OriginEndpointDrmSystemWidevine       = OriginEndpointDrmSystem("WIDEVINE")
+	OriginEndpointDrmSystemIrdeto         = OriginEndpointDrmSystem("IRDETO")
 )
 
 func (OriginEndpointDrmSystem) ElementType() reflect.Type {
@@ -1681,6 +1682,7 @@ func (o OriginEndpointDrmSystemPtrOutput) ToStringPtrOutputWithContext(ctx conte
 //	OriginEndpointDrmSystemFairplay
 //	OriginEndpointDrmSystemPlayready
 //	OriginEndpointDrmSystemWidevine
+//	OriginEndpointDrmSystemIrdeto
 type OriginEndpointDrmSystemInput interface {
 	pulumi.Input
 

@@ -76,6 +76,7 @@ class OriginEndpointDrmSystem(str, Enum):
     FAIRPLAY = "FAIRPLAY"
     PLAYREADY = "PLAYREADY"
     WIDEVINE = "WIDEVINE"
+    IRDETO = "IRDETO"
 
 
 class OriginEndpointEndpointErrorCondition(str, Enum):

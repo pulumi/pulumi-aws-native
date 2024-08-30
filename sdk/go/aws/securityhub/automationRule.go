@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -703,7 +704,7 @@ import (
 type AutomationRule struct {
 	pulumi.CustomResourceState
 
-	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+	// One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
 	Actions AutomationRulesActionArrayOutput `pulumi:"actions"`
 	// A timestamp that indicates when the rule was created.
 	//
@@ -712,17 +713,17 @@ type AutomationRule struct {
 	// The principal that created the rule. For example, `arn:aws:sts::123456789012:assumed-role/Developer-Role/JaneDoe` .
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
-	Criteria AutomationRulesFindingFiltersPtrOutput `pulumi:"criteria"`
+	Criteria AutomationRulesFindingFiltersOutput `pulumi:"criteria"`
 	// A description of the rule.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 	IsTerminal pulumi.BoolPtrOutput `pulumi:"isTerminal"`
 	// The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
 	// The name of the rule.
-	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
+	RuleName pulumi.StringOutput `pulumi:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-	RuleOrder pulumi.IntPtrOutput `pulumi:"ruleOrder"`
+	RuleOrder pulumi.IntOutput `pulumi:"ruleOrder"`
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus AutomationRuleRuleStatusPtrOutput `pulumi:"ruleStatus"`
 	// User-defined tags associated with an automation rule.
@@ -737,9 +738,21 @@ type AutomationRule struct {
 func NewAutomationRule(ctx *pulumi.Context,
 	name string, args *AutomationRuleArgs, opts ...pulumi.ResourceOption) (*AutomationRule, error) {
 	if args == nil {
-		args = &AutomationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.RuleOrder == nil {
+		return nil, errors.New("invalid value for required argument 'RuleOrder'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutomationRule
 	err := ctx.RegisterResource("aws-native:securityhub:AutomationRule", name, args, &resource, opts...)
@@ -773,18 +786,18 @@ func (AutomationRuleState) ElementType() reflect.Type {
 }
 
 type automationRuleArgs struct {
-	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+	// One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
 	Actions []AutomationRulesAction `pulumi:"actions"`
 	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
-	Criteria *AutomationRulesFindingFilters `pulumi:"criteria"`
+	Criteria AutomationRulesFindingFilters `pulumi:"criteria"`
 	// A description of the rule.
-	Description *string `pulumi:"description"`
+	Description string `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 	IsTerminal *bool `pulumi:"isTerminal"`
 	// The name of the rule.
 	RuleName *string `pulumi:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-	RuleOrder *int `pulumi:"ruleOrder"`
+	RuleOrder int `pulumi:"ruleOrder"`
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus *AutomationRuleRuleStatus `pulumi:"ruleStatus"`
 	// User-defined tags associated with an automation rule.
@@ -793,18 +806,18 @@ type automationRuleArgs struct {
 
 // The set of arguments for constructing a AutomationRule resource.
 type AutomationRuleArgs struct {
-	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+	// One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
 	Actions AutomationRulesActionArrayInput
 	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
-	Criteria AutomationRulesFindingFiltersPtrInput
+	Criteria AutomationRulesFindingFiltersInput
 	// A description of the rule.
-	Description pulumi.StringPtrInput
+	Description pulumi.StringInput
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
 	IsTerminal pulumi.BoolPtrInput
 	// The name of the rule.
 	RuleName pulumi.StringPtrInput
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-	RuleOrder pulumi.IntPtrInput
+	RuleOrder pulumi.IntInput
 	// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
 	RuleStatus AutomationRuleRuleStatusPtrInput
 	// User-defined tags associated with an automation rule.
@@ -848,7 +861,7 @@ func (o AutomationRuleOutput) ToAutomationRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+// One or more actions to update finding fields if a finding matches the conditions specified in “Criteria“.
 func (o AutomationRuleOutput) Actions() AutomationRulesActionArrayOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRulesActionArrayOutput { return v.Actions }).(AutomationRulesActionArrayOutput)
 }
@@ -866,13 +879,13 @@ func (o AutomationRuleOutput) CreatedBy() pulumi.StringOutput {
 }
 
 // A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
-func (o AutomationRuleOutput) Criteria() AutomationRulesFindingFiltersPtrOutput {
-	return o.ApplyT(func(v *AutomationRule) AutomationRulesFindingFiltersPtrOutput { return v.Criteria }).(AutomationRulesFindingFiltersPtrOutput)
+func (o AutomationRuleOutput) Criteria() AutomationRulesFindingFiltersOutput {
+	return o.ApplyT(func(v *AutomationRule) AutomationRulesFindingFiltersOutput { return v.Criteria }).(AutomationRulesFindingFiltersOutput)
 }
 
 // A description of the rule.
-func (o AutomationRuleOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutomationRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o AutomationRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
@@ -886,13 +899,13 @@ func (o AutomationRuleOutput) RuleArn() pulumi.StringOutput {
 }
 
 // The name of the rule.
-func (o AutomationRuleOutput) RuleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutomationRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
+func (o AutomationRuleOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }
 
 // An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-func (o AutomationRuleOutput) RuleOrder() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AutomationRule) pulumi.IntPtrOutput { return v.RuleOrder }).(pulumi.IntPtrOutput)
+func (o AutomationRuleOutput) RuleOrder() pulumi.IntOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.IntOutput { return v.RuleOrder }).(pulumi.IntOutput)
 }
 
 // Whether the rule is active after it is created. If this parameter is equal to “ENABLED“, ASH applies the rule to findings and finding updates after the rule is created.

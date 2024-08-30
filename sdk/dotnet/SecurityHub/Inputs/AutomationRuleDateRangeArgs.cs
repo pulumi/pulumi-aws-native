@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
+    /// <summary>
+    /// A date range for the date filter.
+    /// </summary>
     public sealed class AutomationRuleDateRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

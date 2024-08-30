@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
+    /// <summary>
+    /// The updated note.
+    /// </summary>
     public sealed class AutomationRuleNoteUpdateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

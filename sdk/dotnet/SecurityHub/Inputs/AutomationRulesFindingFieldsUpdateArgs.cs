@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
     /// <summary>
-    /// The rule action will update the ``Note`` field of a finding.
+    /// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
     /// </summary>
     public sealed class AutomationRulesFindingFieldsUpdateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The rule action updates the `Confidence` field of a finding.
+        /// The rule action updates the ``Confidence`` field of a finding.
         /// </summary>
         [Input("confidence")]
         public Input<int>? Confidence { get; set; }
 
         /// <summary>
-        /// The rule action updates the `Criticality` field of a finding.
+        /// The rule action updates the ``Criticality`` field of a finding.
         /// </summary>
         [Input("criticality")]
         public Input<int>? Criticality { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<string>? _types;
 
         /// <summary>
-        /// The rule action updates the `Types` field of a finding.
+        /// The rule action updates the ``Types`` field of a finding.
         /// </summary>
         public InputList<string> Types
         {
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputMap<string>? _userDefinedFields;
 
         /// <summary>
-        /// The rule action updates the `UserDefinedFields` field of a finding.
+        /// The rule action updates the ``UserDefinedFields`` field of a finding.
         /// </summary>
         public InputMap<string> UserDefinedFields
         {
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         }
 
         /// <summary>
-        /// The rule action updates the `VerificationState` field of a finding.
+        /// The rule action updates the ``VerificationState`` field of a finding.
         /// </summary>
         [Input("verificationState")]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRulesFindingFieldsUpdateVerificationState>? VerificationState { get; set; }

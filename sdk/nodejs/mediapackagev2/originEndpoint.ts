@@ -52,7 +52,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * The container type associated with the origin endpoint configuration.
      */
-    public readonly containerType!: pulumi.Output<enums.mediapackagev2.OriginEndpointContainerType | undefined>;
+    public readonly containerType!: pulumi.Output<enums.mediapackagev2.OriginEndpointContainerType>;
     /**
      * <p>The date and time the origin endpoint was created.</p>
      */
@@ -115,6 +115,9 @@ export class OriginEndpoint extends pulumi.CustomResource {
             if ((!args || args.channelName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelName'");
             }
+            if ((!args || args.containerType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'containerType'");
+            }
             resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["containerType"] = args ? args.containerType : undefined;
@@ -175,7 +178,7 @@ export interface OriginEndpointArgs {
     /**
      * The container type associated with the origin endpoint configuration.
      */
-    containerType?: pulumi.Input<enums.mediapackagev2.OriginEndpointContainerType>;
+    containerType: pulumi.Input<enums.mediapackagev2.OriginEndpointContainerType>;
     /**
      * <p>A DASH manifest configuration.</p>
      */

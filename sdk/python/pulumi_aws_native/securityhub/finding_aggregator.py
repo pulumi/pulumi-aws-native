@@ -19,8 +19,16 @@ class FindingAggregatorArgs:
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FindingAggregator resource.
-        :param pulumi.Input['FindingAggregatorRegionLinkingMode'] region_linking_mode: Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The list of excluded Regions or included Regions
+        :param pulumi.Input['FindingAggregatorRegionLinkingMode'] region_linking_mode: Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+                The selected option also determines how to use the Regions provided in the Regions list.
+                The options are as follows:
+                 +   ``ALL_REGIONS`` - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+                 +   ``ALL_REGIONS_EXCEPT_SPECIFIED`` - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the ``Regions`` parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+                 +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions. 
+                 +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
+                If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region. 
+                An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
         """
         pulumi.set(__self__, "region_linking_mode", region_linking_mode)
         if regions is not None:
@@ -30,7 +38,13 @@ class FindingAggregatorArgs:
     @pulumi.getter(name="regionLinkingMode")
     def region_linking_mode(self) -> pulumi.Input['FindingAggregatorRegionLinkingMode']:
         """
-        Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
+        Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+         The selected option also determines how to use the Regions provided in the Regions list.
+         The options are as follows:
+          +   ``ALL_REGIONS`` - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+          +   ``ALL_REGIONS_EXCEPT_SPECIFIED`` - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the ``Regions`` parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+          +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions. 
+          +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
         """
         return pulumi.get(self, "region_linking_mode")
 
@@ -42,7 +56,9 @@ class FindingAggregatorArgs:
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of excluded Regions or included Regions
+        If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
+         If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region. 
+         An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
         """
         return pulumi.get(self, "regions")
 
@@ -60,12 +76,22 @@ class FindingAggregator(pulumi.CustomResource):
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The AWS::SecurityHub::FindingAggregator resource represents the AWS Security Hub Finding Aggregator in your account. One finding aggregator resource is created for each account in non opt-in region in which you configure region linking mode.
+        The ``AWS::SecurityHub::FindingAggregator`` resource enables cross-Region aggregation. When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *User Guide*
+         This resource must be created in the Region that you want to designate as your aggregation Region.
+         Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['FindingAggregatorRegionLinkingMode'] region_linking_mode: Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The list of excluded Regions or included Regions
+        :param pulumi.Input['FindingAggregatorRegionLinkingMode'] region_linking_mode: Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+                The selected option also determines how to use the Regions provided in the Regions list.
+                The options are as follows:
+                 +   ``ALL_REGIONS`` - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+                 +   ``ALL_REGIONS_EXCEPT_SPECIFIED`` - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the ``Regions`` parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+                 +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions. 
+                 +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
+                If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region. 
+                An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
         """
         ...
     @overload
@@ -74,7 +100,9 @@ class FindingAggregator(pulumi.CustomResource):
                  args: FindingAggregatorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::SecurityHub::FindingAggregator resource represents the AWS Security Hub Finding Aggregator in your account. One finding aggregator resource is created for each account in non opt-in region in which you configure region linking mode.
+        The ``AWS::SecurityHub::FindingAggregator`` resource enables cross-Region aggregation. When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see [Cross-Region aggregation](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *User Guide*
+         This resource must be created in the Region that you want to designate as your aggregation Region.
+         Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
 
         :param str resource_name: The name of the resource.
         :param FindingAggregatorArgs args: The arguments to use to populate this resource's properties.
@@ -140,7 +168,7 @@ class FindingAggregator(pulumi.CustomResource):
     @pulumi.getter(name="findingAggregationRegion")
     def finding_aggregation_region(self) -> pulumi.Output[str]:
         """
-        The aggregation Region of the FindingAggregator
+        The aggregation Region.
         """
         return pulumi.get(self, "finding_aggregation_region")
 
@@ -148,7 +176,7 @@ class FindingAggregator(pulumi.CustomResource):
     @pulumi.getter(name="findingAggregatorArn")
     def finding_aggregator_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the FindingAggregator being created and assigned as the unique identifier
+        The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
         """
         return pulumi.get(self, "finding_aggregator_arn")
 
@@ -156,7 +184,13 @@ class FindingAggregator(pulumi.CustomResource):
     @pulumi.getter(name="regionLinkingMode")
     def region_linking_mode(self) -> pulumi.Output['FindingAggregatorRegionLinkingMode']:
         """
-        Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions
+        Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+         The selected option also determines how to use the Regions provided in the Regions list.
+         The options are as follows:
+          +   ``ALL_REGIONS`` - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+          +   ``ALL_REGIONS_EXCEPT_SPECIFIED`` - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the ``Regions`` parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. 
+          +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions. 
+          +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
         """
         return pulumi.get(self, "region_linking_mode")
 
@@ -164,7 +198,9 @@ class FindingAggregator(pulumi.CustomResource):
     @pulumi.getter
     def regions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The list of excluded Regions or included Regions
+        If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
+         If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region. 
+         An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
         """
         return pulumi.get(self, "regions")
 

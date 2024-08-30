@@ -44,6 +44,7 @@ export type RepositoryCreationTemplateImageTagMutability = (typeof RepositoryCre
 export const RepositoryEncryptionType = {
     Aes256: "AES256",
     Kms: "KMS",
+    KmsDsse: "KMS_DSSE",
 } as const;
 
 /**

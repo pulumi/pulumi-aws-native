@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("computeResources")]
         public Output<Outputs.ComputeEnvironmentComputeResources?> ComputeResources { get; private set; } = null!;
 
+        [Output("context")]
+        public Output<string?> Context { get; private set; } = null!;
+
         /// <summary>
         /// The details for the Amazon EKS cluster that supports the compute environment.
         /// </summary>
@@ -163,6 +166,9 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Input("computeResources")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesArgs>? ComputeResources { get; set; }
+
+        [Input("context")]
+        public Input<string>? Context { get; set; }
 
         /// <summary>
         /// The details for the Amazon EKS cluster that supports the compute environment.

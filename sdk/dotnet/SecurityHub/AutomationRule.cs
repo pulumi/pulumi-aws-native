@@ -886,7 +886,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public partial class AutomationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        /// One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.AutomationRulesAction>> Actions { get; private set; } = null!;
@@ -909,13 +909,13 @@ namespace Pulumi.AwsNative.SecurityHub
         /// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.AutomationRulesFindingFilters?> Criteria { get; private set; } = null!;
+        public Output<Outputs.AutomationRulesFindingFilters> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// A description of the rule.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
@@ -933,13 +933,13 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The name of the rule.
         /// </summary>
         [Output("ruleName")]
-        public Output<string?> RuleName { get; private set; } = null!;
+        public Output<string> RuleName { get; private set; } = null!;
 
         /// <summary>
         /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         /// </summary>
         [Output("ruleOrder")]
-        public Output<int?> RuleOrder { get; private set; } = null!;
+        public Output<int> RuleOrder { get; private set; } = null!;
 
         /// <summary>
         /// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
@@ -969,7 +969,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AutomationRule(string name, AutomationRuleArgs? args = null, CustomResourceOptions? options = null)
+        public AutomationRule(string name, AutomationRuleArgs args, CustomResourceOptions? options = null)
             : base("aws-native:securityhub:AutomationRule", name, args ?? new AutomationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -1006,11 +1006,11 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class AutomationRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("actions")]
+        [Input("actions", required: true)]
         private InputList<Inputs.AutomationRulesActionArgs>? _actions;
 
         /// <summary>
-        /// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        /// One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         /// </summary>
         public InputList<Inputs.AutomationRulesActionArgs> Actions
         {
@@ -1021,14 +1021,14 @@ namespace Pulumi.AwsNative.SecurityHub
         /// <summary>
         /// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         /// </summary>
-        [Input("criteria")]
-        public Input<Inputs.AutomationRulesFindingFiltersArgs>? Criteria { get; set; }
+        [Input("criteria", required: true)]
+        public Input<Inputs.AutomationRulesFindingFiltersArgs> Criteria { get; set; } = null!;
 
         /// <summary>
         /// A description of the rule.
         /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
+        [Input("description", required: true)]
+        public Input<string> Description { get; set; } = null!;
 
         /// <summary>
         /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
@@ -1045,8 +1045,8 @@ namespace Pulumi.AwsNative.SecurityHub
         /// <summary>
         /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         /// </summary>
-        [Input("ruleOrder")]
-        public Input<int>? RuleOrder { get; set; }
+        [Input("ruleOrder", required: true)]
+        public Input<int> RuleOrder { get; set; } = null!;
 
         /// <summary>
         /// Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.

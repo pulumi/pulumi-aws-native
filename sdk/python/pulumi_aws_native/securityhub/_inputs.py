@@ -50,25 +50,22 @@ class AutomationRuleDateFilterArgs:
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
         """
+        A date filter for querying findings.
         :param pulumi.Input['AutomationRuleDateRangeArgs'] date_range: A date range for the date filter.
         :param pulumi.Input[str] end: A timestamp that provides the end date for the date filter.
-               
-               This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-               
-               - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-               - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-               - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+                This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+                 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+                 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
         :param pulumi.Input[str] start: A timestamp that provides the start date for the date filter.
-               
-               This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-               
-               - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-               - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-               - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+                This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+                 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+                 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
         """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
@@ -94,14 +91,12 @@ class AutomationRuleDateFilterArgs:
     def end(self) -> Optional[pulumi.Input[str]]:
         """
         A timestamp that provides the end date for the date filter.
-
-        This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-
-        - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-        - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-        - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+         This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+          +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+          +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
         """
         return pulumi.get(self, "end")
 
@@ -114,14 +109,12 @@ class AutomationRuleDateFilterArgs:
     def start(self) -> Optional[pulumi.Input[str]]:
         """
         A timestamp that provides the start date for the date filter.
-
-        This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-
-        - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-        - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-        - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+         This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+          +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+          +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
         """
         return pulumi.get(self, "start")
 
@@ -136,6 +129,7 @@ class AutomationRuleDateRangeArgs:
                  unit: pulumi.Input['AutomationRuleDateRangeUnit'],
                  value: pulumi.Input[float]):
         """
+        A date range for the date filter.
         :param pulumi.Input['AutomationRuleDateRangeUnit'] unit: A date range unit for the date filter.
         :param pulumi.Input[float] value: A date range value for the date filter.
         """
@@ -174,29 +168,23 @@ class AutomationRuleMapFilterArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
+        A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
         :param pulumi.Input['AutomationRuleMapFilterComparison'] comparison: The condition to apply to the key value when filtering Security Hub findings with a map filter.
-               
-               To search for values that have the filter value, use one of the following comparison operators:
-               
-               - To search for values that include the filter value, use `CONTAINS` . For example, for the `ResourceTags` field, the filter `Department CONTAINS Security` matches findings that include the value `Security` for the `Department` tag. In the same example, a finding with a value of `Security team` for the `Department` tag is a match.
-               - To search for values that exactly match the filter value, use `EQUALS` . For example, for the `ResourceTags` field, the filter `Department EQUALS Security` matches findings that have the value `Security` for the `Department` tag.
-               
-               `CONTAINS` and `EQUALS` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Department CONTAINS Security OR Department CONTAINS Finance` match a finding that includes either `Security` , `Finance` , or both values.
-               
-               To search for values that don't have the filter value, use one of the following comparison operators:
-               
-               - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, for the `ResourceTags` field, the filter `Department NOT_CONTAINS Finance` matches findings that exclude the value `Finance` for the `Department` tag.
-               - To search for values other than the filter value, use `NOT_EQUALS` . For example, for the `ResourceTags` field, the filter `Department NOT_EQUALS Finance` matches findings that don’t have the value `Finance` for the `Department` tag.
-               
-               `NOT_CONTAINS` and `NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance` match a finding that excludes both the `Security` and `Finance` values.
-               
-               `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-               
-               You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can’t have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field. Combining filters in this way returns an error.
-               
-               `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
-        :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
-        :param pulumi.Input[str] value: The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
+                To search for values that have the filter value, use one of the following comparison operators:
+                 +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
+                 +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
+                 
+                 ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
+                To search for values that don't have the filter value, use one of the following comparison operators:
+                 +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
+                 +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
+                 
+                 ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
+                 ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+                You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. 
+                 ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+        :param pulumi.Input[str] key: The key of the map filter. For example, for ``ResourceTags``, ``Key`` identifies the name of the tag. For ``UserDefinedFields``, ``Key`` is the name of the field.
+        :param pulumi.Input[str] value: The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called ``Department`` might be ``Security``. If you provide ``security`` as the filter value, then there's no match.
         """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "key", key)
@@ -207,26 +195,19 @@ class AutomationRuleMapFilterArgs:
     def comparison(self) -> pulumi.Input['AutomationRuleMapFilterComparison']:
         """
         The condition to apply to the key value when filtering Security Hub findings with a map filter.
-
-        To search for values that have the filter value, use one of the following comparison operators:
-
-        - To search for values that include the filter value, use `CONTAINS` . For example, for the `ResourceTags` field, the filter `Department CONTAINS Security` matches findings that include the value `Security` for the `Department` tag. In the same example, a finding with a value of `Security team` for the `Department` tag is a match.
-        - To search for values that exactly match the filter value, use `EQUALS` . For example, for the `ResourceTags` field, the filter `Department EQUALS Security` matches findings that have the value `Security` for the `Department` tag.
-
-        `CONTAINS` and `EQUALS` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Department CONTAINS Security OR Department CONTAINS Finance` match a finding that includes either `Security` , `Finance` , or both values.
-
-        To search for values that don't have the filter value, use one of the following comparison operators:
-
-        - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, for the `ResourceTags` field, the filter `Department NOT_CONTAINS Finance` matches findings that exclude the value `Finance` for the `Department` tag.
-        - To search for values other than the filter value, use `NOT_EQUALS` . For example, for the `ResourceTags` field, the filter `Department NOT_EQUALS Finance` matches findings that don’t have the value `Finance` for the `Department` tag.
-
-        `NOT_CONTAINS` and `NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance` match a finding that excludes both the `Security` and `Finance` values.
-
-        `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-
-        You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can’t have both an `EQUALS` filter and a `NOT_EQUALS` filter on the same field. Combining filters in this way returns an error.
-
-        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+         To search for values that have the filter value, use one of the following comparison operators:
+          +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
+          +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
+          
+          ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
+         To search for values that don't have the filter value, use one of the following comparison operators:
+          +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
+          +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
+          
+          ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
+          ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+         You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. 
+          ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         """
         return pulumi.get(self, "comparison")
 
@@ -238,7 +219,7 @@ class AutomationRuleMapFilterArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key of the map filter. For example, for `ResourceTags` , `Key` identifies the name of the tag. For `UserDefinedFields` , `Key` is the name of the field.
+        The key of the map filter. For example, for ``ResourceTags``, ``Key`` identifies the name of the tag. For ``UserDefinedFields``, ``Key`` is the name of the field.
         """
         return pulumi.get(self, "key")
 
@@ -250,7 +231,7 @@ class AutomationRuleMapFilterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called `Department` might be `Security` . If you provide `security` as the filter value, then there's no match.
+        The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called ``Department`` might be ``Security``. If you provide ``security`` as the filter value, then there's no match.
         """
         return pulumi.get(self, "value")
 
@@ -265,6 +246,7 @@ class AutomationRuleNoteUpdateArgs:
                  text: pulumi.Input[str],
                  updated_by: pulumi.Input[str]):
         """
+        The updated note.
         :param pulumi.Input[str] text: The updated note text.
         :param pulumi.Input[str] updated_by: The principal that updated the note.
         """
@@ -303,6 +285,7 @@ class AutomationRuleNumberFilterArgs:
                  gte: Optional[pulumi.Input[float]] = None,
                  lte: Optional[pulumi.Input[float]] = None):
         """
+        A number filter for querying findings.
         :param pulumi.Input[float] eq: The equal-to condition to be applied to a single field when querying for findings.
         :param pulumi.Input[float] gte: The greater-than-equal condition to be applied to a single field when querying for findings.
         :param pulumi.Input[float] lte: The less-than-equal condition to be applied to a single field when querying for findings.
@@ -358,9 +341,8 @@ class AutomationRuleRelatedFindingArgs:
                  product_arn: pulumi.Input[str]):
         """
         Provides details about a list of findings that the current finding relates to.
-        :param pulumi.Input[str] id: The product-generated identifier for a related finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[str] id: The product-generated identifier for a related finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param pulumi.Input[str] product_arn: The Amazon Resource Name (ARN) for the product that generated a related finding.
         """
         pulumi.set(__self__, "id", id)
@@ -370,9 +352,8 @@ class AutomationRuleRelatedFindingArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        The product-generated identifier for a related finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The product-generated identifier for a related finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "id")
 
@@ -400,22 +381,20 @@ class AutomationRuleSeverityUpdateArgs:
                  normalized: Optional[pulumi.Input[int]] = None,
                  product: Optional[pulumi.Input[float]] = None):
         """
+        Updates to the severity information for a finding.
         :param pulumi.Input['AutomationRuleSeverityUpdateLabel'] label: The severity value of the finding. The allowed values are the following.
-               
-               - `INFORMATIONAL` - No issue was found.
-               - `LOW` - The issue does not require action on its own.
-               - `MEDIUM` - The issue must be addressed but not urgently.
-               - `HIGH` - The issue must be addressed as a priority.
-               - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
-        :param pulumi.Input[int] normalized: The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
-               
-               If you provide `Normalized` and do not provide `Label` , `Label` is set automatically as follows.
-               
-               - 0 - `INFORMATIONAL`
-               - 1–39 - `LOW`
-               - 40–69 - `MEDIUM`
-               - 70–89 - `HIGH`
-               - 90–100 - `CRITICAL`
+                 +   ``INFORMATIONAL`` - No issue was found.
+                 +   ``LOW`` - The issue does not require action on its own.
+                 +   ``MEDIUM`` - The issue must be addressed but not urgently.
+                 +   ``HIGH`` - The issue must be addressed as a priority.
+                 +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
+        :param pulumi.Input[int] normalized: The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
+                If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+                 +  0 - ``INFORMATIONAL`` 
+                 +  1–39 - ``LOW`` 
+                 +  40–69 - ``MEDIUM`` 
+                 +  70–89 - ``HIGH`` 
+                 +  90–100 - ``CRITICAL``
         :param pulumi.Input[float] product: The native severity as defined by the AWS service or integrated partner product that generated the finding.
         """
         if label is not None:
@@ -430,12 +409,11 @@ class AutomationRuleSeverityUpdateArgs:
     def label(self) -> Optional[pulumi.Input['AutomationRuleSeverityUpdateLabel']]:
         """
         The severity value of the finding. The allowed values are the following.
-
-        - `INFORMATIONAL` - No issue was found.
-        - `LOW` - The issue does not require action on its own.
-        - `MEDIUM` - The issue must be addressed but not urgently.
-        - `HIGH` - The issue must be addressed as a priority.
-        - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+          +   ``INFORMATIONAL`` - No issue was found.
+          +   ``LOW`` - The issue does not require action on its own.
+          +   ``MEDIUM`` - The issue must be addressed but not urgently.
+          +   ``HIGH`` - The issue must be addressed as a priority.
+          +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
         """
         return pulumi.get(self, "label")
 
@@ -447,15 +425,13 @@ class AutomationRuleSeverityUpdateArgs:
     @pulumi.getter
     def normalized(self) -> Optional[pulumi.Input[int]]:
         """
-        The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
-
-        If you provide `Normalized` and do not provide `Label` , `Label` is set automatically as follows.
-
-        - 0 - `INFORMATIONAL`
-        - 1–39 - `LOW`
-        - 40–69 - `MEDIUM`
-        - 70–89 - `HIGH`
-        - 90–100 - `CRITICAL`
+        The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
+         If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+          +  0 - ``INFORMATIONAL`` 
+          +  1–39 - ``LOW`` 
+          +  40–69 - ``MEDIUM`` 
+          +  70–89 - ``HIGH`` 
+          +  90–100 - ``CRITICAL``
         """
         return pulumi.get(self, "normalized")
 
@@ -482,37 +458,30 @@ class AutomationRuleStringFilterArgs:
                  comparison: pulumi.Input['AutomationRuleStringFilterComparison'],
                  value: pulumi.Input[str]):
         """
+        A string filter for filtering ASHlong findings.
         :param pulumi.Input['AutomationRuleStringFilterComparison'] comparison: The condition to apply to a string value when filtering Security Hub findings.
-               
-               To search for values that have the filter value, use one of the following comparison operators:
-               
-               - To search for values that include the filter value, use `CONTAINS` . For example, the filter `Title CONTAINS CloudFront` matches findings that have a `Title` that includes the string CloudFront.
-               - To search for values that exactly match the filter value, use `EQUALS` . For example, the filter `AwsAccountId EQUALS 123456789012` only matches findings that have an account ID of `123456789012` .
-               - To search for values that start with the filter value, use `PREFIX` . For example, the filter `ResourceRegion PREFIX us` matches findings that have a `ResourceRegion` that starts with `us` . A `ResourceRegion` that starts with a different value, such as `af` , `ap` , or `ca` , doesn't match.
-               
-               `CONTAINS` , `EQUALS` , and `PREFIX` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Title CONTAINS CloudFront OR Title CONTAINS CloudWatch` match a finding that includes either `CloudFront` , `CloudWatch` , or both strings in the title.
-               
-               To search for values that don’t have the filter value, use one of the following comparison operators:
-               
-               - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, the filter `Title NOT_CONTAINS CloudFront` matches findings that have a `Title` that excludes the string CloudFront.
-               - To search for values other than the filter value, use `NOT_EQUALS` . For example, the filter `AwsAccountId NOT_EQUALS 123456789012` only matches findings that have an account ID other than `123456789012` .
-               - To search for values that don't start with the filter value, use `PREFIX_NOT_EQUALS` . For example, the filter `ResourceRegion PREFIX_NOT_EQUALS us` matches findings with a `ResourceRegion` that starts with a value other than `us` .
-               
-               `NOT_CONTAINS` , `NOT_EQUALS` , and `PREFIX_NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch` match a finding that excludes both `CloudFront` and `CloudWatch` in the title.
-               
-               You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-               
-               You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
-               
-               For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
-               
-               - `ResourceType PREFIX AwsIam`
-               - `ResourceType PREFIX AwsEc2`
-               - `ResourceType NOT_EQUALS AwsIamPolicy`
-               - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
-               
-               `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
-        :param pulumi.Input[str] value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+                To search for values that have the filter value, use one of the following comparison operators:
+                 +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+                 +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
+                 +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
+                 
+                 ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
+                To search for values that don’t have the filter value, use one of the following comparison operators:
+                 +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
+                 +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
+                 +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
+                 
+                 ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
+                You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
+                You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+                For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+                 +   ``ResourceType PREFIX AwsIam`` 
+                 +   ``ResourceType PREFIX AwsEc2`` 
+                 +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
+                 +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` 
+                 
+                 ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+        :param pulumi.Input[str] value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
         """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
@@ -522,35 +491,27 @@ class AutomationRuleStringFilterArgs:
     def comparison(self) -> pulumi.Input['AutomationRuleStringFilterComparison']:
         """
         The condition to apply to a string value when filtering Security Hub findings.
-
-        To search for values that have the filter value, use one of the following comparison operators:
-
-        - To search for values that include the filter value, use `CONTAINS` . For example, the filter `Title CONTAINS CloudFront` matches findings that have a `Title` that includes the string CloudFront.
-        - To search for values that exactly match the filter value, use `EQUALS` . For example, the filter `AwsAccountId EQUALS 123456789012` only matches findings that have an account ID of `123456789012` .
-        - To search for values that start with the filter value, use `PREFIX` . For example, the filter `ResourceRegion PREFIX us` matches findings that have a `ResourceRegion` that starts with `us` . A `ResourceRegion` that starts with a different value, such as `af` , `ap` , or `ca` , doesn't match.
-
-        `CONTAINS` , `EQUALS` , and `PREFIX` filters on the same field are joined by `OR` . A finding matches if it matches any one of those filters. For example, the filters `Title CONTAINS CloudFront OR Title CONTAINS CloudWatch` match a finding that includes either `CloudFront` , `CloudWatch` , or both strings in the title.
-
-        To search for values that don’t have the filter value, use one of the following comparison operators:
-
-        - To search for values that exclude the filter value, use `NOT_CONTAINS` . For example, the filter `Title NOT_CONTAINS CloudFront` matches findings that have a `Title` that excludes the string CloudFront.
-        - To search for values other than the filter value, use `NOT_EQUALS` . For example, the filter `AwsAccountId NOT_EQUALS 123456789012` only matches findings that have an account ID other than `123456789012` .
-        - To search for values that don't start with the filter value, use `PREFIX_NOT_EQUALS` . For example, the filter `ResourceRegion PREFIX_NOT_EQUALS us` matches findings with a `ResourceRegion` that starts with a value other than `us` .
-
-        `NOT_CONTAINS` , `NOT_EQUALS` , and `PREFIX_NOT_EQUALS` filters on the same field are joined by `AND` . A finding matches only if it matches all of those filters. For example, the filters `Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch` match a finding that excludes both `CloudFront` and `CloudWatch` in the title.
-
-        You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
-
-        You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
-
-        For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
-
-        - `ResourceType PREFIX AwsIam`
-        - `ResourceType PREFIX AwsEc2`
-        - `ResourceType NOT_EQUALS AwsIamPolicy`
-        - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
-
-        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+         To search for values that have the filter value, use one of the following comparison operators:
+          +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+          +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
+          +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
+          
+          ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
+         To search for values that don’t have the filter value, use one of the following comparison operators:
+          +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
+          +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
+          +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
+          
+          ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
+         You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. 
+         You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+         For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+          +   ``ResourceType PREFIX AwsIam`` 
+          +   ``ResourceType PREFIX AwsEc2`` 
+          +   ``ResourceType NOT_EQUALS AwsIamPolicy`` 
+          +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` 
+          
+          ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         """
         return pulumi.get(self, "comparison")
 
@@ -562,7 +523,7 @@ class AutomationRuleStringFilterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
         """
         return pulumi.get(self, "value")
 
@@ -576,19 +537,17 @@ class AutomationRuleWorkflowUpdateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['AutomationRuleWorkflowUpdateStatus']):
         """
-        :param pulumi.Input['AutomationRuleWorkflowUpdateStatus'] status: The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
-               
-               The allowed values are the following.
-               
-               - `NEW` - The initial state of a finding, before it is reviewed.
-               
-               Security Hub also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
-               
-               - The record state changes from `ARCHIVED` to `ACTIVE` .
-               - The compliance status changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .
-               - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
-               - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
-               - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+        Used to update information about the investigation into the finding.
+        :param pulumi.Input['AutomationRuleWorkflowUpdateStatus'] status: The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
+                The allowed values are the following.
+                 +   ``NEW`` - The initial state of a finding, before it is reviewed.
+                Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+                 +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+                 +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
+                 
+                 +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+                 +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+                 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
         """
         pulumi.set(__self__, "status", status)
 
@@ -596,19 +555,16 @@ class AutomationRuleWorkflowUpdateArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input['AutomationRuleWorkflowUpdateStatus']:
         """
-        The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to `SUPPRESSED` or `RESOLVED` does not prevent a new finding for the same issue.
-
-        The allowed values are the following.
-
-        - `NEW` - The initial state of a finding, before it is reviewed.
-
-        Security Hub also resets `WorkFlowStatus` from `NOTIFIED` or `RESOLVED` to `NEW` in the following cases:
-
-        - The record state changes from `ARCHIVED` to `ACTIVE` .
-        - The compliance status changes from `PASSED` to either `WARNING` , `FAILED` , or `NOT_AVAILABLE` .
-        - `NOTIFIED` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
-        - `RESOLVED` - The finding was reviewed and remediated and is now considered resolved.
-        - `SUPPRESSED` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+        The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
+         The allowed values are the following.
+          +   ``NEW`` - The initial state of a finding, before it is reviewed.
+         Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+          +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+          +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
+          
+          +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+          +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+          +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
         """
         return pulumi.get(self, "status")
 
@@ -623,8 +579,9 @@ class AutomationRulesActionArgs:
                  finding_fields_update: pulumi.Input['AutomationRulesFindingFieldsUpdateArgs'],
                  type: pulumi.Input['AutomationRulesActionType']):
         """
+        One or more actions to update finding fields if a finding matches the defined criteria of the rule.
         :param pulumi.Input['AutomationRulesFindingFieldsUpdateArgs'] finding_fields_update: Specifies that the automation rule action is an update to a finding field.
-        :param pulumi.Input['AutomationRulesActionType'] type: Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+        :param pulumi.Input['AutomationRulesActionType'] type: Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
         """
         pulumi.set(__self__, "finding_fields_update", finding_fields_update)
         pulumi.set(__self__, "type", type)
@@ -645,7 +602,7 @@ class AutomationRulesActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['AutomationRulesActionType']:
         """
-        Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
+        Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
         """
         return pulumi.get(self, "type")
 
@@ -667,15 +624,15 @@ class AutomationRulesFindingFieldsUpdateArgs:
                  verification_state: Optional[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']] = None,
                  workflow: Optional[pulumi.Input['AutomationRuleWorkflowUpdateArgs']] = None):
         """
-        The rule action will update the ``Note`` field of a finding.
-        :param pulumi.Input[int] confidence: The rule action updates the `Confidence` field of a finding.
-        :param pulumi.Input[int] criticality: The rule action updates the `Criticality` field of a finding.
+        Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+        :param pulumi.Input[int] confidence: The rule action updates the ``Confidence`` field of a finding.
+        :param pulumi.Input[int] criticality: The rule action updates the ``Criticality`` field of a finding.
         :param pulumi.Input['AutomationRuleNoteUpdateArgs'] note: The rule action will update the ``Note`` field of a finding.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleRelatedFindingArgs']]] related_findings: The rule action will update the ``RelatedFindings`` field of a finding.
         :param pulumi.Input['AutomationRuleSeverityUpdateArgs'] severity: The rule action will update the ``Severity`` field of a finding.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: The rule action updates the `Types` field of a finding.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_defined_fields: The rule action updates the `UserDefinedFields` field of a finding.
-        :param pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState'] verification_state: The rule action updates the `VerificationState` field of a finding.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: The rule action updates the ``Types`` field of a finding.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_defined_fields: The rule action updates the ``UserDefinedFields`` field of a finding.
+        :param pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState'] verification_state: The rule action updates the ``VerificationState`` field of a finding.
         :param pulumi.Input['AutomationRuleWorkflowUpdateArgs'] workflow: The rule action will update the ``Workflow`` field of a finding.
         """
         if confidence is not None:
@@ -701,7 +658,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @pulumi.getter
     def confidence(self) -> Optional[pulumi.Input[int]]:
         """
-        The rule action updates the `Confidence` field of a finding.
+        The rule action updates the ``Confidence`` field of a finding.
         """
         return pulumi.get(self, "confidence")
 
@@ -713,7 +670,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @pulumi.getter
     def criticality(self) -> Optional[pulumi.Input[int]]:
         """
-        The rule action updates the `Criticality` field of a finding.
+        The rule action updates the ``Criticality`` field of a finding.
         """
         return pulumi.get(self, "criticality")
 
@@ -761,7 +718,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @pulumi.getter
     def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The rule action updates the `Types` field of a finding.
+        The rule action updates the ``Types`` field of a finding.
         """
         return pulumi.get(self, "types")
 
@@ -773,7 +730,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @pulumi.getter(name="userDefinedFields")
     def user_defined_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The rule action updates the `UserDefinedFields` field of a finding.
+        The rule action updates the ``UserDefinedFields`` field of a finding.
         """
         return pulumi.get(self, "user_defined_fields")
 
@@ -785,7 +742,7 @@ class AutomationRulesFindingFieldsUpdateArgs:
     @pulumi.getter(name="verificationState")
     def verification_state(self) -> Optional[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']]:
         """
-        The rule action updates the `VerificationState` field of a finding.
+        The rule action updates the ``VerificationState`` field of a finding.
         """
         return pulumi.get(self, "verification_state")
 
@@ -845,151 +802,112 @@ class AutomationRulesFindingFiltersArgs:
                  verification_state: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
                  workflow_status: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] aws_account_id: The AWS account ID in which a finding was generated.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] company_name: The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The criteria that determine which findings a rule applies to.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] aws_account_id: The AWS-account ID in which a finding was generated.
+                 Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] company_name: The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] compliance_associated_standards_id: The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] compliance_security_control_id: The security control ID for which a finding was generated. Security control IDs are the same across standards.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] compliance_status: The result of a security check. This field is only used for findings generated from controls.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgs']]] confidence: The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] created_at: A timestamp that indicates when this finding record was created.
-               
-               This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-               
-               - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-               - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-               - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgs']]] criticality: The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] description: A finding's description.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] first_observed_at: A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
-               
-               This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-               
-               - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-               - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-               - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] generator_id: The identifier for the solution-specific component that generated a finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] id: The product-specific identifier for a finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] last_observed_at: A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
-               
-               This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-               
-               - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-               - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-               - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] note_text: The text of a user-defined note that's added to a finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] compliance_status: The result of a security check. This field is only used for findings generated from controls. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgs']]] confidence: The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. ``Confidence`` is scored on a 0–100 basis using a ratio scale. A value of ``0`` means 0 percent confidence, and a value of ``100`` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] created_at: A timestamp that indicates when this finding record was created. 
+                This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+                 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+                 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+                 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgs']]] criticality: The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] description: A finding's description. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] first_observed_at: A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. 
+                This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+                 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+                 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+                 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] generator_id: The identifier for the solution-specific component that generated a finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] id: The product-specific identifier for a finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] last_observed_at: A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. 
+                This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+                 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+                 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+                 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] note_text: The text of a user-defined note that's added to a finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] note_updated_at: The timestamp of when the note was updated.
-               
-               This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-               
-               - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-               - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-               - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] note_updated_by: The principal that created a note.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] product_arn: The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] product_name: Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] record_state: Provides the current state of a finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] related_findings_id: The product-generated identifier for a related finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] related_findings_product_arn: The ARN for the product that generated a related finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]] resource_details_other: Custom fields and values about the resource that a finding pertains to.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] resource_id: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] resource_partition: The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] resource_region: The AWS Region where the resource that a finding pertains to is located.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] resource_type: A finding's title.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] severity_label: The severity value of the finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] source_url: Provides a URL that links to a page about the current finding in the finding product.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] title: A finding's title.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 100 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] type: One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] updated_at: A timestamp that indicates when the finding record was most recently updated.
-               
-               This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-               
-               - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-               - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-               - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]] user_defined_fields: A list of user-defined name and value string pairs added to a finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] verification_state: Provides the veracity of a finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] workflow_status: Provides information about the status of the investigation into a finding.
-               
-               Array Members: Minimum number of 1 item. Maximum number of 20 items.
+                This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+                 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+                 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+                 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] note_updated_by: The principal that created a note. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] product_arn: The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] product_name: Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] record_state: Provides the current state of a finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] related_findings_id: The product-generated identifier for a related finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] related_findings_product_arn: The ARN for the product that generated a related finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]] resource_details_other: Custom fields and values about the resource that a finding pertains to. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] resource_id: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. 
+                 Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] resource_partition: The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] resource_region: The AWS-Region where the resource that a finding pertains to is located. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] resource_type: A finding's title. 
+                 Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] severity_label: The severity value of the finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] source_url: Provides a URL that links to a page about the current finding in the finding product. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] title: A finding's title. 
+                 Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] type: One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]] updated_at: A timestamp that indicates when the finding record was most recently updated. 
+                This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+                 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+                 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+                 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+                 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+                 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]] user_defined_fields: A list of user-defined name and value string pairs added to a finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] verification_state: Provides the veracity of a finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]] workflow_status: Provides information about the status of the investigation into a finding. 
+                 Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -1066,9 +984,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The AWS account ID in which a finding was generated.
-
-        Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        The AWS-account ID in which a finding was generated.
+          Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "aws_account_id")
 
@@ -1080,9 +997,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="companyName")
     def company_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The name of the company for the product that generated the finding. For control-based findings, the company is AWS. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "company_name")
 
@@ -1095,8 +1011,7 @@ class AutomationRulesFindingFiltersArgs:
     def compliance_associated_standards_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
         The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "compliance_associated_standards_id")
 
@@ -1109,8 +1024,7 @@ class AutomationRulesFindingFiltersArgs:
     def compliance_security_control_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
         The security control ID for which a finding was generated. Security control IDs are the same across standards.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "compliance_security_control_id")
 
@@ -1122,9 +1036,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="complianceStatus")
     def compliance_status(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The result of a security check. This field is only used for findings generated from controls.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The result of a security check. This field is only used for findings generated from controls. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "compliance_status")
 
@@ -1136,9 +1049,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter
     def confidence(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgs']]]]:
         """
-        The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. ``Confidence`` is scored on a 0–100 basis using a ratio scale. A value of ``0`` means 0 percent confidence, and a value of ``100`` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "confidence")
 
@@ -1150,17 +1062,15 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]]:
         """
-        A timestamp that indicates when this finding record was created.
-
-        This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-
-        - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-        - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-        - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        A timestamp that indicates when this finding record was created. 
+         This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+          +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+          +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+          
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "created_at")
 
@@ -1172,9 +1082,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter
     def criticality(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleNumberFilterArgs']]]]:
         """
-        The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "criticality")
 
@@ -1186,9 +1095,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        A finding's description.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        A finding's description. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "description")
 
@@ -1200,17 +1108,15 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="firstObservedAt")
     def first_observed_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]]:
         """
-        A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
-
-        This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-
-        - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-        - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-        - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. 
+         This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+          +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+          +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+          
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "first_observed_at")
 
@@ -1222,9 +1128,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="generatorId")
     def generator_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The identifier for the solution-specific component that generated a finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        The identifier for the solution-specific component that generated a finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "generator_id")
 
@@ -1236,9 +1141,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The product-specific identifier for a finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The product-specific identifier for a finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "id")
 
@@ -1250,17 +1154,15 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="lastObservedAt")
     def last_observed_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]]:
         """
-        A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
-
-        This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-
-        - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-        - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-        - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. 
+         This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+          +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+          +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+          
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "last_observed_at")
 
@@ -1272,9 +1174,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="noteText")
     def note_text(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The text of a user-defined note that's added to a finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The text of a user-defined note that's added to a finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "note_text")
 
@@ -1287,16 +1188,14 @@ class AutomationRulesFindingFiltersArgs:
     def note_updated_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]]:
         """
         The timestamp of when the note was updated.
-
-        This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-
-        - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-        - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-        - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+         This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+          +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+          +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+          
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "note_updated_at")
 
@@ -1308,9 +1207,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="noteUpdatedBy")
     def note_updated_by(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The principal that created a note.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The principal that created a note. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "note_updated_by")
 
@@ -1322,9 +1220,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="productArn")
     def product_arn(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "product_arn")
 
@@ -1336,9 +1233,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="productName")
     def product_name(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "product_name")
 
@@ -1350,9 +1246,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="recordState")
     def record_state(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        Provides the current state of a finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        Provides the current state of a finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "record_state")
 
@@ -1364,9 +1259,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="relatedFindingsId")
     def related_findings_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The product-generated identifier for a related finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The product-generated identifier for a related finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "related_findings_id")
 
@@ -1378,9 +1272,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="relatedFindingsProductArn")
     def related_findings_product_arn(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The ARN for the product that generated a related finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The ARN for the product that generated a related finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "related_findings_product_arn")
 
@@ -1392,9 +1285,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="resourceDetailsOther")
     def resource_details_other(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]]:
         """
-        Custom fields and values about the resource that a finding pertains to.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        Custom fields and values about the resource that a finding pertains to. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_details_other")
 
@@ -1406,9 +1298,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
-
-        Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. 
+          Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "resource_id")
 
@@ -1420,9 +1311,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="resourcePartition")
     def resource_partition(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions . Each AWS account is scoped to one partition.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_partition")
 
@@ -1434,9 +1324,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="resourceRegion")
     def resource_region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The AWS Region where the resource that a finding pertains to is located.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The AWS-Region where the resource that a finding pertains to is located. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_region")
 
@@ -1448,9 +1337,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]]:
         """
-        A list of AWS tags associated with a resource at the time the finding was processed.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        A list of AWS tags associated with a resource at the time the finding was processed. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -1462,9 +1350,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        A finding's title.
-
-        Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        A finding's title. 
+          Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "resource_type")
 
@@ -1476,9 +1363,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="severityLabel")
     def severity_label(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        The severity value of the finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        The severity value of the finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "severity_label")
 
@@ -1490,9 +1376,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="sourceUrl")
     def source_url(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        Provides a URL that links to a page about the current finding in the finding product.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        Provides a URL that links to a page about the current finding in the finding product. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "source_url")
 
@@ -1504,9 +1389,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        A finding's title.
-
-        Array Members: Minimum number of 1 item. Maximum number of 100 items.
+        A finding's title. 
+          Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "title")
 
@@ -1518,9 +1402,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "type")
 
@@ -1532,17 +1415,15 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleDateFilterArgs']]]]:
         """
-        A timestamp that indicates when the finding record was most recently updated.
-
-        This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-
-        - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
-        - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
-        - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
-        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        A timestamp that indicates when the finding record was most recently updated. 
+         This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+          +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+          +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+          +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+          +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+          
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "updated_at")
 
@@ -1554,9 +1435,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="userDefinedFields")
     def user_defined_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]]:
         """
-        A list of user-defined name and value string pairs added to a finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        A list of user-defined name and value string pairs added to a finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "user_defined_fields")
 
@@ -1568,9 +1448,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="verificationState")
     def verification_state(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        Provides the veracity of a finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        Provides the veracity of a finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "verification_state")
 
@@ -1582,9 +1461,8 @@ class AutomationRulesFindingFiltersArgs:
     @pulumi.getter(name="workflowStatus")
     def workflow_status(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]:
         """
-        Provides information about the status of the investigation into a finding.
-
-        Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        Provides information about the status of the investigation into a finding. 
+          Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "workflow_status")
 

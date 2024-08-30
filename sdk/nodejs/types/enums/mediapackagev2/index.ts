@@ -73,6 +73,7 @@ export const OriginEndpointDrmSystem = {
     Fairplay: "FAIRPLAY",
     Playready: "PLAYREADY",
     Widevine: "WIDEVINE",
+    Irdeto: "IRDETO",
 } as const;
 
 export type OriginEndpointDrmSystem = (typeof OriginEndpointDrmSystem)[keyof typeof OriginEndpointDrmSystem];

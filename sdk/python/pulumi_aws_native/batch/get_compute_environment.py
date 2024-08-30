@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetComputeEnvironmentResult:
-    def __init__(__self__, compute_environment_arn=None, compute_resources=None, service_role=None, state=None, unmanagedv_cpus=None):
+    def __init__(__self__, compute_environment_arn=None, compute_resources=None, context=None, service_role=None, state=None, unmanagedv_cpus=None):
         if compute_environment_arn and not isinstance(compute_environment_arn, str):
             raise TypeError("Expected argument 'compute_environment_arn' to be a str")
         pulumi.set(__self__, "compute_environment_arn", compute_environment_arn)
         if compute_resources and not isinstance(compute_resources, dict):
             raise TypeError("Expected argument 'compute_resources' to be a dict")
         pulumi.set(__self__, "compute_resources", compute_resources)
+        if context and not isinstance(context, str):
+            raise TypeError("Expected argument 'context' to be a str")
+        pulumi.set(__self__, "context", context)
         if service_role and not isinstance(service_role, str):
             raise TypeError("Expected argument 'service_role' to be a str")
         pulumi.set(__self__, "service_role", service_role)
@@ -51,6 +54,11 @@ class GetComputeEnvironmentResult:
         The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
         """
         return pulumi.get(self, "compute_resources")
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[str]:
+        return pulumi.get(self, "context")
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -101,6 +109,7 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
         return GetComputeEnvironmentResult(
             compute_environment_arn=self.compute_environment_arn,
             compute_resources=self.compute_resources,
+            context=self.context,
             service_role=self.service_role,
             state=self.state,
             unmanagedv_cpus=self.unmanagedv_cpus)
@@ -122,6 +131,7 @@ def get_compute_environment(compute_environment_arn: Optional[str] = None,
     return AwaitableGetComputeEnvironmentResult(
         compute_environment_arn=pulumi.get(__ret__, 'compute_environment_arn'),
         compute_resources=pulumi.get(__ret__, 'compute_resources'),
+        context=pulumi.get(__ret__, 'context'),
         service_role=pulumi.get(__ret__, 'service_role'),
         state=pulumi.get(__ret__, 'state'),
         unmanagedv_cpus=pulumi.get(__ret__, 'unmanagedv_cpus'))

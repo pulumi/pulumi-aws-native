@@ -62,7 +62,7 @@ class GetAutomationRuleResult:
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.AutomationRulesAction']]:
         """
-        One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
+        One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
         """
         return pulumi.get(self, "actions")
 

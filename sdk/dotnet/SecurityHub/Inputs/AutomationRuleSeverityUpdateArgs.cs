@@ -10,30 +10,30 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
+    /// <summary>
+    /// Updates to the severity information for a finding.
+    /// </summary>
     public sealed class AutomationRuleSeverityUpdateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The severity value of the finding. The allowed values are the following.
-        /// 
-        /// - `INFORMATIONAL` - No issue was found.
-        /// - `LOW` - The issue does not require action on its own.
-        /// - `MEDIUM` - The issue must be addressed but not urgently.
-        /// - `HIGH` - The issue must be addressed as a priority.
-        /// - `CRITICAL` - The issue must be remediated immediately to avoid it escalating.
+        ///   +   ``INFORMATIONAL`` - No issue was found.
+        ///   +   ``LOW`` - The issue does not require action on its own.
+        ///   +   ``MEDIUM`` - The issue must be addressed but not urgently.
+        ///   +   ``HIGH`` - The issue must be addressed as a priority.
+        ///   +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
         /// </summary>
         [Input("label")]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRuleSeverityUpdateLabel>? Label { get; set; }
 
         /// <summary>
-        /// The normalized severity for the finding. This attribute is to be deprecated in favor of `Label` .
-        /// 
-        /// If you provide `Normalized` and do not provide `Label` , `Label` is set automatically as follows.
-        /// 
-        /// - 0 - `INFORMATIONAL`
-        /// - 1–39 - `LOW`
-        /// - 40–69 - `MEDIUM`
-        /// - 70–89 - `HIGH`
-        /// - 90–100 - `CRITICAL`
+        /// The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
+        ///  If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+        ///   +  0 - ``INFORMATIONAL`` 
+        ///   +  1–39 - ``LOW`` 
+        ///   +  40–69 - ``MEDIUM`` 
+        ///   +  70–89 - ``HIGH`` 
+        ///   +  90–100 - ``CRITICAL``
         /// </summary>
         [Input("normalized")]
         public Input<int>? Normalized { get; set; }

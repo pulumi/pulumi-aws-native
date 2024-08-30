@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.Batch
         /// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
         /// </summary>
         public readonly Outputs.ComputeEnvironmentComputeResources? ComputeResources;
+        public readonly string? Context;
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
         /// 
@@ -100,6 +101,8 @@ namespace Pulumi.AwsNative.Batch
 
             Outputs.ComputeEnvironmentComputeResources? computeResources,
 
+            string? context,
+
             string? serviceRole,
 
             string? state,
@@ -108,6 +111,7 @@ namespace Pulumi.AwsNative.Batch
         {
             ComputeEnvironmentArn = computeEnvironmentArn;
             ComputeResources = computeResources;
+            Context = context;
             ServiceRole = serviceRole;
             State = state;
             UnmanagedvCpus = unmanagedvCpus;
