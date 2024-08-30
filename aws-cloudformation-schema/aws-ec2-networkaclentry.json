@@ -70,7 +70,12 @@
       }
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "required" : [ "NetworkAclId", "RuleAction", "RuleNumber", "Protocol" ],
   "createOnlyProperties" : [ "/properties/Egress", "/properties/RuleNumber", "/properties/NetworkAclId" ],
   "readOnlyProperties" : [ "/properties/Id" ],

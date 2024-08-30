@@ -52,7 +52,7 @@
     },
     "DrmSystem" : {
       "type" : "string",
-      "enum" : [ "CLEAR_KEY_AES_128", "FAIRPLAY", "PLAYREADY", "WIDEVINE" ]
+      "enum" : [ "CLEAR_KEY_AES_128", "FAIRPLAY", "PLAYREADY", "WIDEVINE", "IRDETO" ]
     },
     "Encryption" : {
       "type" : "object",
@@ -533,7 +533,7 @@
       }
     }
   },
-  "required" : [ "ChannelGroupName", "ChannelName", "OriginEndpointName" ],
+  "required" : [ "ChannelGroupName", "ChannelName", "OriginEndpointName", "ContainerType" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/DashManifestUrls", "/properties/HlsManifestUrls", "/properties/LowLatencyHlsManifestUrls", "/properties/ModifiedAt", "/properties/LowLatencyHlsManifests/*/Url", "/properties/HlsManifests/*/Url" ],
   "createOnlyProperties" : [ "/properties/ChannelGroupName", "/properties/ChannelName", "/properties/OriginEndpointName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
@@ -570,7 +570,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "mediapackagev2:TagResource", "mediapackagev2:UntagResource", "mediapackagev2:ListTagsForResource" ]
   },
   "additionalIdentifiers" : [ [ "/properties/ChannelGroupName", "/properties/ChannelName", "/properties/OriginEndpointName" ] ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediapackagev2",
