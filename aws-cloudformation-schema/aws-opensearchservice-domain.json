@@ -200,6 +200,24 @@
         }
       }
     },
+    "JWTOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "PublicKey" : {
+          "type" : "string"
+        },
+        "SubjectKey" : {
+          "type" : "string"
+        },
+        "RolesKey" : {
+          "type" : "string"
+        }
+      }
+    },
     "AdvancedSecurityOptionsInput" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -218,6 +236,9 @@
         },
         "SAMLOptions" : {
           "$ref" : "#/definitions/SAMLOptions"
+        },
+        "JWTOptions" : {
+          "$ref" : "#/definitions/JWTOptions"
         },
         "AnonymousAuthDisableDate" : {
           "type" : "string"
@@ -461,13 +482,16 @@
     },
     "SoftwareUpdateOptions" : {
       "$ref" : "#/definitions/SoftwareUpdateOptions"
+    },
+    "SkipShardMigrationWait" : {
+      "type" : "boolean"
     }
   },
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/DomainName" ],
   "conditionalCreateOnlyProperties" : [ "/properties/EncryptionAtRestOptions/properties", "/properties/AdvancedSecurityOptions/properties/Enabled" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/DomainArn", "/properties/DomainEndpoint", "/properties/DomainEndpointV2", "/properties/DomainEndpoints", "/properties/ServiceSoftwareOptions", "/properties/AdvancedSecurityOptions/AnonymousAuthDisableDate" ],
-  "writeOnlyProperties" : [ "/properties/AdvancedSecurityOptions/MasterUserOptions", "/properties/AdvancedSecurityOptions/SAMLOptions/MasterUserName", "/properties/AdvancedSecurityOptions/SAMLOptions/MasterBackendRole" ],
+  "writeOnlyProperties" : [ "/properties/AdvancedSecurityOptions/MasterUserOptions", "/properties/AdvancedSecurityOptions/SAMLOptions/MasterUserName", "/properties/AdvancedSecurityOptions/SAMLOptions/MasterBackendRole", "/properties/AdvancedSecurityOptions/JWTOptions/PublicKey" ],
   "primaryIdentifier" : [ "/properties/DomainName" ],
   "handlers" : {
     "create" : {
