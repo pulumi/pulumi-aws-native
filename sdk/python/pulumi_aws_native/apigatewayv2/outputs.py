@@ -21,6 +21,8 @@ __all__ = [
     'IntegrationTlsConfig',
     'RouteParameterConstraints',
     'RouteResponseParameterConstraints',
+    'StageAccessLogSettings',
+    'StageRouteSettings',
 ]
 
 @pulumi.output_type
@@ -514,5 +516,145 @@ class RouteResponseParameterConstraints(dict):
         Specifies whether the parameter is required.
         """
         return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class StageAccessLogSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageAccessLogSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageAccessLogSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageAccessLogSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_arn: Optional[str] = None,
+                 format: Optional[str] = None):
+        """
+        :param str destination_arn: The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
+        :param str format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
+        """
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[str]:
+        """
+        The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
+        """
+        return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class StageRouteSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataTraceEnabled":
+            suggest = "data_trace_enabled"
+        elif key == "detailedMetricsEnabled":
+            suggest = "detailed_metrics_enabled"
+        elif key == "loggingLevel":
+            suggest = "logging_level"
+        elif key == "throttlingBurstLimit":
+            suggest = "throttling_burst_limit"
+        elif key == "throttlingRateLimit":
+            suggest = "throttling_rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageRouteSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageRouteSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageRouteSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_trace_enabled: Optional[bool] = None,
+                 detailed_metrics_enabled: Optional[bool] = None,
+                 logging_level: Optional[str] = None,
+                 throttling_burst_limit: Optional[int] = None,
+                 throttling_rate_limit: Optional[float] = None):
+        """
+        :param bool data_trace_enabled: Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+        :param bool detailed_metrics_enabled: Specifies whether detailed metrics are enabled.
+        :param str logging_level: Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+        :param int throttling_burst_limit: Specifies the throttling burst limit.
+        :param float throttling_rate_limit: Specifies the throttling rate limit.
+        """
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if detailed_metrics_enabled is not None:
+            pulumi.set(__self__, "detailed_metrics_enabled", detailed_metrics_enabled)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+        """
+        return pulumi.get(self, "data_trace_enabled")
+
+    @property
+    @pulumi.getter(name="detailedMetricsEnabled")
+    def detailed_metrics_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether detailed metrics are enabled.
+        """
+        return pulumi.get(self, "detailed_metrics_enabled")
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[str]:
+        """
+        Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+        """
+        return pulumi.get(self, "logging_level")
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[int]:
+        """
+        Specifies the throttling burst limit.
+        """
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[float]:
+        """
+        Specifies the throttling rate limit.
+        """
+        return pulumi.get(self, "throttling_rate_limit")
 
 

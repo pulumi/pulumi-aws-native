@@ -1439,6 +1439,375 @@ func (o RouteResponseParameterConstraintsMapOutput) MapIndex(k pulumi.StringInpu
 	}).(RouteResponseParameterConstraintsOutput)
 }
 
+type StageAccessLogSettings struct {
+	// The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
+	DestinationArn *string `pulumi:"destinationArn"`
+	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
+	Format *string `pulumi:"format"`
+}
+
+// StageAccessLogSettingsInput is an input type that accepts StageAccessLogSettingsArgs and StageAccessLogSettingsOutput values.
+// You can construct a concrete instance of `StageAccessLogSettingsInput` via:
+//
+//	StageAccessLogSettingsArgs{...}
+type StageAccessLogSettingsInput interface {
+	pulumi.Input
+
+	ToStageAccessLogSettingsOutput() StageAccessLogSettingsOutput
+	ToStageAccessLogSettingsOutputWithContext(context.Context) StageAccessLogSettingsOutput
+}
+
+type StageAccessLogSettingsArgs struct {
+	// The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+}
+
+func (StageAccessLogSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAccessLogSettings)(nil)).Elem()
+}
+
+func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsOutput() StageAccessLogSettingsOutput {
+	return i.ToStageAccessLogSettingsOutputWithContext(context.Background())
+}
+
+func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsOutputWithContext(ctx context.Context) StageAccessLogSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsOutput)
+}
+
+func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
+	return i.ToStageAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsOutput).ToStageAccessLogSettingsPtrOutputWithContext(ctx)
+}
+
+// StageAccessLogSettingsPtrInput is an input type that accepts StageAccessLogSettingsArgs, StageAccessLogSettingsPtr and StageAccessLogSettingsPtrOutput values.
+// You can construct a concrete instance of `StageAccessLogSettingsPtrInput` via:
+//
+//	        StageAccessLogSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StageAccessLogSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput
+	ToStageAccessLogSettingsPtrOutputWithContext(context.Context) StageAccessLogSettingsPtrOutput
+}
+
+type stageAccessLogSettingsPtrType StageAccessLogSettingsArgs
+
+func StageAccessLogSettingsPtr(v *StageAccessLogSettingsArgs) StageAccessLogSettingsPtrInput {
+	return (*stageAccessLogSettingsPtrType)(v)
+}
+
+func (*stageAccessLogSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAccessLogSettings)(nil)).Elem()
+}
+
+func (i *stageAccessLogSettingsPtrType) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
+	return i.ToStageAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *stageAccessLogSettingsPtrType) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsPtrOutput)
+}
+
+type StageAccessLogSettingsOutput struct{ *pulumi.OutputState }
+
+func (StageAccessLogSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAccessLogSettings)(nil)).Elem()
+}
+
+func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsOutput() StageAccessLogSettingsOutput {
+	return o
+}
+
+func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsOutputWithContext(ctx context.Context) StageAccessLogSettingsOutput {
+	return o
+}
+
+func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
+	return o.ToStageAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAccessLogSettings) *StageAccessLogSettings {
+		return &v
+	}).(StageAccessLogSettingsPtrOutput)
+}
+
+// The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
+func (o StageAccessLogSettingsOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageAccessLogSettings) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
+func (o StageAccessLogSettingsOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageAccessLogSettings) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+type StageAccessLogSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StageAccessLogSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAccessLogSettings)(nil)).Elem()
+}
+
+func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
+	return o
+}
+
+func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
+	return o
+}
+
+func (o StageAccessLogSettingsPtrOutput) Elem() StageAccessLogSettingsOutput {
+	return o.ApplyT(func(v *StageAccessLogSettings) StageAccessLogSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StageAccessLogSettings
+		return ret
+	}).(StageAccessLogSettingsOutput)
+}
+
+// The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
+func (o StageAccessLogSettingsPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAccessLogSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
+func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAccessLogSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+type StageRouteSettings struct {
+	// Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// Specifies whether detailed metrics are enabled.
+	DetailedMetricsEnabled *bool `pulumi:"detailedMetricsEnabled"`
+	// Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Specifies the throttling burst limit.
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// Specifies the throttling rate limit.
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+}
+
+// StageRouteSettingsInput is an input type that accepts StageRouteSettingsArgs and StageRouteSettingsOutput values.
+// You can construct a concrete instance of `StageRouteSettingsInput` via:
+//
+//	StageRouteSettingsArgs{...}
+type StageRouteSettingsInput interface {
+	pulumi.Input
+
+	ToStageRouteSettingsOutput() StageRouteSettingsOutput
+	ToStageRouteSettingsOutputWithContext(context.Context) StageRouteSettingsOutput
+}
+
+type StageRouteSettingsArgs struct {
+	// Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// Specifies whether detailed metrics are enabled.
+	DetailedMetricsEnabled pulumi.BoolPtrInput `pulumi:"detailedMetricsEnabled"`
+	// Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// Specifies the throttling burst limit.
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// Specifies the throttling rate limit.
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+}
+
+func (StageRouteSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageRouteSettings)(nil)).Elem()
+}
+
+func (i StageRouteSettingsArgs) ToStageRouteSettingsOutput() StageRouteSettingsOutput {
+	return i.ToStageRouteSettingsOutputWithContext(context.Background())
+}
+
+func (i StageRouteSettingsArgs) ToStageRouteSettingsOutputWithContext(ctx context.Context) StageRouteSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingsOutput)
+}
+
+func (i StageRouteSettingsArgs) ToStageRouteSettingsPtrOutput() StageRouteSettingsPtrOutput {
+	return i.ToStageRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StageRouteSettingsArgs) ToStageRouteSettingsPtrOutputWithContext(ctx context.Context) StageRouteSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingsOutput).ToStageRouteSettingsPtrOutputWithContext(ctx)
+}
+
+// StageRouteSettingsPtrInput is an input type that accepts StageRouteSettingsArgs, StageRouteSettingsPtr and StageRouteSettingsPtrOutput values.
+// You can construct a concrete instance of `StageRouteSettingsPtrInput` via:
+//
+//	        StageRouteSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StageRouteSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStageRouteSettingsPtrOutput() StageRouteSettingsPtrOutput
+	ToStageRouteSettingsPtrOutputWithContext(context.Context) StageRouteSettingsPtrOutput
+}
+
+type stageRouteSettingsPtrType StageRouteSettingsArgs
+
+func StageRouteSettingsPtr(v *StageRouteSettingsArgs) StageRouteSettingsPtrInput {
+	return (*stageRouteSettingsPtrType)(v)
+}
+
+func (*stageRouteSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageRouteSettings)(nil)).Elem()
+}
+
+func (i *stageRouteSettingsPtrType) ToStageRouteSettingsPtrOutput() StageRouteSettingsPtrOutput {
+	return i.ToStageRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *stageRouteSettingsPtrType) ToStageRouteSettingsPtrOutputWithContext(ctx context.Context) StageRouteSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingsPtrOutput)
+}
+
+type StageRouteSettingsOutput struct{ *pulumi.OutputState }
+
+func (StageRouteSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageRouteSettings)(nil)).Elem()
+}
+
+func (o StageRouteSettingsOutput) ToStageRouteSettingsOutput() StageRouteSettingsOutput {
+	return o
+}
+
+func (o StageRouteSettingsOutput) ToStageRouteSettingsOutputWithContext(ctx context.Context) StageRouteSettingsOutput {
+	return o
+}
+
+func (o StageRouteSettingsOutput) ToStageRouteSettingsPtrOutput() StageRouteSettingsPtrOutput {
+	return o.ToStageRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StageRouteSettingsOutput) ToStageRouteSettingsPtrOutputWithContext(ctx context.Context) StageRouteSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageRouteSettings) *StageRouteSettings {
+		return &v
+	}).(StageRouteSettingsPtrOutput)
+}
+
+// Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+func (o StageRouteSettingsOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageRouteSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether detailed metrics are enabled.
+func (o StageRouteSettingsOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageRouteSettings) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+func (o StageRouteSettingsOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageRouteSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the throttling burst limit.
+func (o StageRouteSettingsOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageRouteSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the throttling rate limit.
+func (o StageRouteSettingsOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageRouteSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type StageRouteSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StageRouteSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageRouteSettings)(nil)).Elem()
+}
+
+func (o StageRouteSettingsPtrOutput) ToStageRouteSettingsPtrOutput() StageRouteSettingsPtrOutput {
+	return o
+}
+
+func (o StageRouteSettingsPtrOutput) ToStageRouteSettingsPtrOutputWithContext(ctx context.Context) StageRouteSettingsPtrOutput {
+	return o
+}
+
+func (o StageRouteSettingsPtrOutput) Elem() StageRouteSettingsOutput {
+	return o.ApplyT(func(v *StageRouteSettings) StageRouteSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StageRouteSettings
+		return ret
+	}).(StageRouteSettingsOutput)
+}
+
+// Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+func (o StageRouteSettingsPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StageRouteSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataTraceEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether detailed metrics are enabled.
+func (o StageRouteSettingsPtrOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StageRouteSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DetailedMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+func (o StageRouteSettingsPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageRouteSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the throttling burst limit.
+func (o StageRouteSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StageRouteSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingBurstLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the throttling rate limit.
+func (o StageRouteSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StageRouteSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingRateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiBodyS3LocationInput)(nil)).Elem(), ApiBodyS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiBodyS3LocationPtrInput)(nil)).Elem(), ApiBodyS3LocationArgs{})
@@ -1460,6 +1829,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteParameterConstraintsArrayInput)(nil)).Elem(), RouteParameterConstraintsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsInput)(nil)).Elem(), RouteResponseParameterConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsMapInput)(nil)).Elem(), RouteResponseParameterConstraintsMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsPtrInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageRouteSettingsInput)(nil)).Elem(), StageRouteSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageRouteSettingsPtrInput)(nil)).Elem(), StageRouteSettingsArgs{})
 	pulumi.RegisterOutputType(ApiBodyS3LocationOutput{})
 	pulumi.RegisterOutputType(ApiBodyS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ApiCorsOutput{})
@@ -1480,4 +1853,8 @@ func init() {
 	pulumi.RegisterOutputType(RouteParameterConstraintsArrayOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsMapOutput{})
+	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})
+	pulumi.RegisterOutputType(StageAccessLogSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StageRouteSettingsOutput{})
+	pulumi.RegisterOutputType(StageRouteSettingsPtrOutput{})
 }

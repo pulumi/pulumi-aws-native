@@ -80,6 +80,11 @@ export const getRouteResponse: typeof import("./getRouteResponse").getRouteRespo
 export const getRouteResponseOutput: typeof import("./getRouteResponse").getRouteResponseOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteResponse","getRouteResponseOutput"], () => require("./getRouteResponse"));
 
+export { GetStageArgs, GetStageResult, GetStageOutputArgs } from "./getStage";
+export const getStage: typeof import("./getStage").getStage = null as any;
+export const getStageOutput: typeof import("./getStage").getStageOutput = null as any;
+utilities.lazyLoad(exports, ["getStage","getStageOutput"], () => require("./getStage"));
+
 export { GetVpcLinkArgs, GetVpcLinkResult, GetVpcLinkOutputArgs } from "./getVpcLink";
 export const getVpcLink: typeof import("./getVpcLink").getVpcLink = null as any;
 export const getVpcLinkOutput: typeof import("./getVpcLink").getVpcLinkOutput = null as any;
@@ -109,6 +114,11 @@ export { RouteResponseArgs } from "./routeResponse";
 export type RouteResponse = import("./routeResponse").RouteResponse;
 export const RouteResponse: typeof import("./routeResponse").RouteResponse = null as any;
 utilities.lazyLoad(exports, ["RouteResponse"], () => require("./routeResponse"));
+
+export { StageArgs } from "./stage";
+export type Stage = import("./stage").Stage;
+export const Stage: typeof import("./stage").Stage = null as any;
+utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
 
 export { VpcLinkArgs } from "./vpcLink";
 export type VpcLink = import("./vpcLink").VpcLink;
@@ -140,6 +150,8 @@ const _module = {
                 return new Route(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:RouteResponse":
                 return new RouteResponse(name, <any>undefined, { urn })
+            case "aws-native:apigatewayv2:Stage":
+                return new Stage(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:VpcLink":
                 return new VpcLink(name, <any>undefined, { urn })
             default:

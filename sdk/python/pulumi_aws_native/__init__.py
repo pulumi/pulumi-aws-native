@@ -752,6 +752,7 @@ _utilities.register(
    "aws-native:apigatewayv2:Model": "Model",
    "aws-native:apigatewayv2:Route": "Route",
    "aws-native:apigatewayv2:RouteResponse": "RouteResponse",
+   "aws-native:apigatewayv2:Stage": "Stage",
    "aws-native:apigatewayv2:VpcLink": "VpcLink"
   }
  },

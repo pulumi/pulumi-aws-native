@@ -20,6 +20,8 @@ __all__ = [
     'IntegrationTlsConfigArgs',
     'RouteParameterConstraintsArgs',
     'RouteResponseParameterConstraintsArgs',
+    'StageAccessLogSettingsArgs',
+    'StageRouteSettingsArgs',
 ]
 
 @pulumi.input_type
@@ -480,5 +482,131 @@ class RouteResponseParameterConstraintsArgs:
     @required.setter
     def required(self, value: pulumi.Input[bool]):
         pulumi.set(self, "required", value)
+
+
+@pulumi.input_type
+class StageAccessLogSettingsArgs:
+    def __init__(__self__, *,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] destination_arn: The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
+        :param pulumi.Input[str] format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
+        """
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the CloudWatch Logs log group to receive access logs. This parameter is required to enable access logging.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        """
+        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId. This parameter is required to enable access logging.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+
+@pulumi.input_type
+class StageRouteSettingsArgs:
+    def __init__(__self__, *,
+                 data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+                 detailed_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 logging_level: Optional[pulumi.Input[str]] = None,
+                 throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+                 throttling_rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[bool] data_trace_enabled: Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+        :param pulumi.Input[bool] detailed_metrics_enabled: Specifies whether detailed metrics are enabled.
+        :param pulumi.Input[str] logging_level: Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+        :param pulumi.Input[int] throttling_burst_limit: Specifies the throttling burst limit.
+        :param pulumi.Input[float] throttling_rate_limit: Specifies the throttling rate limit.
+        """
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if detailed_metrics_enabled is not None:
+            pulumi.set(__self__, "detailed_metrics_enabled", detailed_metrics_enabled)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether ( `true` ) or not ( `false` ) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+        """
+        return pulumi.get(self, "data_trace_enabled")
+
+    @data_trace_enabled.setter
+    def data_trace_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_trace_enabled", value)
+
+    @property
+    @pulumi.getter(name="detailedMetricsEnabled")
+    def detailed_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether detailed metrics are enabled.
+        """
+        return pulumi.get(self, "detailed_metrics_enabled")
+
+    @detailed_metrics_enabled.setter
+    def detailed_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the logging level for this route: `INFO` , `ERROR` , or `OFF` . This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.
+        """
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the throttling burst limit.
+        """
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @throttling_burst_limit.setter
+    def throttling_burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throttling_burst_limit", value)
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the throttling rate limit.
+        """
+        return pulumi.get(self, "throttling_rate_limit")
+
+    @throttling_rate_limit.setter
+    def throttling_rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throttling_rate_limit", value)
 
 
