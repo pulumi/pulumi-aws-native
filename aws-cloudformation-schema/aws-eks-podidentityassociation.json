@@ -66,7 +66,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "eks:TagResource", "sqs:UntagResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "ClusterName", "RoleArn", "Namespace", "ServiceAccount" ],

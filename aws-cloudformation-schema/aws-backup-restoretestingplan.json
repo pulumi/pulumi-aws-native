@@ -44,6 +44,10 @@
       "type" : "string",
       "enum" : [ "SNAPSHOT", "CONTINUOUS" ]
     },
+    "RestoreTestingScheduleStatus" : {
+      "type" : "string",
+      "enum" : [ "ACTIVE", "SUSPENDED" ]
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -80,6 +84,9 @@
     "ScheduleExpressionTimezone" : {
       "type" : "string"
     },
+    "ScheduleStatus" : {
+      "$ref" : "#/definitions/RestoreTestingScheduleStatus"
+    },
     "StartWindowHours" : {
       "type" : "integer"
     },
@@ -106,7 +113,7 @@
   "primaryIdentifier" : [ "/properties/RestoreTestingPlanName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "backup:CreateRestoreTestingPlan", "backup:TagResource", "backup:GetRestoreTestingPlan", "backup:ListTags" ],
+      "permissions" : [ "backup:CreateRestoreTestingPlan", "backup:UpdateRestoreTestingPlanScheduleStatus", "backup:TagResource", "backup:GetRestoreTestingPlan", "backup:ListTags" ],
       "timeoutInMinutes" : 5
     },
     "read" : {
@@ -114,7 +121,7 @@
       "timeoutInMinutes" : 5
     },
     "update" : {
-      "permissions" : [ "backup:UpdateRestoreTestingPlan", "backup:TagResource", "backup:UntagResource", "backup:GetRestoreTestingPlan", "backup:ListTags" ],
+      "permissions" : [ "backup:UpdateRestoreTestingPlan", "backup:UpdateRestoreTestingPlanScheduleStatus", "backup:TagResource", "backup:UntagResource", "backup:GetRestoreTestingPlan", "backup:ListTags" ],
       "timeoutInMinutes" : 5
     },
     "delete" : {

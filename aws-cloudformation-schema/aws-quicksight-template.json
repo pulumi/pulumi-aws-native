@@ -670,6 +670,9 @@
         "Tooltip" : {
           "$ref" : "#/definitions/TooltipOptions"
         },
+        "SingleAxisOptions" : {
+          "$ref" : "#/definitions/SingleAxisOptions"
+        },
         "SmallMultiplesOptions" : {
           "$ref" : "#/definitions/SmallMultiplesOptions"
         },
@@ -1120,6 +1123,10 @@
           "$ref" : "#/definitions/Visibility"
         }
       }
+    },
+    "TooltipTarget" : {
+      "type" : "string",
+      "enum" : [ "BOTH", "BAR", "LINE" ]
     },
     "DataLabelPosition" : {
       "type" : "string",
@@ -1820,6 +1827,9 @@
         },
         "Tooltip" : {
           "$ref" : "#/definitions/TooltipOptions"
+        },
+        "SingleAxisOptions" : {
+          "$ref" : "#/definitions/SingleAxisOptions"
         },
         "PrimaryYAxisDisplayOptions" : {
           "$ref" : "#/definitions/AxisDisplayOptions"
@@ -4874,6 +4884,10 @@
       },
       "required" : [ "Color" ]
     },
+    "SingleYAxisOption" : {
+      "type" : "string",
+      "enum" : [ "PRIMARY_Y_AXIS" ]
+    },
     "SpecialValue" : {
       "type" : "string",
       "enum" : [ "EMPTY", "NULL", "OTHER" ]
@@ -5557,6 +5571,15 @@
           "items" : {
             "$ref" : "#/definitions/DimensionField"
           }
+        }
+      }
+    },
+    "SingleAxisOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "YAxisOptions" : {
+          "$ref" : "#/definitions/YAxisOptions"
         }
       }
     },
@@ -7973,6 +7996,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "TooltipTarget" : {
+          "$ref" : "#/definitions/TooltipTarget"
+        },
         "FieldId" : {
           "minLength" : 1,
           "type" : "string",
@@ -8958,6 +8984,9 @@
       "properties" : {
         "Aggregation" : {
           "$ref" : "#/definitions/AggregationFunction"
+        },
+        "TooltipTarget" : {
+          "$ref" : "#/definitions/TooltipTarget"
         },
         "Column" : {
           "$ref" : "#/definitions/ColumnIdentifier"
