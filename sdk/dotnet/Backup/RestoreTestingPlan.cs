@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Backup
         [Output("scheduleExpressionTimezone")]
         public Output<string?> ScheduleExpressionTimezone { get; private set; } = null!;
 
+        [Output("scheduleStatus")]
+        public Output<Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingScheduleStatus?> ScheduleStatus { get; private set; } = null!;
+
         /// <summary>
         /// Defaults to 24 hours.
         /// 
@@ -131,6 +134,9 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
+
+        [Input("scheduleStatus")]
+        public Input<Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingScheduleStatus>? ScheduleStatus { get; set; }
 
         /// <summary>
         /// Defaults to 24 hours.

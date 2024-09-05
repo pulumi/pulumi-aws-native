@@ -108,6 +108,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _series = value;
         }
 
+        [Input("singleAxisOptions")]
+        public Input<Inputs.TemplateSingleAxisOptionsArgs>? SingleAxisOptions { get; set; }
+
         /// <summary>
         /// The small multiples setup for the visual.
         /// </summary>

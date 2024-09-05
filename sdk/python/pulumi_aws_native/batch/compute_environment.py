@@ -32,6 +32,7 @@ class ComputeEnvironmentArgs:
         :param pulumi.Input[str] type: The type of the compute environment: `MANAGED` or `UNMANAGED` . For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
         :param pulumi.Input[str] compute_environment_name: The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input['ComputeEnvironmentEksConfigurationArgs'] eks_configuration: The details for the Amazon EKS cluster that supports the compute environment.
         :param pulumi.Input[bool] replace_compute_environment: Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
                
@@ -119,6 +120,9 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reserved.
+        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -252,6 +256,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_environment_name: The name for your compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']] eks_configuration: The details for the Amazon EKS cluster that supports the compute environment.
         :param pulumi.Input[bool] replace_compute_environment: Specifies whether the compute environment is replaced if an update is made that requires replacing the instances in the compute environment. The default value is `true` . To enable more properties to be updated, set this property to `false` . When changing the value of this property to `false` , do not change any other properties at the same time. If other properties are changed at the same time, and the change needs to be rolled back but it can't, it's possible for the stack to go into the `UPDATE_ROLLBACK_FAILED` state. You can't update a stack that is in the `UPDATE_ROLLBACK_FAILED` state. However, if you can continue to roll it back, you can return the stack to its original settings and then try to update it again. For more information, see [Continue rolling back an update](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html) in the *AWS CloudFormation User Guide* .
                
@@ -402,6 +407,9 @@ class ComputeEnvironment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def context(self) -> pulumi.Output[Optional[str]]:
+        """
+        Reserved.
+        """
         return pulumi.get(self, "context")
 
     @property

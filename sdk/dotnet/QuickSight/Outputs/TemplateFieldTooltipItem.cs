@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The label of the tooltip item.
         /// </summary>
         public readonly string? Label;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateTooltipTarget? TooltipTarget;
         /// <summary>
         /// The visibility of the tooltip item.
         /// </summary>
@@ -32,10 +33,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? label,
 
+            Pulumi.AwsNative.QuickSight.TemplateTooltipTarget? tooltipTarget,
+
             Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
         {
             FieldId = fieldId;
             Label = label;
+            TooltipTarget = tooltipTarget;
             Visibility = visibility;
         }
     }

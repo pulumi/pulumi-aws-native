@@ -104,6 +104,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("secondaryYAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? SecondaryYAxisLabelOptions { get; set; }
 
+        [Input("singleAxisOptions")]
+        public Input<Inputs.DashboardSingleAxisOptionsArgs>? SingleAxisOptions { get; set; }
+
         /// <summary>
         /// The sort configuration of a `ComboChartVisual` .
         /// </summary>

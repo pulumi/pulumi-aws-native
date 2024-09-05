@@ -30,6 +30,10 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         /// </summary>
         public readonly bool? InternalUserDatabaseEnabled;
         /// <summary>
+        /// Container for information about the JWT configuration of the Amazon OpenSearch Service.
+        /// </summary>
+        public readonly Outputs.DomainJwtOptions? JwtOptions;
+        /// <summary>
         /// Specifies information about the master user.
         /// </summary>
         public readonly Outputs.DomainMasterUserOptions? MasterUserOptions;
@@ -48,6 +52,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             bool? internalUserDatabaseEnabled,
 
+            Outputs.DomainJwtOptions? jwtOptions,
+
             Outputs.DomainMasterUserOptions? masterUserOptions,
 
             Outputs.DomainSamlOptions? samlOptions)
@@ -56,6 +62,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
             AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            JwtOptions = jwtOptions;
             MasterUserOptions = masterUserOptions;
             SamlOptions = samlOptions;
         }

@@ -5902,13 +5902,13 @@ type PipeSourceDynamoDbStreamParameters struct {
 	DeadLetterConfig *PipeDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// The maximum length of a time to wait for events.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+	// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
 	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
-	// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+	// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
-	// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+	// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
 	OnPartialBatchItemFailure *PipeOnPartialBatchItemFailureStreams `pulumi:"onPartialBatchItemFailure"`
-	// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+	// The number of batches to process concurrently from each shard. The default value is 1.
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
 	// (Streams only) The position in a stream from which to start reading.
 	//
@@ -5934,13 +5934,13 @@ type PipeSourceDynamoDbStreamParametersArgs struct {
 	DeadLetterConfig PipeDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
 	// The maximum length of a time to wait for events.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+	// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
 	MaximumRecordAgeInSeconds pulumi.IntPtrInput `pulumi:"maximumRecordAgeInSeconds"`
-	// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+	// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
 	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
-	// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+	// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
 	OnPartialBatchItemFailure PipeOnPartialBatchItemFailureStreamsPtrInput `pulumi:"onPartialBatchItemFailure"`
-	// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+	// The number of batches to process concurrently from each shard. The default value is 1.
 	ParallelizationFactor pulumi.IntPtrInput `pulumi:"parallelizationFactor"`
 	// (Streams only) The position in a stream from which to start reading.
 	//
@@ -6040,24 +6040,24 @@ func (o PipeSourceDynamoDbStreamParametersOutput) MaximumBatchingWindowInSeconds
 	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
 func (o PipeSourceDynamoDbStreamParametersOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.MaximumRecordAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
 func (o PipeSourceDynamoDbStreamParametersOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
 func (o PipeSourceDynamoDbStreamParametersOutput) OnPartialBatchItemFailure() PipeOnPartialBatchItemFailureStreamsPtrOutput {
 	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *PipeOnPartialBatchItemFailureStreams {
 		return v.OnPartialBatchItemFailure
 	}).(PipeOnPartialBatchItemFailureStreamsPtrOutput)
 }
 
-// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+// The number of batches to process concurrently from each shard. The default value is 1.
 func (o PipeSourceDynamoDbStreamParametersOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceDynamoDbStreamParameters) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
 }
@@ -6123,7 +6123,7 @@ func (o PipeSourceDynamoDbStreamParametersPtrOutput) MaximumBatchingWindowInSeco
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
 func (o PipeSourceDynamoDbStreamParametersPtrOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *int {
 		if v == nil {
@@ -6133,7 +6133,7 @@ func (o PipeSourceDynamoDbStreamParametersPtrOutput) MaximumRecordAgeInSeconds()
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
 func (o PipeSourceDynamoDbStreamParametersPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *int {
 		if v == nil {
@@ -6143,7 +6143,7 @@ func (o PipeSourceDynamoDbStreamParametersPtrOutput) MaximumRetryAttempts() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
 func (o PipeSourceDynamoDbStreamParametersPtrOutput) OnPartialBatchItemFailure() PipeOnPartialBatchItemFailureStreamsPtrOutput {
 	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *PipeOnPartialBatchItemFailureStreams {
 		if v == nil {
@@ -6153,7 +6153,7 @@ func (o PipeSourceDynamoDbStreamParametersPtrOutput) OnPartialBatchItemFailure()
 	}).(PipeOnPartialBatchItemFailureStreamsPtrOutput)
 }
 
-// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+// The number of batches to process concurrently from each shard. The default value is 1.
 func (o PipeSourceDynamoDbStreamParametersPtrOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceDynamoDbStreamParameters) *int {
 		if v == nil {
@@ -6182,15 +6182,15 @@ type PipeSourceKinesisStreamParameters struct {
 	DeadLetterConfig *PipeDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// The maximum length of a time to wait for events.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+	// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
 	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
-	// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+	// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
-	// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+	// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
 	OnPartialBatchItemFailure *PipeOnPartialBatchItemFailureStreams `pulumi:"onPartialBatchItemFailure"`
-	// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+	// The number of batches to process concurrently from each shard. The default value is 1.
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
-	// (Streams only) The position in a stream from which to start reading.
+	// The position in a stream from which to start reading.
 	StartingPosition PipeKinesisStreamStartPosition `pulumi:"startingPosition"`
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
 	StartingPositionTimestamp *string `pulumi:"startingPositionTimestamp"`
@@ -6214,15 +6214,15 @@ type PipeSourceKinesisStreamParametersArgs struct {
 	DeadLetterConfig PipeDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
 	// The maximum length of a time to wait for events.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+	// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
 	MaximumRecordAgeInSeconds pulumi.IntPtrInput `pulumi:"maximumRecordAgeInSeconds"`
-	// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+	// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
 	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
-	// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+	// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
 	OnPartialBatchItemFailure PipeOnPartialBatchItemFailureStreamsPtrInput `pulumi:"onPartialBatchItemFailure"`
-	// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+	// The number of batches to process concurrently from each shard. The default value is 1.
 	ParallelizationFactor pulumi.IntPtrInput `pulumi:"parallelizationFactor"`
-	// (Streams only) The position in a stream from which to start reading.
+	// The position in a stream from which to start reading.
 	StartingPosition PipeKinesisStreamStartPositionInput `pulumi:"startingPosition"`
 	// With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
 	StartingPositionTimestamp pulumi.StringPtrInput `pulumi:"startingPositionTimestamp"`
@@ -6320,29 +6320,29 @@ func (o PipeSourceKinesisStreamParametersOutput) MaximumBatchingWindowInSeconds(
 	return o.ApplyT(func(v PipeSourceKinesisStreamParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
 func (o PipeSourceKinesisStreamParametersOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceKinesisStreamParameters) *int { return v.MaximumRecordAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
 func (o PipeSourceKinesisStreamParametersOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceKinesisStreamParameters) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
 func (o PipeSourceKinesisStreamParametersOutput) OnPartialBatchItemFailure() PipeOnPartialBatchItemFailureStreamsPtrOutput {
 	return o.ApplyT(func(v PipeSourceKinesisStreamParameters) *PipeOnPartialBatchItemFailureStreams {
 		return v.OnPartialBatchItemFailure
 	}).(PipeOnPartialBatchItemFailureStreamsPtrOutput)
 }
 
-// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+// The number of batches to process concurrently from each shard. The default value is 1.
 func (o PipeSourceKinesisStreamParametersOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceKinesisStreamParameters) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) The position in a stream from which to start reading.
+// The position in a stream from which to start reading.
 func (o PipeSourceKinesisStreamParametersOutput) StartingPosition() PipeKinesisStreamStartPositionOutput {
 	return o.ApplyT(func(v PipeSourceKinesisStreamParameters) PipeKinesisStreamStartPosition { return v.StartingPosition }).(PipeKinesisStreamStartPositionOutput)
 }
@@ -6406,7 +6406,7 @@ func (o PipeSourceKinesisStreamParametersPtrOutput) MaximumBatchingWindowInSecon
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
 func (o PipeSourceKinesisStreamParametersPtrOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceKinesisStreamParameters) *int {
 		if v == nil {
@@ -6416,7 +6416,7 @@ func (o PipeSourceKinesisStreamParametersPtrOutput) MaximumRecordAgeInSeconds() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
 func (o PipeSourceKinesisStreamParametersPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceKinesisStreamParameters) *int {
 		if v == nil {
@@ -6426,7 +6426,7 @@ func (o PipeSourceKinesisStreamParametersPtrOutput) MaximumRetryAttempts() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
 func (o PipeSourceKinesisStreamParametersPtrOutput) OnPartialBatchItemFailure() PipeOnPartialBatchItemFailureStreamsPtrOutput {
 	return o.ApplyT(func(v *PipeSourceKinesisStreamParameters) *PipeOnPartialBatchItemFailureStreams {
 		if v == nil {
@@ -6436,7 +6436,7 @@ func (o PipeSourceKinesisStreamParametersPtrOutput) OnPartialBatchItemFailure() 
 	}).(PipeOnPartialBatchItemFailureStreamsPtrOutput)
 }
 
-// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+// The number of batches to process concurrently from each shard. The default value is 1.
 func (o PipeSourceKinesisStreamParametersPtrOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceKinesisStreamParameters) *int {
 		if v == nil {
@@ -6446,7 +6446,7 @@ func (o PipeSourceKinesisStreamParametersPtrOutput) ParallelizationFactor() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) The position in a stream from which to start reading.
+// The position in a stream from which to start reading.
 func (o PipeSourceKinesisStreamParametersPtrOutput) StartingPosition() PipeKinesisStreamStartPositionPtrOutput {
 	return o.ApplyT(func(v *PipeSourceKinesisStreamParameters) *PipeKinesisStreamStartPosition {
 		if v == nil {
@@ -6475,7 +6475,7 @@ type PipeSourceManagedStreamingKafkaParameters struct {
 	Credentials interface{} `pulumi:"credentials"`
 	// The maximum length of a time to wait for events.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// (Streams only) The position in a stream from which to start reading.
+	// The position in a stream from which to start reading.
 	StartingPosition *PipeMskStartPosition `pulumi:"startingPosition"`
 	// The name of the topic that the pipe will read from.
 	TopicName string `pulumi:"topicName"`
@@ -6501,7 +6501,7 @@ type PipeSourceManagedStreamingKafkaParametersArgs struct {
 	Credentials pulumi.Input `pulumi:"credentials"`
 	// The maximum length of a time to wait for events.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// (Streams only) The position in a stream from which to start reading.
+	// The position in a stream from which to start reading.
 	StartingPosition PipeMskStartPositionPtrInput `pulumi:"startingPosition"`
 	// The name of the topic that the pipe will read from.
 	TopicName pulumi.StringInput `pulumi:"topicName"`
@@ -6604,7 +6604,7 @@ func (o PipeSourceManagedStreamingKafkaParametersOutput) MaximumBatchingWindowIn
 	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) The position in a stream from which to start reading.
+// The position in a stream from which to start reading.
 func (o PipeSourceManagedStreamingKafkaParametersOutput) StartingPosition() PipeMskStartPositionPtrOutput {
 	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *PipeMskStartPosition { return v.StartingPosition }).(PipeMskStartPositionPtrOutput)
 }
@@ -6678,7 +6678,7 @@ func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) MaximumBatchingWindo
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Streams only) The position in a stream from which to start reading.
+// The position in a stream from which to start reading.
 func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) StartingPosition() PipeMskStartPositionPtrOutput {
 	return o.ApplyT(func(v *PipeSourceManagedStreamingKafkaParameters) *PipeMskStartPosition {
 		if v == nil {
@@ -7224,7 +7224,7 @@ type PipeSourceSelfManagedKafkaParameters struct {
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
 	// Optional SecretManager ARN which stores the database credentials
 	ServerRootCaCertificate *string `pulumi:"serverRootCaCertificate"`
-	// (Streams only) The position in a stream from which to start reading.
+	// The position in a stream from which to start reading.
 	StartingPosition *PipeSelfManagedKafkaStartPosition `pulumi:"startingPosition"`
 	// The name of the topic that the pipe will read from.
 	TopicName string `pulumi:"topicName"`
@@ -7256,7 +7256,7 @@ type PipeSourceSelfManagedKafkaParametersArgs struct {
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
 	// Optional SecretManager ARN which stores the database credentials
 	ServerRootCaCertificate pulumi.StringPtrInput `pulumi:"serverRootCaCertificate"`
-	// (Streams only) The position in a stream from which to start reading.
+	// The position in a stream from which to start reading.
 	StartingPosition PipeSelfManagedKafkaStartPositionPtrInput `pulumi:"startingPosition"`
 	// The name of the topic that the pipe will read from.
 	TopicName pulumi.StringInput `pulumi:"topicName"`
@@ -7371,7 +7371,7 @@ func (o PipeSourceSelfManagedKafkaParametersOutput) ServerRootCaCertificate() pu
 	return o.ApplyT(func(v PipeSourceSelfManagedKafkaParameters) *string { return v.ServerRootCaCertificate }).(pulumi.StringPtrOutput)
 }
 
-// (Streams only) The position in a stream from which to start reading.
+// The position in a stream from which to start reading.
 func (o PipeSourceSelfManagedKafkaParametersOutput) StartingPosition() PipeSelfManagedKafkaStartPositionPtrOutput {
 	return o.ApplyT(func(v PipeSourceSelfManagedKafkaParameters) *PipeSelfManagedKafkaStartPosition {
 		return v.StartingPosition
@@ -7472,7 +7472,7 @@ func (o PipeSourceSelfManagedKafkaParametersPtrOutput) ServerRootCaCertificate()
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Streams only) The position in a stream from which to start reading.
+// The position in a stream from which to start reading.
 func (o PipeSourceSelfManagedKafkaParametersPtrOutput) StartingPosition() PipeSelfManagedKafkaStartPositionPtrOutput {
 	return o.ApplyT(func(v *PipeSourceSelfManagedKafkaParameters) *PipeSelfManagedKafkaStartPosition {
 		if v == nil {

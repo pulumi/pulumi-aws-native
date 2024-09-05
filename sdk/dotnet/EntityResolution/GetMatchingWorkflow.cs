@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.EntityResolution
         /// The description of the MatchingWorkflow
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        /// </summary>
         public readonly Outputs.MatchingWorkflowIncrementalRunConfig? IncrementalRunConfig;
         /// <summary>
         /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .

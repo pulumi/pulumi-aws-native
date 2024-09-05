@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -81,6 +81,9 @@ class GetDomainResult:
         if service_software_options and not isinstance(service_software_options, dict):
             raise TypeError("Expected argument 'service_software_options' to be a dict")
         pulumi.set(__self__, "service_software_options", service_software_options)
+        if skip_shard_migration_wait and not isinstance(skip_shard_migration_wait, bool):
+            raise TypeError("Expected argument 'skip_shard_migration_wait' to be a bool")
+        pulumi.set(__self__, "skip_shard_migration_wait", skip_shard_migration_wait)
         if snapshot_options and not isinstance(snapshot_options, dict):
             raise TypeError("Expected argument 'snapshot_options' to be a dict")
         pulumi.set(__self__, "snapshot_options", snapshot_options)
@@ -257,6 +260,11 @@ class GetDomainResult:
         return pulumi.get(self, "service_software_options")
 
     @property
+    @pulumi.getter(name="skipShardMigrationWait")
+    def skip_shard_migration_wait(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_shard_migration_wait")
+
+    @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional['outputs.DomainSnapshotOptions']:
         """
@@ -317,6 +325,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             node_to_node_encryption_options=self.node_to_node_encryption_options,
             off_peak_window_options=self.off_peak_window_options,
             service_software_options=self.service_software_options,
+            skip_shard_migration_wait=self.skip_shard_migration_wait,
             snapshot_options=self.snapshot_options,
             software_update_options=self.software_update_options,
             tags=self.tags,
@@ -361,6 +370,7 @@ def get_domain(domain_name: Optional[str] = None,
         node_to_node_encryption_options=pulumi.get(__ret__, 'node_to_node_encryption_options'),
         off_peak_window_options=pulumi.get(__ret__, 'off_peak_window_options'),
         service_software_options=pulumi.get(__ret__, 'service_software_options'),
+        skip_shard_migration_wait=pulumi.get(__ret__, 'skip_shard_migration_wait'),
         snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
         software_update_options=pulumi.get(__ret__, 'software_update_options'),
         tags=pulumi.get(__ret__, 'tags'),

@@ -147,6 +147,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         public readonly Outputs.DomainOffPeakWindowOptions? OffPeakWindowOptions;
         public readonly Outputs.DomainServiceSoftwareOptions? ServiceSoftwareOptions;
+        public readonly bool? SkipShardMigrationWait;
         /// <summary>
         /// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
         /// </summary>
@@ -208,6 +209,8 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             Outputs.DomainServiceSoftwareOptions? serviceSoftwareOptions,
 
+            bool? skipShardMigrationWait,
+
             Outputs.DomainSnapshotOptions? snapshotOptions,
 
             Outputs.DomainSoftwareUpdateOptions? softwareUpdateOptions,
@@ -236,6 +239,7 @@ namespace Pulumi.AwsNative.OpenSearchService
             NodeToNodeEncryptionOptions = nodeToNodeEncryptionOptions;
             OffPeakWindowOptions = offPeakWindowOptions;
             ServiceSoftwareOptions = serviceSoftwareOptions;
+            SkipShardMigrationWait = skipShardMigrationWait;
             SnapshotOptions = snapshotOptions;
             SoftwareUpdateOptions = softwareUpdateOptions;
             Tags = tags;

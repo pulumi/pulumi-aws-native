@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string>? ServerRootCaCertificate { get; set; }
 
         /// <summary>
-        /// (Streams only) The position in a stream from which to start reading.
+        /// The position in a stream from which to start reading.
         /// </summary>
         [Input("startingPosition")]
         public Input<Pulumi.AwsNative.Pipes.PipeSelfManagedKafkaStartPosition>? StartingPosition { get; set; }

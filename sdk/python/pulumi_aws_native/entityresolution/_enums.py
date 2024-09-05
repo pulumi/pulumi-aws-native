@@ -119,6 +119,9 @@ class IdNamespaceType(str, Enum):
 
 
 class MatchingWorkflowIncrementalRunConfigIncrementalRunType(str, Enum):
+    """
+    The type of incremental run. It takes only one value: `IMMEDIATE` .
+    """
     IMMEDIATE = "IMMEDIATE"
 
 

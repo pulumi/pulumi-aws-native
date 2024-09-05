@@ -69,6 +69,9 @@ class GetMatchingWorkflowResult:
     @property
     @pulumi.getter(name="incrementalRunConfig")
     def incremental_run_config(self) -> Optional['outputs.MatchingWorkflowIncrementalRunConfig']:
+        """
+        An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        """
         return pulumi.get(self, "incremental_run_config")
 
     @property

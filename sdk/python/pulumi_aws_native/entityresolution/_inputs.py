@@ -531,11 +531,11 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgs:
                If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
                
                If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
-        :param pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]] record_matching_models: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+        :param pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]] record_matching_models: The type of matching record that is allowed to be used in an ID mapping workflow.
                
-               If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+               If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source is matched to one record in the target.
                
-               If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+               If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , all matching records in the source are matched to one record in the target.
         :param pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleDefinitionType']]] rule_definition_types: The sets of rules you can use in an ID mapping workflow. The limitations specified for the source and target must be compatible.
         :param pulumi.Input[Sequence[pulumi.Input['IdNamespaceRuleArgs']]] rules: The rules for the ID namespace.
         """
@@ -568,11 +568,11 @@ class IdNamespaceNamespaceRuleBasedPropertiesArgs:
     @pulumi.getter(name="recordMatchingModels")
     def record_matching_models(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdNamespaceRecordMatchingModel']]]]:
         """
-        The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the `attributeMatchingModel` .
+        The type of matching record that is allowed to be used in an ID mapping workflow.
 
-        If you choose `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A matches the value of `BusinessEmail` field of Profile B, the two profiles are matched on the `Email` attribute type.
+        If the value is set to `ONE_SOURCE_TO_ONE_TARGET` , only one record in the source is matched to one record in the target.
 
-        If you choose `ONE_TO_ONE` , the system can only match attributes if the sub-types are an exact match. For example, for the `Email` attribute type, the system will only consider it a match if the value of the `Email` field of Profile A matches the value of the `Email` field of Profile B.
+        If the value is set to `MANY_SOURCE_TO_ONE_TARGET` , all matching records in the source are matched to one record in the target.
         """
         return pulumi.get(self, "record_matching_models")
 
@@ -646,11 +646,17 @@ class IdNamespaceRuleArgs:
 class MatchingWorkflowIncrementalRunConfigArgs:
     def __init__(__self__, *,
                  incremental_run_type: pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']):
+        """
+        :param pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType'] incremental_run_type: The type of incremental run. It takes only one value: `IMMEDIATE` .
+        """
         pulumi.set(__self__, "incremental_run_type", incremental_run_type)
 
     @property
     @pulumi.getter(name="incrementalRunType")
     def incremental_run_type(self) -> pulumi.Input['MatchingWorkflowIncrementalRunConfigIncrementalRunType']:
+        """
+        The type of incremental run. It takes only one value: `IMMEDIATE` .
+        """
         return pulumi.get(self, "incremental_run_type")
 
     @incremental_run_type.setter

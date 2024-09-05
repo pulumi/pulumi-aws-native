@@ -49,6 +49,9 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
      */
     public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
+    /**
+     * Reserved.
+     */
     public readonly context!: pulumi.Output<string | undefined>;
     /**
      * The details for the Amazon EKS cluster that supports the compute environment.
@@ -160,6 +163,9 @@ export interface ComputeEnvironmentArgs {
      * The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
      */
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesArgs>;
+    /**
+     * Reserved.
+     */
     context?: pulumi.Input<string>;
     /**
      * The details for the Amazon EKS cluster that supports the compute environment.

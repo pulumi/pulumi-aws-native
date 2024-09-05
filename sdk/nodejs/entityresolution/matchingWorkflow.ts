@@ -42,6 +42,9 @@ export class MatchingWorkflow extends pulumi.CustomResource {
      * The description of the MatchingWorkflow
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * An object which defines an incremental run type and has only `incrementalRunType` as a field.
+     */
     public readonly incrementalRunConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowIncrementalRunConfig | undefined>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
@@ -132,6 +135,9 @@ export interface MatchingWorkflowArgs {
      * The description of the MatchingWorkflow
      */
     description?: pulumi.Input<string>;
+    /**
+     * An object which defines an incremental run type and has only `incrementalRunType` as a field.
+     */
     incrementalRunConfig?: pulumi.Input<inputs.entityresolution.MatchingWorkflowIncrementalRunConfigArgs>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .

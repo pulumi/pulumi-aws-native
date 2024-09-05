@@ -26,23 +26,23 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
         /// <summary>
-        /// (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+        /// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
         /// </summary>
         public readonly int? MaximumRecordAgeInSeconds;
         /// <summary>
-        /// (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+        /// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
         /// </summary>
         public readonly int? MaximumRetryAttempts;
         /// <summary>
-        /// (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+        /// Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
         /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeOnPartialBatchItemFailureStreams? OnPartialBatchItemFailure;
         /// <summary>
-        /// (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+        /// The number of batches to process concurrently from each shard. The default value is 1.
         /// </summary>
         public readonly int? ParallelizationFactor;
         /// <summary>
-        /// (Streams only) The position in a stream from which to start reading.
+        /// The position in a stream from which to start reading.
         /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeKinesisStreamStartPosition StartingPosition;
         /// <summary>

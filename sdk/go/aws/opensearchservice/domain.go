@@ -68,6 +68,7 @@ type Domain struct {
 	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
 	OffPeakWindowOptions   DomainOffPeakWindowOptionsPtrOutput `pulumi:"offPeakWindowOptions"`
 	ServiceSoftwareOptions DomainServiceSoftwareOptionsOutput  `pulumi:"serviceSoftwareOptions"`
+	SkipShardMigrationWait pulumi.BoolPtrOutput                `pulumi:"skipShardMigrationWait"`
 	// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
 	// Service software update options for the domain.
@@ -163,7 +164,8 @@ type domainArgs struct {
 	// Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
 	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
-	OffPeakWindowOptions *DomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
+	OffPeakWindowOptions   *DomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
+	SkipShardMigrationWait *bool                       `pulumi:"skipShardMigrationWait"`
 	// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
 	// Service software update options for the domain.
@@ -217,7 +219,8 @@ type DomainArgs struct {
 	// Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrInput
 	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
-	OffPeakWindowOptions DomainOffPeakWindowOptionsPtrInput
+	OffPeakWindowOptions   DomainOffPeakWindowOptionsPtrInput
+	SkipShardMigrationWait pulumi.BoolPtrInput
 	// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
 	// Service software update options for the domain.
@@ -380,6 +383,10 @@ func (o DomainOutput) OffPeakWindowOptions() DomainOffPeakWindowOptionsPtrOutput
 
 func (o DomainOutput) ServiceSoftwareOptions() DomainServiceSoftwareOptionsOutput {
 	return o.ApplyT(func(v *Domain) DomainServiceSoftwareOptionsOutput { return v.ServiceSoftwareOptions }).(DomainServiceSoftwareOptionsOutput)
+}
+
+func (o DomainOutput) SkipShardMigrationWait() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.SkipShardMigrationWait }).(pulumi.BoolPtrOutput)
 }
 
 // *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.

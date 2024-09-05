@@ -58,6 +58,9 @@ class GetComputeEnvironmentResult:
     @property
     @pulumi.getter
     def context(self) -> Optional[str]:
+        """
+        Reserved.
+        """
         return pulumi.get(self, "context")
 
     @property

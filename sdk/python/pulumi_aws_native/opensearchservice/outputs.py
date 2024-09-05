@@ -19,6 +19,7 @@ __all__ = [
     'DomainEncryptionAtRestOptions',
     'DomainEndpointOptions',
     'DomainIdp',
+    'DomainJwtOptions',
     'DomainLogPublishingOption',
     'DomainMasterUserOptions',
     'DomainNodeToNodeEncryptionOptions',
@@ -44,6 +45,8 @@ class DomainAdvancedSecurityOptionsInput(dict):
             suggest = "anonymous_auth_enabled"
         elif key == "internalUserDatabaseEnabled":
             suggest = "internal_user_database_enabled"
+        elif key == "jwtOptions":
+            suggest = "jwt_options"
         elif key == "masterUserOptions":
             suggest = "master_user_options"
         elif key == "samlOptions":
@@ -65,6 +68,7 @@ class DomainAdvancedSecurityOptionsInput(dict):
                  anonymous_auth_enabled: Optional[bool] = None,
                  enabled: Optional[bool] = None,
                  internal_user_database_enabled: Optional[bool] = None,
+                 jwt_options: Optional['outputs.DomainJwtOptions'] = None,
                  master_user_options: Optional['outputs.DomainMasterUserOptions'] = None,
                  saml_options: Optional['outputs.DomainSamlOptions'] = None):
         """
@@ -72,6 +76,7 @@ class DomainAdvancedSecurityOptionsInput(dict):
         :param bool anonymous_auth_enabled: True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
         :param bool enabled: True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
         :param bool internal_user_database_enabled: True to enable the internal user database.
+        :param 'DomainJwtOptions' jwt_options: Container for information about the JWT configuration of the Amazon OpenSearch Service.
         :param 'DomainMasterUserOptions' master_user_options: Specifies information about the master user.
         :param 'DomainSamlOptions' saml_options: Container for information about the SAML configuration for OpenSearch Dashboards.
         """
@@ -83,6 +88,8 @@ class DomainAdvancedSecurityOptionsInput(dict):
             pulumi.set(__self__, "enabled", enabled)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
+        if jwt_options is not None:
+            pulumi.set(__self__, "jwt_options", jwt_options)
         if master_user_options is not None:
             pulumi.set(__self__, "master_user_options", master_user_options)
         if saml_options is not None:
@@ -119,6 +126,14 @@ class DomainAdvancedSecurityOptionsInput(dict):
         True to enable the internal user database.
         """
         return pulumi.get(self, "internal_user_database_enabled")
+
+    @property
+    @pulumi.getter(name="jwtOptions")
+    def jwt_options(self) -> Optional['outputs.DomainJwtOptions']:
+        """
+        Container for information about the JWT configuration of the Amazon OpenSearch Service.
+        """
+        return pulumi.get(self, "jwt_options")
 
     @property
     @pulumi.getter(name="masterUserOptions")
@@ -728,6 +743,64 @@ class DomainIdp(dict):
         The metadata of the SAML application, in XML format.
         """
         return pulumi.get(self, "metadata_content")
+
+
+@pulumi.output_type
+class DomainJwtOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKey":
+            suggest = "public_key"
+        elif key == "rolesKey":
+            suggest = "roles_key"
+        elif key == "subjectKey":
+            suggest = "subject_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainJwtOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainJwtOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainJwtOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 public_key: Optional[str] = None,
+                 roles_key: Optional[str] = None,
+                 subject_key: Optional[str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[str]:
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[str]:
+        return pulumi.get(self, "roles_key")
+
+    @property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[str]:
+        return pulumi.get(self, "subject_key")
 
 
 @pulumi.output_type

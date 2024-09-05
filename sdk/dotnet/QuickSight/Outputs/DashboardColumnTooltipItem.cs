@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The label of the tooltip item.
         /// </summary>
         public readonly string? Label;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardTooltipTarget? TooltipTarget;
         /// <summary>
         /// The visibility of the tooltip item.
         /// </summary>
@@ -38,11 +39,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? label,
 
+            Pulumi.AwsNative.QuickSight.DashboardTooltipTarget? tooltipTarget,
+
             Pulumi.AwsNative.QuickSight.DashboardVisibility? visibility)
         {
             Aggregation = aggregation;
             Column = column;
             Label = label;
+            TooltipTarget = tooltipTarget;
             Visibility = visibility;
         }
     }

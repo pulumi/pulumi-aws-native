@@ -123,7 +123,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
         ///  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-        ///  *Minimum:* 10
+        ///   *Minimum:* 10
         /// </summary>
         [Output("period")]
         public Output<int?> Period { get; private set; } = null!;
@@ -137,9 +137,8 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<string?> Statistic { get; private set; } = null!;
 
         /// <summary>
-        /// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
-        /// 
-        /// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        /// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the ``cloudwatch:TagResource`` permission.
+        ///  Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -349,7 +348,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
         ///  For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-        ///  *Minimum:* 10
+        ///   *Minimum:* 10
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
@@ -366,9 +365,8 @@ namespace Pulumi.AwsNative.CloudWatch
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
-        /// 
-        /// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+        /// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the ``cloudwatch:TagResource`` permission.
+        ///  Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

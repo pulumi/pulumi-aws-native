@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.EntityResolution
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        /// </summary>
         [Output("incrementalRunConfig")]
         public Output<Outputs.MatchingWorkflowIncrementalRunConfig?> IncrementalRunConfig { get; private set; } = null!;
 
@@ -124,6 +127,9 @@ namespace Pulumi.AwsNative.EntityResolution
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// An object which defines an incremental run type and has only `incrementalRunType` as a field.
+        /// </summary>
         [Input("incrementalRunConfig")]
         public Input<Inputs.MatchingWorkflowIncrementalRunConfigArgs>? IncrementalRunConfig { get; set; }
 

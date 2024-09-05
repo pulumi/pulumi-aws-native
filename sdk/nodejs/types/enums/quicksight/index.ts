@@ -835,6 +835,14 @@ export const AnalysisTimeGranularity = {
 
 export type AnalysisTimeGranularity = (typeof AnalysisTimeGranularity)[keyof typeof AnalysisTimeGranularity];
 
+export const AnalysisTooltipTarget = {
+    Both: "BOTH",
+    Bar: "BAR",
+    Line: "LINE",
+} as const;
+
+export type AnalysisTooltipTarget = (typeof AnalysisTooltipTarget)[keyof typeof AnalysisTooltipTarget];
+
 export const AnalysisTooltipTitleType = {
     None: "NONE",
     PrimaryValue: "PRIMARY_VALUE",
@@ -1784,6 +1792,14 @@ export const DashboardTimeGranularity = {
 } as const;
 
 export type DashboardTimeGranularity = (typeof DashboardTimeGranularity)[keyof typeof DashboardTimeGranularity];
+
+export const DashboardTooltipTarget = {
+    Both: "BOTH",
+    Bar: "BAR",
+    Line: "LINE",
+} as const;
+
+export type DashboardTooltipTarget = (typeof DashboardTooltipTarget)[keyof typeof DashboardTooltipTarget];
 
 export const DashboardTooltipTitleType = {
     None: "NONE",
@@ -2986,6 +3002,14 @@ export const TemplateTimeGranularity = {
 } as const;
 
 export type TemplateTimeGranularity = (typeof TemplateTimeGranularity)[keyof typeof TemplateTimeGranularity];
+
+export const TemplateTooltipTarget = {
+    Both: "BOTH",
+    Bar: "BAR",
+    Line: "LINE",
+} as const;
+
+export type TemplateTooltipTarget = (typeof TemplateTooltipTarget)[keyof typeof TemplateTooltipTarget];
 
 export const TemplateTooltipTitleType = {
     None: "NONE",

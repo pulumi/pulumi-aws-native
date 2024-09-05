@@ -2941,6 +2941,35 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisTooltipTarget : IEquatable<AnalysisTooltipTarget>
+    {
+        private readonly string _value;
+
+        private AnalysisTooltipTarget(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisTooltipTarget Both { get; } = new AnalysisTooltipTarget("BOTH");
+        public static AnalysisTooltipTarget Bar { get; } = new AnalysisTooltipTarget("BAR");
+        public static AnalysisTooltipTarget Line { get; } = new AnalysisTooltipTarget("LINE");
+
+        public static bool operator ==(AnalysisTooltipTarget left, AnalysisTooltipTarget right) => left.Equals(right);
+        public static bool operator !=(AnalysisTooltipTarget left, AnalysisTooltipTarget right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisTooltipTarget value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisTooltipTarget other && Equals(other);
+        public bool Equals(AnalysisTooltipTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisTooltipTitleType : IEquatable<AnalysisTooltipTitleType>
     {
         private readonly string _value;
@@ -6319,6 +6348,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardTimeGranularity other && Equals(other);
         public bool Equals(DashboardTimeGranularity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardTooltipTarget : IEquatable<DashboardTooltipTarget>
+    {
+        private readonly string _value;
+
+        private DashboardTooltipTarget(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardTooltipTarget Both { get; } = new DashboardTooltipTarget("BOTH");
+        public static DashboardTooltipTarget Bar { get; } = new DashboardTooltipTarget("BAR");
+        public static DashboardTooltipTarget Line { get; } = new DashboardTooltipTarget("LINE");
+
+        public static bool operator ==(DashboardTooltipTarget left, DashboardTooltipTarget right) => left.Equals(right);
+        public static bool operator !=(DashboardTooltipTarget left, DashboardTooltipTarget right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardTooltipTarget value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardTooltipTarget other && Equals(other);
+        public bool Equals(DashboardTooltipTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -10440,6 +10498,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateTimeGranularity other && Equals(other);
         public bool Equals(TemplateTimeGranularity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateTooltipTarget : IEquatable<TemplateTooltipTarget>
+    {
+        private readonly string _value;
+
+        private TemplateTooltipTarget(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateTooltipTarget Both { get; } = new TemplateTooltipTarget("BOTH");
+        public static TemplateTooltipTarget Bar { get; } = new TemplateTooltipTarget("BAR");
+        public static TemplateTooltipTarget Line { get; } = new TemplateTooltipTarget("LINE");
+
+        public static bool operator ==(TemplateTooltipTarget left, TemplateTooltipTarget right) => left.Equals(right);
+        public static bool operator !=(TemplateTooltipTarget left, TemplateTooltipTarget right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateTooltipTarget value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateTooltipTarget other && Equals(other);
+        public bool Equals(TemplateTooltipTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

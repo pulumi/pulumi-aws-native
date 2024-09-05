@@ -331,6 +331,9 @@ namespace Pulumi.AwsNative.EntityResolution
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of incremental run. It takes only one value: `IMMEDIATE` .
+    /// </summary>
     [EnumType]
     public readonly struct MatchingWorkflowIncrementalRunConfigIncrementalRunType : IEquatable<MatchingWorkflowIncrementalRunConfigIncrementalRunType>
     {

@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? SecondaryYAxisLabelOptions;
+        public readonly Outputs.DashboardSingleAxisOptions? SingleAxisOptions;
         /// <summary>
         /// The sort configuration of a `ComboChartVisual` .
         /// </summary>
@@ -114,6 +115,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardChartAxisLabelOptions? secondaryYAxisLabelOptions,
 
+            Outputs.DashboardSingleAxisOptions? singleAxisOptions,
+
             Outputs.DashboardComboChartSortConfiguration? sortConfiguration,
 
             Outputs.DashboardTooltipOptions? tooltip,
@@ -133,6 +136,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ReferenceLines = referenceLines;
             SecondaryYAxisDisplayOptions = secondaryYAxisDisplayOptions;
             SecondaryYAxisLabelOptions = secondaryYAxisLabelOptions;
+            SingleAxisOptions = singleAxisOptions;
             SortConfiguration = sortConfiguration;
             Tooltip = tooltip;
             VisualPalette = visualPalette;

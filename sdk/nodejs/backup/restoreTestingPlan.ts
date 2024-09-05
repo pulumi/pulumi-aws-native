@@ -57,6 +57,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
      * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
      */
     public readonly scheduleExpressionTimezone!: pulumi.Output<string | undefined>;
+    public readonly scheduleStatus!: pulumi.Output<enums.backup.RestoreTestingPlanRestoreTestingScheduleStatus | undefined>;
     /**
      * Defaults to 24 hours.
      *
@@ -89,6 +90,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             resourceInputs["restoreTestingPlanName"] = args ? args.restoreTestingPlanName : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
+            resourceInputs["scheduleStatus"] = args ? args.scheduleStatus : undefined;
             resourceInputs["startWindowHours"] = args ? args.startWindowHours : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["restoreTestingPlanArn"] = undefined /*out*/;
@@ -98,6 +100,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             resourceInputs["restoreTestingPlanName"] = undefined /*out*/;
             resourceInputs["scheduleExpression"] = undefined /*out*/;
             resourceInputs["scheduleExpressionTimezone"] = undefined /*out*/;
+            resourceInputs["scheduleStatus"] = undefined /*out*/;
             resourceInputs["startWindowHours"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -128,6 +131,7 @@ export interface RestoreTestingPlanArgs {
      * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
      */
     scheduleExpressionTimezone?: pulumi.Input<string>;
+    scheduleStatus?: pulumi.Input<enums.backup.RestoreTestingPlanRestoreTestingScheduleStatus>;
     /**
      * Defaults to 24 hours.
      *

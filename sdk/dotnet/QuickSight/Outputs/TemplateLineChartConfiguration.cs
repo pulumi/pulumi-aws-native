@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The series item configuration of a line chart.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSeriesItem> Series;
+        public readonly Outputs.TemplateSingleAxisOptions? SingleAxisOptions;
         /// <summary>
         /// The small multiples setup for the visual.
         /// </summary>
@@ -116,6 +117,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.TemplateSeriesItem> series,
 
+            Outputs.TemplateSingleAxisOptions? singleAxisOptions,
+
             Outputs.TemplateSmallMultiplesOptions? smallMultiplesOptions,
 
             Outputs.TemplateLineChartSortConfiguration? sortConfiguration,
@@ -142,6 +145,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             SecondaryYAxisDisplayOptions = secondaryYAxisDisplayOptions;
             SecondaryYAxisLabelOptions = secondaryYAxisLabelOptions;
             Series = series;
+            SingleAxisOptions = singleAxisOptions;
             SmallMultiplesOptions = smallMultiplesOptions;
             SortConfiguration = sortConfiguration;
             Tooltip = tooltip;

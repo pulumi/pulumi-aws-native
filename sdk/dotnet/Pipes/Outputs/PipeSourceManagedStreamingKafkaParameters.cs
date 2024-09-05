@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
         /// <summary>
-        /// (Streams only) The position in a stream from which to start reading.
+        /// The position in a stream from which to start reading.
         /// </summary>
         public readonly Pulumi.AwsNative.Pipes.PipeMskStartPosition? StartingPosition;
         /// <summary>

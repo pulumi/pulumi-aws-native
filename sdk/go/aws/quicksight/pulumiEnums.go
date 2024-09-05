@@ -16776,6 +16776,173 @@ func (in *analysisTimeGranularityPtr) ToAnalysisTimeGranularityPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTimeGranularityPtrOutput)
 }
 
+type AnalysisTooltipTarget string
+
+const (
+	AnalysisTooltipTargetBoth = AnalysisTooltipTarget("BOTH")
+	AnalysisTooltipTargetBar  = AnalysisTooltipTarget("BAR")
+	AnalysisTooltipTargetLine = AnalysisTooltipTarget("LINE")
+)
+
+func (AnalysisTooltipTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTooltipTarget)(nil)).Elem()
+}
+
+func (e AnalysisTooltipTarget) ToAnalysisTooltipTargetOutput() AnalysisTooltipTargetOutput {
+	return pulumi.ToOutput(e).(AnalysisTooltipTargetOutput)
+}
+
+func (e AnalysisTooltipTarget) ToAnalysisTooltipTargetOutputWithContext(ctx context.Context) AnalysisTooltipTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisTooltipTargetOutput)
+}
+
+func (e AnalysisTooltipTarget) ToAnalysisTooltipTargetPtrOutput() AnalysisTooltipTargetPtrOutput {
+	return e.ToAnalysisTooltipTargetPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTooltipTarget) ToAnalysisTooltipTargetPtrOutputWithContext(ctx context.Context) AnalysisTooltipTargetPtrOutput {
+	return AnalysisTooltipTarget(e).ToAnalysisTooltipTargetOutputWithContext(ctx).ToAnalysisTooltipTargetPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisTooltipTarget) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTooltipTarget) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTooltipTarget) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTooltipTarget) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisTooltipTargetOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTooltipTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTooltipTarget)(nil)).Elem()
+}
+
+func (o AnalysisTooltipTargetOutput) ToAnalysisTooltipTargetOutput() AnalysisTooltipTargetOutput {
+	return o
+}
+
+func (o AnalysisTooltipTargetOutput) ToAnalysisTooltipTargetOutputWithContext(ctx context.Context) AnalysisTooltipTargetOutput {
+	return o
+}
+
+func (o AnalysisTooltipTargetOutput) ToAnalysisTooltipTargetPtrOutput() AnalysisTooltipTargetPtrOutput {
+	return o.ToAnalysisTooltipTargetPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTooltipTargetOutput) ToAnalysisTooltipTargetPtrOutputWithContext(ctx context.Context) AnalysisTooltipTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTooltipTarget) *AnalysisTooltipTarget {
+		return &v
+	}).(AnalysisTooltipTargetPtrOutput)
+}
+
+func (o AnalysisTooltipTargetOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisTooltipTargetOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTooltipTarget) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisTooltipTargetOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTooltipTargetOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTooltipTarget) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisTooltipTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTooltipTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTooltipTarget)(nil)).Elem()
+}
+
+func (o AnalysisTooltipTargetPtrOutput) ToAnalysisTooltipTargetPtrOutput() AnalysisTooltipTargetPtrOutput {
+	return o
+}
+
+func (o AnalysisTooltipTargetPtrOutput) ToAnalysisTooltipTargetPtrOutputWithContext(ctx context.Context) AnalysisTooltipTargetPtrOutput {
+	return o
+}
+
+func (o AnalysisTooltipTargetPtrOutput) Elem() AnalysisTooltipTargetOutput {
+	return o.ApplyT(func(v *AnalysisTooltipTarget) AnalysisTooltipTarget {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTooltipTarget
+		return ret
+	}).(AnalysisTooltipTargetOutput)
+}
+
+func (o AnalysisTooltipTargetPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTooltipTargetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisTooltipTarget) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisTooltipTargetInput is an input type that accepts values of the AnalysisTooltipTarget enum
+// A concrete instance of `AnalysisTooltipTargetInput` can be one of the following:
+//
+//	AnalysisTooltipTargetBoth
+//	AnalysisTooltipTargetBar
+//	AnalysisTooltipTargetLine
+type AnalysisTooltipTargetInput interface {
+	pulumi.Input
+
+	ToAnalysisTooltipTargetOutput() AnalysisTooltipTargetOutput
+	ToAnalysisTooltipTargetOutputWithContext(context.Context) AnalysisTooltipTargetOutput
+}
+
+var analysisTooltipTargetPtrType = reflect.TypeOf((**AnalysisTooltipTarget)(nil)).Elem()
+
+type AnalysisTooltipTargetPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTooltipTargetPtrOutput() AnalysisTooltipTargetPtrOutput
+	ToAnalysisTooltipTargetPtrOutputWithContext(context.Context) AnalysisTooltipTargetPtrOutput
+}
+
+type analysisTooltipTargetPtr string
+
+func AnalysisTooltipTargetPtr(v string) AnalysisTooltipTargetPtrInput {
+	return (*analysisTooltipTargetPtr)(&v)
+}
+
+func (*analysisTooltipTargetPtr) ElementType() reflect.Type {
+	return analysisTooltipTargetPtrType
+}
+
+func (in *analysisTooltipTargetPtr) ToAnalysisTooltipTargetPtrOutput() AnalysisTooltipTargetPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisTooltipTargetPtrOutput)
+}
+
+func (in *analysisTooltipTargetPtr) ToAnalysisTooltipTargetPtrOutputWithContext(ctx context.Context) AnalysisTooltipTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTooltipTargetPtrOutput)
+}
+
 type AnalysisTooltipTitleType string
 
 const (
@@ -36027,6 +36194,173 @@ func (in *dashboardTimeGranularityPtr) ToDashboardTimeGranularityPtrOutput() Das
 
 func (in *dashboardTimeGranularityPtr) ToDashboardTimeGranularityPtrOutputWithContext(ctx context.Context) DashboardTimeGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardTimeGranularityPtrOutput)
+}
+
+type DashboardTooltipTarget string
+
+const (
+	DashboardTooltipTargetBoth = DashboardTooltipTarget("BOTH")
+	DashboardTooltipTargetBar  = DashboardTooltipTarget("BAR")
+	DashboardTooltipTargetLine = DashboardTooltipTarget("LINE")
+)
+
+func (DashboardTooltipTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTooltipTarget)(nil)).Elem()
+}
+
+func (e DashboardTooltipTarget) ToDashboardTooltipTargetOutput() DashboardTooltipTargetOutput {
+	return pulumi.ToOutput(e).(DashboardTooltipTargetOutput)
+}
+
+func (e DashboardTooltipTarget) ToDashboardTooltipTargetOutputWithContext(ctx context.Context) DashboardTooltipTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardTooltipTargetOutput)
+}
+
+func (e DashboardTooltipTarget) ToDashboardTooltipTargetPtrOutput() DashboardTooltipTargetPtrOutput {
+	return e.ToDashboardTooltipTargetPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardTooltipTarget) ToDashboardTooltipTargetPtrOutputWithContext(ctx context.Context) DashboardTooltipTargetPtrOutput {
+	return DashboardTooltipTarget(e).ToDashboardTooltipTargetOutputWithContext(ctx).ToDashboardTooltipTargetPtrOutputWithContext(ctx)
+}
+
+func (e DashboardTooltipTarget) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardTooltipTarget) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardTooltipTarget) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardTooltipTarget) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardTooltipTargetOutput struct{ *pulumi.OutputState }
+
+func (DashboardTooltipTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTooltipTarget)(nil)).Elem()
+}
+
+func (o DashboardTooltipTargetOutput) ToDashboardTooltipTargetOutput() DashboardTooltipTargetOutput {
+	return o
+}
+
+func (o DashboardTooltipTargetOutput) ToDashboardTooltipTargetOutputWithContext(ctx context.Context) DashboardTooltipTargetOutput {
+	return o
+}
+
+func (o DashboardTooltipTargetOutput) ToDashboardTooltipTargetPtrOutput() DashboardTooltipTargetPtrOutput {
+	return o.ToDashboardTooltipTargetPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardTooltipTargetOutput) ToDashboardTooltipTargetPtrOutputWithContext(ctx context.Context) DashboardTooltipTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardTooltipTarget) *DashboardTooltipTarget {
+		return &v
+	}).(DashboardTooltipTargetPtrOutput)
+}
+
+func (o DashboardTooltipTargetOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardTooltipTargetOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardTooltipTarget) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardTooltipTargetOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardTooltipTargetOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardTooltipTarget) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardTooltipTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardTooltipTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardTooltipTarget)(nil)).Elem()
+}
+
+func (o DashboardTooltipTargetPtrOutput) ToDashboardTooltipTargetPtrOutput() DashboardTooltipTargetPtrOutput {
+	return o
+}
+
+func (o DashboardTooltipTargetPtrOutput) ToDashboardTooltipTargetPtrOutputWithContext(ctx context.Context) DashboardTooltipTargetPtrOutput {
+	return o
+}
+
+func (o DashboardTooltipTargetPtrOutput) Elem() DashboardTooltipTargetOutput {
+	return o.ApplyT(func(v *DashboardTooltipTarget) DashboardTooltipTarget {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardTooltipTarget
+		return ret
+	}).(DashboardTooltipTargetOutput)
+}
+
+func (o DashboardTooltipTargetPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardTooltipTargetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardTooltipTarget) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardTooltipTargetInput is an input type that accepts values of the DashboardTooltipTarget enum
+// A concrete instance of `DashboardTooltipTargetInput` can be one of the following:
+//
+//	DashboardTooltipTargetBoth
+//	DashboardTooltipTargetBar
+//	DashboardTooltipTargetLine
+type DashboardTooltipTargetInput interface {
+	pulumi.Input
+
+	ToDashboardTooltipTargetOutput() DashboardTooltipTargetOutput
+	ToDashboardTooltipTargetOutputWithContext(context.Context) DashboardTooltipTargetOutput
+}
+
+var dashboardTooltipTargetPtrType = reflect.TypeOf((**DashboardTooltipTarget)(nil)).Elem()
+
+type DashboardTooltipTargetPtrInput interface {
+	pulumi.Input
+
+	ToDashboardTooltipTargetPtrOutput() DashboardTooltipTargetPtrOutput
+	ToDashboardTooltipTargetPtrOutputWithContext(context.Context) DashboardTooltipTargetPtrOutput
+}
+
+type dashboardTooltipTargetPtr string
+
+func DashboardTooltipTargetPtr(v string) DashboardTooltipTargetPtrInput {
+	return (*dashboardTooltipTargetPtr)(&v)
+}
+
+func (*dashboardTooltipTargetPtr) ElementType() reflect.Type {
+	return dashboardTooltipTargetPtrType
+}
+
+func (in *dashboardTooltipTargetPtr) ToDashboardTooltipTargetPtrOutput() DashboardTooltipTargetPtrOutput {
+	return pulumi.ToOutput(in).(DashboardTooltipTargetPtrOutput)
+}
+
+func (in *dashboardTooltipTargetPtr) ToDashboardTooltipTargetPtrOutputWithContext(ctx context.Context) DashboardTooltipTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardTooltipTargetPtrOutput)
 }
 
 type DashboardTooltipTitleType string
@@ -59220,6 +59554,173 @@ func (in *templateTimeGranularityPtr) ToTemplateTimeGranularityPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateTimeGranularityPtrOutput)
 }
 
+type TemplateTooltipTarget string
+
+const (
+	TemplateTooltipTargetBoth = TemplateTooltipTarget("BOTH")
+	TemplateTooltipTargetBar  = TemplateTooltipTarget("BAR")
+	TemplateTooltipTargetLine = TemplateTooltipTarget("LINE")
+)
+
+func (TemplateTooltipTarget) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTooltipTarget)(nil)).Elem()
+}
+
+func (e TemplateTooltipTarget) ToTemplateTooltipTargetOutput() TemplateTooltipTargetOutput {
+	return pulumi.ToOutput(e).(TemplateTooltipTargetOutput)
+}
+
+func (e TemplateTooltipTarget) ToTemplateTooltipTargetOutputWithContext(ctx context.Context) TemplateTooltipTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateTooltipTargetOutput)
+}
+
+func (e TemplateTooltipTarget) ToTemplateTooltipTargetPtrOutput() TemplateTooltipTargetPtrOutput {
+	return e.ToTemplateTooltipTargetPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateTooltipTarget) ToTemplateTooltipTargetPtrOutputWithContext(ctx context.Context) TemplateTooltipTargetPtrOutput {
+	return TemplateTooltipTarget(e).ToTemplateTooltipTargetOutputWithContext(ctx).ToTemplateTooltipTargetPtrOutputWithContext(ctx)
+}
+
+func (e TemplateTooltipTarget) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateTooltipTarget) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateTooltipTarget) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateTooltipTarget) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateTooltipTargetOutput struct{ *pulumi.OutputState }
+
+func (TemplateTooltipTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTooltipTarget)(nil)).Elem()
+}
+
+func (o TemplateTooltipTargetOutput) ToTemplateTooltipTargetOutput() TemplateTooltipTargetOutput {
+	return o
+}
+
+func (o TemplateTooltipTargetOutput) ToTemplateTooltipTargetOutputWithContext(ctx context.Context) TemplateTooltipTargetOutput {
+	return o
+}
+
+func (o TemplateTooltipTargetOutput) ToTemplateTooltipTargetPtrOutput() TemplateTooltipTargetPtrOutput {
+	return o.ToTemplateTooltipTargetPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTooltipTargetOutput) ToTemplateTooltipTargetPtrOutputWithContext(ctx context.Context) TemplateTooltipTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTooltipTarget) *TemplateTooltipTarget {
+		return &v
+	}).(TemplateTooltipTargetPtrOutput)
+}
+
+func (o TemplateTooltipTargetOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateTooltipTargetOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateTooltipTarget) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateTooltipTargetOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTooltipTargetOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateTooltipTarget) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateTooltipTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTooltipTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTooltipTarget)(nil)).Elem()
+}
+
+func (o TemplateTooltipTargetPtrOutput) ToTemplateTooltipTargetPtrOutput() TemplateTooltipTargetPtrOutput {
+	return o
+}
+
+func (o TemplateTooltipTargetPtrOutput) ToTemplateTooltipTargetPtrOutputWithContext(ctx context.Context) TemplateTooltipTargetPtrOutput {
+	return o
+}
+
+func (o TemplateTooltipTargetPtrOutput) Elem() TemplateTooltipTargetOutput {
+	return o.ApplyT(func(v *TemplateTooltipTarget) TemplateTooltipTarget {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTooltipTarget
+		return ret
+	}).(TemplateTooltipTargetOutput)
+}
+
+func (o TemplateTooltipTargetPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTooltipTargetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateTooltipTarget) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateTooltipTargetInput is an input type that accepts values of the TemplateTooltipTarget enum
+// A concrete instance of `TemplateTooltipTargetInput` can be one of the following:
+//
+//	TemplateTooltipTargetBoth
+//	TemplateTooltipTargetBar
+//	TemplateTooltipTargetLine
+type TemplateTooltipTargetInput interface {
+	pulumi.Input
+
+	ToTemplateTooltipTargetOutput() TemplateTooltipTargetOutput
+	ToTemplateTooltipTargetOutputWithContext(context.Context) TemplateTooltipTargetOutput
+}
+
+var templateTooltipTargetPtrType = reflect.TypeOf((**TemplateTooltipTarget)(nil)).Elem()
+
+type TemplateTooltipTargetPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTooltipTargetPtrOutput() TemplateTooltipTargetPtrOutput
+	ToTemplateTooltipTargetPtrOutputWithContext(context.Context) TemplateTooltipTargetPtrOutput
+}
+
+type templateTooltipTargetPtr string
+
+func TemplateTooltipTargetPtr(v string) TemplateTooltipTargetPtrInput {
+	return (*templateTooltipTargetPtr)(&v)
+}
+
+func (*templateTooltipTargetPtr) ElementType() reflect.Type {
+	return templateTooltipTargetPtrType
+}
+
+func (in *templateTooltipTargetPtr) ToTemplateTooltipTargetPtrOutput() TemplateTooltipTargetPtrOutput {
+	return pulumi.ToOutput(in).(TemplateTooltipTargetPtrOutput)
+}
+
+func (in *templateTooltipTargetPtr) ToTemplateTooltipTargetPtrOutputWithContext(ctx context.Context) TemplateTooltipTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateTooltipTargetPtrOutput)
+}
+
 type TemplateTooltipTitleType string
 
 const (
@@ -66018,6 +66519,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTextWrapPtrInput)(nil)).Elem(), AnalysisTextWrap("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTimeGranularityInput)(nil)).Elem(), AnalysisTimeGranularity("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTimeGranularityPtrInput)(nil)).Elem(), AnalysisTimeGranularity("YEAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTooltipTargetInput)(nil)).Elem(), AnalysisTooltipTarget("BOTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTooltipTargetPtrInput)(nil)).Elem(), AnalysisTooltipTarget("BOTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTooltipTitleTypeInput)(nil)).Elem(), AnalysisTooltipTitleType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTooltipTitleTypePtrInput)(nil)).Elem(), AnalysisTooltipTitleType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomComputationTypeInput)(nil)).Elem(), AnalysisTopBottomComputationType("TOP"))
@@ -66246,6 +66749,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTextWrapPtrInput)(nil)).Elem(), DashboardTextWrap("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTimeGranularityInput)(nil)).Elem(), DashboardTimeGranularity("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTimeGranularityPtrInput)(nil)).Elem(), DashboardTimeGranularity("YEAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTooltipTargetInput)(nil)).Elem(), DashboardTooltipTarget("BOTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTooltipTargetPtrInput)(nil)).Elem(), DashboardTooltipTarget("BOTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTooltipTitleTypeInput)(nil)).Elem(), DashboardTooltipTitleType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTooltipTitleTypePtrInput)(nil)).Elem(), DashboardTooltipTitleType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTopBottomComputationTypeInput)(nil)).Elem(), DashboardTopBottomComputationType("TOP"))
@@ -66519,6 +67024,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTextWrapPtrInput)(nil)).Elem(), TemplateTextWrap("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTimeGranularityInput)(nil)).Elem(), TemplateTimeGranularity("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTimeGranularityPtrInput)(nil)).Elem(), TemplateTimeGranularity("YEAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTooltipTargetInput)(nil)).Elem(), TemplateTooltipTarget("BOTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTooltipTargetPtrInput)(nil)).Elem(), TemplateTooltipTarget("BOTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTooltipTitleTypeInput)(nil)).Elem(), TemplateTooltipTitleType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTooltipTitleTypePtrInput)(nil)).Elem(), TemplateTooltipTitleType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTopBottomComputationTypeInput)(nil)).Elem(), TemplateTopBottomComputationType("TOP"))
@@ -66792,6 +67299,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTextWrapPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTimeGranularityOutput{})
 	pulumi.RegisterOutputType(AnalysisTimeGranularityPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTooltipTargetOutput{})
+	pulumi.RegisterOutputType(AnalysisTooltipTargetPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTooltipTitleTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisTooltipTitleTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTopBottomComputationTypeOutput{})
@@ -67024,6 +67533,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardTextWrapPtrOutput{})
 	pulumi.RegisterOutputType(DashboardTimeGranularityOutput{})
 	pulumi.RegisterOutputType(DashboardTimeGranularityPtrOutput{})
+	pulumi.RegisterOutputType(DashboardTooltipTargetOutput{})
+	pulumi.RegisterOutputType(DashboardTooltipTargetPtrOutput{})
 	pulumi.RegisterOutputType(DashboardTooltipTitleTypeOutput{})
 	pulumi.RegisterOutputType(DashboardTooltipTitleTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardTopBottomComputationTypeOutput{})
@@ -67303,6 +67814,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTextWrapPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTimeGranularityOutput{})
 	pulumi.RegisterOutputType(TemplateTimeGranularityPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTooltipTargetOutput{})
+	pulumi.RegisterOutputType(TemplateTooltipTargetPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTooltipTitleTypeOutput{})
 	pulumi.RegisterOutputType(TemplateTooltipTitleTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTopBottomComputationTypeOutput{})

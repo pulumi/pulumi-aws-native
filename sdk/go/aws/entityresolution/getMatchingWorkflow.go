@@ -31,7 +31,8 @@ type LookupMatchingWorkflowArgs struct {
 type LookupMatchingWorkflowResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the MatchingWorkflow
-	Description          *string                               `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// An object which defines an incremental run type and has only `incrementalRunType` as a field.
 	IncrementalRunConfig *MatchingWorkflowIncrementalRunConfig `pulumi:"incrementalRunConfig"`
 	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
@@ -92,6 +93,7 @@ func (o LookupMatchingWorkflowResultOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// An object which defines an incremental run type and has only `incrementalRunType` as a field.
 func (o LookupMatchingWorkflowResultOutput) IncrementalRunConfig() MatchingWorkflowIncrementalRunConfigPtrOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *MatchingWorkflowIncrementalRunConfig {
 		return v.IncrementalRunConfig

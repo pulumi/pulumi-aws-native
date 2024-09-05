@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         public Input<bool>? InternalUserDatabaseEnabled { get; set; }
 
         /// <summary>
+        /// Container for information about the JWT configuration of the Amazon OpenSearch Service.
+        /// </summary>
+        [Input("jwtOptions")]
+        public Input<Inputs.DomainJwtOptionsArgs>? JwtOptions { get; set; }
+
+        /// <summary>
         /// Specifies information about the master user.
         /// </summary>
         [Input("masterUserOptions")]

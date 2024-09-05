@@ -127,6 +127,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearchservice.DomainOffPeakWindowOptions | undefined>;
     public /*out*/ readonly serviceSoftwareOptions!: pulumi.Output<outputs.opensearchservice.DomainServiceSoftwareOptions>;
+    public readonly skipShardMigrationWait!: pulumi.Output<boolean | undefined>;
     /**
      * *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
      */
@@ -171,6 +172,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryptionOptions"] = args ? args.nodeToNodeEncryptionOptions : undefined;
             resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
+            resourceInputs["skipShardMigrationWait"] = args ? args.skipShardMigrationWait : undefined;
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             resourceInputs["softwareUpdateOptions"] = args ? args.softwareUpdateOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -204,6 +206,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["nodeToNodeEncryptionOptions"] = undefined /*out*/;
             resourceInputs["offPeakWindowOptions"] = undefined /*out*/;
             resourceInputs["serviceSoftwareOptions"] = undefined /*out*/;
+            resourceInputs["skipShardMigrationWait"] = undefined /*out*/;
             resourceInputs["snapshotOptions"] = undefined /*out*/;
             resourceInputs["softwareUpdateOptions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -288,6 +291,7 @@ export interface DomainArgs {
      * Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
      */
     offPeakWindowOptions?: pulumi.Input<inputs.opensearchservice.DomainOffPeakWindowOptionsArgs>;
+    skipShardMigrationWait?: pulumi.Input<boolean>;
     /**
      * *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
      */

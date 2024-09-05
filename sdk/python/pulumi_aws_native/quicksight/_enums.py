@@ -105,6 +105,7 @@ __all__ = [
     'AnalysisTargetVisualOptions',
     'AnalysisTextWrap',
     'AnalysisTimeGranularity',
+    'AnalysisTooltipTarget',
     'AnalysisTooltipTitleType',
     'AnalysisTopBottomComputationType',
     'AnalysisTopBottomSortOrder',
@@ -221,6 +222,7 @@ __all__ = [
     'DashboardTargetVisualOptions',
     'DashboardTextWrap',
     'DashboardTimeGranularity',
+    'DashboardTooltipTarget',
     'DashboardTooltipTitleType',
     'DashboardTopBottomComputationType',
     'DashboardTopBottomSortOrder',
@@ -360,6 +362,7 @@ __all__ = [
     'TemplateTargetVisualOptions',
     'TemplateTextWrap',
     'TemplateTimeGranularity',
+    'TemplateTooltipTarget',
     'TemplateTooltipTitleType',
     'TemplateTopBottomComputationType',
     'TemplateTopBottomSortOrder',
@@ -1035,6 +1038,12 @@ class AnalysisTimeGranularity(str, Enum):
     MINUTE = "MINUTE"
     SECOND = "SECOND"
     MILLISECOND = "MILLISECOND"
+
+
+class AnalysisTooltipTarget(str, Enum):
+    BOTH = "BOTH"
+    BAR = "BAR"
+    LINE = "LINE"
 
 
 class AnalysisTooltipTitleType(str, Enum):
@@ -1753,6 +1762,12 @@ class DashboardTimeGranularity(str, Enum):
     MINUTE = "MINUTE"
     SECOND = "SECOND"
     MILLISECOND = "MILLISECOND"
+
+
+class DashboardTooltipTarget(str, Enum):
+    BOTH = "BOTH"
+    BAR = "BAR"
+    LINE = "LINE"
 
 
 class DashboardTooltipTitleType(str, Enum):
@@ -2677,6 +2692,12 @@ class TemplateTimeGranularity(str, Enum):
     MINUTE = "MINUTE"
     SECOND = "SECOND"
     MILLISECOND = "MILLISECOND"
+
+
+class TemplateTooltipTarget(str, Enum):
+    BOTH = "BOTH"
+    BAR = "BAR"
+    LINE = "LINE"
 
 
 class TemplateTooltipTitleType(str, Enum):

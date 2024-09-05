@@ -16,10 +16,25 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupAwsGroundStationAgentEndpoint
     {
+        /// <summary>
+        /// The status of AgentEndpoint.
+        /// </summary>
         public readonly Pulumi.AwsNative.GroundStation.DataflowEndpointGroupAgentStatus? AgentStatus;
+        /// <summary>
+        /// The results of the audit.
+        /// </summary>
         public readonly Pulumi.AwsNative.GroundStation.DataflowEndpointGroupAuditResults? AuditResults;
+        /// <summary>
+        /// The egress address of AgentEndpoint.
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupConnectionDetails? EgressAddress;
+        /// <summary>
+        /// The ingress address of AgentEndpoint.
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupRangedConnectionDetails? IngressAddress;
+        /// <summary>
+        /// Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

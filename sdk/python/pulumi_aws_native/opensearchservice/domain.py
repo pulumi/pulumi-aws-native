@@ -32,6 +32,7 @@ class DomainArgs:
                  log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']] = None,
                  off_peak_window_options: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']] = None,
+                 skip_shard_migration_wait: Optional[pulumi.Input[bool]] = None,
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
                  software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -99,6 +100,8 @@ class DomainArgs:
             pulumi.set(__self__, "node_to_node_encryption_options", node_to_node_encryption_options)
         if off_peak_window_options is not None:
             pulumi.set(__self__, "off_peak_window_options", off_peak_window_options)
+        if skip_shard_migration_wait is not None:
+            pulumi.set(__self__, "skip_shard_migration_wait", skip_shard_migration_wait)
         if snapshot_options is not None:
             pulumi.set(__self__, "snapshot_options", snapshot_options)
         if software_update_options is not None:
@@ -289,6 +292,15 @@ class DomainArgs:
         pulumi.set(self, "off_peak_window_options", value)
 
     @property
+    @pulumi.getter(name="skipShardMigrationWait")
+    def skip_shard_migration_wait(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "skip_shard_migration_wait")
+
+    @skip_shard_migration_wait.setter
+    def skip_shard_migration_wait(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_shard_migration_wait", value)
+
+    @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
         """
@@ -358,6 +370,7 @@ class Domain(pulumi.CustomResource):
                  log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict']]] = None,
                  off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+                 skip_shard_migration_wait: Optional[pulumi.Input[bool]] = None,
                  snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
                  software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -439,6 +452,7 @@ class Domain(pulumi.CustomResource):
                  log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict']]] = None,
                  off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+                 skip_shard_migration_wait: Optional[pulumi.Input[bool]] = None,
                  snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
                  software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -466,6 +480,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             __props__.__dict__["node_to_node_encryption_options"] = node_to_node_encryption_options
             __props__.__dict__["off_peak_window_options"] = off_peak_window_options
+            __props__.__dict__["skip_shard_migration_wait"] = skip_shard_migration_wait
             __props__.__dict__["snapshot_options"] = snapshot_options
             __props__.__dict__["software_update_options"] = software_update_options
             __props__.__dict__["tags"] = tags
@@ -522,6 +537,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["node_to_node_encryption_options"] = None
         __props__.__dict__["off_peak_window_options"] = None
         __props__.__dict__["service_software_options"] = None
+        __props__.__dict__["skip_shard_migration_wait"] = None
         __props__.__dict__["snapshot_options"] = None
         __props__.__dict__["software_update_options"] = None
         __props__.__dict__["tags"] = None
@@ -701,6 +717,11 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="serviceSoftwareOptions")
     def service_software_options(self) -> pulumi.Output['outputs.DomainServiceSoftwareOptions']:
         return pulumi.get(self, "service_software_options")
+
+    @property
+    @pulumi.getter(name="skipShardMigrationWait")
+    def skip_shard_migration_wait(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "skip_shard_migration_wait")
 
     @property
     @pulumi.getter(name="snapshotOptions")

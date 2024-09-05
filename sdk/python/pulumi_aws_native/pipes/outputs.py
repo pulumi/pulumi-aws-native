@@ -2145,10 +2145,10 @@ class PipeSourceDynamoDbStreamParameters(dict):
         :param int batch_size: The maximum number of records to include in each batch.
         :param 'PipeDeadLetterConfig' dead_letter_config: Define the target queue to send dead-letter queue events to.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events.
-        :param int maximum_record_age_in_seconds: (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
-        :param int maximum_retry_attempts: (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
-        :param 'PipeOnPartialBatchItemFailureStreams' on_partial_batch_item_failure: (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
-        :param int parallelization_factor: (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+        :param int maximum_record_age_in_seconds: Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+        :param int maximum_retry_attempts: Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+        :param 'PipeOnPartialBatchItemFailureStreams' on_partial_batch_item_failure: Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+        :param int parallelization_factor: The number of batches to process concurrently from each shard. The default value is 1.
         """
         pulumi.set(__self__, "starting_position", starting_position)
         if batch_size is not None:
@@ -2204,7 +2204,7 @@ class PipeSourceDynamoDbStreamParameters(dict):
     @pulumi.getter(name="maximumRecordAgeInSeconds")
     def maximum_record_age_in_seconds(self) -> Optional[int]:
         """
-        (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+        Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
         """
         return pulumi.get(self, "maximum_record_age_in_seconds")
 
@@ -2212,7 +2212,7 @@ class PipeSourceDynamoDbStreamParameters(dict):
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[int]:
         """
-        (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+        Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
         """
         return pulumi.get(self, "maximum_retry_attempts")
 
@@ -2220,7 +2220,7 @@ class PipeSourceDynamoDbStreamParameters(dict):
     @pulumi.getter(name="onPartialBatchItemFailure")
     def on_partial_batch_item_failure(self) -> Optional['PipeOnPartialBatchItemFailureStreams']:
         """
-        (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+        Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
         """
         return pulumi.get(self, "on_partial_batch_item_failure")
 
@@ -2228,7 +2228,7 @@ class PipeSourceDynamoDbStreamParameters(dict):
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> Optional[int]:
         """
-        (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+        The number of batches to process concurrently from each shard. The default value is 1.
         """
         return pulumi.get(self, "parallelization_factor")
 
@@ -2279,14 +2279,14 @@ class PipeSourceKinesisStreamParameters(dict):
                  parallelization_factor: Optional[int] = None,
                  starting_position_timestamp: Optional[str] = None):
         """
-        :param 'PipeKinesisStreamStartPosition' starting_position: (Streams only) The position in a stream from which to start reading.
+        :param 'PipeKinesisStreamStartPosition' starting_position: The position in a stream from which to start reading.
         :param int batch_size: The maximum number of records to include in each batch.
         :param 'PipeDeadLetterConfig' dead_letter_config: Define the target queue to send dead-letter queue events to.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events.
-        :param int maximum_record_age_in_seconds: (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
-        :param int maximum_retry_attempts: (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
-        :param 'PipeOnPartialBatchItemFailureStreams' on_partial_batch_item_failure: (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
-        :param int parallelization_factor: (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+        :param int maximum_record_age_in_seconds: Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+        :param int maximum_retry_attempts: Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+        :param 'PipeOnPartialBatchItemFailureStreams' on_partial_batch_item_failure: Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+        :param int parallelization_factor: The number of batches to process concurrently from each shard. The default value is 1.
         :param str starting_position_timestamp: With `StartingPosition` set to `AT_TIMESTAMP` , the time from which to start reading, in Unix time seconds.
         """
         pulumi.set(__self__, "starting_position", starting_position)
@@ -2311,7 +2311,7 @@ class PipeSourceKinesisStreamParameters(dict):
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> 'PipeKinesisStreamStartPosition':
         """
-        (Streams only) The position in a stream from which to start reading.
+        The position in a stream from which to start reading.
         """
         return pulumi.get(self, "starting_position")
 
@@ -2343,7 +2343,7 @@ class PipeSourceKinesisStreamParameters(dict):
     @pulumi.getter(name="maximumRecordAgeInSeconds")
     def maximum_record_age_in_seconds(self) -> Optional[int]:
         """
-        (Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
+        Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records.
         """
         return pulumi.get(self, "maximum_record_age_in_seconds")
 
@@ -2351,7 +2351,7 @@ class PipeSourceKinesisStreamParameters(dict):
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[int]:
         """
-        (Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
+        Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source.
         """
         return pulumi.get(self, "maximum_retry_attempts")
 
@@ -2359,7 +2359,7 @@ class PipeSourceKinesisStreamParameters(dict):
     @pulumi.getter(name="onPartialBatchItemFailure")
     def on_partial_batch_item_failure(self) -> Optional['PipeOnPartialBatchItemFailureStreams']:
         """
-        (Streams only) Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
+        Define how to handle item process failures. `AUTOMATIC_BISECT` halves each batch and retry each half until all the records are processed or there is one failed message left in the batch.
         """
         return pulumi.get(self, "on_partial_batch_item_failure")
 
@@ -2367,7 +2367,7 @@ class PipeSourceKinesisStreamParameters(dict):
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> Optional[int]:
         """
-        (Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+        The number of batches to process concurrently from each shard. The default value is 1.
         """
         return pulumi.get(self, "parallelization_factor")
 
@@ -2420,7 +2420,7 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
         :param str consumer_group_id: The name of the destination queue to consume.
         :param Union['PipeMskAccessCredentials0Properties', 'PipeMskAccessCredentials1Properties'] credentials: The credentials needed to access the resource.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events.
-        :param 'PipeMskStartPosition' starting_position: (Streams only) The position in a stream from which to start reading.
+        :param 'PipeMskStartPosition' starting_position: The position in a stream from which to start reading.
         """
         pulumi.set(__self__, "topic_name", topic_name)
         if batch_size is not None:
@@ -2478,7 +2478,7 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> Optional['PipeMskStartPosition']:
         """
-        (Streams only) The position in a stream from which to start reading.
+        The position in a stream from which to start reading.
         """
         return pulumi.get(self, "starting_position")
 
@@ -2766,7 +2766,7 @@ class PipeSourceSelfManagedKafkaParameters(dict):
         :param Union['PipeSelfManagedKafkaAccessConfigurationCredentials0Properties', 'PipeSelfManagedKafkaAccessConfigurationCredentials1Properties', 'PipeSelfManagedKafkaAccessConfigurationCredentials2Properties', 'PipeSelfManagedKafkaAccessConfigurationCredentials3Properties'] credentials: The credentials needed to access the resource.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events.
         :param str server_root_ca_certificate: Optional SecretManager ARN which stores the database credentials
-        :param 'PipeSelfManagedKafkaStartPosition' starting_position: (Streams only) The position in a stream from which to start reading.
+        :param 'PipeSelfManagedKafkaStartPosition' starting_position: The position in a stream from which to start reading.
         :param 'PipeSelfManagedKafkaAccessConfigurationVpc' vpc: This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used.
         """
         pulumi.set(__self__, "topic_name", topic_name)
@@ -2847,7 +2847,7 @@ class PipeSourceSelfManagedKafkaParameters(dict):
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> Optional['PipeSelfManagedKafkaStartPosition']:
         """
-        (Streams only) The position in a stream from which to start reading.
+        The position in a stream from which to start reading.
         """
         return pulumi.get(self, "starting_position")
 

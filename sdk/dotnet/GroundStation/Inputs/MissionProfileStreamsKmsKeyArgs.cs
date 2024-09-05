@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class MissionProfileStreamsKmsKeyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// KMS Alias Arn.
+        /// </summary>
         [Input("kmsAliasArn")]
         public Input<string>? KmsAliasArn { get; set; }
 
+        /// <summary>
+        /// KMS Key Arn.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

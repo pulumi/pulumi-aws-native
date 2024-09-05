@@ -31,6 +31,9 @@ export interface GetMatchingWorkflowResult {
      * The description of the MatchingWorkflow
      */
     readonly description?: string;
+    /**
+     * An object which defines an incremental run type and has only `incrementalRunType` as a field.
+     */
     readonly incrementalRunConfig?: outputs.entityresolution.MatchingWorkflowIncrementalRunConfig;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .

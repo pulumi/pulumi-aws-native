@@ -112,6 +112,7 @@ export interface GetDomainResult {
      */
     readonly offPeakWindowOptions?: outputs.opensearchservice.DomainOffPeakWindowOptions;
     readonly serviceSoftwareOptions?: outputs.opensearchservice.DomainServiceSoftwareOptions;
+    readonly skipShardMigrationWait?: boolean;
     /**
      * *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
      */

@@ -79,6 +79,7 @@ type LookupDomainResult struct {
 	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
 	OffPeakWindowOptions   *DomainOffPeakWindowOptions   `pulumi:"offPeakWindowOptions"`
 	ServiceSoftwareOptions *DomainServiceSoftwareOptions `pulumi:"serviceSoftwareOptions"`
+	SkipShardMigrationWait *bool                         `pulumi:"skipShardMigrationWait"`
 	// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
 	// Service software update options for the domain.
@@ -235,6 +236,10 @@ func (o LookupDomainResultOutput) OffPeakWindowOptions() DomainOffPeakWindowOpti
 
 func (o LookupDomainResultOutput) ServiceSoftwareOptions() DomainServiceSoftwareOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainServiceSoftwareOptions { return v.ServiceSoftwareOptions }).(DomainServiceSoftwareOptionsPtrOutput)
+}
+
+func (o LookupDomainResultOutput) SkipShardMigrationWait() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *bool { return v.SkipShardMigrationWait }).(pulumi.BoolPtrOutput)
 }
 
 // *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.

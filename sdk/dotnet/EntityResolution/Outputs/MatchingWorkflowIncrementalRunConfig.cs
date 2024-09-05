@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     [OutputType]
     public sealed class MatchingWorkflowIncrementalRunConfig
     {
+        /// <summary>
+        /// The type of incremental run. It takes only one value: `IMMEDIATE` .
+        /// </summary>
         public readonly Pulumi.AwsNative.EntityResolution.MatchingWorkflowIncrementalRunConfigIncrementalRunType IncrementalRunType;
 
         [OutputConstructor]

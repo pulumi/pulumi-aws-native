@@ -148,10 +148,7 @@ class CertificateAuthorityCrlConfigurationArgs:
                  enabled: pulumi.Input[bool],
                  crl_distribution_point_extension_configuration: Optional[pulumi.Input['CertificateAuthorityCrlDistributionPointExtensionConfigurationArgs']] = None,
                  custom_cname: Optional[pulumi.Input[str]] = None,
-                 custom_path: Optional[pulumi.Input[str]] = None,
                  expiration_in_days: Optional[pulumi.Input[int]] = None,
-                 partitioning_enabled: Optional[pulumi.Input[bool]] = None,
-                 retain_expired_certificates: Optional[pulumi.Input[bool]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_object_acl: Optional[pulumi.Input[str]] = None):
         """
@@ -178,14 +175,8 @@ class CertificateAuthorityCrlConfigurationArgs:
             pulumi.set(__self__, "crl_distribution_point_extension_configuration", crl_distribution_point_extension_configuration)
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
-        if custom_path is not None:
-            pulumi.set(__self__, "custom_path", custom_path)
         if expiration_in_days is not None:
             pulumi.set(__self__, "expiration_in_days", expiration_in_days)
-        if partitioning_enabled is not None:
-            pulumi.set(__self__, "partitioning_enabled", partitioning_enabled)
-        if retain_expired_certificates is not None:
-            pulumi.set(__self__, "retain_expired_certificates", retain_expired_certificates)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_object_acl is not None:
@@ -230,15 +221,6 @@ class CertificateAuthorityCrlConfigurationArgs:
         pulumi.set(self, "custom_cname", value)
 
     @property
-    @pulumi.getter(name="customPath")
-    def custom_path(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "custom_path")
-
-    @custom_path.setter
-    def custom_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_path", value)
-
-    @property
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -249,24 +231,6 @@ class CertificateAuthorityCrlConfigurationArgs:
     @expiration_in_days.setter
     def expiration_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expiration_in_days", value)
-
-    @property
-    @pulumi.getter(name="partitioningEnabled")
-    def partitioning_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "partitioning_enabled")
-
-    @partitioning_enabled.setter
-    def partitioning_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "partitioning_enabled", value)
-
-    @property
-    @pulumi.getter(name="retainExpiredCertificates")
-    def retain_expired_certificates(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "retain_expired_certificates")
-
-    @retain_expired_certificates.setter
-    def retain_expired_certificates(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "retain_expired_certificates", value)
 
     @property
     @pulumi.getter(name="s3BucketName")

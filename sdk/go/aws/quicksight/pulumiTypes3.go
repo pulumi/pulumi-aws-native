@@ -13,6 +13,474 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTableFieldOption struct {
+	// The custom label for a table field.
+	CustomLabel *string `pulumi:"customLabel"`
+	// The field ID for a table field.
+	FieldId string `pulumi:"fieldId"`
+	// The URL configuration for a table field.
+	UrlStyling *TemplateTableFieldUrlConfiguration `pulumi:"urlStyling"`
+	// The visibility of a table field.
+	Visibility *TemplateVisibility `pulumi:"visibility"`
+	// String based length that is composed of value and unit in px
+	Width *string `pulumi:"width"`
+}
+
+// TemplateTableFieldOptionInput is an input type that accepts TemplateTableFieldOptionArgs and TemplateTableFieldOptionOutput values.
+// You can construct a concrete instance of `TemplateTableFieldOptionInput` via:
+//
+//	TemplateTableFieldOptionArgs{...}
+type TemplateTableFieldOptionInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldOptionOutput() TemplateTableFieldOptionOutput
+	ToTemplateTableFieldOptionOutputWithContext(context.Context) TemplateTableFieldOptionOutput
+}
+
+type TemplateTableFieldOptionArgs struct {
+	// The custom label for a table field.
+	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
+	// The field ID for a table field.
+	FieldId pulumi.StringInput `pulumi:"fieldId"`
+	// The URL configuration for a table field.
+	UrlStyling TemplateTableFieldUrlConfigurationPtrInput `pulumi:"urlStyling"`
+	// The visibility of a table field.
+	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	// String based length that is composed of value and unit in px
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (TemplateTableFieldOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldOption)(nil)).Elem()
+}
+
+func (i TemplateTableFieldOptionArgs) ToTemplateTableFieldOptionOutput() TemplateTableFieldOptionOutput {
+	return i.ToTemplateTableFieldOptionOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldOptionArgs) ToTemplateTableFieldOptionOutputWithContext(ctx context.Context) TemplateTableFieldOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldOptionOutput)
+}
+
+// TemplateTableFieldOptionArrayInput is an input type that accepts TemplateTableFieldOptionArray and TemplateTableFieldOptionArrayOutput values.
+// You can construct a concrete instance of `TemplateTableFieldOptionArrayInput` via:
+//
+//	TemplateTableFieldOptionArray{ TemplateTableFieldOptionArgs{...} }
+type TemplateTableFieldOptionArrayInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldOptionArrayOutput() TemplateTableFieldOptionArrayOutput
+	ToTemplateTableFieldOptionArrayOutputWithContext(context.Context) TemplateTableFieldOptionArrayOutput
+}
+
+type TemplateTableFieldOptionArray []TemplateTableFieldOptionInput
+
+func (TemplateTableFieldOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTableFieldOption)(nil)).Elem()
+}
+
+func (i TemplateTableFieldOptionArray) ToTemplateTableFieldOptionArrayOutput() TemplateTableFieldOptionArrayOutput {
+	return i.ToTemplateTableFieldOptionArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldOptionArray) ToTemplateTableFieldOptionArrayOutputWithContext(ctx context.Context) TemplateTableFieldOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldOptionArrayOutput)
+}
+
+type TemplateTableFieldOptionOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldOption)(nil)).Elem()
+}
+
+func (o TemplateTableFieldOptionOutput) ToTemplateTableFieldOptionOutput() TemplateTableFieldOptionOutput {
+	return o
+}
+
+func (o TemplateTableFieldOptionOutput) ToTemplateTableFieldOptionOutputWithContext(ctx context.Context) TemplateTableFieldOptionOutput {
+	return o
+}
+
+// The custom label for a table field.
+func (o TemplateTableFieldOptionOutput) CustomLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldOption) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
+}
+
+// The field ID for a table field.
+func (o TemplateTableFieldOptionOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateTableFieldOption) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+// The URL configuration for a table field.
+func (o TemplateTableFieldOptionOutput) UrlStyling() TemplateTableFieldUrlConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldOption) *TemplateTableFieldUrlConfiguration { return v.UrlStyling }).(TemplateTableFieldUrlConfigurationPtrOutput)
+}
+
+// The visibility of a table field.
+func (o TemplateTableFieldOptionOutput) Visibility() TemplateVisibilityPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldOption) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o TemplateTableFieldOptionOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldOption) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type TemplateTableFieldOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTableFieldOption)(nil)).Elem()
+}
+
+func (o TemplateTableFieldOptionArrayOutput) ToTemplateTableFieldOptionArrayOutput() TemplateTableFieldOptionArrayOutput {
+	return o
+}
+
+func (o TemplateTableFieldOptionArrayOutput) ToTemplateTableFieldOptionArrayOutputWithContext(ctx context.Context) TemplateTableFieldOptionArrayOutput {
+	return o
+}
+
+func (o TemplateTableFieldOptionArrayOutput) Index(i pulumi.IntInput) TemplateTableFieldOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTableFieldOption {
+		return vs[0].([]TemplateTableFieldOption)[vs[1].(int)]
+	}).(TemplateTableFieldOptionOutput)
+}
+
+type TemplateTableFieldOptions struct {
+	// The order of the field IDs that are configured as field options for a table visual.
+	Order []string `pulumi:"order"`
+	// The settings for the pinned columns of a table visual.
+	PinnedFieldOptions *TemplateTablePinnedFieldOptions `pulumi:"pinnedFieldOptions"`
+	// The field options to be configured to a table.
+	SelectedFieldOptions []TemplateTableFieldOption `pulumi:"selectedFieldOptions"`
+}
+
+// TemplateTableFieldOptionsInput is an input type that accepts TemplateTableFieldOptionsArgs and TemplateTableFieldOptionsOutput values.
+// You can construct a concrete instance of `TemplateTableFieldOptionsInput` via:
+//
+//	TemplateTableFieldOptionsArgs{...}
+type TemplateTableFieldOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldOptionsOutput() TemplateTableFieldOptionsOutput
+	ToTemplateTableFieldOptionsOutputWithContext(context.Context) TemplateTableFieldOptionsOutput
+}
+
+type TemplateTableFieldOptionsArgs struct {
+	// The order of the field IDs that are configured as field options for a table visual.
+	Order pulumi.StringArrayInput `pulumi:"order"`
+	// The settings for the pinned columns of a table visual.
+	PinnedFieldOptions TemplateTablePinnedFieldOptionsPtrInput `pulumi:"pinnedFieldOptions"`
+	// The field options to be configured to a table.
+	SelectedFieldOptions TemplateTableFieldOptionArrayInput `pulumi:"selectedFieldOptions"`
+}
+
+func (TemplateTableFieldOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldOptions)(nil)).Elem()
+}
+
+func (i TemplateTableFieldOptionsArgs) ToTemplateTableFieldOptionsOutput() TemplateTableFieldOptionsOutput {
+	return i.ToTemplateTableFieldOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldOptionsArgs) ToTemplateTableFieldOptionsOutputWithContext(ctx context.Context) TemplateTableFieldOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldOptionsOutput)
+}
+
+func (i TemplateTableFieldOptionsArgs) ToTemplateTableFieldOptionsPtrOutput() TemplateTableFieldOptionsPtrOutput {
+	return i.ToTemplateTableFieldOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldOptionsArgs) ToTemplateTableFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateTableFieldOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldOptionsOutput).ToTemplateTableFieldOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateTableFieldOptionsPtrInput is an input type that accepts TemplateTableFieldOptionsArgs, TemplateTableFieldOptionsPtr and TemplateTableFieldOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateTableFieldOptionsPtrInput` via:
+//
+//	        TemplateTableFieldOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableFieldOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldOptionsPtrOutput() TemplateTableFieldOptionsPtrOutput
+	ToTemplateTableFieldOptionsPtrOutputWithContext(context.Context) TemplateTableFieldOptionsPtrOutput
+}
+
+type templateTableFieldOptionsPtrType TemplateTableFieldOptionsArgs
+
+func TemplateTableFieldOptionsPtr(v *TemplateTableFieldOptionsArgs) TemplateTableFieldOptionsPtrInput {
+	return (*templateTableFieldOptionsPtrType)(v)
+}
+
+func (*templateTableFieldOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldOptions)(nil)).Elem()
+}
+
+func (i *templateTableFieldOptionsPtrType) ToTemplateTableFieldOptionsPtrOutput() TemplateTableFieldOptionsPtrOutput {
+	return i.ToTemplateTableFieldOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableFieldOptionsPtrType) ToTemplateTableFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateTableFieldOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldOptionsPtrOutput)
+}
+
+type TemplateTableFieldOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldOptions)(nil)).Elem()
+}
+
+func (o TemplateTableFieldOptionsOutput) ToTemplateTableFieldOptionsOutput() TemplateTableFieldOptionsOutput {
+	return o
+}
+
+func (o TemplateTableFieldOptionsOutput) ToTemplateTableFieldOptionsOutputWithContext(ctx context.Context) TemplateTableFieldOptionsOutput {
+	return o
+}
+
+func (o TemplateTableFieldOptionsOutput) ToTemplateTableFieldOptionsPtrOutput() TemplateTableFieldOptionsPtrOutput {
+	return o.ToTemplateTableFieldOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableFieldOptionsOutput) ToTemplateTableFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateTableFieldOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldOptions) *TemplateTableFieldOptions {
+		return &v
+	}).(TemplateTableFieldOptionsPtrOutput)
+}
+
+// The order of the field IDs that are configured as field options for a table visual.
+func (o TemplateTableFieldOptionsOutput) Order() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TemplateTableFieldOptions) []string { return v.Order }).(pulumi.StringArrayOutput)
+}
+
+// The settings for the pinned columns of a table visual.
+func (o TemplateTableFieldOptionsOutput) PinnedFieldOptions() TemplateTablePinnedFieldOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldOptions) *TemplateTablePinnedFieldOptions { return v.PinnedFieldOptions }).(TemplateTablePinnedFieldOptionsPtrOutput)
+}
+
+// The field options to be configured to a table.
+func (o TemplateTableFieldOptionsOutput) SelectedFieldOptions() TemplateTableFieldOptionArrayOutput {
+	return o.ApplyT(func(v TemplateTableFieldOptions) []TemplateTableFieldOption { return v.SelectedFieldOptions }).(TemplateTableFieldOptionArrayOutput)
+}
+
+type TemplateTableFieldOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldOptions)(nil)).Elem()
+}
+
+func (o TemplateTableFieldOptionsPtrOutput) ToTemplateTableFieldOptionsPtrOutput() TemplateTableFieldOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldOptionsPtrOutput) ToTemplateTableFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateTableFieldOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldOptionsPtrOutput) Elem() TemplateTableFieldOptionsOutput {
+	return o.ApplyT(func(v *TemplateTableFieldOptions) TemplateTableFieldOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableFieldOptions
+		return ret
+	}).(TemplateTableFieldOptionsOutput)
+}
+
+// The order of the field IDs that are configured as field options for a table visual.
+func (o TemplateTableFieldOptionsPtrOutput) Order() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplateTableFieldOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringArrayOutput)
+}
+
+// The settings for the pinned columns of a table visual.
+func (o TemplateTableFieldOptionsPtrOutput) PinnedFieldOptions() TemplateTablePinnedFieldOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldOptions) *TemplateTablePinnedFieldOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PinnedFieldOptions
+	}).(TemplateTablePinnedFieldOptionsPtrOutput)
+}
+
+// The field options to be configured to a table.
+func (o TemplateTableFieldOptionsPtrOutput) SelectedFieldOptions() TemplateTableFieldOptionArrayOutput {
+	return o.ApplyT(func(v *TemplateTableFieldOptions) []TemplateTableFieldOption {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedFieldOptions
+	}).(TemplateTableFieldOptionArrayOutput)
+}
+
+type TemplateTableFieldUrlConfiguration struct {
+	// The image configuration of a table field URL.
+	ImageConfiguration *TemplateTableFieldImageConfiguration `pulumi:"imageConfiguration"`
+	// The link configuration of a table field URL.
+	LinkConfiguration *TemplateTableFieldLinkConfiguration `pulumi:"linkConfiguration"`
+}
+
+// TemplateTableFieldUrlConfigurationInput is an input type that accepts TemplateTableFieldUrlConfigurationArgs and TemplateTableFieldUrlConfigurationOutput values.
+// You can construct a concrete instance of `TemplateTableFieldUrlConfigurationInput` via:
+//
+//	TemplateTableFieldUrlConfigurationArgs{...}
+type TemplateTableFieldUrlConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldUrlConfigurationOutput() TemplateTableFieldUrlConfigurationOutput
+	ToTemplateTableFieldUrlConfigurationOutputWithContext(context.Context) TemplateTableFieldUrlConfigurationOutput
+}
+
+type TemplateTableFieldUrlConfigurationArgs struct {
+	// The image configuration of a table field URL.
+	ImageConfiguration TemplateTableFieldImageConfigurationPtrInput `pulumi:"imageConfiguration"`
+	// The link configuration of a table field URL.
+	LinkConfiguration TemplateTableFieldLinkConfigurationPtrInput `pulumi:"linkConfiguration"`
+}
+
+func (TemplateTableFieldUrlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldUrlConfiguration)(nil)).Elem()
+}
+
+func (i TemplateTableFieldUrlConfigurationArgs) ToTemplateTableFieldUrlConfigurationOutput() TemplateTableFieldUrlConfigurationOutput {
+	return i.ToTemplateTableFieldUrlConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldUrlConfigurationArgs) ToTemplateTableFieldUrlConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldUrlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldUrlConfigurationOutput)
+}
+
+func (i TemplateTableFieldUrlConfigurationArgs) ToTemplateTableFieldUrlConfigurationPtrOutput() TemplateTableFieldUrlConfigurationPtrOutput {
+	return i.ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldUrlConfigurationArgs) ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldUrlConfigurationOutput).ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateTableFieldUrlConfigurationPtrInput is an input type that accepts TemplateTableFieldUrlConfigurationArgs, TemplateTableFieldUrlConfigurationPtr and TemplateTableFieldUrlConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateTableFieldUrlConfigurationPtrInput` via:
+//
+//	        TemplateTableFieldUrlConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableFieldUrlConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldUrlConfigurationPtrOutput() TemplateTableFieldUrlConfigurationPtrOutput
+	ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(context.Context) TemplateTableFieldUrlConfigurationPtrOutput
+}
+
+type templateTableFieldUrlConfigurationPtrType TemplateTableFieldUrlConfigurationArgs
+
+func TemplateTableFieldUrlConfigurationPtr(v *TemplateTableFieldUrlConfigurationArgs) TemplateTableFieldUrlConfigurationPtrInput {
+	return (*templateTableFieldUrlConfigurationPtrType)(v)
+}
+
+func (*templateTableFieldUrlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldUrlConfiguration)(nil)).Elem()
+}
+
+func (i *templateTableFieldUrlConfigurationPtrType) ToTemplateTableFieldUrlConfigurationPtrOutput() TemplateTableFieldUrlConfigurationPtrOutput {
+	return i.ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableFieldUrlConfigurationPtrType) ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldUrlConfigurationPtrOutput)
+}
+
+type TemplateTableFieldUrlConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldUrlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldUrlConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableFieldUrlConfigurationOutput) ToTemplateTableFieldUrlConfigurationOutput() TemplateTableFieldUrlConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableFieldUrlConfigurationOutput) ToTemplateTableFieldUrlConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldUrlConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableFieldUrlConfigurationOutput) ToTemplateTableFieldUrlConfigurationPtrOutput() TemplateTableFieldUrlConfigurationPtrOutput {
+	return o.ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableFieldUrlConfigurationOutput) ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldUrlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldUrlConfiguration) *TemplateTableFieldUrlConfiguration {
+		return &v
+	}).(TemplateTableFieldUrlConfigurationPtrOutput)
+}
+
+// The image configuration of a table field URL.
+func (o TemplateTableFieldUrlConfigurationOutput) ImageConfiguration() TemplateTableFieldImageConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldUrlConfiguration) *TemplateTableFieldImageConfiguration {
+		return v.ImageConfiguration
+	}).(TemplateTableFieldImageConfigurationPtrOutput)
+}
+
+// The link configuration of a table field URL.
+func (o TemplateTableFieldUrlConfigurationOutput) LinkConfiguration() TemplateTableFieldLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldUrlConfiguration) *TemplateTableFieldLinkConfiguration {
+		return v.LinkConfiguration
+	}).(TemplateTableFieldLinkConfigurationPtrOutput)
+}
+
+type TemplateTableFieldUrlConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldUrlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldUrlConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableFieldUrlConfigurationPtrOutput) ToTemplateTableFieldUrlConfigurationPtrOutput() TemplateTableFieldUrlConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldUrlConfigurationPtrOutput) ToTemplateTableFieldUrlConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldUrlConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldUrlConfigurationPtrOutput) Elem() TemplateTableFieldUrlConfigurationOutput {
+	return o.ApplyT(func(v *TemplateTableFieldUrlConfiguration) TemplateTableFieldUrlConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableFieldUrlConfiguration
+		return ret
+	}).(TemplateTableFieldUrlConfigurationOutput)
+}
+
+// The image configuration of a table field URL.
+func (o TemplateTableFieldUrlConfigurationPtrOutput) ImageConfiguration() TemplateTableFieldImageConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldUrlConfiguration) *TemplateTableFieldImageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ImageConfiguration
+	}).(TemplateTableFieldImageConfigurationPtrOutput)
+}
+
+// The link configuration of a table field URL.
+func (o TemplateTableFieldUrlConfigurationPtrOutput) LinkConfiguration() TemplateTableFieldLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldUrlConfiguration) *TemplateTableFieldLinkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LinkConfiguration
+	}).(TemplateTableFieldLinkConfigurationPtrOutput)
+}
+
 type TemplateTableFieldWells struct {
 	// The aggregated field well for the table.
 	TableAggregatedFieldWells *TemplateTableAggregatedFieldWells `pulumi:"tableAggregatedFieldWells"`
@@ -18662,6 +19130,12 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldOptionInput)(nil)).Elem(), TemplateTableFieldOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldOptionArrayInput)(nil)).Elem(), TemplateTableFieldOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldOptionsInput)(nil)).Elem(), TemplateTableFieldOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldOptionsPtrInput)(nil)).Elem(), TemplateTableFieldOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldUrlConfigurationInput)(nil)).Elem(), TemplateTableFieldUrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldUrlConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldUrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldWellsInput)(nil)).Elem(), TemplateTableFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldWellsPtrInput)(nil)).Elem(), TemplateTableFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableInlineVisualizationInput)(nil)).Elem(), TemplateTableInlineVisualizationArgs{})
@@ -18860,6 +19334,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTableFieldOptionOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldOptionArrayOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldUrlConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldUrlConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableInlineVisualizationOutput{})

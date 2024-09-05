@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("computeResources")]
         public Output<Outputs.ComputeEnvironmentComputeResources?> ComputeResources { get; private set; } = null!;
 
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [Output("context")]
         public Output<string?> Context { get; private set; } = null!;
 
@@ -167,6 +170,9 @@ namespace Pulumi.AwsNative.Batch
         [Input("computeResources")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesArgs>? ComputeResources { get; set; }
 
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
 

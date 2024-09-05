@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class MissionProfileStreamsKmsKey
     {
+        /// <summary>
+        /// KMS Alias Arn.
+        /// </summary>
         public readonly string? KmsAliasArn;
+        /// <summary>
+        /// KMS Key Arn.
+        /// </summary>
         public readonly string? KmsKeyArn;
 
         [OutputConstructor]

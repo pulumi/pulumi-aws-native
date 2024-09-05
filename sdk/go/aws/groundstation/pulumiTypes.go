@@ -1989,7 +1989,9 @@ func (o ConfigSpectrumConfigPtrOutput) Polarization() ConfigPolarizationPtrOutpu
 }
 
 type ConfigTag struct {
-	Key   *string `pulumi:"key"`
+	// Name of the object key.
+	Key *string `pulumi:"key"`
+	// Value of the tag.
 	Value *string `pulumi:"value"`
 }
 
@@ -2444,11 +2446,16 @@ func (o ConfigUplinkSpectrumConfigPtrOutput) Polarization() ConfigPolarizationPt
 
 // Information about AwsGroundStationAgentEndpoint.
 type DataflowEndpointGroupAwsGroundStationAgentEndpoint struct {
-	AgentStatus    *DataflowEndpointGroupAgentStatus             `pulumi:"agentStatus"`
-	AuditResults   *DataflowEndpointGroupAuditResults            `pulumi:"auditResults"`
-	EgressAddress  *DataflowEndpointGroupConnectionDetails       `pulumi:"egressAddress"`
+	// The status of AgentEndpoint.
+	AgentStatus *DataflowEndpointGroupAgentStatus `pulumi:"agentStatus"`
+	// The results of the audit.
+	AuditResults *DataflowEndpointGroupAuditResults `pulumi:"auditResults"`
+	// The egress address of AgentEndpoint.
+	EgressAddress *DataflowEndpointGroupConnectionDetails `pulumi:"egressAddress"`
+	// The ingress address of AgentEndpoint.
 	IngressAddress *DataflowEndpointGroupRangedConnectionDetails `pulumi:"ingressAddress"`
-	Name           *string                                       `pulumi:"name"`
+	// Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
+	Name *string `pulumi:"name"`
 }
 
 // DataflowEndpointGroupAwsGroundStationAgentEndpointInput is an input type that accepts DataflowEndpointGroupAwsGroundStationAgentEndpointArgs and DataflowEndpointGroupAwsGroundStationAgentEndpointOutput values.
@@ -2464,11 +2471,16 @@ type DataflowEndpointGroupAwsGroundStationAgentEndpointInput interface {
 
 // Information about AwsGroundStationAgentEndpoint.
 type DataflowEndpointGroupAwsGroundStationAgentEndpointArgs struct {
-	AgentStatus    DataflowEndpointGroupAgentStatusPtrInput             `pulumi:"agentStatus"`
-	AuditResults   DataflowEndpointGroupAuditResultsPtrInput            `pulumi:"auditResults"`
-	EgressAddress  DataflowEndpointGroupConnectionDetailsPtrInput       `pulumi:"egressAddress"`
+	// The status of AgentEndpoint.
+	AgentStatus DataflowEndpointGroupAgentStatusPtrInput `pulumi:"agentStatus"`
+	// The results of the audit.
+	AuditResults DataflowEndpointGroupAuditResultsPtrInput `pulumi:"auditResults"`
+	// The egress address of AgentEndpoint.
+	EgressAddress DataflowEndpointGroupConnectionDetailsPtrInput `pulumi:"egressAddress"`
+	// The ingress address of AgentEndpoint.
 	IngressAddress DataflowEndpointGroupRangedConnectionDetailsPtrInput `pulumi:"ingressAddress"`
-	Name           pulumi.StringPtrInput                                `pulumi:"name"`
+	// Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ElementType() reflect.Type {
@@ -2549,30 +2561,35 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) ToDataflowEndp
 	}).(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput)
 }
 
+// The status of AgentEndpoint.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) AgentStatus() DataflowEndpointGroupAgentStatusPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAgentStatus {
 		return v.AgentStatus
 	}).(DataflowEndpointGroupAgentStatusPtrOutput)
 }
 
+// The results of the audit.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) AuditResults() DataflowEndpointGroupAuditResultsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAuditResults {
 		return v.AuditResults
 	}).(DataflowEndpointGroupAuditResultsPtrOutput)
 }
 
+// The egress address of AgentEndpoint.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) EgressAddress() DataflowEndpointGroupConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupConnectionDetails {
 		return v.EgressAddress
 	}).(DataflowEndpointGroupConnectionDetailsPtrOutput)
 }
 
+// The ingress address of AgentEndpoint.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) IngressAddress() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupRangedConnectionDetails {
 		return v.IngressAddress
 	}).(DataflowEndpointGroupRangedConnectionDetailsPtrOutput)
 }
 
+// Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2601,6 +2618,7 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) Elem() Data
 	}).(DataflowEndpointGroupAwsGroundStationAgentEndpointOutput)
 }
 
+// The status of AgentEndpoint.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) AgentStatus() DataflowEndpointGroupAgentStatusPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAgentStatus {
 		if v == nil {
@@ -2610,6 +2628,7 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) AgentStatus
 	}).(DataflowEndpointGroupAgentStatusPtrOutput)
 }
 
+// The results of the audit.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) AuditResults() DataflowEndpointGroupAuditResultsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAuditResults {
 		if v == nil {
@@ -2619,6 +2638,7 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) AuditResult
 	}).(DataflowEndpointGroupAuditResultsPtrOutput)
 }
 
+// The egress address of AgentEndpoint.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) EgressAddress() DataflowEndpointGroupConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupConnectionDetails {
 		if v == nil {
@@ -2628,6 +2648,7 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) EgressAddre
 	}).(DataflowEndpointGroupConnectionDetailsPtrOutput)
 }
 
+// The ingress address of AgentEndpoint.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) IngressAddress() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupRangedConnectionDetails {
 		if v == nil {
@@ -2637,6 +2658,7 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) IngressAddr
 	}).(DataflowEndpointGroupRangedConnectionDetailsPtrOutput)
 }
 
+// Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupAwsGroundStationAgentEndpoint) *string {
 		if v == nil {
@@ -3930,7 +3952,9 @@ func (o DataflowEndpointGroupSocketAddressPtrOutput) Port() pulumi.IntPtrOutput 
 }
 
 type DataflowEndpointGroupTag struct {
-	Key   string `pulumi:"key"`
+	// Name of the object key.
+	Key string `pulumi:"key"`
+	// Value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -4041,8 +4065,10 @@ func (o MissionProfileDataflowEdgeArrayOutput) Index(i pulumi.IntInput) MissionP
 }
 
 type MissionProfileStreamsKmsKey struct {
+	// KMS Alias Arn.
 	KmsAliasArn *string `pulumi:"kmsAliasArn"`
-	KmsKeyArn   *string `pulumi:"kmsKeyArn"`
+	// KMS Key Arn.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 // MissionProfileStreamsKmsKeyInput is an input type that accepts MissionProfileStreamsKmsKeyArgs and MissionProfileStreamsKmsKeyOutput values.
@@ -4057,8 +4083,10 @@ type MissionProfileStreamsKmsKeyInput interface {
 }
 
 type MissionProfileStreamsKmsKeyArgs struct {
+	// KMS Alias Arn.
 	KmsAliasArn pulumi.StringPtrInput `pulumi:"kmsAliasArn"`
-	KmsKeyArn   pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// KMS Key Arn.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (MissionProfileStreamsKmsKeyArgs) ElementType() reflect.Type {
@@ -4138,10 +4166,12 @@ func (o MissionProfileStreamsKmsKeyOutput) ToMissionProfileStreamsKmsKeyPtrOutpu
 	}).(MissionProfileStreamsKmsKeyPtrOutput)
 }
 
+// KMS Alias Arn.
 func (o MissionProfileStreamsKmsKeyOutput) KmsAliasArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MissionProfileStreamsKmsKey) *string { return v.KmsAliasArn }).(pulumi.StringPtrOutput)
 }
 
+// KMS Key Arn.
 func (o MissionProfileStreamsKmsKeyOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MissionProfileStreamsKmsKey) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -4170,6 +4200,7 @@ func (o MissionProfileStreamsKmsKeyPtrOutput) Elem() MissionProfileStreamsKmsKey
 	}).(MissionProfileStreamsKmsKeyOutput)
 }
 
+// KMS Alias Arn.
 func (o MissionProfileStreamsKmsKeyPtrOutput) KmsAliasArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MissionProfileStreamsKmsKey) *string {
 		if v == nil {
@@ -4179,6 +4210,7 @@ func (o MissionProfileStreamsKmsKeyPtrOutput) KmsAliasArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// KMS Key Arn.
 func (o MissionProfileStreamsKmsKeyPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MissionProfileStreamsKmsKey) *string {
 		if v == nil {
@@ -4189,7 +4221,9 @@ func (o MissionProfileStreamsKmsKeyPtrOutput) KmsKeyArn() pulumi.StringPtrOutput
 }
 
 type MissionProfileTag struct {
-	Key   string `pulumi:"key"`
+	// Name of the object key.
+	Key string `pulumi:"key"`
+	// Value of the tag.
 	Value string `pulumi:"value"`
 }
 

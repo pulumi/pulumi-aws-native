@@ -18,6 +18,7 @@ __all__ = [
     'DomainEncryptionAtRestOptionsArgs',
     'DomainEndpointOptionsArgs',
     'DomainIdpArgs',
+    'DomainJwtOptionsArgs',
     'DomainLogPublishingOptionArgs',
     'DomainMasterUserOptionsArgs',
     'DomainNodeToNodeEncryptionOptionsArgs',
@@ -38,6 +39,7 @@ class DomainAdvancedSecurityOptionsInputArgs:
                  anonymous_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
+                 jwt_options: Optional[pulumi.Input['DomainJwtOptionsArgs']] = None,
                  master_user_options: Optional[pulumi.Input['DomainMasterUserOptionsArgs']] = None,
                  saml_options: Optional[pulumi.Input['DomainSamlOptionsArgs']] = None):
         """
@@ -45,6 +47,7 @@ class DomainAdvancedSecurityOptionsInputArgs:
         :param pulumi.Input[bool] anonymous_auth_enabled: True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
         :param pulumi.Input[bool] enabled: True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
         :param pulumi.Input[bool] internal_user_database_enabled: True to enable the internal user database.
+        :param pulumi.Input['DomainJwtOptionsArgs'] jwt_options: Container for information about the JWT configuration of the Amazon OpenSearch Service.
         :param pulumi.Input['DomainMasterUserOptionsArgs'] master_user_options: Specifies information about the master user.
         :param pulumi.Input['DomainSamlOptionsArgs'] saml_options: Container for information about the SAML configuration for OpenSearch Dashboards.
         """
@@ -56,6 +59,8 @@ class DomainAdvancedSecurityOptionsInputArgs:
             pulumi.set(__self__, "enabled", enabled)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
+        if jwt_options is not None:
+            pulumi.set(__self__, "jwt_options", jwt_options)
         if master_user_options is not None:
             pulumi.set(__self__, "master_user_options", master_user_options)
         if saml_options is not None:
@@ -108,6 +113,18 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @internal_user_database_enabled.setter
     def internal_user_database_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "internal_user_database_enabled", value)
+
+    @property
+    @pulumi.getter(name="jwtOptions")
+    def jwt_options(self) -> Optional[pulumi.Input['DomainJwtOptionsArgs']]:
+        """
+        Container for information about the JWT configuration of the Amazon OpenSearch Service.
+        """
+        return pulumi.get(self, "jwt_options")
+
+    @jwt_options.setter
+    def jwt_options(self, value: Optional[pulumi.Input['DomainJwtOptionsArgs']]):
+        pulumi.set(self, "jwt_options", value)
 
     @property
     @pulumi.getter(name="masterUserOptions")
@@ -707,6 +724,59 @@ class DomainIdpArgs:
     @metadata_content.setter
     def metadata_content(self, value: pulumi.Input[str]):
         pulumi.set(self, "metadata_content", value)
+
+
+@pulumi.input_type
+class DomainJwtOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 public_key: Optional[pulumi.Input[str]] = None,
+                 roles_key: Optional[pulumi.Input[str]] = None,
+                 subject_key: Optional[pulumi.Input[str]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if public_key is not None:
+            pulumi.set(__self__, "public_key", public_key)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "public_key")
+
+    @public_key.setter
+    def public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key", value)
+
+    @property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "roles_key")
+
+    @roles_key.setter
+    def roles_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "roles_key", value)
+
+    @property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subject_key")
+
+    @subject_key.setter
+    def subject_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject_key", value)
 
 
 @pulumi.input_type

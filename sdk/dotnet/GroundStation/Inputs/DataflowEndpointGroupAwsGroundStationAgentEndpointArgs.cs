@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     /// </summary>
     public sealed class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status of AgentEndpoint.
+        /// </summary>
         [Input("agentStatus")]
         public Input<Pulumi.AwsNative.GroundStation.DataflowEndpointGroupAgentStatus>? AgentStatus { get; set; }
 
+        /// <summary>
+        /// The results of the audit.
+        /// </summary>
         [Input("auditResults")]
         public Input<Pulumi.AwsNative.GroundStation.DataflowEndpointGroupAuditResults>? AuditResults { get; set; }
 
+        /// <summary>
+        /// The egress address of AgentEndpoint.
+        /// </summary>
         [Input("egressAddress")]
         public Input<Inputs.DataflowEndpointGroupConnectionDetailsArgs>? EgressAddress { get; set; }
 
+        /// <summary>
+        /// The ingress address of AgentEndpoint.
+        /// </summary>
         [Input("ingressAddress")]
         public Input<Inputs.DataflowEndpointGroupRangedConnectionDetailsArgs>? IngressAddress { get; set; }
 
+        /// <summary>
+        /// Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

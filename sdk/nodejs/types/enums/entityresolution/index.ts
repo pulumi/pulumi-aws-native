@@ -120,6 +120,9 @@ export const MatchingWorkflowIncrementalRunConfigIncrementalRunType = {
     Immediate: "IMMEDIATE",
 } as const;
 
+/**
+ * The type of incremental run. It takes only one value: `IMMEDIATE` .
+ */
 export type MatchingWorkflowIncrementalRunConfigIncrementalRunType = (typeof MatchingWorkflowIncrementalRunConfigIncrementalRunType)[keyof typeof MatchingWorkflowIncrementalRunConfigIncrementalRunType];
 
 export const MatchingWorkflowResolutionType = {

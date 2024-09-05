@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm',
     'RestoreTestingPlanRestoreTestingRecoveryPointType',
+    'RestoreTestingPlanRestoreTestingScheduleStatus',
 ]
 
 
@@ -18,3 +19,8 @@ class RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm(str, Enum)
 class RestoreTestingPlanRestoreTestingRecoveryPointType(str, Enum):
     SNAPSHOT = "SNAPSHOT"
     CONTINUOUS = "CONTINUOUS"
+
+
+class RestoreTestingPlanRestoreTestingScheduleStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    SUSPENDED = "SUSPENDED"

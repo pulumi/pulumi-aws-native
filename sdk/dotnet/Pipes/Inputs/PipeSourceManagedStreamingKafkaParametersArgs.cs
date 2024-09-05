@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
         /// <summary>
-        /// (Streams only) The position in a stream from which to start reading.
+        /// The position in a stream from which to start reading.
         /// </summary>
         [Input("startingPosition")]
         public Input<Pulumi.AwsNative.Pipes.PipeMskStartPosition>? StartingPosition { get; set; }

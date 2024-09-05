@@ -734,6 +734,11 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Information about AwsGroundStationAgentEndpoint.
+        :param pulumi.Input['DataflowEndpointGroupAgentStatus'] agent_status: The status of AgentEndpoint.
+        :param pulumi.Input['DataflowEndpointGroupAuditResults'] audit_results: The results of the audit.
+        :param pulumi.Input['DataflowEndpointGroupConnectionDetailsArgs'] egress_address: The egress address of AgentEndpoint.
+        :param pulumi.Input['DataflowEndpointGroupRangedConnectionDetailsArgs'] ingress_address: The ingress address of AgentEndpoint.
+        :param pulumi.Input[str] name: Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
         """
         if agent_status is not None:
             pulumi.set(__self__, "agent_status", agent_status)
@@ -749,6 +754,9 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
     @property
     @pulumi.getter(name="agentStatus")
     def agent_status(self) -> Optional[pulumi.Input['DataflowEndpointGroupAgentStatus']]:
+        """
+        The status of AgentEndpoint.
+        """
         return pulumi.get(self, "agent_status")
 
     @agent_status.setter
@@ -758,6 +766,9 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
     @property
     @pulumi.getter(name="auditResults")
     def audit_results(self) -> Optional[pulumi.Input['DataflowEndpointGroupAuditResults']]:
+        """
+        The results of the audit.
+        """
         return pulumi.get(self, "audit_results")
 
     @audit_results.setter
@@ -767,6 +778,9 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
     @property
     @pulumi.getter(name="egressAddress")
     def egress_address(self) -> Optional[pulumi.Input['DataflowEndpointGroupConnectionDetailsArgs']]:
+        """
+        The egress address of AgentEndpoint.
+        """
         return pulumi.get(self, "egress_address")
 
     @egress_address.setter
@@ -776,6 +790,9 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
     @property
     @pulumi.getter(name="ingressAddress")
     def ingress_address(self) -> Optional[pulumi.Input['DataflowEndpointGroupRangedConnectionDetailsArgs']]:
+        """
+        The ingress address of AgentEndpoint.
+        """
         return pulumi.get(self, "ingress_address")
 
     @ingress_address.setter
@@ -785,6 +802,9 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1208,6 +1228,10 @@ class MissionProfileStreamsKmsKeyArgs:
     def __init__(__self__, *,
                  kms_alias_arn: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_alias_arn: KMS Alias Arn.
+        :param pulumi.Input[str] kms_key_arn: KMS Key Arn.
+        """
         if kms_alias_arn is not None:
             pulumi.set(__self__, "kms_alias_arn", kms_alias_arn)
         if kms_key_arn is not None:
@@ -1216,6 +1240,9 @@ class MissionProfileStreamsKmsKeyArgs:
     @property
     @pulumi.getter(name="kmsAliasArn")
     def kms_alias_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Alias Arn.
+        """
         return pulumi.get(self, "kms_alias_arn")
 
     @kms_alias_arn.setter
@@ -1225,6 +1252,9 @@ class MissionProfileStreamsKmsKeyArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS Key Arn.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter

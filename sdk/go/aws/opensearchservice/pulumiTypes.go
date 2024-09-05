@@ -22,6 +22,8 @@ type DomainAdvancedSecurityOptionsInput struct {
 	Enabled *bool `pulumi:"enabled"`
 	// True to enable the internal user database.
 	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
+	// Container for information about the JWT configuration of the Amazon OpenSearch Service.
+	JwtOptions *DomainJwtOptions `pulumi:"jwtOptions"`
 	// Specifies information about the master user.
 	MasterUserOptions *DomainMasterUserOptions `pulumi:"masterUserOptions"`
 	// Container for information about the SAML configuration for OpenSearch Dashboards.
@@ -48,6 +50,8 @@ type DomainAdvancedSecurityOptionsInputArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// True to enable the internal user database.
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
+	// Container for information about the JWT configuration of the Amazon OpenSearch Service.
+	JwtOptions DomainJwtOptionsPtrInput `pulumi:"jwtOptions"`
 	// Specifies information about the master user.
 	MasterUserOptions DomainMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
 	// Container for information about the SAML configuration for OpenSearch Dashboards.
@@ -151,6 +155,11 @@ func (o DomainAdvancedSecurityOptionsInputOutput) InternalUserDatabaseEnabled() 
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Container for information about the JWT configuration of the Amazon OpenSearch Service.
+func (o DomainAdvancedSecurityOptionsInputOutput) JwtOptions() DomainJwtOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainJwtOptions { return v.JwtOptions }).(DomainJwtOptionsPtrOutput)
+}
+
 // Specifies information about the master user.
 func (o DomainAdvancedSecurityOptionsInputOutput) MasterUserOptions() DomainMasterUserOptionsPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions { return v.MasterUserOptions }).(DomainMasterUserOptionsPtrOutput)
@@ -223,6 +232,16 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) InternalUserDatabaseEnabled
 		}
 		return v.InternalUserDatabaseEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Container for information about the JWT configuration of the Amazon OpenSearch Service.
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) JwtOptions() DomainJwtOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainJwtOptions {
+		if v == nil {
+			return nil
+		}
+		return v.JwtOptions
+	}).(DomainJwtOptionsPtrOutput)
 }
 
 // Specifies information about the master user.
@@ -1721,6 +1740,184 @@ func (o DomainIdpPtrOutput) MetadataContent() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.MetadataContent
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainJwtOptions struct {
+	Enabled    *bool   `pulumi:"enabled"`
+	PublicKey  *string `pulumi:"publicKey"`
+	RolesKey   *string `pulumi:"rolesKey"`
+	SubjectKey *string `pulumi:"subjectKey"`
+}
+
+// DomainJwtOptionsInput is an input type that accepts DomainJwtOptionsArgs and DomainJwtOptionsOutput values.
+// You can construct a concrete instance of `DomainJwtOptionsInput` via:
+//
+//	DomainJwtOptionsArgs{...}
+type DomainJwtOptionsInput interface {
+	pulumi.Input
+
+	ToDomainJwtOptionsOutput() DomainJwtOptionsOutput
+	ToDomainJwtOptionsOutputWithContext(context.Context) DomainJwtOptionsOutput
+}
+
+type DomainJwtOptionsArgs struct {
+	Enabled    pulumi.BoolPtrInput   `pulumi:"enabled"`
+	PublicKey  pulumi.StringPtrInput `pulumi:"publicKey"`
+	RolesKey   pulumi.StringPtrInput `pulumi:"rolesKey"`
+	SubjectKey pulumi.StringPtrInput `pulumi:"subjectKey"`
+}
+
+func (DomainJwtOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainJwtOptions)(nil)).Elem()
+}
+
+func (i DomainJwtOptionsArgs) ToDomainJwtOptionsOutput() DomainJwtOptionsOutput {
+	return i.ToDomainJwtOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainJwtOptionsArgs) ToDomainJwtOptionsOutputWithContext(ctx context.Context) DomainJwtOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJwtOptionsOutput)
+}
+
+func (i DomainJwtOptionsArgs) ToDomainJwtOptionsPtrOutput() DomainJwtOptionsPtrOutput {
+	return i.ToDomainJwtOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainJwtOptionsArgs) ToDomainJwtOptionsPtrOutputWithContext(ctx context.Context) DomainJwtOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJwtOptionsOutput).ToDomainJwtOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainJwtOptionsPtrInput is an input type that accepts DomainJwtOptionsArgs, DomainJwtOptionsPtr and DomainJwtOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainJwtOptionsPtrInput` via:
+//
+//	        DomainJwtOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainJwtOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainJwtOptionsPtrOutput() DomainJwtOptionsPtrOutput
+	ToDomainJwtOptionsPtrOutputWithContext(context.Context) DomainJwtOptionsPtrOutput
+}
+
+type domainJwtOptionsPtrType DomainJwtOptionsArgs
+
+func DomainJwtOptionsPtr(v *DomainJwtOptionsArgs) DomainJwtOptionsPtrInput {
+	return (*domainJwtOptionsPtrType)(v)
+}
+
+func (*domainJwtOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainJwtOptions)(nil)).Elem()
+}
+
+func (i *domainJwtOptionsPtrType) ToDomainJwtOptionsPtrOutput() DomainJwtOptionsPtrOutput {
+	return i.ToDomainJwtOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainJwtOptionsPtrType) ToDomainJwtOptionsPtrOutputWithContext(ctx context.Context) DomainJwtOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJwtOptionsPtrOutput)
+}
+
+type DomainJwtOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainJwtOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainJwtOptions)(nil)).Elem()
+}
+
+func (o DomainJwtOptionsOutput) ToDomainJwtOptionsOutput() DomainJwtOptionsOutput {
+	return o
+}
+
+func (o DomainJwtOptionsOutput) ToDomainJwtOptionsOutputWithContext(ctx context.Context) DomainJwtOptionsOutput {
+	return o
+}
+
+func (o DomainJwtOptionsOutput) ToDomainJwtOptionsPtrOutput() DomainJwtOptionsPtrOutput {
+	return o.ToDomainJwtOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainJwtOptionsOutput) ToDomainJwtOptionsPtrOutputWithContext(ctx context.Context) DomainJwtOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainJwtOptions) *DomainJwtOptions {
+		return &v
+	}).(DomainJwtOptionsPtrOutput)
+}
+
+func (o DomainJwtOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainJwtOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainJwtOptionsOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainJwtOptions) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainJwtOptionsOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainJwtOptions) *string { return v.RolesKey }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainJwtOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainJwtOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
+}
+
+type DomainJwtOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainJwtOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainJwtOptions)(nil)).Elem()
+}
+
+func (o DomainJwtOptionsPtrOutput) ToDomainJwtOptionsPtrOutput() DomainJwtOptionsPtrOutput {
+	return o
+}
+
+func (o DomainJwtOptionsPtrOutput) ToDomainJwtOptionsPtrOutputWithContext(ctx context.Context) DomainJwtOptionsPtrOutput {
+	return o
+}
+
+func (o DomainJwtOptionsPtrOutput) Elem() DomainJwtOptionsOutput {
+	return o.ApplyT(func(v *DomainJwtOptions) DomainJwtOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainJwtOptions
+		return ret
+	}).(DomainJwtOptionsOutput)
+}
+
+func (o DomainJwtOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainJwtOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainJwtOptionsPtrOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainJwtOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainJwtOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainJwtOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RolesKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainJwtOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainJwtOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3636,6 +3833,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsPtrInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdpInput)(nil)).Elem(), DomainIdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdpPtrInput)(nil)).Elem(), DomainIdpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainJwtOptionsInput)(nil)).Elem(), DomainJwtOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainJwtOptionsPtrInput)(nil)).Elem(), DomainJwtOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionInput)(nil)).Elem(), DomainLogPublishingOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionMapInput)(nil)).Elem(), DomainLogPublishingOptionMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
@@ -3674,6 +3873,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainEndpointOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdpOutput{})
 	pulumi.RegisterOutputType(DomainIdpPtrOutput{})
+	pulumi.RegisterOutputType(DomainJwtOptionsOutput{})
+	pulumi.RegisterOutputType(DomainJwtOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainLogPublishingOptionOutput{})
 	pulumi.RegisterOutputType(DomainLogPublishingOptionMapOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsOutput{})

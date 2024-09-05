@@ -832,6 +832,11 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpoint(dict):
                  name: Optional[str] = None):
         """
         Information about AwsGroundStationAgentEndpoint.
+        :param 'DataflowEndpointGroupAgentStatus' agent_status: The status of AgentEndpoint.
+        :param 'DataflowEndpointGroupAuditResults' audit_results: The results of the audit.
+        :param 'DataflowEndpointGroupConnectionDetails' egress_address: The egress address of AgentEndpoint.
+        :param 'DataflowEndpointGroupRangedConnectionDetails' ingress_address: The ingress address of AgentEndpoint.
+        :param str name: Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
         """
         if agent_status is not None:
             pulumi.set(__self__, "agent_status", agent_status)
@@ -847,26 +852,41 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpoint(dict):
     @property
     @pulumi.getter(name="agentStatus")
     def agent_status(self) -> Optional['DataflowEndpointGroupAgentStatus']:
+        """
+        The status of AgentEndpoint.
+        """
         return pulumi.get(self, "agent_status")
 
     @property
     @pulumi.getter(name="auditResults")
     def audit_results(self) -> Optional['DataflowEndpointGroupAuditResults']:
+        """
+        The results of the audit.
+        """
         return pulumi.get(self, "audit_results")
 
     @property
     @pulumi.getter(name="egressAddress")
     def egress_address(self) -> Optional['outputs.DataflowEndpointGroupConnectionDetails']:
+        """
+        The egress address of AgentEndpoint.
+        """
         return pulumi.get(self, "egress_address")
 
     @property
     @pulumi.getter(name="ingressAddress")
     def ingress_address(self) -> Optional['outputs.DataflowEndpointGroupRangedConnectionDetails']:
+        """
+        The ingress address of AgentEndpoint.
+        """
         return pulumi.get(self, "ingress_address")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.
+        """
         return pulumi.get(self, "name")
 
 
@@ -1324,6 +1344,10 @@ class MissionProfileStreamsKmsKey(dict):
     def __init__(__self__, *,
                  kms_alias_arn: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
+        """
+        :param str kms_alias_arn: KMS Alias Arn.
+        :param str kms_key_arn: KMS Key Arn.
+        """
         if kms_alias_arn is not None:
             pulumi.set(__self__, "kms_alias_arn", kms_alias_arn)
         if kms_key_arn is not None:
@@ -1332,11 +1356,17 @@ class MissionProfileStreamsKmsKey(dict):
     @property
     @pulumi.getter(name="kmsAliasArn")
     def kms_alias_arn(self) -> Optional[str]:
+        """
+        KMS Alias Arn.
+        """
         return pulumi.get(self, "kms_alias_arn")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
+        """
+        KMS Key Arn.
+        """
         return pulumi.get(self, "kms_key_arn")
 
 

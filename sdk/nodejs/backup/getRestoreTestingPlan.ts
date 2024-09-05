@@ -42,6 +42,7 @@ export interface GetRestoreTestingPlanResult {
      * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
      */
     readonly scheduleExpressionTimezone?: string;
+    readonly scheduleStatus?: enums.backup.RestoreTestingPlanRestoreTestingScheduleStatus;
     /**
      * Defaults to 24 hours.
      *

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        [Input("tooltipTarget")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardTooltipTarget>? TooltipTarget { get; set; }
+
         /// <summary>
         /// The visibility of the tooltip item.
         /// </summary>

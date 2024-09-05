@@ -147,6 +147,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("serviceSoftwareOptions")]
         public Output<Outputs.DomainServiceSoftwareOptions> ServiceSoftwareOptions { get; private set; } = null!;
 
+        [Output("skipShardMigrationWait")]
+        public Output<bool?> SkipShardMigrationWait { get; private set; } = null!;
+
         /// <summary>
         /// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
         /// </summary>
@@ -329,6 +332,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         [Input("offPeakWindowOptions")]
         public Input<Inputs.DomainOffPeakWindowOptionsArgs>? OffPeakWindowOptions { get; set; }
+
+        [Input("skipShardMigrationWait")]
+        public Input<bool>? SkipShardMigrationWait { get; set; }
 
         /// <summary>
         /// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.

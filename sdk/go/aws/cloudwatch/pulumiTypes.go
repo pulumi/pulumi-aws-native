@@ -702,8 +702,9 @@ func (o AlarmMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
 type AlarmTag struct {
-	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+	// A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
 	// The value for the specified tag key.
 	Value string `pulumi:"value"`
