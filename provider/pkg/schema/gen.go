@@ -1123,7 +1123,8 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 
 		typeSchema, ok := ctx.resourceSpec.Definitions[schemaName]
 		if !ok {
-			return nil, errors.Errorf("definition %s not found in resource %s", schemaName, ctx.cfTypeName)
+			fmt.Printf("definition %s not found in resource %s\n", schemaName, ctx.cfTypeName)
+			return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
 		}
 		var mapType *jsschema.Schema
 		if typeSchema.AdditionalProperties != nil && typeSchema.AdditionalProperties.Schema != nil {
@@ -1433,7 +1434,7 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 
 		// Special case for `ChannelPreset` enum in the `AWS::IVS::Channel` resource. The enum has an empty string value which
 		// gets returned by the service in certain default cases (for channel types (BASIC and STANDARD)).
-		if (typName == "ChannelPreset" && str == "") {
+		if typName == "ChannelPreset" && str == "" {
 			str = "Empty"
 		}
 
