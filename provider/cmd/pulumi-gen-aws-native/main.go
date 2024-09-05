@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -85,7 +86,7 @@ func main() {
 		}
 
 		if err := downloadCloudFormationDocs(docsUrl, filepath.Join(".", "aws-cloudformation-docs")); err != nil {
-			panic(fmt.Errorf("error download CloudFormation docs: %v", err))
+			fatalf("error download CloudFormation docs: %v", err)
 		}
 
 	case "discovery":
@@ -96,10 +97,10 @@ func main() {
 		}
 
 		if err := writeSupportedResourceTypes(genDir); err != nil {
-			panic(fmt.Errorf("error writing supported resource types: %v", err))
+			fatalf("error writing supported resource types: %v", err)
 		}
 		if err := downloadCloudFormationSchemas(jsonSchemaUrls, filepath.Join(".", schemaFolder)); err != nil {
-			panic(fmt.Errorf("error downloading CloudFormation schemas: %v", err))
+			fatalf("error downloading CloudFormation schemas: %v", err)
 		}
 
 	case "schema":
@@ -107,56 +108,62 @@ func main() {
 		jsonSchemas := readJsonSchemas(schemaFolder)
 		docsTypes, err := schema.ReadCloudFormationDocsFile(filepath.Join(".", "aws-cloudformation-docs", "CloudFormationDocumentation.json"))
 		if err != nil {
-			panic(fmt.Errorf("error reading CloudFormation docs file: %v", err))
+			fatalf("error reading CloudFormation docs file: %v", err)
 		}
 		semanticsDocument, err := schema.GatherSemantics(semanticsDir)
 		if err != nil {
-			panic(fmt.Errorf("error gathering semantics: %v", err))
+			fatalf("error gathering semantics: %v", err)
 		}
 
 		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes)
 		if err != nil {
-			panic(fmt.Errorf("error generating schema: %v", err))
+			fatalf("error generating schema: %v", err)
 		}
 
 		fmt.Println("Generating examples...")
 		err = generateExamples(packageSpec, meta, []string{"nodejs", "python", "dotnet", "go"})
 		if err != nil {
-			panic(fmt.Errorf("error generating examples: %v", err))
+			fatalf("error generating examples: %v", err)
 		}
 		providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
 		if err = writePulumiSchema(*packageSpec, providerDir, true /* includeUncompressed */); err != nil {
-			panic(fmt.Errorf("error writing schema: %v", err))
+			fatalf("error writing schema: %v", err)
 		}
 
 		cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
 		if err = writePulumiSchema(*packageSpec, cf2pulumiDir, false /* includeUncompressed */); err != nil {
-			panic(fmt.Errorf("error writing schema: %v", err))
+			fatalf("error writing schema: %v", err)
 		}
 		if err = writePulumiSchema(*packageSpec, "bin", false /* includeUncompressed */); err != nil {
-			panic(fmt.Errorf("error writing schema: %v", err))
+			fatalf("error writing schema: %v", err)
 		}
 
 		// Emit the resource metadata for cf2pulumi.
 		if err = writeMetadata(meta, cf2pulumiDir, false /* includeUncompressed */); err != nil {
-			panic(fmt.Errorf("error writing metadata: %v", err))
+			fatalf("error writing metadata: %v", err)
 		}
 		// Also, emit the resource metadata for the provider.
 		if err = writeMetadata(meta, providerDir, true /* includeUncompressed */); err != nil {
-			panic(fmt.Errorf("error writing metadata: %v", err))
+			fatalf("error writing metadata: %v", err)
 		}
 		// Also write to bin folder to be picked up as an asset for testing.
 		if err = writeMetadata(meta, "bin", true /* includeUncompressed */); err != nil {
-			panic(fmt.Errorf("error writing metadata: %v", err))
+			fatalf("error writing metadata: %v", err)
 		}
 		// Emit the reports for the provider.
 		if err := reports.WriteToDirectory("reports"); err != nil {
-			panic(fmt.Errorf("error writing reports: %v", err))
+			fatalf("error writing reports: %v", err)
 		}
 
 	default:
-		panic(fmt.Sprintf("Unrecognized language '%s'", operation))
+		fatalf("Unrecognized language '%s'", operation)
 	}
+}
+
+// Fail loud and clear.
+func fatalf(format string, a ...any) {
+	barrier := strings.Repeat("=", 110)
+	log.Fatalf(fmt.Sprintf("schema generation failed\n%s\n%s\n%s\n", barrier, fmt.Sprintf(format, a...), barrier))
 }
 
 func readJsonSchemas(schemaDir string) (res []*jsschema.Schema) {
@@ -169,7 +176,7 @@ func readJsonSchemas(schemaDir string) (res []*jsschema.Schema) {
 		return nil
 	})
 	if err != nil {
-		panic(err)
+		fatalf("error reading JSON schemas: %v", err)
 	}
 
 	sort.Strings(fileNames)
@@ -182,7 +189,7 @@ func readJsonSchemas(schemaDir string) (res []*jsschema.Schema) {
 func readJsonSchema(schemaPath string) *jsschema.Schema {
 	s, err := jsschema.ReadFile(schemaPath)
 	if err != nil {
-		panic(errors.Wrapf(err, schemaPath))
+		fatalf("%v", errors.Wrapf(err, schemaPath))
 	}
 
 	return s
