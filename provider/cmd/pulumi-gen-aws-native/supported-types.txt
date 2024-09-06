@@ -894,6 +894,7 @@ AWS::SES::MailManagerRuleSet
 AWS::SES::MailManagerTrafficPolicy
 AWS::SES::Template
 AWS::SES::VdmAttributes
+AWS::SNS::Subscription
 AWS::SNS::Topic
 AWS::SNS::TopicInlinePolicy
 AWS::SNS::TopicPolicy
