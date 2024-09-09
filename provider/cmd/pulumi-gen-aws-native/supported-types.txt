@@ -760,6 +760,8 @@ AWS::PCAConnectorAD::DirectoryRegistration
 AWS::PCAConnectorAD::ServicePrincipalName
 AWS::PCAConnectorAD::Template
 AWS::PCAConnectorAD::TemplateGroupAccessControlEntry
+AWS::PCAConnectorSCEP::Challenge
+AWS::PCAConnectorSCEP::Connector
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
@@ -894,6 +896,7 @@ AWS::SES::MailManagerRuleSet
 AWS::SES::MailManagerTrafficPolicy
 AWS::SES::Template
 AWS::SES::VdmAttributes
+AWS::SNS::Subscription
 AWS::SNS::Topic
 AWS::SNS::TopicInlinePolicy
 AWS::SNS::TopicPolicy
@@ -921,6 +924,7 @@ AWS::SSO::InstanceAccessControlAttributeConfiguration
 AWS::SSO::PermissionSet
 AWS::SageMaker::App
 AWS::SageMaker::AppImageConfig
+AWS::SageMaker::Cluster
 AWS::SageMaker::DataQualityJobDefinition
 AWS::SageMaker::Device
 AWS::SageMaker::DeviceFleet
