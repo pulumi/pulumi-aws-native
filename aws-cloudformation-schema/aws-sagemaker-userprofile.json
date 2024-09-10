@@ -485,7 +485,7 @@
     },
     "MlTools" : {
       "type" : "string",
-      "enum" : [ "DataWrangler", "FeatureStore", "EmrClusters", "AutoMl", "Experiments", "Training", "ModelEvaluation", "Pipelines", "Models", "JumpStart", "InferenceRecommender", "Endpoints", "Projects" ]
+      "enum" : [ "DataWrangler", "FeatureStore", "EmrClusters", "AutoMl", "Experiments", "Training", "ModelEvaluation", "Pipelines", "Models", "JumpStart", "InferenceRecommender", "Endpoints", "Projects", "InferenceOptimization" ]
     },
     "AppType" : {
       "type" : "string",
