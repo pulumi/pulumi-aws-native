@@ -12,6 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ClusterInterfaceMapping',
+    'ClusterNetworkSettings',
+    'EventBridgeRuleTemplateTarget',
     'MultiplexOutputDestination',
     'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties',
     'MultiplexSettings',
@@ -20,7 +23,143 @@ __all__ = [
     'MultiplexprogramMultiplexProgramServiceDescriptor',
     'MultiplexprogramMultiplexProgramSettings',
     'MultiplexprogramMultiplexVideoSettings',
+    'NetworkIpPool',
+    'NetworkRoute',
+    'SignalMapMediaResource',
+    'SignalMapMediaResourceNeighbor',
+    'SignalMapMonitorDeployment',
+    'SignalMapSuccessfulMonitorDeployment',
 ]
+
+@pulumi.output_type
+class ClusterInterfaceMapping(dict):
+    """
+    Network mappings for the cluster
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logicalInterfaceName":
+            suggest = "logical_interface_name"
+        elif key == "networkId":
+            suggest = "network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInterfaceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInterfaceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInterfaceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 logical_interface_name: Optional[str] = None,
+                 network_id: Optional[str] = None):
+        """
+        Network mappings for the cluster
+        :param str logical_interface_name: logical interface name, unique in the list
+        :param str network_id: Network Id to be associated with the logical interface name, can be duplicated in list
+        """
+        if logical_interface_name is not None:
+            pulumi.set(__self__, "logical_interface_name", logical_interface_name)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
+
+    @property
+    @pulumi.getter(name="logicalInterfaceName")
+    def logical_interface_name(self) -> Optional[str]:
+        """
+        logical interface name, unique in the list
+        """
+        return pulumi.get(self, "logical_interface_name")
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[str]:
+        """
+        Network Id to be associated with the logical interface name, can be duplicated in list
+        """
+        return pulumi.get(self, "network_id")
+
+
+@pulumi.output_type
+class ClusterNetworkSettings(dict):
+    """
+    On premises settings which will have the interface network mappings and default Output logical interface
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultRoute":
+            suggest = "default_route"
+        elif key == "interfaceMappings":
+            suggest = "interface_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNetworkSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNetworkSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNetworkSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_route: Optional[str] = None,
+                 interface_mappings: Optional[Sequence['outputs.ClusterInterfaceMapping']] = None):
+        """
+        On premises settings which will have the interface network mappings and default Output logical interface
+        :param str default_route: Default value if the customer does not define it in channel Output API
+        :param Sequence['ClusterInterfaceMapping'] interface_mappings: Network mappings for the cluster
+        """
+        if default_route is not None:
+            pulumi.set(__self__, "default_route", default_route)
+        if interface_mappings is not None:
+            pulumi.set(__self__, "interface_mappings", interface_mappings)
+
+    @property
+    @pulumi.getter(name="defaultRoute")
+    def default_route(self) -> Optional[str]:
+        """
+        Default value if the customer does not define it in channel Output API
+        """
+        return pulumi.get(self, "default_route")
+
+    @property
+    @pulumi.getter(name="interfaceMappings")
+    def interface_mappings(self) -> Optional[Sequence['outputs.ClusterInterfaceMapping']]:
+        """
+        Network mappings for the cluster
+        """
+        return pulumi.get(self, "interface_mappings")
+
+
+@pulumi.output_type
+class EventBridgeRuleTemplateTarget(dict):
+    """
+    The target to which to send matching events.
+    """
+    def __init__(__self__, *,
+                 arn: str):
+        """
+        The target to which to send matching events.
+        :param str arn: Target ARNs must be either an SNS topic or CloudWatch log group.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Target ARNs must be either an SNS topic or CloudWatch log group.
+        """
+        return pulumi.get(self, "arn")
+
 
 @pulumi.output_type
 class MultiplexOutputDestination(dict):
@@ -535,5 +674,239 @@ class MultiplexprogramMultiplexVideoSettings(dict):
         The video configuration for each program in a multiplex.
         """
         pass
+
+
+@pulumi.output_type
+class NetworkIpPool(dict):
+    """
+    IP address cidr pool
+    """
+    def __init__(__self__, *,
+                 cidr: Optional[str] = None):
+        """
+        IP address cidr pool
+        :param str cidr: IP address cidr pool
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[str]:
+        """
+        IP address cidr pool
+        """
+        return pulumi.get(self, "cidr")
+
+
+@pulumi.output_type
+class NetworkRoute(dict):
+    def __init__(__self__, *,
+                 cidr: Optional[str] = None,
+                 gateway: Optional[str] = None):
+        """
+        :param str cidr: Ip address cidr
+        :param str gateway: IP address for the route packet paths
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[str]:
+        """
+        Ip address cidr
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[str]:
+        """
+        IP address for the route packet paths
+        """
+        return pulumi.get(self, "gateway")
+
+
+@pulumi.output_type
+class SignalMapMediaResource(dict):
+    """
+    An AWS resource used in media workflows.
+    """
+    def __init__(__self__, *,
+                 destinations: Optional[Sequence['outputs.SignalMapMediaResourceNeighbor']] = None,
+                 name: Optional[str] = None,
+                 sources: Optional[Sequence['outputs.SignalMapMediaResourceNeighbor']] = None):
+        """
+        An AWS resource used in media workflows.
+        :param str name: The logical name of an AWS media resource.
+        """
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.SignalMapMediaResourceNeighbor']]:
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The logical name of an AWS media resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.SignalMapMediaResourceNeighbor']]:
+        return pulumi.get(self, "sources")
+
+
+@pulumi.output_type
+class SignalMapMediaResourceNeighbor(dict):
+    """
+    A direct source or destination neighbor to an AWS media resource.
+    """
+    def __init__(__self__, *,
+                 arn: str,
+                 name: Optional[str] = None):
+        """
+        A direct source or destination neighbor to an AWS media resource.
+        :param str arn: The ARN of a resource used in AWS media workflows.
+        :param str name: The logical name of an AWS media resource.
+        """
+        pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of a resource used in AWS media workflows.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The logical name of an AWS media resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SignalMapMonitorDeployment(dict):
+    """
+    Represents the latest monitor deployment of a signal map.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailsUri":
+            suggest = "details_uri"
+        elif key == "errorMessage":
+            suggest = "error_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalMapMonitorDeployment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalMapMonitorDeployment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalMapMonitorDeployment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: 'SignalMapMonitorDeploymentStatus',
+                 details_uri: Optional[str] = None,
+                 error_message: Optional[str] = None):
+        """
+        Represents the latest monitor deployment of a signal map.
+        :param str details_uri: URI associated with a signal map's monitor deployment.
+        :param str error_message: Error message associated with a failed monitor deployment of a signal map.
+        """
+        pulumi.set(__self__, "status", status)
+        if details_uri is not None:
+            pulumi.set(__self__, "details_uri", details_uri)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'SignalMapMonitorDeploymentStatus':
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="detailsUri")
+    def details_uri(self) -> Optional[str]:
+        """
+        URI associated with a signal map's monitor deployment.
+        """
+        return pulumi.get(self, "details_uri")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[str]:
+        """
+        Error message associated with a failed monitor deployment of a signal map.
+        """
+        return pulumi.get(self, "error_message")
+
+
+@pulumi.output_type
+class SignalMapSuccessfulMonitorDeployment(dict):
+    """
+    Represents the latest successful monitor deployment of a signal map.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailsUri":
+            suggest = "details_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalMapSuccessfulMonitorDeployment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalMapSuccessfulMonitorDeployment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalMapSuccessfulMonitorDeployment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 details_uri: str,
+                 status: 'SignalMapMonitorDeploymentStatus'):
+        """
+        Represents the latest successful monitor deployment of a signal map.
+        :param str details_uri: URI associated with a signal map's monitor deployment.
+        """
+        pulumi.set(__self__, "details_uri", details_uri)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="detailsUri")
+    def details_uri(self) -> str:
+        """
+        URI associated with a signal map's monitor deployment.
+        """
+        return pulumi.get(self, "details_uri")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'SignalMapMonitorDeploymentStatus':
+        return pulumi.get(self, "status")
 
 

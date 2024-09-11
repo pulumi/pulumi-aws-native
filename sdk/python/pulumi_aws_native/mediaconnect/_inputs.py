@@ -45,6 +45,7 @@ __all__ = [
     'FlowOutputVpcInterfaceAttachmentArgs',
     'FlowSourceEncryptionArgs',
     'FlowSourceGatewayBridgeSourceArgs',
+    'FlowSourceMonitoringConfigArgs',
     'FlowSourceVpcInterfaceAttachmentArgs',
     'FlowSourceArgs',
     'FlowVpcInterfaceAttachmentArgs',
@@ -2075,6 +2076,29 @@ class FlowSourceGatewayBridgeSourceArgs:
     @vpc_interface_attachment.setter
     def vpc_interface_attachment(self, value: Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']]):
         pulumi.set(self, "vpc_interface_attachment", value)
+
+
+@pulumi.input_type
+class FlowSourceMonitoringConfigArgs:
+    def __init__(__self__, *,
+                 thumbnail_state: pulumi.Input['FlowSourceMonitoringConfigThumbnailState']):
+        """
+        The settings for source monitoring.
+        :param pulumi.Input['FlowSourceMonitoringConfigThumbnailState'] thumbnail_state: The state of thumbnail monitoring.
+        """
+        pulumi.set(__self__, "thumbnail_state", thumbnail_state)
+
+    @property
+    @pulumi.getter(name="thumbnailState")
+    def thumbnail_state(self) -> pulumi.Input['FlowSourceMonitoringConfigThumbnailState']:
+        """
+        The state of thumbnail monitoring.
+        """
+        return pulumi.get(self, "thumbnail_state")
+
+    @thumbnail_state.setter
+    def thumbnail_state(self, value: pulumi.Input['FlowSourceMonitoringConfigThumbnailState']):
+        pulumi.set(self, "thumbnail_state", value)
 
 
 @pulumi.input_type

@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Account takeover risk configuration actions.
+        /// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs> Actions { get; set; } = null!;
 
         /// <summary>
-        /// The notify configuration used to construct email notifications.
+        /// The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
         /// </summary>
         [Input("notifyConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs>? NotifyConfiguration { get; set; }

@@ -4839,6 +4839,172 @@ func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceEncryptionKeyTypePtrOutput)
 }
 
+// The state of thumbnail monitoring.
+type FlowSourceMonitoringConfigThumbnailState string
+
+const (
+	FlowSourceMonitoringConfigThumbnailStateEnabled  = FlowSourceMonitoringConfigThumbnailState("ENABLED")
+	FlowSourceMonitoringConfigThumbnailStateDisabled = FlowSourceMonitoringConfigThumbnailState("DISABLED")
+)
+
+func (FlowSourceMonitoringConfigThumbnailState) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceMonitoringConfigThumbnailState)(nil)).Elem()
+}
+
+func (e FlowSourceMonitoringConfigThumbnailState) ToFlowSourceMonitoringConfigThumbnailStateOutput() FlowSourceMonitoringConfigThumbnailStateOutput {
+	return pulumi.ToOutput(e).(FlowSourceMonitoringConfigThumbnailStateOutput)
+}
+
+func (e FlowSourceMonitoringConfigThumbnailState) ToFlowSourceMonitoringConfigThumbnailStateOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigThumbnailStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowSourceMonitoringConfigThumbnailStateOutput)
+}
+
+func (e FlowSourceMonitoringConfigThumbnailState) ToFlowSourceMonitoringConfigThumbnailStatePtrOutput() FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return e.ToFlowSourceMonitoringConfigThumbnailStatePtrOutputWithContext(context.Background())
+}
+
+func (e FlowSourceMonitoringConfigThumbnailState) ToFlowSourceMonitoringConfigThumbnailStatePtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return FlowSourceMonitoringConfigThumbnailState(e).ToFlowSourceMonitoringConfigThumbnailStateOutputWithContext(ctx).ToFlowSourceMonitoringConfigThumbnailStatePtrOutputWithContext(ctx)
+}
+
+func (e FlowSourceMonitoringConfigThumbnailState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSourceMonitoringConfigThumbnailState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowSourceMonitoringConfigThumbnailState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowSourceMonitoringConfigThumbnailState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowSourceMonitoringConfigThumbnailStateOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceMonitoringConfigThumbnailStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceMonitoringConfigThumbnailState)(nil)).Elem()
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStateOutput) ToFlowSourceMonitoringConfigThumbnailStateOutput() FlowSourceMonitoringConfigThumbnailStateOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStateOutput) ToFlowSourceMonitoringConfigThumbnailStateOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigThumbnailStateOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStateOutput) ToFlowSourceMonitoringConfigThumbnailStatePtrOutput() FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return o.ToFlowSourceMonitoringConfigThumbnailStatePtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStateOutput) ToFlowSourceMonitoringConfigThumbnailStatePtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceMonitoringConfigThumbnailState) *FlowSourceMonitoringConfigThumbnailState {
+		return &v
+	}).(FlowSourceMonitoringConfigThumbnailStatePtrOutput)
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSourceMonitoringConfigThumbnailState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowSourceMonitoringConfigThumbnailState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowSourceMonitoringConfigThumbnailStatePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceMonitoringConfigThumbnailStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceMonitoringConfigThumbnailState)(nil)).Elem()
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStatePtrOutput) ToFlowSourceMonitoringConfigThumbnailStatePtrOutput() FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStatePtrOutput) ToFlowSourceMonitoringConfigThumbnailStatePtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStatePtrOutput) Elem() FlowSourceMonitoringConfigThumbnailStateOutput {
+	return o.ApplyT(func(v *FlowSourceMonitoringConfigThumbnailState) FlowSourceMonitoringConfigThumbnailState {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceMonitoringConfigThumbnailState
+		return ret
+	}).(FlowSourceMonitoringConfigThumbnailStateOutput)
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigThumbnailStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowSourceMonitoringConfigThumbnailState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowSourceMonitoringConfigThumbnailStateInput is an input type that accepts values of the FlowSourceMonitoringConfigThumbnailState enum
+// A concrete instance of `FlowSourceMonitoringConfigThumbnailStateInput` can be one of the following:
+//
+//	FlowSourceMonitoringConfigThumbnailStateEnabled
+//	FlowSourceMonitoringConfigThumbnailStateDisabled
+type FlowSourceMonitoringConfigThumbnailStateInput interface {
+	pulumi.Input
+
+	ToFlowSourceMonitoringConfigThumbnailStateOutput() FlowSourceMonitoringConfigThumbnailStateOutput
+	ToFlowSourceMonitoringConfigThumbnailStateOutputWithContext(context.Context) FlowSourceMonitoringConfigThumbnailStateOutput
+}
+
+var flowSourceMonitoringConfigThumbnailStatePtrType = reflect.TypeOf((**FlowSourceMonitoringConfigThumbnailState)(nil)).Elem()
+
+type FlowSourceMonitoringConfigThumbnailStatePtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceMonitoringConfigThumbnailStatePtrOutput() FlowSourceMonitoringConfigThumbnailStatePtrOutput
+	ToFlowSourceMonitoringConfigThumbnailStatePtrOutputWithContext(context.Context) FlowSourceMonitoringConfigThumbnailStatePtrOutput
+}
+
+type flowSourceMonitoringConfigThumbnailStatePtr string
+
+func FlowSourceMonitoringConfigThumbnailStatePtr(v string) FlowSourceMonitoringConfigThumbnailStatePtrInput {
+	return (*flowSourceMonitoringConfigThumbnailStatePtr)(&v)
+}
+
+func (*flowSourceMonitoringConfigThumbnailStatePtr) ElementType() reflect.Type {
+	return flowSourceMonitoringConfigThumbnailStatePtrType
+}
+
+func (in *flowSourceMonitoringConfigThumbnailStatePtr) ToFlowSourceMonitoringConfigThumbnailStatePtrOutput() FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return pulumi.ToOutput(in).(FlowSourceMonitoringConfigThumbnailStatePtrOutput)
+}
+
+func (in *flowSourceMonitoringConfigThumbnailStatePtr) ToFlowSourceMonitoringConfigThumbnailStatePtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceMonitoringConfigThumbnailStatePtrOutput)
+}
+
 // The protocol that is used by the source.
 type FlowSourceProtocol string
 
@@ -5337,6 +5503,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionAlgorithmPtrInput)(nil)).Elem(), FlowSourceEncryptionAlgorithm("aes128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionKeyTypeInput)(nil)).Elem(), FlowSourceEncryptionKeyType("speke"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionKeyTypePtrInput)(nil)).Elem(), FlowSourceEncryptionKeyType("speke"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigThumbnailStateInput)(nil)).Elem(), FlowSourceMonitoringConfigThumbnailState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigThumbnailStatePtrInput)(nil)).Elem(), FlowSourceMonitoringConfigThumbnailState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceProtocolInput)(nil)).Elem(), FlowSourceProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceProtocolPtrInput)(nil)).Elem(), FlowSourceProtocol("zixi-push"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceNetworkInterfaceTypeInput)(nil)).Elem(), FlowVpcInterfaceNetworkInterfaceType("ena"))
@@ -5399,6 +5567,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceEncryptionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionKeyTypeOutput{})
 	pulumi.RegisterOutputType(FlowSourceEncryptionKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceMonitoringConfigThumbnailStateOutput{})
+	pulumi.RegisterOutputType(FlowSourceMonitoringConfigThumbnailStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceProtocolOutput{})
 	pulumi.RegisterOutputType(FlowSourceProtocolPtrOutput{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceNetworkInterfaceTypeOutput{})

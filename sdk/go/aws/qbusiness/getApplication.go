@@ -49,7 +49,7 @@ type LookupApplicationResult struct {
 	PersonalizationConfiguration *ApplicationPersonalizationConfiguration `pulumi:"personalizationConfiguration"`
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration *ApplicationQAppsConfiguration `pulumi:"qAppsConfiguration"`
-	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 	RoleArn *string `pulumi:"roleArn"`
 	// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
 	Status *ApplicationStatus `pulumi:"status"`
@@ -151,7 +151,7 @@ func (o LookupApplicationResultOutput) QAppsConfiguration() ApplicationQAppsConf
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationQAppsConfiguration { return v.QAppsConfiguration }).(ApplicationQAppsConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 func (o LookupApplicationResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

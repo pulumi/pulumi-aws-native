@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowResult:
-    def __init__(__self__, egress_ip=None, flow_arn=None, flow_availability_zone=None, maintenance=None, media_streams=None, source=None, source_failover_config=None, vpc_interfaces=None):
+    def __init__(__self__, egress_ip=None, flow_arn=None, flow_availability_zone=None, maintenance=None, media_streams=None, source=None, source_failover_config=None, source_monitoring_config=None, vpc_interfaces=None):
         if egress_ip and not isinstance(egress_ip, str):
             raise TypeError("Expected argument 'egress_ip' to be a str")
         pulumi.set(__self__, "egress_ip", egress_ip)
@@ -42,6 +42,9 @@ class GetFlowResult:
         if source_failover_config and not isinstance(source_failover_config, dict):
             raise TypeError("Expected argument 'source_failover_config' to be a dict")
         pulumi.set(__self__, "source_failover_config", source_failover_config)
+        if source_monitoring_config and not isinstance(source_monitoring_config, dict):
+            raise TypeError("Expected argument 'source_monitoring_config' to be a dict")
+        pulumi.set(__self__, "source_monitoring_config", source_monitoring_config)
         if vpc_interfaces and not isinstance(vpc_interfaces, list):
             raise TypeError("Expected argument 'vpc_interfaces' to be a list")
         pulumi.set(__self__, "vpc_interfaces", vpc_interfaces)
@@ -74,7 +77,7 @@ class GetFlowResult:
     @pulumi.getter
     def maintenance(self) -> Optional['outputs.FlowMaintenance']:
         """
-        The maintenance settings you want to use for the flow. 
+        The maintenance settings you want to use for the flow.
         """
         return pulumi.get(self, "maintenance")
 
@@ -103,6 +106,14 @@ class GetFlowResult:
         return pulumi.get(self, "source_failover_config")
 
     @property
+    @pulumi.getter(name="sourceMonitoringConfig")
+    def source_monitoring_config(self) -> Optional['outputs.FlowSourceMonitoringConfig']:
+        """
+        The source monitoring config of the flow.
+        """
+        return pulumi.get(self, "source_monitoring_config")
+
+    @property
     @pulumi.getter(name="vpcInterfaces")
     def vpc_interfaces(self) -> Optional[Sequence['outputs.FlowVpcInterface']]:
         """
@@ -124,6 +135,7 @@ class AwaitableGetFlowResult(GetFlowResult):
             media_streams=self.media_streams,
             source=self.source,
             source_failover_config=self.source_failover_config,
+            source_monitoring_config=self.source_monitoring_config,
             vpc_interfaces=self.vpc_interfaces)
 
 
@@ -148,6 +160,7 @@ def get_flow(flow_arn: Optional[str] = None,
         media_streams=pulumi.get(__ret__, 'media_streams'),
         source=pulumi.get(__ret__, 'source'),
         source_failover_config=pulumi.get(__ret__, 'source_failover_config'),
+        source_monitoring_config=pulumi.get(__ret__, 'source_monitoring_config'),
         vpc_interfaces=pulumi.get(__ret__, 'vpc_interfaces'))
 
 

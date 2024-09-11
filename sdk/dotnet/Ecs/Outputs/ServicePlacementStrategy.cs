@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// The ``PlacementStrategy`` property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
+    /// The task placement strategy for a task or service. For more information, see [Task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
     /// </summary>
     [OutputType]
     public sealed class ServicePlacementStrategy
     {
         /// <summary>
-        /// The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``CPU`` and ``MEMORY``. For the ``random`` placement strategy, this field is not used.
+        /// The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that's applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``cpu`` and ``memory``. For the ``random`` placement strategy, this field is not used.
         /// </summary>
         public readonly string? Field;
         /// <summary>

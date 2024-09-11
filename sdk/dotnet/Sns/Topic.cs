@@ -13,6 +13,136 @@ namespace Pulumi.AwsNative.Sns
     /// The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
     ///   One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
     ///    The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
+    /// 
+    /// ## Example Usage
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var carSalesTopic = new AwsNative.Sns.Topic("carSalesTopic");
+    /// 
+    ///     var erpIntegrationQueue = new AwsNative.Sqs.Queue("erpIntegrationQueue");
+    /// 
+    ///     var erpSubscription = new AwsNative.Sns.Subscription("erpSubscription", new()
+    ///     {
+    ///         TopicArn = carSalesTopic.Id,
+    ///         Endpoint = erpIntegrationQueue.Arn,
+    ///         Protocol = "sqs",
+    ///         RawMessageDelivery = true,
+    ///     });
+    /// 
+    ///     var crmIntegrationQueue = new AwsNative.Sqs.Queue("crmIntegrationQueue");
+    /// 
+    ///     var crmSubscription = new AwsNative.Sns.Subscription("crmSubscription", new()
+    ///     {
+    ///         TopicArn = carSalesTopic.Id,
+    ///         Endpoint = crmIntegrationQueue.Arn,
+    ///         Protocol = "sqs",
+    ///         RawMessageDelivery = true,
+    ///         FilterPolicy = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["buyer-class"] = new[]
+    ///             {
+    ///                 "vip",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var config = new Config();
+    ///     var myHttpEndpoint = config.Require("myHttpEndpoint");
+    ///     var scmSubscription = new AwsNative.Sns.Subscription("scmSubscription", new()
+    ///     {
+    ///         TopicArn = carSalesTopic.Id,
+    ///         Endpoint = myHttpEndpoint,
+    ///         Protocol = "https",
+    ///         DeliveryPolicy = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["healthyRetryPolicy"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["numRetries"] = 20,
+    ///                 ["minDelayTarget"] = 10,
+    ///                 ["maxDelayTarget"] = 30,
+    ///                 ["numMinDelayRetries"] = 3,
+    ///                 ["numMaxDelayRetries"] = 17,
+    ///                 ["numNoDelayRetries"] = 0,
+    ///                 ["backoffFunction"] = "exponential",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var carSalesTopic = new AwsNative.Sns.Topic("carSalesTopic");
+    /// 
+    ///     var erpIntegrationQueue = new AwsNative.Sqs.Queue("erpIntegrationQueue");
+    /// 
+    ///     var erpSubscription = new AwsNative.Sns.Subscription("erpSubscription", new()
+    ///     {
+    ///         TopicArn = carSalesTopic.Id,
+    ///         Endpoint = erpIntegrationQueue.Arn,
+    ///         Protocol = "sqs",
+    ///         RawMessageDelivery = true,
+    ///     });
+    /// 
+    ///     var crmIntegrationQueue = new AwsNative.Sqs.Queue("crmIntegrationQueue");
+    /// 
+    ///     var crmSubscription = new AwsNative.Sns.Subscription("crmSubscription", new()
+    ///     {
+    ///         TopicArn = carSalesTopic.Id,
+    ///         Endpoint = crmIntegrationQueue.Arn,
+    ///         Protocol = "sqs",
+    ///         RawMessageDelivery = true,
+    ///         FilterPolicy = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["buyer-class"] = new[]
+    ///             {
+    ///                 "vip",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var config = new Config();
+    ///     var myHttpEndpoint = config.Require("myHttpEndpoint");
+    ///     var scmSubscription = new AwsNative.Sns.Subscription("scmSubscription", new()
+    ///     {
+    ///         TopicArn = carSalesTopic.Id,
+    ///         Endpoint = myHttpEndpoint,
+    ///         Protocol = "https",
+    ///         DeliveryPolicy = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["healthyRetryPolicy"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["numRetries"] = 20,
+    ///                 ["minDelayTarget"] = 10,
+    ///                 ["maxDelayTarget"] = 30,
+    ///                 ["numMinDelayRetries"] = 3,
+    ///                 ["numMaxDelayRetries"] = 17,
+    ///                 ["numNoDelayRetries"] = 0,
+    ///                 ["backoffFunction"] = "exponential",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
     /// </summary>
     [AwsNativeResourceType("aws-native:sns:Topic")]
     public partial class Topic : global::Pulumi.CustomResource

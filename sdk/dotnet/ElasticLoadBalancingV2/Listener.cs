@@ -41,6 +41,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
+        [Output("listenerAttributes")]
+        public Output<ImmutableArray<Outputs.ListenerAttribute>> ListenerAttributes { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the load balancer.
         /// </summary>
@@ -158,6 +161,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         {
             get => _defaultActions ?? (_defaultActions = new InputList<Inputs.ListenerActionArgs>());
             set => _defaultActions = value;
+        }
+
+        [Input("listenerAttributes")]
+        private InputList<Inputs.ListenerAttributeArgs>? _listenerAttributes;
+        public InputList<Inputs.ListenerAttributeArgs> ListenerAttributes
+        {
+            get => _listenerAttributes ?? (_listenerAttributes = new InputList<Inputs.ListenerAttributeArgs>());
+            set => _listenerAttributes = value;
         }
 
         /// <summary>

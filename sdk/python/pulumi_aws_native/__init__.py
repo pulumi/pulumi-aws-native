@@ -330,6 +330,8 @@ if typing.TYPE_CHECKING:
     paymentcryptography = __paymentcryptography
     import pulumi_aws_native.pcaconnectorad as __pcaconnectorad
     pcaconnectorad = __pcaconnectorad
+    import pulumi_aws_native.pcaconnectorscep as __pcaconnectorscep
+    pcaconnectorscep = __pcaconnectorscep
     import pulumi_aws_native.personalize as __personalize
     personalize = __personalize
     import pulumi_aws_native.pinpoint as __pinpoint
@@ -607,6 +609,7 @@ else:
     panorama = _utilities.lazy_import('pulumi_aws_native.panorama')
     paymentcryptography = _utilities.lazy_import('pulumi_aws_native.paymentcryptography')
     pcaconnectorad = _utilities.lazy_import('pulumi_aws_native.pcaconnectorad')
+    pcaconnectorscep = _utilities.lazy_import('pulumi_aws_native.pcaconnectorscep')
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pipes = _utilities.lazy_import('pulumi_aws_native.pipes')
@@ -2278,8 +2281,17 @@ _utilities.register(
   "mod": "medialive",
   "fqn": "pulumi_aws_native.medialive",
   "classes": {
+   "aws-native:medialive:ChannelPlacementGroup": "ChannelPlacementGroup",
+   "aws-native:medialive:CloudWatchAlarmTemplate": "CloudWatchAlarmTemplate",
+   "aws-native:medialive:CloudWatchAlarmTemplateGroup": "CloudWatchAlarmTemplateGroup",
+   "aws-native:medialive:Cluster": "Cluster",
+   "aws-native:medialive:EventBridgeRuleTemplate": "EventBridgeRuleTemplate",
+   "aws-native:medialive:EventBridgeRuleTemplateGroup": "EventBridgeRuleTemplateGroup",
    "aws-native:medialive:Multiplex": "Multiplex",
-   "aws-native:medialive:Multiplexprogram": "Multiplexprogram"
+   "aws-native:medialive:Multiplexprogram": "Multiplexprogram",
+   "aws-native:medialive:Network": "Network",
+   "aws-native:medialive:SdiSource": "SdiSource",
+   "aws-native:medialive:SignalMap": "SignalMap"
   }
  },
  {
@@ -2514,6 +2526,15 @@ _utilities.register(
    "aws-native:pcaconnectorad:ServicePrincipalName": "ServicePrincipalName",
    "aws-native:pcaconnectorad:Template": "Template",
    "aws-native:pcaconnectorad:TemplateGroupAccessControlEntry": "TemplateGroupAccessControlEntry"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "pcaconnectorscep",
+  "fqn": "pulumi_aws_native.pcaconnectorscep",
+  "classes": {
+   "aws-native:pcaconnectorscep:Challenge": "Challenge",
+   "aws-native:pcaconnectorscep:Connector": "Connector"
   }
  },
  {
@@ -2834,6 +2855,7 @@ _utilities.register(
   "classes": {
    "aws-native:sagemaker:App": "App",
    "aws-native:sagemaker:AppImageConfig": "AppImageConfig",
+   "aws-native:sagemaker:Cluster": "Cluster",
    "aws-native:sagemaker:DataQualityJobDefinition": "DataQualityJobDefinition",
    "aws-native:sagemaker:Device": "Device",
    "aws-native:sagemaker:DeviceFleet": "DeviceFleet",
@@ -2980,6 +3002,7 @@ _utilities.register(
   "mod": "sns",
   "fqn": "pulumi_aws_native.sns",
   "classes": {
+   "aws-native:sns:Subscription": "Subscription",
    "aws-native:sns:Topic": "Topic",
    "aws-native:sns:TopicInlinePolicy": "TopicInlinePolicy",
    "aws-native:sns:TopicPolicy": "TopicPolicy"

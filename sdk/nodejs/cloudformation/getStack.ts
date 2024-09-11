@@ -92,7 +92,7 @@ export interface GetStackResult {
      */
     readonly lastUpdateTime?: string;
     /**
-     * The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+     * The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
      */
     readonly notificationArns?: string[];
     /**
@@ -112,7 +112,7 @@ export interface GetStackResult {
     /**
      * For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
      *
-     * For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+     * For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
      */
     readonly parentId?: string;
     /**
@@ -124,7 +124,7 @@ export interface GetStackResult {
     /**
      * For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
      *
-     * For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+     * For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
      */
     readonly rootId?: string;
     /**
@@ -146,7 +146,7 @@ export interface GetStackResult {
      */
     readonly stackStatusReason?: string;
     /**
-     * Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+     * Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
      */
     readonly tags?: outputs.Tag[];
     /**

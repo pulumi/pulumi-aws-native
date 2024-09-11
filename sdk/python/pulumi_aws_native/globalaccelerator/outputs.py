@@ -40,22 +40,39 @@ class CrossAccountAttachmentResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 endpoint_id: str,
+                 cidr: Optional[str] = None,
+                 endpoint_id: Optional[str] = None,
                  region: Optional[str] = None):
         """
         ARN of resource to share.
+        :param str cidr: An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
+               
+               For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
         :param str endpoint_id: The endpoint ID for the endpoint that is specified as a AWS resource.
                
                An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
         :param str region: The AWS Region where a shared endpoint resource is located.
         """
-        pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if endpoint_id is not None:
+            pulumi.set(__self__, "endpoint_id", endpoint_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
 
     @property
+    @pulumi.getter
+    def cidr(self) -> Optional[str]:
+        """
+        An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
+
+        For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
+        """
+        return pulumi.get(self, "cidr")
+
+    @property
     @pulumi.getter(name="endpointId")
-    def endpoint_id(self) -> str:
+    def endpoint_id(self) -> Optional[str]:
         """
         The endpoint ID for the endpoint that is specified as a AWS resource.
 

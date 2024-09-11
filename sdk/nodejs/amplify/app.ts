@@ -72,6 +72,10 @@ export class App extends pulumi.CustomResource {
      */
     public readonly buildSpec!: pulumi.Output<string | undefined>;
     /**
+     * The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+     */
+    public readonly cacheConfig!: pulumi.Output<outputs.amplify.AppCacheConfig | undefined>;
+    /**
      * The custom HTTP headers for an Amplify app.
      */
     public readonly customHeaders!: pulumi.Output<string | undefined>;
@@ -117,6 +121,8 @@ export class App extends pulumi.CustomResource {
     public readonly oauthToken!: pulumi.Output<string | undefined>;
     /**
      * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+     *
+     * If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
      */
     public readonly platform!: pulumi.Output<enums.amplify.AppPlatform | undefined>;
     /**
@@ -143,6 +149,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["autoBranchCreationConfig"] = args ? args.autoBranchCreationConfig : undefined;
             resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
             resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["cacheConfig"] = args ? args.cacheConfig : undefined;
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["customRules"] = args ? args.customRules : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -166,6 +173,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["autoBranchCreationConfig"] = undefined /*out*/;
             resourceInputs["basicAuthConfig"] = undefined /*out*/;
             resourceInputs["buildSpec"] = undefined /*out*/;
+            resourceInputs["cacheConfig"] = undefined /*out*/;
             resourceInputs["customHeaders"] = undefined /*out*/;
             resourceInputs["customRules"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
@@ -211,6 +219,10 @@ export interface AppArgs {
      */
     buildSpec?: pulumi.Input<string>;
     /**
+     * The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+     */
+    cacheConfig?: pulumi.Input<inputs.amplify.AppCacheConfigArgs>;
+    /**
      * The custom HTTP headers for an Amplify app.
      */
     customHeaders?: pulumi.Input<string>;
@@ -252,6 +264,8 @@ export interface AppArgs {
     oauthToken?: pulumi.Input<string>;
     /**
      * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+     *
+     * If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
      */
     platform?: pulumi.Input<enums.amplify.AppPlatform>;
     /**

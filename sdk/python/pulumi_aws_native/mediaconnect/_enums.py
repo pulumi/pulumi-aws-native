@@ -34,6 +34,7 @@ __all__ = [
     'FlowOutputProtocol',
     'FlowSourceEncryptionAlgorithm',
     'FlowSourceEncryptionKeyType',
+    'FlowSourceMonitoringConfigThumbnailState',
     'FlowSourceProtocol',
     'FlowVpcInterfaceNetworkInterfaceType',
     'GatewayState',
@@ -307,6 +308,14 @@ class FlowSourceEncryptionKeyType(str, Enum):
     SPEKE = "speke"
     STATIC_KEY = "static-key"
     SRT_PASSWORD = "srt-password"
+
+
+class FlowSourceMonitoringConfigThumbnailState(str, Enum):
+    """
+    The state of thumbnail monitoring.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class FlowSourceProtocol(str, Enum):

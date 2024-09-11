@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceLevelObjectiveResult:
-    def __init__(__self__, arn=None, created_time=None, description=None, goal=None, last_updated_time=None, sli=None, tags=None):
+    def __init__(__self__, arn=None, created_time=None, description=None, evaluation_type=None, goal=None, last_updated_time=None, request_based_sli=None, sli=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -31,12 +31,18 @@ class GetServiceLevelObjectiveResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if evaluation_type and not isinstance(evaluation_type, str):
+            raise TypeError("Expected argument 'evaluation_type' to be a str")
+        pulumi.set(__self__, "evaluation_type", evaluation_type)
         if goal and not isinstance(goal, dict):
             raise TypeError("Expected argument 'goal' to be a dict")
         pulumi.set(__self__, "goal", goal)
         if last_updated_time and not isinstance(last_updated_time, int):
             raise TypeError("Expected argument 'last_updated_time' to be a int")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if request_based_sli and not isinstance(request_based_sli, dict):
+            raise TypeError("Expected argument 'request_based_sli' to be a dict")
+        pulumi.set(__self__, "request_based_sli", request_based_sli)
         if sli and not isinstance(sli, dict):
             raise TypeError("Expected argument 'sli' to be a dict")
         pulumi.set(__self__, "sli", sli)
@@ -69,6 +75,14 @@ class GetServiceLevelObjectiveResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="evaluationType")
+    def evaluation_type(self) -> Optional['ServiceLevelObjectiveEvaluationType']:
+        """
+        Displays whether this is a period-based SLO or a request-based SLO.
+        """
+        return pulumi.get(self, "evaluation_type")
+
+    @property
     @pulumi.getter
     def goal(self) -> Optional['outputs.ServiceLevelObjectiveGoal']:
         """
@@ -85,10 +99,18 @@ class GetServiceLevelObjectiveResult:
         return pulumi.get(self, "last_updated_time")
 
     @property
+    @pulumi.getter(name="requestBasedSli")
+    def request_based_sli(self) -> Optional['outputs.ServiceLevelObjectiveRequestBasedSli']:
+        """
+        A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+        """
+        return pulumi.get(self, "request_based_sli")
+
+    @property
     @pulumi.getter
     def sli(self) -> Optional['outputs.ServiceLevelObjectiveSli']:
         """
-        A structure containing information about the performance metric that this SLO monitors.
+        A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
         """
         return pulumi.get(self, "sli")
 
@@ -112,8 +134,10 @@ class AwaitableGetServiceLevelObjectiveResult(GetServiceLevelObjectiveResult):
             arn=self.arn,
             created_time=self.created_time,
             description=self.description,
+            evaluation_type=self.evaluation_type,
             goal=self.goal,
             last_updated_time=self.last_updated_time,
+            request_based_sli=self.request_based_sli,
             sli=self.sli,
             tags=self.tags)
 
@@ -135,8 +159,10 @@ def get_service_level_objective(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
+        evaluation_type=pulumi.get(__ret__, 'evaluation_type'),
         goal=pulumi.get(__ret__, 'goal'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        request_based_sli=pulumi.get(__ret__, 'request_based_sli'),
         sli=pulumi.get(__ret__, 'sli'),
         tags=pulumi.get(__ret__, 'tags'))
 

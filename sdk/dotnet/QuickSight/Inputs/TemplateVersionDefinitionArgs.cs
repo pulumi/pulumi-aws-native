@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _parameterDeclarations = value;
         }
 
+        [Input("queryExecutionOptions")]
+        public Input<Inputs.TemplateQueryExecutionOptionsArgs>? QueryExecutionOptions { get; set; }
+
         [Input("sheets")]
         private InputList<Inputs.TemplateSheetDefinitionArgs>? _sheets;
 

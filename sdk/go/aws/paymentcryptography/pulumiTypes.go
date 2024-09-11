@@ -402,7 +402,7 @@ type KeyTag struct {
 	// The key of the tag.
 	Key string `pulumi:"key"`
 	// The value of the tag.
-	Value *string `pulumi:"value"`
+	Value string `pulumi:"value"`
 }
 
 func init() {

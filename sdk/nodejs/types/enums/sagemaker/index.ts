@@ -86,6 +86,41 @@ export const AppType = {
  */
 export type AppType = (typeof AppType)[keyof typeof AppType];
 
+export const ClusterDeepHealthCheckType = {
+    InstanceStress: "InstanceStress",
+    InstanceConnectivity: "InstanceConnectivity",
+} as const;
+
+/**
+ * The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.
+ */
+export type ClusterDeepHealthCheckType = (typeof ClusterDeepHealthCheckType)[keyof typeof ClusterDeepHealthCheckType];
+
+export const ClusterNodeRecovery = {
+    Automatic: "Automatic",
+    None: "None",
+} as const;
+
+/**
+ * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
+ */
+export type ClusterNodeRecovery = (typeof ClusterNodeRecovery)[keyof typeof ClusterNodeRecovery];
+
+export const ClusterStatus = {
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+    InService: "InService",
+    RollingBack: "RollingBack",
+    SystemUpdating: "SystemUpdating",
+    Updating: "Updating",
+} as const;
+
+/**
+ * The status of the HyperPod Cluster.
+ */
+export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
+
 export const DataQualityJobDefinitionBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",
@@ -188,6 +223,16 @@ export const DomainDockerSettingsEnableDockerAccess = {
  */
 export type DomainDockerSettingsEnableDockerAccess = (typeof DomainDockerSettingsEnableDockerAccess)[keyof typeof DomainDockerSettingsEnableDockerAccess];
 
+export const DomainLifecycleManagement = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * A flag to enable/disable AppLifecycleManagement settings
+ */
+export type DomainLifecycleManagement = (typeof DomainLifecycleManagement)[keyof typeof DomainLifecycleManagement];
+
 export const DomainMlTools = {
     DataWrangler: "DataWrangler",
     FeatureStore: "FeatureStore",
@@ -202,6 +247,7 @@ export const DomainMlTools = {
     InferenceRecommender: "InferenceRecommender",
     Endpoints: "Endpoints",
     Projects: "Projects",
+    InferenceOptimization: "InferenceOptimization",
 } as const;
 
 export type DomainMlTools = (typeof DomainMlTools)[keyof typeof DomainMlTools];
@@ -1106,6 +1152,16 @@ export const UserProfileAppType = {
 
 export type UserProfileAppType = (typeof UserProfileAppType)[keyof typeof UserProfileAppType];
 
+export const UserProfileLifecycleManagement = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * A flag to enable/disable AppLifecycleManagement settings
+ */
+export type UserProfileLifecycleManagement = (typeof UserProfileLifecycleManagement)[keyof typeof UserProfileLifecycleManagement];
+
 export const UserProfileMlTools = {
     DataWrangler: "DataWrangler",
     FeatureStore: "FeatureStore",
@@ -1120,6 +1176,7 @@ export const UserProfileMlTools = {
     InferenceRecommender: "InferenceRecommender",
     Endpoints: "Endpoints",
     Projects: "Projects",
+    InferenceOptimization: "InferenceOptimization",
 } as const;
 
 export type UserProfileMlTools = (typeof UserProfileMlTools)[keyof typeof UserProfileMlTools];

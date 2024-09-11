@@ -103,7 +103,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdateTime!: pulumi.Output<string>;
     /**
-     * The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+     * The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
      */
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     /**
@@ -123,7 +123,7 @@ export class Stack extends pulumi.CustomResource {
     /**
      * For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
      *
-     * For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+     * For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
      */
     public /*out*/ readonly parentId!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export class Stack extends pulumi.CustomResource {
     /**
      * For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
      *
-     * For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+     * For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
      */
     public /*out*/ readonly rootId!: pulumi.Output<string>;
     /**
@@ -167,7 +167,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly stackStatusReason!: pulumi.Output<string | undefined>;
     /**
-     * Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+     * Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -315,7 +315,7 @@ export interface StackArgs {
      */
     enableTerminationProtection?: pulumi.Input<boolean>;
     /**
-     * The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+     * The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
      */
     notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -355,7 +355,7 @@ export interface StackArgs {
      */
     stackStatusReason?: pulumi.Input<string>;
     /**
-     * Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+     * Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

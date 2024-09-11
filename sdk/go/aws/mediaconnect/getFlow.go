@@ -42,6 +42,8 @@ type LookupFlowResult struct {
 	Source *FlowSourceType `pulumi:"source"`
 	// The source failover config of the flow.
 	SourceFailoverConfig *FlowFailoverConfig `pulumi:"sourceFailoverConfig"`
+	// The source monitoring config of the flow.
+	SourceMonitoringConfig *FlowSourceMonitoringConfig `pulumi:"sourceMonitoringConfig"`
 	// The VPC interfaces that you added to this flow.
 	VpcInterfaces []FlowVpcInterfaceType `pulumi:"vpcInterfaces"`
 }
@@ -115,6 +117,11 @@ func (o LookupFlowResultOutput) Source() FlowSourceTypePtrOutput {
 // The source failover config of the flow.
 func (o LookupFlowResultOutput) SourceFailoverConfig() FlowFailoverConfigPtrOutput {
 	return o.ApplyT(func(v LookupFlowResult) *FlowFailoverConfig { return v.SourceFailoverConfig }).(FlowFailoverConfigPtrOutput)
+}
+
+// The source monitoring config of the flow.
+func (o LookupFlowResultOutput) SourceMonitoringConfig() FlowSourceMonitoringConfigPtrOutput {
+	return o.ApplyT(func(v LookupFlowResult) *FlowSourceMonitoringConfig { return v.SourceMonitoringConfig }).(FlowSourceMonitoringConfigPtrOutput)
 }
 
 // The VPC interfaces that you added to this flow.

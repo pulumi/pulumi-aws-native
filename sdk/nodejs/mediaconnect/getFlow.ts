@@ -39,7 +39,7 @@ export interface GetFlowResult {
      */
     readonly flowAvailabilityZone?: string;
     /**
-     * The maintenance settings you want to use for the flow. 
+     * The maintenance settings you want to use for the flow.
      */
     readonly maintenance?: outputs.mediaconnect.FlowMaintenance;
     /**
@@ -54,6 +54,10 @@ export interface GetFlowResult {
      * The source failover config of the flow.
      */
     readonly sourceFailoverConfig?: outputs.mediaconnect.FlowFailoverConfig;
+    /**
+     * The source monitoring config of the flow.
+     */
+    readonly sourceMonitoringConfig?: outputs.mediaconnect.FlowSourceMonitoringConfig;
     /**
      * The VPC interfaces that you added to this flow.
      */

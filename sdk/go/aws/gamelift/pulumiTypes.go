@@ -2551,7 +2551,7 @@ func (o FleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 type FleetLocationConfiguration struct {
 	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Location string `pulumi:"location"`
-	// Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+	// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 	//
 	// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 	LocationCapacity *FleetLocationCapacity `pulumi:"locationCapacity"`
@@ -2572,7 +2572,7 @@ type FleetLocationConfigurationInput interface {
 type FleetLocationConfigurationArgs struct {
 	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Location pulumi.StringInput `pulumi:"location"`
-	// Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+	// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 	//
 	// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 	LocationCapacity FleetLocationCapacityPtrInput `pulumi:"locationCapacity"`
@@ -2635,7 +2635,7 @@ func (o FleetLocationConfigurationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetLocationConfiguration) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+// Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 //
 // *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 func (o FleetLocationConfigurationOutput) LocationCapacity() FleetLocationCapacityPtrOutput {

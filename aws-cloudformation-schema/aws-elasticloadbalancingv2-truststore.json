@@ -67,7 +67,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "elasticloadbalancing:AddTags", "elasticloadbalancing:DescribeTags", "elasticloadbalancing:RemoveTags" ]
   },
   "handlers" : {
     "create" : {

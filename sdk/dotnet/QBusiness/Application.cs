@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<Outputs.ApplicationQAppsConfiguration?> QAppsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Input<Inputs.ApplicationQAppsConfigurationArgs>? QAppsConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

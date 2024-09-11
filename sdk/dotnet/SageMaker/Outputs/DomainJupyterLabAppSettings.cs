@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainJupyterLabAppSettings
     {
+        public readonly Outputs.DomainAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// A list of CodeRepositories available for use with JupyterLab apps.
         /// </summary>
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DomainJupyterLabAppSettings(
+            Outputs.DomainAppLifecycleManagement? appLifecycleManagement,
+
             ImmutableArray<Outputs.DomainCodeRepository> codeRepositories,
 
             ImmutableArray<Outputs.DomainCustomImage> customImages,
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             ImmutableArray<string> lifecycleConfigArns)
         {
+            AppLifecycleManagement = appLifecycleManagement;
             CodeRepositories = codeRepositories;
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;

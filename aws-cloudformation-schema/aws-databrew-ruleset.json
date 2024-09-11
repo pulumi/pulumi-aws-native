@@ -184,7 +184,7 @@
   "additionalProperties" : false,
   "required" : [ "Name", "TargetArn", "Rules" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/TargetArn" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/TargetArn", "/properties/Tags" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "databrew:CreateRuleset", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]

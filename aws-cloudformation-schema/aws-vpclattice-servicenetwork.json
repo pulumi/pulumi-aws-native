@@ -74,10 +74,10 @@
       "permissions" : [ "vpc-lattice:GetServiceNetwork", "vpc-lattice:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "vpc-lattice:GetServiceNetwork", "vpc-lattice:UpdateServiceNetwork", "vpc-lattice:TagResource", "vpc-lattice:UntagResource" ]
+      "permissions" : [ "vpc-lattice:GetServiceNetwork", "vpc-lattice:UpdateServiceNetwork", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "vpc-lattice:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "vpc-lattice:DeleteServiceNetwork" ]
+      "permissions" : [ "vpc-lattice:DeleteServiceNetwork", "vpc-lattice:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "vpc-lattice:ListServiceNetworks" ]
@@ -88,6 +88,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "vpc-lattice:UntagResource", "vpc-lattice:TagResource", "vpc-lattice:ListTagsForResource" ]
   }
 }

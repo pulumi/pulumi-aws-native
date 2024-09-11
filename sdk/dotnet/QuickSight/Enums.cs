@@ -1900,6 +1900,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisQueryExecutionMode : IEquatable<AnalysisQueryExecutionMode>
+    {
+        private readonly string _value;
+
+        private AnalysisQueryExecutionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisQueryExecutionMode Auto { get; } = new AnalysisQueryExecutionMode("AUTO");
+        public static AnalysisQueryExecutionMode Manual { get; } = new AnalysisQueryExecutionMode("MANUAL");
+
+        public static bool operator ==(AnalysisQueryExecutionMode left, AnalysisQueryExecutionMode right) => left.Equals(right);
+        public static bool operator !=(AnalysisQueryExecutionMode left, AnalysisQueryExecutionMode right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisQueryExecutionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisQueryExecutionMode other && Equals(other);
+        public bool Equals(AnalysisQueryExecutionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisRadarChartAxesRangeScale : IEquatable<AnalysisRadarChartAxesRangeScale>
     {
         private readonly string _value;
@@ -9457,6 +9485,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplatePrimaryValueDisplayType other && Equals(other);
         public bool Equals(TemplatePrimaryValueDisplayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateQueryExecutionMode : IEquatable<TemplateQueryExecutionMode>
+    {
+        private readonly string _value;
+
+        private TemplateQueryExecutionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateQueryExecutionMode Auto { get; } = new TemplateQueryExecutionMode("AUTO");
+        public static TemplateQueryExecutionMode Manual { get; } = new TemplateQueryExecutionMode("MANUAL");
+
+        public static bool operator ==(TemplateQueryExecutionMode left, TemplateQueryExecutionMode right) => left.Equals(right);
+        public static bool operator !=(TemplateQueryExecutionMode left, TemplateQueryExecutionMode right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateQueryExecutionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateQueryExecutionMode other && Equals(other);
+        public bool Equals(TemplateQueryExecutionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -255,10 +255,10 @@
       "permissions" : [ "vpc-lattice:GetRule", "vpc-lattice:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "vpc-lattice:UpdateRule", "vpc-lattice:GetRule", "vpc-lattice:TagResource", "vpc-lattice:UntagResource" ]
+      "permissions" : [ "vpc-lattice:UpdateRule", "vpc-lattice:GetRule", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "vpc-lattice:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "vpc-lattice:DeleteRule" ]
+      "permissions" : [ "vpc-lattice:DeleteRule", "vpc-lattice:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "vpc-lattice:ListRules" ],
@@ -286,6 +286,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "vpc-lattice:UntagResource", "vpc-lattice:TagResource", "vpc-lattice:ListTagsForResource" ]
   }
 }

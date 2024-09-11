@@ -35,11 +35,15 @@ type LookupServiceLevelObjectiveResult struct {
 	CreatedTime *int `pulumi:"createdTime"`
 	// An optional description for this SLO. Default is 'No description'
 	Description *string `pulumi:"description"`
+	// Displays whether this is a period-based SLO or a request-based SLO.
+	EvaluationType *ServiceLevelObjectiveEvaluationType `pulumi:"evaluationType"`
 	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 	Goal *ServiceLevelObjectiveGoal `pulumi:"goal"`
 	// Epoch time in seconds of the time that this SLO was most recently updated
 	LastUpdatedTime *int `pulumi:"lastUpdatedTime"`
-	// A structure containing information about the performance metric that this SLO monitors.
+	// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+	RequestBasedSli *ServiceLevelObjectiveRequestBasedSli `pulumi:"requestBasedSli"`
+	// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
 	Sli *ServiceLevelObjectiveSli `pulumi:"sli"`
 	// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
 	//
@@ -98,6 +102,13 @@ func (o LookupServiceLevelObjectiveResultOutput) Description() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Displays whether this is a period-based SLO or a request-based SLO.
+func (o LookupServiceLevelObjectiveResultOutput) EvaluationType() ServiceLevelObjectiveEvaluationTypePtrOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *ServiceLevelObjectiveEvaluationType {
+		return v.EvaluationType
+	}).(ServiceLevelObjectiveEvaluationTypePtrOutput)
+}
+
 // This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 func (o LookupServiceLevelObjectiveResultOutput) Goal() ServiceLevelObjectiveGoalPtrOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *ServiceLevelObjectiveGoal { return v.Goal }).(ServiceLevelObjectiveGoalPtrOutput)
@@ -108,7 +119,14 @@ func (o LookupServiceLevelObjectiveResultOutput) LastUpdatedTime() pulumi.IntPtr
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *int { return v.LastUpdatedTime }).(pulumi.IntPtrOutput)
 }
 
-// A structure containing information about the performance metric that this SLO monitors.
+// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+func (o LookupServiceLevelObjectiveResultOutput) RequestBasedSli() ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *ServiceLevelObjectiveRequestBasedSli {
+		return v.RequestBasedSli
+	}).(ServiceLevelObjectiveRequestBasedSliPtrOutput)
+}
+
+// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
 func (o LookupServiceLevelObjectiveResultOutput) Sli() ServiceLevelObjectiveSliPtrOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *ServiceLevelObjectiveSli { return v.Sli }).(ServiceLevelObjectiveSliPtrOutput)
 }

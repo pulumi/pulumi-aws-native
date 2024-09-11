@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// </summary>
         public readonly string? MaxLength;
         /// <summary>
-        /// The minimum length.
+        /// The minimum length of a string attribute value.
         /// </summary>
         public readonly string? MinLength;
 

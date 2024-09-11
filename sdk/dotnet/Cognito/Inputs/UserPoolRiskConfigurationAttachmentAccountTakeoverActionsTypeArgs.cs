@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to take for a high risk.
+        /// The action that you assign to a high-risk assessment by advanced security features.
         /// </summary>
         [Input("highAction")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs>? HighAction { get; set; }
 
         /// <summary>
-        /// Action to take for a low risk.
+        /// The action that you assign to a low-risk assessment by advanced security features.
         /// </summary>
         [Input("lowAction")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs>? LowAction { get; set; }
 
         /// <summary>
-        /// Action to take for a medium risk.
+        /// The action that you assign to a medium-risk assessment by advanced security features.
         /// </summary>
         [Input("mediumAction")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs>? MediumAction { get; set; }

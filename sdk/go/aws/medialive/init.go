@@ -21,10 +21,28 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:medialive:ChannelPlacementGroup":
+		r = &ChannelPlacementGroup{}
+	case "aws-native:medialive:CloudWatchAlarmTemplate":
+		r = &CloudWatchAlarmTemplate{}
+	case "aws-native:medialive:CloudWatchAlarmTemplateGroup":
+		r = &CloudWatchAlarmTemplateGroup{}
+	case "aws-native:medialive:Cluster":
+		r = &Cluster{}
+	case "aws-native:medialive:EventBridgeRuleTemplate":
+		r = &EventBridgeRuleTemplate{}
+	case "aws-native:medialive:EventBridgeRuleTemplateGroup":
+		r = &EventBridgeRuleTemplateGroup{}
 	case "aws-native:medialive:Multiplex":
 		r = &Multiplex{}
 	case "aws-native:medialive:Multiplexprogram":
 		r = &Multiplexprogram{}
+	case "aws-native:medialive:Network":
+		r = &Network{}
+	case "aws-native:medialive:SdiSource":
+		r = &SdiSource{}
+	case "aws-native:medialive:SignalMap":
+		r = &SignalMap{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

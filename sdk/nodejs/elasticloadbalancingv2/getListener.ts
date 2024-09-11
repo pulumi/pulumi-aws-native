@@ -44,6 +44,7 @@ export interface GetListenerResult {
      * The Amazon Resource Name (ARN) of the listener.
      */
     readonly listenerArn?: string;
+    readonly listenerAttributes?: outputs.elasticloadbalancingv2.ListenerAttribute[];
     /**
      * The mutual authentication configuration information.
      */

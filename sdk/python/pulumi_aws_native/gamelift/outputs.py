@@ -1124,7 +1124,7 @@ class FleetLocationConfiguration(dict):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
         :param str location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
-        :param 'FleetLocationCapacity' location_capacity: Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+        :param 'FleetLocationCapacity' location_capacity: Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
                
                *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
         """
@@ -1144,7 +1144,7 @@ class FleetLocationConfiguration(dict):
     @pulumi.getter(name="locationCapacity")
     def location_capacity(self) -> Optional['outputs.FleetLocationCapacity']:
         """
-        Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+        Current resource capacity settings for managed EC2 fleets and container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 
         *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
         """

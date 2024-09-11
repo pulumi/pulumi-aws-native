@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType
     {
         /// <summary>
-        /// The compromised credentials risk configuration actions.
+        /// Settings for the actions that you want your user pool to take when Amazon Cognito detects compromised credentials.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType Actions;
         /// <summary>
-        /// Perform the action for these events. The default is to perform all events if no event filter is specified.
+        /// Settings for the sign-in activity where you want to configure compromised-credentials actions. Defaults to all events.
         /// </summary>
         public readonly ImmutableArray<string> EventFilter;
 

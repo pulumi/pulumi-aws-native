@@ -20,6 +20,7 @@ class ListenerArgs:
                  load_balancer_arn: pulumi.Input[str],
                  alpn_policy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerCertificateArgs']]]] = None,
+                 listener_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerAttributeArgs']]]] = None,
                  mutual_authentication: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,8 @@ class ListenerArgs:
             pulumi.set(__self__, "alpn_policy", alpn_policy)
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
+        if listener_attributes is not None:
+            pulumi.set(__self__, "listener_attributes", listener_attributes)
         if mutual_authentication is not None:
             pulumi.set(__self__, "mutual_authentication", mutual_authentication)
         if port is not None:
@@ -105,6 +108,15 @@ class ListenerArgs:
         pulumi.set(self, "certificates", value)
 
     @property
+    @pulumi.getter(name="listenerAttributes")
+    def listener_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerAttributeArgs']]]]:
+        return pulumi.get(self, "listener_attributes")
+
+    @listener_attributes.setter
+    def listener_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerAttributeArgs']]]]):
+        pulumi.set(self, "listener_attributes", value)
+
+    @property
     @pulumi.getter(name="mutualAuthentication")
     def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
         """
@@ -163,6 +175,7 @@ class Listener(pulumi.CustomResource):
                  alpn_policy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]]] = None,
                  default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]]] = None,
+                 listener_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -214,6 +227,7 @@ class Listener(pulumi.CustomResource):
                  alpn_policy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]]] = None,
                  default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]]] = None,
+                 listener_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -233,6 +247,7 @@ class Listener(pulumi.CustomResource):
             if default_actions is None and not opts.urn:
                 raise TypeError("Missing required property 'default_actions'")
             __props__.__dict__["default_actions"] = default_actions
+            __props__.__dict__["listener_attributes"] = listener_attributes
             if load_balancer_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_arn'")
             __props__.__dict__["load_balancer_arn"] = load_balancer_arn
@@ -269,6 +284,7 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["certificates"] = None
         __props__.__dict__["default_actions"] = None
         __props__.__dict__["listener_arn"] = None
+        __props__.__dict__["listener_attributes"] = None
         __props__.__dict__["load_balancer_arn"] = None
         __props__.__dict__["mutual_authentication"] = None
         __props__.__dict__["port"] = None
@@ -309,6 +325,11 @@ class Listener(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the listener.
         """
         return pulumi.get(self, "listener_arn")
+
+    @property
+    @pulumi.getter(name="listenerAttributes")
+    def listener_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.ListenerAttribute']]]:
+        return pulumi.get(self, "listener_attributes")
 
     @property
     @pulumi.getter(name="loadBalancerArn")

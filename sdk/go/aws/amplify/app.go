@@ -36,6 +36,8 @@ type App struct {
 	BasicAuthConfig AppBasicAuthConfigPtrOutput `pulumi:"basicAuthConfig"`
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrOutput `pulumi:"buildSpec"`
+	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+	CacheConfig AppCacheConfigPtrOutput `pulumi:"cacheConfig"`
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders pulumi.StringPtrOutput `pulumi:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -63,6 +65,8 @@ type App struct {
 	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	OauthToken pulumi.StringPtrOutput `pulumi:"oauthToken"`
 	// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+	//
+	// If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
 	Platform AppPlatformPtrOutput `pulumi:"platform"`
 	// The Git repository for the Amplify app.
 	Repository pulumi.StringPtrOutput `pulumi:"repository"`
@@ -124,6 +128,8 @@ type appArgs struct {
 	BasicAuthConfig *AppBasicAuthConfig `pulumi:"basicAuthConfig"`
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
+	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+	CacheConfig *AppCacheConfig `pulumi:"cacheConfig"`
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -149,6 +155,8 @@ type appArgs struct {
 	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	OauthToken *string `pulumi:"oauthToken"`
 	// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+	//
+	// If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
 	Platform *AppPlatform `pulumi:"platform"`
 	// The Git repository for the Amplify app.
 	Repository *string `pulumi:"repository"`
@@ -172,6 +180,8 @@ type AppArgs struct {
 	BasicAuthConfig AppBasicAuthConfigPtrInput
 	// The build specification (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrInput
+	// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+	CacheConfig AppCacheConfigPtrInput
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders pulumi.StringPtrInput
 	// The custom rewrite and redirect rules for an Amplify app.
@@ -197,6 +207,8 @@ type AppArgs struct {
 	// Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
 	OauthToken pulumi.StringPtrInput
 	// The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+	//
+	// If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
 	Platform AppPlatformPtrInput
 	// The Git repository for the Amplify app.
 	Repository pulumi.StringPtrInput
@@ -282,6 +294,11 @@ func (o AppOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
+// The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+func (o AppOutput) CacheConfig() AppCacheConfigPtrOutput {
+	return o.ApplyT(func(v *App) AppCacheConfigPtrOutput { return v.CacheConfig }).(AppCacheConfigPtrOutput)
+}
+
 // The custom HTTP headers for an Amplify app.
 func (o AppOutput) CustomHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.CustomHeaders }).(pulumi.StringPtrOutput)
@@ -336,6 +353,8 @@ func (o AppOutput) OauthToken() pulumi.StringPtrOutput {
 }
 
 // The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+//
+// If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
 func (o AppOutput) Platform() AppPlatformPtrOutput {
 	return o.ApplyT(func(v *App) AppPlatformPtrOutput { return v.Platform }).(AppPlatformPtrOutput)
 }

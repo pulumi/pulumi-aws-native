@@ -13,31 +13,31 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Email template used when a detected risk event is blocked.
+        /// The template for the email message that your user pool sends when a detected risk event is blocked.
         /// </summary>
         [Input("blockEmail")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs>? BlockEmail { get; set; }
 
         /// <summary>
-        /// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        /// The email address that sends the email message. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
         /// </summary>
         [Input("from")]
         public Input<string>? From { get; set; }
 
         /// <summary>
-        /// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
+        /// The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.
         /// </summary>
         [Input("mfaEmail")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs>? MfaEmail { get; set; }
 
         /// <summary>
-        /// The email template used when a detected risk event is allowed.
+        /// The template for the email message that your user pool sends when no action is taken in response to a detected risk.
         /// </summary>
         [Input("noActionEmail")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs>? NoActionEmail { get; set; }
 
         /// <summary>
-        /// The destination to which the receiver of an email should reply to.
+        /// The reply-to email address of an email template.
         /// </summary>
         [Input("replyTo")]
         public Input<string>? ReplyTo { get; set; }

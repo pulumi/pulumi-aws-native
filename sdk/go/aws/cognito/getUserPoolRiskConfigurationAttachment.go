@@ -25,16 +25,16 @@ func LookupUserPoolRiskConfigurationAttachment(ctx *pulumi.Context, args *Lookup
 type LookupUserPoolRiskConfigurationAttachmentArgs struct {
 	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
 	ClientId string `pulumi:"clientId"`
-	// The user pool ID.
+	// The ID of the user pool that has the risk configuration applied.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolRiskConfigurationAttachmentResult struct {
-	// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+	// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
 	AccountTakeoverRiskConfiguration *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType `pulumi:"accountTakeoverRiskConfiguration"`
-	// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+	// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
 	CompromisedCredentialsRiskConfiguration *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType `pulumi:"compromisedCredentialsRiskConfiguration"`
-	// The configuration to override the risk decision.
+	// Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
 	RiskExceptionConfiguration *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType `pulumi:"riskExceptionConfiguration"`
 }
 
@@ -54,7 +54,7 @@ func LookupUserPoolRiskConfigurationAttachmentOutput(ctx *pulumi.Context, args L
 type LookupUserPoolRiskConfigurationAttachmentOutputArgs struct {
 	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The user pool ID.
+	// The ID of the user pool that has the risk configuration applied.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -76,21 +76,21 @@ func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) ToLookupUserPoolR
 	return o
 }
 
-// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
 func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) AccountTakeoverRiskConfiguration() UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolRiskConfigurationAttachmentResult) *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType {
 		return v.AccountTakeoverRiskConfiguration
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
 }
 
-// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
 func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) CompromisedCredentialsRiskConfiguration() UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolRiskConfigurationAttachmentResult) *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType {
 		return v.CompromisedCredentialsRiskConfiguration
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput)
 }
 
-// The configuration to override the risk decision.
+// Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
 func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) RiskExceptionConfiguration() UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolRiskConfigurationAttachmentResult) *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType {
 		return v.RiskExceptionConfiguration

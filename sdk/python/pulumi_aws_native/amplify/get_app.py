@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, iam_service_role=None, name=None, platform=None, repository=None, tags=None):
+    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, cache_config=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, iam_service_role=None, name=None, platform=None, repository=None, tags=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -34,6 +34,9 @@ class GetAppResult:
         if build_spec and not isinstance(build_spec, str):
             raise TypeError("Expected argument 'build_spec' to be a str")
         pulumi.set(__self__, "build_spec", build_spec)
+        if cache_config and not isinstance(cache_config, dict):
+            raise TypeError("Expected argument 'cache_config' to be a dict")
+        pulumi.set(__self__, "cache_config", cache_config)
         if custom_headers and not isinstance(custom_headers, str):
             raise TypeError("Expected argument 'custom_headers' to be a str")
         pulumi.set(__self__, "custom_headers", custom_headers)
@@ -99,6 +102,14 @@ class GetAppResult:
         The build specification (build spec) for an Amplify app.
         """
         return pulumi.get(self, "build_spec")
+
+    @property
+    @pulumi.getter(name="cacheConfig")
+    def cache_config(self) -> Optional['outputs.AppCacheConfig']:
+        """
+        The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+        """
+        return pulumi.get(self, "cache_config")
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -171,6 +182,8 @@ class GetAppResult:
     def platform(self) -> Optional['AppPlatform']:
         """
         The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+
+        If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "platform")
 
@@ -201,6 +214,7 @@ class AwaitableGetAppResult(GetAppResult):
             app_name=self.app_name,
             arn=self.arn,
             build_spec=self.build_spec,
+            cache_config=self.cache_config,
             custom_headers=self.custom_headers,
             custom_rules=self.custom_rules,
             default_domain=self.default_domain,
@@ -232,6 +246,7 @@ def get_app(arn: Optional[str] = None,
         app_name=pulumi.get(__ret__, 'app_name'),
         arn=pulumi.get(__ret__, 'arn'),
         build_spec=pulumi.get(__ret__, 'build_spec'),
+        cache_config=pulumi.get(__ret__, 'cache_config'),
         custom_headers=pulumi.get(__ret__, 'custom_headers'),
         custom_rules=pulumi.get(__ret__, 'custom_rules'),
         default_domain=pulumi.get(__ret__, 'default_domain'),

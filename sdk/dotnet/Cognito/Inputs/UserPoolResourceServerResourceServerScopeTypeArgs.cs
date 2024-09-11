@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolResourceServerResourceServerScopeTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the scope.
+        /// A friendly description of a custom scope.
         /// </summary>
         [Input("scopeDescription", required: true)]
         public Input<string> ScopeDescription { get; set; } = null!;
 
         /// <summary>
-        /// The name of the scope.
+        /// The name of the scope. Amazon Cognito renders custom scopes in the format `resourceServerIdentifier/ScopeName` . For example, if this parameter is `exampleScope` in the resource server with the identifier `exampleResourceServer` , you request and receive the scope `exampleResourceServer/exampleScope` .
         /// </summary>
         [Input("scopeName", required: true)]
         public Input<string> ScopeName { get; set; } = null!;

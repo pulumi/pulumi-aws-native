@@ -7,6 +7,9 @@ from enum import Enum
 __all__ = [
     'AppResourceSpecInstanceType',
     'AppType',
+    'ClusterDeepHealthCheckType',
+    'ClusterNodeRecovery',
+    'ClusterStatus',
     'DataQualityJobDefinitionBatchTransformInputS3DataDistributionType',
     'DataQualityJobDefinitionBatchTransformInputS3InputMode',
     'DataQualityJobDefinitionEndpointInputS3DataDistributionType',
@@ -17,6 +20,7 @@ __all__ = [
     'DomainAppType',
     'DomainAuthMode',
     'DomainDockerSettingsEnableDockerAccess',
+    'DomainLifecycleManagement',
     'DomainMlTools',
     'DomainRStudioServerProAppSettingsAccessStatus',
     'DomainRStudioServerProAppSettingsUserGroup',
@@ -91,6 +95,7 @@ __all__ = [
     'SpaceSharingSettingsSharingType',
     'StudioLifecycleConfigAppType',
     'UserProfileAppType',
+    'UserProfileLifecycleManagement',
     'UserProfileMlTools',
     'UserProfileRStudioServerProAppSettingsAccessStatus',
     'UserProfileRStudioServerProAppSettingsUserGroup',
@@ -180,6 +185,35 @@ class AppType(str, Enum):
     CANVAS = "Canvas"
 
 
+class ClusterDeepHealthCheckType(str, Enum):
+    """
+    The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.
+    """
+    INSTANCE_STRESS = "InstanceStress"
+    INSTANCE_CONNECTIVITY = "InstanceConnectivity"
+
+
+class ClusterNodeRecovery(str, Enum):
+    """
+    If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
+    """
+    AUTOMATIC = "Automatic"
+    NONE = "None"
+
+
+class ClusterStatus(str, Enum):
+    """
+    The status of the HyperPod Cluster.
+    """
+    CREATING = "Creating"
+    DELETING = "Deleting"
+    FAILED = "Failed"
+    IN_SERVICE = "InService"
+    ROLLING_BACK = "RollingBack"
+    SYSTEM_UPDATING = "SystemUpdating"
+    UPDATING = "Updating"
+
+
 class DataQualityJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -262,6 +296,14 @@ class DomainDockerSettingsEnableDockerAccess(str, Enum):
     DISABLED = "DISABLED"
 
 
+class DomainLifecycleManagement(str, Enum):
+    """
+    A flag to enable/disable AppLifecycleManagement settings
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class DomainMlTools(str, Enum):
     DATA_WRANGLER = "DataWrangler"
     FEATURE_STORE = "FeatureStore"
@@ -276,6 +318,7 @@ class DomainMlTools(str, Enum):
     INFERENCE_RECOMMENDER = "InferenceRecommender"
     ENDPOINTS = "Endpoints"
     PROJECTS = "Projects"
+    INFERENCE_OPTIMIZATION = "InferenceOptimization"
 
 
 class DomainRStudioServerProAppSettingsAccessStatus(str, Enum):
@@ -1032,6 +1075,14 @@ class UserProfileAppType(str, Enum):
     CANVAS = "Canvas"
 
 
+class UserProfileLifecycleManagement(str, Enum):
+    """
+    A flag to enable/disable AppLifecycleManagement settings
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class UserProfileMlTools(str, Enum):
     DATA_WRANGLER = "DataWrangler"
     FEATURE_STORE = "FeatureStore"
@@ -1046,6 +1097,7 @@ class UserProfileMlTools(str, Enum):
     INFERENCE_RECOMMENDER = "InferenceRecommender"
     ENDPOINTS = "Endpoints"
     PROJECTS = "Projects"
+    INFERENCE_OPTIMIZATION = "InferenceOptimization"
 
 
 class UserProfileRStudioServerProAppSettingsAccessStatus(str, Enum):

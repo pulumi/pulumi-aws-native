@@ -13,6 +13,133 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// <p>A rule defined to grant access on one or more restricted columns.
+//
+//	Each dataset can have multiple rules.
+//	To create a restricted column, you add it to one or more rules.
+//	Each rule must contain at least one column and at least one user or group.
+//	To be able to see a restricted column, a user or group needs to be added
+//	to a rule for that column.</p>
+type DataSetColumnLevelPermissionRule struct {
+	// <p>An array of column names.</p>
+	ColumnNames []string `pulumi:"columnNames"`
+	// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+	Principals []string `pulumi:"principals"`
+}
+
+// DataSetColumnLevelPermissionRuleInput is an input type that accepts DataSetColumnLevelPermissionRuleArgs and DataSetColumnLevelPermissionRuleOutput values.
+// You can construct a concrete instance of `DataSetColumnLevelPermissionRuleInput` via:
+//
+//	DataSetColumnLevelPermissionRuleArgs{...}
+type DataSetColumnLevelPermissionRuleInput interface {
+	pulumi.Input
+
+	ToDataSetColumnLevelPermissionRuleOutput() DataSetColumnLevelPermissionRuleOutput
+	ToDataSetColumnLevelPermissionRuleOutputWithContext(context.Context) DataSetColumnLevelPermissionRuleOutput
+}
+
+// <p>A rule defined to grant access on one or more restricted columns.
+//
+//	Each dataset can have multiple rules.
+//	To create a restricted column, you add it to one or more rules.
+//	Each rule must contain at least one column and at least one user or group.
+//	To be able to see a restricted column, a user or group needs to be added
+//	to a rule for that column.</p>
+type DataSetColumnLevelPermissionRuleArgs struct {
+	// <p>An array of column names.</p>
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
+}
+
+func (DataSetColumnLevelPermissionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (i DataSetColumnLevelPermissionRuleArgs) ToDataSetColumnLevelPermissionRuleOutput() DataSetColumnLevelPermissionRuleOutput {
+	return i.ToDataSetColumnLevelPermissionRuleOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnLevelPermissionRuleArgs) ToDataSetColumnLevelPermissionRuleOutputWithContext(ctx context.Context) DataSetColumnLevelPermissionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnLevelPermissionRuleOutput)
+}
+
+// DataSetColumnLevelPermissionRuleArrayInput is an input type that accepts DataSetColumnLevelPermissionRuleArray and DataSetColumnLevelPermissionRuleArrayOutput values.
+// You can construct a concrete instance of `DataSetColumnLevelPermissionRuleArrayInput` via:
+//
+//	DataSetColumnLevelPermissionRuleArray{ DataSetColumnLevelPermissionRuleArgs{...} }
+type DataSetColumnLevelPermissionRuleArrayInput interface {
+	pulumi.Input
+
+	ToDataSetColumnLevelPermissionRuleArrayOutput() DataSetColumnLevelPermissionRuleArrayOutput
+	ToDataSetColumnLevelPermissionRuleArrayOutputWithContext(context.Context) DataSetColumnLevelPermissionRuleArrayOutput
+}
+
+type DataSetColumnLevelPermissionRuleArray []DataSetColumnLevelPermissionRuleInput
+
+func (DataSetColumnLevelPermissionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (i DataSetColumnLevelPermissionRuleArray) ToDataSetColumnLevelPermissionRuleArrayOutput() DataSetColumnLevelPermissionRuleArrayOutput {
+	return i.ToDataSetColumnLevelPermissionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnLevelPermissionRuleArray) ToDataSetColumnLevelPermissionRuleArrayOutputWithContext(ctx context.Context) DataSetColumnLevelPermissionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnLevelPermissionRuleArrayOutput)
+}
+
+// <p>A rule defined to grant access on one or more restricted columns.
+//
+//	Each dataset can have multiple rules.
+//	To create a restricted column, you add it to one or more rules.
+//	Each rule must contain at least one column and at least one user or group.
+//	To be able to see a restricted column, a user or group needs to be added
+//	to a rule for that column.</p>
+type DataSetColumnLevelPermissionRuleOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnLevelPermissionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (o DataSetColumnLevelPermissionRuleOutput) ToDataSetColumnLevelPermissionRuleOutput() DataSetColumnLevelPermissionRuleOutput {
+	return o
+}
+
+func (o DataSetColumnLevelPermissionRuleOutput) ToDataSetColumnLevelPermissionRuleOutputWithContext(ctx context.Context) DataSetColumnLevelPermissionRuleOutput {
+	return o
+}
+
+// <p>An array of column names.</p>
+func (o DataSetColumnLevelPermissionRuleOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+func (o DataSetColumnLevelPermissionRuleOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+type DataSetColumnLevelPermissionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnLevelPermissionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnLevelPermissionRule)(nil)).Elem()
+}
+
+func (o DataSetColumnLevelPermissionRuleArrayOutput) ToDataSetColumnLevelPermissionRuleArrayOutput() DataSetColumnLevelPermissionRuleArrayOutput {
+	return o
+}
+
+func (o DataSetColumnLevelPermissionRuleArrayOutput) ToDataSetColumnLevelPermissionRuleArrayOutputWithContext(ctx context.Context) DataSetColumnLevelPermissionRuleArrayOutput {
+	return o
+}
+
+func (o DataSetColumnLevelPermissionRuleArrayOutput) Index(i pulumi.IntInput) DataSetColumnLevelPermissionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetColumnLevelPermissionRule {
+		return vs[0].([]DataSetColumnLevelPermissionRule)[vs[1].(int)]
+	}).(DataSetColumnLevelPermissionRuleOutput)
+}
+
 // <p>A tag for a column in a
 //
 //	<code>
@@ -72139,6 +72266,139 @@ func (o TemplateProgressBarOptionsPtrOutput) Visibility() TemplateVisibilityPtrO
 	}).(TemplateVisibilityPtrOutput)
 }
 
+type TemplateQueryExecutionOptions struct {
+	QueryExecutionMode *TemplateQueryExecutionMode `pulumi:"queryExecutionMode"`
+}
+
+// TemplateQueryExecutionOptionsInput is an input type that accepts TemplateQueryExecutionOptionsArgs and TemplateQueryExecutionOptionsOutput values.
+// You can construct a concrete instance of `TemplateQueryExecutionOptionsInput` via:
+//
+//	TemplateQueryExecutionOptionsArgs{...}
+type TemplateQueryExecutionOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateQueryExecutionOptionsOutput() TemplateQueryExecutionOptionsOutput
+	ToTemplateQueryExecutionOptionsOutputWithContext(context.Context) TemplateQueryExecutionOptionsOutput
+}
+
+type TemplateQueryExecutionOptionsArgs struct {
+	QueryExecutionMode TemplateQueryExecutionModePtrInput `pulumi:"queryExecutionMode"`
+}
+
+func (TemplateQueryExecutionOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateQueryExecutionOptions)(nil)).Elem()
+}
+
+func (i TemplateQueryExecutionOptionsArgs) ToTemplateQueryExecutionOptionsOutput() TemplateQueryExecutionOptionsOutput {
+	return i.ToTemplateQueryExecutionOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateQueryExecutionOptionsArgs) ToTemplateQueryExecutionOptionsOutputWithContext(ctx context.Context) TemplateQueryExecutionOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateQueryExecutionOptionsOutput)
+}
+
+func (i TemplateQueryExecutionOptionsArgs) ToTemplateQueryExecutionOptionsPtrOutput() TemplateQueryExecutionOptionsPtrOutput {
+	return i.ToTemplateQueryExecutionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateQueryExecutionOptionsArgs) ToTemplateQueryExecutionOptionsPtrOutputWithContext(ctx context.Context) TemplateQueryExecutionOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateQueryExecutionOptionsOutput).ToTemplateQueryExecutionOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateQueryExecutionOptionsPtrInput is an input type that accepts TemplateQueryExecutionOptionsArgs, TemplateQueryExecutionOptionsPtr and TemplateQueryExecutionOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateQueryExecutionOptionsPtrInput` via:
+//
+//	        TemplateQueryExecutionOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateQueryExecutionOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateQueryExecutionOptionsPtrOutput() TemplateQueryExecutionOptionsPtrOutput
+	ToTemplateQueryExecutionOptionsPtrOutputWithContext(context.Context) TemplateQueryExecutionOptionsPtrOutput
+}
+
+type templateQueryExecutionOptionsPtrType TemplateQueryExecutionOptionsArgs
+
+func TemplateQueryExecutionOptionsPtr(v *TemplateQueryExecutionOptionsArgs) TemplateQueryExecutionOptionsPtrInput {
+	return (*templateQueryExecutionOptionsPtrType)(v)
+}
+
+func (*templateQueryExecutionOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateQueryExecutionOptions)(nil)).Elem()
+}
+
+func (i *templateQueryExecutionOptionsPtrType) ToTemplateQueryExecutionOptionsPtrOutput() TemplateQueryExecutionOptionsPtrOutput {
+	return i.ToTemplateQueryExecutionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateQueryExecutionOptionsPtrType) ToTemplateQueryExecutionOptionsPtrOutputWithContext(ctx context.Context) TemplateQueryExecutionOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateQueryExecutionOptionsPtrOutput)
+}
+
+type TemplateQueryExecutionOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateQueryExecutionOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateQueryExecutionOptions)(nil)).Elem()
+}
+
+func (o TemplateQueryExecutionOptionsOutput) ToTemplateQueryExecutionOptionsOutput() TemplateQueryExecutionOptionsOutput {
+	return o
+}
+
+func (o TemplateQueryExecutionOptionsOutput) ToTemplateQueryExecutionOptionsOutputWithContext(ctx context.Context) TemplateQueryExecutionOptionsOutput {
+	return o
+}
+
+func (o TemplateQueryExecutionOptionsOutput) ToTemplateQueryExecutionOptionsPtrOutput() TemplateQueryExecutionOptionsPtrOutput {
+	return o.ToTemplateQueryExecutionOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateQueryExecutionOptionsOutput) ToTemplateQueryExecutionOptionsPtrOutputWithContext(ctx context.Context) TemplateQueryExecutionOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateQueryExecutionOptions) *TemplateQueryExecutionOptions {
+		return &v
+	}).(TemplateQueryExecutionOptionsPtrOutput)
+}
+
+func (o TemplateQueryExecutionOptionsOutput) QueryExecutionMode() TemplateQueryExecutionModePtrOutput {
+	return o.ApplyT(func(v TemplateQueryExecutionOptions) *TemplateQueryExecutionMode { return v.QueryExecutionMode }).(TemplateQueryExecutionModePtrOutput)
+}
+
+type TemplateQueryExecutionOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateQueryExecutionOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateQueryExecutionOptions)(nil)).Elem()
+}
+
+func (o TemplateQueryExecutionOptionsPtrOutput) ToTemplateQueryExecutionOptionsPtrOutput() TemplateQueryExecutionOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateQueryExecutionOptionsPtrOutput) ToTemplateQueryExecutionOptionsPtrOutputWithContext(ctx context.Context) TemplateQueryExecutionOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateQueryExecutionOptionsPtrOutput) Elem() TemplateQueryExecutionOptionsOutput {
+	return o.ApplyT(func(v *TemplateQueryExecutionOptions) TemplateQueryExecutionOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateQueryExecutionOptions
+		return ret
+	}).(TemplateQueryExecutionOptionsOutput)
+}
+
+func (o TemplateQueryExecutionOptionsPtrOutput) QueryExecutionMode() TemplateQueryExecutionModePtrOutput {
+	return o.ApplyT(func(v *TemplateQueryExecutionOptions) *TemplateQueryExecutionMode {
+		if v == nil {
+			return nil
+		}
+		return v.QueryExecutionMode
+	}).(TemplateQueryExecutionModePtrOutput)
+}
+
 type TemplateRadarChartAggregatedFieldWells struct {
 	// The aggregated field well categories of a radar chart.
 	Category []TemplateDimensionField `pulumi:"category"`
@@ -85526,325 +85786,9 @@ func (o TemplateTableFieldImageConfigurationPtrOutput) SizingOptions() TemplateT
 	}).(TemplateTableCellImageSizingConfigurationPtrOutput)
 }
 
-type TemplateTableFieldLinkConfiguration struct {
-	// The URL content (text, icon) for the table link configuration.
-	Content TemplateTableFieldLinkContentConfiguration `pulumi:"content"`
-	// The URL target (new tab, new window, same tab) for the table link configuration.
-	Target TemplateUrlTargetConfiguration `pulumi:"target"`
-}
-
-// TemplateTableFieldLinkConfigurationInput is an input type that accepts TemplateTableFieldLinkConfigurationArgs and TemplateTableFieldLinkConfigurationOutput values.
-// You can construct a concrete instance of `TemplateTableFieldLinkConfigurationInput` via:
-//
-//	TemplateTableFieldLinkConfigurationArgs{...}
-type TemplateTableFieldLinkConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldLinkConfigurationOutput() TemplateTableFieldLinkConfigurationOutput
-	ToTemplateTableFieldLinkConfigurationOutputWithContext(context.Context) TemplateTableFieldLinkConfigurationOutput
-}
-
-type TemplateTableFieldLinkConfigurationArgs struct {
-	// The URL content (text, icon) for the table link configuration.
-	Content TemplateTableFieldLinkContentConfigurationInput `pulumi:"content"`
-	// The URL target (new tab, new window, same tab) for the table link configuration.
-	Target TemplateUrlTargetConfigurationInput `pulumi:"target"`
-}
-
-func (TemplateTableFieldLinkConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldLinkConfiguration)(nil)).Elem()
-}
-
-func (i TemplateTableFieldLinkConfigurationArgs) ToTemplateTableFieldLinkConfigurationOutput() TemplateTableFieldLinkConfigurationOutput {
-	return i.ToTemplateTableFieldLinkConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldLinkConfigurationArgs) ToTemplateTableFieldLinkConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkConfigurationOutput)
-}
-
-func (i TemplateTableFieldLinkConfigurationArgs) ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput {
-	return i.ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldLinkConfigurationArgs) ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkConfigurationOutput).ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateTableFieldLinkConfigurationPtrInput is an input type that accepts TemplateTableFieldLinkConfigurationArgs, TemplateTableFieldLinkConfigurationPtr and TemplateTableFieldLinkConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateTableFieldLinkConfigurationPtrInput` via:
-//
-//	        TemplateTableFieldLinkConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateTableFieldLinkConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput
-	ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(context.Context) TemplateTableFieldLinkConfigurationPtrOutput
-}
-
-type templateTableFieldLinkConfigurationPtrType TemplateTableFieldLinkConfigurationArgs
-
-func TemplateTableFieldLinkConfigurationPtr(v *TemplateTableFieldLinkConfigurationArgs) TemplateTableFieldLinkConfigurationPtrInput {
-	return (*templateTableFieldLinkConfigurationPtrType)(v)
-}
-
-func (*templateTableFieldLinkConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldLinkConfiguration)(nil)).Elem()
-}
-
-func (i *templateTableFieldLinkConfigurationPtrType) ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput {
-	return i.ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTableFieldLinkConfigurationPtrType) ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkConfigurationPtrOutput)
-}
-
-type TemplateTableFieldLinkConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldLinkConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldLinkConfiguration)(nil)).Elem()
-}
-
-func (o TemplateTableFieldLinkConfigurationOutput) ToTemplateTableFieldLinkConfigurationOutput() TemplateTableFieldLinkConfigurationOutput {
-	return o
-}
-
-func (o TemplateTableFieldLinkConfigurationOutput) ToTemplateTableFieldLinkConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationOutput {
-	return o
-}
-
-func (o TemplateTableFieldLinkConfigurationOutput) ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput {
-	return o.ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTableFieldLinkConfigurationOutput) ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldLinkConfiguration) *TemplateTableFieldLinkConfiguration {
-		return &v
-	}).(TemplateTableFieldLinkConfigurationPtrOutput)
-}
-
-// The URL content (text, icon) for the table link configuration.
-func (o TemplateTableFieldLinkConfigurationOutput) Content() TemplateTableFieldLinkContentConfigurationOutput {
-	return o.ApplyT(func(v TemplateTableFieldLinkConfiguration) TemplateTableFieldLinkContentConfiguration {
-		return v.Content
-	}).(TemplateTableFieldLinkContentConfigurationOutput)
-}
-
-// The URL target (new tab, new window, same tab) for the table link configuration.
-func (o TemplateTableFieldLinkConfigurationOutput) Target() TemplateUrlTargetConfigurationOutput {
-	return o.ApplyT(func(v TemplateTableFieldLinkConfiguration) TemplateUrlTargetConfiguration { return v.Target }).(TemplateUrlTargetConfigurationOutput)
-}
-
-type TemplateTableFieldLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldLinkConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldLinkConfiguration)(nil)).Elem()
-}
-
-func (o TemplateTableFieldLinkConfigurationPtrOutput) ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldLinkConfigurationPtrOutput) ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldLinkConfigurationPtrOutput) Elem() TemplateTableFieldLinkConfigurationOutput {
-	return o.ApplyT(func(v *TemplateTableFieldLinkConfiguration) TemplateTableFieldLinkConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTableFieldLinkConfiguration
-		return ret
-	}).(TemplateTableFieldLinkConfigurationOutput)
-}
-
-// The URL content (text, icon) for the table link configuration.
-func (o TemplateTableFieldLinkConfigurationPtrOutput) Content() TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateTableFieldLinkConfiguration) *TemplateTableFieldLinkContentConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.Content
-	}).(TemplateTableFieldLinkContentConfigurationPtrOutput)
-}
-
-// The URL target (new tab, new window, same tab) for the table link configuration.
-func (o TemplateTableFieldLinkConfigurationPtrOutput) Target() TemplateUrlTargetConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateTableFieldLinkConfiguration) *TemplateUrlTargetConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.Target
-	}).(TemplateUrlTargetConfigurationPtrOutput)
-}
-
-type TemplateTableFieldLinkContentConfiguration struct {
-	// The custom icon content for the table link content configuration.
-	CustomIconContent *TemplateTableFieldCustomIconContent `pulumi:"customIconContent"`
-	// The custom text content (value, font configuration) for the table link content configuration.
-	CustomTextContent *TemplateTableFieldCustomTextContent `pulumi:"customTextContent"`
-}
-
-// TemplateTableFieldLinkContentConfigurationInput is an input type that accepts TemplateTableFieldLinkContentConfigurationArgs and TemplateTableFieldLinkContentConfigurationOutput values.
-// You can construct a concrete instance of `TemplateTableFieldLinkContentConfigurationInput` via:
-//
-//	TemplateTableFieldLinkContentConfigurationArgs{...}
-type TemplateTableFieldLinkContentConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldLinkContentConfigurationOutput() TemplateTableFieldLinkContentConfigurationOutput
-	ToTemplateTableFieldLinkContentConfigurationOutputWithContext(context.Context) TemplateTableFieldLinkContentConfigurationOutput
-}
-
-type TemplateTableFieldLinkContentConfigurationArgs struct {
-	// The custom icon content for the table link content configuration.
-	CustomIconContent TemplateTableFieldCustomIconContentPtrInput `pulumi:"customIconContent"`
-	// The custom text content (value, font configuration) for the table link content configuration.
-	CustomTextContent TemplateTableFieldCustomTextContentPtrInput `pulumi:"customTextContent"`
-}
-
-func (TemplateTableFieldLinkContentConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldLinkContentConfiguration)(nil)).Elem()
-}
-
-func (i TemplateTableFieldLinkContentConfigurationArgs) ToTemplateTableFieldLinkContentConfigurationOutput() TemplateTableFieldLinkContentConfigurationOutput {
-	return i.ToTemplateTableFieldLinkContentConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldLinkContentConfigurationArgs) ToTemplateTableFieldLinkContentConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkContentConfigurationOutput)
-}
-
-func (i TemplateTableFieldLinkContentConfigurationArgs) ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return i.ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldLinkContentConfigurationArgs) ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkContentConfigurationOutput).ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateTableFieldLinkContentConfigurationPtrInput is an input type that accepts TemplateTableFieldLinkContentConfigurationArgs, TemplateTableFieldLinkContentConfigurationPtr and TemplateTableFieldLinkContentConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateTableFieldLinkContentConfigurationPtrInput` via:
-//
-//	        TemplateTableFieldLinkContentConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateTableFieldLinkContentConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput
-	ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput
-}
-
-type templateTableFieldLinkContentConfigurationPtrType TemplateTableFieldLinkContentConfigurationArgs
-
-func TemplateTableFieldLinkContentConfigurationPtr(v *TemplateTableFieldLinkContentConfigurationArgs) TemplateTableFieldLinkContentConfigurationPtrInput {
-	return (*templateTableFieldLinkContentConfigurationPtrType)(v)
-}
-
-func (*templateTableFieldLinkContentConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldLinkContentConfiguration)(nil)).Elem()
-}
-
-func (i *templateTableFieldLinkContentConfigurationPtrType) ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return i.ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTableFieldLinkContentConfigurationPtrType) ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkContentConfigurationPtrOutput)
-}
-
-type TemplateTableFieldLinkContentConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldLinkContentConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldLinkContentConfiguration)(nil)).Elem()
-}
-
-func (o TemplateTableFieldLinkContentConfigurationOutput) ToTemplateTableFieldLinkContentConfigurationOutput() TemplateTableFieldLinkContentConfigurationOutput {
-	return o
-}
-
-func (o TemplateTableFieldLinkContentConfigurationOutput) ToTemplateTableFieldLinkContentConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationOutput {
-	return o
-}
-
-func (o TemplateTableFieldLinkContentConfigurationOutput) ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return o.ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTableFieldLinkContentConfigurationOutput) ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldLinkContentConfiguration {
-		return &v
-	}).(TemplateTableFieldLinkContentConfigurationPtrOutput)
-}
-
-// The custom icon content for the table link content configuration.
-func (o TemplateTableFieldLinkContentConfigurationOutput) CustomIconContent() TemplateTableFieldCustomIconContentPtrOutput {
-	return o.ApplyT(func(v TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldCustomIconContent {
-		return v.CustomIconContent
-	}).(TemplateTableFieldCustomIconContentPtrOutput)
-}
-
-// The custom text content (value, font configuration) for the table link content configuration.
-func (o TemplateTableFieldLinkContentConfigurationOutput) CustomTextContent() TemplateTableFieldCustomTextContentPtrOutput {
-	return o.ApplyT(func(v TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldCustomTextContent {
-		return v.CustomTextContent
-	}).(TemplateTableFieldCustomTextContentPtrOutput)
-}
-
-type TemplateTableFieldLinkContentConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldLinkContentConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldLinkContentConfiguration)(nil)).Elem()
-}
-
-func (o TemplateTableFieldLinkContentConfigurationPtrOutput) ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldLinkContentConfigurationPtrOutput) ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldLinkContentConfigurationPtrOutput) Elem() TemplateTableFieldLinkContentConfigurationOutput {
-	return o.ApplyT(func(v *TemplateTableFieldLinkContentConfiguration) TemplateTableFieldLinkContentConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTableFieldLinkContentConfiguration
-		return ret
-	}).(TemplateTableFieldLinkContentConfigurationOutput)
-}
-
-// The custom icon content for the table link content configuration.
-func (o TemplateTableFieldLinkContentConfigurationPtrOutput) CustomIconContent() TemplateTableFieldCustomIconContentPtrOutput {
-	return o.ApplyT(func(v *TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldCustomIconContent {
-		if v == nil {
-			return nil
-		}
-		return v.CustomIconContent
-	}).(TemplateTableFieldCustomIconContentPtrOutput)
-}
-
-// The custom text content (value, font configuration) for the table link content configuration.
-func (o TemplateTableFieldLinkContentConfigurationPtrOutput) CustomTextContent() TemplateTableFieldCustomTextContentPtrOutput {
-	return o.ApplyT(func(v *TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldCustomTextContent {
-		if v == nil {
-			return nil
-		}
-		return v.CustomTextContent
-	}).(TemplateTableFieldCustomTextContentPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnLevelPermissionRuleInput)(nil)).Elem(), DataSetColumnLevelPermissionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnLevelPermissionRuleArrayInput)(nil)).Elem(), DataSetColumnLevelPermissionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagInput)(nil)).Elem(), DataSetColumnTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagArrayInput)(nil)).Elem(), DataSetColumnTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetCreateColumnsOperationInput)(nil)).Elem(), DataSetCreateColumnsOperationArgs{})
@@ -86669,6 +86613,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePredefinedHierarchyPtrInput)(nil)).Elem(), TemplatePredefinedHierarchyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateProgressBarOptionsInput)(nil)).Elem(), TemplateProgressBarOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateProgressBarOptionsPtrInput)(nil)).Elem(), TemplateProgressBarOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateQueryExecutionOptionsInput)(nil)).Elem(), TemplateQueryExecutionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateQueryExecutionOptionsPtrInput)(nil)).Elem(), TemplateQueryExecutionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartAggregatedFieldWellsInput)(nil)).Elem(), TemplateRadarChartAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateRadarChartAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartAreaStyleSettingsInput)(nil)).Elem(), TemplateRadarChartAreaStyleSettingsArgs{})
@@ -86824,10 +86770,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomTextContentPtrInput)(nil)).Elem(), TemplateTableFieldCustomTextContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldImageConfigurationInput)(nil)).Elem(), TemplateTableFieldImageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldImageConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldImageConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkConfigurationInput)(nil)).Elem(), TemplateTableFieldLinkConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldLinkConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkContentConfigurationInput)(nil)).Elem(), TemplateTableFieldLinkContentConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkContentConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldLinkContentConfigurationArgs{})
+	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleOutput{})
+	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleArrayOutput{})
 	pulumi.RegisterOutputType(DataSetColumnTagOutput{})
 	pulumi.RegisterOutputType(DataSetColumnTagArrayOutput{})
 	pulumi.RegisterOutputType(DataSetCreateColumnsOperationOutput{})
@@ -87658,6 +87602,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplatePredefinedHierarchyPtrOutput{})
 	pulumi.RegisterOutputType(TemplateProgressBarOptionsOutput{})
 	pulumi.RegisterOutputType(TemplateProgressBarOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateQueryExecutionOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateQueryExecutionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateRadarChartAggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateRadarChartAggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateRadarChartAreaStyleSettingsOutput{})
@@ -87815,8 +87761,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTableFieldCustomTextContentPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldImageConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldImageConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldLinkConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldLinkConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldLinkContentConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldLinkContentConfigurationPtrOutput{})
 }

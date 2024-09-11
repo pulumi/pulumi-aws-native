@@ -115,7 +115,7 @@
       "permissions" : [ "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "vpc-lattice:GetServiceNetworkVpcAssociation", "vpc-lattice:UpdateServiceNetworkVpcAssociation", "ec2:DescribeSecurityGroups", "vpc-lattice:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "vpc-lattice:DeleteServiceNetworkVpcAssociation", "vpc-lattice:GetServiceNetworkVpcAssociation" ]
+      "permissions" : [ "vpc-lattice:DeleteServiceNetworkVpcAssociation", "vpc-lattice:GetServiceNetworkVpcAssociation", "vpc-lattice:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "vpc-lattice:ListServiceNetworkVpcAssociations" ],
@@ -143,6 +143,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "vpc-lattice:UntagResource", "vpc-lattice:TagResource", "vpc-lattice:ListTagsForResource" ]
   }
 }

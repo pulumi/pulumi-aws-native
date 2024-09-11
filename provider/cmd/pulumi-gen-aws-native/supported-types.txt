@@ -684,8 +684,17 @@ AWS::MediaConnect::FlowOutput
 AWS::MediaConnect::FlowSource
 AWS::MediaConnect::FlowVpcInterface
 AWS::MediaConnect::Gateway
+AWS::MediaLive::ChannelPlacementGroup
+AWS::MediaLive::CloudWatchAlarmTemplate
+AWS::MediaLive::CloudWatchAlarmTemplateGroup
+AWS::MediaLive::Cluster
+AWS::MediaLive::EventBridgeRuleTemplate
+AWS::MediaLive::EventBridgeRuleTemplateGroup
 AWS::MediaLive::Multiplex
 AWS::MediaLive::Multiplexprogram
+AWS::MediaLive::Network
+AWS::MediaLive::SdiSource
+AWS::MediaLive::SignalMap
 AWS::MediaPackage::Asset
 AWS::MediaPackage::Channel
 AWS::MediaPackage::OriginEndpoint
@@ -760,6 +769,8 @@ AWS::PCAConnectorAD::DirectoryRegistration
 AWS::PCAConnectorAD::ServicePrincipalName
 AWS::PCAConnectorAD::Template
 AWS::PCAConnectorAD::TemplateGroupAccessControlEntry
+AWS::PCAConnectorSCEP::Challenge
+AWS::PCAConnectorSCEP::Connector
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
@@ -894,6 +905,7 @@ AWS::SES::MailManagerRuleSet
 AWS::SES::MailManagerTrafficPolicy
 AWS::SES::Template
 AWS::SES::VdmAttributes
+AWS::SNS::Subscription
 AWS::SNS::Topic
 AWS::SNS::TopicInlinePolicy
 AWS::SNS::TopicPolicy
@@ -921,6 +933,7 @@ AWS::SSO::InstanceAccessControlAttributeConfiguration
 AWS::SSO::PermissionSet
 AWS::SageMaker::App
 AWS::SageMaker::AppImageConfig
+AWS::SageMaker::Cluster
 AWS::SageMaker::DataQualityJobDefinition
 AWS::SageMaker::Device
 AWS::SageMaker::DeviceFleet

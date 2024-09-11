@@ -176,6 +176,433 @@ func (in *serviceLevelObjectiveDurationUnitPtr) ToServiceLevelObjectiveDurationU
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceLevelObjectiveDurationUnitPtrOutput)
 }
 
+// Displays whether this is a period-based SLO or a request-based SLO.
+type ServiceLevelObjectiveEvaluationType string
+
+const (
+	ServiceLevelObjectiveEvaluationTypePeriodBased  = ServiceLevelObjectiveEvaluationType("PeriodBased")
+	ServiceLevelObjectiveEvaluationTypeRequestBased = ServiceLevelObjectiveEvaluationType("RequestBased")
+)
+
+type ServiceLevelObjectiveEvaluationTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveEvaluationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveEvaluationType)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveEvaluationTypeOutput) ToServiceLevelObjectiveEvaluationTypeOutput() ServiceLevelObjectiveEvaluationTypeOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveEvaluationTypeOutput) ToServiceLevelObjectiveEvaluationTypeOutputWithContext(ctx context.Context) ServiceLevelObjectiveEvaluationTypeOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveEvaluationTypeOutput) ToServiceLevelObjectiveEvaluationTypePtrOutput() ServiceLevelObjectiveEvaluationTypePtrOutput {
+	return o.ToServiceLevelObjectiveEvaluationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveEvaluationTypeOutput) ToServiceLevelObjectiveEvaluationTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveEvaluationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveEvaluationType) *ServiceLevelObjectiveEvaluationType {
+		return &v
+	}).(ServiceLevelObjectiveEvaluationTypePtrOutput)
+}
+
+func (o ServiceLevelObjectiveEvaluationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveEvaluationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLevelObjectiveEvaluationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceLevelObjectiveEvaluationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveEvaluationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLevelObjectiveEvaluationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveEvaluationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveEvaluationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveEvaluationType)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveEvaluationTypePtrOutput) ToServiceLevelObjectiveEvaluationTypePtrOutput() ServiceLevelObjectiveEvaluationTypePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveEvaluationTypePtrOutput) ToServiceLevelObjectiveEvaluationTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveEvaluationTypePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveEvaluationTypePtrOutput) Elem() ServiceLevelObjectiveEvaluationTypeOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveEvaluationType) ServiceLevelObjectiveEvaluationType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveEvaluationType
+		return ret
+	}).(ServiceLevelObjectiveEvaluationTypeOutput)
+}
+
+func (o ServiceLevelObjectiveEvaluationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveEvaluationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceLevelObjectiveEvaluationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The arithmetic operation used when comparing the specified metric to the threshold.
+type ServiceLevelObjectiveRequestBasedSliComparisonOperator string
+
+const (
+	ServiceLevelObjectiveRequestBasedSliComparisonOperatorGreaterThanOrEqualTo = ServiceLevelObjectiveRequestBasedSliComparisonOperator("GreaterThanOrEqualTo")
+	ServiceLevelObjectiveRequestBasedSliComparisonOperatorLessThanOrEqualTo    = ServiceLevelObjectiveRequestBasedSliComparisonOperator("LessThanOrEqualTo")
+	ServiceLevelObjectiveRequestBasedSliComparisonOperatorLessThan             = ServiceLevelObjectiveRequestBasedSliComparisonOperator("LessThan")
+	ServiceLevelObjectiveRequestBasedSliComparisonOperatorGreaterThan          = ServiceLevelObjectiveRequestBasedSliComparisonOperator("GreaterThan")
+)
+
+func (ServiceLevelObjectiveRequestBasedSliComparisonOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliComparisonOperator)(nil)).Elem()
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliComparisonOperator) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput() ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput {
+	return pulumi.ToOutput(e).(ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliComparisonOperator) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliComparisonOperator) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput() ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return e.ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliComparisonOperator) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return ServiceLevelObjectiveRequestBasedSliComparisonOperator(e).ToServiceLevelObjectiveRequestBasedSliComparisonOperatorOutputWithContext(ctx).ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutputWithContext(ctx)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliComparisonOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliComparisonOperator)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput() ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput() ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return o.ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveRequestBasedSliComparisonOperator) *ServiceLevelObjectiveRequestBasedSliComparisonOperator {
+		return &v
+	}).(ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLevelObjectiveRequestBasedSliComparisonOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLevelObjectiveRequestBasedSliComparisonOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveRequestBasedSliComparisonOperator)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput() ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput) Elem() ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliComparisonOperator) ServiceLevelObjectiveRequestBasedSliComparisonOperator {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveRequestBasedSliComparisonOperator
+		return ret
+	}).(ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceLevelObjectiveRequestBasedSliComparisonOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceLevelObjectiveRequestBasedSliComparisonOperatorInput is an input type that accepts values of the ServiceLevelObjectiveRequestBasedSliComparisonOperator enum
+// A concrete instance of `ServiceLevelObjectiveRequestBasedSliComparisonOperatorInput` can be one of the following:
+//
+//	ServiceLevelObjectiveRequestBasedSliComparisonOperatorGreaterThanOrEqualTo
+//	ServiceLevelObjectiveRequestBasedSliComparisonOperatorLessThanOrEqualTo
+//	ServiceLevelObjectiveRequestBasedSliComparisonOperatorLessThan
+//	ServiceLevelObjectiveRequestBasedSliComparisonOperatorGreaterThan
+type ServiceLevelObjectiveRequestBasedSliComparisonOperatorInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput() ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput
+	ToServiceLevelObjectiveRequestBasedSliComparisonOperatorOutputWithContext(context.Context) ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput
+}
+
+var serviceLevelObjectiveRequestBasedSliComparisonOperatorPtrType = reflect.TypeOf((**ServiceLevelObjectiveRequestBasedSliComparisonOperator)(nil)).Elem()
+
+type ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput() ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput
+	ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutputWithContext(context.Context) ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput
+}
+
+type serviceLevelObjectiveRequestBasedSliComparisonOperatorPtr string
+
+func ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtr(v string) ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrInput {
+	return (*serviceLevelObjectiveRequestBasedSliComparisonOperatorPtr)(&v)
+}
+
+func (*serviceLevelObjectiveRequestBasedSliComparisonOperatorPtr) ElementType() reflect.Type {
+	return serviceLevelObjectiveRequestBasedSliComparisonOperatorPtrType
+}
+
+func (in *serviceLevelObjectiveRequestBasedSliComparisonOperatorPtr) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput() ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return pulumi.ToOutput(in).(ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput)
+}
+
+func (in *serviceLevelObjectiveRequestBasedSliComparisonOperatorPtr) ToServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput)
+}
+
+// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+type ServiceLevelObjectiveRequestBasedSliMetricMetricType string
+
+const (
+	ServiceLevelObjectiveRequestBasedSliMetricMetricTypeLatency      = ServiceLevelObjectiveRequestBasedSliMetricMetricType("LATENCY")
+	ServiceLevelObjectiveRequestBasedSliMetricMetricTypeAvailability = ServiceLevelObjectiveRequestBasedSliMetricMetricType("AVAILABILITY")
+)
+
+func (ServiceLevelObjectiveRequestBasedSliMetricMetricType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricMetricType)(nil)).Elem()
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliMetricMetricType) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput() ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput {
+	return pulumi.ToOutput(e).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliMetricMetricType) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliMetricMetricType) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput() ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return e.ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliMetricMetricType) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return ServiceLevelObjectiveRequestBasedSliMetricMetricType(e).ToServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutputWithContext(ctx).ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutputWithContext(ctx)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliMetricMetricType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliMetricMetricType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliMetricMetricType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceLevelObjectiveRequestBasedSliMetricMetricType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricMetricType)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput() ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput() ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return o.ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveRequestBasedSliMetricMetricType) *ServiceLevelObjectiveRequestBasedSliMetricMetricType {
+		return &v
+	}).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLevelObjectiveRequestBasedSliMetricMetricType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLevelObjectiveRequestBasedSliMetricMetricType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveRequestBasedSliMetricMetricType)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput() ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput) Elem() ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetricMetricType) ServiceLevelObjectiveRequestBasedSliMetricMetricType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveRequestBasedSliMetricMetricType
+		return ret
+	}).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput)
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceLevelObjectiveRequestBasedSliMetricMetricType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceLevelObjectiveRequestBasedSliMetricMetricTypeInput is an input type that accepts values of the ServiceLevelObjectiveRequestBasedSliMetricMetricType enum
+// A concrete instance of `ServiceLevelObjectiveRequestBasedSliMetricMetricTypeInput` can be one of the following:
+//
+//	ServiceLevelObjectiveRequestBasedSliMetricMetricTypeLatency
+//	ServiceLevelObjectiveRequestBasedSliMetricMetricTypeAvailability
+type ServiceLevelObjectiveRequestBasedSliMetricMetricTypeInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput() ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput
+	ToServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutputWithContext(context.Context) ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput
+}
+
+var serviceLevelObjectiveRequestBasedSliMetricMetricTypePtrType = reflect.TypeOf((**ServiceLevelObjectiveRequestBasedSliMetricMetricType)(nil)).Elem()
+
+type ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput() ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput
+	ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutputWithContext(context.Context) ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput
+}
+
+type serviceLevelObjectiveRequestBasedSliMetricMetricTypePtr string
+
+func ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtr(v string) ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrInput {
+	return (*serviceLevelObjectiveRequestBasedSliMetricMetricTypePtr)(&v)
+}
+
+func (*serviceLevelObjectiveRequestBasedSliMetricMetricTypePtr) ElementType() reflect.Type {
+	return serviceLevelObjectiveRequestBasedSliMetricMetricTypePtrType
+}
+
+func (in *serviceLevelObjectiveRequestBasedSliMetricMetricTypePtr) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput() ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return pulumi.ToOutput(in).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput)
+}
+
+func (in *serviceLevelObjectiveRequestBasedSliMetricMetricTypePtr) ToServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput)
+}
+
 // The arithmetic operation used when comparing the specified metric to the threshold.
 type ServiceLevelObjectiveSliComparisonOperator string
 
@@ -515,12 +942,22 @@ func (in *serviceLevelObjectiveSliMetricMetricTypePtr) ToServiceLevelObjectiveSl
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDurationUnitInput)(nil)).Elem(), ServiceLevelObjectiveDurationUnit("DAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDurationUnitPtrInput)(nil)).Elem(), ServiceLevelObjectiveDurationUnit("DAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliComparisonOperatorInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliComparisonOperator("GreaterThanOrEqualTo"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliComparisonOperator("GreaterThanOrEqualTo"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricMetricTypeInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricMetricType("LATENCY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricMetricType("LATENCY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliComparisonOperatorInput)(nil)).Elem(), ServiceLevelObjectiveSliComparisonOperator("GreaterThanOrEqualTo"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliComparisonOperatorPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliComparisonOperator("GreaterThanOrEqualTo"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricMetricTypeInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricMetricType("LATENCY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricMetricTypePtrInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricMetricType("LATENCY"))
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDurationUnitOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDurationUnitPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveEvaluationTypeOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveEvaluationTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliComparisonOperatorOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliMetricMetricTypeOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliComparisonOperatorOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliMetricMetricTypeOutput{})

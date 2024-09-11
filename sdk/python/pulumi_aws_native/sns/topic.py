@@ -283,6 +283,90 @@ class Topic(pulumi.CustomResource):
           One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
            The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
 
+        ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        car_sales_topic = aws_native.sns.Topic("carSalesTopic")
+        erp_integration_queue = aws_native.sqs.Queue("erpIntegrationQueue")
+        erp_subscription = aws_native.sns.Subscription("erpSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=erp_integration_queue.arn,
+            protocol="sqs",
+            raw_message_delivery=True)
+        crm_integration_queue = aws_native.sqs.Queue("crmIntegrationQueue")
+        crm_subscription = aws_native.sns.Subscription("crmSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=crm_integration_queue.arn,
+            protocol="sqs",
+            raw_message_delivery=True,
+            filter_policy={
+                "buyer-class": ["vip"],
+            })
+        config = pulumi.Config()
+        my_http_endpoint = config.require("myHttpEndpoint")
+        scm_subscription = aws_native.sns.Subscription("scmSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=my_http_endpoint,
+            protocol="https",
+            delivery_policy={
+                "healthyRetryPolicy": {
+                    "numRetries": 20,
+                    "minDelayTarget": 10,
+                    "maxDelayTarget": 30,
+                    "numMinDelayRetries": 3,
+                    "numMaxDelayRetries": 17,
+                    "numNoDelayRetries": 0,
+                    "backoffFunction": "exponential",
+                },
+            })
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        car_sales_topic = aws_native.sns.Topic("carSalesTopic")
+        erp_integration_queue = aws_native.sqs.Queue("erpIntegrationQueue")
+        erp_subscription = aws_native.sns.Subscription("erpSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=erp_integration_queue.arn,
+            protocol="sqs",
+            raw_message_delivery=True)
+        crm_integration_queue = aws_native.sqs.Queue("crmIntegrationQueue")
+        crm_subscription = aws_native.sns.Subscription("crmSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=crm_integration_queue.arn,
+            protocol="sqs",
+            raw_message_delivery=True,
+            filter_policy={
+                "buyer-class": ["vip"],
+            })
+        config = pulumi.Config()
+        my_http_endpoint = config.require("myHttpEndpoint")
+        scm_subscription = aws_native.sns.Subscription("scmSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=my_http_endpoint,
+            protocol="https",
+            delivery_policy={
+                "healthyRetryPolicy": {
+                    "numRetries": 20,
+                    "minDelayTarget": 10,
+                    "maxDelayTarget": 30,
+                    "numMinDelayRetries": 3,
+                    "numMaxDelayRetries": 17,
+                    "numNoDelayRetries": 0,
+                    "backoffFunction": "exponential",
+                },
+            })
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any archive_policy: The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
@@ -330,6 +414,90 @@ class Topic(pulumi.CustomResource):
         The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
           One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
            The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
+
+        ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        car_sales_topic = aws_native.sns.Topic("carSalesTopic")
+        erp_integration_queue = aws_native.sqs.Queue("erpIntegrationQueue")
+        erp_subscription = aws_native.sns.Subscription("erpSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=erp_integration_queue.arn,
+            protocol="sqs",
+            raw_message_delivery=True)
+        crm_integration_queue = aws_native.sqs.Queue("crmIntegrationQueue")
+        crm_subscription = aws_native.sns.Subscription("crmSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=crm_integration_queue.arn,
+            protocol="sqs",
+            raw_message_delivery=True,
+            filter_policy={
+                "buyer-class": ["vip"],
+            })
+        config = pulumi.Config()
+        my_http_endpoint = config.require("myHttpEndpoint")
+        scm_subscription = aws_native.sns.Subscription("scmSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=my_http_endpoint,
+            protocol="https",
+            delivery_policy={
+                "healthyRetryPolicy": {
+                    "numRetries": 20,
+                    "minDelayTarget": 10,
+                    "maxDelayTarget": 30,
+                    "numMinDelayRetries": 3,
+                    "numMaxDelayRetries": 17,
+                    "numNoDelayRetries": 0,
+                    "backoffFunction": "exponential",
+                },
+            })
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        car_sales_topic = aws_native.sns.Topic("carSalesTopic")
+        erp_integration_queue = aws_native.sqs.Queue("erpIntegrationQueue")
+        erp_subscription = aws_native.sns.Subscription("erpSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=erp_integration_queue.arn,
+            protocol="sqs",
+            raw_message_delivery=True)
+        crm_integration_queue = aws_native.sqs.Queue("crmIntegrationQueue")
+        crm_subscription = aws_native.sns.Subscription("crmSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=crm_integration_queue.arn,
+            protocol="sqs",
+            raw_message_delivery=True,
+            filter_policy={
+                "buyer-class": ["vip"],
+            })
+        config = pulumi.Config()
+        my_http_endpoint = config.require("myHttpEndpoint")
+        scm_subscription = aws_native.sns.Subscription("scmSubscription",
+            topic_arn=car_sales_topic.id,
+            endpoint=my_http_endpoint,
+            protocol="https",
+            delivery_policy={
+                "healthyRetryPolicy": {
+                    "numRetries": 20,
+                    "minDelayTarget": 10,
+                    "maxDelayTarget": 30,
+                    "numMinDelayRetries": 3,
+                    "numMaxDelayRetries": 17,
+                    "numNoDelayRetries": 0,
+                    "backoffFunction": "exponential",
+                },
+            })
+
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

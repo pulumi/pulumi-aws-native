@@ -27,25 +27,25 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<int>? PasswordHistorySize { get; set; }
 
         /// <summary>
-        /// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+        /// The requirement in a password policy that users must include at least one lowercase letter in their password.
         /// </summary>
         [Input("requireLowercase")]
         public Input<bool>? RequireLowercase { get; set; }
 
         /// <summary>
-        /// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+        /// The requirement in a password policy that users must include at least one number in their password.
         /// </summary>
         [Input("requireNumbers")]
         public Input<bool>? RequireNumbers { get; set; }
 
         /// <summary>
-        /// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
+        /// The requirement in a password policy that users must include at least one symbol in their password.
         /// </summary>
         [Input("requireSymbols")]
         public Input<bool>? RequireSymbols { get; set; }
 
         /// <summary>
-        /// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+        /// The requirement in a password policy that users must include at least one uppercase letter in their password.
         /// </summary>
         [Input("requireUppercase")]
         public Input<bool>? RequireUppercase { get; set; }

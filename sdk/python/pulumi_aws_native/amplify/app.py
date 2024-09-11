@@ -23,6 +23,7 @@ class AppArgs:
                  auto_branch_creation_config: Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']] = None,
                  basic_auth_config: Optional[pulumi.Input['AppBasicAuthConfigArgs']] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 cache_config: Optional[pulumi.Input['AppCacheConfigArgs']] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -46,6 +47,7 @@ class AppArgs:
         :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Sets the configuration for your automatic branch creation.
         :param pulumi.Input['AppBasicAuthConfigArgs'] basic_auth_config: The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] build_spec: The build specification (build spec) for an Amplify app.
+        :param pulumi.Input['AppCacheConfigArgs'] cache_config: The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
         :param pulumi.Input[str] custom_headers: The custom HTTP headers for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: The custom rewrite and redirect rules for an Amplify app.
         :param pulumi.Input[str] description: The description of the Amplify app.
@@ -63,6 +65,8 @@ class AppArgs:
                
                Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
         :param pulumi.Input['AppPlatform'] platform: The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+               
+               If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
         :param pulumi.Input[str] repository: The Git repository for the Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag for an Amplify app.
         """
@@ -74,6 +78,8 @@ class AppArgs:
             pulumi.set(__self__, "basic_auth_config", basic_auth_config)
         if build_spec is not None:
             pulumi.set(__self__, "build_spec", build_spec)
+        if cache_config is not None:
+            pulumi.set(__self__, "cache_config", cache_config)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_rules is not None:
@@ -150,6 +156,18 @@ class AppArgs:
     @build_spec.setter
     def build_spec(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "build_spec", value)
+
+    @property
+    @pulumi.getter(name="cacheConfig")
+    def cache_config(self) -> Optional[pulumi.Input['AppCacheConfigArgs']]:
+        """
+        The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+        """
+        return pulumi.get(self, "cache_config")
+
+    @cache_config.setter
+    def cache_config(self, value: Optional[pulumi.Input['AppCacheConfigArgs']]):
+        pulumi.set(self, "cache_config", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -260,6 +278,8 @@ class AppArgs:
     def platform(self) -> Optional[pulumi.Input['AppPlatform']]:
         """
         The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+
+        If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "platform")
 
@@ -301,6 +321,7 @@ class App(pulumi.CustomResource):
                  auto_branch_creation_config: Optional[pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']]] = None,
                  basic_auth_config: Optional[pulumi.Input[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -328,6 +349,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']] auto_branch_creation_config: Sets the configuration for your automatic branch creation.
         :param pulumi.Input[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']] basic_auth_config: The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] build_spec: The build specification (build spec) for an Amplify app.
+        :param pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']] cache_config: The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
         :param pulumi.Input[str] custom_headers: The custom HTTP headers for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: The custom rewrite and redirect rules for an Amplify app.
         :param pulumi.Input[str] description: The description of the Amplify app.
@@ -345,6 +367,8 @@ class App(pulumi.CustomResource):
                
                Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
         :param pulumi.Input['AppPlatform'] platform: The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+               
+               If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
         :param pulumi.Input[str] repository: The Git repository for the Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tag for an Amplify app.
         """
@@ -376,6 +400,7 @@ class App(pulumi.CustomResource):
                  auto_branch_creation_config: Optional[pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']]] = None,
                  basic_auth_config: Optional[pulumi.Input[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -400,6 +425,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["auto_branch_creation_config"] = auto_branch_creation_config
             __props__.__dict__["basic_auth_config"] = basic_auth_config
             __props__.__dict__["build_spec"] = build_spec
+            __props__.__dict__["cache_config"] = cache_config
             __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["description"] = description
@@ -444,6 +470,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["auto_branch_creation_config"] = None
         __props__.__dict__["basic_auth_config"] = None
         __props__.__dict__["build_spec"] = None
+        __props__.__dict__["cache_config"] = None
         __props__.__dict__["custom_headers"] = None
         __props__.__dict__["custom_rules"] = None
         __props__.__dict__["default_domain"] = None
@@ -519,6 +546,14 @@ class App(pulumi.CustomResource):
         The build specification (build spec) for an Amplify app.
         """
         return pulumi.get(self, "build_spec")
+
+    @property
+    @pulumi.getter(name="cacheConfig")
+    def cache_config(self) -> pulumi.Output[Optional['outputs.AppCacheConfig']]:
+        """
+        The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+        """
+        return pulumi.get(self, "cache_config")
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -605,6 +640,8 @@ class App(pulumi.CustomResource):
     def platform(self) -> pulumi.Output[Optional['AppPlatform']]:
         """
         The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+
+        If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "platform")
 

@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string> LastUpdateTime { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+        /// The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
         /// </summary>
         [Output("notificationArns")]
         public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
         /// 
-        /// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+        /// For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
         /// </summary>
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
         /// 
-        /// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+        /// For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
         /// </summary>
         [Output("rootId")]
         public Output<string> RootId { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string?> StackStatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+        /// Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.AwsNative.CloudFormation
         private InputList<string>? _notificationArns;
 
         /// <summary>
-        /// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+        /// The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
         /// </summary>
         public InputList<string> NotificationArns
         {
@@ -400,7 +400,7 @@ namespace Pulumi.AwsNative.CloudFormation
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+        /// Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

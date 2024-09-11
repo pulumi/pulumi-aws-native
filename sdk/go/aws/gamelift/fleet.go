@@ -25,7 +25,7 @@ type Fleet struct {
 	CertificateConfiguration FleetCertificateConfigurationPtrOutput `pulumi:"certificateConfiguration"`
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
 	ComputeType FleetComputeTypePtrOutput `pulumi:"computeType"`
-	// *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
+	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
 	//
 	// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
 	//
@@ -151,7 +151,7 @@ type fleetArgs struct {
 	CertificateConfiguration *FleetCertificateConfiguration `pulumi:"certificateConfiguration"`
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
 	ComputeType *FleetComputeType `pulumi:"computeType"`
-	// *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
+	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
 	//
 	// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
 	//
@@ -219,7 +219,7 @@ type FleetArgs struct {
 	CertificateConfiguration FleetCertificateConfigurationPtrInput
 	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
 	ComputeType FleetComputeTypePtrInput
-	// *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
+	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
 	//
 	// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
 	//
@@ -337,7 +337,7 @@ func (o FleetOutput) ComputeType() FleetComputeTypePtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetComputeTypePtrOutput { return v.ComputeType }).(FleetComputeTypePtrOutput)
 }
 
-// *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
+// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
 //
 // Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
 //

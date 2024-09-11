@@ -1168,6 +1168,597 @@ func (o ServiceLevelObjectiveMetricStatPtrOutput) Unit() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+type ServiceLevelObjectiveMonitoredRequestCountMetric struct {
+	// If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
+	BadCountMetric []ServiceLevelObjectiveMetricDataQuery `pulumi:"badCountMetric"`
+	// If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
+	GoodCountMetric []ServiceLevelObjectiveMetricDataQuery `pulumi:"goodCountMetric"`
+}
+
+// ServiceLevelObjectiveMonitoredRequestCountMetricInput is an input type that accepts ServiceLevelObjectiveMonitoredRequestCountMetricArgs and ServiceLevelObjectiveMonitoredRequestCountMetricOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveMonitoredRequestCountMetricInput` via:
+//
+//	ServiceLevelObjectiveMonitoredRequestCountMetricArgs{...}
+type ServiceLevelObjectiveMonitoredRequestCountMetricInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveMonitoredRequestCountMetricOutput() ServiceLevelObjectiveMonitoredRequestCountMetricOutput
+	ToServiceLevelObjectiveMonitoredRequestCountMetricOutputWithContext(context.Context) ServiceLevelObjectiveMonitoredRequestCountMetricOutput
+}
+
+// This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+type ServiceLevelObjectiveMonitoredRequestCountMetricArgs struct {
+	// If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
+	BadCountMetric ServiceLevelObjectiveMetricDataQueryArrayInput `pulumi:"badCountMetric"`
+	// If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
+	GoodCountMetric ServiceLevelObjectiveMetricDataQueryArrayInput `pulumi:"goodCountMetric"`
+}
+
+func (ServiceLevelObjectiveMonitoredRequestCountMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveMonitoredRequestCountMetric)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveMonitoredRequestCountMetricArgs) ToServiceLevelObjectiveMonitoredRequestCountMetricOutput() ServiceLevelObjectiveMonitoredRequestCountMetricOutput {
+	return i.ToServiceLevelObjectiveMonitoredRequestCountMetricOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveMonitoredRequestCountMetricArgs) ToServiceLevelObjectiveMonitoredRequestCountMetricOutputWithContext(ctx context.Context) ServiceLevelObjectiveMonitoredRequestCountMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMonitoredRequestCountMetricOutput)
+}
+
+func (i ServiceLevelObjectiveMonitoredRequestCountMetricArgs) ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput() ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return i.ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveMonitoredRequestCountMetricArgs) ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMonitoredRequestCountMetricOutput).ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveMonitoredRequestCountMetricPtrInput is an input type that accepts ServiceLevelObjectiveMonitoredRequestCountMetricArgs, ServiceLevelObjectiveMonitoredRequestCountMetricPtr and ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveMonitoredRequestCountMetricPtrInput` via:
+//
+//	        ServiceLevelObjectiveMonitoredRequestCountMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveMonitoredRequestCountMetricPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput() ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput
+	ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(context.Context) ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput
+}
+
+type serviceLevelObjectiveMonitoredRequestCountMetricPtrType ServiceLevelObjectiveMonitoredRequestCountMetricArgs
+
+func ServiceLevelObjectiveMonitoredRequestCountMetricPtr(v *ServiceLevelObjectiveMonitoredRequestCountMetricArgs) ServiceLevelObjectiveMonitoredRequestCountMetricPtrInput {
+	return (*serviceLevelObjectiveMonitoredRequestCountMetricPtrType)(v)
+}
+
+func (*serviceLevelObjectiveMonitoredRequestCountMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveMonitoredRequestCountMetric)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveMonitoredRequestCountMetricPtrType) ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput() ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return i.ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveMonitoredRequestCountMetricPtrType) ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput)
+}
+
+// This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+type ServiceLevelObjectiveMonitoredRequestCountMetricOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveMonitoredRequestCountMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveMonitoredRequestCountMetric)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricOutput) ToServiceLevelObjectiveMonitoredRequestCountMetricOutput() ServiceLevelObjectiveMonitoredRequestCountMetricOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricOutput) ToServiceLevelObjectiveMonitoredRequestCountMetricOutputWithContext(ctx context.Context) ServiceLevelObjectiveMonitoredRequestCountMetricOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricOutput) ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput() ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return o.ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricOutput) ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveMonitoredRequestCountMetric) *ServiceLevelObjectiveMonitoredRequestCountMetric {
+		return &v
+	}).(ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput)
+}
+
+// If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricOutput) BadCountMetric() ServiceLevelObjectiveMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveMonitoredRequestCountMetric) []ServiceLevelObjectiveMetricDataQuery {
+		return v.BadCountMetric
+	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
+}
+
+// If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricOutput) GoodCountMetric() ServiceLevelObjectiveMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveMonitoredRequestCountMetric) []ServiceLevelObjectiveMetricDataQuery {
+		return v.GoodCountMetric
+	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
+}
+
+type ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveMonitoredRequestCountMetric)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput) ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput() ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput) ToServiceLevelObjectiveMonitoredRequestCountMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput) Elem() ServiceLevelObjectiveMonitoredRequestCountMetricOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveMonitoredRequestCountMetric) ServiceLevelObjectiveMonitoredRequestCountMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveMonitoredRequestCountMetric
+		return ret
+	}).(ServiceLevelObjectiveMonitoredRequestCountMetricOutput)
+}
+
+// If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput) BadCountMetric() ServiceLevelObjectiveMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveMonitoredRequestCountMetric) []ServiceLevelObjectiveMetricDataQuery {
+		if v == nil {
+			return nil
+		}
+		return v.BadCountMetric
+	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
+}
+
+// If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
+func (o ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput) GoodCountMetric() ServiceLevelObjectiveMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveMonitoredRequestCountMetric) []ServiceLevelObjectiveMetricDataQuery {
+		if v == nil {
+			return nil
+		}
+		return v.GoodCountMetric
+	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
+}
+
+// This structure contains information about the performance metric that a request-based SLO monitors.
+type ServiceLevelObjectiveRequestBasedSli struct {
+	// The arithmetic operation used when comparing the specified metric to the threshold.
+	ComparisonOperator *ServiceLevelObjectiveRequestBasedSliComparisonOperator `pulumi:"comparisonOperator"`
+	// The value that the SLI metric is compared to.
+	MetricThreshold *float64 `pulumi:"metricThreshold"`
+	// A structure that contains information about the metric that the SLO monitors.
+	RequestBasedSliMetric ServiceLevelObjectiveRequestBasedSliMetric `pulumi:"requestBasedSliMetric"`
+}
+
+// ServiceLevelObjectiveRequestBasedSliInput is an input type that accepts ServiceLevelObjectiveRequestBasedSliArgs and ServiceLevelObjectiveRequestBasedSliOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveRequestBasedSliInput` via:
+//
+//	ServiceLevelObjectiveRequestBasedSliArgs{...}
+type ServiceLevelObjectiveRequestBasedSliInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRequestBasedSliOutput() ServiceLevelObjectiveRequestBasedSliOutput
+	ToServiceLevelObjectiveRequestBasedSliOutputWithContext(context.Context) ServiceLevelObjectiveRequestBasedSliOutput
+}
+
+// This structure contains information about the performance metric that a request-based SLO monitors.
+type ServiceLevelObjectiveRequestBasedSliArgs struct {
+	// The arithmetic operation used when comparing the specified metric to the threshold.
+	ComparisonOperator ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrInput `pulumi:"comparisonOperator"`
+	// The value that the SLI metric is compared to.
+	MetricThreshold pulumi.Float64PtrInput `pulumi:"metricThreshold"`
+	// A structure that contains information about the metric that the SLO monitors.
+	RequestBasedSliMetric ServiceLevelObjectiveRequestBasedSliMetricInput `pulumi:"requestBasedSliMetric"`
+}
+
+func (ServiceLevelObjectiveRequestBasedSliArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSli)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveRequestBasedSliArgs) ToServiceLevelObjectiveRequestBasedSliOutput() ServiceLevelObjectiveRequestBasedSliOutput {
+	return i.ToServiceLevelObjectiveRequestBasedSliOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveRequestBasedSliArgs) ToServiceLevelObjectiveRequestBasedSliOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRequestBasedSliOutput)
+}
+
+func (i ServiceLevelObjectiveRequestBasedSliArgs) ToServiceLevelObjectiveRequestBasedSliPtrOutput() ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return i.ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveRequestBasedSliArgs) ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRequestBasedSliOutput).ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveRequestBasedSliPtrInput is an input type that accepts ServiceLevelObjectiveRequestBasedSliArgs, ServiceLevelObjectiveRequestBasedSliPtr and ServiceLevelObjectiveRequestBasedSliPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveRequestBasedSliPtrInput` via:
+//
+//	        ServiceLevelObjectiveRequestBasedSliArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveRequestBasedSliPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRequestBasedSliPtrOutput() ServiceLevelObjectiveRequestBasedSliPtrOutput
+	ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(context.Context) ServiceLevelObjectiveRequestBasedSliPtrOutput
+}
+
+type serviceLevelObjectiveRequestBasedSliPtrType ServiceLevelObjectiveRequestBasedSliArgs
+
+func ServiceLevelObjectiveRequestBasedSliPtr(v *ServiceLevelObjectiveRequestBasedSliArgs) ServiceLevelObjectiveRequestBasedSliPtrInput {
+	return (*serviceLevelObjectiveRequestBasedSliPtrType)(v)
+}
+
+func (*serviceLevelObjectiveRequestBasedSliPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveRequestBasedSli)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveRequestBasedSliPtrType) ToServiceLevelObjectiveRequestBasedSliPtrOutput() ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return i.ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveRequestBasedSliPtrType) ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRequestBasedSliPtrOutput)
+}
+
+// This structure contains information about the performance metric that a request-based SLO monitors.
+type ServiceLevelObjectiveRequestBasedSliOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRequestBasedSliOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSli)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliOutput) ToServiceLevelObjectiveRequestBasedSliOutput() ServiceLevelObjectiveRequestBasedSliOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliOutput) ToServiceLevelObjectiveRequestBasedSliOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliOutput) ToServiceLevelObjectiveRequestBasedSliPtrOutput() ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return o.ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliOutput) ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveRequestBasedSli) *ServiceLevelObjectiveRequestBasedSli {
+		return &v
+	}).(ServiceLevelObjectiveRequestBasedSliPtrOutput)
+}
+
+// The arithmetic operation used when comparing the specified metric to the threshold.
+func (o ServiceLevelObjectiveRequestBasedSliOutput) ComparisonOperator() ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSli) *ServiceLevelObjectiveRequestBasedSliComparisonOperator {
+		return v.ComparisonOperator
+	}).(ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput)
+}
+
+// The value that the SLI metric is compared to.
+func (o ServiceLevelObjectiveRequestBasedSliOutput) MetricThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSli) *float64 { return v.MetricThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// A structure that contains information about the metric that the SLO monitors.
+func (o ServiceLevelObjectiveRequestBasedSliOutput) RequestBasedSliMetric() ServiceLevelObjectiveRequestBasedSliMetricOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSli) ServiceLevelObjectiveRequestBasedSliMetric {
+		return v.RequestBasedSliMetric
+	}).(ServiceLevelObjectiveRequestBasedSliMetricOutput)
+}
+
+type ServiceLevelObjectiveRequestBasedSliPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRequestBasedSliPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveRequestBasedSli)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) ToServiceLevelObjectiveRequestBasedSliPtrOutput() ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) ToServiceLevelObjectiveRequestBasedSliPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) Elem() ServiceLevelObjectiveRequestBasedSliOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSli) ServiceLevelObjectiveRequestBasedSli {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveRequestBasedSli
+		return ret
+	}).(ServiceLevelObjectiveRequestBasedSliOutput)
+}
+
+// The arithmetic operation used when comparing the specified metric to the threshold.
+func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) ComparisonOperator() ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSli) *ServiceLevelObjectiveRequestBasedSliComparisonOperator {
+		if v == nil {
+			return nil
+		}
+		return v.ComparisonOperator
+	}).(ServiceLevelObjectiveRequestBasedSliComparisonOperatorPtrOutput)
+}
+
+// The value that the SLI metric is compared to.
+func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) MetricThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSli) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MetricThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A structure that contains information about the metric that the SLO monitors.
+func (o ServiceLevelObjectiveRequestBasedSliPtrOutput) RequestBasedSliMetric() ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSli) *ServiceLevelObjectiveRequestBasedSliMetric {
+		if v == nil {
+			return nil
+		}
+		return &v.RequestBasedSliMetric
+	}).(ServiceLevelObjectiveRequestBasedSliMetricPtrOutput)
+}
+
+// This structure contains the information about the metric that is used for a request-based SLO.
+type ServiceLevelObjectiveRequestBasedSliMetric struct {
+	// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
+	//
+	// - `Type` designates the type of object that this SLO is related to.
+	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+	KeyAttributes map[string]string `pulumi:"keyAttributes"`
+	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+	MetricType *ServiceLevelObjectiveRequestBasedSliMetricMetricType `pulumi:"metricType"`
+	// Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+	MonitoredRequestCountMetric *ServiceLevelObjectiveMonitoredRequestCountMetric `pulumi:"monitoredRequestCountMetric"`
+	// If the SLO monitors a specific operation of the service, this field displays that operation name.
+	OperationName *string `pulumi:"operationName"`
+	// This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
+	TotalRequestCountMetric []ServiceLevelObjectiveMetricDataQuery `pulumi:"totalRequestCountMetric"`
+}
+
+// ServiceLevelObjectiveRequestBasedSliMetricInput is an input type that accepts ServiceLevelObjectiveRequestBasedSliMetricArgs and ServiceLevelObjectiveRequestBasedSliMetricOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveRequestBasedSliMetricInput` via:
+//
+//	ServiceLevelObjectiveRequestBasedSliMetricArgs{...}
+type ServiceLevelObjectiveRequestBasedSliMetricInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRequestBasedSliMetricOutput() ServiceLevelObjectiveRequestBasedSliMetricOutput
+	ToServiceLevelObjectiveRequestBasedSliMetricOutputWithContext(context.Context) ServiceLevelObjectiveRequestBasedSliMetricOutput
+}
+
+// This structure contains the information about the metric that is used for a request-based SLO.
+type ServiceLevelObjectiveRequestBasedSliMetricArgs struct {
+	// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
+	//
+	// - `Type` designates the type of object that this SLO is related to.
+	// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+	// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+	// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+	KeyAttributes pulumi.StringMapInput `pulumi:"keyAttributes"`
+	// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+	MetricType ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrInput `pulumi:"metricType"`
+	// Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+	MonitoredRequestCountMetric ServiceLevelObjectiveMonitoredRequestCountMetricPtrInput `pulumi:"monitoredRequestCountMetric"`
+	// If the SLO monitors a specific operation of the service, this field displays that operation name.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
+	TotalRequestCountMetric ServiceLevelObjectiveMetricDataQueryArrayInput `pulumi:"totalRequestCountMetric"`
+}
+
+func (ServiceLevelObjectiveRequestBasedSliMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetric)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveRequestBasedSliMetricArgs) ToServiceLevelObjectiveRequestBasedSliMetricOutput() ServiceLevelObjectiveRequestBasedSliMetricOutput {
+	return i.ToServiceLevelObjectiveRequestBasedSliMetricOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveRequestBasedSliMetricArgs) ToServiceLevelObjectiveRequestBasedSliMetricOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRequestBasedSliMetricOutput)
+}
+
+func (i ServiceLevelObjectiveRequestBasedSliMetricArgs) ToServiceLevelObjectiveRequestBasedSliMetricPtrOutput() ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return i.ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveRequestBasedSliMetricArgs) ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRequestBasedSliMetricOutput).ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveRequestBasedSliMetricPtrInput is an input type that accepts ServiceLevelObjectiveRequestBasedSliMetricArgs, ServiceLevelObjectiveRequestBasedSliMetricPtr and ServiceLevelObjectiveRequestBasedSliMetricPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveRequestBasedSliMetricPtrInput` via:
+//
+//	        ServiceLevelObjectiveRequestBasedSliMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveRequestBasedSliMetricPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveRequestBasedSliMetricPtrOutput() ServiceLevelObjectiveRequestBasedSliMetricPtrOutput
+	ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(context.Context) ServiceLevelObjectiveRequestBasedSliMetricPtrOutput
+}
+
+type serviceLevelObjectiveRequestBasedSliMetricPtrType ServiceLevelObjectiveRequestBasedSliMetricArgs
+
+func ServiceLevelObjectiveRequestBasedSliMetricPtr(v *ServiceLevelObjectiveRequestBasedSliMetricArgs) ServiceLevelObjectiveRequestBasedSliMetricPtrInput {
+	return (*serviceLevelObjectiveRequestBasedSliMetricPtrType)(v)
+}
+
+func (*serviceLevelObjectiveRequestBasedSliMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveRequestBasedSliMetric)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveRequestBasedSliMetricPtrType) ToServiceLevelObjectiveRequestBasedSliMetricPtrOutput() ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return i.ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveRequestBasedSliMetricPtrType) ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveRequestBasedSliMetricPtrOutput)
+}
+
+// This structure contains the information about the metric that is used for a request-based SLO.
+type ServiceLevelObjectiveRequestBasedSliMetricOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRequestBasedSliMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetric)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) ToServiceLevelObjectiveRequestBasedSliMetricOutput() ServiceLevelObjectiveRequestBasedSliMetricOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) ToServiceLevelObjectiveRequestBasedSliMetricOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) ToServiceLevelObjectiveRequestBasedSliMetricPtrOutput() ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return o.ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveRequestBasedSliMetric {
+		return &v
+	}).(ServiceLevelObjectiveRequestBasedSliMetricPtrOutput)
+}
+
+// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
+//
+// - `Type` designates the type of object that this SLO is related to.
+// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) KeyAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) map[string]string { return v.KeyAttributes }).(pulumi.StringMapOutput)
+}
+
+// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) MetricType() ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveRequestBasedSliMetricMetricType {
+		return v.MetricType
+	}).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput)
+}
+
+// Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) MonitoredRequestCountMetric() ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveMonitoredRequestCountMetric {
+		return v.MonitoredRequestCountMetric
+	}).(ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput)
+}
+
+// If the SLO monitors a specific operation of the service, this field displays that operation name.
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
+func (o ServiceLevelObjectiveRequestBasedSliMetricOutput) TotalRequestCountMetric() ServiceLevelObjectiveMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveRequestBasedSliMetric) []ServiceLevelObjectiveMetricDataQuery {
+		return v.TotalRequestCountMetric
+	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
+}
+
+type ServiceLevelObjectiveRequestBasedSliMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveRequestBasedSliMetric)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) ToServiceLevelObjectiveRequestBasedSliMetricPtrOutput() ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) ToServiceLevelObjectiveRequestBasedSliMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveRequestBasedSliMetricPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) Elem() ServiceLevelObjectiveRequestBasedSliMetricOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) ServiceLevelObjectiveRequestBasedSliMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveRequestBasedSliMetric
+		return ret
+	}).(ServiceLevelObjectiveRequestBasedSliMetricOutput)
+}
+
+// This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
+//
+// - `Type` designates the type of object that this SLO is related to.
+// - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+// - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+// - `Environment` specifies the location where this object is hosted, or what it belongs to.
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) KeyAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyAttributes
+	}).(pulumi.StringMapOutput)
+}
+
+// If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) MetricType() ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveRequestBasedSliMetricMetricType {
+		if v == nil {
+			return nil
+		}
+		return v.MetricType
+	}).(ServiceLevelObjectiveRequestBasedSliMetricMetricTypePtrOutput)
+}
+
+// Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) MonitoredRequestCountMetric() ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *ServiceLevelObjectiveMonitoredRequestCountMetric {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoredRequestCountMetric
+	}).(ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput)
+}
+
+// If the SLO monitors a specific operation of the service, this field displays that operation name.
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
+func (o ServiceLevelObjectiveRequestBasedSliMetricPtrOutput) TotalRequestCountMetric() ServiceLevelObjectiveMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveRequestBasedSliMetric) []ServiceLevelObjectiveMetricDataQuery {
+		if v == nil {
+			return nil
+		}
+		return v.TotalRequestCountMetric
+	}).(ServiceLevelObjectiveMetricDataQueryArrayOutput)
+}
+
 // If the interval is a calendar interval, this structure contains the interval specifications.
 type ServiceLevelObjectiveRollingInterval struct {
 	// Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
@@ -1370,6 +1961,47 @@ func (i ServiceLevelObjectiveSliArgs) ToServiceLevelObjectiveSliOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliOutput)
 }
 
+func (i ServiceLevelObjectiveSliArgs) ToServiceLevelObjectiveSliPtrOutput() ServiceLevelObjectiveSliPtrOutput {
+	return i.ToServiceLevelObjectiveSliPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliArgs) ToServiceLevelObjectiveSliPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliOutput).ToServiceLevelObjectiveSliPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliPtrInput is an input type that accepts ServiceLevelObjectiveSliArgs, ServiceLevelObjectiveSliPtr and ServiceLevelObjectiveSliPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliPtrOutput() ServiceLevelObjectiveSliPtrOutput
+	ToServiceLevelObjectiveSliPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliPtrOutput
+}
+
+type serviceLevelObjectiveSliPtrType ServiceLevelObjectiveSliArgs
+
+func ServiceLevelObjectiveSliPtr(v *ServiceLevelObjectiveSliArgs) ServiceLevelObjectiveSliPtrInput {
+	return (*serviceLevelObjectiveSliPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSli)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliPtrType) ToServiceLevelObjectiveSliPtrOutput() ServiceLevelObjectiveSliPtrOutput {
+	return i.ToServiceLevelObjectiveSliPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliPtrType) ToServiceLevelObjectiveSliPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliPtrOutput)
+}
+
 // This structure contains information about the performance metric that an SLO monitors.
 type ServiceLevelObjectiveSliOutput struct{ *pulumi.OutputState }
 
@@ -1383,6 +2015,16 @@ func (o ServiceLevelObjectiveSliOutput) ToServiceLevelObjectiveSliOutput() Servi
 
 func (o ServiceLevelObjectiveSliOutput) ToServiceLevelObjectiveSliOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliOutput {
 	return o
+}
+
+func (o ServiceLevelObjectiveSliOutput) ToServiceLevelObjectiveSliPtrOutput() ServiceLevelObjectiveSliPtrOutput {
+	return o.ToServiceLevelObjectiveSliPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliOutput) ToServiceLevelObjectiveSliPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSli) *ServiceLevelObjectiveSli {
+		return &v
+	}).(ServiceLevelObjectiveSliPtrOutput)
 }
 
 // The arithmetic operation used when comparing the specified metric to the threshold.
@@ -1527,6 +2169,47 @@ func (i ServiceLevelObjectiveSliMetricArgs) ToServiceLevelObjectiveSliMetricOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliMetricOutput)
 }
 
+func (i ServiceLevelObjectiveSliMetricArgs) ToServiceLevelObjectiveSliMetricPtrOutput() ServiceLevelObjectiveSliMetricPtrOutput {
+	return i.ToServiceLevelObjectiveSliMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliMetricArgs) ToServiceLevelObjectiveSliMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliMetricOutput).ToServiceLevelObjectiveSliMetricPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliMetricPtrInput is an input type that accepts ServiceLevelObjectiveSliMetricArgs, ServiceLevelObjectiveSliMetricPtr and ServiceLevelObjectiveSliMetricPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliMetricPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliMetricPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliMetricPtrOutput() ServiceLevelObjectiveSliMetricPtrOutput
+	ToServiceLevelObjectiveSliMetricPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliMetricPtrOutput
+}
+
+type serviceLevelObjectiveSliMetricPtrType ServiceLevelObjectiveSliMetricArgs
+
+func ServiceLevelObjectiveSliMetricPtr(v *ServiceLevelObjectiveSliMetricArgs) ServiceLevelObjectiveSliMetricPtrInput {
+	return (*serviceLevelObjectiveSliMetricPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliMetric)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliMetricPtrType) ToServiceLevelObjectiveSliMetricPtrOutput() ServiceLevelObjectiveSliMetricPtrOutput {
+	return i.ToServiceLevelObjectiveSliMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliMetricPtrType) ToServiceLevelObjectiveSliMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliMetricPtrOutput)
+}
+
 // A structure that contains information about the metric that the SLO monitors.
 type ServiceLevelObjectiveSliMetricOutput struct{ *pulumi.OutputState }
 
@@ -1540,6 +2223,16 @@ func (o ServiceLevelObjectiveSliMetricOutput) ToServiceLevelObjectiveSliMetricOu
 
 func (o ServiceLevelObjectiveSliMetricOutput) ToServiceLevelObjectiveSliMetricOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliMetricOutput {
 	return o
+}
+
+func (o ServiceLevelObjectiveSliMetricOutput) ToServiceLevelObjectiveSliMetricPtrOutput() ServiceLevelObjectiveSliMetricPtrOutput {
+	return o.ToServiceLevelObjectiveSliMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliMetricOutput) ToServiceLevelObjectiveSliMetricPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliMetric) *ServiceLevelObjectiveSliMetric {
+		return &v
+	}).(ServiceLevelObjectiveSliMetricPtrOutput)
 }
 
 // If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
@@ -1696,10 +2389,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricDataQueryArrayInput)(nil)).Elem(), ServiceLevelObjectiveMetricDataQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricStatInput)(nil)).Elem(), ServiceLevelObjectiveMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMetricStatPtrInput)(nil)).Elem(), ServiceLevelObjectiveMetricStatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMonitoredRequestCountMetricInput)(nil)).Elem(), ServiceLevelObjectiveMonitoredRequestCountMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMonitoredRequestCountMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveMonitoredRequestCountMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliPtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRollingIntervalInput)(nil)).Elem(), ServiceLevelObjectiveRollingIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRollingIntervalPtrInput)(nil)).Elem(), ServiceLevelObjectiveRollingIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliInput)(nil)).Elem(), ServiceLevelObjectiveSliArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDimensionOutput{})
@@ -1714,6 +2415,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricDataQueryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricStatOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveMetricStatPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveMonitoredRequestCountMetricOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveMonitoredRequestCountMetricPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliMetricOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveRequestBasedSliMetricPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRollingIntervalOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveRollingIntervalPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliOutput{})

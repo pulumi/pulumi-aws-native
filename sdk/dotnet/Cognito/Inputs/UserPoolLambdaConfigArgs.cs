@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolLambdaConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Creates an authentication challenge.
+        /// The configuration of a create auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         /// </summary>
         [Input("createAuthChallenge")]
         public Input<string>? CreateAuthChallenge { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<Inputs.UserPoolCustomEmailSenderArgs>? CustomEmailSender { get; set; }
 
         /// <summary>
-        /// A custom Message AWS Lambda trigger.
+        /// A custom message Lambda trigger. This trigger is an opportunity to customize all SMS and email messages from your user pool. When a custom message trigger is active, your user pool routes all messages to a Lambda function that returns a runtime-customized message subject and body for your user pool to deliver to a user.
         /// </summary>
         [Input("customMessage")]
         public Input<string>? CustomMessage { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<Inputs.UserPoolCustomSmsSenderArgs>? CustomSmsSender { get; set; }
 
         /// <summary>
-        /// Defines the authentication challenge.
+        /// The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         /// </summary>
         [Input("defineAuthChallenge")]
         public Input<string>? DefineAuthChallenge { get; set; }
@@ -49,53 +49,51 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// A post-authentication AWS Lambda trigger.
+        /// The configuration of a [post authentication Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html) in a user pool. This trigger can take custom actions after a user signs in.
         /// </summary>
         [Input("postAuthentication")]
         public Input<string>? PostAuthentication { get; set; }
 
         /// <summary>
-        /// A post-confirmation AWS Lambda trigger.
+        /// The configuration of a [post confirmation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html) in a user pool. This trigger can take custom actions after a user confirms their user account and their email address or phone number.
         /// </summary>
         [Input("postConfirmation")]
         public Input<string>? PostConfirmation { get; set; }
 
         /// <summary>
-        /// A pre-authentication AWS Lambda trigger.
+        /// The configuration of a [pre authentication trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html) in a user pool. This trigger can evaluate and modify user sign-in events.
         /// </summary>
         [Input("preAuthentication")]
         public Input<string>? PreAuthentication { get; set; }
 
         /// <summary>
-        /// A pre-registration AWS Lambda trigger.
+        /// The configuration of a [pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) in a user pool. This trigger evaluates new users and can bypass confirmation, [link a federated user profile](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html) , or block sign-up requests.
         /// </summary>
         [Input("preSignUp")]
         public Input<string>? PreSignUp { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+        /// The legacy configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool.
         /// 
         /// Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
-        /// 
-        /// You can set ``
         /// </summary>
         [Input("preTokenGeneration")]
         public Input<string>? PreTokenGeneration { get; set; }
 
         /// <summary>
-        /// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
+        /// The detailed configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
         /// </summary>
         [Input("preTokenGenerationConfig")]
         public Input<Inputs.UserPoolPreTokenGenerationConfigArgs>? PreTokenGenerationConfig { get; set; }
 
         /// <summary>
-        /// The user migration Lambda config type.
+        /// The configuration of a [migrate user Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html) in a user pool. This trigger can create user profiles when users sign in or attempt to reset their password with credentials that don't exist yet.
         /// </summary>
         [Input("userMigration")]
         public Input<string>? UserMigration { get; set; }
 
         /// <summary>
-        /// Verifies the authentication challenge response.
+        /// The configuration of a verify auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         /// </summary>
         [Input("verifyAuthChallengeResponse")]
         public Input<string>? VerifyAuthChallengeResponse { get; set; }

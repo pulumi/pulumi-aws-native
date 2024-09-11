@@ -6111,6 +6111,146 @@ func (o FlowSourceGatewayBridgeSourcePtrOutput) VpcInterfaceAttachment() FlowSou
 	}).(FlowSourceVpcInterfaceAttachmentPtrOutput)
 }
 
+// The settings for source monitoring.
+type FlowSourceMonitoringConfig struct {
+	// The state of thumbnail monitoring.
+	ThumbnailState FlowSourceMonitoringConfigThumbnailState `pulumi:"thumbnailState"`
+}
+
+// FlowSourceMonitoringConfigInput is an input type that accepts FlowSourceMonitoringConfigArgs and FlowSourceMonitoringConfigOutput values.
+// You can construct a concrete instance of `FlowSourceMonitoringConfigInput` via:
+//
+//	FlowSourceMonitoringConfigArgs{...}
+type FlowSourceMonitoringConfigInput interface {
+	pulumi.Input
+
+	ToFlowSourceMonitoringConfigOutput() FlowSourceMonitoringConfigOutput
+	ToFlowSourceMonitoringConfigOutputWithContext(context.Context) FlowSourceMonitoringConfigOutput
+}
+
+// The settings for source monitoring.
+type FlowSourceMonitoringConfigArgs struct {
+	// The state of thumbnail monitoring.
+	ThumbnailState FlowSourceMonitoringConfigThumbnailStateInput `pulumi:"thumbnailState"`
+}
+
+func (FlowSourceMonitoringConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceMonitoringConfig)(nil)).Elem()
+}
+
+func (i FlowSourceMonitoringConfigArgs) ToFlowSourceMonitoringConfigOutput() FlowSourceMonitoringConfigOutput {
+	return i.ToFlowSourceMonitoringConfigOutputWithContext(context.Background())
+}
+
+func (i FlowSourceMonitoringConfigArgs) ToFlowSourceMonitoringConfigOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceMonitoringConfigOutput)
+}
+
+func (i FlowSourceMonitoringConfigArgs) ToFlowSourceMonitoringConfigPtrOutput() FlowSourceMonitoringConfigPtrOutput {
+	return i.ToFlowSourceMonitoringConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceMonitoringConfigArgs) ToFlowSourceMonitoringConfigPtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceMonitoringConfigOutput).ToFlowSourceMonitoringConfigPtrOutputWithContext(ctx)
+}
+
+// FlowSourceMonitoringConfigPtrInput is an input type that accepts FlowSourceMonitoringConfigArgs, FlowSourceMonitoringConfigPtr and FlowSourceMonitoringConfigPtrOutput values.
+// You can construct a concrete instance of `FlowSourceMonitoringConfigPtrInput` via:
+//
+//	        FlowSourceMonitoringConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceMonitoringConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceMonitoringConfigPtrOutput() FlowSourceMonitoringConfigPtrOutput
+	ToFlowSourceMonitoringConfigPtrOutputWithContext(context.Context) FlowSourceMonitoringConfigPtrOutput
+}
+
+type flowSourceMonitoringConfigPtrType FlowSourceMonitoringConfigArgs
+
+func FlowSourceMonitoringConfigPtr(v *FlowSourceMonitoringConfigArgs) FlowSourceMonitoringConfigPtrInput {
+	return (*flowSourceMonitoringConfigPtrType)(v)
+}
+
+func (*flowSourceMonitoringConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceMonitoringConfig)(nil)).Elem()
+}
+
+func (i *flowSourceMonitoringConfigPtrType) ToFlowSourceMonitoringConfigPtrOutput() FlowSourceMonitoringConfigPtrOutput {
+	return i.ToFlowSourceMonitoringConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceMonitoringConfigPtrType) ToFlowSourceMonitoringConfigPtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceMonitoringConfigPtrOutput)
+}
+
+// The settings for source monitoring.
+type FlowSourceMonitoringConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceMonitoringConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceMonitoringConfig)(nil)).Elem()
+}
+
+func (o FlowSourceMonitoringConfigOutput) ToFlowSourceMonitoringConfigOutput() FlowSourceMonitoringConfigOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigOutput) ToFlowSourceMonitoringConfigOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigOutput) ToFlowSourceMonitoringConfigPtrOutput() FlowSourceMonitoringConfigPtrOutput {
+	return o.ToFlowSourceMonitoringConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceMonitoringConfigOutput) ToFlowSourceMonitoringConfigPtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceMonitoringConfig) *FlowSourceMonitoringConfig {
+		return &v
+	}).(FlowSourceMonitoringConfigPtrOutput)
+}
+
+// The state of thumbnail monitoring.
+func (o FlowSourceMonitoringConfigOutput) ThumbnailState() FlowSourceMonitoringConfigThumbnailStateOutput {
+	return o.ApplyT(func(v FlowSourceMonitoringConfig) FlowSourceMonitoringConfigThumbnailState { return v.ThumbnailState }).(FlowSourceMonitoringConfigThumbnailStateOutput)
+}
+
+type FlowSourceMonitoringConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceMonitoringConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceMonitoringConfig)(nil)).Elem()
+}
+
+func (o FlowSourceMonitoringConfigPtrOutput) ToFlowSourceMonitoringConfigPtrOutput() FlowSourceMonitoringConfigPtrOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigPtrOutput) ToFlowSourceMonitoringConfigPtrOutputWithContext(ctx context.Context) FlowSourceMonitoringConfigPtrOutput {
+	return o
+}
+
+func (o FlowSourceMonitoringConfigPtrOutput) Elem() FlowSourceMonitoringConfigOutput {
+	return o.ApplyT(func(v *FlowSourceMonitoringConfig) FlowSourceMonitoringConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceMonitoringConfig
+		return ret
+	}).(FlowSourceMonitoringConfigOutput)
+}
+
+// The state of thumbnail monitoring.
+func (o FlowSourceMonitoringConfigPtrOutput) ThumbnailState() FlowSourceMonitoringConfigThumbnailStatePtrOutput {
+	return o.ApplyT(func(v *FlowSourceMonitoringConfig) *FlowSourceMonitoringConfigThumbnailState {
+		if v == nil {
+			return nil
+		}
+		return &v.ThumbnailState
+	}).(FlowSourceMonitoringConfigThumbnailStatePtrOutput)
+}
+
 // The settings for attaching a VPC interface to an resource.
 type FlowSourceVpcInterfaceAttachment struct {
 	// The name of the VPC interface to use for this resource.
@@ -6712,6 +6852,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceEncryptionPtrInput)(nil)).Elem(), FlowSourceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceGatewayBridgeSourceInput)(nil)).Elem(), FlowSourceGatewayBridgeSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceGatewayBridgeSourcePtrInput)(nil)).Elem(), FlowSourceGatewayBridgeSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigInput)(nil)).Elem(), FlowSourceMonitoringConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceMonitoringConfigPtrInput)(nil)).Elem(), FlowSourceMonitoringConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceVpcInterfaceAttachmentPtrInput)(nil)).Elem(), FlowSourceVpcInterfaceAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceTypeInput)(nil)).Elem(), FlowVpcInterfaceTypeArgs{})
@@ -6788,6 +6930,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceGatewayBridgeSourceOutput{})
 	pulumi.RegisterOutputType(FlowSourceGatewayBridgeSourcePtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceMonitoringConfigOutput{})
+	pulumi.RegisterOutputType(FlowSourceMonitoringConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentOutput{})
 	pulumi.RegisterOutputType(FlowSourceVpcInterfaceAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(FlowVpcInterfaceTypeOutput{})

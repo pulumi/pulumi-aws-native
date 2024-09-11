@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:sns:Subscription":
+		r = &Subscription{}
 	case "aws-native:sns:Topic":
 		r = &Topic{}
 	case "aws-native:sns:TopicInlinePolicy":

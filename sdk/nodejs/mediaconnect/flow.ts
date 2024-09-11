@@ -54,7 +54,7 @@ export class Flow extends pulumi.CustomResource {
      */
     public /*out*/ readonly flowAvailabilityZone!: pulumi.Output<string>;
     /**
-     * The maintenance settings you want to use for the flow. 
+     * The maintenance settings you want to use for the flow.
      */
     public readonly maintenance!: pulumi.Output<outputs.mediaconnect.FlowMaintenance | undefined>;
     /**
@@ -73,6 +73,10 @@ export class Flow extends pulumi.CustomResource {
      * The source failover config of the flow.
      */
     public readonly sourceFailoverConfig!: pulumi.Output<outputs.mediaconnect.FlowFailoverConfig | undefined>;
+    /**
+     * The source monitoring config of the flow.
+     */
+    public readonly sourceMonitoringConfig!: pulumi.Output<outputs.mediaconnect.FlowSourceMonitoringConfig | undefined>;
     /**
      * The VPC interfaces that you added to this flow.
      */
@@ -98,6 +102,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
+            resourceInputs["sourceMonitoringConfig"] = args ? args.sourceMonitoringConfig : undefined;
             resourceInputs["vpcInterfaces"] = args ? args.vpcInterfaces : undefined;
             resourceInputs["egressIp"] = undefined /*out*/;
             resourceInputs["flowArn"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["sourceFailoverConfig"] = undefined /*out*/;
+            resourceInputs["sourceMonitoringConfig"] = undefined /*out*/;
             resourceInputs["vpcInterfaces"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -130,7 +136,7 @@ export interface FlowArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The maintenance settings you want to use for the flow. 
+     * The maintenance settings you want to use for the flow.
      */
     maintenance?: pulumi.Input<inputs.mediaconnect.FlowMaintenanceArgs>;
     /**
@@ -149,6 +155,10 @@ export interface FlowArgs {
      * The source failover config of the flow.
      */
     sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.FlowFailoverConfigArgs>;
+    /**
+     * The source monitoring config of the flow.
+     */
+    sourceMonitoringConfig?: pulumi.Input<inputs.mediaconnect.FlowSourceMonitoringConfigArgs>;
     /**
      * The VPC interfaces that you added to this flow.
      */

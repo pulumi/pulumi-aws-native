@@ -38,7 +38,7 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+     * The settings for automated responses and notification templates for adaptive authentication with advanced security features.
      */
     public readonly accountTakeoverRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType | undefined>;
     /**
@@ -46,15 +46,15 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+     * Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
      */
     public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType | undefined>;
     /**
-     * The configuration to override the risk decision.
+     * Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
      */
     public readonly riskExceptionConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType | undefined>;
     /**
-     * The user pool ID.
+     * The ID of the user pool that has the risk configuration applied.
      */
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -99,7 +99,7 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
  */
 export interface UserPoolRiskConfigurationAttachmentArgs {
     /**
-     * The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+     * The settings for automated responses and notification templates for adaptive authentication with advanced security features.
      */
     accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>;
     /**
@@ -107,15 +107,15 @@ export interface UserPoolRiskConfigurationAttachmentArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+     * Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
      */
     compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs>;
     /**
-     * The configuration to override the risk decision.
+     * Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
      */
     riskExceptionConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs>;
     /**
-     * The user pool ID.
+     * The ID of the user pool that has the risk configuration applied.
      */
     userPoolId: pulumi.Input<string>;
 }

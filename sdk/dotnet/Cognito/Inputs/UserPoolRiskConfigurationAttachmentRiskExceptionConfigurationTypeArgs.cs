@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         private InputList<string>? _blockedIpRangeList;
 
         /// <summary>
-        /// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        /// An always-block IP address list. Overrides the risk decision and always blocks authentication requests. This parameter is displayed and set in CIDR notation.
         /// </summary>
         public InputList<string> BlockedIpRangeList
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         private InputList<string>? _skippedIpRangeList;
 
         /// <summary>
-        /// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        /// An always-allow IP address list. Risk detection isn't performed on the IP addresses in this range list. This parameter is displayed and set in CIDR notation.
         /// </summary>
         public InputList<string> SkippedIpRangeList
         {

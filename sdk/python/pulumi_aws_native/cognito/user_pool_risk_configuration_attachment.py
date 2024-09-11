@@ -24,10 +24,10 @@ class UserPoolRiskConfigurationAttachmentArgs:
         """
         The set of arguments for constructing a UserPoolRiskConfigurationAttachment resource.
         :param pulumi.Input[str] client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs'] account_takeover_risk_configuration: The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs'] compromised_credentials_risk_configuration: The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs'] risk_exception_configuration: The configuration to override the risk decision.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool that has the risk configuration applied.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs'] account_takeover_risk_configuration: The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs'] compromised_credentials_risk_configuration: Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs'] risk_exception_configuration: Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -54,7 +54,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
         """
-        The user pool ID.
+        The ID of the user pool that has the risk configuration applied.
         """
         return pulumi.get(self, "user_pool_id")
 
@@ -66,7 +66,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']]:
         """
-        The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        The settings for automated responses and notification templates for adaptive authentication with advanced security features.
         """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
@@ -78,7 +78,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']]:
         """
-        The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
         """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
@@ -90,7 +90,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']]:
         """
-        The configuration to override the risk decision.
+        Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
         """
         return pulumi.get(self, "risk_exception_configuration")
 
@@ -115,11 +115,11 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict']] account_takeover_risk_configuration: The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict']] account_takeover_risk_configuration: The settings for automated responses and notification templates for adaptive authentication with advanced security features.
         :param pulumi.Input[str] client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
-        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict']] compromised_credentials_risk_configuration: The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
-        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict']] risk_exception_configuration: The configuration to override the risk decision.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
+        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict']] compromised_credentials_risk_configuration: Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+        :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict']] risk_exception_configuration: Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool that has the risk configuration applied.
         """
         ...
     @overload
@@ -203,7 +203,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType']]:
         """
-        The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        The settings for automated responses and notification templates for adaptive authentication with advanced security features.
         """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
@@ -219,7 +219,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType']]:
         """
-        The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
         """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
@@ -227,7 +227,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType']]:
         """
-        The configuration to override the risk decision.
+        Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
         """
         return pulumi.get(self, "risk_exception_configuration")
 
@@ -235,7 +235,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
         """
-        The user pool ID.
+        The ID of the user pool that has the risk configuration applied.
         """
         return pulumi.get(self, "user_pool_id")
 

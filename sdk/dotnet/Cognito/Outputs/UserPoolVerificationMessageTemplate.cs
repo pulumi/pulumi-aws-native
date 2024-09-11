@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolVerificationMessageTemplate
     {
         /// <summary>
-        /// The default email option.
+        /// The configuration of verification emails to contain a clickable link or a verification code.
+        /// 
+        /// For link, your template body must contain link text in the format `{##Click here##}` . "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format `{####}` .
         /// </summary>
         public readonly string? DefaultEmailOption;
         /// <summary>

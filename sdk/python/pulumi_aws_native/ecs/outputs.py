@@ -742,7 +742,7 @@ class ClusterSettings(dict):
 @pulumi.output_type
 class ServiceAwsVpcConfiguration(dict):
     """
-    An object representing the networking details for a task or service. For example ``awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``
+    An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -768,11 +768,11 @@ class ServiceAwsVpcConfiguration(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  subnets: Optional[Sequence[str]] = None):
         """
-        An object representing the networking details for a task or service. For example ``awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``
+        An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
         :param 'ServiceAwsVpcConfigurationAssignPublicIp' assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
-        :param Sequence[str] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``AwsVpcConfiguration``.
+        :param Sequence[str] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
                  All specified security groups must be from the same VPC.
-        :param Sequence[str] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``AwsVpcConfiguration``.
+        :param Sequence[str] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
                  All specified subnets must be from the same VPC.
         """
         if assign_public_ip is not None:
@@ -794,7 +794,7 @@ class ServiceAwsVpcConfiguration(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``AwsVpcConfiguration``.
+        The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
           All specified security groups must be from the same VPC.
         """
         return pulumi.get(self, "security_groups")
@@ -803,7 +803,7 @@ class ServiceAwsVpcConfiguration(dict):
     @pulumi.getter
     def subnets(self) -> Optional[Sequence[str]]:
         """
-        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``AwsVpcConfiguration``.
+        The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
           All specified subnets must be from the same VPC.
         """
         return pulumi.get(self, "subnets")
@@ -976,12 +976,12 @@ class ServiceConnectConfiguration(dict):
         The Service Connect configuration of your Amazon ECS service. The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param bool enabled: Specifies whether to use Service Connect with this service.
-        :param 'ServiceLogConfiguration' log_configuration: The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
-                By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+        :param 'ServiceLogConfiguration' log_configuration: The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
+                By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
                 Understand the following when specifying a log configuration for your containers.
                  +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
                 For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-                For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+                For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
                  +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
                  +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
                  +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
@@ -1010,12 +1010,12 @@ class ServiceConnectConfiguration(dict):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.ServiceLogConfiguration']:
         """
-        The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
-         By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+        The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
+         By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
          Understand the following when specifying a log configuration for your containers.
           +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
          For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-         For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+         For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
           +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
           +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
           +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
@@ -1161,7 +1161,7 @@ class ServiceConnectService(dict):
 @pulumi.output_type
 class ServiceConnectTlsCertificateAuthority(dict):
     """
-    An object that represents the AWS Private Certificate Authority certificate.
+    The certificate root authority that secures your service.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1183,7 +1183,7 @@ class ServiceConnectTlsCertificateAuthority(dict):
     def __init__(__self__, *,
                  aws_pca_authority_arn: Optional[str] = None):
         """
-        An object that represents the AWS Private Certificate Authority certificate.
+        The certificate root authority that secures your service.
         :param str aws_pca_authority_arn: The ARN of the AWS Private Certificate Authority certificate.
         """
         if aws_pca_authority_arn is not None:
@@ -1201,7 +1201,7 @@ class ServiceConnectTlsCertificateAuthority(dict):
 @pulumi.output_type
 class ServiceConnectTlsConfiguration(dict):
     """
-    An object that represents the configuration for Service Connect TLS.
+    The key that encrypts and decrypts your resources for Service Connect TLS.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1229,7 +1229,7 @@ class ServiceConnectTlsConfiguration(dict):
                  kms_key: Optional[str] = None,
                  role_arn: Optional[str] = None):
         """
-        An object that represents the configuration for Service Connect TLS.
+        The key that encrypts and decrypts your resources for Service Connect TLS.
         :param 'ServiceConnectTlsCertificateAuthority' issuer_certificate_authority: The signer certificate authority.
         :param str kms_key: The AWS Key Management Service key.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.
@@ -1372,7 +1372,7 @@ class ServiceDeploymentCircuitBreaker(dict):
 @pulumi.output_type
 class ServiceDeploymentConfiguration(dict):
     """
-    The ``DeploymentConfiguration`` property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+    Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1401,12 +1401,14 @@ class ServiceDeploymentConfiguration(dict):
                  maximum_percent: Optional[int] = None,
                  minimum_healthy_percent: Optional[int] = None):
         """
-        The ``DeploymentConfiguration`` property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
         :param 'ServiceDeploymentAlarms' alarms: Information about the CloudWatch alarms.
         :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
         :param int maximum_percent: If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
-                If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+                If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
+                 You can't specify a custom ``maximumPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
+                 If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
         :param int minimum_healthy_percent: If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. 
                 For services that *do not* use a load balancer, the following should be noted:
                  +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
@@ -1417,7 +1419,11 @@ class ServiceDeploymentConfiguration(dict):
                  +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
                  +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
                  
-                If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+                The default value for a replica service for ``minimumHealthyPercent`` is 100%. The default ``minimumHealthyPercent`` value for a service using the ``DAEMON`` service schedule is 0% for the CLI, the AWS SDKs, and the APIs and 50% for the AWS Management Console.
+                The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by the ``minimumHealthyPercent``/100, rounded up to the nearest integer value.
+                If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value. The *minimum healthy percent* value is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
+                 You can't specify a custom ``minimumHealthyPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
+                 If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -1450,7 +1456,9 @@ class ServiceDeploymentConfiguration(dict):
     def maximum_percent(self) -> Optional[int]:
         """
         If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
-         If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+         If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
+          You can't specify a custom ``maximumPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
+          If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
         """
         return pulumi.get(self, "maximum_percent")
 
@@ -1468,7 +1476,11 @@ class ServiceDeploymentConfiguration(dict):
           +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
           +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
           
-         If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+         The default value for a replica service for ``minimumHealthyPercent`` is 100%. The default ``minimumHealthyPercent`` value for a service using the ``DAEMON`` service schedule is 0% for the CLI, the AWS SDKs, and the APIs and 50% for the AWS Management Console.
+         The minimum number of healthy tasks during a deployment is the ``desiredCount`` multiplied by the ``minimumHealthyPercent``/100, rounded up to the nearest integer value.
+         If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value. The *minimum healthy percent* value is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
+          You can't specify a custom ``minimumHealthyPercent`` value for a service that uses either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and has tasks that use the EC2 launch type.
+          If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
         """
         return pulumi.get(self, "minimum_healthy_percent")
 
@@ -1670,12 +1682,12 @@ class ServiceLoadBalancer(dict):
 @pulumi.output_type
 class ServiceLogConfiguration(dict):
     """
-    The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
-     By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+    The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
+     By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
      Understand the following when specifying a log configuration for your containers.
       +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
      For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
       +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
       +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
       +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
@@ -1704,20 +1716,20 @@ class ServiceLogConfiguration(dict):
                  options: Optional[Mapping[str, str]] = None,
                  secret_options: Optional[Sequence['outputs.ServiceSecret']] = None):
         """
-        The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
-         By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+        The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
+         By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
          Understand the following when specifying a log configuration for your containers.
           +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
          For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-         For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+         For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``,``syslog``, ``splunk``, and ``awsfirelens``.
           +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
           +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
           +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
         :param str log_driver: The log driver to use for the container.
                 For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-                For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
-                For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
-                For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+                For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+                For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+                For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
                  If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
         :param Mapping[str, str] options: The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
         :param Sequence['ServiceSecret'] secret_options: The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -1735,9 +1747,9 @@ class ServiceLogConfiguration(dict):
         """
         The log driver to use for the container.
          For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
-         For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
-         For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
-         For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+         For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``syslog``, ``splunk``, and ``awsfirelens``.
+         For more information about using the ``awslogs`` log driver, see [Send Amazon ECS logs to CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+         For more information about using the ``awsfirelens`` log driver, see [Send Amazon ECS logs to an service or Partner](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html).
           If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
         """
         return pulumi.get(self, "log_driver")
@@ -1969,7 +1981,7 @@ class ServiceManagedEbsVolumeConfiguration(dict):
 @pulumi.output_type
 class ServiceNetworkConfiguration(dict):
     """
-    The ``NetworkConfiguration`` property specifies an object representing the network configuration for a task or service.
+    The network configuration for a task or service.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1991,7 +2003,7 @@ class ServiceNetworkConfiguration(dict):
     def __init__(__self__, *,
                  awsvpc_configuration: Optional['outputs.ServiceAwsVpcConfiguration'] = None):
         """
-        The ``NetworkConfiguration`` property specifies an object representing the network configuration for a task or service.
+        The network configuration for a task or service.
         :param 'ServiceAwsVpcConfiguration' awsvpc_configuration: The VPC subnets and security groups that are associated with a task.
                  All specified subnets and security groups must be from the same VPC.
         """
@@ -2011,13 +2023,15 @@ class ServiceNetworkConfiguration(dict):
 @pulumi.output_type
 class ServicePlacementConstraint(dict):
     """
-    The ``PlacementConstraint`` property specifies an object representing a constraint on task placement in the task definition. For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+    An object representing a constraint on task placement. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+      If you're using the Fargate launch type, task placement constraints aren't supported.
     """
     def __init__(__self__, *,
                  type: 'ServicePlacementConstraintType',
                  expression: Optional[str] = None):
         """
-        The ``PlacementConstraint`` property specifies an object representing a constraint on task placement in the task definition. For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+        An object representing a constraint on task placement. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+          If you're using the Fargate launch type, task placement constraints aren't supported.
         :param 'ServicePlacementConstraintType' type: The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
         :param str expression: A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is ``distinctInstance``. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
@@ -2045,15 +2059,15 @@ class ServicePlacementConstraint(dict):
 @pulumi.output_type
 class ServicePlacementStrategy(dict):
     """
-    The ``PlacementStrategy`` property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
+    The task placement strategy for a task or service. For more information, see [Task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
     """
     def __init__(__self__, *,
                  type: 'ServicePlacementStrategyType',
                  field: Optional[str] = None):
         """
-        The ``PlacementStrategy`` property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
+        The task placement strategy for a task or service. For more information, see [Task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param 'ServicePlacementStrategyType' type: The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
-        :param str field: The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``CPU`` and ``MEMORY``. For the ``random`` placement strategy, this field is not used.
+        :param str field: The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that's applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``cpu`` and ``memory``. For the ``random`` placement strategy, this field is not used.
         """
         pulumi.set(__self__, "type", type)
         if field is not None:
@@ -2071,7 +2085,7 @@ class ServicePlacementStrategy(dict):
     @pulumi.getter
     def field(self) -> Optional[str]:
         """
-        The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``CPU`` and ``MEMORY``. For the ``random`` placement strategy, this field is not used.
+        The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that's applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``cpu`` and ``memory``. For the ``random`` placement strategy, this field is not used.
         """
         return pulumi.get(self, "field")
 
@@ -2079,7 +2093,9 @@ class ServicePlacementStrategy(dict):
 @pulumi.output_type
 class ServiceRegistry(dict):
     """
-    The ``ServiceRegistry`` property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
+    The details for the service registry.
+     Each service may be associated with one service registry. Multiple service registries for each service are not supported.
+     When you add, update, or remove the service registries configuration, Amazon ECS starts a new deployment. New tasks are registered and deregistered to the updated service registry configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2108,7 +2124,9 @@ class ServiceRegistry(dict):
                  port: Optional[int] = None,
                  registry_arn: Optional[str] = None):
         """
-        The ``ServiceRegistry`` property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
+        The details for the service registry.
+         Each service may be associated with one service registry. Multiple service registries for each service are not supported.
+         When you add, update, or remove the service registries configuration, Amazon ECS starts a new deployment. New tasks are registered and deregistered to the updated service registry configuration.
         :param str container_name: The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
         :param int container_port: The port value to be used for your service discovery service. It's already specified in the task definition. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
         :param int port: The port value used if your service discovery service specified an SRV record. This field might be used if both the ``awsvpc`` network mode and SRV records are used.
@@ -2550,15 +2568,15 @@ class TaskDefinitionContainerDefinition(dict):
                  working_directory: Optional[str] = None):
         """
         The ``ContainerDefinition`` property specifies a container definition. Container definitions are used in task definitions to describe the different containers that are launched as part of a task.
-        :param str image: The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the docker conainer create command and the ``IMAGE`` parameter of docker run.
+        :param str image: The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the docker container create command and the ``IMAGE`` parameter of docker run.
                  +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
                  +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``. 
                  +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).
                  +  Images in other repositories on Docker Hub are qualified with an organization name (for example, ``amazon/amazon-ecs-agent``).
                  +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
-        :param str name: The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in tthe docker conainer create command and the ``--name`` option to docker run.
-        :param Sequence[str] command: The command that's passed to the container. This parameter maps to ``Cmd`` in the docker conainer create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
-        :param int cpu: The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker conainer create commandand the ``--cpu-shares`` option to docker run.
+        :param str name: The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in tthe docker container create command and the ``--name`` option to docker run.
+        :param Sequence[str] command: The command that's passed to the container. This parameter maps to ``Cmd`` in the docker container create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
+        :param int cpu: The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
                 This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
                  You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
                  Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
@@ -2580,36 +2598,36 @@ class TaskDefinitionContainerDefinition(dict):
                  +  Windows platform version ``1.0.0`` or later.
                  
                 If the task definition is used in a blue/green deployment that uses [AWS::CodeDeploy::DeploymentGroup BlueGreenDeploymentConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-bluegreendeploymentconfiguration.html), the ``dependsOn`` parameter is not supported. For more information see [Issue #680](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/680) on the on the GitHub website.
-        :param bool disable_networking: When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the docker conainer create command.
+        :param bool disable_networking: When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the docker container create command.
                  This parameter is not supported for Windows containers.
-        :param Sequence[str] dns_search_domains: A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the docker conainer create command and the ``--dns-search`` option to docker run.
+        :param Sequence[str] dns_search_domains: A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the docker container create command and the ``--dns-search`` option to docker run.
                  This parameter is not supported for Windows containers.
-        :param Sequence[str] dns_servers: A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the the docker conainer create command and the ``--dns`` option to docker run.
+        :param Sequence[str] dns_servers: A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the docker container create command and the ``--dns`` option to docker run.
                  This parameter is not supported for Windows containers.
-        :param Mapping[str, str] docker_labels: A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the docker conainer create command and the ``--label`` option to docker run. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+        :param Mapping[str, str] docker_labels: A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the docker container create command and the ``--label`` option to docker run. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
         :param Sequence[str] docker_security_options: A list of strings to provide custom configuration for multiple security systems. This field isn't valid for containers in tasks using the Fargate launch type.
                 For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems.
                 For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*.
-                This parameter maps to ``SecurityOpt`` in the docker conainer create command and the ``--security-opt`` option to docker run.
+                This parameter maps to ``SecurityOpt`` in the docker container create command and the ``--security-opt`` option to docker run.
                  The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
                  Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
         :param Sequence[str] entry_point: Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.
-                 The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in tthe docker conainer create command and the ``--entrypoint`` option to docker run.
-        :param Sequence['TaskDefinitionKeyValuePair'] environment: The environment variables to pass to a container. This parameter maps to ``Env`` in the docker conainer create command and the ``--env`` option to docker run.
+                 The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in tthe docker container create command and the ``--entrypoint`` option to docker run.
+        :param Sequence['TaskDefinitionKeyValuePair'] environment: The environment variables to pass to a container. This parameter maps to ``Env`` in the docker container create command and the ``--env`` option to docker run.
                  We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
         :param Sequence['TaskDefinitionEnvironmentFile'] environment_files: A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to docker run.
                 You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored.
                 If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param bool essential: If the ``essential`` parameter of a container is marked as ``true``, and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the ``essential`` parameter of a container is marked as ``false``, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
                 All tasks must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param Sequence['TaskDefinitionHostEntry'] extra_hosts: A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the docker conainer create command and the ``--add-host`` option to docker run.
+        :param Sequence['TaskDefinitionHostEntry'] extra_hosts: A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the docker container create command and the ``--add-host`` option to docker run.
                  This parameter isn't supported for Windows containers or tasks that use the ``awsvpc`` network mode.
         :param 'TaskDefinitionFirelensConfiguration' firelens_configuration: The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom Log Routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param 'TaskDefinitionHealthCheck' health_check: The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the docker conainer create command and the ``HEALTHCHECK`` parameter of docker run.
-        :param str hostname: The hostname to use for your container. This parameter maps to ``Hostname`` in thethe docker conainer create command and the ``--hostname`` option to docker run.
+        :param 'TaskDefinitionHealthCheck' health_check: The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the docker container create command and the ``HEALTHCHECK`` parameter of docker run.
+        :param str hostname: The hostname to use for your container. This parameter maps to ``Hostname`` in thethe docker container create command and the ``--hostname`` option to docker run.
                  The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
-        :param bool interactive: When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the docker conainer create command and the ``--interactive`` option to docker run.
-        :param Sequence[str] links: The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.. This parameter maps to ``Links`` in the docker conainer create command and the ``--link`` option to docker run.
+        :param bool interactive: When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the docker container create command and the ``--interactive`` option to docker run.
+        :param Sequence[str] links: The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.. This parameter maps to ``Links`` in the docker container create command and the ``--link`` option to docker run.
                  This parameter is not supported for Windows containers.
                   Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
         :param 'TaskDefinitionLinuxParameters' linux_parameters: Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
@@ -2624,27 +2642,27 @@ class TaskDefinitionContainerDefinition(dict):
                 If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
                 The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container, so you should not specify fewer than 6 MiB of memory for your containers.
                 The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB of memory for your containers.
-        :param int memory_reservation: The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the the docker conainer create command and the ``--memory-reservation`` option to docker run.
+        :param int memory_reservation: The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the docker container create command and the ``--memory-reservation`` option to docker run.
                 If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
                 For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
                 The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers. 
                 The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for a container. So, don't specify less than 4 MiB of memory for your containers.
         :param Sequence['TaskDefinitionMountPoint'] mount_points: The mount points for data volumes in your container.
-                This parameter maps to ``Volumes`` in the the docker conainer create command and the ``--volume`` option to docker run.
+                This parameter maps to ``Volumes`` in the docker container create command and the ``--volume`` option to docker run.
                 Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives.
         :param Sequence['TaskDefinitionPortMapping'] port_mappings: The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic.
                 For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``.
                 Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself. 
                 This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to ``none``, then you can't specify port mappings. If the network mode of a task definition is set to ``host``, then host ports must either be undefined or they must match the container port in the port mapping.
                  After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the *Network Bindings* section of a container description for a selected task in the Amazon ECS console. The assignments are also visible in the ``networkBindings`` section [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) responses.
-        :param bool privileged: When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the the docker conainer create command and the ``--privileged`` option to docker run
+        :param bool privileged: When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the docker container create command and the ``--privileged`` option to docker run
                  This parameter is not supported for Windows containers or tasks run on FARGATElong.
-        :param bool pseudo_terminal: When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in tthe docker conainer create command and the ``--tty`` option to docker run.
-        :param bool readonly_root_filesystem: When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the docker conainer create command and the ``--read-only`` option to docker run.
+        :param bool pseudo_terminal: When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in tthe docker container create command and the ``--tty`` option to docker run.
+        :param bool readonly_root_filesystem: When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the docker container create command and the ``--read-only`` option to docker run.
                  This parameter is not supported for Windows containers.
         :param 'TaskDefinitionRepositoryCredentials' repository_credentials: The private repository authentication credentials to use.
         :param Sequence['TaskDefinitionResourceRequirement'] resource_requirements: The type and amount of a resource to assign to a container. The only supported resource is a GPU.
-        :param 'TaskDefinitionRestartPolicy' restart_policy: The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
+        :param 'TaskDefinitionRestartPolicy' restart_policy: The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param Sequence['TaskDefinitionSecret'] secrets: The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param int start_timeout: Time duration (in seconds) to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE``, ``SUCCESS``, or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it doesn't reach the desired status within that time then containerA gives up and not start. This results in the task transitioning to a ``STOPPED`` state.
                  When the ``ECS_CONTAINER_START_TIMEOUT`` container agent configuration variable is used, it's enforced independently from this start timeout value.
@@ -2662,10 +2680,10 @@ class TaskDefinitionContainerDefinition(dict):
                 The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
                 For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
                 The valid values are 2-120 seconds.
-        :param Sequence['TaskDefinitionSystemControl'] system_controls: A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker conainer create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+        :param Sequence['TaskDefinitionSystemControl'] system_controls: A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
         :param Sequence['TaskDefinitionUlimit'] ulimits: A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--ulimit`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). Valid naming values are displayed in the [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'`` 
                  This parameter is not supported for Windows containers.
-        :param str user: The user to use inside the container. This parameter maps to ``User`` in the docker conainer create command and the ``--user`` option to docker run.
+        :param str user: The user to use inside the container. This parameter maps to ``User`` in the docker container create command and the ``--user`` option to docker run.
                  When running tasks using the ``host`` network mode, don't run containers using the root user (UID 0). We recommend using a non-root user for better security.
                  You can specify the ``user`` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.
                  +   ``user`` 
@@ -2676,8 +2694,8 @@ class TaskDefinitionContainerDefinition(dict):
                  +   ``uid:group`` 
                  
                  This parameter is not supported for Windows containers.
-        :param Sequence['TaskDefinitionVolumeFrom'] volumes_from: Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in tthe docker conainer create command and the ``--volumes-from`` option to docker run.
-        :param str working_directory: The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the docker conainer create command and the ``--workdir`` option to docker run.
+        :param Sequence['TaskDefinitionVolumeFrom'] volumes_from: Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in tthe docker container create command and the ``--volumes-from`` option to docker run.
+        :param str working_directory: The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the docker container create command and the ``--workdir`` option to docker run.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -2764,7 +2782,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def image(self) -> str:
         """
-        The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the docker conainer create command and the ``IMAGE`` parameter of docker run.
+        The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the docker container create command and the ``IMAGE`` parameter of docker run.
           +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
           +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>:latest`` or ``012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``. 
           +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).
@@ -2777,7 +2795,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in tthe docker conainer create command and the ``--name`` option to docker run.
+        The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in tthe docker container create command and the ``--name`` option to docker run.
         """
         return pulumi.get(self, "name")
 
@@ -2785,7 +2803,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def command(self) -> Optional[Sequence[str]]:
         """
-        The command that's passed to the container. This parameter maps to ``Cmd`` in the docker conainer create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
+        The command that's passed to the container. This parameter maps to ``Cmd`` in the docker container create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
         """
         return pulumi.get(self, "command")
 
@@ -2793,7 +2811,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def cpu(self) -> Optional[int]:
         """
-        The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker conainer create commandand the ``--cpu-shares`` option to docker run.
+        The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
          This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
           You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
           Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
@@ -2836,7 +2854,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="disableNetworking")
     def disable_networking(self) -> Optional[bool]:
         """
-        When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the docker conainer create command.
+        When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the docker container create command.
           This parameter is not supported for Windows containers.
         """
         return pulumi.get(self, "disable_networking")
@@ -2845,7 +2863,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="dnsSearchDomains")
     def dns_search_domains(self) -> Optional[Sequence[str]]:
         """
-        A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the docker conainer create command and the ``--dns-search`` option to docker run.
+        A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the docker container create command and the ``--dns-search`` option to docker run.
           This parameter is not supported for Windows containers.
         """
         return pulumi.get(self, "dns_search_domains")
@@ -2854,7 +2872,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Optional[Sequence[str]]:
         """
-        A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the the docker conainer create command and the ``--dns`` option to docker run.
+        A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the docker container create command and the ``--dns`` option to docker run.
           This parameter is not supported for Windows containers.
         """
         return pulumi.get(self, "dns_servers")
@@ -2863,7 +2881,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="dockerLabels")
     def docker_labels(self) -> Optional[Mapping[str, str]]:
         """
-        A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the docker conainer create command and the ``--label`` option to docker run. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+        A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the docker container create command and the ``--label`` option to docker run. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
         """
         return pulumi.get(self, "docker_labels")
 
@@ -2874,7 +2892,7 @@ class TaskDefinitionContainerDefinition(dict):
         A list of strings to provide custom configuration for multiple security systems. This field isn't valid for containers in tasks using the Fargate launch type.
          For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems.
          For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*.
-         This parameter maps to ``SecurityOpt`` in the docker conainer create command and the ``--security-opt`` option to docker run.
+         This parameter maps to ``SecurityOpt`` in the docker container create command and the ``--security-opt`` option to docker run.
           The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
           Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
         """
@@ -2885,7 +2903,7 @@ class TaskDefinitionContainerDefinition(dict):
     def entry_point(self) -> Optional[Sequence[str]]:
         """
         Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.
-          The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in tthe docker conainer create command and the ``--entrypoint`` option to docker run.
+          The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in tthe docker container create command and the ``--entrypoint`` option to docker run.
         """
         return pulumi.get(self, "entry_point")
 
@@ -2893,7 +2911,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def environment(self) -> Optional[Sequence['outputs.TaskDefinitionKeyValuePair']]:
         """
-        The environment variables to pass to a container. This parameter maps to ``Env`` in the docker conainer create command and the ``--env`` option to docker run.
+        The environment variables to pass to a container. This parameter maps to ``Env`` in the docker container create command and the ``--env`` option to docker run.
           We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
         """
         return pulumi.get(self, "environment")
@@ -2921,7 +2939,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="extraHosts")
     def extra_hosts(self) -> Optional[Sequence['outputs.TaskDefinitionHostEntry']]:
         """
-        A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the docker conainer create command and the ``--add-host`` option to docker run.
+        A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the docker container create command and the ``--add-host`` option to docker run.
           This parameter isn't supported for Windows containers or tasks that use the ``awsvpc`` network mode.
         """
         return pulumi.get(self, "extra_hosts")
@@ -2938,7 +2956,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="healthCheck")
     def health_check(self) -> Optional['outputs.TaskDefinitionHealthCheck']:
         """
-        The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the docker conainer create command and the ``HEALTHCHECK`` parameter of docker run.
+        The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the docker container create command and the ``HEALTHCHECK`` parameter of docker run.
         """
         return pulumi.get(self, "health_check")
 
@@ -2946,7 +2964,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def hostname(self) -> Optional[str]:
         """
-        The hostname to use for your container. This parameter maps to ``Hostname`` in thethe docker conainer create command and the ``--hostname`` option to docker run.
+        The hostname to use for your container. This parameter maps to ``Hostname`` in thethe docker container create command and the ``--hostname`` option to docker run.
           The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
         """
         return pulumi.get(self, "hostname")
@@ -2955,7 +2973,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def interactive(self) -> Optional[bool]:
         """
-        When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the docker conainer create command and the ``--interactive`` option to docker run.
+        When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the docker container create command and the ``--interactive`` option to docker run.
         """
         return pulumi.get(self, "interactive")
 
@@ -2963,7 +2981,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def links(self) -> Optional[Sequence[str]]:
         """
-        The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.. This parameter maps to ``Links`` in the docker conainer create command and the ``--link`` option to docker run.
+        The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.. This parameter maps to ``Links`` in the docker container create command and the ``--link`` option to docker run.
           This parameter is not supported for Windows containers.
            Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
         """
@@ -3006,7 +3024,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="memoryReservation")
     def memory_reservation(self) -> Optional[int]:
         """
-        The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the the docker conainer create command and the ``--memory-reservation`` option to docker run.
+        The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the docker container create command and the ``--memory-reservation`` option to docker run.
          If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
          For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
          The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers. 
@@ -3019,7 +3037,7 @@ class TaskDefinitionContainerDefinition(dict):
     def mount_points(self) -> Optional[Sequence['outputs.TaskDefinitionMountPoint']]:
         """
         The mount points for data volumes in your container.
-         This parameter maps to ``Volumes`` in the the docker conainer create command and the ``--volume`` option to docker run.
+         This parameter maps to ``Volumes`` in the docker container create command and the ``--volume`` option to docker run.
          Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives.
         """
         return pulumi.get(self, "mount_points")
@@ -3040,7 +3058,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def privileged(self) -> Optional[bool]:
         """
-        When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the the docker conainer create command and the ``--privileged`` option to docker run
+        When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the docker container create command and the ``--privileged`` option to docker run
           This parameter is not supported for Windows containers or tasks run on FARGATElong.
         """
         return pulumi.get(self, "privileged")
@@ -3049,7 +3067,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="pseudoTerminal")
     def pseudo_terminal(self) -> Optional[bool]:
         """
-        When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in tthe docker conainer create command and the ``--tty`` option to docker run.
+        When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in tthe docker container create command and the ``--tty`` option to docker run.
         """
         return pulumi.get(self, "pseudo_terminal")
 
@@ -3057,7 +3075,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="readonlyRootFilesystem")
     def readonly_root_filesystem(self) -> Optional[bool]:
         """
-        When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the docker conainer create command and the ``--read-only`` option to docker run.
+        When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the docker container create command and the ``--read-only`` option to docker run.
           This parameter is not supported for Windows containers.
         """
         return pulumi.get(self, "readonly_root_filesystem")
@@ -3082,7 +3100,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="restartPolicy")
     def restart_policy(self) -> Optional['outputs.TaskDefinitionRestartPolicy']:
         """
-        The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
+        The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "restart_policy")
 
@@ -3128,7 +3146,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="systemControls")
     def system_controls(self) -> Optional[Sequence['outputs.TaskDefinitionSystemControl']]:
         """
-        A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker conainer create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+        A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
         """
         return pulumi.get(self, "system_controls")
 
@@ -3145,7 +3163,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def user(self) -> Optional[str]:
         """
-        The user to use inside the container. This parameter maps to ``User`` in the docker conainer create command and the ``--user`` option to docker run.
+        The user to use inside the container. This parameter maps to ``User`` in the docker container create command and the ``--user`` option to docker run.
           When running tasks using the ``host`` network mode, don't run containers using the root user (UID 0). We recommend using a non-root user for better security.
           You can specify the ``user`` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.
           +   ``user`` 
@@ -3163,7 +3181,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="volumesFrom")
     def volumes_from(self) -> Optional[Sequence['outputs.TaskDefinitionVolumeFrom']]:
         """
-        Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in tthe docker conainer create command and the ``--volumes-from`` option to docker run.
+        Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in tthe docker container create command and the ``--volumes-from`` option to docker run.
         """
         return pulumi.get(self, "volumes_from")
 
@@ -3171,7 +3189,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[str]:
         """
-        The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the docker conainer create command and the ``--workdir`` option to docker run.
+        The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the docker container create command and the ``--workdir`` option to docker run.
         """
         return pulumi.get(self, "working_directory")
 
@@ -3338,9 +3356,9 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
         The ``DockerVolumeConfiguration`` property specifies a Docker volume configuration and is used when you use Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the ``local`` driver. To use bind mounts, specify a ``host`` instead.
         :param bool autoprovision: If this value is ``true``, the Docker volume is created if it doesn't already exist.
                  This field is only used if the ``scope`` is ``shared``.
-        :param str driver: The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to ``Driver`` in the docker conainer create command and the ``xxdriver`` option to docker volume create.
+        :param str driver: The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to ``Driver`` in the docker container create command and the ``xxdriver`` option to docker volume create.
         :param Mapping[str, str] driver_opts: A map of Docker driver-specific options passed through. This parameter maps to ``DriverOpts`` in the docker create-volume command and the ``xxopt`` option to docker volume create.
-        :param Mapping[str, str] labels: Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the docker conainer create command and the ``xxlabel`` option to docker volume create.
+        :param Mapping[str, str] labels: Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the docker container create command and the ``xxlabel`` option to docker volume create.
         :param str scope: The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
         """
         if autoprovision is not None:
@@ -3367,7 +3385,7 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
     @pulumi.getter
     def driver(self) -> Optional[str]:
         """
-        The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to ``Driver`` in the docker conainer create command and the ``xxdriver`` option to docker volume create.
+        The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to ``Driver`` in the docker container create command and the ``xxdriver`` option to docker volume create.
         """
         return pulumi.get(self, "driver")
 
@@ -3383,7 +3401,7 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
     @pulumi.getter
     def labels(self) -> Optional[Mapping[str, str]]:
         """
-        Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the docker conainer create command and the ``xxlabel`` option to docker volume create.
+        Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the docker container create command and the ``xxlabel`` option to docker volume create.
         """
         return pulumi.get(self, "labels")
 
@@ -3596,6 +3614,10 @@ class TaskDefinitionEphemeralStorage(dict):
 
 @pulumi.output_type
 class TaskDefinitionFSxAuthorizationConfig(dict):
+    """
+    The authorization configuration details for Amazon FSx for Windows File Server file system. See [FSxWindowsFileServerVolumeConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FSxWindowsFileServerVolumeConfiguration.html) in the *Amazon ECS API Reference*.
+     For more information and the input format, see [Amazon FSx for Windows File Server Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3617,8 +3639,10 @@ class TaskDefinitionFSxAuthorizationConfig(dict):
                  credentials_parameter: str,
                  domain: str):
         """
-        :param str credentials_parameter: The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
-        :param str domain: A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        The authorization configuration details for Amazon FSx for Windows File Server file system. See [FSxWindowsFileServerVolumeConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FSxWindowsFileServerVolumeConfiguration.html) in the *Amazon ECS API Reference*.
+         For more information and the input format, see [Amazon FSx for Windows File Server Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param str credentials_parameter: The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an ASMlong secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
+        :param str domain: A fully qualified domain name hosted by an [](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
         """
         pulumi.set(__self__, "credentials_parameter", credentials_parameter)
         pulumi.set(__self__, "domain", domain)
@@ -3627,7 +3651,7 @@ class TaskDefinitionFSxAuthorizationConfig(dict):
     @pulumi.getter(name="credentialsParameter")
     def credentials_parameter(self) -> str:
         """
-        The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
+        The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an ASMlong secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.
         """
         return pulumi.get(self, "credentials_parameter")
 
@@ -3635,7 +3659,7 @@ class TaskDefinitionFSxAuthorizationConfig(dict):
     @pulumi.getter
     def domain(self) -> str:
         """
-        A fully qualified domain name hosted by an [AWS Directory Service](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        A fully qualified domain name hosted by an [](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
         """
         return pulumi.get(self, "domain")
 
@@ -3798,7 +3822,7 @@ class TaskDefinitionHealthCheck(dict):
                  ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
                 You don't include the double quotes and brackets when you use the AWS Management Console.
                  ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
-                An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in tthe docker conainer create command
+                An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in tthe docker container create command
         :param int interval: The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
         :param int retries: The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
         :param int start_period: The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off.
@@ -3825,7 +3849,7 @@ class TaskDefinitionHealthCheck(dict):
           ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
          You don't include the double quotes and brackets when you use the AWS Management Console.
           ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
-         An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in tthe docker conainer create command
+         An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in tthe docker container create command
         """
         return pulumi.get(self, "command")
 
@@ -4021,10 +4045,10 @@ class TaskDefinitionKernelCapabilities(dict):
                  drop: Optional[Sequence[str]] = None):
         """
         The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more detailed information about these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
-        :param Sequence[str] add: The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker conainer create command and the ``--cap-add`` option to docker run.
+        :param Sequence[str] add: The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
                  Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
                  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
-        :param Sequence[str] drop: The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the docker conainer create command and the ``--cap-drop`` option to docker run.
+        :param Sequence[str] drop: The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the docker container create command and the ``--cap-drop`` option to docker run.
                 Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
         """
         if add is not None:
@@ -4036,7 +4060,7 @@ class TaskDefinitionKernelCapabilities(dict):
     @pulumi.getter
     def add(self) -> Optional[Sequence[str]]:
         """
-        The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker conainer create command and the ``--cap-add`` option to docker run.
+        The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the docker container create command and the ``--cap-add`` option to docker run.
           Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
           Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
         """
@@ -4046,7 +4070,7 @@ class TaskDefinitionKernelCapabilities(dict):
     @pulumi.getter
     def drop(self) -> Optional[Sequence[str]]:
         """
-        The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the docker conainer create command and the ``--cap-drop`` option to docker run.
+        The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the docker container create command and the ``--cap-drop`` option to docker run.
          Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO" | "SYS_RESOURCE" | "SYS_TIME" | "SYS_TTY_CONFIG" | "SYSLOG" | "WAKE_ALARM"``
         """
         return pulumi.get(self, "drop")
@@ -4125,7 +4149,7 @@ class TaskDefinitionLinuxParameters(dict):
         The Linux-specific options that are applied to the container, such as Linux [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
         :param 'TaskDefinitionKernelCapabilities' capabilities: The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
                  For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later.
-        :param Sequence['TaskDefinitionDevice'] devices: Any host devices to expose to the container. This parameter maps to ``Devices`` in tthe docker conainer create command and the ``--device`` option to docker run.
+        :param Sequence['TaskDefinitionDevice'] devices: Any host devices to expose to the container. This parameter maps to ``Devices`` in tthe docker container create command and the ``--device`` option to docker run.
                  If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
         :param bool init_process_enabled: Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to docker run. This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
         :param int max_swap: The total amount of swap memory (in MiB) a container can use. This parameter will be translated to the ``--memory-swap`` option to docker run where the value would be the sum of the container memory plus the ``maxSwap`` value.
@@ -4168,7 +4192,7 @@ class TaskDefinitionLinuxParameters(dict):
     @pulumi.getter
     def devices(self) -> Optional[Sequence['outputs.TaskDefinitionDevice']]:
         """
-        Any host devices to expose to the container. This parameter maps to ``Devices`` in tthe docker conainer create command and the ``--device`` option to docker run.
+        Any host devices to expose to the container. This parameter maps to ``Devices`` in tthe docker container create command and the ``--device`` option to docker run.
           If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
         """
         return pulumi.get(self, "devices")
@@ -4738,6 +4762,9 @@ class TaskDefinitionResourceRequirement(dict):
 
 @pulumi.output_type
 class TaskDefinitionRestartPolicy(dict):
+    """
+    You can enable a restart policy for each container defined in your task definition, to overcome transient failures faster and maintain task availability. When you enable a restart policy for a container, Amazon ECS can restart the container if it exits, without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4762,9 +4789,10 @@ class TaskDefinitionRestartPolicy(dict):
                  ignored_exit_codes: Optional[Sequence[int]] = None,
                  restart_attempt_period: Optional[int] = None):
         """
+        You can enable a restart policy for each container defined in your task definition, to overcome transient failures faster and maintain task availability. When you enable a restart policy for a container, Amazon ECS can restart the container if it exits, without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param bool enabled: Specifies whether a restart policy is enabled for the container.
         :param Sequence[int] ignored_exit_codes: A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any exit codes.
-        :param int restart_attempt_period: A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+        :param int restart_attempt_period: A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every ``restartAttemptPeriod`` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum ``restartAttemptPeriod`` of 60 seconds and a maximum ``restartAttemptPeriod`` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -4793,7 +4821,7 @@ class TaskDefinitionRestartPolicy(dict):
     @pulumi.getter(name="restartAttemptPeriod")
     def restart_attempt_period(self) -> Optional[int]:
         """
-        A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every `restartAttemptPeriod` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum `restartAttemptPeriod` of 60 seconds and a maximum `restartAttemptPeriod` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+        A period of time (in seconds) that the container must run for before a restart can be attempted. A container can be restarted only once every ``restartAttemptPeriod`` seconds. If a container isn't able to run for this time period and exits early, it will not be restarted. You can set a minimum ``restartAttemptPeriod`` of 60 seconds and a maximum ``restartAttemptPeriod`` of 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
         """
         return pulumi.get(self, "restart_attempt_period")
 
@@ -4921,7 +4949,7 @@ class TaskDefinitionSecret(dict):
 @pulumi.output_type
 class TaskDefinitionSystemControl(dict):
     """
-    A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker conainer create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+    A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
      We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
       +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
       +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
@@ -4937,7 +4965,7 @@ class TaskDefinitionSystemControl(dict):
                  namespace: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker conainer create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+        A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
          We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
           +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
           +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.

@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType
     {
         /// <summary>
-        /// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        /// An always-block IP address list. Overrides the risk decision and always blocks authentication requests. This parameter is displayed and set in CIDR notation.
         /// </summary>
         public readonly ImmutableArray<string> BlockedIpRangeList;
         /// <summary>
-        /// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        /// An always-allow IP address list. Risk detection isn't performed on the IP addresses in this range list. This parameter is displayed and set in CIDR notation.
         /// </summary>
         public readonly ImmutableArray<string> SkippedIpRangeList;
 

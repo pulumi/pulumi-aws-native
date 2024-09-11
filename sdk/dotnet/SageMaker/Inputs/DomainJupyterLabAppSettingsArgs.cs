@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainJupyterLabAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appLifecycleManagement")]
+        public Input<Inputs.DomainAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
+
         [Input("codeRepositories")]
         private InputList<Inputs.DomainCodeRepositoryArgs>? _codeRepositories;
 

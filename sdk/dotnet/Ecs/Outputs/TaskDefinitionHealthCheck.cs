@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
         ///  You don't include the double quotes and brackets when you use the AWS Management Console.
         ///   ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
-        ///  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in tthe docker conainer create command
+        ///  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in tthe docker container create command
         /// </summary>
         public readonly ImmutableArray<string> Command;
         /// <summary>

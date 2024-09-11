@@ -176,6 +176,106 @@ func (o ListenerActionArrayOutput) Index(i pulumi.IntInput) ListenerActionOutput
 	}).(ListenerActionOutput)
 }
 
+type ListenerAttribute struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// ListenerAttributeInput is an input type that accepts ListenerAttributeArgs and ListenerAttributeOutput values.
+// You can construct a concrete instance of `ListenerAttributeInput` via:
+//
+//	ListenerAttributeArgs{...}
+type ListenerAttributeInput interface {
+	pulumi.Input
+
+	ToListenerAttributeOutput() ListenerAttributeOutput
+	ToListenerAttributeOutputWithContext(context.Context) ListenerAttributeOutput
+}
+
+type ListenerAttributeArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ListenerAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerAttribute)(nil)).Elem()
+}
+
+func (i ListenerAttributeArgs) ToListenerAttributeOutput() ListenerAttributeOutput {
+	return i.ToListenerAttributeOutputWithContext(context.Background())
+}
+
+func (i ListenerAttributeArgs) ToListenerAttributeOutputWithContext(ctx context.Context) ListenerAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerAttributeOutput)
+}
+
+// ListenerAttributeArrayInput is an input type that accepts ListenerAttributeArray and ListenerAttributeArrayOutput values.
+// You can construct a concrete instance of `ListenerAttributeArrayInput` via:
+//
+//	ListenerAttributeArray{ ListenerAttributeArgs{...} }
+type ListenerAttributeArrayInput interface {
+	pulumi.Input
+
+	ToListenerAttributeArrayOutput() ListenerAttributeArrayOutput
+	ToListenerAttributeArrayOutputWithContext(context.Context) ListenerAttributeArrayOutput
+}
+
+type ListenerAttributeArray []ListenerAttributeInput
+
+func (ListenerAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerAttribute)(nil)).Elem()
+}
+
+func (i ListenerAttributeArray) ToListenerAttributeArrayOutput() ListenerAttributeArrayOutput {
+	return i.ToListenerAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerAttributeArray) ToListenerAttributeArrayOutputWithContext(ctx context.Context) ListenerAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerAttributeArrayOutput)
+}
+
+type ListenerAttributeOutput struct{ *pulumi.OutputState }
+
+func (ListenerAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerAttribute)(nil)).Elem()
+}
+
+func (o ListenerAttributeOutput) ToListenerAttributeOutput() ListenerAttributeOutput {
+	return o
+}
+
+func (o ListenerAttributeOutput) ToListenerAttributeOutputWithContext(ctx context.Context) ListenerAttributeOutput {
+	return o
+}
+
+func (o ListenerAttributeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o ListenerAttributeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ListenerAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerAttribute)(nil)).Elem()
+}
+
+func (o ListenerAttributeArrayOutput) ToListenerAttributeArrayOutput() ListenerAttributeArrayOutput {
+	return o
+}
+
+func (o ListenerAttributeArrayOutput) ToListenerAttributeArrayOutputWithContext(ctx context.Context) ListenerAttributeArrayOutput {
+	return o
+}
+
+func (o ListenerAttributeArrayOutput) Index(i pulumi.IntInput) ListenerAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerAttribute {
+		return vs[0].([]ListenerAttribute)[vs[1].(int)]
+	}).(ListenerAttributeOutput)
+}
+
 // Specifies information required when integrating with Amazon Cognito to authenticate users.
 type ListenerAuthenticateCognitoConfig struct {
 	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
@@ -5866,6 +5966,8 @@ type TrustStoreTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerActionInput)(nil)).Elem(), ListenerActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerActionArrayInput)(nil)).Elem(), ListenerActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerAttributeInput)(nil)).Elem(), ListenerAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerAttributeArrayInput)(nil)).Elem(), ListenerAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerAuthenticateCognitoConfigInput)(nil)).Elem(), ListenerAuthenticateCognitoConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerAuthenticateCognitoConfigPtrInput)(nil)).Elem(), ListenerAuthenticateCognitoConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerAuthenticateOidcConfigInput)(nil)).Elem(), ListenerAuthenticateOidcConfigArgs{})
@@ -5930,6 +6032,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreRevocationRevocationContentArrayInput)(nil)).Elem(), TrustStoreRevocationRevocationContentArray{})
 	pulumi.RegisterOutputType(ListenerActionOutput{})
 	pulumi.RegisterOutputType(ListenerActionArrayOutput{})
+	pulumi.RegisterOutputType(ListenerAttributeOutput{})
+	pulumi.RegisterOutputType(ListenerAttributeArrayOutput{})
 	pulumi.RegisterOutputType(ListenerAuthenticateCognitoConfigOutput{})
 	pulumi.RegisterOutputType(ListenerAuthenticateCognitoConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerAuthenticateOidcConfigOutput{})

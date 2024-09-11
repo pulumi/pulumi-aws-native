@@ -25,7 +25,8 @@ type Listener struct {
 	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
 	DefaultActions ListenerActionArrayOutput `pulumi:"defaultActions"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
+	ListenerArn        pulumi.StringOutput          `pulumi:"listenerArn"`
+	ListenerAttributes ListenerAttributeArrayOutput `pulumi:"listenerAttributes"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
 	// The mutual authentication configuration information.
@@ -97,7 +98,8 @@ type listenerArgs struct {
 	Certificates []ListenerCertificate `pulumi:"certificates"`
 	// The actions for the default rule. You cannot define a condition for a default rule.
 	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
-	DefaultActions []ListenerAction `pulumi:"defaultActions"`
+	DefaultActions     []ListenerAction    `pulumi:"defaultActions"`
+	ListenerAttributes []ListenerAttribute `pulumi:"listenerAttributes"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
 	// The mutual authentication configuration information.
@@ -121,7 +123,8 @@ type ListenerArgs struct {
 	Certificates ListenerCertificateArrayInput
 	// The actions for the default rule. You cannot define a condition for a default rule.
 	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
-	DefaultActions ListenerActionArrayInput
+	DefaultActions     ListenerActionArrayInput
+	ListenerAttributes ListenerAttributeArrayInput
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn pulumi.StringInput
 	// The mutual authentication configuration information.
@@ -195,6 +198,10 @@ func (o ListenerOutput) DefaultActions() ListenerActionArrayOutput {
 // The Amazon Resource Name (ARN) of the listener.
 func (o ListenerOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
+}
+
+func (o ListenerOutput) ListenerAttributes() ListenerAttributeArrayOutput {
+	return o.ApplyT(func(v *Listener) ListenerAttributeArrayOutput { return v.ListenerAttributes }).(ListenerAttributeArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the load balancer.

@@ -134,6 +134,104 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterDeepHealthCheckType : IEquatable<ClusterDeepHealthCheckType>
+    {
+        private readonly string _value;
+
+        private ClusterDeepHealthCheckType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterDeepHealthCheckType InstanceStress { get; } = new ClusterDeepHealthCheckType("InstanceStress");
+        public static ClusterDeepHealthCheckType InstanceConnectivity { get; } = new ClusterDeepHealthCheckType("InstanceConnectivity");
+
+        public static bool operator ==(ClusterDeepHealthCheckType left, ClusterDeepHealthCheckType right) => left.Equals(right);
+        public static bool operator !=(ClusterDeepHealthCheckType left, ClusterDeepHealthCheckType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterDeepHealthCheckType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterDeepHealthCheckType other && Equals(other);
+        public bool Equals(ClusterDeepHealthCheckType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterNodeRecovery : IEquatable<ClusterNodeRecovery>
+    {
+        private readonly string _value;
+
+        private ClusterNodeRecovery(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterNodeRecovery Automatic { get; } = new ClusterNodeRecovery("Automatic");
+        public static ClusterNodeRecovery None { get; } = new ClusterNodeRecovery("None");
+
+        public static bool operator ==(ClusterNodeRecovery left, ClusterNodeRecovery right) => left.Equals(right);
+        public static bool operator !=(ClusterNodeRecovery left, ClusterNodeRecovery right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterNodeRecovery value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterNodeRecovery other && Equals(other);
+        public bool Equals(ClusterNodeRecovery other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the HyperPod Cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterStatus : IEquatable<ClusterStatus>
+    {
+        private readonly string _value;
+
+        private ClusterStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterStatus Creating { get; } = new ClusterStatus("Creating");
+        public static ClusterStatus Deleting { get; } = new ClusterStatus("Deleting");
+        public static ClusterStatus Failed { get; } = new ClusterStatus("Failed");
+        public static ClusterStatus InService { get; } = new ClusterStatus("InService");
+        public static ClusterStatus RollingBack { get; } = new ClusterStatus("RollingBack");
+        public static ClusterStatus SystemUpdating { get; } = new ClusterStatus("SystemUpdating");
+        public static ClusterStatus Updating { get; } = new ClusterStatus("Updating");
+
+        public static bool operator ==(ClusterStatus left, ClusterStatus right) => left.Equals(right);
+        public static bool operator !=(ClusterStatus left, ClusterStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterStatus other && Equals(other);
+        public bool Equals(ClusterStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]
@@ -445,6 +543,37 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// A flag to enable/disable AppLifecycleManagement settings
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainLifecycleManagement : IEquatable<DomainLifecycleManagement>
+    {
+        private readonly string _value;
+
+        private DomainLifecycleManagement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainLifecycleManagement Enabled { get; } = new DomainLifecycleManagement("ENABLED");
+        public static DomainLifecycleManagement Disabled { get; } = new DomainLifecycleManagement("DISABLED");
+
+        public static bool operator ==(DomainLifecycleManagement left, DomainLifecycleManagement right) => left.Equals(right);
+        public static bool operator !=(DomainLifecycleManagement left, DomainLifecycleManagement right) => !left.Equals(right);
+
+        public static explicit operator string(DomainLifecycleManagement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainLifecycleManagement other && Equals(other);
+        public bool Equals(DomainLifecycleManagement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DomainMlTools : IEquatable<DomainMlTools>
     {
@@ -468,6 +597,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainMlTools InferenceRecommender { get; } = new DomainMlTools("InferenceRecommender");
         public static DomainMlTools Endpoints { get; } = new DomainMlTools("Endpoints");
         public static DomainMlTools Projects { get; } = new DomainMlTools("Projects");
+        public static DomainMlTools InferenceOptimization { get; } = new DomainMlTools("InferenceOptimization");
 
         public static bool operator ==(DomainMlTools left, DomainMlTools right) => left.Equals(right);
         public static bool operator !=(DomainMlTools left, DomainMlTools right) => !left.Equals(right);
@@ -2917,6 +3047,37 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// A flag to enable/disable AppLifecycleManagement settings
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileLifecycleManagement : IEquatable<UserProfileLifecycleManagement>
+    {
+        private readonly string _value;
+
+        private UserProfileLifecycleManagement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileLifecycleManagement Enabled { get; } = new UserProfileLifecycleManagement("ENABLED");
+        public static UserProfileLifecycleManagement Disabled { get; } = new UserProfileLifecycleManagement("DISABLED");
+
+        public static bool operator ==(UserProfileLifecycleManagement left, UserProfileLifecycleManagement right) => left.Equals(right);
+        public static bool operator !=(UserProfileLifecycleManagement left, UserProfileLifecycleManagement right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileLifecycleManagement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileLifecycleManagement other && Equals(other);
+        public bool Equals(UserProfileLifecycleManagement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct UserProfileMlTools : IEquatable<UserProfileMlTools>
     {
@@ -2940,6 +3101,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileMlTools InferenceRecommender { get; } = new UserProfileMlTools("InferenceRecommender");
         public static UserProfileMlTools Endpoints { get; } = new UserProfileMlTools("Endpoints");
         public static UserProfileMlTools Projects { get; } = new UserProfileMlTools("Projects");
+        public static UserProfileMlTools InferenceOptimization { get; } = new UserProfileMlTools("InferenceOptimization");
 
         public static bool operator ==(UserProfileMlTools left, UserProfileMlTools right) => left.Equals(right);
         public static bool operator !=(UserProfileMlTools left, UserProfileMlTools right) => !left.Equals(right);

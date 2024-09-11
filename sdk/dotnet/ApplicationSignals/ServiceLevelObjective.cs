@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.ApplicationSignals
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Displays whether this is a period-based SLO or a request-based SLO.
+        /// </summary>
+        [Output("evaluationType")]
+        public Output<Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveEvaluationType> EvaluationType { get; private set; } = null!;
+
+        /// <summary>
         /// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         /// </summary>
         [Output("goal")]
@@ -52,10 +58,16 @@ namespace Pulumi.AwsNative.ApplicationSignals
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A structure containing information about the performance metric that this SLO monitors.
+        /// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+        /// </summary>
+        [Output("requestBasedSli")]
+        public Output<Outputs.ServiceLevelObjectiveRequestBasedSli?> RequestBasedSli { get; private set; } = null!;
+
+        /// <summary>
+        /// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
         /// </summary>
         [Output("sli")]
-        public Output<Outputs.ServiceLevelObjectiveSli> Sli { get; private set; } = null!;
+        public Output<Outputs.ServiceLevelObjectiveSli?> Sli { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
@@ -73,7 +85,7 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServiceLevelObjective(string name, ServiceLevelObjectiveArgs args, CustomResourceOptions? options = null)
+        public ServiceLevelObjective(string name, ServiceLevelObjectiveArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:applicationsignals:ServiceLevelObjective", name, args ?? new ServiceLevelObjectiveArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -133,10 +145,16 @@ namespace Pulumi.AwsNative.ApplicationSignals
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A structure containing information about the performance metric that this SLO monitors.
+        /// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
         /// </summary>
-        [Input("sli", required: true)]
-        public Input<Inputs.ServiceLevelObjectiveSliArgs> Sli { get; set; } = null!;
+        [Input("requestBasedSli")]
+        public Input<Inputs.ServiceLevelObjectiveRequestBasedSliArgs>? RequestBasedSli { get; set; }
+
+        /// <summary>
+        /// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+        /// </summary>
+        [Input("sli")]
+        public Input<Inputs.ServiceLevelObjectiveSliArgs>? Sli { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

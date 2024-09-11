@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Cognito
         public string ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The user pool ID.
+        /// The ID of the user pool that has the risk configuration applied.
         /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The user pool ID.
+        /// The ID of the user pool that has the risk configuration applied.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
@@ -70,15 +70,15 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolRiskConfigurationAttachmentResult
     {
         /// <summary>
-        /// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        /// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType? AccountTakeoverRiskConfiguration;
         /// <summary>
-        /// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        /// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType? CompromisedCredentialsRiskConfiguration;
         /// <summary>
-        /// The configuration to override the risk decision.
+        /// Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType? RiskExceptionConfiguration;
 

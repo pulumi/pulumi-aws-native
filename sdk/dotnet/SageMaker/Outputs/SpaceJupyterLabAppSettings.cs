@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceJupyterLabAppSettings
     {
+        public readonly Outputs.SpaceAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// A list of CodeRepositories available for use with JupyterLab apps.
         /// </summary>
@@ -27,10 +28,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private SpaceJupyterLabAppSettings(
+            Outputs.SpaceAppLifecycleManagement? appLifecycleManagement,
+
             ImmutableArray<Outputs.SpaceCodeRepository> codeRepositories,
 
             Outputs.SpaceResourceSpec? defaultResourceSpec)
         {
+            AppLifecycleManagement = appLifecycleManagement;
             CodeRepositories = codeRepositories;
             DefaultResourceSpec = defaultResourceSpec;
         }

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainCodeEditorAppSettings
     {
+        public readonly Outputs.DomainAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// A list of custom images for use for CodeEditor apps.
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DomainCodeEditorAppSettings(
+            Outputs.DomainAppLifecycleManagement? appLifecycleManagement,
+
             ImmutableArray<Outputs.DomainCustomImage> customImages,
 
             Outputs.DomainResourceSpec? defaultResourceSpec,
 
             ImmutableArray<string> lifecycleConfigArns)
         {
+            AppLifecycleManagement = appLifecycleManagement;
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
             LifecycleConfigArns = lifecycleConfigArns;

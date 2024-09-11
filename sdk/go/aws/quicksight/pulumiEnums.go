@@ -10770,6 +10770,171 @@ func (in *analysisPrimaryValueDisplayTypePtr) ToAnalysisPrimaryValueDisplayTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPrimaryValueDisplayTypePtrOutput)
 }
 
+type AnalysisQueryExecutionMode string
+
+const (
+	AnalysisQueryExecutionModeAuto   = AnalysisQueryExecutionMode("AUTO")
+	AnalysisQueryExecutionModeManual = AnalysisQueryExecutionMode("MANUAL")
+)
+
+func (AnalysisQueryExecutionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisQueryExecutionMode)(nil)).Elem()
+}
+
+func (e AnalysisQueryExecutionMode) ToAnalysisQueryExecutionModeOutput() AnalysisQueryExecutionModeOutput {
+	return pulumi.ToOutput(e).(AnalysisQueryExecutionModeOutput)
+}
+
+func (e AnalysisQueryExecutionMode) ToAnalysisQueryExecutionModeOutputWithContext(ctx context.Context) AnalysisQueryExecutionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisQueryExecutionModeOutput)
+}
+
+func (e AnalysisQueryExecutionMode) ToAnalysisQueryExecutionModePtrOutput() AnalysisQueryExecutionModePtrOutput {
+	return e.ToAnalysisQueryExecutionModePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisQueryExecutionMode) ToAnalysisQueryExecutionModePtrOutputWithContext(ctx context.Context) AnalysisQueryExecutionModePtrOutput {
+	return AnalysisQueryExecutionMode(e).ToAnalysisQueryExecutionModeOutputWithContext(ctx).ToAnalysisQueryExecutionModePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisQueryExecutionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisQueryExecutionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisQueryExecutionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisQueryExecutionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisQueryExecutionModeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisQueryExecutionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisQueryExecutionMode)(nil)).Elem()
+}
+
+func (o AnalysisQueryExecutionModeOutput) ToAnalysisQueryExecutionModeOutput() AnalysisQueryExecutionModeOutput {
+	return o
+}
+
+func (o AnalysisQueryExecutionModeOutput) ToAnalysisQueryExecutionModeOutputWithContext(ctx context.Context) AnalysisQueryExecutionModeOutput {
+	return o
+}
+
+func (o AnalysisQueryExecutionModeOutput) ToAnalysisQueryExecutionModePtrOutput() AnalysisQueryExecutionModePtrOutput {
+	return o.ToAnalysisQueryExecutionModePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisQueryExecutionModeOutput) ToAnalysisQueryExecutionModePtrOutputWithContext(ctx context.Context) AnalysisQueryExecutionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisQueryExecutionMode) *AnalysisQueryExecutionMode {
+		return &v
+	}).(AnalysisQueryExecutionModePtrOutput)
+}
+
+func (o AnalysisQueryExecutionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisQueryExecutionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisQueryExecutionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisQueryExecutionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisQueryExecutionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisQueryExecutionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisQueryExecutionModePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisQueryExecutionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisQueryExecutionMode)(nil)).Elem()
+}
+
+func (o AnalysisQueryExecutionModePtrOutput) ToAnalysisQueryExecutionModePtrOutput() AnalysisQueryExecutionModePtrOutput {
+	return o
+}
+
+func (o AnalysisQueryExecutionModePtrOutput) ToAnalysisQueryExecutionModePtrOutputWithContext(ctx context.Context) AnalysisQueryExecutionModePtrOutput {
+	return o
+}
+
+func (o AnalysisQueryExecutionModePtrOutput) Elem() AnalysisQueryExecutionModeOutput {
+	return o.ApplyT(func(v *AnalysisQueryExecutionMode) AnalysisQueryExecutionMode {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisQueryExecutionMode
+		return ret
+	}).(AnalysisQueryExecutionModeOutput)
+}
+
+func (o AnalysisQueryExecutionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisQueryExecutionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisQueryExecutionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisQueryExecutionModeInput is an input type that accepts values of the AnalysisQueryExecutionMode enum
+// A concrete instance of `AnalysisQueryExecutionModeInput` can be one of the following:
+//
+//	AnalysisQueryExecutionModeAuto
+//	AnalysisQueryExecutionModeManual
+type AnalysisQueryExecutionModeInput interface {
+	pulumi.Input
+
+	ToAnalysisQueryExecutionModeOutput() AnalysisQueryExecutionModeOutput
+	ToAnalysisQueryExecutionModeOutputWithContext(context.Context) AnalysisQueryExecutionModeOutput
+}
+
+var analysisQueryExecutionModePtrType = reflect.TypeOf((**AnalysisQueryExecutionMode)(nil)).Elem()
+
+type AnalysisQueryExecutionModePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisQueryExecutionModePtrOutput() AnalysisQueryExecutionModePtrOutput
+	ToAnalysisQueryExecutionModePtrOutputWithContext(context.Context) AnalysisQueryExecutionModePtrOutput
+}
+
+type analysisQueryExecutionModePtr string
+
+func AnalysisQueryExecutionModePtr(v string) AnalysisQueryExecutionModePtrInput {
+	return (*analysisQueryExecutionModePtr)(&v)
+}
+
+func (*analysisQueryExecutionModePtr) ElementType() reflect.Type {
+	return analysisQueryExecutionModePtrType
+}
+
+func (in *analysisQueryExecutionModePtr) ToAnalysisQueryExecutionModePtrOutput() AnalysisQueryExecutionModePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisQueryExecutionModePtrOutput)
+}
+
+func (in *analysisQueryExecutionModePtr) ToAnalysisQueryExecutionModePtrOutputWithContext(ctx context.Context) AnalysisQueryExecutionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisQueryExecutionModePtrOutput)
+}
+
 type AnalysisRadarChartAxesRangeScale string
 
 const (
@@ -53628,6 +53793,171 @@ func (in *templatePrimaryValueDisplayTypePtr) ToTemplatePrimaryValueDisplayTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePrimaryValueDisplayTypePtrOutput)
 }
 
+type TemplateQueryExecutionMode string
+
+const (
+	TemplateQueryExecutionModeAuto   = TemplateQueryExecutionMode("AUTO")
+	TemplateQueryExecutionModeManual = TemplateQueryExecutionMode("MANUAL")
+)
+
+func (TemplateQueryExecutionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateQueryExecutionMode)(nil)).Elem()
+}
+
+func (e TemplateQueryExecutionMode) ToTemplateQueryExecutionModeOutput() TemplateQueryExecutionModeOutput {
+	return pulumi.ToOutput(e).(TemplateQueryExecutionModeOutput)
+}
+
+func (e TemplateQueryExecutionMode) ToTemplateQueryExecutionModeOutputWithContext(ctx context.Context) TemplateQueryExecutionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateQueryExecutionModeOutput)
+}
+
+func (e TemplateQueryExecutionMode) ToTemplateQueryExecutionModePtrOutput() TemplateQueryExecutionModePtrOutput {
+	return e.ToTemplateQueryExecutionModePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateQueryExecutionMode) ToTemplateQueryExecutionModePtrOutputWithContext(ctx context.Context) TemplateQueryExecutionModePtrOutput {
+	return TemplateQueryExecutionMode(e).ToTemplateQueryExecutionModeOutputWithContext(ctx).ToTemplateQueryExecutionModePtrOutputWithContext(ctx)
+}
+
+func (e TemplateQueryExecutionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateQueryExecutionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateQueryExecutionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateQueryExecutionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateQueryExecutionModeOutput struct{ *pulumi.OutputState }
+
+func (TemplateQueryExecutionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateQueryExecutionMode)(nil)).Elem()
+}
+
+func (o TemplateQueryExecutionModeOutput) ToTemplateQueryExecutionModeOutput() TemplateQueryExecutionModeOutput {
+	return o
+}
+
+func (o TemplateQueryExecutionModeOutput) ToTemplateQueryExecutionModeOutputWithContext(ctx context.Context) TemplateQueryExecutionModeOutput {
+	return o
+}
+
+func (o TemplateQueryExecutionModeOutput) ToTemplateQueryExecutionModePtrOutput() TemplateQueryExecutionModePtrOutput {
+	return o.ToTemplateQueryExecutionModePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateQueryExecutionModeOutput) ToTemplateQueryExecutionModePtrOutputWithContext(ctx context.Context) TemplateQueryExecutionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateQueryExecutionMode) *TemplateQueryExecutionMode {
+		return &v
+	}).(TemplateQueryExecutionModePtrOutput)
+}
+
+func (o TemplateQueryExecutionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateQueryExecutionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateQueryExecutionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateQueryExecutionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateQueryExecutionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateQueryExecutionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateQueryExecutionModePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateQueryExecutionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateQueryExecutionMode)(nil)).Elem()
+}
+
+func (o TemplateQueryExecutionModePtrOutput) ToTemplateQueryExecutionModePtrOutput() TemplateQueryExecutionModePtrOutput {
+	return o
+}
+
+func (o TemplateQueryExecutionModePtrOutput) ToTemplateQueryExecutionModePtrOutputWithContext(ctx context.Context) TemplateQueryExecutionModePtrOutput {
+	return o
+}
+
+func (o TemplateQueryExecutionModePtrOutput) Elem() TemplateQueryExecutionModeOutput {
+	return o.ApplyT(func(v *TemplateQueryExecutionMode) TemplateQueryExecutionMode {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateQueryExecutionMode
+		return ret
+	}).(TemplateQueryExecutionModeOutput)
+}
+
+func (o TemplateQueryExecutionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateQueryExecutionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateQueryExecutionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateQueryExecutionModeInput is an input type that accepts values of the TemplateQueryExecutionMode enum
+// A concrete instance of `TemplateQueryExecutionModeInput` can be one of the following:
+//
+//	TemplateQueryExecutionModeAuto
+//	TemplateQueryExecutionModeManual
+type TemplateQueryExecutionModeInput interface {
+	pulumi.Input
+
+	ToTemplateQueryExecutionModeOutput() TemplateQueryExecutionModeOutput
+	ToTemplateQueryExecutionModeOutputWithContext(context.Context) TemplateQueryExecutionModeOutput
+}
+
+var templateQueryExecutionModePtrType = reflect.TypeOf((**TemplateQueryExecutionMode)(nil)).Elem()
+
+type TemplateQueryExecutionModePtrInput interface {
+	pulumi.Input
+
+	ToTemplateQueryExecutionModePtrOutput() TemplateQueryExecutionModePtrOutput
+	ToTemplateQueryExecutionModePtrOutputWithContext(context.Context) TemplateQueryExecutionModePtrOutput
+}
+
+type templateQueryExecutionModePtr string
+
+func TemplateQueryExecutionModePtr(v string) TemplateQueryExecutionModePtrInput {
+	return (*templateQueryExecutionModePtr)(&v)
+}
+
+func (*templateQueryExecutionModePtr) ElementType() reflect.Type {
+	return templateQueryExecutionModePtrType
+}
+
+func (in *templateQueryExecutionModePtr) ToTemplateQueryExecutionModePtrOutput() TemplateQueryExecutionModePtrOutput {
+	return pulumi.ToOutput(in).(TemplateQueryExecutionModePtrOutput)
+}
+
+func (in *templateQueryExecutionModePtr) ToTemplateQueryExecutionModePtrOutputWithContext(ctx context.Context) TemplateQueryExecutionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateQueryExecutionModePtrOutput)
+}
+
 type TemplateRadarChartAxesRangeScale string
 
 const (
@@ -66447,6 +66777,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableSubtotalLevelPtrInput)(nil)).Elem(), AnalysisPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPrimaryValueDisplayTypeInput)(nil)).Elem(), AnalysisPrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPrimaryValueDisplayTypePtrInput)(nil)).Elem(), AnalysisPrimaryValueDisplayType("HIDDEN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisQueryExecutionModeInput)(nil)).Elem(), AnalysisQueryExecutionMode("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisQueryExecutionModePtrInput)(nil)).Elem(), AnalysisQueryExecutionMode("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisRadarChartAxesRangeScaleInput)(nil)).Elem(), AnalysisRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisRadarChartAxesRangeScalePtrInput)(nil)).Elem(), AnalysisRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisRadarChartShapeInput)(nil)).Elem(), AnalysisRadarChartShape("CIRCLE"))
@@ -66954,6 +67286,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableSubtotalLevelPtrInput)(nil)).Elem(), TemplatePivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePrimaryValueDisplayTypeInput)(nil)).Elem(), TemplatePrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePrimaryValueDisplayTypePtrInput)(nil)).Elem(), TemplatePrimaryValueDisplayType("HIDDEN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateQueryExecutionModeInput)(nil)).Elem(), TemplateQueryExecutionMode("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateQueryExecutionModePtrInput)(nil)).Elem(), TemplateQueryExecutionMode("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartAxesRangeScaleInput)(nil)).Elem(), TemplateRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartAxesRangeScalePtrInput)(nil)).Elem(), TemplateRadarChartAxesRangeScale("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRadarChartShapeInput)(nil)).Elem(), TemplateRadarChartShape("CIRCLE"))
@@ -67227,6 +67561,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisPivotTableSubtotalLevelPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisPrimaryValueDisplayTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisQueryExecutionModeOutput{})
+	pulumi.RegisterOutputType(AnalysisQueryExecutionModePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisRadarChartAxesRangeScaleOutput{})
 	pulumi.RegisterOutputType(AnalysisRadarChartAxesRangeScalePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisRadarChartShapeOutput{})
@@ -67742,6 +68078,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplatePivotTableSubtotalLevelPtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(TemplatePrimaryValueDisplayTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateQueryExecutionModeOutput{})
+	pulumi.RegisterOutputType(TemplateQueryExecutionModePtrOutput{})
 	pulumi.RegisterOutputType(TemplateRadarChartAxesRangeScaleOutput{})
 	pulumi.RegisterOutputType(TemplateRadarChartAxesRangeScalePtrOutput{})
 	pulumi.RegisterOutputType(TemplateRadarChartShapeOutput{})

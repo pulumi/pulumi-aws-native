@@ -13,6 +13,324 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTableFieldLinkConfiguration struct {
+	// The URL content (text, icon) for the table link configuration.
+	Content TemplateTableFieldLinkContentConfiguration `pulumi:"content"`
+	// The URL target (new tab, new window, same tab) for the table link configuration.
+	Target TemplateUrlTargetConfiguration `pulumi:"target"`
+}
+
+// TemplateTableFieldLinkConfigurationInput is an input type that accepts TemplateTableFieldLinkConfigurationArgs and TemplateTableFieldLinkConfigurationOutput values.
+// You can construct a concrete instance of `TemplateTableFieldLinkConfigurationInput` via:
+//
+//	TemplateTableFieldLinkConfigurationArgs{...}
+type TemplateTableFieldLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldLinkConfigurationOutput() TemplateTableFieldLinkConfigurationOutput
+	ToTemplateTableFieldLinkConfigurationOutputWithContext(context.Context) TemplateTableFieldLinkConfigurationOutput
+}
+
+type TemplateTableFieldLinkConfigurationArgs struct {
+	// The URL content (text, icon) for the table link configuration.
+	Content TemplateTableFieldLinkContentConfigurationInput `pulumi:"content"`
+	// The URL target (new tab, new window, same tab) for the table link configuration.
+	Target TemplateUrlTargetConfigurationInput `pulumi:"target"`
+}
+
+func (TemplateTableFieldLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldLinkConfiguration)(nil)).Elem()
+}
+
+func (i TemplateTableFieldLinkConfigurationArgs) ToTemplateTableFieldLinkConfigurationOutput() TemplateTableFieldLinkConfigurationOutput {
+	return i.ToTemplateTableFieldLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldLinkConfigurationArgs) ToTemplateTableFieldLinkConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkConfigurationOutput)
+}
+
+func (i TemplateTableFieldLinkConfigurationArgs) ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput {
+	return i.ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldLinkConfigurationArgs) ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkConfigurationOutput).ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateTableFieldLinkConfigurationPtrInput is an input type that accepts TemplateTableFieldLinkConfigurationArgs, TemplateTableFieldLinkConfigurationPtr and TemplateTableFieldLinkConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateTableFieldLinkConfigurationPtrInput` via:
+//
+//	        TemplateTableFieldLinkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableFieldLinkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput
+	ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(context.Context) TemplateTableFieldLinkConfigurationPtrOutput
+}
+
+type templateTableFieldLinkConfigurationPtrType TemplateTableFieldLinkConfigurationArgs
+
+func TemplateTableFieldLinkConfigurationPtr(v *TemplateTableFieldLinkConfigurationArgs) TemplateTableFieldLinkConfigurationPtrInput {
+	return (*templateTableFieldLinkConfigurationPtrType)(v)
+}
+
+func (*templateTableFieldLinkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldLinkConfiguration)(nil)).Elem()
+}
+
+func (i *templateTableFieldLinkConfigurationPtrType) ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput {
+	return i.ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableFieldLinkConfigurationPtrType) ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkConfigurationPtrOutput)
+}
+
+type TemplateTableFieldLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldLinkConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableFieldLinkConfigurationOutput) ToTemplateTableFieldLinkConfigurationOutput() TemplateTableFieldLinkConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableFieldLinkConfigurationOutput) ToTemplateTableFieldLinkConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableFieldLinkConfigurationOutput) ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput {
+	return o.ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableFieldLinkConfigurationOutput) ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldLinkConfiguration) *TemplateTableFieldLinkConfiguration {
+		return &v
+	}).(TemplateTableFieldLinkConfigurationPtrOutput)
+}
+
+// The URL content (text, icon) for the table link configuration.
+func (o TemplateTableFieldLinkConfigurationOutput) Content() TemplateTableFieldLinkContentConfigurationOutput {
+	return o.ApplyT(func(v TemplateTableFieldLinkConfiguration) TemplateTableFieldLinkContentConfiguration {
+		return v.Content
+	}).(TemplateTableFieldLinkContentConfigurationOutput)
+}
+
+// The URL target (new tab, new window, same tab) for the table link configuration.
+func (o TemplateTableFieldLinkConfigurationOutput) Target() TemplateUrlTargetConfigurationOutput {
+	return o.ApplyT(func(v TemplateTableFieldLinkConfiguration) TemplateUrlTargetConfiguration { return v.Target }).(TemplateUrlTargetConfigurationOutput)
+}
+
+type TemplateTableFieldLinkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldLinkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldLinkConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableFieldLinkConfigurationPtrOutput) ToTemplateTableFieldLinkConfigurationPtrOutput() TemplateTableFieldLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldLinkConfigurationPtrOutput) ToTemplateTableFieldLinkConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldLinkConfigurationPtrOutput) Elem() TemplateTableFieldLinkConfigurationOutput {
+	return o.ApplyT(func(v *TemplateTableFieldLinkConfiguration) TemplateTableFieldLinkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableFieldLinkConfiguration
+		return ret
+	}).(TemplateTableFieldLinkConfigurationOutput)
+}
+
+// The URL content (text, icon) for the table link configuration.
+func (o TemplateTableFieldLinkConfigurationPtrOutput) Content() TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldLinkConfiguration) *TemplateTableFieldLinkContentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Content
+	}).(TemplateTableFieldLinkContentConfigurationPtrOutput)
+}
+
+// The URL target (new tab, new window, same tab) for the table link configuration.
+func (o TemplateTableFieldLinkConfigurationPtrOutput) Target() TemplateUrlTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldLinkConfiguration) *TemplateUrlTargetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(TemplateUrlTargetConfigurationPtrOutput)
+}
+
+type TemplateTableFieldLinkContentConfiguration struct {
+	// The custom icon content for the table link content configuration.
+	CustomIconContent *TemplateTableFieldCustomIconContent `pulumi:"customIconContent"`
+	// The custom text content (value, font configuration) for the table link content configuration.
+	CustomTextContent *TemplateTableFieldCustomTextContent `pulumi:"customTextContent"`
+}
+
+// TemplateTableFieldLinkContentConfigurationInput is an input type that accepts TemplateTableFieldLinkContentConfigurationArgs and TemplateTableFieldLinkContentConfigurationOutput values.
+// You can construct a concrete instance of `TemplateTableFieldLinkContentConfigurationInput` via:
+//
+//	TemplateTableFieldLinkContentConfigurationArgs{...}
+type TemplateTableFieldLinkContentConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldLinkContentConfigurationOutput() TemplateTableFieldLinkContentConfigurationOutput
+	ToTemplateTableFieldLinkContentConfigurationOutputWithContext(context.Context) TemplateTableFieldLinkContentConfigurationOutput
+}
+
+type TemplateTableFieldLinkContentConfigurationArgs struct {
+	// The custom icon content for the table link content configuration.
+	CustomIconContent TemplateTableFieldCustomIconContentPtrInput `pulumi:"customIconContent"`
+	// The custom text content (value, font configuration) for the table link content configuration.
+	CustomTextContent TemplateTableFieldCustomTextContentPtrInput `pulumi:"customTextContent"`
+}
+
+func (TemplateTableFieldLinkContentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldLinkContentConfiguration)(nil)).Elem()
+}
+
+func (i TemplateTableFieldLinkContentConfigurationArgs) ToTemplateTableFieldLinkContentConfigurationOutput() TemplateTableFieldLinkContentConfigurationOutput {
+	return i.ToTemplateTableFieldLinkContentConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldLinkContentConfigurationArgs) ToTemplateTableFieldLinkContentConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkContentConfigurationOutput)
+}
+
+func (i TemplateTableFieldLinkContentConfigurationArgs) ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return i.ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldLinkContentConfigurationArgs) ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkContentConfigurationOutput).ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateTableFieldLinkContentConfigurationPtrInput is an input type that accepts TemplateTableFieldLinkContentConfigurationArgs, TemplateTableFieldLinkContentConfigurationPtr and TemplateTableFieldLinkContentConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateTableFieldLinkContentConfigurationPtrInput` via:
+//
+//	        TemplateTableFieldLinkContentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableFieldLinkContentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput
+	ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput
+}
+
+type templateTableFieldLinkContentConfigurationPtrType TemplateTableFieldLinkContentConfigurationArgs
+
+func TemplateTableFieldLinkContentConfigurationPtr(v *TemplateTableFieldLinkContentConfigurationArgs) TemplateTableFieldLinkContentConfigurationPtrInput {
+	return (*templateTableFieldLinkContentConfigurationPtrType)(v)
+}
+
+func (*templateTableFieldLinkContentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldLinkContentConfiguration)(nil)).Elem()
+}
+
+func (i *templateTableFieldLinkContentConfigurationPtrType) ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return i.ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableFieldLinkContentConfigurationPtrType) ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldLinkContentConfigurationPtrOutput)
+}
+
+type TemplateTableFieldLinkContentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldLinkContentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldLinkContentConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableFieldLinkContentConfigurationOutput) ToTemplateTableFieldLinkContentConfigurationOutput() TemplateTableFieldLinkContentConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableFieldLinkContentConfigurationOutput) ToTemplateTableFieldLinkContentConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableFieldLinkContentConfigurationOutput) ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return o.ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableFieldLinkContentConfigurationOutput) ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldLinkContentConfiguration {
+		return &v
+	}).(TemplateTableFieldLinkContentConfigurationPtrOutput)
+}
+
+// The custom icon content for the table link content configuration.
+func (o TemplateTableFieldLinkContentConfigurationOutput) CustomIconContent() TemplateTableFieldCustomIconContentPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldCustomIconContent {
+		return v.CustomIconContent
+	}).(TemplateTableFieldCustomIconContentPtrOutput)
+}
+
+// The custom text content (value, font configuration) for the table link content configuration.
+func (o TemplateTableFieldLinkContentConfigurationOutput) CustomTextContent() TemplateTableFieldCustomTextContentPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldCustomTextContent {
+		return v.CustomTextContent
+	}).(TemplateTableFieldCustomTextContentPtrOutput)
+}
+
+type TemplateTableFieldLinkContentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldLinkContentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldLinkContentConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableFieldLinkContentConfigurationPtrOutput) ToTemplateTableFieldLinkContentConfigurationPtrOutput() TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldLinkContentConfigurationPtrOutput) ToTemplateTableFieldLinkContentConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldLinkContentConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldLinkContentConfigurationPtrOutput) Elem() TemplateTableFieldLinkContentConfigurationOutput {
+	return o.ApplyT(func(v *TemplateTableFieldLinkContentConfiguration) TemplateTableFieldLinkContentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableFieldLinkContentConfiguration
+		return ret
+	}).(TemplateTableFieldLinkContentConfigurationOutput)
+}
+
+// The custom icon content for the table link content configuration.
+func (o TemplateTableFieldLinkContentConfigurationPtrOutput) CustomIconContent() TemplateTableFieldCustomIconContentPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldCustomIconContent {
+		if v == nil {
+			return nil
+		}
+		return v.CustomIconContent
+	}).(TemplateTableFieldCustomIconContentPtrOutput)
+}
+
+// The custom text content (value, font configuration) for the table link content configuration.
+func (o TemplateTableFieldLinkContentConfigurationPtrOutput) CustomTextContent() TemplateTableFieldCustomTextContentPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldLinkContentConfiguration) *TemplateTableFieldCustomTextContent {
+		if v == nil {
+			return nil
+		}
+		return v.CustomTextContent
+	}).(TemplateTableFieldCustomTextContentPtrOutput)
+}
+
 type TemplateTableFieldOption struct {
 	// The custom label for a table field.
 	CustomLabel *string `pulumi:"customLabel"`
@@ -7749,6 +8067,7 @@ type TemplateVersionDefinition struct {
 	//
 	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
 	ParameterDeclarations []TemplateParameterDeclaration `pulumi:"parameterDeclarations"`
+	QueryExecutionOptions *TemplateQueryExecutionOptions `pulumi:"queryExecutionOptions"`
 	// An array of sheet definitions for a template.
 	Sheets []TemplateSheetDefinition `pulumi:"sheets"`
 }
@@ -7784,6 +8103,7 @@ type TemplateVersionDefinitionArgs struct {
 	//
 	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
 	ParameterDeclarations TemplateParameterDeclarationArrayInput `pulumi:"parameterDeclarations"`
+	QueryExecutionOptions TemplateQueryExecutionOptionsPtrInput  `pulumi:"queryExecutionOptions"`
 	// An array of sheet definitions for a template.
 	Sheets TemplateSheetDefinitionArrayInput `pulumi:"sheets"`
 }
@@ -7905,6 +8225,10 @@ func (o TemplateVersionDefinitionOutput) ParameterDeclarations() TemplateParamet
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateParameterDeclaration { return v.ParameterDeclarations }).(TemplateParameterDeclarationArrayOutput)
 }
 
+func (o TemplateVersionDefinitionOutput) QueryExecutionOptions() TemplateQueryExecutionOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateVersionDefinition) *TemplateQueryExecutionOptions { return v.QueryExecutionOptions }).(TemplateQueryExecutionOptionsPtrOutput)
+}
+
 // An array of sheet definitions for a template.
 func (o TemplateVersionDefinitionOutput) Sheets() TemplateSheetDefinitionArrayOutput {
 	return o.ApplyT(func(v TemplateVersionDefinition) []TemplateSheetDefinition { return v.Sheets }).(TemplateSheetDefinitionArrayOutput)
@@ -8007,6 +8331,15 @@ func (o TemplateVersionDefinitionPtrOutput) ParameterDeclarations() TemplatePara
 		}
 		return v.ParameterDeclarations
 	}).(TemplateParameterDeclarationArrayOutput)
+}
+
+func (o TemplateVersionDefinitionPtrOutput) QueryExecutionOptions() TemplateQueryExecutionOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateVersionDefinition) *TemplateQueryExecutionOptions {
+		if v == nil {
+			return nil
+		}
+		return v.QueryExecutionOptions
+	}).(TemplateQueryExecutionOptionsPtrOutput)
 }
 
 // An array of sheet definitions for a template.
@@ -19130,6 +19463,10 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkConfigurationInput)(nil)).Elem(), TemplateTableFieldLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkContentConfigurationInput)(nil)).Elem(), TemplateTableFieldLinkContentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkContentConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldLinkContentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldOptionInput)(nil)).Elem(), TemplateTableFieldOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldOptionArrayInput)(nil)).Elem(), TemplateTableFieldOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldOptionsInput)(nil)).Elem(), TemplateTableFieldOptionsArgs{})
@@ -19334,6 +19671,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTableFieldLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldLinkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldLinkContentConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldLinkContentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldOptionOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldOptionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldOptionsOutput{})
