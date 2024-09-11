@@ -48,7 +48,7 @@ type Application struct {
 	PersonalizationConfiguration ApplicationPersonalizationConfigurationPtrOutput `pulumi:"personalizationConfiguration"`
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration ApplicationQAppsConfigurationPtrOutput `pulumi:"qAppsConfiguration"`
-	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
 	Status ApplicationStatusOutput `pulumi:"status"`
@@ -131,7 +131,7 @@ type applicationArgs struct {
 	PersonalizationConfiguration *ApplicationPersonalizationConfiguration `pulumi:"personalizationConfiguration"`
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration *ApplicationQAppsConfiguration `pulumi:"qAppsConfiguration"`
-	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 	RoleArn *string `pulumi:"roleArn"`
 	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -162,7 +162,7 @@ type ApplicationArgs struct {
 	PersonalizationConfiguration ApplicationPersonalizationConfigurationPtrInput
 	// Configuration information about Amazon Q Apps.
 	QAppsConfiguration ApplicationQAppsConfigurationPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 	RoleArn pulumi.StringPtrInput
 	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayInput
@@ -285,7 +285,7 @@ func (o ApplicationOutput) QAppsConfiguration() ApplicationQAppsConfigurationPtr
 	return o.ApplyT(func(v *Application) ApplicationQAppsConfigurationPtrOutput { return v.QAppsConfiguration }).(ApplicationQAppsConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 func (o ApplicationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

@@ -13,6 +13,386 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type ChannelPlacementGroupTags struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// Network mappings for the cluster
+type ClusterInterfaceMapping struct {
+	// logical interface name, unique in the list
+	LogicalInterfaceName *string `pulumi:"logicalInterfaceName"`
+	// Network Id to be associated with the logical interface name, can be duplicated in list
+	NetworkId *string `pulumi:"networkId"`
+}
+
+// ClusterInterfaceMappingInput is an input type that accepts ClusterInterfaceMappingArgs and ClusterInterfaceMappingOutput values.
+// You can construct a concrete instance of `ClusterInterfaceMappingInput` via:
+//
+//	ClusterInterfaceMappingArgs{...}
+type ClusterInterfaceMappingInput interface {
+	pulumi.Input
+
+	ToClusterInterfaceMappingOutput() ClusterInterfaceMappingOutput
+	ToClusterInterfaceMappingOutputWithContext(context.Context) ClusterInterfaceMappingOutput
+}
+
+// Network mappings for the cluster
+type ClusterInterfaceMappingArgs struct {
+	// logical interface name, unique in the list
+	LogicalInterfaceName pulumi.StringPtrInput `pulumi:"logicalInterfaceName"`
+	// Network Id to be associated with the logical interface name, can be duplicated in list
+	NetworkId pulumi.StringPtrInput `pulumi:"networkId"`
+}
+
+func (ClusterInterfaceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInterfaceMapping)(nil)).Elem()
+}
+
+func (i ClusterInterfaceMappingArgs) ToClusterInterfaceMappingOutput() ClusterInterfaceMappingOutput {
+	return i.ToClusterInterfaceMappingOutputWithContext(context.Background())
+}
+
+func (i ClusterInterfaceMappingArgs) ToClusterInterfaceMappingOutputWithContext(ctx context.Context) ClusterInterfaceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInterfaceMappingOutput)
+}
+
+// ClusterInterfaceMappingArrayInput is an input type that accepts ClusterInterfaceMappingArray and ClusterInterfaceMappingArrayOutput values.
+// You can construct a concrete instance of `ClusterInterfaceMappingArrayInput` via:
+//
+//	ClusterInterfaceMappingArray{ ClusterInterfaceMappingArgs{...} }
+type ClusterInterfaceMappingArrayInput interface {
+	pulumi.Input
+
+	ToClusterInterfaceMappingArrayOutput() ClusterInterfaceMappingArrayOutput
+	ToClusterInterfaceMappingArrayOutputWithContext(context.Context) ClusterInterfaceMappingArrayOutput
+}
+
+type ClusterInterfaceMappingArray []ClusterInterfaceMappingInput
+
+func (ClusterInterfaceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInterfaceMapping)(nil)).Elem()
+}
+
+func (i ClusterInterfaceMappingArray) ToClusterInterfaceMappingArrayOutput() ClusterInterfaceMappingArrayOutput {
+	return i.ToClusterInterfaceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInterfaceMappingArray) ToClusterInterfaceMappingArrayOutputWithContext(ctx context.Context) ClusterInterfaceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInterfaceMappingArrayOutput)
+}
+
+// Network mappings for the cluster
+type ClusterInterfaceMappingOutput struct{ *pulumi.OutputState }
+
+func (ClusterInterfaceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInterfaceMapping)(nil)).Elem()
+}
+
+func (o ClusterInterfaceMappingOutput) ToClusterInterfaceMappingOutput() ClusterInterfaceMappingOutput {
+	return o
+}
+
+func (o ClusterInterfaceMappingOutput) ToClusterInterfaceMappingOutputWithContext(ctx context.Context) ClusterInterfaceMappingOutput {
+	return o
+}
+
+// logical interface name, unique in the list
+func (o ClusterInterfaceMappingOutput) LogicalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInterfaceMapping) *string { return v.LogicalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Network Id to be associated with the logical interface name, can be duplicated in list
+func (o ClusterInterfaceMappingOutput) NetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInterfaceMapping) *string { return v.NetworkId }).(pulumi.StringPtrOutput)
+}
+
+type ClusterInterfaceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInterfaceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInterfaceMapping)(nil)).Elem()
+}
+
+func (o ClusterInterfaceMappingArrayOutput) ToClusterInterfaceMappingArrayOutput() ClusterInterfaceMappingArrayOutput {
+	return o
+}
+
+func (o ClusterInterfaceMappingArrayOutput) ToClusterInterfaceMappingArrayOutputWithContext(ctx context.Context) ClusterInterfaceMappingArrayOutput {
+	return o
+}
+
+func (o ClusterInterfaceMappingArrayOutput) Index(i pulumi.IntInput) ClusterInterfaceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInterfaceMapping {
+		return vs[0].([]ClusterInterfaceMapping)[vs[1].(int)]
+	}).(ClusterInterfaceMappingOutput)
+}
+
+// On premises settings which will have the interface network mappings and default Output logical interface
+type ClusterNetworkSettings struct {
+	// Default value if the customer does not define it in channel Output API
+	DefaultRoute *string `pulumi:"defaultRoute"`
+	// Network mappings for the cluster
+	InterfaceMappings []ClusterInterfaceMapping `pulumi:"interfaceMappings"`
+}
+
+// ClusterNetworkSettingsInput is an input type that accepts ClusterNetworkSettingsArgs and ClusterNetworkSettingsOutput values.
+// You can construct a concrete instance of `ClusterNetworkSettingsInput` via:
+//
+//	ClusterNetworkSettingsArgs{...}
+type ClusterNetworkSettingsInput interface {
+	pulumi.Input
+
+	ToClusterNetworkSettingsOutput() ClusterNetworkSettingsOutput
+	ToClusterNetworkSettingsOutputWithContext(context.Context) ClusterNetworkSettingsOutput
+}
+
+// On premises settings which will have the interface network mappings and default Output logical interface
+type ClusterNetworkSettingsArgs struct {
+	// Default value if the customer does not define it in channel Output API
+	DefaultRoute pulumi.StringPtrInput `pulumi:"defaultRoute"`
+	// Network mappings for the cluster
+	InterfaceMappings ClusterInterfaceMappingArrayInput `pulumi:"interfaceMappings"`
+}
+
+func (ClusterNetworkSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkSettings)(nil)).Elem()
+}
+
+func (i ClusterNetworkSettingsArgs) ToClusterNetworkSettingsOutput() ClusterNetworkSettingsOutput {
+	return i.ToClusterNetworkSettingsOutputWithContext(context.Background())
+}
+
+func (i ClusterNetworkSettingsArgs) ToClusterNetworkSettingsOutputWithContext(ctx context.Context) ClusterNetworkSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkSettingsOutput)
+}
+
+func (i ClusterNetworkSettingsArgs) ToClusterNetworkSettingsPtrOutput() ClusterNetworkSettingsPtrOutput {
+	return i.ToClusterNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterNetworkSettingsArgs) ToClusterNetworkSettingsPtrOutputWithContext(ctx context.Context) ClusterNetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkSettingsOutput).ToClusterNetworkSettingsPtrOutputWithContext(ctx)
+}
+
+// ClusterNetworkSettingsPtrInput is an input type that accepts ClusterNetworkSettingsArgs, ClusterNetworkSettingsPtr and ClusterNetworkSettingsPtrOutput values.
+// You can construct a concrete instance of `ClusterNetworkSettingsPtrInput` via:
+//
+//	        ClusterNetworkSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterNetworkSettingsPtrInput interface {
+	pulumi.Input
+
+	ToClusterNetworkSettingsPtrOutput() ClusterNetworkSettingsPtrOutput
+	ToClusterNetworkSettingsPtrOutputWithContext(context.Context) ClusterNetworkSettingsPtrOutput
+}
+
+type clusterNetworkSettingsPtrType ClusterNetworkSettingsArgs
+
+func ClusterNetworkSettingsPtr(v *ClusterNetworkSettingsArgs) ClusterNetworkSettingsPtrInput {
+	return (*clusterNetworkSettingsPtrType)(v)
+}
+
+func (*clusterNetworkSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkSettings)(nil)).Elem()
+}
+
+func (i *clusterNetworkSettingsPtrType) ToClusterNetworkSettingsPtrOutput() ClusterNetworkSettingsPtrOutput {
+	return i.ToClusterNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterNetworkSettingsPtrType) ToClusterNetworkSettingsPtrOutputWithContext(ctx context.Context) ClusterNetworkSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkSettingsPtrOutput)
+}
+
+// On premises settings which will have the interface network mappings and default Output logical interface
+type ClusterNetworkSettingsOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkSettings)(nil)).Elem()
+}
+
+func (o ClusterNetworkSettingsOutput) ToClusterNetworkSettingsOutput() ClusterNetworkSettingsOutput {
+	return o
+}
+
+func (o ClusterNetworkSettingsOutput) ToClusterNetworkSettingsOutputWithContext(ctx context.Context) ClusterNetworkSettingsOutput {
+	return o
+}
+
+func (o ClusterNetworkSettingsOutput) ToClusterNetworkSettingsPtrOutput() ClusterNetworkSettingsPtrOutput {
+	return o.ToClusterNetworkSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkSettingsOutput) ToClusterNetworkSettingsPtrOutputWithContext(ctx context.Context) ClusterNetworkSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkSettings) *ClusterNetworkSettings {
+		return &v
+	}).(ClusterNetworkSettingsPtrOutput)
+}
+
+// Default value if the customer does not define it in channel Output API
+func (o ClusterNetworkSettingsOutput) DefaultRoute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterNetworkSettings) *string { return v.DefaultRoute }).(pulumi.StringPtrOutput)
+}
+
+// Network mappings for the cluster
+func (o ClusterNetworkSettingsOutput) InterfaceMappings() ClusterInterfaceMappingArrayOutput {
+	return o.ApplyT(func(v ClusterNetworkSettings) []ClusterInterfaceMapping { return v.InterfaceMappings }).(ClusterInterfaceMappingArrayOutput)
+}
+
+type ClusterNetworkSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkSettings)(nil)).Elem()
+}
+
+func (o ClusterNetworkSettingsPtrOutput) ToClusterNetworkSettingsPtrOutput() ClusterNetworkSettingsPtrOutput {
+	return o
+}
+
+func (o ClusterNetworkSettingsPtrOutput) ToClusterNetworkSettingsPtrOutputWithContext(ctx context.Context) ClusterNetworkSettingsPtrOutput {
+	return o
+}
+
+func (o ClusterNetworkSettingsPtrOutput) Elem() ClusterNetworkSettingsOutput {
+	return o.ApplyT(func(v *ClusterNetworkSettings) ClusterNetworkSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkSettings
+		return ret
+	}).(ClusterNetworkSettingsOutput)
+}
+
+// Default value if the customer does not define it in channel Output API
+func (o ClusterNetworkSettingsPtrOutput) DefaultRoute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultRoute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network mappings for the cluster
+func (o ClusterNetworkSettingsPtrOutput) InterfaceMappings() ClusterInterfaceMappingArrayOutput {
+	return o.ApplyT(func(v *ClusterNetworkSettings) []ClusterInterfaceMapping {
+		if v == nil {
+			return nil
+		}
+		return v.InterfaceMappings
+	}).(ClusterInterfaceMappingArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ClusterTags struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// The target to which to send matching events.
+type EventBridgeRuleTemplateTarget struct {
+	// Target ARNs must be either an SNS topic or CloudWatch log group.
+	Arn string `pulumi:"arn"`
+}
+
+// EventBridgeRuleTemplateTargetInput is an input type that accepts EventBridgeRuleTemplateTargetArgs and EventBridgeRuleTemplateTargetOutput values.
+// You can construct a concrete instance of `EventBridgeRuleTemplateTargetInput` via:
+//
+//	EventBridgeRuleTemplateTargetArgs{...}
+type EventBridgeRuleTemplateTargetInput interface {
+	pulumi.Input
+
+	ToEventBridgeRuleTemplateTargetOutput() EventBridgeRuleTemplateTargetOutput
+	ToEventBridgeRuleTemplateTargetOutputWithContext(context.Context) EventBridgeRuleTemplateTargetOutput
+}
+
+// The target to which to send matching events.
+type EventBridgeRuleTemplateTargetArgs struct {
+	// Target ARNs must be either an SNS topic or CloudWatch log group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (EventBridgeRuleTemplateTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBridgeRuleTemplateTarget)(nil)).Elem()
+}
+
+func (i EventBridgeRuleTemplateTargetArgs) ToEventBridgeRuleTemplateTargetOutput() EventBridgeRuleTemplateTargetOutput {
+	return i.ToEventBridgeRuleTemplateTargetOutputWithContext(context.Background())
+}
+
+func (i EventBridgeRuleTemplateTargetArgs) ToEventBridgeRuleTemplateTargetOutputWithContext(ctx context.Context) EventBridgeRuleTemplateTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBridgeRuleTemplateTargetOutput)
+}
+
+// EventBridgeRuleTemplateTargetArrayInput is an input type that accepts EventBridgeRuleTemplateTargetArray and EventBridgeRuleTemplateTargetArrayOutput values.
+// You can construct a concrete instance of `EventBridgeRuleTemplateTargetArrayInput` via:
+//
+//	EventBridgeRuleTemplateTargetArray{ EventBridgeRuleTemplateTargetArgs{...} }
+type EventBridgeRuleTemplateTargetArrayInput interface {
+	pulumi.Input
+
+	ToEventBridgeRuleTemplateTargetArrayOutput() EventBridgeRuleTemplateTargetArrayOutput
+	ToEventBridgeRuleTemplateTargetArrayOutputWithContext(context.Context) EventBridgeRuleTemplateTargetArrayOutput
+}
+
+type EventBridgeRuleTemplateTargetArray []EventBridgeRuleTemplateTargetInput
+
+func (EventBridgeRuleTemplateTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventBridgeRuleTemplateTarget)(nil)).Elem()
+}
+
+func (i EventBridgeRuleTemplateTargetArray) ToEventBridgeRuleTemplateTargetArrayOutput() EventBridgeRuleTemplateTargetArrayOutput {
+	return i.ToEventBridgeRuleTemplateTargetArrayOutputWithContext(context.Background())
+}
+
+func (i EventBridgeRuleTemplateTargetArray) ToEventBridgeRuleTemplateTargetArrayOutputWithContext(ctx context.Context) EventBridgeRuleTemplateTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventBridgeRuleTemplateTargetArrayOutput)
+}
+
+// The target to which to send matching events.
+type EventBridgeRuleTemplateTargetOutput struct{ *pulumi.OutputState }
+
+func (EventBridgeRuleTemplateTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventBridgeRuleTemplateTarget)(nil)).Elem()
+}
+
+func (o EventBridgeRuleTemplateTargetOutput) ToEventBridgeRuleTemplateTargetOutput() EventBridgeRuleTemplateTargetOutput {
+	return o
+}
+
+func (o EventBridgeRuleTemplateTargetOutput) ToEventBridgeRuleTemplateTargetOutputWithContext(ctx context.Context) EventBridgeRuleTemplateTargetOutput {
+	return o
+}
+
+// Target ARNs must be either an SNS topic or CloudWatch log group.
+func (o EventBridgeRuleTemplateTargetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v EventBridgeRuleTemplateTarget) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type EventBridgeRuleTemplateTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (EventBridgeRuleTemplateTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventBridgeRuleTemplateTarget)(nil)).Elem()
+}
+
+func (o EventBridgeRuleTemplateTargetArrayOutput) ToEventBridgeRuleTemplateTargetArrayOutput() EventBridgeRuleTemplateTargetArrayOutput {
+	return o
+}
+
+func (o EventBridgeRuleTemplateTargetArrayOutput) ToEventBridgeRuleTemplateTargetArrayOutputWithContext(ctx context.Context) EventBridgeRuleTemplateTargetArrayOutput {
+	return o
+}
+
+func (o EventBridgeRuleTemplateTargetArrayOutput) Index(i pulumi.IntInput) EventBridgeRuleTemplateTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventBridgeRuleTemplateTarget {
+		return vs[0].([]EventBridgeRuleTemplateTarget)[vs[1].(int)]
+	}).(EventBridgeRuleTemplateTargetOutput)
+}
+
 // Multiplex MediaConnect output destination settings.
 type MultiplexOutputDestination struct {
 	// Multiplex MediaConnect output destination settings.
@@ -1317,7 +1697,505 @@ func (o MultiplexprogramMultiplexVideoSettingsPtrOutput) Elem() Multiplexprogram
 	}).(MultiplexprogramMultiplexVideoSettingsOutput)
 }
 
+// IP address cidr pool
+type NetworkIpPool struct {
+	// IP address cidr pool
+	Cidr *string `pulumi:"cidr"`
+}
+
+// NetworkIpPoolInput is an input type that accepts NetworkIpPoolArgs and NetworkIpPoolOutput values.
+// You can construct a concrete instance of `NetworkIpPoolInput` via:
+//
+//	NetworkIpPoolArgs{...}
+type NetworkIpPoolInput interface {
+	pulumi.Input
+
+	ToNetworkIpPoolOutput() NetworkIpPoolOutput
+	ToNetworkIpPoolOutputWithContext(context.Context) NetworkIpPoolOutput
+}
+
+// IP address cidr pool
+type NetworkIpPoolArgs struct {
+	// IP address cidr pool
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+}
+
+func (NetworkIpPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkIpPool)(nil)).Elem()
+}
+
+func (i NetworkIpPoolArgs) ToNetworkIpPoolOutput() NetworkIpPoolOutput {
+	return i.ToNetworkIpPoolOutputWithContext(context.Background())
+}
+
+func (i NetworkIpPoolArgs) ToNetworkIpPoolOutputWithContext(ctx context.Context) NetworkIpPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkIpPoolOutput)
+}
+
+// NetworkIpPoolArrayInput is an input type that accepts NetworkIpPoolArray and NetworkIpPoolArrayOutput values.
+// You can construct a concrete instance of `NetworkIpPoolArrayInput` via:
+//
+//	NetworkIpPoolArray{ NetworkIpPoolArgs{...} }
+type NetworkIpPoolArrayInput interface {
+	pulumi.Input
+
+	ToNetworkIpPoolArrayOutput() NetworkIpPoolArrayOutput
+	ToNetworkIpPoolArrayOutputWithContext(context.Context) NetworkIpPoolArrayOutput
+}
+
+type NetworkIpPoolArray []NetworkIpPoolInput
+
+func (NetworkIpPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkIpPool)(nil)).Elem()
+}
+
+func (i NetworkIpPoolArray) ToNetworkIpPoolArrayOutput() NetworkIpPoolArrayOutput {
+	return i.ToNetworkIpPoolArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkIpPoolArray) ToNetworkIpPoolArrayOutputWithContext(ctx context.Context) NetworkIpPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkIpPoolArrayOutput)
+}
+
+// IP address cidr pool
+type NetworkIpPoolOutput struct{ *pulumi.OutputState }
+
+func (NetworkIpPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkIpPool)(nil)).Elem()
+}
+
+func (o NetworkIpPoolOutput) ToNetworkIpPoolOutput() NetworkIpPoolOutput {
+	return o
+}
+
+func (o NetworkIpPoolOutput) ToNetworkIpPoolOutputWithContext(ctx context.Context) NetworkIpPoolOutput {
+	return o
+}
+
+// IP address cidr pool
+func (o NetworkIpPoolOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkIpPool) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+type NetworkIpPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkIpPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkIpPool)(nil)).Elem()
+}
+
+func (o NetworkIpPoolArrayOutput) ToNetworkIpPoolArrayOutput() NetworkIpPoolArrayOutput {
+	return o
+}
+
+func (o NetworkIpPoolArrayOutput) ToNetworkIpPoolArrayOutputWithContext(ctx context.Context) NetworkIpPoolArrayOutput {
+	return o
+}
+
+func (o NetworkIpPoolArrayOutput) Index(i pulumi.IntInput) NetworkIpPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkIpPool {
+		return vs[0].([]NetworkIpPool)[vs[1].(int)]
+	}).(NetworkIpPoolOutput)
+}
+
+type NetworkRoute struct {
+	// Ip address cidr
+	Cidr *string `pulumi:"cidr"`
+	// IP address for the route packet paths
+	Gateway *string `pulumi:"gateway"`
+}
+
+// NetworkRouteInput is an input type that accepts NetworkRouteArgs and NetworkRouteOutput values.
+// You can construct a concrete instance of `NetworkRouteInput` via:
+//
+//	NetworkRouteArgs{...}
+type NetworkRouteInput interface {
+	pulumi.Input
+
+	ToNetworkRouteOutput() NetworkRouteOutput
+	ToNetworkRouteOutputWithContext(context.Context) NetworkRouteOutput
+}
+
+type NetworkRouteArgs struct {
+	// Ip address cidr
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+	// IP address for the route packet paths
+	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
+}
+
+func (NetworkRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRoute)(nil)).Elem()
+}
+
+func (i NetworkRouteArgs) ToNetworkRouteOutput() NetworkRouteOutput {
+	return i.ToNetworkRouteOutputWithContext(context.Background())
+}
+
+func (i NetworkRouteArgs) ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRouteOutput)
+}
+
+// NetworkRouteArrayInput is an input type that accepts NetworkRouteArray and NetworkRouteArrayOutput values.
+// You can construct a concrete instance of `NetworkRouteArrayInput` via:
+//
+//	NetworkRouteArray{ NetworkRouteArgs{...} }
+type NetworkRouteArrayInput interface {
+	pulumi.Input
+
+	ToNetworkRouteArrayOutput() NetworkRouteArrayOutput
+	ToNetworkRouteArrayOutputWithContext(context.Context) NetworkRouteArrayOutput
+}
+
+type NetworkRouteArray []NetworkRouteInput
+
+func (NetworkRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkRoute)(nil)).Elem()
+}
+
+func (i NetworkRouteArray) ToNetworkRouteArrayOutput() NetworkRouteArrayOutput {
+	return i.ToNetworkRouteArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkRouteArray) ToNetworkRouteArrayOutputWithContext(ctx context.Context) NetworkRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRouteArrayOutput)
+}
+
+type NetworkRouteOutput struct{ *pulumi.OutputState }
+
+func (NetworkRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRoute)(nil)).Elem()
+}
+
+func (o NetworkRouteOutput) ToNetworkRouteOutput() NetworkRouteOutput {
+	return o
+}
+
+func (o NetworkRouteOutput) ToNetworkRouteOutputWithContext(ctx context.Context) NetworkRouteOutput {
+	return o
+}
+
+// Ip address cidr
+func (o NetworkRouteOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRoute) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// IP address for the route packet paths
+func (o NetworkRouteOutput) Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRoute) *string { return v.Gateway }).(pulumi.StringPtrOutput)
+}
+
+type NetworkRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkRoute)(nil)).Elem()
+}
+
+func (o NetworkRouteArrayOutput) ToNetworkRouteArrayOutput() NetworkRouteArrayOutput {
+	return o
+}
+
+func (o NetworkRouteArrayOutput) ToNetworkRouteArrayOutputWithContext(ctx context.Context) NetworkRouteArrayOutput {
+	return o
+}
+
+func (o NetworkRouteArrayOutput) Index(i pulumi.IntInput) NetworkRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkRoute {
+		return vs[0].([]NetworkRoute)[vs[1].(int)]
+	}).(NetworkRouteOutput)
+}
+
+// A key-value pair to associate with a resource.
+type NetworkTags struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
+type SdiSourceTags struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// An AWS resource used in media workflows.
+type SignalMapMediaResource struct {
+	Destinations []SignalMapMediaResourceNeighbor `pulumi:"destinations"`
+	// The logical name of an AWS media resource.
+	Name    *string                          `pulumi:"name"`
+	Sources []SignalMapMediaResourceNeighbor `pulumi:"sources"`
+}
+
+// An AWS resource used in media workflows.
+type SignalMapMediaResourceOutput struct{ *pulumi.OutputState }
+
+func (SignalMapMediaResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalMapMediaResource)(nil)).Elem()
+}
+
+func (o SignalMapMediaResourceOutput) ToSignalMapMediaResourceOutput() SignalMapMediaResourceOutput {
+	return o
+}
+
+func (o SignalMapMediaResourceOutput) ToSignalMapMediaResourceOutputWithContext(ctx context.Context) SignalMapMediaResourceOutput {
+	return o
+}
+
+func (o SignalMapMediaResourceOutput) Destinations() SignalMapMediaResourceNeighborArrayOutput {
+	return o.ApplyT(func(v SignalMapMediaResource) []SignalMapMediaResourceNeighbor { return v.Destinations }).(SignalMapMediaResourceNeighborArrayOutput)
+}
+
+// The logical name of an AWS media resource.
+func (o SignalMapMediaResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignalMapMediaResource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SignalMapMediaResourceOutput) Sources() SignalMapMediaResourceNeighborArrayOutput {
+	return o.ApplyT(func(v SignalMapMediaResource) []SignalMapMediaResourceNeighbor { return v.Sources }).(SignalMapMediaResourceNeighborArrayOutput)
+}
+
+type SignalMapMediaResourceMapOutput struct{ *pulumi.OutputState }
+
+func (SignalMapMediaResourceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SignalMapMediaResource)(nil)).Elem()
+}
+
+func (o SignalMapMediaResourceMapOutput) ToSignalMapMediaResourceMapOutput() SignalMapMediaResourceMapOutput {
+	return o
+}
+
+func (o SignalMapMediaResourceMapOutput) ToSignalMapMediaResourceMapOutputWithContext(ctx context.Context) SignalMapMediaResourceMapOutput {
+	return o
+}
+
+func (o SignalMapMediaResourceMapOutput) MapIndex(k pulumi.StringInput) SignalMapMediaResourceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SignalMapMediaResource {
+		return vs[0].(map[string]SignalMapMediaResource)[vs[1].(string)]
+	}).(SignalMapMediaResourceOutput)
+}
+
+// A direct source or destination neighbor to an AWS media resource.
+type SignalMapMediaResourceNeighbor struct {
+	// The ARN of a resource used in AWS media workflows.
+	Arn string `pulumi:"arn"`
+	// The logical name of an AWS media resource.
+	Name *string `pulumi:"name"`
+}
+
+// A direct source or destination neighbor to an AWS media resource.
+type SignalMapMediaResourceNeighborOutput struct{ *pulumi.OutputState }
+
+func (SignalMapMediaResourceNeighborOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalMapMediaResourceNeighbor)(nil)).Elem()
+}
+
+func (o SignalMapMediaResourceNeighborOutput) ToSignalMapMediaResourceNeighborOutput() SignalMapMediaResourceNeighborOutput {
+	return o
+}
+
+func (o SignalMapMediaResourceNeighborOutput) ToSignalMapMediaResourceNeighborOutputWithContext(ctx context.Context) SignalMapMediaResourceNeighborOutput {
+	return o
+}
+
+// The ARN of a resource used in AWS media workflows.
+func (o SignalMapMediaResourceNeighborOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v SignalMapMediaResourceNeighbor) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The logical name of an AWS media resource.
+func (o SignalMapMediaResourceNeighborOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignalMapMediaResourceNeighbor) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SignalMapMediaResourceNeighborArrayOutput struct{ *pulumi.OutputState }
+
+func (SignalMapMediaResourceNeighborArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignalMapMediaResourceNeighbor)(nil)).Elem()
+}
+
+func (o SignalMapMediaResourceNeighborArrayOutput) ToSignalMapMediaResourceNeighborArrayOutput() SignalMapMediaResourceNeighborArrayOutput {
+	return o
+}
+
+func (o SignalMapMediaResourceNeighborArrayOutput) ToSignalMapMediaResourceNeighborArrayOutputWithContext(ctx context.Context) SignalMapMediaResourceNeighborArrayOutput {
+	return o
+}
+
+func (o SignalMapMediaResourceNeighborArrayOutput) Index(i pulumi.IntInput) SignalMapMediaResourceNeighborOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignalMapMediaResourceNeighbor {
+		return vs[0].([]SignalMapMediaResourceNeighbor)[vs[1].(int)]
+	}).(SignalMapMediaResourceNeighborOutput)
+}
+
+// Represents the latest monitor deployment of a signal map.
+type SignalMapMonitorDeployment struct {
+	// URI associated with a signal map's monitor deployment.
+	DetailsUri *string `pulumi:"detailsUri"`
+	// Error message associated with a failed monitor deployment of a signal map.
+	ErrorMessage *string                          `pulumi:"errorMessage"`
+	Status       SignalMapMonitorDeploymentStatus `pulumi:"status"`
+}
+
+// Represents the latest monitor deployment of a signal map.
+type SignalMapMonitorDeploymentOutput struct{ *pulumi.OutputState }
+
+func (SignalMapMonitorDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalMapMonitorDeployment)(nil)).Elem()
+}
+
+func (o SignalMapMonitorDeploymentOutput) ToSignalMapMonitorDeploymentOutput() SignalMapMonitorDeploymentOutput {
+	return o
+}
+
+func (o SignalMapMonitorDeploymentOutput) ToSignalMapMonitorDeploymentOutputWithContext(ctx context.Context) SignalMapMonitorDeploymentOutput {
+	return o
+}
+
+// URI associated with a signal map's monitor deployment.
+func (o SignalMapMonitorDeploymentOutput) DetailsUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignalMapMonitorDeployment) *string { return v.DetailsUri }).(pulumi.StringPtrOutput)
+}
+
+// Error message associated with a failed monitor deployment of a signal map.
+func (o SignalMapMonitorDeploymentOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignalMapMonitorDeployment) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o SignalMapMonitorDeploymentOutput) Status() SignalMapMonitorDeploymentStatusOutput {
+	return o.ApplyT(func(v SignalMapMonitorDeployment) SignalMapMonitorDeploymentStatus { return v.Status }).(SignalMapMonitorDeploymentStatusOutput)
+}
+
+type SignalMapMonitorDeploymentPtrOutput struct{ *pulumi.OutputState }
+
+func (SignalMapMonitorDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignalMapMonitorDeployment)(nil)).Elem()
+}
+
+func (o SignalMapMonitorDeploymentPtrOutput) ToSignalMapMonitorDeploymentPtrOutput() SignalMapMonitorDeploymentPtrOutput {
+	return o
+}
+
+func (o SignalMapMonitorDeploymentPtrOutput) ToSignalMapMonitorDeploymentPtrOutputWithContext(ctx context.Context) SignalMapMonitorDeploymentPtrOutput {
+	return o
+}
+
+func (o SignalMapMonitorDeploymentPtrOutput) Elem() SignalMapMonitorDeploymentOutput {
+	return o.ApplyT(func(v *SignalMapMonitorDeployment) SignalMapMonitorDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret SignalMapMonitorDeployment
+		return ret
+	}).(SignalMapMonitorDeploymentOutput)
+}
+
+// URI associated with a signal map's monitor deployment.
+func (o SignalMapMonitorDeploymentPtrOutput) DetailsUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalMapMonitorDeployment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DetailsUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Error message associated with a failed monitor deployment of a signal map.
+func (o SignalMapMonitorDeploymentPtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalMapMonitorDeployment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SignalMapMonitorDeploymentPtrOutput) Status() SignalMapMonitorDeploymentStatusPtrOutput {
+	return o.ApplyT(func(v *SignalMapMonitorDeployment) *SignalMapMonitorDeploymentStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(SignalMapMonitorDeploymentStatusPtrOutput)
+}
+
+// Represents the latest successful monitor deployment of a signal map.
+type SignalMapSuccessfulMonitorDeployment struct {
+	// URI associated with a signal map's monitor deployment.
+	DetailsUri string                           `pulumi:"detailsUri"`
+	Status     SignalMapMonitorDeploymentStatus `pulumi:"status"`
+}
+
+// Represents the latest successful monitor deployment of a signal map.
+type SignalMapSuccessfulMonitorDeploymentOutput struct{ *pulumi.OutputState }
+
+func (SignalMapSuccessfulMonitorDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalMapSuccessfulMonitorDeployment)(nil)).Elem()
+}
+
+func (o SignalMapSuccessfulMonitorDeploymentOutput) ToSignalMapSuccessfulMonitorDeploymentOutput() SignalMapSuccessfulMonitorDeploymentOutput {
+	return o
+}
+
+func (o SignalMapSuccessfulMonitorDeploymentOutput) ToSignalMapSuccessfulMonitorDeploymentOutputWithContext(ctx context.Context) SignalMapSuccessfulMonitorDeploymentOutput {
+	return o
+}
+
+// URI associated with a signal map's monitor deployment.
+func (o SignalMapSuccessfulMonitorDeploymentOutput) DetailsUri() pulumi.StringOutput {
+	return o.ApplyT(func(v SignalMapSuccessfulMonitorDeployment) string { return v.DetailsUri }).(pulumi.StringOutput)
+}
+
+func (o SignalMapSuccessfulMonitorDeploymentOutput) Status() SignalMapMonitorDeploymentStatusOutput {
+	return o.ApplyT(func(v SignalMapSuccessfulMonitorDeployment) SignalMapMonitorDeploymentStatus { return v.Status }).(SignalMapMonitorDeploymentStatusOutput)
+}
+
+type SignalMapSuccessfulMonitorDeploymentPtrOutput struct{ *pulumi.OutputState }
+
+func (SignalMapSuccessfulMonitorDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignalMapSuccessfulMonitorDeployment)(nil)).Elem()
+}
+
+func (o SignalMapSuccessfulMonitorDeploymentPtrOutput) ToSignalMapSuccessfulMonitorDeploymentPtrOutput() SignalMapSuccessfulMonitorDeploymentPtrOutput {
+	return o
+}
+
+func (o SignalMapSuccessfulMonitorDeploymentPtrOutput) ToSignalMapSuccessfulMonitorDeploymentPtrOutputWithContext(ctx context.Context) SignalMapSuccessfulMonitorDeploymentPtrOutput {
+	return o
+}
+
+func (o SignalMapSuccessfulMonitorDeploymentPtrOutput) Elem() SignalMapSuccessfulMonitorDeploymentOutput {
+	return o.ApplyT(func(v *SignalMapSuccessfulMonitorDeployment) SignalMapSuccessfulMonitorDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret SignalMapSuccessfulMonitorDeployment
+		return ret
+	}).(SignalMapSuccessfulMonitorDeploymentOutput)
+}
+
+// URI associated with a signal map's monitor deployment.
+func (o SignalMapSuccessfulMonitorDeploymentPtrOutput) DetailsUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalMapSuccessfulMonitorDeployment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DetailsUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SignalMapSuccessfulMonitorDeploymentPtrOutput) Status() SignalMapMonitorDeploymentStatusPtrOutput {
+	return o.ApplyT(func(v *SignalMapSuccessfulMonitorDeployment) *SignalMapMonitorDeploymentStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(SignalMapMonitorDeploymentStatusPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInterfaceMappingInput)(nil)).Elem(), ClusterInterfaceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInterfaceMappingArrayInput)(nil)).Elem(), ClusterInterfaceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkSettingsInput)(nil)).Elem(), ClusterNetworkSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkSettingsPtrInput)(nil)).Elem(), ClusterNetworkSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBridgeRuleTemplateTargetInput)(nil)).Elem(), EventBridgeRuleTemplateTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBridgeRuleTemplateTargetArrayInput)(nil)).Elem(), EventBridgeRuleTemplateTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexOutputDestinationInput)(nil)).Elem(), MultiplexOutputDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexOutputDestinationArrayInput)(nil)).Elem(), MultiplexOutputDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesInput)(nil)).Elem(), MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs{})
@@ -1333,6 +2211,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexProgramSettingsPtrInput)(nil)).Elem(), MultiplexprogramMultiplexProgramSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexVideoSettingsInput)(nil)).Elem(), MultiplexprogramMultiplexVideoSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexVideoSettingsPtrInput)(nil)).Elem(), MultiplexprogramMultiplexVideoSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkIpPoolInput)(nil)).Elem(), NetworkIpPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkIpPoolArrayInput)(nil)).Elem(), NetworkIpPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRouteInput)(nil)).Elem(), NetworkRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRouteArrayInput)(nil)).Elem(), NetworkRouteArray{})
+	pulumi.RegisterOutputType(ClusterInterfaceMappingOutput{})
+	pulumi.RegisterOutputType(ClusterInterfaceMappingArrayOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkSettingsOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EventBridgeRuleTemplateTargetOutput{})
+	pulumi.RegisterOutputType(EventBridgeRuleTemplateTargetArrayOutput{})
 	pulumi.RegisterOutputType(MultiplexOutputDestinationOutput{})
 	pulumi.RegisterOutputType(MultiplexOutputDestinationArrayOutput{})
 	pulumi.RegisterOutputType(MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesOutput{})
@@ -1349,4 +2237,16 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexProgramSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexVideoSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexVideoSettingsPtrOutput{})
+	pulumi.RegisterOutputType(NetworkIpPoolOutput{})
+	pulumi.RegisterOutputType(NetworkIpPoolArrayOutput{})
+	pulumi.RegisterOutputType(NetworkRouteOutput{})
+	pulumi.RegisterOutputType(NetworkRouteArrayOutput{})
+	pulumi.RegisterOutputType(SignalMapMediaResourceOutput{})
+	pulumi.RegisterOutputType(SignalMapMediaResourceMapOutput{})
+	pulumi.RegisterOutputType(SignalMapMediaResourceNeighborOutput{})
+	pulumi.RegisterOutputType(SignalMapMediaResourceNeighborArrayOutput{})
+	pulumi.RegisterOutputType(SignalMapMonitorDeploymentOutput{})
+	pulumi.RegisterOutputType(SignalMapMonitorDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(SignalMapSuccessfulMonitorDeploymentOutput{})
+	pulumi.RegisterOutputType(SignalMapSuccessfulMonitorDeploymentPtrOutput{})
 }

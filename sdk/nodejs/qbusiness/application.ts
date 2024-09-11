@@ -97,7 +97,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly qAppsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationQAppsConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface ApplicationArgs {
      */
     qAppsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQAppsConfigurationArgs>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+     * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
      */
     roleArn?: pulumi.Input<string>;
     /**

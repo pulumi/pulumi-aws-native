@@ -73,6 +73,8 @@ class GetFleetResult:
     @pulumi.getter(name="computeType")
     def compute_type(self) -> Optional['FleetComputeType']:
         """
+        > Updating this field is not allowed for `MAC_ARM` . 
+
         Information about the compute resources the compute fleet uses. Available values include:
 
         - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
@@ -101,6 +103,8 @@ class GetFleetResult:
     @pulumi.getter(name="environmentType")
     def environment_type(self) -> Optional['FleetEnvironmentType']:
         """
+        > Updating this field is not allowed for `MAC_ARM` . 
+
         The environment type of the compute fleet.
 
         - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -125,6 +129,8 @@ class GetFleetResult:
     @pulumi.getter(name="fleetVpcConfig")
     def fleet_vpc_config(self) -> Optional['outputs.FleetVpcConfig']:
         """
+        > Updating this field is not allowed for `MAC_ARM` . 
+
         Information about the VPC configuration that AWS CodeBuild accesses.
         """
         return pulumi.get(self, "fleet_vpc_config")
@@ -133,6 +139,8 @@ class GetFleetResult:
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[str]:
         """
+        > Updating this field is not allowed for `MAC_ARM` . 
+
         The Amazon Machine Image (AMI) of the compute fleet.
         """
         return pulumi.get(self, "image_id")

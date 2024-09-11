@@ -11,6 +11,96 @@ import * as utilities from "../utilities";
  * The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
  *   One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
  *    The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
+ *
+ * ## Example Usage
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const carSalesTopic = new aws_native.sns.Topic("carSalesTopic", {});
+ * const erpIntegrationQueue = new aws_native.sqs.Queue("erpIntegrationQueue", {});
+ * const erpSubscription = new aws_native.sns.Subscription("erpSubscription", {
+ *     topicArn: carSalesTopic.id,
+ *     endpoint: erpIntegrationQueue.arn,
+ *     protocol: "sqs",
+ *     rawMessageDelivery: true,
+ * });
+ * const crmIntegrationQueue = new aws_native.sqs.Queue("crmIntegrationQueue", {});
+ * const crmSubscription = new aws_native.sns.Subscription("crmSubscription", {
+ *     topicArn: carSalesTopic.id,
+ *     endpoint: crmIntegrationQueue.arn,
+ *     protocol: "sqs",
+ *     rawMessageDelivery: true,
+ *     filterPolicy: {
+ *         "buyer-class": ["vip"],
+ *     },
+ * });
+ * const config = new pulumi.Config();
+ * const myHttpEndpoint = config.require("myHttpEndpoint");
+ * const scmSubscription = new aws_native.sns.Subscription("scmSubscription", {
+ *     topicArn: carSalesTopic.id,
+ *     endpoint: myHttpEndpoint,
+ *     protocol: "https",
+ *     deliveryPolicy: {
+ *         healthyRetryPolicy: {
+ *             numRetries: 20,
+ *             minDelayTarget: 10,
+ *             maxDelayTarget: 30,
+ *             numMinDelayRetries: 3,
+ *             numMaxDelayRetries: 17,
+ *             numNoDelayRetries: 0,
+ *             backoffFunction: "exponential",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const carSalesTopic = new aws_native.sns.Topic("carSalesTopic", {});
+ * const erpIntegrationQueue = new aws_native.sqs.Queue("erpIntegrationQueue", {});
+ * const erpSubscription = new aws_native.sns.Subscription("erpSubscription", {
+ *     topicArn: carSalesTopic.id,
+ *     endpoint: erpIntegrationQueue.arn,
+ *     protocol: "sqs",
+ *     rawMessageDelivery: true,
+ * });
+ * const crmIntegrationQueue = new aws_native.sqs.Queue("crmIntegrationQueue", {});
+ * const crmSubscription = new aws_native.sns.Subscription("crmSubscription", {
+ *     topicArn: carSalesTopic.id,
+ *     endpoint: crmIntegrationQueue.arn,
+ *     protocol: "sqs",
+ *     rawMessageDelivery: true,
+ *     filterPolicy: {
+ *         "buyer-class": ["vip"],
+ *     },
+ * });
+ * const config = new pulumi.Config();
+ * const myHttpEndpoint = config.require("myHttpEndpoint");
+ * const scmSubscription = new aws_native.sns.Subscription("scmSubscription", {
+ *     topicArn: carSalesTopic.id,
+ *     endpoint: myHttpEndpoint,
+ *     protocol: "https",
+ *     deliveryPolicy: {
+ *         healthyRetryPolicy: {
+ *             numRetries: 20,
+ *             minDelayTarget: 10,
+ *             maxDelayTarget: 30,
+ *             numMinDelayRetries: 3,
+ *             numMaxDelayRetries: 17,
+ *             numNoDelayRetries: 0,
+ *             backoffFunction: "exponential",
+ *         },
+ *     },
+ * });
+ *
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

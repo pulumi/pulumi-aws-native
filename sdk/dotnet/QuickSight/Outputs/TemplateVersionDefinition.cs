@@ -44,6 +44,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateParameterDeclaration> ParameterDeclarations;
+        public readonly Outputs.TemplateQueryExecutionOptions? QueryExecutionOptions;
         /// <summary>
         /// An array of sheet definitions for a template.
         /// </summary>
@@ -65,6 +66,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.TemplateParameterDeclaration> parameterDeclarations,
 
+            Outputs.TemplateQueryExecutionOptions? queryExecutionOptions,
+
             ImmutableArray<Outputs.TemplateSheetDefinition> sheets)
         {
             AnalysisDefaults = analysisDefaults;
@@ -74,6 +77,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             FilterGroups = filterGroups;
             Options = options;
             ParameterDeclarations = parameterDeclarations;
+            QueryExecutionOptions = queryExecutionOptions;
             Sheets = sheets;
         }
     }

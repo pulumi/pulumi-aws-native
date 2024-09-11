@@ -83,7 +83,7 @@
       "permissions" : [ "vpc-lattice:GetAccessLogSubscription", "vpc-lattice:ListTagsForResource", "logs:GetLogDelivery" ]
     },
     "update" : {
-      "permissions" : [ "vpc-lattice:GetAccessLogSubscription", "vpc-lattice:UpdateAccessLogSubscription", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "logs:UpdateLogDelivery", "firehose:UpdateDestination", "logs:CreateLogDelivery", "logs:CreateLogStream", "logs:PutDestination", "logs:PutDestinationPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "logs:GetLogDelivery", "s3:PutBucketLogging", "s3:GetBucketLogging", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream", "firehose:CreateDeliveryStream", "firehose:DescribeDeliveryStream" ]
+      "permissions" : [ "vpc-lattice:GetAccessLogSubscription", "vpc-lattice:UpdateAccessLogSubscription", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "logs:UpdateLogDelivery", "firehose:UpdateDestination", "logs:CreateLogDelivery", "logs:CreateLogStream", "logs:PutDestination", "logs:PutDestinationPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "logs:GetLogDelivery", "s3:PutBucketLogging", "s3:GetBucketLogging", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream", "firehose:CreateDeliveryStream", "firehose:DescribeDeliveryStream" ]
     },
     "delete" : {
       "permissions" : [ "vpc-lattice:DeleteAccessLogSubscription", "vpc-lattice:UntagResource", "logs:DeleteLogDelivery", "logs:DeleteLogStream", "logs:GetLogDelivery", "logs:DeleteDestination", "s3:PutBucketLogging", "iam:GetServiceLinkedRoleDeletionStatus", "iam:DeleteServiceLinkedRole", "firehose:DeleteDeliveryStream", "firehose:UntagDeliveryStream" ]
@@ -108,6 +108,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "vpc-lattice:UntagResource", "vpc-lattice:TagResource", "vpc-lattice:ListTagsForResource" ]
   }
 }

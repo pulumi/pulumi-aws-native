@@ -182,7 +182,179 @@ func (in *appAutoBranchCreationConfigStagePtr) ToAppAutoBranchCreationConfigStag
 	return pulumi.ToOutputWithContext(ctx, in).(AppAutoBranchCreationConfigStagePtrOutput)
 }
 
+// The type of cache configuration to use for an Amplify app.
+//
+// The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
+//
+// The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
+type AppCacheConfigType string
+
+const (
+	AppCacheConfigTypeAmplifyManaged          = AppCacheConfigType("AMPLIFY_MANAGED")
+	AppCacheConfigTypeAmplifyManagedNoCookies = AppCacheConfigType("AMPLIFY_MANAGED_NO_COOKIES")
+)
+
+func (AppCacheConfigType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppCacheConfigType)(nil)).Elem()
+}
+
+func (e AppCacheConfigType) ToAppCacheConfigTypeOutput() AppCacheConfigTypeOutput {
+	return pulumi.ToOutput(e).(AppCacheConfigTypeOutput)
+}
+
+func (e AppCacheConfigType) ToAppCacheConfigTypeOutputWithContext(ctx context.Context) AppCacheConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppCacheConfigTypeOutput)
+}
+
+func (e AppCacheConfigType) ToAppCacheConfigTypePtrOutput() AppCacheConfigTypePtrOutput {
+	return e.ToAppCacheConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (e AppCacheConfigType) ToAppCacheConfigTypePtrOutputWithContext(ctx context.Context) AppCacheConfigTypePtrOutput {
+	return AppCacheConfigType(e).ToAppCacheConfigTypeOutputWithContext(ctx).ToAppCacheConfigTypePtrOutputWithContext(ctx)
+}
+
+func (e AppCacheConfigType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppCacheConfigType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppCacheConfigType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppCacheConfigType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppCacheConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (AppCacheConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppCacheConfigType)(nil)).Elem()
+}
+
+func (o AppCacheConfigTypeOutput) ToAppCacheConfigTypeOutput() AppCacheConfigTypeOutput {
+	return o
+}
+
+func (o AppCacheConfigTypeOutput) ToAppCacheConfigTypeOutputWithContext(ctx context.Context) AppCacheConfigTypeOutput {
+	return o
+}
+
+func (o AppCacheConfigTypeOutput) ToAppCacheConfigTypePtrOutput() AppCacheConfigTypePtrOutput {
+	return o.ToAppCacheConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (o AppCacheConfigTypeOutput) ToAppCacheConfigTypePtrOutputWithContext(ctx context.Context) AppCacheConfigTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppCacheConfigType) *AppCacheConfigType {
+		return &v
+	}).(AppCacheConfigTypePtrOutput)
+}
+
+func (o AppCacheConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppCacheConfigTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppCacheConfigType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppCacheConfigTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppCacheConfigTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppCacheConfigType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppCacheConfigTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AppCacheConfigTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppCacheConfigType)(nil)).Elem()
+}
+
+func (o AppCacheConfigTypePtrOutput) ToAppCacheConfigTypePtrOutput() AppCacheConfigTypePtrOutput {
+	return o
+}
+
+func (o AppCacheConfigTypePtrOutput) ToAppCacheConfigTypePtrOutputWithContext(ctx context.Context) AppCacheConfigTypePtrOutput {
+	return o
+}
+
+func (o AppCacheConfigTypePtrOutput) Elem() AppCacheConfigTypeOutput {
+	return o.ApplyT(func(v *AppCacheConfigType) AppCacheConfigType {
+		if v != nil {
+			return *v
+		}
+		var ret AppCacheConfigType
+		return ret
+	}).(AppCacheConfigTypeOutput)
+}
+
+func (o AppCacheConfigTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppCacheConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppCacheConfigType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppCacheConfigTypeInput is an input type that accepts values of the AppCacheConfigType enum
+// A concrete instance of `AppCacheConfigTypeInput` can be one of the following:
+//
+//	AppCacheConfigTypeAmplifyManaged
+//	AppCacheConfigTypeAmplifyManagedNoCookies
+type AppCacheConfigTypeInput interface {
+	pulumi.Input
+
+	ToAppCacheConfigTypeOutput() AppCacheConfigTypeOutput
+	ToAppCacheConfigTypeOutputWithContext(context.Context) AppCacheConfigTypeOutput
+}
+
+var appCacheConfigTypePtrType = reflect.TypeOf((**AppCacheConfigType)(nil)).Elem()
+
+type AppCacheConfigTypePtrInput interface {
+	pulumi.Input
+
+	ToAppCacheConfigTypePtrOutput() AppCacheConfigTypePtrOutput
+	ToAppCacheConfigTypePtrOutputWithContext(context.Context) AppCacheConfigTypePtrOutput
+}
+
+type appCacheConfigTypePtr string
+
+func AppCacheConfigTypePtr(v string) AppCacheConfigTypePtrInput {
+	return (*appCacheConfigTypePtr)(&v)
+}
+
+func (*appCacheConfigTypePtr) ElementType() reflect.Type {
+	return appCacheConfigTypePtrType
+}
+
+func (in *appCacheConfigTypePtr) ToAppCacheConfigTypePtrOutput() AppCacheConfigTypePtrOutput {
+	return pulumi.ToOutput(in).(AppCacheConfigTypePtrOutput)
+}
+
+func (in *appCacheConfigTypePtr) ToAppCacheConfigTypePtrOutputWithContext(ctx context.Context) AppCacheConfigTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppCacheConfigTypePtrOutput)
+}
+
 // The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+//
+// If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
 type AppPlatform string
 
 const (
@@ -790,6 +962,8 @@ func (in *domainCertificateSettingsCertificateTypePtr) ToDomainCertificateSettin
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStageInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStagePtrInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCacheConfigTypeInput)(nil)).Elem(), AppCacheConfigType("AMPLIFY_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCacheConfigTypePtrInput)(nil)).Elem(), AppCacheConfigType("AMPLIFY_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppPlatformInput)(nil)).Elem(), AppPlatform("WEB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppPlatformPtrInput)(nil)).Elem(), AppPlatform("WEB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchStageInput)(nil)).Elem(), BranchStage("EXPERIMENTAL"))
@@ -798,6 +972,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateSettingsCertificateTypePtrInput)(nil)).Elem(), DomainCertificateSettingsCertificateType("AMPLIFY_MANAGED"))
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStageOutput{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStagePtrOutput{})
+	pulumi.RegisterOutputType(AppCacheConfigTypeOutput{})
+	pulumi.RegisterOutputType(AppCacheConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(AppPlatformOutput{})
 	pulumi.RegisterOutputType(AppPlatformPtrOutput{})
 	pulumi.RegisterOutputType(BranchStageOutput{})

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly bool? Autoprovision;
         /// <summary>
-        /// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to ``Driver`` in the docker conainer create command and the ``xxdriver`` option to docker volume create.
+        /// The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. This parameter maps to ``Driver`` in the docker container create command and the ``xxdriver`` option to docker volume create.
         /// </summary>
         public readonly string? Driver;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? DriverOpts;
         /// <summary>
-        /// Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the docker conainer create command and the ``xxlabel`` option to docker volume create.
+        /// Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the docker container create command and the ``xxlabel`` option to docker volume create.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Labels;
         /// <summary>

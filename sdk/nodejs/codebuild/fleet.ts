@@ -46,6 +46,8 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly baseCapacity!: pulumi.Output<number | undefined>;
     /**
+     * > Updating this field is not allowed for `MAC_ARM` . 
+     *
      * Information about the compute resources the compute fleet uses. Available values include:
      *
      * - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
@@ -70,6 +72,8 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly computeType!: pulumi.Output<enums.codebuild.FleetComputeType | undefined>;
     /**
+     * > Updating this field is not allowed for `MAC_ARM` . 
+     *
      * The environment type of the compute fleet.
      *
      * - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -86,10 +90,14 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly fleetServiceRole!: pulumi.Output<string | undefined>;
     /**
+     * > Updating this field is not allowed for `MAC_ARM` . 
+     *
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
     public readonly fleetVpcConfig!: pulumi.Output<outputs.codebuild.FleetVpcConfig | undefined>;
     /**
+     * > Updating this field is not allowed for `MAC_ARM` . 
+     *
      * The Amazon Machine Image (AMI) of the compute fleet.
      */
     public readonly imageId!: pulumi.Output<string | undefined>;
@@ -160,6 +168,8 @@ export interface FleetArgs {
      */
     baseCapacity?: pulumi.Input<number>;
     /**
+     * > Updating this field is not allowed for `MAC_ARM` . 
+     *
      * Information about the compute resources the compute fleet uses. Available values include:
      *
      * - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
@@ -184,6 +194,8 @@ export interface FleetArgs {
      */
     computeType?: pulumi.Input<enums.codebuild.FleetComputeType>;
     /**
+     * > Updating this field is not allowed for `MAC_ARM` . 
+     *
      * The environment type of the compute fleet.
      *
      * - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -200,10 +212,14 @@ export interface FleetArgs {
      */
     fleetServiceRole?: pulumi.Input<string>;
     /**
+     * > Updating this field is not allowed for `MAC_ARM` . 
+     *
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
     fleetVpcConfig?: pulumi.Input<inputs.codebuild.FleetVpcConfigArgs>;
     /**
+     * > Updating this field is not allowed for `MAC_ARM` . 
+     *
      * The Amazon Machine Image (AMI) of the compute fleet.
      */
     imageId?: pulumi.Input<string>;

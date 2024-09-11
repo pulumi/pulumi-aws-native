@@ -19,6 +19,12 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfigArgs',
     'AppImageConfigKernelSpecArgs',
     'AppResourceSpecArgs',
+    'ClusterInstanceGroupArgs',
+    'ClusterInstanceStorageConfigArgs',
+    'ClusterLifeCycleConfigArgs',
+    'ClusterOrchestratorEksConfigArgs',
+    'ClusterOrchestratorArgs',
+    'ClusterVpcConfigArgs',
     'DataQualityJobDefinitionBatchTransformInputArgs',
     'DataQualityJobDefinitionClusterConfigArgs',
     'DataQualityJobDefinitionConstraintsResourceArgs',
@@ -39,6 +45,7 @@ __all__ = [
     'DataQualityJobDefinitionVpcConfigArgs',
     'DeviceFleetEdgeOutputConfigArgs',
     'DeviceArgs',
+    'DomainAppLifecycleManagementArgs',
     'DomainCodeEditorAppSettingsArgs',
     'DomainCodeRepositoryArgs',
     'DomainCustomFileSystemConfigArgs',
@@ -49,6 +56,7 @@ __all__ = [
     'DomainDefaultSpaceStorageSettingsArgs',
     'DomainDockerSettingsArgs',
     'DomainEfsFileSystemConfigArgs',
+    'DomainIdleSettingsArgs',
     'DomainJupyterLabAppSettingsArgs',
     'DomainJupyterServerAppSettingsArgs',
     'DomainKernelGatewayAppSettingsArgs',
@@ -226,12 +234,14 @@ __all__ = [
     'ProjectProvisioningParameterArgs',
     'ServiceCatalogProvisionedProductDetailsPropertiesArgs',
     'ServiceCatalogProvisioningDetailsPropertiesArgs',
+    'SpaceAppLifecycleManagementArgs',
     'SpaceCodeEditorAppSettingsArgs',
     'SpaceCodeRepositoryArgs',
     'SpaceCustomFileSystemArgs',
     'SpaceCustomImageArgs',
     'SpaceEbsStorageSettingsArgs',
     'SpaceEfsFileSystemArgs',
+    'SpaceIdleSettingsArgs',
     'SpaceJupyterLabAppSettingsArgs',
     'SpaceJupyterServerAppSettingsArgs',
     'SpaceKernelGatewayAppSettingsArgs',
@@ -240,6 +250,7 @@ __all__ = [
     'SpaceSettingsArgs',
     'SpaceSharingSettingsArgs',
     'SpaceStorageSettingsArgs',
+    'UserProfileAppLifecycleManagementArgs',
     'UserProfileCodeEditorAppSettingsArgs',
     'UserProfileCodeRepositoryArgs',
     'UserProfileCustomFileSystemConfigArgs',
@@ -248,6 +259,7 @@ __all__ = [
     'UserProfileDefaultEbsStorageSettingsArgs',
     'UserProfileDefaultSpaceStorageSettingsArgs',
     'UserProfileEfsFileSystemConfigArgs',
+    'UserProfileIdleSettingsArgs',
     'UserProfileJupyterLabAppSettingsArgs',
     'UserProfileJupyterServerAppSettingsArgs',
     'UserProfileKernelGatewayAppSettingsArgs',
@@ -601,6 +613,256 @@ class AppResourceSpecArgs:
     @sage_maker_image_version_arn.setter
     def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sage_maker_image_version_arn", value)
+
+
+@pulumi.input_type
+class ClusterInstanceGroupArgs:
+    def __init__(__self__, *,
+                 execution_role: pulumi.Input[str],
+                 instance_count: pulumi.Input[int],
+                 instance_group_name: pulumi.Input[str],
+                 instance_type: pulumi.Input[str],
+                 life_cycle_config: pulumi.Input['ClusterLifeCycleConfigArgs'],
+                 current_count: Optional[pulumi.Input[int]] = None,
+                 instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
+                 on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
+                 threads_per_core: Optional[pulumi.Input[int]] = None):
+        """
+        Details of an instance group in a SageMaker HyperPod cluster.
+        :param pulumi.Input[int] instance_count: The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
+        :param pulumi.Input[int] current_count: The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+        :param pulumi.Input[int] threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+        """
+        pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_group_name", instance_group_name)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "life_cycle_config", life_cycle_config)
+        if current_count is not None:
+            pulumi.set(__self__, "current_count", current_count)
+        if instance_storage_configs is not None:
+            pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
+        if on_start_deep_health_checks is not None:
+            pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceGroupName")
+    def instance_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "instance_group_name")
+
+    @instance_group_name.setter
+    def instance_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_group_name", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="lifeCycleConfig")
+    def life_cycle_config(self) -> pulumi.Input['ClusterLifeCycleConfigArgs']:
+        return pulumi.get(self, "life_cycle_config")
+
+    @life_cycle_config.setter
+    def life_cycle_config(self, value: pulumi.Input['ClusterLifeCycleConfigArgs']):
+        pulumi.set(self, "life_cycle_config", value)
+
+    @property
+    @pulumi.getter(name="currentCount")
+    def current_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+        """
+        return pulumi.get(self, "current_count")
+
+    @current_count.setter
+    def current_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "current_count", value)
+
+    @property
+    @pulumi.getter(name="instanceStorageConfigs")
+    def instance_storage_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]]:
+        return pulumi.get(self, "instance_storage_configs")
+
+    @instance_storage_configs.setter
+    def instance_storage_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]]):
+        pulumi.set(self, "instance_storage_configs", value)
+
+    @property
+    @pulumi.getter(name="onStartDeepHealthChecks")
+    def on_start_deep_health_checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]:
+        return pulumi.get(self, "on_start_deep_health_checks")
+
+    @on_start_deep_health_checks.setter
+    def on_start_deep_health_checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]):
+        pulumi.set(self, "on_start_deep_health_checks", value)
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+        """
+        return pulumi.get(self, "threads_per_core")
+
+    @threads_per_core.setter
+    def threads_per_core(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threads_per_core", value)
+
+
+@pulumi.input_type
+class ClusterInstanceStorageConfigArgs:
+    def __init__(__self__):
+        """
+        Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
+        """
+        pass
+
+
+@pulumi.input_type
+class ClusterLifeCycleConfigArgs:
+    def __init__(__self__, *,
+                 on_create: pulumi.Input[str],
+                 source_s3_uri: pulumi.Input[str]):
+        """
+        The lifecycle configuration for a SageMaker HyperPod cluster.
+        :param pulumi.Input[str] on_create: The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+        :param pulumi.Input[str] source_s3_uri: An Amazon S3 bucket path where your lifecycle scripts are stored.
+        """
+        pulumi.set(__self__, "on_create", on_create)
+        pulumi.set(__self__, "source_s3_uri", source_s3_uri)
+
+    @property
+    @pulumi.getter(name="onCreate")
+    def on_create(self) -> pulumi.Input[str]:
+        """
+        The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+        """
+        return pulumi.get(self, "on_create")
+
+    @on_create.setter
+    def on_create(self, value: pulumi.Input[str]):
+        pulumi.set(self, "on_create", value)
+
+    @property
+    @pulumi.getter(name="sourceS3Uri")
+    def source_s3_uri(self) -> pulumi.Input[str]:
+        """
+        An Amazon S3 bucket path where your lifecycle scripts are stored.
+        """
+        return pulumi.get(self, "source_s3_uri")
+
+    @source_s3_uri.setter
+    def source_s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_s3_uri", value)
+
+
+@pulumi.input_type
+class ClusterOrchestratorEksConfigArgs:
+    def __init__(__self__, *,
+                 cluster_arn: pulumi.Input[str]):
+        """
+        Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+        :param pulumi.Input[str] cluster_arn: The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+        """
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
+
+    @property
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+        """
+        return pulumi.get(self, "cluster_arn")
+
+    @cluster_arn.setter
+    def cluster_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_arn", value)
+
+
+@pulumi.input_type
+class ClusterOrchestratorArgs:
+    def __init__(__self__, *,
+                 eks: pulumi.Input['ClusterOrchestratorEksConfigArgs']):
+        """
+        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+        """
+        pulumi.set(__self__, "eks", eks)
+
+    @property
+    @pulumi.getter
+    def eks(self) -> pulumi.Input['ClusterOrchestratorEksConfigArgs']:
+        return pulumi.get(self, "eks")
+
+    @eks.setter
+    def eks(self, value: pulumi.Input['ClusterOrchestratorEksConfigArgs']):
+        pulumi.set(self, "eks", value)
+
+
+@pulumi.input_type
+class ClusterVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnets", value)
 
 
 @pulumi.input_type
@@ -1548,8 +1810,26 @@ class DeviceArgs:
 
 
 @pulumi.input_type
+class DomainAppLifecycleManagementArgs:
+    def __init__(__self__, *,
+                 idle_settings: Optional[pulumi.Input['DomainIdleSettingsArgs']] = None):
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional[pulumi.Input['DomainIdleSettingsArgs']]:
+        return pulumi.get(self, "idle_settings")
+
+    @idle_settings.setter
+    def idle_settings(self, value: Optional[pulumi.Input['DomainIdleSettingsArgs']]):
+        pulumi.set(self, "idle_settings", value)
+
+
+@pulumi.input_type
 class DomainCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional[pulumi.Input['DomainAppLifecycleManagementArgs']] = None,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1559,12 +1839,23 @@ class DomainCodeEditorAppSettingsArgs:
         :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional[pulumi.Input['DomainAppLifecycleManagementArgs']]:
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @app_lifecycle_management.setter
+    def app_lifecycle_management(self, value: Optional[pulumi.Input['DomainAppLifecycleManagementArgs']]):
+        pulumi.set(self, "app_lifecycle_management", value)
 
     @property
     @pulumi.getter(name="customImages")
@@ -2015,8 +2306,62 @@ class DomainEfsFileSystemConfigArgs:
 
 
 @pulumi.input_type
+class DomainIdleSettingsArgs:
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 lifecycle_management: Optional[pulumi.Input['DomainLifecycleManagement']] = None,
+                 max_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 min_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional[pulumi.Input['DomainLifecycleManagement']]:
+        return pulumi.get(self, "lifecycle_management")
+
+    @lifecycle_management.setter
+    def lifecycle_management(self, value: Optional[pulumi.Input['DomainLifecycleManagement']]):
+        pulumi.set(self, "lifecycle_management", value)
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @max_idle_timeout_in_minutes.setter
+    def max_idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_idle_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
+
+    @min_idle_timeout_in_minutes.setter
+    def min_idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_idle_timeout_in_minutes", value)
+
+
+@pulumi.input_type
 class DomainJupyterLabAppSettingsArgs:
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional[pulumi.Input['DomainAppLifecycleManagementArgs']] = None,
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgs']]]] = None,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None,
@@ -2028,6 +2373,8 @@ class DomainJupyterLabAppSettingsArgs:
         :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterLab apps.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
@@ -2036,6 +2383,15 @@ class DomainJupyterLabAppSettingsArgs:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional[pulumi.Input['DomainAppLifecycleManagementArgs']]:
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @app_lifecycle_management.setter
+    def app_lifecycle_management(self, value: Optional[pulumi.Input['DomainAppLifecycleManagementArgs']]):
+        pulumi.set(self, "app_lifecycle_management", value)
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -11775,15 +12131,44 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
 
 
 @pulumi.input_type
+class SpaceAppLifecycleManagementArgs:
+    def __init__(__self__, *,
+                 idle_settings: Optional[pulumi.Input['SpaceIdleSettingsArgs']] = None):
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional[pulumi.Input['SpaceIdleSettingsArgs']]:
+        return pulumi.get(self, "idle_settings")
+
+    @idle_settings.setter
+    def idle_settings(self, value: Optional[pulumi.Input['SpaceIdleSettingsArgs']]):
+        pulumi.set(self, "idle_settings", value)
+
+
+@pulumi.input_type
 class SpaceCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional[pulumi.Input['SpaceAppLifecycleManagementArgs']] = None,
                  default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
         """
         The CodeEditor app settings.
         :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional[pulumi.Input['SpaceAppLifecycleManagementArgs']]:
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @app_lifecycle_management.setter
+    def app_lifecycle_management(self, value: Optional[pulumi.Input['SpaceAppLifecycleManagementArgs']]):
+        pulumi.set(self, "app_lifecycle_management", value)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -11931,8 +12316,32 @@ class SpaceEfsFileSystemArgs:
 
 
 @pulumi.input_type
+class SpaceIdleSettingsArgs:
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] idle_timeout_in_minutes: The space idle timeout value set in minutes
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The space idle timeout value set in minutes
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+
+@pulumi.input_type
 class SpaceJupyterLabAppSettingsArgs:
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional[pulumi.Input['SpaceAppLifecycleManagementArgs']] = None,
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['SpaceResourceSpecArgs']] = None):
         """
@@ -11940,10 +12349,21 @@ class SpaceJupyterLabAppSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param pulumi.Input['SpaceResourceSpecArgs'] default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional[pulumi.Input['SpaceAppLifecycleManagementArgs']]:
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @app_lifecycle_management.setter
+    def app_lifecycle_management(self, value: Optional[pulumi.Input['SpaceAppLifecycleManagementArgs']]):
+        pulumi.set(self, "app_lifecycle_management", value)
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -12325,8 +12745,26 @@ class SpaceStorageSettingsArgs:
 
 
 @pulumi.input_type
+class UserProfileAppLifecycleManagementArgs:
+    def __init__(__self__, *,
+                 idle_settings: Optional[pulumi.Input['UserProfileIdleSettingsArgs']] = None):
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional[pulumi.Input['UserProfileIdleSettingsArgs']]:
+        return pulumi.get(self, "idle_settings")
+
+    @idle_settings.setter
+    def idle_settings(self, value: Optional[pulumi.Input['UserProfileIdleSettingsArgs']]):
+        pulumi.set(self, "idle_settings", value)
+
+
+@pulumi.input_type
 class UserProfileCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']] = None,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -12336,12 +12774,23 @@ class UserProfileCodeEditorAppSettingsArgs:
         :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']]:
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @app_lifecycle_management.setter
+    def app_lifecycle_management(self, value: Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']]):
+        pulumi.set(self, "app_lifecycle_management", value)
 
     @property
     @pulumi.getter(name="customImages")
@@ -12617,8 +13066,62 @@ class UserProfileEfsFileSystemConfigArgs:
 
 
 @pulumi.input_type
+class UserProfileIdleSettingsArgs:
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 lifecycle_management: Optional[pulumi.Input['UserProfileLifecycleManagement']] = None,
+                 max_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 min_idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional[pulumi.Input['UserProfileLifecycleManagement']]:
+        return pulumi.get(self, "lifecycle_management")
+
+    @lifecycle_management.setter
+    def lifecycle_management(self, value: Optional[pulumi.Input['UserProfileLifecycleManagement']]):
+        pulumi.set(self, "lifecycle_management", value)
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @max_idle_timeout_in_minutes.setter
+    def max_idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_idle_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
+
+    @min_idle_timeout_in_minutes.setter
+    def min_idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_idle_timeout_in_minutes", value)
+
+
+@pulumi.input_type
 class UserProfileJupyterLabAppSettingsArgs:
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']] = None,
                  code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgs']]]] = None,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None,
@@ -12630,6 +13133,8 @@ class UserProfileJupyterLabAppSettingsArgs:
         :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterLab apps.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
@@ -12638,6 +13143,15 @@ class UserProfileJupyterLabAppSettingsArgs:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']]:
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @app_lifecycle_management.setter
+    def app_lifecycle_management(self, value: Optional[pulumi.Input['UserProfileAppLifecycleManagementArgs']]):
+        pulumi.set(self, "app_lifecycle_management", value)
 
     @property
     @pulumi.getter(name="codeRepositories")

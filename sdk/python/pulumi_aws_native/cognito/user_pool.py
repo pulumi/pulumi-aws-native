@@ -43,7 +43,9 @@ class UserPoolArgs:
         """
         The set of arguments for constructing a UserPool resource.
         :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
-        :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: The configuration for creating a new user profile.
+        :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
+               
+               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
                
                > This user pool property cannot be updated.
@@ -65,19 +67,15 @@ class UserPoolArgs:
                - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
                
                Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
-        :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: The Lambda trigger configuration information for the new user pool.
-               
-               > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
-               > 
-               > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
-               > 
-               > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
+        :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         :param pulumi.Input[str] mfa_configuration: The multi-factor authentication (MFA) configuration. Valid values include:
                
                - `OFF` MFA won't be used for any users.
                - `ON` MFA is required for all users to sign in.
                - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
-        :param pulumi.Input['UserPoolPoliciesArgs'] policies: The policy associated with a user pool.
+        :param pulumi.Input['UserPoolPoliciesArgs'] policies: A list of user pool policies. Contains the policy that sets password-complexity requirements.
+               
+               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]] schema: The schema attributes for the new user pool. These attributes can be standard or custom attributes.
                
                > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
@@ -96,7 +94,9 @@ class UserPoolArgs:
                
                This user pool property cannot be updated.
         :param pulumi.Input['UserPoolUsernameConfigurationArgs'] username_configuration: You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
-        :param pulumi.Input['UserPoolVerificationMessageTemplateArgs'] verification_message_template: The template for the verification message that the user sees when the app requests permission to access the user's information.
+        :param pulumi.Input['UserPoolVerificationMessageTemplateArgs'] verification_message_template: The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
+               
+               Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         """
         if account_recovery_setting is not None:
             pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
@@ -163,7 +163,9 @@ class UserPoolArgs:
     @pulumi.getter(name="adminCreateUserConfig")
     def admin_create_user_config(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']]:
         """
-        The configuration for creating a new user profile.
+        The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
+
+        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         """
         return pulumi.get(self, "admin_create_user_config")
 
@@ -284,13 +286,7 @@ class UserPoolArgs:
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional[pulumi.Input['UserPoolLambdaConfigArgs']]:
         """
-        The Lambda trigger configuration information for the new user pool.
-
-        > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
-        > 
-        > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
-        > 
-        > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
+        A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         """
         return pulumi.get(self, "lambda_config")
 
@@ -318,7 +314,9 @@ class UserPoolArgs:
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input['UserPoolPoliciesArgs']]:
         """
-        The policy associated with a user pool.
+        A list of user pool policies. Contains the policy that sets password-complexity requirements.
+
+        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         """
         return pulumi.get(self, "policies")
 
@@ -458,7 +456,9 @@ class UserPoolArgs:
     @pulumi.getter(name="verificationMessageTemplate")
     def verification_message_template(self) -> Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']]:
         """
-        The template for the verification message that the user sees when the app requests permission to access the user's information.
+        The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
+
+        Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         """
         return pulumi.get(self, "verification_message_template")
 
@@ -503,7 +503,9 @@ class UserPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
-        :param pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']] admin_create_user_config: The configuration for creating a new user profile.
+        :param pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
+               
+               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
                
                > This user pool property cannot be updated.
@@ -525,19 +527,15 @@ class UserPool(pulumi.CustomResource):
                - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
                
                Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
-        :param pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']] lambda_config: The Lambda trigger configuration information for the new user pool.
-               
-               > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
-               > 
-               > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
-               > 
-               > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
+        :param pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']] lambda_config: A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         :param pulumi.Input[str] mfa_configuration: The multi-factor authentication (MFA) configuration. Valid values include:
                
                - `OFF` MFA won't be used for any users.
                - `ON` MFA is required for all users to sign in.
                - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
-        :param pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']] policies: The policy associated with a user pool.
+        :param pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']] policies: A list of user pool policies. Contains the policy that sets password-complexity requirements.
+               
+               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]] schema: The schema attributes for the new user pool. These attributes can be standard or custom attributes.
                
                > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
@@ -556,7 +554,9 @@ class UserPool(pulumi.CustomResource):
                
                This user pool property cannot be updated.
         :param pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']] username_configuration: You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
-        :param pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']] verification_message_template: The template for the verification message that the user sees when the app requests permission to access the user's information.
+        :param pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']] verification_message_template: The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
+               
+               Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         """
         ...
     @overload
@@ -707,7 +707,9 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="adminCreateUserConfig")
     def admin_create_user_config(self) -> pulumi.Output[Optional['outputs.UserPoolAdminCreateUserConfig']]:
         """
-        The configuration for creating a new user profile.
+        The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
+
+        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         """
         return pulumi.get(self, "admin_create_user_config")
 
@@ -800,13 +802,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> pulumi.Output[Optional['outputs.UserPoolLambdaConfig']]:
         """
-        The Lambda trigger configuration information for the new user pool.
-
-        > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
-        > 
-        > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
-        > 
-        > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
+        A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         """
         return pulumi.get(self, "lambda_config")
 
@@ -826,7 +822,9 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter
     def policies(self) -> pulumi.Output[Optional['outputs.UserPoolPolicies']]:
         """
-        The policy associated with a user pool.
+        A list of user pool policies. Contains the policy that sets password-complexity requirements.
+
+        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         """
         return pulumi.get(self, "policies")
 
@@ -946,7 +944,9 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="verificationMessageTemplate")
     def verification_message_template(self) -> pulumi.Output[Optional['outputs.UserPoolVerificationMessageTemplate']]:
         """
-        The template for the verification message that the user sees when the app requests permission to access the user's information.
+        The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
+
+        Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         """
         return pulumi.get(self, "verification_message_template")
 

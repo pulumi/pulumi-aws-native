@@ -550,6 +550,13 @@ export const AnalysisPrimaryValueDisplayType = {
 
 export type AnalysisPrimaryValueDisplayType = (typeof AnalysisPrimaryValueDisplayType)[keyof typeof AnalysisPrimaryValueDisplayType];
 
+export const AnalysisQueryExecutionMode = {
+    Auto: "AUTO",
+    Manual: "MANUAL",
+} as const;
+
+export type AnalysisQueryExecutionMode = (typeof AnalysisQueryExecutionMode)[keyof typeof AnalysisQueryExecutionMode];
+
 export const AnalysisRadarChartAxesRangeScale = {
     Auto: "AUTO",
     Independent: "INDEPENDENT",
@@ -2717,6 +2724,13 @@ export const TemplatePrimaryValueDisplayType = {
 } as const;
 
 export type TemplatePrimaryValueDisplayType = (typeof TemplatePrimaryValueDisplayType)[keyof typeof TemplatePrimaryValueDisplayType];
+
+export const TemplateQueryExecutionMode = {
+    Auto: "AUTO",
+    Manual: "MANUAL",
+} as const;
+
+export type TemplateQueryExecutionMode = (typeof TemplateQueryExecutionMode)[keyof typeof TemplateQueryExecutionMode];
 
 export const TemplateRadarChartAxesRangeScale = {
     Auto: "AUTO",

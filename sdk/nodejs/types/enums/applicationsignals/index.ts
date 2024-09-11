@@ -12,6 +12,38 @@ export const ServiceLevelObjectiveDurationUnit = {
  */
 export type ServiceLevelObjectiveDurationUnit = (typeof ServiceLevelObjectiveDurationUnit)[keyof typeof ServiceLevelObjectiveDurationUnit];
 
+export const ServiceLevelObjectiveEvaluationType = {
+    PeriodBased: "PeriodBased",
+    RequestBased: "RequestBased",
+} as const;
+
+/**
+ * Displays whether this is a period-based SLO or a request-based SLO.
+ */
+export type ServiceLevelObjectiveEvaluationType = (typeof ServiceLevelObjectiveEvaluationType)[keyof typeof ServiceLevelObjectiveEvaluationType];
+
+export const ServiceLevelObjectiveRequestBasedSliComparisonOperator = {
+    GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
+    LessThanOrEqualTo: "LessThanOrEqualTo",
+    LessThan: "LessThan",
+    GreaterThan: "GreaterThan",
+} as const;
+
+/**
+ * The arithmetic operation used when comparing the specified metric to the threshold.
+ */
+export type ServiceLevelObjectiveRequestBasedSliComparisonOperator = (typeof ServiceLevelObjectiveRequestBasedSliComparisonOperator)[keyof typeof ServiceLevelObjectiveRequestBasedSliComparisonOperator];
+
+export const ServiceLevelObjectiveRequestBasedSliMetricMetricType = {
+    Latency: "LATENCY",
+    Availability: "AVAILABILITY",
+} as const;
+
+/**
+ * If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+ */
+export type ServiceLevelObjectiveRequestBasedSliMetricMetricType = (typeof ServiceLevelObjectiveRequestBasedSliMetricMetricType)[keyof typeof ServiceLevelObjectiveRequestBasedSliMetricMetricType];
+
 export const ServiceLevelObjectiveSliComparisonOperator = {
     GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
     LessThanOrEqualTo: "LessThanOrEqualTo",

@@ -39,6 +39,10 @@ export interface GetServiceLevelObjectiveResult {
      */
     readonly description?: string;
     /**
+     * Displays whether this is a period-based SLO or a request-based SLO.
+     */
+    readonly evaluationType?: enums.applicationsignals.ServiceLevelObjectiveEvaluationType;
+    /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
      */
     readonly goal?: outputs.applicationsignals.ServiceLevelObjectiveGoal;
@@ -47,7 +51,11 @@ export interface GetServiceLevelObjectiveResult {
      */
     readonly lastUpdatedTime?: number;
     /**
-     * A structure containing information about the performance metric that this SLO monitors.
+     * A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+     */
+    readonly requestBasedSli?: outputs.applicationsignals.ServiceLevelObjectiveRequestBasedSli;
+    /**
+     * A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
      */
     readonly sli?: outputs.applicationsignals.ServiceLevelObjectiveSli;
     /**

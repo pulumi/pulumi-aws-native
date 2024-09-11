@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType
     {
         /// <summary>
-        /// The event action.
+        /// The action that Amazon Cognito takes when it detects compromised credentials.
         /// </summary>
         public readonly string EventAction;
 

@@ -25,22 +25,22 @@ export interface GetUserPoolRiskConfigurationAttachmentArgs {
      */
     clientId: string;
     /**
-     * The user pool ID.
+     * The ID of the user pool that has the risk configuration applied.
      */
     userPoolId: string;
 }
 
 export interface GetUserPoolRiskConfigurationAttachmentResult {
     /**
-     * The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+     * The settings for automated responses and notification templates for adaptive authentication with advanced security features.
      */
     readonly accountTakeoverRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType;
     /**
-     * The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+     * Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
      */
     readonly compromisedCredentialsRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType;
     /**
-     * The configuration to override the risk decision.
+     * Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
      */
     readonly riskExceptionConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType;
 }
@@ -57,7 +57,7 @@ export interface GetUserPoolRiskConfigurationAttachmentOutputArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * The user pool ID.
+     * The ID of the user pool that has the risk configuration applied.
      */
     userPoolId: pulumi.Input<string>;
 }

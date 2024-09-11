@@ -55,6 +55,7 @@ export class Listener extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the listener.
      */
     public /*out*/ readonly listenerArn!: pulumi.Output<string>;
+    public readonly listenerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerAttribute[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.
      */
@@ -98,6 +99,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
             resourceInputs["certificates"] = args ? args.certificates : undefined;
             resourceInputs["defaultActions"] = args ? args.defaultActions : undefined;
+            resourceInputs["listenerAttributes"] = args ? args.listenerAttributes : undefined;
             resourceInputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
             resourceInputs["mutualAuthentication"] = args ? args.mutualAuthentication : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -109,6 +111,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["certificates"] = undefined /*out*/;
             resourceInputs["defaultActions"] = undefined /*out*/;
             resourceInputs["listenerArn"] = undefined /*out*/;
+            resourceInputs["listenerAttributes"] = undefined /*out*/;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
             resourceInputs["mutualAuthentication"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -140,6 +143,7 @@ export interface ListenerArgs {
      *  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
      */
     defaultActions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerActionArgs>[]>;
+    listenerAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerAttributeArgs>[]>;
     /**
      * The Amazon Resource Name (ARN) of the load balancer.
      */

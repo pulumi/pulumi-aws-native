@@ -22,7 +22,9 @@ namespace Pulumi.AwsNative.Cognito
         public Output<Outputs.UserPoolAccountRecoverySetting?> AccountRecoverySetting { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for creating a new user profile.
+        /// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
+        /// 
+        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         /// </summary>
         [Output("adminCreateUserConfig")]
         public Output<Outputs.UserPoolAdminCreateUserConfig?> AdminCreateUserConfig { get; private set; } = null!;
@@ -95,13 +97,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<ImmutableArray<string>> EnabledMfas { get; private set; } = null!;
 
         /// <summary>
-        /// The Lambda trigger configuration information for the new user pool.
-        /// 
-        /// &gt; In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
-        /// &gt; 
-        /// &gt; For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
-        /// &gt; 
-        /// &gt; For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
+        /// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         /// </summary>
         [Output("lambdaConfig")]
         public Output<Outputs.UserPoolLambdaConfig?> LambdaConfig { get; private set; } = null!;
@@ -117,7 +113,9 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string?> MfaConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The policy associated with a user pool.
+        /// A list of user pool policies. Contains the policy that sets password-complexity requirements.
+        /// 
+        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         /// </summary>
         [Output("policies")]
         public Output<Outputs.UserPoolPolicies?> Policies { get; private set; } = null!;
@@ -209,7 +207,9 @@ namespace Pulumi.AwsNative.Cognito
         public Output<Outputs.UserPoolUsernameConfiguration?> UsernameConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The template for the verification message that the user sees when the app requests permission to access the user's information.
+        /// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
+        /// 
+        /// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         /// </summary>
         [Output("verificationMessageTemplate")]
         public Output<Outputs.UserPoolVerificationMessageTemplate?> VerificationMessageTemplate { get; private set; } = null!;
@@ -266,7 +266,9 @@ namespace Pulumi.AwsNative.Cognito
         public Input<Inputs.UserPoolAccountRecoverySettingArgs>? AccountRecoverySetting { get; set; }
 
         /// <summary>
-        /// The configuration for creating a new user profile.
+        /// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
+        /// 
+        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         /// </summary>
         [Input("adminCreateUserConfig")]
         public Input<Inputs.UserPoolAdminCreateUserConfigArgs>? AdminCreateUserConfig { get; set; }
@@ -351,13 +353,7 @@ namespace Pulumi.AwsNative.Cognito
         }
 
         /// <summary>
-        /// The Lambda trigger configuration information for the new user pool.
-        /// 
-        /// &gt; In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
-        /// &gt; 
-        /// &gt; For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
-        /// &gt; 
-        /// &gt; For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
+        /// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         /// </summary>
         [Input("lambdaConfig")]
         public Input<Inputs.UserPoolLambdaConfigArgs>? LambdaConfig { get; set; }
@@ -373,7 +369,9 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string>? MfaConfiguration { get; set; }
 
         /// <summary>
-        /// The policy associated with a user pool.
+        /// A list of user pool policies. Contains the policy that sets password-complexity requirements.
+        /// 
+        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         /// </summary>
         [Input("policies")]
         public Input<Inputs.UserPoolPoliciesArgs>? Policies { get; set; }
@@ -465,7 +463,9 @@ namespace Pulumi.AwsNative.Cognito
         public Input<Inputs.UserPoolUsernameConfigurationArgs>? UsernameConfiguration { get; set; }
 
         /// <summary>
-        /// The template for the verification message that the user sees when the app requests permission to access the user's information.
+        /// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
+        /// 
+        /// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         /// </summary>
         [Input("verificationMessageTemplate")]
         public Input<Inputs.UserPoolVerificationMessageTemplateArgs>? VerificationMessageTemplate { get; set; }

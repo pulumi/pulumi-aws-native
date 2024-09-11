@@ -23,6 +23,8 @@ class KeyAlgorithm(str, Enum):
     RSA2048 = "RSA_2048"
     RSA3072 = "RSA_3072"
     RSA4096 = "RSA_4096"
+    ECC_NIST_P256 = "ECC_NIST_P256"
+    ECC_NIST_P384 = "ECC_NIST_P384"
 
 
 class KeyCheckValueAlgorithm(str, Enum):

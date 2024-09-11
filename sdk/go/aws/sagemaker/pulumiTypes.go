@@ -1236,6 +1236,758 @@ type AppTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Details of an instance group in a SageMaker HyperPod cluster.
+type ClusterInstanceGroup struct {
+	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+	CurrentCount  *int   `pulumi:"currentCount"`
+	ExecutionRole string `pulumi:"executionRole"`
+	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
+	InstanceCount           int                            `pulumi:"instanceCount"`
+	InstanceGroupName       string                         `pulumi:"instanceGroupName"`
+	InstanceStorageConfigs  []ClusterInstanceStorageConfig `pulumi:"instanceStorageConfigs"`
+	InstanceType            string                         `pulumi:"instanceType"`
+	LifeCycleConfig         ClusterLifeCycleConfig         `pulumi:"lifeCycleConfig"`
+	OnStartDeepHealthChecks []ClusterDeepHealthCheckType   `pulumi:"onStartDeepHealthChecks"`
+	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+// ClusterInstanceGroupInput is an input type that accepts ClusterInstanceGroupArgs and ClusterInstanceGroupOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupInput` via:
+//
+//	ClusterInstanceGroupArgs{...}
+type ClusterInstanceGroupInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupOutput() ClusterInstanceGroupOutput
+	ToClusterInstanceGroupOutputWithContext(context.Context) ClusterInstanceGroupOutput
+}
+
+// Details of an instance group in a SageMaker HyperPod cluster.
+type ClusterInstanceGroupArgs struct {
+	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+	CurrentCount  pulumi.IntPtrInput `pulumi:"currentCount"`
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
+	InstanceCount           pulumi.IntInput                        `pulumi:"instanceCount"`
+	InstanceGroupName       pulumi.StringInput                     `pulumi:"instanceGroupName"`
+	InstanceStorageConfigs  ClusterInstanceStorageConfigArrayInput `pulumi:"instanceStorageConfigs"`
+	InstanceType            pulumi.StringInput                     `pulumi:"instanceType"`
+	LifeCycleConfig         ClusterLifeCycleConfigInput            `pulumi:"lifeCycleConfig"`
+	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput   `pulumi:"onStartDeepHealthChecks"`
+	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (ClusterInstanceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceGroup)(nil)).Elem()
+}
+
+func (i ClusterInstanceGroupArgs) ToClusterInstanceGroupOutput() ClusterInstanceGroupOutput {
+	return i.ToClusterInstanceGroupOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceGroupArgs) ToClusterInstanceGroupOutputWithContext(ctx context.Context) ClusterInstanceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupOutput)
+}
+
+// ClusterInstanceGroupArrayInput is an input type that accepts ClusterInstanceGroupArray and ClusterInstanceGroupArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceGroupArrayInput` via:
+//
+//	ClusterInstanceGroupArray{ ClusterInstanceGroupArgs{...} }
+type ClusterInstanceGroupArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceGroupArrayOutput() ClusterInstanceGroupArrayOutput
+	ToClusterInstanceGroupArrayOutputWithContext(context.Context) ClusterInstanceGroupArrayOutput
+}
+
+type ClusterInstanceGroupArray []ClusterInstanceGroupInput
+
+func (ClusterInstanceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceGroup)(nil)).Elem()
+}
+
+func (i ClusterInstanceGroupArray) ToClusterInstanceGroupArrayOutput() ClusterInstanceGroupArrayOutput {
+	return i.ToClusterInstanceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceGroupArray) ToClusterInstanceGroupArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceGroupArrayOutput)
+}
+
+// Details of an instance group in a SageMaker HyperPod cluster.
+type ClusterInstanceGroupOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceGroup)(nil)).Elem()
+}
+
+func (o ClusterInstanceGroupOutput) ToClusterInstanceGroupOutput() ClusterInstanceGroupOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupOutput) ToClusterInstanceGroupOutputWithContext(ctx context.Context) ClusterInstanceGroupOutput {
+	return o
+}
+
+// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+func (o ClusterInstanceGroupOutput) CurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterInstanceGroupOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
+func (o ClusterInstanceGroupOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) int { return v.InstanceCount }).(pulumi.IntOutput)
+}
+
+func (o ClusterInstanceGroupOutput) InstanceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.InstanceGroupName }).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupOutput) InstanceStorageConfigs() ClusterInstanceStorageConfigArrayOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) []ClusterInstanceStorageConfig { return v.InstanceStorageConfigs }).(ClusterInstanceStorageConfigArrayOutput)
+}
+
+func (o ClusterInstanceGroupOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupOutput) LifeCycleConfig() ClusterLifeCycleConfigOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) ClusterLifeCycleConfig { return v.LifeCycleConfig }).(ClusterLifeCycleConfigOutput)
+}
+
+func (o ClusterInstanceGroupOutput) OnStartDeepHealthChecks() ClusterDeepHealthCheckTypeArrayOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) []ClusterDeepHealthCheckType { return v.OnStartDeepHealthChecks }).(ClusterDeepHealthCheckTypeArrayOutput)
+}
+
+// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+func (o ClusterInstanceGroupOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type ClusterInstanceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceGroup)(nil)).Elem()
+}
+
+func (o ClusterInstanceGroupArrayOutput) ToClusterInstanceGroupArrayOutput() ClusterInstanceGroupArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupArrayOutput) ToClusterInstanceGroupArrayOutputWithContext(ctx context.Context) ClusterInstanceGroupArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceGroupArrayOutput) Index(i pulumi.IntInput) ClusterInstanceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceGroup {
+		return vs[0].([]ClusterInstanceGroup)[vs[1].(int)]
+	}).(ClusterInstanceGroupOutput)
+}
+
+// Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
+type ClusterInstanceStorageConfig struct {
+}
+
+// ClusterInstanceStorageConfigInput is an input type that accepts ClusterInstanceStorageConfigArgs and ClusterInstanceStorageConfigOutput values.
+// You can construct a concrete instance of `ClusterInstanceStorageConfigInput` via:
+//
+//	ClusterInstanceStorageConfigArgs{...}
+type ClusterInstanceStorageConfigInput interface {
+	pulumi.Input
+
+	ToClusterInstanceStorageConfigOutput() ClusterInstanceStorageConfigOutput
+	ToClusterInstanceStorageConfigOutputWithContext(context.Context) ClusterInstanceStorageConfigOutput
+}
+
+// Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
+type ClusterInstanceStorageConfigArgs struct {
+}
+
+func (ClusterInstanceStorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceStorageConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceStorageConfigArgs) ToClusterInstanceStorageConfigOutput() ClusterInstanceStorageConfigOutput {
+	return i.ToClusterInstanceStorageConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceStorageConfigArgs) ToClusterInstanceStorageConfigOutputWithContext(ctx context.Context) ClusterInstanceStorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceStorageConfigOutput)
+}
+
+// ClusterInstanceStorageConfigArrayInput is an input type that accepts ClusterInstanceStorageConfigArray and ClusterInstanceStorageConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterInstanceStorageConfigArrayInput` via:
+//
+//	ClusterInstanceStorageConfigArray{ ClusterInstanceStorageConfigArgs{...} }
+type ClusterInstanceStorageConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterInstanceStorageConfigArrayOutput() ClusterInstanceStorageConfigArrayOutput
+	ToClusterInstanceStorageConfigArrayOutputWithContext(context.Context) ClusterInstanceStorageConfigArrayOutput
+}
+
+type ClusterInstanceStorageConfigArray []ClusterInstanceStorageConfigInput
+
+func (ClusterInstanceStorageConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceStorageConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceStorageConfigArray) ToClusterInstanceStorageConfigArrayOutput() ClusterInstanceStorageConfigArrayOutput {
+	return i.ToClusterInstanceStorageConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceStorageConfigArray) ToClusterInstanceStorageConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceStorageConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceStorageConfigArrayOutput)
+}
+
+// Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
+type ClusterInstanceStorageConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceStorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceStorageConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceStorageConfigOutput) ToClusterInstanceStorageConfigOutput() ClusterInstanceStorageConfigOutput {
+	return o
+}
+
+func (o ClusterInstanceStorageConfigOutput) ToClusterInstanceStorageConfigOutputWithContext(ctx context.Context) ClusterInstanceStorageConfigOutput {
+	return o
+}
+
+type ClusterInstanceStorageConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceStorageConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterInstanceStorageConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceStorageConfigArrayOutput) ToClusterInstanceStorageConfigArrayOutput() ClusterInstanceStorageConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceStorageConfigArrayOutput) ToClusterInstanceStorageConfigArrayOutputWithContext(ctx context.Context) ClusterInstanceStorageConfigArrayOutput {
+	return o
+}
+
+func (o ClusterInstanceStorageConfigArrayOutput) Index(i pulumi.IntInput) ClusterInstanceStorageConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceStorageConfig {
+		return vs[0].([]ClusterInstanceStorageConfig)[vs[1].(int)]
+	}).(ClusterInstanceStorageConfigOutput)
+}
+
+// The lifecycle configuration for a SageMaker HyperPod cluster.
+type ClusterLifeCycleConfig struct {
+	// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+	OnCreate string `pulumi:"onCreate"`
+	// An Amazon S3 bucket path where your lifecycle scripts are stored.
+	SourceS3Uri string `pulumi:"sourceS3Uri"`
+}
+
+// ClusterLifeCycleConfigInput is an input type that accepts ClusterLifeCycleConfigArgs and ClusterLifeCycleConfigOutput values.
+// You can construct a concrete instance of `ClusterLifeCycleConfigInput` via:
+//
+//	ClusterLifeCycleConfigArgs{...}
+type ClusterLifeCycleConfigInput interface {
+	pulumi.Input
+
+	ToClusterLifeCycleConfigOutput() ClusterLifeCycleConfigOutput
+	ToClusterLifeCycleConfigOutputWithContext(context.Context) ClusterLifeCycleConfigOutput
+}
+
+// The lifecycle configuration for a SageMaker HyperPod cluster.
+type ClusterLifeCycleConfigArgs struct {
+	// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+	OnCreate pulumi.StringInput `pulumi:"onCreate"`
+	// An Amazon S3 bucket path where your lifecycle scripts are stored.
+	SourceS3Uri pulumi.StringInput `pulumi:"sourceS3Uri"`
+}
+
+func (ClusterLifeCycleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLifeCycleConfig)(nil)).Elem()
+}
+
+func (i ClusterLifeCycleConfigArgs) ToClusterLifeCycleConfigOutput() ClusterLifeCycleConfigOutput {
+	return i.ToClusterLifeCycleConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterLifeCycleConfigArgs) ToClusterLifeCycleConfigOutputWithContext(ctx context.Context) ClusterLifeCycleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLifeCycleConfigOutput)
+}
+
+// The lifecycle configuration for a SageMaker HyperPod cluster.
+type ClusterLifeCycleConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterLifeCycleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLifeCycleConfig)(nil)).Elem()
+}
+
+func (o ClusterLifeCycleConfigOutput) ToClusterLifeCycleConfigOutput() ClusterLifeCycleConfigOutput {
+	return o
+}
+
+func (o ClusterLifeCycleConfigOutput) ToClusterLifeCycleConfigOutputWithContext(ctx context.Context) ClusterLifeCycleConfigOutput {
+	return o
+}
+
+// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+func (o ClusterLifeCycleConfigOutput) OnCreate() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLifeCycleConfig) string { return v.OnCreate }).(pulumi.StringOutput)
+}
+
+// An Amazon S3 bucket path where your lifecycle scripts are stored.
+func (o ClusterLifeCycleConfigOutput) SourceS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLifeCycleConfig) string { return v.SourceS3Uri }).(pulumi.StringOutput)
+}
+
+// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+type ClusterOrchestrator struct {
+	Eks ClusterOrchestratorEksConfig `pulumi:"eks"`
+}
+
+// ClusterOrchestratorInput is an input type that accepts ClusterOrchestratorArgs and ClusterOrchestratorOutput values.
+// You can construct a concrete instance of `ClusterOrchestratorInput` via:
+//
+//	ClusterOrchestratorArgs{...}
+type ClusterOrchestratorInput interface {
+	pulumi.Input
+
+	ToClusterOrchestratorOutput() ClusterOrchestratorOutput
+	ToClusterOrchestratorOutputWithContext(context.Context) ClusterOrchestratorOutput
+}
+
+// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+type ClusterOrchestratorArgs struct {
+	Eks ClusterOrchestratorEksConfigInput `pulumi:"eks"`
+}
+
+func (ClusterOrchestratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOrchestrator)(nil)).Elem()
+}
+
+func (i ClusterOrchestratorArgs) ToClusterOrchestratorOutput() ClusterOrchestratorOutput {
+	return i.ToClusterOrchestratorOutputWithContext(context.Background())
+}
+
+func (i ClusterOrchestratorArgs) ToClusterOrchestratorOutputWithContext(ctx context.Context) ClusterOrchestratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorOutput)
+}
+
+func (i ClusterOrchestratorArgs) ToClusterOrchestratorPtrOutput() ClusterOrchestratorPtrOutput {
+	return i.ToClusterOrchestratorPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOrchestratorArgs) ToClusterOrchestratorPtrOutputWithContext(ctx context.Context) ClusterOrchestratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorOutput).ToClusterOrchestratorPtrOutputWithContext(ctx)
+}
+
+// ClusterOrchestratorPtrInput is an input type that accepts ClusterOrchestratorArgs, ClusterOrchestratorPtr and ClusterOrchestratorPtrOutput values.
+// You can construct a concrete instance of `ClusterOrchestratorPtrInput` via:
+//
+//	        ClusterOrchestratorArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOrchestratorPtrInput interface {
+	pulumi.Input
+
+	ToClusterOrchestratorPtrOutput() ClusterOrchestratorPtrOutput
+	ToClusterOrchestratorPtrOutputWithContext(context.Context) ClusterOrchestratorPtrOutput
+}
+
+type clusterOrchestratorPtrType ClusterOrchestratorArgs
+
+func ClusterOrchestratorPtr(v *ClusterOrchestratorArgs) ClusterOrchestratorPtrInput {
+	return (*clusterOrchestratorPtrType)(v)
+}
+
+func (*clusterOrchestratorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOrchestrator)(nil)).Elem()
+}
+
+func (i *clusterOrchestratorPtrType) ToClusterOrchestratorPtrOutput() ClusterOrchestratorPtrOutput {
+	return i.ToClusterOrchestratorPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOrchestratorPtrType) ToClusterOrchestratorPtrOutputWithContext(ctx context.Context) ClusterOrchestratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorPtrOutput)
+}
+
+// Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+type ClusterOrchestratorOutput struct{ *pulumi.OutputState }
+
+func (ClusterOrchestratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOrchestrator)(nil)).Elem()
+}
+
+func (o ClusterOrchestratorOutput) ToClusterOrchestratorOutput() ClusterOrchestratorOutput {
+	return o
+}
+
+func (o ClusterOrchestratorOutput) ToClusterOrchestratorOutputWithContext(ctx context.Context) ClusterOrchestratorOutput {
+	return o
+}
+
+func (o ClusterOrchestratorOutput) ToClusterOrchestratorPtrOutput() ClusterOrchestratorPtrOutput {
+	return o.ToClusterOrchestratorPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOrchestratorOutput) ToClusterOrchestratorPtrOutputWithContext(ctx context.Context) ClusterOrchestratorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOrchestrator) *ClusterOrchestrator {
+		return &v
+	}).(ClusterOrchestratorPtrOutput)
+}
+
+func (o ClusterOrchestratorOutput) Eks() ClusterOrchestratorEksConfigOutput {
+	return o.ApplyT(func(v ClusterOrchestrator) ClusterOrchestratorEksConfig { return v.Eks }).(ClusterOrchestratorEksConfigOutput)
+}
+
+type ClusterOrchestratorPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOrchestratorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOrchestrator)(nil)).Elem()
+}
+
+func (o ClusterOrchestratorPtrOutput) ToClusterOrchestratorPtrOutput() ClusterOrchestratorPtrOutput {
+	return o
+}
+
+func (o ClusterOrchestratorPtrOutput) ToClusterOrchestratorPtrOutputWithContext(ctx context.Context) ClusterOrchestratorPtrOutput {
+	return o
+}
+
+func (o ClusterOrchestratorPtrOutput) Elem() ClusterOrchestratorOutput {
+	return o.ApplyT(func(v *ClusterOrchestrator) ClusterOrchestrator {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOrchestrator
+		return ret
+	}).(ClusterOrchestratorOutput)
+}
+
+func (o ClusterOrchestratorPtrOutput) Eks() ClusterOrchestratorEksConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterOrchestrator) *ClusterOrchestratorEksConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.Eks
+	}).(ClusterOrchestratorEksConfigPtrOutput)
+}
+
+// Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+type ClusterOrchestratorEksConfig struct {
+	// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+	ClusterArn string `pulumi:"clusterArn"`
+}
+
+// ClusterOrchestratorEksConfigInput is an input type that accepts ClusterOrchestratorEksConfigArgs and ClusterOrchestratorEksConfigOutput values.
+// You can construct a concrete instance of `ClusterOrchestratorEksConfigInput` via:
+//
+//	ClusterOrchestratorEksConfigArgs{...}
+type ClusterOrchestratorEksConfigInput interface {
+	pulumi.Input
+
+	ToClusterOrchestratorEksConfigOutput() ClusterOrchestratorEksConfigOutput
+	ToClusterOrchestratorEksConfigOutputWithContext(context.Context) ClusterOrchestratorEksConfigOutput
+}
+
+// Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+type ClusterOrchestratorEksConfigArgs struct {
+	// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+}
+
+func (ClusterOrchestratorEksConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOrchestratorEksConfig)(nil)).Elem()
+}
+
+func (i ClusterOrchestratorEksConfigArgs) ToClusterOrchestratorEksConfigOutput() ClusterOrchestratorEksConfigOutput {
+	return i.ToClusterOrchestratorEksConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterOrchestratorEksConfigArgs) ToClusterOrchestratorEksConfigOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorEksConfigOutput)
+}
+
+func (i ClusterOrchestratorEksConfigArgs) ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput {
+	return i.ToClusterOrchestratorEksConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOrchestratorEksConfigArgs) ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorEksConfigOutput).ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterOrchestratorEksConfigPtrInput is an input type that accepts ClusterOrchestratorEksConfigArgs, ClusterOrchestratorEksConfigPtr and ClusterOrchestratorEksConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterOrchestratorEksConfigPtrInput` via:
+//
+//	        ClusterOrchestratorEksConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOrchestratorEksConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput
+	ToClusterOrchestratorEksConfigPtrOutputWithContext(context.Context) ClusterOrchestratorEksConfigPtrOutput
+}
+
+type clusterOrchestratorEksConfigPtrType ClusterOrchestratorEksConfigArgs
+
+func ClusterOrchestratorEksConfigPtr(v *ClusterOrchestratorEksConfigArgs) ClusterOrchestratorEksConfigPtrInput {
+	return (*clusterOrchestratorEksConfigPtrType)(v)
+}
+
+func (*clusterOrchestratorEksConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOrchestratorEksConfig)(nil)).Elem()
+}
+
+func (i *clusterOrchestratorEksConfigPtrType) ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput {
+	return i.ToClusterOrchestratorEksConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOrchestratorEksConfigPtrType) ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOrchestratorEksConfigPtrOutput)
+}
+
+// Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+type ClusterOrchestratorEksConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterOrchestratorEksConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOrchestratorEksConfig)(nil)).Elem()
+}
+
+func (o ClusterOrchestratorEksConfigOutput) ToClusterOrchestratorEksConfigOutput() ClusterOrchestratorEksConfigOutput {
+	return o
+}
+
+func (o ClusterOrchestratorEksConfigOutput) ToClusterOrchestratorEksConfigOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigOutput {
+	return o
+}
+
+func (o ClusterOrchestratorEksConfigOutput) ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput {
+	return o.ToClusterOrchestratorEksConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOrchestratorEksConfigOutput) ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOrchestratorEksConfig) *ClusterOrchestratorEksConfig {
+		return &v
+	}).(ClusterOrchestratorEksConfigPtrOutput)
+}
+
+// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+func (o ClusterOrchestratorEksConfigOutput) ClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterOrchestratorEksConfig) string { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+type ClusterOrchestratorEksConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOrchestratorEksConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOrchestratorEksConfig)(nil)).Elem()
+}
+
+func (o ClusterOrchestratorEksConfigPtrOutput) ToClusterOrchestratorEksConfigPtrOutput() ClusterOrchestratorEksConfigPtrOutput {
+	return o
+}
+
+func (o ClusterOrchestratorEksConfigPtrOutput) ToClusterOrchestratorEksConfigPtrOutputWithContext(ctx context.Context) ClusterOrchestratorEksConfigPtrOutput {
+	return o
+}
+
+func (o ClusterOrchestratorEksConfigPtrOutput) Elem() ClusterOrchestratorEksConfigOutput {
+	return o.ApplyT(func(v *ClusterOrchestratorEksConfig) ClusterOrchestratorEksConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOrchestratorEksConfig
+		return ret
+	}).(ClusterOrchestratorEksConfigOutput)
+}
+
+// The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+func (o ClusterOrchestratorEksConfigPtrOutput) ClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOrchestratorEksConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ClusterTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+type ClusterVpcConfig struct {
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC to which you want to connect your training job or model.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// ClusterVpcConfigInput is an input type that accepts ClusterVpcConfigArgs and ClusterVpcConfigOutput values.
+// You can construct a concrete instance of `ClusterVpcConfigInput` via:
+//
+//	ClusterVpcConfigArgs{...}
+type ClusterVpcConfigInput interface {
+	pulumi.Input
+
+	ToClusterVpcConfigOutput() ClusterVpcConfigOutput
+	ToClusterVpcConfigOutputWithContext(context.Context) ClusterVpcConfigOutput
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+type ClusterVpcConfigArgs struct {
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC to which you want to connect your training job or model.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (ClusterVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConfig)(nil)).Elem()
+}
+
+func (i ClusterVpcConfigArgs) ToClusterVpcConfigOutput() ClusterVpcConfigOutput {
+	return i.ToClusterVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConfigArgs) ToClusterVpcConfigOutputWithContext(ctx context.Context) ClusterVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConfigOutput)
+}
+
+func (i ClusterVpcConfigArgs) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput {
+	return i.ToClusterVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConfigArgs) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConfigOutput).ToClusterVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterVpcConfigPtrInput is an input type that accepts ClusterVpcConfigArgs, ClusterVpcConfigPtr and ClusterVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterVpcConfigPtrInput` via:
+//
+//	        ClusterVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput
+	ToClusterVpcConfigPtrOutputWithContext(context.Context) ClusterVpcConfigPtrOutput
+}
+
+type clusterVpcConfigPtrType ClusterVpcConfigArgs
+
+func ClusterVpcConfigPtr(v *ClusterVpcConfigArgs) ClusterVpcConfigPtrInput {
+	return (*clusterVpcConfigPtrType)(v)
+}
+
+func (*clusterVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConfig)(nil)).Elem()
+}
+
+func (i *clusterVpcConfigPtrType) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput {
+	return i.ToClusterVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterVpcConfigPtrType) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConfigPtrOutput)
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+type ClusterVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConfig)(nil)).Elem()
+}
+
+func (o ClusterVpcConfigOutput) ToClusterVpcConfigOutput() ClusterVpcConfigOutput {
+	return o
+}
+
+func (o ClusterVpcConfigOutput) ToClusterVpcConfigOutputWithContext(ctx context.Context) ClusterVpcConfigOutput {
+	return o
+}
+
+func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput {
+	return o.ToClusterVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConfig) *ClusterVpcConfig {
+		return &v
+	}).(ClusterVpcConfigPtrOutput)
+}
+
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+func (o ClusterVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC to which you want to connect your training job or model.
+func (o ClusterVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type ClusterVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConfig)(nil)).Elem()
+}
+
+func (o ClusterVpcConfigPtrOutput) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConfigPtrOutput) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConfigPtrOutput) Elem() ClusterVpcConfigOutput {
+	return o.ApplyT(func(v *ClusterVpcConfig) ClusterVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVpcConfig
+		return ret
+	}).(ClusterVpcConfigOutput)
+}
+
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+func (o ClusterVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC to which you want to connect your training job or model.
+func (o ClusterVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
 // The batch transform input for a monitoring job.
 type DataQualityJobDefinitionBatchTransformInput struct {
 	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
@@ -3940,8 +4692,142 @@ type DeviceTag struct {
 	Value string `pulumi:"value"`
 }
 
+type DomainAppLifecycleManagement struct {
+	IdleSettings *DomainIdleSettings `pulumi:"idleSettings"`
+}
+
+// DomainAppLifecycleManagementInput is an input type that accepts DomainAppLifecycleManagementArgs and DomainAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `DomainAppLifecycleManagementInput` via:
+//
+//	DomainAppLifecycleManagementArgs{...}
+type DomainAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToDomainAppLifecycleManagementOutput() DomainAppLifecycleManagementOutput
+	ToDomainAppLifecycleManagementOutputWithContext(context.Context) DomainAppLifecycleManagementOutput
+}
+
+type DomainAppLifecycleManagementArgs struct {
+	IdleSettings DomainIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (DomainAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i DomainAppLifecycleManagementArgs) ToDomainAppLifecycleManagementOutput() DomainAppLifecycleManagementOutput {
+	return i.ToDomainAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i DomainAppLifecycleManagementArgs) ToDomainAppLifecycleManagementOutputWithContext(ctx context.Context) DomainAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAppLifecycleManagementOutput)
+}
+
+func (i DomainAppLifecycleManagementArgs) ToDomainAppLifecycleManagementPtrOutput() DomainAppLifecycleManagementPtrOutput {
+	return i.ToDomainAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAppLifecycleManagementArgs) ToDomainAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAppLifecycleManagementOutput).ToDomainAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// DomainAppLifecycleManagementPtrInput is an input type that accepts DomainAppLifecycleManagementArgs, DomainAppLifecycleManagementPtr and DomainAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `DomainAppLifecycleManagementPtrInput` via:
+//
+//	        DomainAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToDomainAppLifecycleManagementPtrOutput() DomainAppLifecycleManagementPtrOutput
+	ToDomainAppLifecycleManagementPtrOutputWithContext(context.Context) DomainAppLifecycleManagementPtrOutput
+}
+
+type domainAppLifecycleManagementPtrType DomainAppLifecycleManagementArgs
+
+func DomainAppLifecycleManagementPtr(v *DomainAppLifecycleManagementArgs) DomainAppLifecycleManagementPtrInput {
+	return (*domainAppLifecycleManagementPtrType)(v)
+}
+
+func (*domainAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *domainAppLifecycleManagementPtrType) ToDomainAppLifecycleManagementPtrOutput() DomainAppLifecycleManagementPtrOutput {
+	return i.ToDomainAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAppLifecycleManagementPtrType) ToDomainAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAppLifecycleManagementPtrOutput)
+}
+
+type DomainAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (DomainAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainAppLifecycleManagementOutput) ToDomainAppLifecycleManagementOutput() DomainAppLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainAppLifecycleManagementOutput) ToDomainAppLifecycleManagementOutputWithContext(ctx context.Context) DomainAppLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainAppLifecycleManagementOutput) ToDomainAppLifecycleManagementPtrOutput() DomainAppLifecycleManagementPtrOutput {
+	return o.ToDomainAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAppLifecycleManagementOutput) ToDomainAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAppLifecycleManagement) *DomainAppLifecycleManagement {
+		return &v
+	}).(DomainAppLifecycleManagementPtrOutput)
+}
+
+func (o DomainAppLifecycleManagementOutput) IdleSettings() DomainIdleSettingsPtrOutput {
+	return o.ApplyT(func(v DomainAppLifecycleManagement) *DomainIdleSettings { return v.IdleSettings }).(DomainIdleSettingsPtrOutput)
+}
+
+type DomainAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainAppLifecycleManagementPtrOutput) ToDomainAppLifecycleManagementPtrOutput() DomainAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainAppLifecycleManagementPtrOutput) ToDomainAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainAppLifecycleManagementPtrOutput) Elem() DomainAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *DomainAppLifecycleManagement) DomainAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAppLifecycleManagement
+		return ret
+	}).(DomainAppLifecycleManagementOutput)
+}
+
+func (o DomainAppLifecycleManagementPtrOutput) IdleSettings() DomainIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainAppLifecycleManagement) *DomainIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(DomainIdleSettingsPtrOutput)
+}
+
 // The CodeEditor app settings.
 type DomainCodeEditorAppSettings struct {
+	AppLifecycleManagement *DomainAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages []DomainCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -3963,6 +4849,7 @@ type DomainCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type DomainCodeEditorAppSettingsArgs struct {
+	AppLifecycleManagement DomainAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages DomainCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -4049,6 +4936,10 @@ func (o DomainCodeEditorAppSettingsOutput) ToDomainCodeEditorAppSettingsPtrOutpu
 	}).(DomainCodeEditorAppSettingsPtrOutput)
 }
 
+func (o DomainCodeEditorAppSettingsOutput) AppLifecycleManagement() DomainAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v DomainCodeEditorAppSettings) *DomainAppLifecycleManagement { return v.AppLifecycleManagement }).(DomainAppLifecycleManagementPtrOutput)
+}
+
 // A list of custom images for use for CodeEditor apps.
 func (o DomainCodeEditorAppSettingsOutput) CustomImages() DomainCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainCodeEditorAppSettings) []DomainCustomImage { return v.CustomImages }).(DomainCustomImageArrayOutput)
@@ -4086,6 +4977,15 @@ func (o DomainCodeEditorAppSettingsPtrOutput) Elem() DomainCodeEditorAppSettings
 		var ret DomainCodeEditorAppSettings
 		return ret
 	}).(DomainCodeEditorAppSettingsOutput)
+}
+
+func (o DomainCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() DomainAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *DomainCodeEditorAppSettings) *DomainAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(DomainAppLifecycleManagementPtrOutput)
 }
 
 // A list of custom images for use for CodeEditor apps.
@@ -5475,8 +6375,187 @@ func (o DomainEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainIdleSettings struct {
+	IdleTimeoutInMinutes    *int                       `pulumi:"idleTimeoutInMinutes"`
+	LifecycleManagement     *DomainLifecycleManagement `pulumi:"lifecycleManagement"`
+	MaxIdleTimeoutInMinutes *int                       `pulumi:"maxIdleTimeoutInMinutes"`
+	MinIdleTimeoutInMinutes *int                       `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+// DomainIdleSettingsInput is an input type that accepts DomainIdleSettingsArgs and DomainIdleSettingsOutput values.
+// You can construct a concrete instance of `DomainIdleSettingsInput` via:
+//
+//	DomainIdleSettingsArgs{...}
+type DomainIdleSettingsInput interface {
+	pulumi.Input
+
+	ToDomainIdleSettingsOutput() DomainIdleSettingsOutput
+	ToDomainIdleSettingsOutputWithContext(context.Context) DomainIdleSettingsOutput
+}
+
+type DomainIdleSettingsArgs struct {
+	IdleTimeoutInMinutes    pulumi.IntPtrInput                `pulumi:"idleTimeoutInMinutes"`
+	LifecycleManagement     DomainLifecycleManagementPtrInput `pulumi:"lifecycleManagement"`
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput                `pulumi:"maxIdleTimeoutInMinutes"`
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput                `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+func (DomainIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdleSettings)(nil)).Elem()
+}
+
+func (i DomainIdleSettingsArgs) ToDomainIdleSettingsOutput() DomainIdleSettingsOutput {
+	return i.ToDomainIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainIdleSettingsArgs) ToDomainIdleSettingsOutputWithContext(ctx context.Context) DomainIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdleSettingsOutput)
+}
+
+func (i DomainIdleSettingsArgs) ToDomainIdleSettingsPtrOutput() DomainIdleSettingsPtrOutput {
+	return i.ToDomainIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainIdleSettingsArgs) ToDomainIdleSettingsPtrOutputWithContext(ctx context.Context) DomainIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdleSettingsOutput).ToDomainIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainIdleSettingsPtrInput is an input type that accepts DomainIdleSettingsArgs, DomainIdleSettingsPtr and DomainIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainIdleSettingsPtrInput` via:
+//
+//	        DomainIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainIdleSettingsPtrOutput() DomainIdleSettingsPtrOutput
+	ToDomainIdleSettingsPtrOutputWithContext(context.Context) DomainIdleSettingsPtrOutput
+}
+
+type domainIdleSettingsPtrType DomainIdleSettingsArgs
+
+func DomainIdleSettingsPtr(v *DomainIdleSettingsArgs) DomainIdleSettingsPtrInput {
+	return (*domainIdleSettingsPtrType)(v)
+}
+
+func (*domainIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdleSettings)(nil)).Elem()
+}
+
+func (i *domainIdleSettingsPtrType) ToDomainIdleSettingsPtrOutput() DomainIdleSettingsPtrOutput {
+	return i.ToDomainIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainIdleSettingsPtrType) ToDomainIdleSettingsPtrOutputWithContext(ctx context.Context) DomainIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdleSettingsPtrOutput)
+}
+
+type DomainIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdleSettings)(nil)).Elem()
+}
+
+func (o DomainIdleSettingsOutput) ToDomainIdleSettingsOutput() DomainIdleSettingsOutput {
+	return o
+}
+
+func (o DomainIdleSettingsOutput) ToDomainIdleSettingsOutputWithContext(ctx context.Context) DomainIdleSettingsOutput {
+	return o
+}
+
+func (o DomainIdleSettingsOutput) ToDomainIdleSettingsPtrOutput() DomainIdleSettingsPtrOutput {
+	return o.ToDomainIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdleSettingsOutput) ToDomainIdleSettingsPtrOutputWithContext(ctx context.Context) DomainIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdleSettings) *DomainIdleSettings {
+		return &v
+	}).(DomainIdleSettingsPtrOutput)
+}
+
+func (o DomainIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainIdleSettings) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o DomainIdleSettingsOutput) LifecycleManagement() DomainLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v DomainIdleSettings) *DomainLifecycleManagement { return v.LifecycleManagement }).(DomainLifecycleManagementPtrOutput)
+}
+
+func (o DomainIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainIdleSettings) *int { return v.MaxIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o DomainIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainIdleSettings) *int { return v.MinIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type DomainIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdleSettings)(nil)).Elem()
+}
+
+func (o DomainIdleSettingsPtrOutput) ToDomainIdleSettingsPtrOutput() DomainIdleSettingsPtrOutput {
+	return o
+}
+
+func (o DomainIdleSettingsPtrOutput) ToDomainIdleSettingsPtrOutputWithContext(ctx context.Context) DomainIdleSettingsPtrOutput {
+	return o
+}
+
+func (o DomainIdleSettingsPtrOutput) Elem() DomainIdleSettingsOutput {
+	return o.ApplyT(func(v *DomainIdleSettings) DomainIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdleSettings
+		return ret
+	}).(DomainIdleSettingsOutput)
+}
+
+func (o DomainIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DomainIdleSettingsPtrOutput) LifecycleManagement() DomainLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *DomainIdleSettings) *DomainLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleManagement
+	}).(DomainLifecycleManagementPtrOutput)
+}
+
+func (o DomainIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DomainIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 // The JupyterLab app settings.
 type DomainJupyterLabAppSettings struct {
+	AppLifecycleManagement *DomainAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []DomainCodeRepository `pulumi:"codeRepositories"`
 	// A list of custom images for use for JupyterLab apps.
@@ -5500,6 +6579,7 @@ type DomainJupyterLabAppSettingsInput interface {
 
 // The JupyterLab app settings.
 type DomainJupyterLabAppSettingsArgs struct {
+	AppLifecycleManagement DomainAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories DomainCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// A list of custom images for use for JupyterLab apps.
@@ -5588,6 +6668,10 @@ func (o DomainJupyterLabAppSettingsOutput) ToDomainJupyterLabAppSettingsPtrOutpu
 	}).(DomainJupyterLabAppSettingsPtrOutput)
 }
 
+func (o DomainJupyterLabAppSettingsOutput) AppLifecycleManagement() DomainAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v DomainJupyterLabAppSettings) *DomainAppLifecycleManagement { return v.AppLifecycleManagement }).(DomainAppLifecycleManagementPtrOutput)
+}
+
 // A list of CodeRepositories available for use with JupyterLab apps.
 func (o DomainJupyterLabAppSettingsOutput) CodeRepositories() DomainCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainJupyterLabAppSettings) []DomainCodeRepository { return v.CodeRepositories }).(DomainCodeRepositoryArrayOutput)
@@ -5630,6 +6714,15 @@ func (o DomainJupyterLabAppSettingsPtrOutput) Elem() DomainJupyterLabAppSettings
 		var ret DomainJupyterLabAppSettings
 		return ret
 	}).(DomainJupyterLabAppSettingsOutput)
+}
+
+func (o DomainJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() DomainAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *DomainJupyterLabAppSettings) *DomainAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(DomainAppLifecycleManagementPtrOutput)
 }
 
 // A list of CodeRepositories available for use with JupyterLab apps.
@@ -32274,8 +33367,142 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningParameter
 	}).(ProjectProvisioningParameterArrayOutput)
 }
 
+type SpaceAppLifecycleManagement struct {
+	IdleSettings *SpaceIdleSettings `pulumi:"idleSettings"`
+}
+
+// SpaceAppLifecycleManagementInput is an input type that accepts SpaceAppLifecycleManagementArgs and SpaceAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `SpaceAppLifecycleManagementInput` via:
+//
+//	SpaceAppLifecycleManagementArgs{...}
+type SpaceAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToSpaceAppLifecycleManagementOutput() SpaceAppLifecycleManagementOutput
+	ToSpaceAppLifecycleManagementOutputWithContext(context.Context) SpaceAppLifecycleManagementOutput
+}
+
+type SpaceAppLifecycleManagementArgs struct {
+	IdleSettings SpaceIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (SpaceAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i SpaceAppLifecycleManagementArgs) ToSpaceAppLifecycleManagementOutput() SpaceAppLifecycleManagementOutput {
+	return i.ToSpaceAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i SpaceAppLifecycleManagementArgs) ToSpaceAppLifecycleManagementOutputWithContext(ctx context.Context) SpaceAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceAppLifecycleManagementOutput)
+}
+
+func (i SpaceAppLifecycleManagementArgs) ToSpaceAppLifecycleManagementPtrOutput() SpaceAppLifecycleManagementPtrOutput {
+	return i.ToSpaceAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceAppLifecycleManagementArgs) ToSpaceAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceAppLifecycleManagementOutput).ToSpaceAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// SpaceAppLifecycleManagementPtrInput is an input type that accepts SpaceAppLifecycleManagementArgs, SpaceAppLifecycleManagementPtr and SpaceAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `SpaceAppLifecycleManagementPtrInput` via:
+//
+//	        SpaceAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToSpaceAppLifecycleManagementPtrOutput() SpaceAppLifecycleManagementPtrOutput
+	ToSpaceAppLifecycleManagementPtrOutputWithContext(context.Context) SpaceAppLifecycleManagementPtrOutput
+}
+
+type spaceAppLifecycleManagementPtrType SpaceAppLifecycleManagementArgs
+
+func SpaceAppLifecycleManagementPtr(v *SpaceAppLifecycleManagementArgs) SpaceAppLifecycleManagementPtrInput {
+	return (*spaceAppLifecycleManagementPtrType)(v)
+}
+
+func (*spaceAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *spaceAppLifecycleManagementPtrType) ToSpaceAppLifecycleManagementPtrOutput() SpaceAppLifecycleManagementPtrOutput {
+	return i.ToSpaceAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceAppLifecycleManagementPtrType) ToSpaceAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceAppLifecycleManagementPtrOutput)
+}
+
+type SpaceAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (SpaceAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o SpaceAppLifecycleManagementOutput) ToSpaceAppLifecycleManagementOutput() SpaceAppLifecycleManagementOutput {
+	return o
+}
+
+func (o SpaceAppLifecycleManagementOutput) ToSpaceAppLifecycleManagementOutputWithContext(ctx context.Context) SpaceAppLifecycleManagementOutput {
+	return o
+}
+
+func (o SpaceAppLifecycleManagementOutput) ToSpaceAppLifecycleManagementPtrOutput() SpaceAppLifecycleManagementPtrOutput {
+	return o.ToSpaceAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceAppLifecycleManagementOutput) ToSpaceAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceAppLifecycleManagement) *SpaceAppLifecycleManagement {
+		return &v
+	}).(SpaceAppLifecycleManagementPtrOutput)
+}
+
+func (o SpaceAppLifecycleManagementOutput) IdleSettings() SpaceIdleSettingsPtrOutput {
+	return o.ApplyT(func(v SpaceAppLifecycleManagement) *SpaceIdleSettings { return v.IdleSettings }).(SpaceIdleSettingsPtrOutput)
+}
+
+type SpaceAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o SpaceAppLifecycleManagementPtrOutput) ToSpaceAppLifecycleManagementPtrOutput() SpaceAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o SpaceAppLifecycleManagementPtrOutput) ToSpaceAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o SpaceAppLifecycleManagementPtrOutput) Elem() SpaceAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *SpaceAppLifecycleManagement) SpaceAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceAppLifecycleManagement
+		return ret
+	}).(SpaceAppLifecycleManagementOutput)
+}
+
+func (o SpaceAppLifecycleManagementPtrOutput) IdleSettings() SpaceIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceAppLifecycleManagement) *SpaceIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(SpaceIdleSettingsPtrOutput)
+}
+
 // The CodeEditor app settings.
 type SpaceCodeEditorAppSettings struct {
+	AppLifecycleManagement *SpaceAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
 }
@@ -32293,6 +33520,7 @@ type SpaceCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type SpaceCodeEditorAppSettingsArgs struct {
+	AppLifecycleManagement SpaceAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
@@ -32375,6 +33603,10 @@ func (o SpaceCodeEditorAppSettingsOutput) ToSpaceCodeEditorAppSettingsPtrOutputW
 	}).(SpaceCodeEditorAppSettingsPtrOutput)
 }
 
+func (o SpaceCodeEditorAppSettingsOutput) AppLifecycleManagement() SpaceAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v SpaceCodeEditorAppSettings) *SpaceAppLifecycleManagement { return v.AppLifecycleManagement }).(SpaceAppLifecycleManagementPtrOutput)
+}
+
 // Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 func (o SpaceCodeEditorAppSettingsOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v SpaceCodeEditorAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
@@ -32402,6 +33634,15 @@ func (o SpaceCodeEditorAppSettingsPtrOutput) Elem() SpaceCodeEditorAppSettingsOu
 		var ret SpaceCodeEditorAppSettings
 		return ret
 	}).(SpaceCodeEditorAppSettingsOutput)
+}
+
+func (o SpaceCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() SpaceAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *SpaceCodeEditorAppSettings) *SpaceAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(SpaceAppLifecycleManagementPtrOutput)
 }
 
 // Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
@@ -32996,8 +34237,146 @@ func (o SpaceEfsFileSystemPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpaceIdleSettings struct {
+	// The space idle timeout value set in minutes
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+}
+
+// SpaceIdleSettingsInput is an input type that accepts SpaceIdleSettingsArgs and SpaceIdleSettingsOutput values.
+// You can construct a concrete instance of `SpaceIdleSettingsInput` via:
+//
+//	SpaceIdleSettingsArgs{...}
+type SpaceIdleSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceIdleSettingsOutput() SpaceIdleSettingsOutput
+	ToSpaceIdleSettingsOutputWithContext(context.Context) SpaceIdleSettingsOutput
+}
+
+type SpaceIdleSettingsArgs struct {
+	// The space idle timeout value set in minutes
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+}
+
+func (SpaceIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceIdleSettings)(nil)).Elem()
+}
+
+func (i SpaceIdleSettingsArgs) ToSpaceIdleSettingsOutput() SpaceIdleSettingsOutput {
+	return i.ToSpaceIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceIdleSettingsArgs) ToSpaceIdleSettingsOutputWithContext(ctx context.Context) SpaceIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceIdleSettingsOutput)
+}
+
+func (i SpaceIdleSettingsArgs) ToSpaceIdleSettingsPtrOutput() SpaceIdleSettingsPtrOutput {
+	return i.ToSpaceIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceIdleSettingsArgs) ToSpaceIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceIdleSettingsOutput).ToSpaceIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceIdleSettingsPtrInput is an input type that accepts SpaceIdleSettingsArgs, SpaceIdleSettingsPtr and SpaceIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceIdleSettingsPtrInput` via:
+//
+//	        SpaceIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceIdleSettingsPtrOutput() SpaceIdleSettingsPtrOutput
+	ToSpaceIdleSettingsPtrOutputWithContext(context.Context) SpaceIdleSettingsPtrOutput
+}
+
+type spaceIdleSettingsPtrType SpaceIdleSettingsArgs
+
+func SpaceIdleSettingsPtr(v *SpaceIdleSettingsArgs) SpaceIdleSettingsPtrInput {
+	return (*spaceIdleSettingsPtrType)(v)
+}
+
+func (*spaceIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceIdleSettings)(nil)).Elem()
+}
+
+func (i *spaceIdleSettingsPtrType) ToSpaceIdleSettingsPtrOutput() SpaceIdleSettingsPtrOutput {
+	return i.ToSpaceIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceIdleSettingsPtrType) ToSpaceIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceIdleSettingsPtrOutput)
+}
+
+type SpaceIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceIdleSettings)(nil)).Elem()
+}
+
+func (o SpaceIdleSettingsOutput) ToSpaceIdleSettingsOutput() SpaceIdleSettingsOutput {
+	return o
+}
+
+func (o SpaceIdleSettingsOutput) ToSpaceIdleSettingsOutputWithContext(ctx context.Context) SpaceIdleSettingsOutput {
+	return o
+}
+
+func (o SpaceIdleSettingsOutput) ToSpaceIdleSettingsPtrOutput() SpaceIdleSettingsPtrOutput {
+	return o.ToSpaceIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceIdleSettingsOutput) ToSpaceIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceIdleSettings) *SpaceIdleSettings {
+		return &v
+	}).(SpaceIdleSettingsPtrOutput)
+}
+
+// The space idle timeout value set in minutes
+func (o SpaceIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpaceIdleSettings) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type SpaceIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceIdleSettings)(nil)).Elem()
+}
+
+func (o SpaceIdleSettingsPtrOutput) ToSpaceIdleSettingsPtrOutput() SpaceIdleSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceIdleSettingsPtrOutput) ToSpaceIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceIdleSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceIdleSettingsPtrOutput) Elem() SpaceIdleSettingsOutput {
+	return o.ApplyT(func(v *SpaceIdleSettings) SpaceIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceIdleSettings
+		return ret
+	}).(SpaceIdleSettingsOutput)
+}
+
+// The space idle timeout value set in minutes
+func (o SpaceIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpaceIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 // The JupyterServer app settings.
 type SpaceJupyterLabAppSettings struct {
+	AppLifecycleManagement *SpaceAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []SpaceCodeRepository `pulumi:"codeRepositories"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
@@ -33017,6 +34396,7 @@ type SpaceJupyterLabAppSettingsInput interface {
 
 // The JupyterServer app settings.
 type SpaceJupyterLabAppSettingsArgs struct {
+	AppLifecycleManagement SpaceAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories SpaceCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
@@ -33101,6 +34481,10 @@ func (o SpaceJupyterLabAppSettingsOutput) ToSpaceJupyterLabAppSettingsPtrOutputW
 	}).(SpaceJupyterLabAppSettingsPtrOutput)
 }
 
+func (o SpaceJupyterLabAppSettingsOutput) AppLifecycleManagement() SpaceAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v SpaceJupyterLabAppSettings) *SpaceAppLifecycleManagement { return v.AppLifecycleManagement }).(SpaceAppLifecycleManagementPtrOutput)
+}
+
 // A list of CodeRepositories available for use with JupyterLab apps.
 func (o SpaceJupyterLabAppSettingsOutput) CodeRepositories() SpaceCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v SpaceJupyterLabAppSettings) []SpaceCodeRepository { return v.CodeRepositories }).(SpaceCodeRepositoryArrayOutput)
@@ -33133,6 +34517,15 @@ func (o SpaceJupyterLabAppSettingsPtrOutput) Elem() SpaceJupyterLabAppSettingsOu
 		var ret SpaceJupyterLabAppSettings
 		return ret
 	}).(SpaceJupyterLabAppSettingsOutput)
+}
+
+func (o SpaceJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() SpaceAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *SpaceJupyterLabAppSettings) *SpaceAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(SpaceAppLifecycleManagementPtrOutput)
 }
 
 // A list of CodeRepositories available for use with JupyterLab apps.
@@ -34365,8 +35758,142 @@ type StudioLifecycleConfigTag struct {
 	Value string `pulumi:"value"`
 }
 
+type UserProfileAppLifecycleManagement struct {
+	IdleSettings *UserProfileIdleSettings `pulumi:"idleSettings"`
+}
+
+// UserProfileAppLifecycleManagementInput is an input type that accepts UserProfileAppLifecycleManagementArgs and UserProfileAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `UserProfileAppLifecycleManagementInput` via:
+//
+//	UserProfileAppLifecycleManagementArgs{...}
+type UserProfileAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToUserProfileAppLifecycleManagementOutput() UserProfileAppLifecycleManagementOutput
+	ToUserProfileAppLifecycleManagementOutputWithContext(context.Context) UserProfileAppLifecycleManagementOutput
+}
+
+type UserProfileAppLifecycleManagementArgs struct {
+	IdleSettings UserProfileIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (UserProfileAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i UserProfileAppLifecycleManagementArgs) ToUserProfileAppLifecycleManagementOutput() UserProfileAppLifecycleManagementOutput {
+	return i.ToUserProfileAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i UserProfileAppLifecycleManagementArgs) ToUserProfileAppLifecycleManagementOutputWithContext(ctx context.Context) UserProfileAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileAppLifecycleManagementOutput)
+}
+
+func (i UserProfileAppLifecycleManagementArgs) ToUserProfileAppLifecycleManagementPtrOutput() UserProfileAppLifecycleManagementPtrOutput {
+	return i.ToUserProfileAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileAppLifecycleManagementArgs) ToUserProfileAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileAppLifecycleManagementOutput).ToUserProfileAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// UserProfileAppLifecycleManagementPtrInput is an input type that accepts UserProfileAppLifecycleManagementArgs, UserProfileAppLifecycleManagementPtr and UserProfileAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `UserProfileAppLifecycleManagementPtrInput` via:
+//
+//	        UserProfileAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileAppLifecycleManagementPtrOutput() UserProfileAppLifecycleManagementPtrOutput
+	ToUserProfileAppLifecycleManagementPtrOutputWithContext(context.Context) UserProfileAppLifecycleManagementPtrOutput
+}
+
+type userProfileAppLifecycleManagementPtrType UserProfileAppLifecycleManagementArgs
+
+func UserProfileAppLifecycleManagementPtr(v *UserProfileAppLifecycleManagementArgs) UserProfileAppLifecycleManagementPtrInput {
+	return (*userProfileAppLifecycleManagementPtrType)(v)
+}
+
+func (*userProfileAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *userProfileAppLifecycleManagementPtrType) ToUserProfileAppLifecycleManagementPtrOutput() UserProfileAppLifecycleManagementPtrOutput {
+	return i.ToUserProfileAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileAppLifecycleManagementPtrType) ToUserProfileAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileAppLifecycleManagementPtrOutput)
+}
+
+type UserProfileAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (UserProfileAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o UserProfileAppLifecycleManagementOutput) ToUserProfileAppLifecycleManagementOutput() UserProfileAppLifecycleManagementOutput {
+	return o
+}
+
+func (o UserProfileAppLifecycleManagementOutput) ToUserProfileAppLifecycleManagementOutputWithContext(ctx context.Context) UserProfileAppLifecycleManagementOutput {
+	return o
+}
+
+func (o UserProfileAppLifecycleManagementOutput) ToUserProfileAppLifecycleManagementPtrOutput() UserProfileAppLifecycleManagementPtrOutput {
+	return o.ToUserProfileAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileAppLifecycleManagementOutput) ToUserProfileAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileAppLifecycleManagement) *UserProfileAppLifecycleManagement {
+		return &v
+	}).(UserProfileAppLifecycleManagementPtrOutput)
+}
+
+func (o UserProfileAppLifecycleManagementOutput) IdleSettings() UserProfileIdleSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileAppLifecycleManagement) *UserProfileIdleSettings { return v.IdleSettings }).(UserProfileIdleSettingsPtrOutput)
+}
+
+type UserProfileAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o UserProfileAppLifecycleManagementPtrOutput) ToUserProfileAppLifecycleManagementPtrOutput() UserProfileAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o UserProfileAppLifecycleManagementPtrOutput) ToUserProfileAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o UserProfileAppLifecycleManagementPtrOutput) Elem() UserProfileAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *UserProfileAppLifecycleManagement) UserProfileAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileAppLifecycleManagement
+		return ret
+	}).(UserProfileAppLifecycleManagementOutput)
+}
+
+func (o UserProfileAppLifecycleManagementPtrOutput) IdleSettings() UserProfileIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileAppLifecycleManagement) *UserProfileIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(UserProfileIdleSettingsPtrOutput)
+}
+
 // The CodeEditor app settings.
 type UserProfileCodeEditorAppSettings struct {
+	AppLifecycleManagement *UserProfileAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages []UserProfileCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -34388,6 +35915,7 @@ type UserProfileCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type UserProfileCodeEditorAppSettingsArgs struct {
+	AppLifecycleManagement UserProfileAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages UserProfileCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
@@ -34474,6 +36002,12 @@ func (o UserProfileCodeEditorAppSettingsOutput) ToUserProfileCodeEditorAppSettin
 	}).(UserProfileCodeEditorAppSettingsPtrOutput)
 }
 
+func (o UserProfileCodeEditorAppSettingsOutput) AppLifecycleManagement() UserProfileAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v UserProfileCodeEditorAppSettings) *UserProfileAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(UserProfileAppLifecycleManagementPtrOutput)
+}
+
 // A list of custom images for use for CodeEditor apps.
 func (o UserProfileCodeEditorAppSettingsOutput) CustomImages() UserProfileCustomImageArrayOutput {
 	return o.ApplyT(func(v UserProfileCodeEditorAppSettings) []UserProfileCustomImage { return v.CustomImages }).(UserProfileCustomImageArrayOutput)
@@ -34511,6 +36045,15 @@ func (o UserProfileCodeEditorAppSettingsPtrOutput) Elem() UserProfileCodeEditorA
 		var ret UserProfileCodeEditorAppSettings
 		return ret
 	}).(UserProfileCodeEditorAppSettingsOutput)
+}
+
+func (o UserProfileCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() UserProfileAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *UserProfileCodeEditorAppSettings) *UserProfileAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(UserProfileAppLifecycleManagementPtrOutput)
 }
 
 // A list of custom images for use for CodeEditor apps.
@@ -35470,8 +37013,187 @@ func (o UserProfileEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserProfileIdleSettings struct {
+	IdleTimeoutInMinutes    *int                            `pulumi:"idleTimeoutInMinutes"`
+	LifecycleManagement     *UserProfileLifecycleManagement `pulumi:"lifecycleManagement"`
+	MaxIdleTimeoutInMinutes *int                            `pulumi:"maxIdleTimeoutInMinutes"`
+	MinIdleTimeoutInMinutes *int                            `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+// UserProfileIdleSettingsInput is an input type that accepts UserProfileIdleSettingsArgs and UserProfileIdleSettingsOutput values.
+// You can construct a concrete instance of `UserProfileIdleSettingsInput` via:
+//
+//	UserProfileIdleSettingsArgs{...}
+type UserProfileIdleSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileIdleSettingsOutput() UserProfileIdleSettingsOutput
+	ToUserProfileIdleSettingsOutputWithContext(context.Context) UserProfileIdleSettingsOutput
+}
+
+type UserProfileIdleSettingsArgs struct {
+	IdleTimeoutInMinutes    pulumi.IntPtrInput                     `pulumi:"idleTimeoutInMinutes"`
+	LifecycleManagement     UserProfileLifecycleManagementPtrInput `pulumi:"lifecycleManagement"`
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput                     `pulumi:"maxIdleTimeoutInMinutes"`
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput                     `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+func (UserProfileIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileIdleSettings)(nil)).Elem()
+}
+
+func (i UserProfileIdleSettingsArgs) ToUserProfileIdleSettingsOutput() UserProfileIdleSettingsOutput {
+	return i.ToUserProfileIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileIdleSettingsArgs) ToUserProfileIdleSettingsOutputWithContext(ctx context.Context) UserProfileIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileIdleSettingsOutput)
+}
+
+func (i UserProfileIdleSettingsArgs) ToUserProfileIdleSettingsPtrOutput() UserProfileIdleSettingsPtrOutput {
+	return i.ToUserProfileIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileIdleSettingsArgs) ToUserProfileIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileIdleSettingsOutput).ToUserProfileIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileIdleSettingsPtrInput is an input type that accepts UserProfileIdleSettingsArgs, UserProfileIdleSettingsPtr and UserProfileIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileIdleSettingsPtrInput` via:
+//
+//	        UserProfileIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileIdleSettingsPtrOutput() UserProfileIdleSettingsPtrOutput
+	ToUserProfileIdleSettingsPtrOutputWithContext(context.Context) UserProfileIdleSettingsPtrOutput
+}
+
+type userProfileIdleSettingsPtrType UserProfileIdleSettingsArgs
+
+func UserProfileIdleSettingsPtr(v *UserProfileIdleSettingsArgs) UserProfileIdleSettingsPtrInput {
+	return (*userProfileIdleSettingsPtrType)(v)
+}
+
+func (*userProfileIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileIdleSettings)(nil)).Elem()
+}
+
+func (i *userProfileIdleSettingsPtrType) ToUserProfileIdleSettingsPtrOutput() UserProfileIdleSettingsPtrOutput {
+	return i.ToUserProfileIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileIdleSettingsPtrType) ToUserProfileIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileIdleSettingsPtrOutput)
+}
+
+type UserProfileIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileIdleSettings)(nil)).Elem()
+}
+
+func (o UserProfileIdleSettingsOutput) ToUserProfileIdleSettingsOutput() UserProfileIdleSettingsOutput {
+	return o
+}
+
+func (o UserProfileIdleSettingsOutput) ToUserProfileIdleSettingsOutputWithContext(ctx context.Context) UserProfileIdleSettingsOutput {
+	return o
+}
+
+func (o UserProfileIdleSettingsOutput) ToUserProfileIdleSettingsPtrOutput() UserProfileIdleSettingsPtrOutput {
+	return o.ToUserProfileIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileIdleSettingsOutput) ToUserProfileIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileIdleSettings) *UserProfileIdleSettings {
+		return &v
+	}).(UserProfileIdleSettingsPtrOutput)
+}
+
+func (o UserProfileIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileIdleSettings) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o UserProfileIdleSettingsOutput) LifecycleManagement() UserProfileLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v UserProfileIdleSettings) *UserProfileLifecycleManagement { return v.LifecycleManagement }).(UserProfileLifecycleManagementPtrOutput)
+}
+
+func (o UserProfileIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileIdleSettings) *int { return v.MaxIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o UserProfileIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileIdleSettings) *int { return v.MinIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type UserProfileIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileIdleSettings)(nil)).Elem()
+}
+
+func (o UserProfileIdleSettingsPtrOutput) ToUserProfileIdleSettingsPtrOutput() UserProfileIdleSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileIdleSettingsPtrOutput) ToUserProfileIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileIdleSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileIdleSettingsPtrOutput) Elem() UserProfileIdleSettingsOutput {
+	return o.ApplyT(func(v *UserProfileIdleSettings) UserProfileIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileIdleSettings
+		return ret
+	}).(UserProfileIdleSettingsOutput)
+}
+
+func (o UserProfileIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o UserProfileIdleSettingsPtrOutput) LifecycleManagement() UserProfileLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *UserProfileIdleSettings) *UserProfileLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleManagement
+	}).(UserProfileLifecycleManagementPtrOutput)
+}
+
+func (o UserProfileIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o UserProfileIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 // The JupyterLab app settings.
 type UserProfileJupyterLabAppSettings struct {
+	AppLifecycleManagement *UserProfileAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []UserProfileCodeRepository `pulumi:"codeRepositories"`
 	// A list of custom images available for use for JupyterLab apps
@@ -35495,6 +37217,7 @@ type UserProfileJupyterLabAppSettingsInput interface {
 
 // The JupyterLab app settings.
 type UserProfileJupyterLabAppSettingsArgs struct {
+	AppLifecycleManagement UserProfileAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories UserProfileCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// A list of custom images available for use for JupyterLab apps
@@ -35583,6 +37306,12 @@ func (o UserProfileJupyterLabAppSettingsOutput) ToUserProfileJupyterLabAppSettin
 	}).(UserProfileJupyterLabAppSettingsPtrOutput)
 }
 
+func (o UserProfileJupyterLabAppSettingsOutput) AppLifecycleManagement() UserProfileAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v UserProfileJupyterLabAppSettings) *UserProfileAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(UserProfileAppLifecycleManagementPtrOutput)
+}
+
 // A list of CodeRepositories available for use with JupyterLab apps.
 func (o UserProfileJupyterLabAppSettingsOutput) CodeRepositories() UserProfileCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v UserProfileJupyterLabAppSettings) []UserProfileCodeRepository { return v.CodeRepositories }).(UserProfileCodeRepositoryArrayOutput)
@@ -35625,6 +37354,15 @@ func (o UserProfileJupyterLabAppSettingsPtrOutput) Elem() UserProfileJupyterLabA
 		var ret UserProfileJupyterLabAppSettings
 		return ret
 	}).(UserProfileJupyterLabAppSettingsOutput)
+}
+
+func (o UserProfileJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() UserProfileAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *UserProfileJupyterLabAppSettings) *UserProfileAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(UserProfileAppLifecycleManagementPtrOutput)
 }
 
 // A list of CodeRepositories available for use with JupyterLab apps.
@@ -37117,6 +38855,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigKernelSpecArrayInput)(nil)).Elem(), AppImageConfigKernelSpecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecPtrInput)(nil)).Elem(), AppResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupInput)(nil)).Elem(), ClusterInstanceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupArrayInput)(nil)).Elem(), ClusterInstanceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigInput)(nil)).Elem(), ClusterInstanceStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigArrayInput)(nil)).Elem(), ClusterInstanceStorageConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLifeCycleConfigInput)(nil)).Elem(), ClusterLifeCycleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorInput)(nil)).Elem(), ClusterOrchestratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorPtrInput)(nil)).Elem(), ClusterOrchestratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorEksConfigInput)(nil)).Elem(), ClusterOrchestratorEksConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorEksConfigPtrInput)(nil)).Elem(), ClusterOrchestratorEksConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionClusterConfigInput)(nil)).Elem(), DataQualityJobDefinitionClusterConfigArgs{})
@@ -37150,6 +38899,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTypeInput)(nil)).Elem(), DeviceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTypePtrInput)(nil)).Elem(), DeviceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetEdgeOutputConfigInput)(nil)).Elem(), DeviceFleetEdgeOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppLifecycleManagementInput)(nil)).Elem(), DomainAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAppLifecycleManagementPtrInput)(nil)).Elem(), DomainAppLifecycleManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCodeEditorAppSettingsInput)(nil)).Elem(), DomainCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCodeEditorAppSettingsPtrInput)(nil)).Elem(), DomainCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCodeRepositoryInput)(nil)).Elem(), DomainCodeRepositoryArgs{})
@@ -37170,6 +38921,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsPtrInput)(nil)).Elem(), DomainDockerSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEfsFileSystemConfigInput)(nil)).Elem(), DomainEfsFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEfsFileSystemConfigPtrInput)(nil)).Elem(), DomainEfsFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdleSettingsInput)(nil)).Elem(), DomainIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdleSettingsPtrInput)(nil)).Elem(), DomainIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterLabAppSettingsInput)(nil)).Elem(), DomainJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterLabAppSettingsPtrInput)(nil)).Elem(), DomainJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterServerAppSettingsInput)(nil)).Elem(), DomainJupyterServerAppSettingsArgs{})
@@ -37481,6 +39234,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesPtrInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppLifecycleManagementInput)(nil)).Elem(), SpaceAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppLifecycleManagementPtrInput)(nil)).Elem(), SpaceAppLifecycleManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceCodeEditorAppSettingsInput)(nil)).Elem(), SpaceCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceCodeEditorAppSettingsPtrInput)(nil)).Elem(), SpaceCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceCodeRepositoryInput)(nil)).Elem(), SpaceCodeRepositoryArgs{})
@@ -37493,6 +39248,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEbsStorageSettingsPtrInput)(nil)).Elem(), SpaceEbsStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEfsFileSystemInput)(nil)).Elem(), SpaceEfsFileSystemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEfsFileSystemPtrInput)(nil)).Elem(), SpaceEfsFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceIdleSettingsInput)(nil)).Elem(), SpaceIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceIdleSettingsPtrInput)(nil)).Elem(), SpaceIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceJupyterLabAppSettingsInput)(nil)).Elem(), SpaceJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceJupyterLabAppSettingsPtrInput)(nil)).Elem(), SpaceJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceJupyterServerAppSettingsInput)(nil)).Elem(), SpaceJupyterServerAppSettingsArgs{})
@@ -37509,6 +39266,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsPtrInput)(nil)).Elem(), SpaceSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceStorageSettingsInput)(nil)).Elem(), SpaceStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceStorageSettingsPtrInput)(nil)).Elem(), SpaceStorageSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppLifecycleManagementInput)(nil)).Elem(), UserProfileAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppLifecycleManagementPtrInput)(nil)).Elem(), UserProfileAppLifecycleManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileCodeEditorAppSettingsInput)(nil)).Elem(), UserProfileCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileCodeEditorAppSettingsPtrInput)(nil)).Elem(), UserProfileCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileCodeRepositoryInput)(nil)).Elem(), UserProfileCodeRepositoryArgs{})
@@ -37525,6 +39284,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDefaultSpaceStorageSettingsPtrInput)(nil)).Elem(), UserProfileDefaultSpaceStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEfsFileSystemConfigInput)(nil)).Elem(), UserProfileEfsFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEfsFileSystemConfigPtrInput)(nil)).Elem(), UserProfileEfsFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileIdleSettingsInput)(nil)).Elem(), UserProfileIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileIdleSettingsPtrInput)(nil)).Elem(), UserProfileIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileJupyterLabAppSettingsInput)(nil)).Elem(), UserProfileJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileJupyterLabAppSettingsPtrInput)(nil)).Elem(), UserProfileJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileJupyterServerAppSettingsArgs{})
@@ -37557,6 +39318,17 @@ func init() {
 	pulumi.RegisterOutputType(AppImageConfigKernelSpecArrayOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceGroupOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceGroupArrayOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceStorageConfigOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceStorageConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterLifeCycleConfigOutput{})
+	pulumi.RegisterOutputType(ClusterOrchestratorOutput{})
+	pulumi.RegisterOutputType(ClusterOrchestratorPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOrchestratorEksConfigOutput{})
+	pulumi.RegisterOutputType(ClusterOrchestratorEksConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigOutput{})
@@ -37591,6 +39363,8 @@ func init() {
 	pulumi.RegisterOutputType(DeviceTypePtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(DomainAppLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(DomainCodeEditorAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainCodeEditorAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainCodeRepositoryOutput{})
@@ -37611,6 +39385,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDockerSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEfsFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(DomainEfsFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdleSettingsOutput{})
+	pulumi.RegisterOutputType(DomainIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainJupyterLabAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainJupyterLabAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainJupyterServerAppSettingsOutput{})
@@ -37933,6 +39709,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(SpaceAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(SpaceAppLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(SpaceCodeEditorAppSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceCodeEditorAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceCodeRepositoryOutput{})
@@ -37945,6 +39723,8 @@ func init() {
 	pulumi.RegisterOutputType(SpaceEbsStorageSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceEfsFileSystemOutput{})
 	pulumi.RegisterOutputType(SpaceEfsFileSystemPtrOutput{})
+	pulumi.RegisterOutputType(SpaceIdleSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceJupyterLabAppSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceJupyterLabAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceJupyterServerAppSettingsOutput{})
@@ -37961,6 +39741,8 @@ func init() {
 	pulumi.RegisterOutputType(SpaceSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceStorageSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceStorageSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(UserProfileAppLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileCodeEditorAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileCodeEditorAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileCodeRepositoryOutput{})
@@ -37977,6 +39759,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileDefaultSpaceStorageSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileEfsFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(UserProfileEfsFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileIdleSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterLabAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterLabAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterServerAppSettingsOutput{})

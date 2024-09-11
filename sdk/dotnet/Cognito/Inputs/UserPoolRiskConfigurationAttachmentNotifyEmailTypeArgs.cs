@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The email HTML body.
+        /// The body of an email notification formatted in HTML. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
         /// </summary>
         [Input("htmlBody")]
         public Input<string>? HtmlBody { get; set; }
 
         /// <summary>
-        /// The email subject.
+        /// The subject of the threat protection email notification.
         /// </summary>
         [Input("subject", required: true)]
         public Input<string> Subject { get; set; } = null!;
 
         /// <summary>
-        /// The email text body.
+        /// The body of an email notification formatted in plaintext. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
         /// </summary>
         [Input("textBody")]
         public Input<string>? TextBody { get; set; }

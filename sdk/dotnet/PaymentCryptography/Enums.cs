@@ -25,6 +25,8 @@ namespace Pulumi.AwsNative.PaymentCryptography
         public static KeyAlgorithm Rsa2048 { get; } = new KeyAlgorithm("RSA_2048");
         public static KeyAlgorithm Rsa3072 { get; } = new KeyAlgorithm("RSA_3072");
         public static KeyAlgorithm Rsa4096 { get; } = new KeyAlgorithm("RSA_4096");
+        public static KeyAlgorithm EccNistP256 { get; } = new KeyAlgorithm("ECC_NIST_P256");
+        public static KeyAlgorithm EccNistP384 { get; } = new KeyAlgorithm("ECC_NIST_P384");
 
         public static bool operator ==(KeyAlgorithm left, KeyAlgorithm right) => left.Equals(right);
         public static bool operator !=(KeyAlgorithm left, KeyAlgorithm right) => !left.Equals(right);

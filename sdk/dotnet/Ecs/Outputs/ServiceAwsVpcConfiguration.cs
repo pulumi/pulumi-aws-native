@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// An object representing the networking details for a task or service. For example ``awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``
+    /// An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
     /// </summary>
     [OutputType]
     public sealed class ServiceAwsVpcConfiguration
@@ -21,12 +21,12 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Ecs.ServiceAwsVpcConfigurationAssignPublicIp? AssignPublicIp;
         /// <summary>
-        /// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``AwsVpcConfiguration``.
+        /// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
         ///   All specified security groups must be from the same VPC.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``AwsVpcConfiguration``.
+        /// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
         ///   All specified subnets must be from the same VPC.
         /// </summary>
         public readonly ImmutableArray<string> Subnets;

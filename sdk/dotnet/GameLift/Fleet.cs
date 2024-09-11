@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.GameLift
         public Output<Pulumi.AwsNative.GameLift.FleetComputeType?> ComputeType { get; private set; } = null!;
 
         /// <summary>
-        /// *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
+        /// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
         /// 
         /// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
         /// 
@@ -291,7 +291,7 @@ namespace Pulumi.AwsNative.GameLift
         public Input<Pulumi.AwsNative.GameLift.FleetComputeType>? ComputeType { get; set; }
 
         /// <summary>
-        /// *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
+        /// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
         /// 
         /// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
         /// 

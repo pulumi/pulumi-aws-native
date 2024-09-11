@@ -23,10 +23,14 @@ type AcceleratorTag struct {
 
 // ARN of resource to share.
 type CrossAccountAttachmentResource struct {
+	// An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
+	//
+	// For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
+	Cidr *string `pulumi:"cidr"`
 	// The endpoint ID for the endpoint that is specified as a AWS resource.
 	//
 	// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
-	EndpointId string `pulumi:"endpointId"`
+	EndpointId *string `pulumi:"endpointId"`
 	// The AWS Region where a shared endpoint resource is located.
 	Region *string `pulumi:"region"`
 }
@@ -44,10 +48,14 @@ type CrossAccountAttachmentResourceInput interface {
 
 // ARN of resource to share.
 type CrossAccountAttachmentResourceArgs struct {
+	// An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
+	//
+	// For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
 	// The endpoint ID for the endpoint that is specified as a AWS resource.
 	//
 	// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
-	EndpointId pulumi.StringInput `pulumi:"endpointId"`
+	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
 	// The AWS Region where a shared endpoint resource is located.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
@@ -104,11 +112,18 @@ func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOu
 	return o
 }
 
+// An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
+//
+// For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
+func (o CrossAccountAttachmentResourceOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
 // The endpoint ID for the endpoint that is specified as a AWS resource.
 //
 // An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
-func (o CrossAccountAttachmentResourceOutput) EndpointId() pulumi.StringOutput {
-	return o.ApplyT(func(v CrossAccountAttachmentResource) string { return v.EndpointId }).(pulumi.StringOutput)
+func (o CrossAccountAttachmentResourceOutput) EndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region where a shared endpoint resource is located.

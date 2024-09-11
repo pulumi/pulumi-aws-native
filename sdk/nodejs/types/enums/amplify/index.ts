@@ -15,6 +15,20 @@ export const AppAutoBranchCreationConfigStage = {
  */
 export type AppAutoBranchCreationConfigStage = (typeof AppAutoBranchCreationConfigStage)[keyof typeof AppAutoBranchCreationConfigStage];
 
+export const AppCacheConfigType = {
+    AmplifyManaged: "AMPLIFY_MANAGED",
+    AmplifyManagedNoCookies: "AMPLIFY_MANAGED_NO_COOKIES",
+} as const;
+
+/**
+ * The type of cache configuration to use for an Amplify app.
+ *
+ * The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
+ *
+ * The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
+ */
+export type AppCacheConfigType = (typeof AppCacheConfigType)[keyof typeof AppCacheConfigType];
+
 export const AppPlatform = {
     Web: "WEB",
     WebDynamic: "WEB_DYNAMIC",
@@ -23,6 +37,8 @@ export const AppPlatform = {
 
 /**
  * The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
+ *
+ * If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
  */
 export type AppPlatform = (typeof AppPlatform)[keyof typeof AppPlatform];
 

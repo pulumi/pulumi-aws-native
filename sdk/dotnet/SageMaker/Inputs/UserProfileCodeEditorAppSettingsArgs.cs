@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class UserProfileCodeEditorAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appLifecycleManagement")]
+        public Input<Inputs.UserProfileAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
+
         [Input("customImages")]
         private InputList<Inputs.UserProfileCustomImageArgs>? _customImages;
 

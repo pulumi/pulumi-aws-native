@@ -67,7 +67,7 @@ type Stack struct {
 	EnableTerminationProtection pulumi.BoolPtrOutput `pulumi:"enableTerminationProtection"`
 	// The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 	LastUpdateTime pulumi.StringOutput `pulumi:"lastUpdateTime"`
-	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+	// The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
 	// A list of output structures.
 	Outputs StackOutputTypeArrayOutput `pulumi:"outputs"`
@@ -81,7 +81,7 @@ type Stack struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
 	//
-	// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+	// For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. Provided that users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege.
 	//
@@ -89,7 +89,7 @@ type Stack struct {
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
 	//
-	// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+	// For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 	RootId pulumi.StringOutput `pulumi:"rootId"`
 	// Unique identifier of the stack.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
@@ -107,7 +107,7 @@ type Stack struct {
 	StackStatus StackStatusOutput `pulumi:"stackStatus"`
 	// Success/failure message associated with the stack status.
 	StackStatusReason pulumi.StringPtrOutput `pulumi:"stackStatusReason"`
-	// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+	// Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
 	//
@@ -214,7 +214,7 @@ type stackArgs struct {
 	//
 	// For [nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) , termination protection is set on the root stack and can't be changed directly on the nested stack.
 	EnableTerminationProtection *bool `pulumi:"enableTerminationProtection"`
-	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+	// The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	NotificationArns []string `pulumi:"notificationArns"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
 	//
@@ -240,7 +240,7 @@ type stackArgs struct {
 	StackPolicyUrl *string `pulumi:"stackPolicyUrl"`
 	// Success/failure message associated with the stack status.
 	StackStatusReason *string `pulumi:"stackStatusReason"`
-	// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+	// Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
 	//
@@ -305,7 +305,7 @@ type StackArgs struct {
 	//
 	// For [nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) , termination protection is set on the root stack and can't be changed directly on the nested stack.
 	EnableTerminationProtection pulumi.BoolPtrInput
-	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+	// The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	NotificationArns pulumi.StringArrayInput
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
 	//
@@ -331,7 +331,7 @@ type StackArgs struct {
 	StackPolicyUrl pulumi.StringPtrInput
 	// Success/failure message associated with the stack status.
 	StackStatusReason pulumi.StringPtrInput
-	// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+	// Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 	Tags aws.TagArrayInput
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
 	//
@@ -458,7 +458,7 @@ func (o StackOutput) LastUpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.LastUpdateTime }).(pulumi.StringOutput)
 }
 
-// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
+// The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 func (o StackOutput) NotificationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
@@ -481,7 +481,7 @@ func (o StackOutput) Parameters() pulumi.StringMapOutput {
 
 // For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
 //
-// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+// For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 func (o StackOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
 }
@@ -495,7 +495,7 @@ func (o StackOutput) RoleArn() pulumi.StringPtrOutput {
 
 // For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
 //
-// For more information, see [Working with Nested Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
+// For more information, see [Embed stacks within other stacks using nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html) in the *AWS CloudFormation User Guide* .
 func (o StackOutput) RootId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.RootId }).(pulumi.StringOutput)
 }
@@ -534,7 +534,7 @@ func (o StackOutput) StackStatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.StackStatusReason }).(pulumi.StringPtrOutput)
 }
 
-// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
+// Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 func (o StackOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Stack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

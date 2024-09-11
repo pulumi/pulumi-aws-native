@@ -4,7 +4,7 @@
   "definitions" : {
     "KeyAlgorithm" : {
       "type" : "string",
-      "enum" : [ "TDES_2KEY", "TDES_3KEY", "AES_128", "AES_192", "AES_256", "RSA_2048", "RSA_3072", "RSA_4096" ]
+      "enum" : [ "TDES_2KEY", "TDES_3KEY", "AES_128", "AES_192", "AES_256", "RSA_2048", "RSA_3072", "RSA_4096", "ECC_NIST_P256", "ECC_NIST_P384" ]
     },
     "KeyAttributes" : {
       "type" : "object",
@@ -100,10 +100,10 @@
         "Value" : {
           "type" : "string",
           "maxLength" : 256,
-          "minLength" : 0
+          "minLength" : 1
         }
       },
-      "required" : [ "Key" ],
+      "required" : [ "Key", "Value" ],
       "additionalProperties" : false
     }
   },
@@ -167,7 +167,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "payment-cryptography:ListTagsForResource", "payment-cryptography:TagResource", "payment-cryptography:UntagResource" ]
   },
   "additionalProperties" : false
 }

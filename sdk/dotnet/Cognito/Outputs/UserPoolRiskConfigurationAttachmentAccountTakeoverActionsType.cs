@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType
     {
         /// <summary>
-        /// Action to take for a high risk.
+        /// The action that you assign to a high-risk assessment by advanced security features.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType? HighAction;
         /// <summary>
-        /// Action to take for a low risk.
+        /// The action that you assign to a low-risk assessment by advanced security features.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType? LowAction;
         /// <summary>
-        /// Action to take for a medium risk.
+        /// The action that you assign to a medium-risk assessment by advanced security features.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType? MediumAction;
 

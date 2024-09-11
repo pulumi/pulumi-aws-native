@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class UserProfileCodeEditorAppSettings
     {
+        public readonly Outputs.UserProfileAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// A list of custom images for use for CodeEditor apps.
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private UserProfileCodeEditorAppSettings(
+            Outputs.UserProfileAppLifecycleManagement? appLifecycleManagement,
+
             ImmutableArray<Outputs.UserProfileCustomImage> customImages,
 
             Outputs.UserProfileResourceSpec? defaultResourceSpec,
 
             ImmutableArray<string> lifecycleConfigArns)
         {
+            AppLifecycleManagement = appLifecycleManagement;
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
             LifecycleConfigArns = lifecycleConfigArns;

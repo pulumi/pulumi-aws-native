@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPoolRiskConfigurationAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        /// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
         /// </summary>
         [Output("accountTakeoverRiskConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType?> AccountTakeoverRiskConfiguration { get; private set; } = null!;
@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        /// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
         /// </summary>
         [Output("compromisedCredentialsRiskConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType?> CompromisedCredentialsRiskConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration to override the risk decision.
+        /// Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
         /// </summary>
         [Output("riskExceptionConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType?> RiskExceptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The user pool ID.
+        /// The ID of the user pool that has the risk configuration applied.
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class UserPoolRiskConfigurationAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        /// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
         /// </summary>
         [Input("accountTakeoverRiskConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>? AccountTakeoverRiskConfiguration { get; set; }
@@ -108,19 +108,19 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        /// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
         /// </summary>
         [Input("compromisedCredentialsRiskConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs>? CompromisedCredentialsRiskConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration to override the risk decision.
+        /// Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
         /// </summary>
         [Input("riskExceptionConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs>? RiskExceptionConfiguration { get; set; }
 
         /// <summary>
-        /// The user pool ID.
+        /// The ID of the user pool that has the risk configuration applied.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

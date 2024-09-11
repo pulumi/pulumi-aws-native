@@ -34,7 +34,7 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType']:
         """
-        The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        The settings for automated responses and notification templates for adaptive authentication with advanced security features.
         """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
@@ -42,7 +42,7 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType']:
         """
-        The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
         """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
@@ -50,7 +50,7 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType']:
         """
-        The configuration to override the risk decision.
+        Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
         """
         return pulumi.get(self, "risk_exception_configuration")
 
@@ -74,7 +74,7 @@ def get_user_pool_risk_configuration_attachment(client_id: Optional[str] = None,
 
 
     :param str client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
-    :param str user_pool_id: The user pool ID.
+    :param str user_pool_id: The ID of the user pool that has the risk configuration applied.
     """
     __args__ = dict()
     __args__['clientId'] = client_id
@@ -97,6 +97,6 @@ def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulum
 
 
     :param str client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
-    :param str user_pool_id: The user pool ID.
+    :param str user_pool_id: The ID of the user pool that has the risk configuration applied.
     """
     ...

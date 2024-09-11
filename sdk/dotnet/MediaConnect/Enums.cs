@@ -944,6 +944,37 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// The state of thumbnail monitoring.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowSourceMonitoringConfigThumbnailState : IEquatable<FlowSourceMonitoringConfigThumbnailState>
+    {
+        private readonly string _value;
+
+        private FlowSourceMonitoringConfigThumbnailState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowSourceMonitoringConfigThumbnailState Enabled { get; } = new FlowSourceMonitoringConfigThumbnailState("ENABLED");
+        public static FlowSourceMonitoringConfigThumbnailState Disabled { get; } = new FlowSourceMonitoringConfigThumbnailState("DISABLED");
+
+        public static bool operator ==(FlowSourceMonitoringConfigThumbnailState left, FlowSourceMonitoringConfigThumbnailState right) => left.Equals(right);
+        public static bool operator !=(FlowSourceMonitoringConfigThumbnailState left, FlowSourceMonitoringConfigThumbnailState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowSourceMonitoringConfigThumbnailState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowSourceMonitoringConfigThumbnailState other && Equals(other);
+        public bool Equals(FlowSourceMonitoringConfigThumbnailState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The protocol that is used by the source.
     /// </summary>
     [EnumType]

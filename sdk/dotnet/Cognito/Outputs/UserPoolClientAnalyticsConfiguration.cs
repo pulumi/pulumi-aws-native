@@ -18,15 +18,15 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// </summary>
         public readonly string? ApplicationArn;
         /// <summary>
-        /// The application ID for an Amazon Pinpoint application.
+        /// Your Amazon Pinpoint project ID.
         /// </summary>
         public readonly string? ApplicationId;
         /// <summary>
-        /// The external ID.
+        /// The [external ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) of the role that Amazon Cognito assumes to send analytics data to Amazon Pinpoint.
         /// </summary>
         public readonly string? ExternalId;
         /// <summary>
-        /// The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        /// The ARN of an AWS Identity and Access Management role that has the permissions required for Amazon Cognito to publish events to Amazon Pinpoint analytics.
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>

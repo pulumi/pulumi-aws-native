@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly string? FlowAvailabilityZone;
         /// <summary>
-        /// The maintenance settings you want to use for the flow. 
+        /// The maintenance settings you want to use for the flow.
         /// </summary>
         public readonly Outputs.FlowMaintenance? Maintenance;
         /// <summary>
@@ -85,6 +85,10 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The source failover config of the flow.
         /// </summary>
         public readonly Outputs.FlowFailoverConfig? SourceFailoverConfig;
+        /// <summary>
+        /// The source monitoring config of the flow.
+        /// </summary>
+        public readonly Outputs.FlowSourceMonitoringConfig? SourceMonitoringConfig;
         /// <summary>
         /// The VPC interfaces that you added to this flow.
         /// </summary>
@@ -106,6 +110,8 @@ namespace Pulumi.AwsNative.MediaConnect
 
             Outputs.FlowFailoverConfig? sourceFailoverConfig,
 
+            Outputs.FlowSourceMonitoringConfig? sourceMonitoringConfig,
+
             ImmutableArray<Outputs.FlowVpcInterface> vpcInterfaces)
         {
             EgressIp = egressIp;
@@ -115,6 +121,7 @@ namespace Pulumi.AwsNative.MediaConnect
             MediaStreams = mediaStreams;
             Source = source;
             SourceFailoverConfig = sourceFailoverConfig;
+            SourceMonitoringConfig = sourceMonitoringConfig;
             VpcInterfaces = vpcInterfaces;
         }
     }

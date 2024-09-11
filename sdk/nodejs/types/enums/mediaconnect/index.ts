@@ -329,6 +329,16 @@ export const FlowSourceEncryptionKeyType = {
  */
 export type FlowSourceEncryptionKeyType = (typeof FlowSourceEncryptionKeyType)[keyof typeof FlowSourceEncryptionKeyType];
 
+export const FlowSourceMonitoringConfigThumbnailState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The state of thumbnail monitoring.
+ */
+export type FlowSourceMonitoringConfigThumbnailState = (typeof FlowSourceMonitoringConfigThumbnailState)[keyof typeof FlowSourceMonitoringConfigThumbnailState];
+
 export const FlowSourceProtocol = {
     ZixiPush: "zixi-push",
     RtpFec: "rtp-fec",

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<string>? MaxLength { get; set; }
 
         /// <summary>
-        /// The minimum length.
+        /// The minimum length of a string attribute value.
         /// </summary>
         [Input("minLength")]
         public Input<string>? MinLength { get; set; }

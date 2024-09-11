@@ -19,42 +19,35 @@ __all__ = ['ServiceLevelObjectiveArgs', 'ServiceLevelObjective']
 @pulumi.input_type
 class ServiceLevelObjectiveArgs:
     def __init__(__self__, *,
-                 sli: pulumi.Input['ServiceLevelObjectiveSliArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  goal: Optional[pulumi.Input['ServiceLevelObjectiveGoalArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 request_based_sli: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs']] = None,
+                 sli: Optional[pulumi.Input['ServiceLevelObjectiveSliArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceLevelObjective resource.
-        :param pulumi.Input['ServiceLevelObjectiveSliArgs'] sli: A structure containing information about the performance metric that this SLO monitors.
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
         :param pulumi.Input['ServiceLevelObjectiveGoalArgs'] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
+        :param pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs'] request_based_sli: A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+        :param pulumi.Input['ServiceLevelObjectiveSliArgs'] sli: A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
                
                Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         """
-        pulumi.set(__self__, "sli", sli)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if goal is not None:
             pulumi.set(__self__, "goal", goal)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if request_based_sli is not None:
+            pulumi.set(__self__, "request_based_sli", request_based_sli)
+        if sli is not None:
+            pulumi.set(__self__, "sli", sli)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def sli(self) -> pulumi.Input['ServiceLevelObjectiveSliArgs']:
-        """
-        A structure containing information about the performance metric that this SLO monitors.
-        """
-        return pulumi.get(self, "sli")
-
-    @sli.setter
-    def sli(self, value: pulumi.Input['ServiceLevelObjectiveSliArgs']):
-        pulumi.set(self, "sli", value)
 
     @property
     @pulumi.getter
@@ -93,6 +86,30 @@ class ServiceLevelObjectiveArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="requestBasedSli")
+    def request_based_sli(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs']]:
+        """
+        A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+        """
+        return pulumi.get(self, "request_based_sli")
+
+    @request_based_sli.setter
+    def request_based_sli(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliArgs']]):
+        pulumi.set(self, "request_based_sli", value)
+
+    @property
+    @pulumi.getter
+    def sli(self) -> Optional[pulumi.Input['ServiceLevelObjectiveSliArgs']]:
+        """
+        A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+        """
+        return pulumi.get(self, "sli")
+
+    @sli.setter
+    def sli(self, value: Optional[pulumi.Input['ServiceLevelObjectiveSliArgs']]):
+        pulumi.set(self, "sli", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -115,6 +132,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 request_based_sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']]] = None,
                  sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -126,7 +144,8 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
         :param pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
-        :param pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']] sli: A structure containing information about the performance metric that this SLO monitors.
+        :param pulumi.Input[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']] request_based_sli: A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+        :param pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']] sli: A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
                
                Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -135,7 +154,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceLevelObjectiveArgs,
+                 args: Optional[ServiceLevelObjectiveArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective
@@ -158,6 +177,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 request_based_sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveRequestBasedSliArgs', 'ServiceLevelObjectiveRequestBasedSliArgsDict']]] = None,
                  sli: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliArgs', 'ServiceLevelObjectiveSliArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -172,12 +192,12 @@ class ServiceLevelObjective(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["goal"] = goal
             __props__.__dict__["name"] = name
-            if sli is None and not opts.urn:
-                raise TypeError("Missing required property 'sli'")
+            __props__.__dict__["request_based_sli"] = request_based_sli
             __props__.__dict__["sli"] = sli
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
+            __props__.__dict__["evaluation_type"] = None
             __props__.__dict__["last_updated_time"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -206,9 +226,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["evaluation_type"] = None
         __props__.__dict__["goal"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["request_based_sli"] = None
         __props__.__dict__["sli"] = None
         __props__.__dict__["tags"] = None
         return ServiceLevelObjective(resource_name, opts=opts, __props__=__props__)
@@ -238,6 +260,14 @@ class ServiceLevelObjective(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="evaluationType")
+    def evaluation_type(self) -> pulumi.Output['ServiceLevelObjectiveEvaluationType']:
+        """
+        Displays whether this is a period-based SLO or a request-based SLO.
+        """
+        return pulumi.get(self, "evaluation_type")
+
+    @property
     @pulumi.getter
     def goal(self) -> pulumi.Output[Optional['outputs.ServiceLevelObjectiveGoal']]:
         """
@@ -262,10 +292,18 @@ class ServiceLevelObjective(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def sli(self) -> pulumi.Output['outputs.ServiceLevelObjectiveSli']:
+    @pulumi.getter(name="requestBasedSli")
+    def request_based_sli(self) -> pulumi.Output[Optional['outputs.ServiceLevelObjectiveRequestBasedSli']]:
         """
-        A structure containing information about the performance metric that this SLO monitors.
+        A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+        """
+        return pulumi.get(self, "request_based_sli")
+
+    @property
+    @pulumi.getter
+    def sli(self) -> pulumi.Output[Optional['outputs.ServiceLevelObjectiveSli']]:
+        """
+        A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
         """
         return pulumi.get(self, "sli")
 

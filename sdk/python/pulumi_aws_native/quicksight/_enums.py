@@ -69,6 +69,7 @@ __all__ = [
     'AnalysisPivotTableRowsLayout',
     'AnalysisPivotTableSubtotalLevel',
     'AnalysisPrimaryValueDisplayType',
+    'AnalysisQueryExecutionMode',
     'AnalysisRadarChartAxesRangeScale',
     'AnalysisRadarChartShape',
     'AnalysisReferenceLineLabelHorizontalPosition',
@@ -326,6 +327,7 @@ __all__ = [
     'TemplatePivotTableRowsLayout',
     'TemplatePivotTableSubtotalLevel',
     'TemplatePrimaryValueDisplayType',
+    'TemplateQueryExecutionMode',
     'TemplateRadarChartAxesRangeScale',
     'TemplateRadarChartShape',
     'TemplateReferenceLineLabelHorizontalPosition',
@@ -825,6 +827,11 @@ class AnalysisPrimaryValueDisplayType(str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
+
+
+class AnalysisQueryExecutionMode(str, Enum):
+    AUTO = "AUTO"
+    MANUAL = "MANUAL"
 
 
 class AnalysisRadarChartAxesRangeScale(str, Enum):
@@ -2479,6 +2486,11 @@ class TemplatePrimaryValueDisplayType(str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
     ACTUAL = "ACTUAL"
+
+
+class TemplateQueryExecutionMode(str, Enum):
+    AUTO = "AUTO"
+    MANUAL = "MANUAL"
 
 
 class TemplateRadarChartAxesRangeScale(str, Enum):

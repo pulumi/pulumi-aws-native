@@ -33,6 +33,8 @@ type LookupFleetResult struct {
 	Arn *string `pulumi:"arn"`
 	// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
 	BaseCapacity *int `pulumi:"baseCapacity"`
+	// > Updating this field is not allowed for `MAC_ARM` .
+	//
 	// Information about the compute resources the compute fleet uses. Available values include:
 	//
 	// - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
@@ -55,6 +57,8 @@ type LookupFleetResult struct {
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide.*
 	ComputeType *FleetComputeType `pulumi:"computeType"`
+	// > Updating this field is not allowed for `MAC_ARM` .
+	//
 	// The environment type of the compute fleet.
 	//
 	// - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -67,8 +71,12 @@ type LookupFleetResult struct {
 	EnvironmentType *FleetEnvironmentType `pulumi:"environmentType"`
 	// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
 	FleetServiceRole *string `pulumi:"fleetServiceRole"`
+	// > Updating this field is not allowed for `MAC_ARM` .
+	//
 	// Information about the VPC configuration that AWS CodeBuild accesses.
 	FleetVpcConfig *FleetVpcConfig `pulumi:"fleetVpcConfig"`
+	// > Updating this field is not allowed for `MAC_ARM` .
+	//
 	// The Amazon Machine Image (AMI) of the compute fleet.
 	ImageId *string `pulumi:"imageId"`
 	// The name of the compute fleet.
@@ -132,6 +140,8 @@ func (o LookupFleetResultOutput) BaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *int { return v.BaseCapacity }).(pulumi.IntPtrOutput)
 }
 
+// > Updating this field is not allowed for `MAC_ARM` .
+//
 // Information about the compute resources the compute fleet uses. Available values include:
 //
 // - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
@@ -157,6 +167,8 @@ func (o LookupFleetResultOutput) ComputeType() FleetComputeTypePtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *FleetComputeType { return v.ComputeType }).(FleetComputeTypePtrOutput)
 }
 
+// > Updating this field is not allowed for `MAC_ARM` .
+//
 // The environment type of the compute fleet.
 //
 // - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -175,11 +187,15 @@ func (o LookupFleetResultOutput) FleetServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.FleetServiceRole }).(pulumi.StringPtrOutput)
 }
 
+// > Updating this field is not allowed for `MAC_ARM` .
+//
 // Information about the VPC configuration that AWS CodeBuild accesses.
 func (o LookupFleetResultOutput) FleetVpcConfig() FleetVpcConfigPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *FleetVpcConfig { return v.FleetVpcConfig }).(FleetVpcConfigPtrOutput)
 }
 
+// > Updating this field is not allowed for `MAC_ARM` .
+//
 // The Amazon Machine Image (AMI) of the compute fleet.
 func (o LookupFleetResultOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.ImageId }).(pulumi.StringPtrOutput)

@@ -470,6 +470,479 @@ func (in *appTypePtr) ToAppTypePtrOutputWithContext(ctx context.Context) AppType
 	return pulumi.ToOutputWithContext(ctx, in).(AppTypePtrOutput)
 }
 
+// The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.
+type ClusterDeepHealthCheckType string
+
+const (
+	ClusterDeepHealthCheckTypeInstanceStress       = ClusterDeepHealthCheckType("InstanceStress")
+	ClusterDeepHealthCheckTypeInstanceConnectivity = ClusterDeepHealthCheckType("InstanceConnectivity")
+)
+
+func (ClusterDeepHealthCheckType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDeepHealthCheckType)(nil)).Elem()
+}
+
+func (e ClusterDeepHealthCheckType) ToClusterDeepHealthCheckTypeOutput() ClusterDeepHealthCheckTypeOutput {
+	return pulumi.ToOutput(e).(ClusterDeepHealthCheckTypeOutput)
+}
+
+func (e ClusterDeepHealthCheckType) ToClusterDeepHealthCheckTypeOutputWithContext(ctx context.Context) ClusterDeepHealthCheckTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterDeepHealthCheckTypeOutput)
+}
+
+func (e ClusterDeepHealthCheckType) ToClusterDeepHealthCheckTypePtrOutput() ClusterDeepHealthCheckTypePtrOutput {
+	return e.ToClusterDeepHealthCheckTypePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterDeepHealthCheckType) ToClusterDeepHealthCheckTypePtrOutputWithContext(ctx context.Context) ClusterDeepHealthCheckTypePtrOutput {
+	return ClusterDeepHealthCheckType(e).ToClusterDeepHealthCheckTypeOutputWithContext(ctx).ToClusterDeepHealthCheckTypePtrOutputWithContext(ctx)
+}
+
+func (e ClusterDeepHealthCheckType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterDeepHealthCheckType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterDeepHealthCheckType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterDeepHealthCheckType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterDeepHealthCheckTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterDeepHealthCheckTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDeepHealthCheckType)(nil)).Elem()
+}
+
+func (o ClusterDeepHealthCheckTypeOutput) ToClusterDeepHealthCheckTypeOutput() ClusterDeepHealthCheckTypeOutput {
+	return o
+}
+
+func (o ClusterDeepHealthCheckTypeOutput) ToClusterDeepHealthCheckTypeOutputWithContext(ctx context.Context) ClusterDeepHealthCheckTypeOutput {
+	return o
+}
+
+func (o ClusterDeepHealthCheckTypeOutput) ToClusterDeepHealthCheckTypePtrOutput() ClusterDeepHealthCheckTypePtrOutput {
+	return o.ToClusterDeepHealthCheckTypePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDeepHealthCheckTypeOutput) ToClusterDeepHealthCheckTypePtrOutputWithContext(ctx context.Context) ClusterDeepHealthCheckTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDeepHealthCheckType) *ClusterDeepHealthCheckType {
+		return &v
+	}).(ClusterDeepHealthCheckTypePtrOutput)
+}
+
+func (o ClusterDeepHealthCheckTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterDeepHealthCheckTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterDeepHealthCheckType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterDeepHealthCheckTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDeepHealthCheckTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterDeepHealthCheckType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterDeepHealthCheckTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterDeepHealthCheckTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDeepHealthCheckType)(nil)).Elem()
+}
+
+func (o ClusterDeepHealthCheckTypePtrOutput) ToClusterDeepHealthCheckTypePtrOutput() ClusterDeepHealthCheckTypePtrOutput {
+	return o
+}
+
+func (o ClusterDeepHealthCheckTypePtrOutput) ToClusterDeepHealthCheckTypePtrOutputWithContext(ctx context.Context) ClusterDeepHealthCheckTypePtrOutput {
+	return o
+}
+
+func (o ClusterDeepHealthCheckTypePtrOutput) Elem() ClusterDeepHealthCheckTypeOutput {
+	return o.ApplyT(func(v *ClusterDeepHealthCheckType) ClusterDeepHealthCheckType {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterDeepHealthCheckType
+		return ret
+	}).(ClusterDeepHealthCheckTypeOutput)
+}
+
+func (o ClusterDeepHealthCheckTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDeepHealthCheckTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterDeepHealthCheckType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterDeepHealthCheckTypeInput is an input type that accepts values of the ClusterDeepHealthCheckType enum
+// A concrete instance of `ClusterDeepHealthCheckTypeInput` can be one of the following:
+//
+//	ClusterDeepHealthCheckTypeInstanceStress
+//	ClusterDeepHealthCheckTypeInstanceConnectivity
+type ClusterDeepHealthCheckTypeInput interface {
+	pulumi.Input
+
+	ToClusterDeepHealthCheckTypeOutput() ClusterDeepHealthCheckTypeOutput
+	ToClusterDeepHealthCheckTypeOutputWithContext(context.Context) ClusterDeepHealthCheckTypeOutput
+}
+
+var clusterDeepHealthCheckTypePtrType = reflect.TypeOf((**ClusterDeepHealthCheckType)(nil)).Elem()
+
+type ClusterDeepHealthCheckTypePtrInput interface {
+	pulumi.Input
+
+	ToClusterDeepHealthCheckTypePtrOutput() ClusterDeepHealthCheckTypePtrOutput
+	ToClusterDeepHealthCheckTypePtrOutputWithContext(context.Context) ClusterDeepHealthCheckTypePtrOutput
+}
+
+type clusterDeepHealthCheckTypePtr string
+
+func ClusterDeepHealthCheckTypePtr(v string) ClusterDeepHealthCheckTypePtrInput {
+	return (*clusterDeepHealthCheckTypePtr)(&v)
+}
+
+func (*clusterDeepHealthCheckTypePtr) ElementType() reflect.Type {
+	return clusterDeepHealthCheckTypePtrType
+}
+
+func (in *clusterDeepHealthCheckTypePtr) ToClusterDeepHealthCheckTypePtrOutput() ClusterDeepHealthCheckTypePtrOutput {
+	return pulumi.ToOutput(in).(ClusterDeepHealthCheckTypePtrOutput)
+}
+
+func (in *clusterDeepHealthCheckTypePtr) ToClusterDeepHealthCheckTypePtrOutputWithContext(ctx context.Context) ClusterDeepHealthCheckTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterDeepHealthCheckTypePtrOutput)
+}
+
+// ClusterDeepHealthCheckTypeArrayInput is an input type that accepts ClusterDeepHealthCheckTypeArray and ClusterDeepHealthCheckTypeArrayOutput values.
+// You can construct a concrete instance of `ClusterDeepHealthCheckTypeArrayInput` via:
+//
+//	ClusterDeepHealthCheckTypeArray{ ClusterDeepHealthCheckTypeArgs{...} }
+type ClusterDeepHealthCheckTypeArrayInput interface {
+	pulumi.Input
+
+	ToClusterDeepHealthCheckTypeArrayOutput() ClusterDeepHealthCheckTypeArrayOutput
+	ToClusterDeepHealthCheckTypeArrayOutputWithContext(context.Context) ClusterDeepHealthCheckTypeArrayOutput
+}
+
+type ClusterDeepHealthCheckTypeArray []ClusterDeepHealthCheckType
+
+func (ClusterDeepHealthCheckTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterDeepHealthCheckType)(nil)).Elem()
+}
+
+func (i ClusterDeepHealthCheckTypeArray) ToClusterDeepHealthCheckTypeArrayOutput() ClusterDeepHealthCheckTypeArrayOutput {
+	return i.ToClusterDeepHealthCheckTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterDeepHealthCheckTypeArray) ToClusterDeepHealthCheckTypeArrayOutputWithContext(ctx context.Context) ClusterDeepHealthCheckTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterDeepHealthCheckTypeArrayOutput)
+}
+
+type ClusterDeepHealthCheckTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterDeepHealthCheckTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterDeepHealthCheckType)(nil)).Elem()
+}
+
+func (o ClusterDeepHealthCheckTypeArrayOutput) ToClusterDeepHealthCheckTypeArrayOutput() ClusterDeepHealthCheckTypeArrayOutput {
+	return o
+}
+
+func (o ClusterDeepHealthCheckTypeArrayOutput) ToClusterDeepHealthCheckTypeArrayOutputWithContext(ctx context.Context) ClusterDeepHealthCheckTypeArrayOutput {
+	return o
+}
+
+func (o ClusterDeepHealthCheckTypeArrayOutput) Index(i pulumi.IntInput) ClusterDeepHealthCheckTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterDeepHealthCheckType {
+		return vs[0].([]ClusterDeepHealthCheckType)[vs[1].(int)]
+	}).(ClusterDeepHealthCheckTypeOutput)
+}
+
+// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
+type ClusterNodeRecovery string
+
+const (
+	ClusterNodeRecoveryAutomatic = ClusterNodeRecovery("Automatic")
+	ClusterNodeRecoveryNone      = ClusterNodeRecovery("None")
+)
+
+func (ClusterNodeRecovery) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNodeRecovery)(nil)).Elem()
+}
+
+func (e ClusterNodeRecovery) ToClusterNodeRecoveryOutput() ClusterNodeRecoveryOutput {
+	return pulumi.ToOutput(e).(ClusterNodeRecoveryOutput)
+}
+
+func (e ClusterNodeRecovery) ToClusterNodeRecoveryOutputWithContext(ctx context.Context) ClusterNodeRecoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterNodeRecoveryOutput)
+}
+
+func (e ClusterNodeRecovery) ToClusterNodeRecoveryPtrOutput() ClusterNodeRecoveryPtrOutput {
+	return e.ToClusterNodeRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterNodeRecovery) ToClusterNodeRecoveryPtrOutputWithContext(ctx context.Context) ClusterNodeRecoveryPtrOutput {
+	return ClusterNodeRecovery(e).ToClusterNodeRecoveryOutputWithContext(ctx).ToClusterNodeRecoveryPtrOutputWithContext(ctx)
+}
+
+func (e ClusterNodeRecovery) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterNodeRecovery) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterNodeRecovery) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterNodeRecovery) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterNodeRecoveryOutput struct{ *pulumi.OutputState }
+
+func (ClusterNodeRecoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNodeRecovery)(nil)).Elem()
+}
+
+func (o ClusterNodeRecoveryOutput) ToClusterNodeRecoveryOutput() ClusterNodeRecoveryOutput {
+	return o
+}
+
+func (o ClusterNodeRecoveryOutput) ToClusterNodeRecoveryOutputWithContext(ctx context.Context) ClusterNodeRecoveryOutput {
+	return o
+}
+
+func (o ClusterNodeRecoveryOutput) ToClusterNodeRecoveryPtrOutput() ClusterNodeRecoveryPtrOutput {
+	return o.ToClusterNodeRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeRecoveryOutput) ToClusterNodeRecoveryPtrOutputWithContext(ctx context.Context) ClusterNodeRecoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNodeRecovery) *ClusterNodeRecovery {
+		return &v
+	}).(ClusterNodeRecoveryPtrOutput)
+}
+
+func (o ClusterNodeRecoveryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeRecoveryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterNodeRecovery) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterNodeRecoveryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeRecoveryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterNodeRecovery) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterNodeRecoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNodeRecoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNodeRecovery)(nil)).Elem()
+}
+
+func (o ClusterNodeRecoveryPtrOutput) ToClusterNodeRecoveryPtrOutput() ClusterNodeRecoveryPtrOutput {
+	return o
+}
+
+func (o ClusterNodeRecoveryPtrOutput) ToClusterNodeRecoveryPtrOutputWithContext(ctx context.Context) ClusterNodeRecoveryPtrOutput {
+	return o
+}
+
+func (o ClusterNodeRecoveryPtrOutput) Elem() ClusterNodeRecoveryOutput {
+	return o.ApplyT(func(v *ClusterNodeRecovery) ClusterNodeRecovery {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNodeRecovery
+		return ret
+	}).(ClusterNodeRecoveryOutput)
+}
+
+func (o ClusterNodeRecoveryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeRecoveryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterNodeRecovery) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterNodeRecoveryInput is an input type that accepts values of the ClusterNodeRecovery enum
+// A concrete instance of `ClusterNodeRecoveryInput` can be one of the following:
+//
+//	ClusterNodeRecoveryAutomatic
+//	ClusterNodeRecoveryNone
+type ClusterNodeRecoveryInput interface {
+	pulumi.Input
+
+	ToClusterNodeRecoveryOutput() ClusterNodeRecoveryOutput
+	ToClusterNodeRecoveryOutputWithContext(context.Context) ClusterNodeRecoveryOutput
+}
+
+var clusterNodeRecoveryPtrType = reflect.TypeOf((**ClusterNodeRecovery)(nil)).Elem()
+
+type ClusterNodeRecoveryPtrInput interface {
+	pulumi.Input
+
+	ToClusterNodeRecoveryPtrOutput() ClusterNodeRecoveryPtrOutput
+	ToClusterNodeRecoveryPtrOutputWithContext(context.Context) ClusterNodeRecoveryPtrOutput
+}
+
+type clusterNodeRecoveryPtr string
+
+func ClusterNodeRecoveryPtr(v string) ClusterNodeRecoveryPtrInput {
+	return (*clusterNodeRecoveryPtr)(&v)
+}
+
+func (*clusterNodeRecoveryPtr) ElementType() reflect.Type {
+	return clusterNodeRecoveryPtrType
+}
+
+func (in *clusterNodeRecoveryPtr) ToClusterNodeRecoveryPtrOutput() ClusterNodeRecoveryPtrOutput {
+	return pulumi.ToOutput(in).(ClusterNodeRecoveryPtrOutput)
+}
+
+func (in *clusterNodeRecoveryPtr) ToClusterNodeRecoveryPtrOutputWithContext(ctx context.Context) ClusterNodeRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterNodeRecoveryPtrOutput)
+}
+
+// The status of the HyperPod Cluster.
+type ClusterStatus string
+
+const (
+	ClusterStatusCreating       = ClusterStatus("Creating")
+	ClusterStatusDeleting       = ClusterStatus("Deleting")
+	ClusterStatusFailed         = ClusterStatus("Failed")
+	ClusterStatusInService      = ClusterStatus("InService")
+	ClusterStatusRollingBack    = ClusterStatus("RollingBack")
+	ClusterStatusSystemUpdating = ClusterStatus("SystemUpdating")
+	ClusterStatusUpdating       = ClusterStatus("Updating")
+)
+
+type ClusterStatusOutput struct{ *pulumi.OutputState }
+
+func (ClusterStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStatus)(nil)).Elem()
+}
+
+func (o ClusterStatusOutput) ToClusterStatusOutput() ClusterStatusOutput {
+	return o
+}
+
+func (o ClusterStatusOutput) ToClusterStatusOutputWithContext(ctx context.Context) ClusterStatusOutput {
+	return o
+}
+
+func (o ClusterStatusOutput) ToClusterStatusPtrOutput() ClusterStatusPtrOutput {
+	return o.ToClusterStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStatusOutput) ToClusterStatusPtrOutputWithContext(ctx context.Context) ClusterStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterStatus) *ClusterStatus {
+		return &v
+	}).(ClusterStatusPtrOutput)
+}
+
+func (o ClusterStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterStatus)(nil)).Elem()
+}
+
+func (o ClusterStatusPtrOutput) ToClusterStatusPtrOutput() ClusterStatusPtrOutput {
+	return o
+}
+
+func (o ClusterStatusPtrOutput) ToClusterStatusPtrOutputWithContext(ctx context.Context) ClusterStatusPtrOutput {
+	return o
+}
+
+func (o ClusterStatusPtrOutput) Elem() ClusterStatusOutput {
+	return o.ApplyT(func(v *ClusterStatus) ClusterStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterStatus
+		return ret
+	}).(ClusterStatusOutput)
+}
+
+func (o ClusterStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type DataQualityJobDefinitionBatchTransformInputS3DataDistributionType string
 
@@ -2184,22 +2657,189 @@ func (in *domainDockerSettingsEnableDockerAccessPtr) ToDomainDockerSettingsEnabl
 	return pulumi.ToOutputWithContext(ctx, in).(DomainDockerSettingsEnableDockerAccessPtrOutput)
 }
 
+// A flag to enable/disable AppLifecycleManagement settings
+type DomainLifecycleManagement string
+
+const (
+	DomainLifecycleManagementEnabled  = DomainLifecycleManagement("ENABLED")
+	DomainLifecycleManagementDisabled = DomainLifecycleManagement("DISABLED")
+)
+
+func (DomainLifecycleManagement) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainLifecycleManagement)(nil)).Elem()
+}
+
+func (e DomainLifecycleManagement) ToDomainLifecycleManagementOutput() DomainLifecycleManagementOutput {
+	return pulumi.ToOutput(e).(DomainLifecycleManagementOutput)
+}
+
+func (e DomainLifecycleManagement) ToDomainLifecycleManagementOutputWithContext(ctx context.Context) DomainLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainLifecycleManagementOutput)
+}
+
+func (e DomainLifecycleManagement) ToDomainLifecycleManagementPtrOutput() DomainLifecycleManagementPtrOutput {
+	return e.ToDomainLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (e DomainLifecycleManagement) ToDomainLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainLifecycleManagementPtrOutput {
+	return DomainLifecycleManagement(e).ToDomainLifecycleManagementOutputWithContext(ctx).ToDomainLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+func (e DomainLifecycleManagement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainLifecycleManagement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainLifecycleManagement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainLifecycleManagement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (DomainLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainLifecycleManagementOutput) ToDomainLifecycleManagementOutput() DomainLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainLifecycleManagementOutput) ToDomainLifecycleManagementOutputWithContext(ctx context.Context) DomainLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainLifecycleManagementOutput) ToDomainLifecycleManagementPtrOutput() DomainLifecycleManagementPtrOutput {
+	return o.ToDomainLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o DomainLifecycleManagementOutput) ToDomainLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainLifecycleManagement) *DomainLifecycleManagement {
+		return &v
+	}).(DomainLifecycleManagementPtrOutput)
+}
+
+func (o DomainLifecycleManagementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainLifecycleManagementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainLifecycleManagement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainLifecycleManagementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainLifecycleManagementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainLifecycleManagement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainLifecycleManagementPtrOutput) ToDomainLifecycleManagementPtrOutput() DomainLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainLifecycleManagementPtrOutput) ToDomainLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainLifecycleManagementPtrOutput) Elem() DomainLifecycleManagementOutput {
+	return o.ApplyT(func(v *DomainLifecycleManagement) DomainLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret DomainLifecycleManagement
+		return ret
+	}).(DomainLifecycleManagementOutput)
+}
+
+func (o DomainLifecycleManagementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainLifecycleManagementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainLifecycleManagement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainLifecycleManagementInput is an input type that accepts values of the DomainLifecycleManagement enum
+// A concrete instance of `DomainLifecycleManagementInput` can be one of the following:
+//
+//	DomainLifecycleManagementEnabled
+//	DomainLifecycleManagementDisabled
+type DomainLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToDomainLifecycleManagementOutput() DomainLifecycleManagementOutput
+	ToDomainLifecycleManagementOutputWithContext(context.Context) DomainLifecycleManagementOutput
+}
+
+var domainLifecycleManagementPtrType = reflect.TypeOf((**DomainLifecycleManagement)(nil)).Elem()
+
+type DomainLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToDomainLifecycleManagementPtrOutput() DomainLifecycleManagementPtrOutput
+	ToDomainLifecycleManagementPtrOutputWithContext(context.Context) DomainLifecycleManagementPtrOutput
+}
+
+type domainLifecycleManagementPtr string
+
+func DomainLifecycleManagementPtr(v string) DomainLifecycleManagementPtrInput {
+	return (*domainLifecycleManagementPtr)(&v)
+}
+
+func (*domainLifecycleManagementPtr) ElementType() reflect.Type {
+	return domainLifecycleManagementPtrType
+}
+
+func (in *domainLifecycleManagementPtr) ToDomainLifecycleManagementPtrOutput() DomainLifecycleManagementPtrOutput {
+	return pulumi.ToOutput(in).(DomainLifecycleManagementPtrOutput)
+}
+
+func (in *domainLifecycleManagementPtr) ToDomainLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainLifecycleManagementPtrOutput)
+}
+
 type DomainMlTools string
 
 const (
-	DomainMlToolsDataWrangler         = DomainMlTools("DataWrangler")
-	DomainMlToolsFeatureStore         = DomainMlTools("FeatureStore")
-	DomainMlToolsEmrClusters          = DomainMlTools("EmrClusters")
-	DomainMlToolsAutoMl               = DomainMlTools("AutoMl")
-	DomainMlToolsExperiments          = DomainMlTools("Experiments")
-	DomainMlToolsTraining             = DomainMlTools("Training")
-	DomainMlToolsModelEvaluation      = DomainMlTools("ModelEvaluation")
-	DomainMlToolsPipelines            = DomainMlTools("Pipelines")
-	DomainMlToolsModels               = DomainMlTools("Models")
-	DomainMlToolsJumpStart            = DomainMlTools("JumpStart")
-	DomainMlToolsInferenceRecommender = DomainMlTools("InferenceRecommender")
-	DomainMlToolsEndpoints            = DomainMlTools("Endpoints")
-	DomainMlToolsProjects             = DomainMlTools("Projects")
+	DomainMlToolsDataWrangler          = DomainMlTools("DataWrangler")
+	DomainMlToolsFeatureStore          = DomainMlTools("FeatureStore")
+	DomainMlToolsEmrClusters           = DomainMlTools("EmrClusters")
+	DomainMlToolsAutoMl                = DomainMlTools("AutoMl")
+	DomainMlToolsExperiments           = DomainMlTools("Experiments")
+	DomainMlToolsTraining              = DomainMlTools("Training")
+	DomainMlToolsModelEvaluation       = DomainMlTools("ModelEvaluation")
+	DomainMlToolsPipelines             = DomainMlTools("Pipelines")
+	DomainMlToolsModels                = DomainMlTools("Models")
+	DomainMlToolsJumpStart             = DomainMlTools("JumpStart")
+	DomainMlToolsInferenceRecommender  = DomainMlTools("InferenceRecommender")
+	DomainMlToolsEndpoints             = DomainMlTools("Endpoints")
+	DomainMlToolsProjects              = DomainMlTools("Projects")
+	DomainMlToolsInferenceOptimization = DomainMlTools("InferenceOptimization")
 )
 
 func (DomainMlTools) ElementType() reflect.Type {
@@ -2337,6 +2977,7 @@ func (o DomainMlToolsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	DomainMlToolsInferenceRecommender
 //	DomainMlToolsEndpoints
 //	DomainMlToolsProjects
+//	DomainMlToolsInferenceOptimization
 type DomainMlToolsInput interface {
 	pulumi.Input
 
@@ -14407,22 +15048,189 @@ func (o UserProfileAppTypeArrayOutput) Index(i pulumi.IntInput) UserProfileAppTy
 	}).(UserProfileAppTypeOutput)
 }
 
+// A flag to enable/disable AppLifecycleManagement settings
+type UserProfileLifecycleManagement string
+
+const (
+	UserProfileLifecycleManagementEnabled  = UserProfileLifecycleManagement("ENABLED")
+	UserProfileLifecycleManagementDisabled = UserProfileLifecycleManagement("DISABLED")
+)
+
+func (UserProfileLifecycleManagement) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileLifecycleManagement)(nil)).Elem()
+}
+
+func (e UserProfileLifecycleManagement) ToUserProfileLifecycleManagementOutput() UserProfileLifecycleManagementOutput {
+	return pulumi.ToOutput(e).(UserProfileLifecycleManagementOutput)
+}
+
+func (e UserProfileLifecycleManagement) ToUserProfileLifecycleManagementOutputWithContext(ctx context.Context) UserProfileLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileLifecycleManagementOutput)
+}
+
+func (e UserProfileLifecycleManagement) ToUserProfileLifecycleManagementPtrOutput() UserProfileLifecycleManagementPtrOutput {
+	return e.ToUserProfileLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileLifecycleManagement) ToUserProfileLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileLifecycleManagementPtrOutput {
+	return UserProfileLifecycleManagement(e).ToUserProfileLifecycleManagementOutputWithContext(ctx).ToUserProfileLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+func (e UserProfileLifecycleManagement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileLifecycleManagement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileLifecycleManagement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileLifecycleManagement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (UserProfileLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileLifecycleManagement)(nil)).Elem()
+}
+
+func (o UserProfileLifecycleManagementOutput) ToUserProfileLifecycleManagementOutput() UserProfileLifecycleManagementOutput {
+	return o
+}
+
+func (o UserProfileLifecycleManagementOutput) ToUserProfileLifecycleManagementOutputWithContext(ctx context.Context) UserProfileLifecycleManagementOutput {
+	return o
+}
+
+func (o UserProfileLifecycleManagementOutput) ToUserProfileLifecycleManagementPtrOutput() UserProfileLifecycleManagementPtrOutput {
+	return o.ToUserProfileLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileLifecycleManagementOutput) ToUserProfileLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileLifecycleManagement) *UserProfileLifecycleManagement {
+		return &v
+	}).(UserProfileLifecycleManagementPtrOutput)
+}
+
+func (o UserProfileLifecycleManagementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileLifecycleManagementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileLifecycleManagement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileLifecycleManagementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileLifecycleManagementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileLifecycleManagement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileLifecycleManagement)(nil)).Elem()
+}
+
+func (o UserProfileLifecycleManagementPtrOutput) ToUserProfileLifecycleManagementPtrOutput() UserProfileLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o UserProfileLifecycleManagementPtrOutput) ToUserProfileLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o UserProfileLifecycleManagementPtrOutput) Elem() UserProfileLifecycleManagementOutput {
+	return o.ApplyT(func(v *UserProfileLifecycleManagement) UserProfileLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileLifecycleManagement
+		return ret
+	}).(UserProfileLifecycleManagementOutput)
+}
+
+func (o UserProfileLifecycleManagementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileLifecycleManagementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileLifecycleManagement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileLifecycleManagementInput is an input type that accepts values of the UserProfileLifecycleManagement enum
+// A concrete instance of `UserProfileLifecycleManagementInput` can be one of the following:
+//
+//	UserProfileLifecycleManagementEnabled
+//	UserProfileLifecycleManagementDisabled
+type UserProfileLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToUserProfileLifecycleManagementOutput() UserProfileLifecycleManagementOutput
+	ToUserProfileLifecycleManagementOutputWithContext(context.Context) UserProfileLifecycleManagementOutput
+}
+
+var userProfileLifecycleManagementPtrType = reflect.TypeOf((**UserProfileLifecycleManagement)(nil)).Elem()
+
+type UserProfileLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileLifecycleManagementPtrOutput() UserProfileLifecycleManagementPtrOutput
+	ToUserProfileLifecycleManagementPtrOutputWithContext(context.Context) UserProfileLifecycleManagementPtrOutput
+}
+
+type userProfileLifecycleManagementPtr string
+
+func UserProfileLifecycleManagementPtr(v string) UserProfileLifecycleManagementPtrInput {
+	return (*userProfileLifecycleManagementPtr)(&v)
+}
+
+func (*userProfileLifecycleManagementPtr) ElementType() reflect.Type {
+	return userProfileLifecycleManagementPtrType
+}
+
+func (in *userProfileLifecycleManagementPtr) ToUserProfileLifecycleManagementPtrOutput() UserProfileLifecycleManagementPtrOutput {
+	return pulumi.ToOutput(in).(UserProfileLifecycleManagementPtrOutput)
+}
+
+func (in *userProfileLifecycleManagementPtr) ToUserProfileLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileLifecycleManagementPtrOutput)
+}
+
 type UserProfileMlTools string
 
 const (
-	UserProfileMlToolsDataWrangler         = UserProfileMlTools("DataWrangler")
-	UserProfileMlToolsFeatureStore         = UserProfileMlTools("FeatureStore")
-	UserProfileMlToolsEmrClusters          = UserProfileMlTools("EmrClusters")
-	UserProfileMlToolsAutoMl               = UserProfileMlTools("AutoMl")
-	UserProfileMlToolsExperiments          = UserProfileMlTools("Experiments")
-	UserProfileMlToolsTraining             = UserProfileMlTools("Training")
-	UserProfileMlToolsModelEvaluation      = UserProfileMlTools("ModelEvaluation")
-	UserProfileMlToolsPipelines            = UserProfileMlTools("Pipelines")
-	UserProfileMlToolsModels               = UserProfileMlTools("Models")
-	UserProfileMlToolsJumpStart            = UserProfileMlTools("JumpStart")
-	UserProfileMlToolsInferenceRecommender = UserProfileMlTools("InferenceRecommender")
-	UserProfileMlToolsEndpoints            = UserProfileMlTools("Endpoints")
-	UserProfileMlToolsProjects             = UserProfileMlTools("Projects")
+	UserProfileMlToolsDataWrangler          = UserProfileMlTools("DataWrangler")
+	UserProfileMlToolsFeatureStore          = UserProfileMlTools("FeatureStore")
+	UserProfileMlToolsEmrClusters           = UserProfileMlTools("EmrClusters")
+	UserProfileMlToolsAutoMl                = UserProfileMlTools("AutoMl")
+	UserProfileMlToolsExperiments           = UserProfileMlTools("Experiments")
+	UserProfileMlToolsTraining              = UserProfileMlTools("Training")
+	UserProfileMlToolsModelEvaluation       = UserProfileMlTools("ModelEvaluation")
+	UserProfileMlToolsPipelines             = UserProfileMlTools("Pipelines")
+	UserProfileMlToolsModels                = UserProfileMlTools("Models")
+	UserProfileMlToolsJumpStart             = UserProfileMlTools("JumpStart")
+	UserProfileMlToolsInferenceRecommender  = UserProfileMlTools("InferenceRecommender")
+	UserProfileMlToolsEndpoints             = UserProfileMlTools("Endpoints")
+	UserProfileMlToolsProjects              = UserProfileMlTools("Projects")
+	UserProfileMlToolsInferenceOptimization = UserProfileMlTools("InferenceOptimization")
 )
 
 func (UserProfileMlTools) ElementType() reflect.Type {
@@ -14560,6 +15368,7 @@ func (o UserProfileMlToolsPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	UserProfileMlToolsInferenceRecommender
 //	UserProfileMlToolsEndpoints
 //	UserProfileMlToolsProjects
+//	UserProfileMlToolsInferenceOptimization
 type UserProfileMlToolsInput interface {
 	pulumi.Input
 
@@ -15596,6 +16405,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInstanceTypePtrInput)(nil)).Elem(), AppResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypeInput)(nil)).Elem(), AppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypePtrInput)(nil)).Elem(), AppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypeInput)(nil)).Elem(), ClusterDeepHealthCheckType("InstanceStress"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypePtrInput)(nil)).Elem(), ClusterDeepHealthCheckType("InstanceStress"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypeArrayInput)(nil)).Elem(), ClusterDeepHealthCheckTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryPtrInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
@@ -15617,6 +16431,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAuthModePtrInput)(nil)).Elem(), DomainAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsEnableDockerAccessPtrInput)(nil)).Elem(), DomainDockerSettingsEnableDockerAccess("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainLifecycleManagementInput)(nil)).Elem(), DomainLifecycleManagement("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainLifecycleManagementPtrInput)(nil)).Elem(), DomainLifecycleManagement("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMlToolsInput)(nil)).Elem(), DomainMlTools("DataWrangler"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMlToolsPtrInput)(nil)).Elem(), DomainMlTools("DataWrangler"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMlToolsArrayInput)(nil)).Elem(), DomainMlToolsArray{})
@@ -15753,6 +16569,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypeInput)(nil)).Elem(), UserProfileAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypePtrInput)(nil)).Elem(), UserProfileAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppTypeArrayInput)(nil)).Elem(), UserProfileAppTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileLifecycleManagementInput)(nil)).Elem(), UserProfileLifecycleManagement("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileLifecycleManagementPtrInput)(nil)).Elem(), UserProfileLifecycleManagement("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileMlToolsInput)(nil)).Elem(), UserProfileMlTools("DataWrangler"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileMlToolsPtrInput)(nil)).Elem(), UserProfileMlTools("DataWrangler"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileMlToolsArrayInput)(nil)).Elem(), UserProfileMlToolsArray{})
@@ -15770,6 +16588,13 @@ func init() {
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(AppTypeOutput{})
 	pulumi.RegisterOutputType(AppTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypeOutput{})
+	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypeArrayOutput{})
+	pulumi.RegisterOutputType(ClusterNodeRecoveryOutput{})
+	pulumi.RegisterOutputType(ClusterNodeRecoveryPtrOutput{})
+	pulumi.RegisterOutputType(ClusterStatusOutput{})
+	pulumi.RegisterOutputType(ClusterStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3InputModeOutput{})
@@ -15791,6 +16616,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainAuthModePtrOutput{})
 	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessOutput{})
 	pulumi.RegisterOutputType(DomainDockerSettingsEnableDockerAccessPtrOutput{})
+	pulumi.RegisterOutputType(DomainLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(DomainLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(DomainMlToolsOutput{})
 	pulumi.RegisterOutputType(DomainMlToolsPtrOutput{})
 	pulumi.RegisterOutputType(DomainMlToolsArrayOutput{})
@@ -15941,6 +16768,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileAppTypeOutput{})
 	pulumi.RegisterOutputType(UserProfileAppTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileAppTypeArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(UserProfileLifecycleManagementPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileMlToolsOutput{})
 	pulumi.RegisterOutputType(UserProfileMlToolsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileMlToolsArrayOutput{})

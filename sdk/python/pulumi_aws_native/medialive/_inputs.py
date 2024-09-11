@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterInterfaceMappingArgs',
+    'ClusterNetworkSettingsArgs',
+    'EventBridgeRuleTemplateTargetArgs',
     'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs',
     'MultiplexOutputDestinationArgs',
     'MultiplexSettingsArgs',
@@ -19,7 +22,112 @@ __all__ = [
     'MultiplexprogramMultiplexProgramServiceDescriptorArgs',
     'MultiplexprogramMultiplexProgramSettingsArgs',
     'MultiplexprogramMultiplexVideoSettingsArgs',
+    'NetworkIpPoolArgs',
+    'NetworkRouteArgs',
 ]
+
+@pulumi.input_type
+class ClusterInterfaceMappingArgs:
+    def __init__(__self__, *,
+                 logical_interface_name: Optional[pulumi.Input[str]] = None,
+                 network_id: Optional[pulumi.Input[str]] = None):
+        """
+        Network mappings for the cluster
+        :param pulumi.Input[str] logical_interface_name: logical interface name, unique in the list
+        :param pulumi.Input[str] network_id: Network Id to be associated with the logical interface name, can be duplicated in list
+        """
+        if logical_interface_name is not None:
+            pulumi.set(__self__, "logical_interface_name", logical_interface_name)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
+
+    @property
+    @pulumi.getter(name="logicalInterfaceName")
+    def logical_interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        logical interface name, unique in the list
+        """
+        return pulumi.get(self, "logical_interface_name")
+
+    @logical_interface_name.setter
+    def logical_interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logical_interface_name", value)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network Id to be associated with the logical interface name, can be duplicated in list
+        """
+        return pulumi.get(self, "network_id")
+
+    @network_id.setter
+    def network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_id", value)
+
+
+@pulumi.input_type
+class ClusterNetworkSettingsArgs:
+    def __init__(__self__, *,
+                 default_route: Optional[pulumi.Input[str]] = None,
+                 interface_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]] = None):
+        """
+        On premises settings which will have the interface network mappings and default Output logical interface
+        :param pulumi.Input[str] default_route: Default value if the customer does not define it in channel Output API
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]] interface_mappings: Network mappings for the cluster
+        """
+        if default_route is not None:
+            pulumi.set(__self__, "default_route", default_route)
+        if interface_mappings is not None:
+            pulumi.set(__self__, "interface_mappings", interface_mappings)
+
+    @property
+    @pulumi.getter(name="defaultRoute")
+    def default_route(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default value if the customer does not define it in channel Output API
+        """
+        return pulumi.get(self, "default_route")
+
+    @default_route.setter
+    def default_route(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_route", value)
+
+    @property
+    @pulumi.getter(name="interfaceMappings")
+    def interface_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]]:
+        """
+        Network mappings for the cluster
+        """
+        return pulumi.get(self, "interface_mappings")
+
+    @interface_mappings.setter
+    def interface_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgs']]]]):
+        pulumi.set(self, "interface_mappings", value)
+
+
+@pulumi.input_type
+class EventBridgeRuleTemplateTargetArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str]):
+        """
+        The target to which to send matching events.
+        :param pulumi.Input[str] arn: Target ARNs must be either an SNS topic or CloudWatch log group.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        Target ARNs must be either an SNS topic or CloudWatch log group.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
 
 @pulumi.input_type
 class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs:
@@ -459,5 +567,68 @@ class MultiplexprogramMultiplexVideoSettingsArgs:
         The video configuration for each program in a multiplex.
         """
         pass
+
+
+@pulumi.input_type
+class NetworkIpPoolArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None):
+        """
+        IP address cidr pool
+        :param pulumi.Input[str] cidr: IP address cidr pool
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address cidr pool
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+
+@pulumi.input_type
+class NetworkRouteArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None,
+                 gateway: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cidr: Ip address cidr
+        :param pulumi.Input[str] gateway: IP address for the route packet paths
+        """
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        Ip address cidr
+        """
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address for the route packet paths
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway", value)
 
 

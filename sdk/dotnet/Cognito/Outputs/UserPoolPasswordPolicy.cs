@@ -24,19 +24,19 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// </summary>
         public readonly int? PasswordHistorySize;
         /// <summary>
-        /// In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+        /// The requirement in a password policy that users must include at least one lowercase letter in their password.
         /// </summary>
         public readonly bool? RequireLowercase;
         /// <summary>
-        /// In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+        /// The requirement in a password policy that users must include at least one number in their password.
         /// </summary>
         public readonly bool? RequireNumbers;
         /// <summary>
-        /// In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
+        /// The requirement in a password policy that users must include at least one symbol in their password.
         /// </summary>
         public readonly bool? RequireSymbols;
         /// <summary>
-        /// In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+        /// The requirement in a password policy that users must include at least one uppercase letter in their password.
         /// </summary>
         public readonly bool? RequireUppercase;
         /// <summary>

@@ -16,12 +16,20 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
     public sealed class CrossAccountAttachmentResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
+        /// 
+        /// For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
+        /// </summary>
+        [Input("cidr")]
+        public Input<string>? Cidr { get; set; }
+
+        /// <summary>
         /// The endpoint ID for the endpoint that is specified as a AWS resource.
         /// 
         /// An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
         /// </summary>
-        [Input("endpointId", required: true)]
-        public Input<string> EndpointId { get; set; } = null!;
+        [Input("endpointId")]
+        public Input<string>? EndpointId { get; set; }
 
         /// <summary>
         /// The AWS Region where a shared endpoint resource is located.

@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Displays whether this is a period-based SLO or a request-based SLO.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveEvaluationType? EvaluationType;
+        /// <summary>
         /// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         /// </summary>
         public readonly Outputs.ServiceLevelObjectiveGoal? Goal;
@@ -78,7 +82,11 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// </summary>
         public readonly int? LastUpdatedTime;
         /// <summary>
-        /// A structure containing information about the performance metric that this SLO monitors.
+        /// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+        /// </summary>
+        public readonly Outputs.ServiceLevelObjectiveRequestBasedSli? RequestBasedSli;
+        /// <summary>
+        /// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
         /// </summary>
         public readonly Outputs.ServiceLevelObjectiveSli? Sli;
         /// <summary>
@@ -96,9 +104,13 @@ namespace Pulumi.AwsNative.ApplicationSignals
 
             string? description,
 
+            Pulumi.AwsNative.ApplicationSignals.ServiceLevelObjectiveEvaluationType? evaluationType,
+
             Outputs.ServiceLevelObjectiveGoal? goal,
 
             int? lastUpdatedTime,
+
+            Outputs.ServiceLevelObjectiveRequestBasedSli? requestBasedSli,
 
             Outputs.ServiceLevelObjectiveSli? sli,
 
@@ -107,8 +119,10 @@ namespace Pulumi.AwsNative.ApplicationSignals
             Arn = arn;
             CreatedTime = createdTime;
             Description = description;
+            EvaluationType = evaluationType;
             Goal = goal;
             LastUpdatedTime = lastUpdatedTime;
+            RequestBasedSli = requestBasedSli;
             Sli = sli;
             Tags = tags;
         }

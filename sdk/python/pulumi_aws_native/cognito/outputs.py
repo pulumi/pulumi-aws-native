@@ -632,13 +632,15 @@ class UserPoolAdminCreateUserConfig(dict):
                  invite_message_template: Optional['outputs.UserPoolInviteMessageTemplate'] = None,
                  unused_account_validity_days: Optional[int] = None):
         """
-        :param bool allow_admin_create_user_only: Set to `True` if only the administrator is allowed to create user profiles. Set to `False` if users can sign themselves up via an app.
+        :param bool allow_admin_create_user_only: The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
         :param 'UserPoolInviteMessageTemplate' invite_message_template: The message template to be used for the welcome message to new users.
                
                See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
-        :param int unused_account_validity_days: The user account expiration limit, in days, after which a new account that hasn't signed in is no longer usable. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
+        :param int unused_account_validity_days: This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
                
-               > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
+               The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
+               
+               The default value for this parameter is 7.
         """
         if allow_admin_create_user_only is not None:
             pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
@@ -651,7 +653,7 @@ class UserPoolAdminCreateUserConfig(dict):
     @pulumi.getter(name="allowAdminCreateUserOnly")
     def allow_admin_create_user_only(self) -> Optional[bool]:
         """
-        Set to `True` if only the administrator is allowed to create user profiles. Set to `False` if users can sign themselves up via an app.
+        The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
         """
         return pulumi.get(self, "allow_admin_create_user_only")
 
@@ -669,9 +671,11 @@ class UserPoolAdminCreateUserConfig(dict):
     @pulumi.getter(name="unusedAccountValidityDays")
     def unused_account_validity_days(self) -> Optional[int]:
         """
-        The user account expiration limit, in days, after which a new account that hasn't signed in is no longer usable. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `"RESEND"` for the `MessageAction` parameter. The default value for this parameter is 7.
+        This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 
-        > If you set a value for `TemporaryPasswordValidityDays` in `PasswordPolicy` , that value will be used, and `UnusedAccountValidityDays` will be no longer be an available parameter for that user pool.
+        The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
+
+        The default value for this parameter is 7.
         """
         return pulumi.get(self, "unused_account_validity_days")
 
@@ -741,9 +745,9 @@ class UserPoolClientAnalyticsConfiguration(dict):
                  user_data_shared: Optional[bool] = None):
         """
         :param str application_arn: The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
-        :param str application_id: The application ID for an Amazon Pinpoint application.
-        :param str external_id: The external ID.
-        :param str role_arn: The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        :param str application_id: Your Amazon Pinpoint project ID.
+        :param str external_id: The [external ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) of the role that Amazon Cognito assumes to send analytics data to Amazon Pinpoint.
+        :param str role_arn: The ARN of an AWS Identity and Access Management role that has the permissions required for Amazon Cognito to publish events to Amazon Pinpoint analytics.
         :param bool user_data_shared: If `UserDataShared` is `true` , Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.
         """
         if application_arn is not None:
@@ -769,7 +773,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[str]:
         """
-        The application ID for an Amazon Pinpoint application.
+        Your Amazon Pinpoint project ID.
         """
         return pulumi.get(self, "application_id")
 
@@ -777,7 +781,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[str]:
         """
-        The external ID.
+        The [external ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) of the role that Amazon Cognito assumes to send analytics data to Amazon Pinpoint.
         """
         return pulumi.get(self, "external_id")
 
@@ -785,7 +789,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
-        The ARN of an AWS Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.
+        The ARN of an AWS Identity and Access Management role that has the permissions required for Amazon Cognito to publish events to Amazon Pinpoint analytics.
         """
         return pulumi.get(self, "role_arn")
 
@@ -826,9 +830,9 @@ class UserPoolClientTokenValidityUnits(dict):
                  id_token: Optional[str] = None,
                  refresh_token: Optional[str] = None):
         """
-        :param str access_token: A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is hours. `AccessTokenValidity` duration can range from five minutes to one day.
-        :param str id_token: A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is hours. `IdTokenValidity` duration can range from five minutes to one day.
-        :param str refresh_token: A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is days. `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
+        :param str access_token: A time unit for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is `hours` . `AccessTokenValidity` duration can range from five minutes to one day.
+        :param str id_token: A time unit for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is `hours` . `IdTokenValidity` duration can range from five minutes to one day.
+        :param str refresh_token: A time unit for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is `days` . `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -841,7 +845,7 @@ class UserPoolClientTokenValidityUnits(dict):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[str]:
         """
-        A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is hours. `AccessTokenValidity` duration can range from five minutes to one day.
+        A time unit for the value that you set in the `AccessTokenValidity` parameter. The default `AccessTokenValidity` time unit is `hours` . `AccessTokenValidity` duration can range from five minutes to one day.
         """
         return pulumi.get(self, "access_token")
 
@@ -849,7 +853,7 @@ class UserPoolClientTokenValidityUnits(dict):
     @pulumi.getter(name="idToken")
     def id_token(self) -> Optional[str]:
         """
-        A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is hours. `IdTokenValidity` duration can range from five minutes to one day.
+        A time unit for the value that you set in the `IdTokenValidity` parameter. The default `IdTokenValidity` time unit is `hours` . `IdTokenValidity` duration can range from five minutes to one day.
         """
         return pulumi.get(self, "id_token")
 
@@ -857,7 +861,7 @@ class UserPoolClientTokenValidityUnits(dict):
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[str]:
         """
-        A time unit of `seconds` , `minutes` , `hours` , or `days` for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is days. `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
+        A time unit for the value that you set in the `RefreshTokenValidity` parameter. The default `RefreshTokenValidity` time unit is `days` . `RefreshTokenValidity` duration can range from 60 minutes to 10 years.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1311,24 +1315,22 @@ class UserPoolLambdaConfig(dict):
                  user_migration: Optional[str] = None,
                  verify_auth_challenge_response: Optional[str] = None):
         """
-        :param str create_auth_challenge: Creates an authentication challenge.
+        :param str create_auth_challenge: The configuration of a create auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         :param 'UserPoolCustomEmailSender' custom_email_sender: A custom email sender AWS Lambda trigger.
-        :param str custom_message: A custom Message AWS Lambda trigger.
+        :param str custom_message: A custom message Lambda trigger. This trigger is an opportunity to customize all SMS and email messages from your user pool. When a custom message trigger is active, your user pool routes all messages to a Lambda function that returns a runtime-customized message subject and body for your user pool to deliver to a user.
         :param 'UserPoolCustomSmsSender' custom_sms_sender: A custom SMS sender AWS Lambda trigger.
-        :param str define_auth_challenge: Defines the authentication challenge.
+        :param str define_auth_challenge: The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         :param str kms_key_id: The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
-        :param str post_authentication: A post-authentication AWS Lambda trigger.
-        :param str post_confirmation: A post-confirmation AWS Lambda trigger.
-        :param str pre_authentication: A pre-authentication AWS Lambda trigger.
-        :param str pre_sign_up: A pre-registration AWS Lambda trigger.
-        :param str pre_token_generation: The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+        :param str post_authentication: The configuration of a [post authentication Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html) in a user pool. This trigger can take custom actions after a user signs in.
+        :param str post_confirmation: The configuration of a [post confirmation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html) in a user pool. This trigger can take custom actions after a user confirms their user account and their email address or phone number.
+        :param str pre_authentication: The configuration of a [pre authentication trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html) in a user pool. This trigger can evaluate and modify user sign-in events.
+        :param str pre_sign_up: The configuration of a [pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) in a user pool. This trigger evaluates new users and can bypass confirmation, [link a federated user profile](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html) , or block sign-up requests.
+        :param str pre_token_generation: The legacy configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool.
                
                Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
-               
-               You can set ``
-        :param 'UserPoolPreTokenGenerationConfig' pre_token_generation_config: The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
-        :param str user_migration: The user migration Lambda config type.
-        :param str verify_auth_challenge_response: Verifies the authentication challenge response.
+        :param 'UserPoolPreTokenGenerationConfig' pre_token_generation_config: The detailed configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
+        :param str user_migration: The configuration of a [migrate user Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html) in a user pool. This trigger can create user profiles when users sign in or attempt to reset their password with credentials that don't exist yet.
+        :param str verify_auth_challenge_response: The configuration of a verify auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
         if create_auth_challenge is not None:
             pulumi.set(__self__, "create_auth_challenge", create_auth_challenge)
@@ -1363,7 +1365,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="createAuthChallenge")
     def create_auth_challenge(self) -> Optional[str]:
         """
-        Creates an authentication challenge.
+        The configuration of a create auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
         return pulumi.get(self, "create_auth_challenge")
 
@@ -1379,7 +1381,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="customMessage")
     def custom_message(self) -> Optional[str]:
         """
-        A custom Message AWS Lambda trigger.
+        A custom message Lambda trigger. This trigger is an opportunity to customize all SMS and email messages from your user pool. When a custom message trigger is active, your user pool routes all messages to a Lambda function that returns a runtime-customized message subject and body for your user pool to deliver to a user.
         """
         return pulumi.get(self, "custom_message")
 
@@ -1395,7 +1397,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="defineAuthChallenge")
     def define_auth_challenge(self) -> Optional[str]:
         """
-        Defines the authentication challenge.
+        The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
         return pulumi.get(self, "define_auth_challenge")
 
@@ -1411,7 +1413,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="postAuthentication")
     def post_authentication(self) -> Optional[str]:
         """
-        A post-authentication AWS Lambda trigger.
+        The configuration of a [post authentication Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html) in a user pool. This trigger can take custom actions after a user signs in.
         """
         return pulumi.get(self, "post_authentication")
 
@@ -1419,7 +1421,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="postConfirmation")
     def post_confirmation(self) -> Optional[str]:
         """
-        A post-confirmation AWS Lambda trigger.
+        The configuration of a [post confirmation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html) in a user pool. This trigger can take custom actions after a user confirms their user account and their email address or phone number.
         """
         return pulumi.get(self, "post_confirmation")
 
@@ -1427,7 +1429,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preAuthentication")
     def pre_authentication(self) -> Optional[str]:
         """
-        A pre-authentication AWS Lambda trigger.
+        The configuration of a [pre authentication trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html) in a user pool. This trigger can evaluate and modify user sign-in events.
         """
         return pulumi.get(self, "pre_authentication")
 
@@ -1435,7 +1437,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preSignUp")
     def pre_sign_up(self) -> Optional[str]:
         """
-        A pre-registration AWS Lambda trigger.
+        The configuration of a [pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) in a user pool. This trigger evaluates new users and can bypass confirmation, [link a federated user profile](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html) , or block sign-up requests.
         """
         return pulumi.get(self, "pre_sign_up")
 
@@ -1443,11 +1445,9 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preTokenGeneration")
     def pre_token_generation(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+        The legacy configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool.
 
         Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
-
-        You can set ``
         """
         return pulumi.get(self, "pre_token_generation")
 
@@ -1455,7 +1455,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preTokenGenerationConfig")
     def pre_token_generation_config(self) -> Optional['outputs.UserPoolPreTokenGenerationConfig']:
         """
-        The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
+        The detailed configuration of a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) in a user pool. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
         """
         return pulumi.get(self, "pre_token_generation_config")
 
@@ -1463,7 +1463,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="userMigration")
     def user_migration(self) -> Optional[str]:
         """
-        The user migration Lambda config type.
+        The configuration of a [migrate user Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html) in a user pool. This trigger can create user profiles when users sign in or attempt to reset their password with credentials that don't exist yet.
         """
         return pulumi.get(self, "user_migration")
 
@@ -1471,7 +1471,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="verifyAuthChallengeResponse")
     def verify_auth_challenge_response(self) -> Optional[str]:
         """
-        Verifies the authentication challenge response.
+        The configuration of a verify auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
         return pulumi.get(self, "verify_auth_challenge_response")
 
@@ -1570,10 +1570,10 @@ class UserPoolPasswordPolicy(dict):
         :param int password_history_size: The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
                
                Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
-        :param bool require_lowercase: In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
-        :param bool require_numbers: In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
-        :param bool require_symbols: In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
-        :param bool require_uppercase: In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+        :param bool require_lowercase: The requirement in a password policy that users must include at least one lowercase letter in their password.
+        :param bool require_numbers: The requirement in a password policy that users must include at least one number in their password.
+        :param bool require_symbols: The requirement in a password policy that users must include at least one symbol in their password.
+        :param bool require_uppercase: The requirement in a password policy that users must include at least one uppercase letter in their password.
         :param int temporary_password_validity_days: The number of days a temporary password is valid in the password policy. If the user doesn't sign in during this time, an administrator must reset their password. Defaults to `7` . If you submit a value of `0` , Amazon Cognito treats it as a null value and sets `TemporaryPasswordValidityDays` to its default value.
                
                > When you set `TemporaryPasswordValidityDays` for a user pool, you can no longer set a value for the legacy `UnusedAccountValidityDays` parameter in that user pool.
@@ -1615,7 +1615,7 @@ class UserPoolPasswordPolicy(dict):
     @pulumi.getter(name="requireLowercase")
     def require_lowercase(self) -> Optional[bool]:
         """
-        In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+        The requirement in a password policy that users must include at least one lowercase letter in their password.
         """
         return pulumi.get(self, "require_lowercase")
 
@@ -1623,7 +1623,7 @@ class UserPoolPasswordPolicy(dict):
     @pulumi.getter(name="requireNumbers")
     def require_numbers(self) -> Optional[bool]:
         """
-        In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+        The requirement in a password policy that users must include at least one number in their password.
         """
         return pulumi.get(self, "require_numbers")
 
@@ -1631,7 +1631,7 @@ class UserPoolPasswordPolicy(dict):
     @pulumi.getter(name="requireSymbols")
     def require_symbols(self) -> Optional[bool]:
         """
-        In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
+        The requirement in a password policy that users must include at least one symbol in their password.
         """
         return pulumi.get(self, "require_symbols")
 
@@ -1639,7 +1639,7 @@ class UserPoolPasswordPolicy(dict):
     @pulumi.getter(name="requireUppercase")
     def require_uppercase(self) -> Optional[bool]:
         """
-        In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+        The requirement in a password policy that users must include at least one uppercase letter in their password.
         """
         return pulumi.get(self, "require_uppercase")
 
@@ -1676,7 +1676,7 @@ class UserPoolPolicies(dict):
     def __init__(__self__, *,
                  password_policy: Optional['outputs.UserPoolPasswordPolicy'] = None):
         """
-        :param 'UserPoolPasswordPolicy' password_policy: The password policy.
+        :param 'UserPoolPasswordPolicy' password_policy: The password policy settings for a user pool, including complexity, history, and length requirements.
         """
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
@@ -1685,7 +1685,7 @@ class UserPoolPolicies(dict):
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> Optional['outputs.UserPoolPasswordPolicy']:
         """
-        The password policy.
+        The password policy settings for a user pool, including complexity, history, and length requirements.
         """
         return pulumi.get(self, "password_policy")
 
@@ -1800,8 +1800,8 @@ class UserPoolResourceServerResourceServerScopeType(dict):
                  scope_description: str,
                  scope_name: str):
         """
-        :param str scope_description: A description of the scope.
-        :param str scope_name: The name of the scope.
+        :param str scope_description: A friendly description of a custom scope.
+        :param str scope_name: The name of the scope. Amazon Cognito renders custom scopes in the format `resourceServerIdentifier/ScopeName` . For example, if this parameter is `exampleScope` in the resource server with the identifier `exampleResourceServer` , you request and receive the scope `exampleResourceServer/exampleScope` .
         """
         pulumi.set(__self__, "scope_description", scope_description)
         pulumi.set(__self__, "scope_name", scope_name)
@@ -1810,7 +1810,7 @@ class UserPoolResourceServerResourceServerScopeType(dict):
     @pulumi.getter(name="scopeDescription")
     def scope_description(self) -> str:
         """
-        A description of the scope.
+        A friendly description of a custom scope.
         """
         return pulumi.get(self, "scope_description")
 
@@ -1818,7 +1818,7 @@ class UserPoolResourceServerResourceServerScopeType(dict):
     @pulumi.getter(name="scopeName")
     def scope_name(self) -> str:
         """
-        The name of the scope.
+        The name of the scope. Amazon Cognito renders custom scopes in the format `resourceServerIdentifier/ScopeName` . For example, if this parameter is `exampleScope` in the resource server with the identifier `exampleResourceServer` , you request and receive the scope `exampleResourceServer/exampleScope` .
         """
         return pulumi.get(self, "scope_name")
 
@@ -1846,13 +1846,13 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionType(dict):
                  event_action: str,
                  notify: bool):
         """
-        :param str event_action: The action to take in response to the account takeover action. Valid values are as follows:
+        :param str event_action: The action to take for the attempted account takeover action for the associated risk level. Valid values are as follows:
                
-               - `BLOCK` Choosing this action will block the request.
-               - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
-               - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
-               - `NO_ACTION` Allow the user to sign in.
-        :param bool notify: Flag specifying whether to send a notification.
+               - `BLOCK` : Block the request.
+               - `MFA_IF_CONFIGURED` : Present an MFA challenge if possible. MFA is possible if the user pool has active MFA methods that the user can set up. For example, if the user pool only supports SMS message MFA but the user doesn't have a phone number attribute, MFA setup isn't possible. If MFA setup isn't possible, allow the request.
+               - `MFA_REQUIRED` : Present an MFA challenge if possible. Block the request if a user hasn't set up MFA. To sign in with required MFA, users must have an email address or phone number attribute, or a registered TOTP factor.
+               - `NO_ACTION` : Take no action. Permit sign-in.
+        :param bool notify: Determines whether Amazon Cognito sends a user a notification message when your user pools assesses a user's session at the associated risk level.
         """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
@@ -1861,12 +1861,12 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionType(dict):
     @pulumi.getter(name="eventAction")
     def event_action(self) -> str:
         """
-        The action to take in response to the account takeover action. Valid values are as follows:
+        The action to take for the attempted account takeover action for the associated risk level. Valid values are as follows:
 
-        - `BLOCK` Choosing this action will block the request.
-        - `MFA_IF_CONFIGURED` Present an MFA challenge if user has configured it, else allow the request.
-        - `MFA_REQUIRED` Present an MFA challenge if user has configured it, else block the request.
-        - `NO_ACTION` Allow the user to sign in.
+        - `BLOCK` : Block the request.
+        - `MFA_IF_CONFIGURED` : Present an MFA challenge if possible. MFA is possible if the user pool has active MFA methods that the user can set up. For example, if the user pool only supports SMS message MFA but the user doesn't have a phone number attribute, MFA setup isn't possible. If MFA setup isn't possible, allow the request.
+        - `MFA_REQUIRED` : Present an MFA challenge if possible. Block the request if a user hasn't set up MFA. To sign in with required MFA, users must have an email address or phone number attribute, or a registered TOTP factor.
+        - `NO_ACTION` : Take no action. Permit sign-in.
         """
         return pulumi.get(self, "event_action")
 
@@ -1874,7 +1874,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionType(dict):
     @pulumi.getter
     def notify(self) -> bool:
         """
-        Flag specifying whether to send a notification.
+        Determines whether Amazon Cognito sends a user a notification message when your user pools assesses a user's session at the associated risk level.
         """
         return pulumi.get(self, "notify")
 
@@ -1907,9 +1907,9 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType(dict):
                  low_action: Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType'] = None,
                  medium_action: Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType'] = None):
         """
-        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' high_action: Action to take for a high risk.
-        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' low_action: Action to take for a low risk.
-        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' medium_action: Action to take for a medium risk.
+        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' high_action: The action that you assign to a high-risk assessment by advanced security features.
+        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' low_action: The action that you assign to a low-risk assessment by advanced security features.
+        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' medium_action: The action that you assign to a medium-risk assessment by advanced security features.
         """
         if high_action is not None:
             pulumi.set(__self__, "high_action", high_action)
@@ -1922,7 +1922,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType(dict):
     @pulumi.getter(name="highAction")
     def high_action(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType']:
         """
-        Action to take for a high risk.
+        The action that you assign to a high-risk assessment by advanced security features.
         """
         return pulumi.get(self, "high_action")
 
@@ -1930,7 +1930,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType(dict):
     @pulumi.getter(name="lowAction")
     def low_action(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType']:
         """
-        Action to take for a low risk.
+        The action that you assign to a low-risk assessment by advanced security features.
         """
         return pulumi.get(self, "low_action")
 
@@ -1938,7 +1938,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType(dict):
     @pulumi.getter(name="mediumAction")
     def medium_action(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType']:
         """
-        Action to take for a medium risk.
+        The action that you assign to a medium-risk assessment by advanced security features.
         """
         return pulumi.get(self, "medium_action")
 
@@ -1966,8 +1966,8 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType(di
                  actions: 'outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType',
                  notify_configuration: Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyConfigurationType'] = None):
         """
-        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType' actions: Account takeover risk configuration actions.
-        :param 'UserPoolRiskConfigurationAttachmentNotifyConfigurationType' notify_configuration: The notify configuration used to construct email notifications.
+        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType' actions: A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
+        :param 'UserPoolRiskConfigurationAttachmentNotifyConfigurationType' notify_configuration: The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
         """
         pulumi.set(__self__, "actions", actions)
         if notify_configuration is not None:
@@ -1977,7 +1977,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType(di
     @pulumi.getter
     def actions(self) -> 'outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType':
         """
-        Account takeover risk configuration actions.
+        A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
         """
         return pulumi.get(self, "actions")
 
@@ -1985,7 +1985,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType(di
     @pulumi.getter(name="notifyConfiguration")
     def notify_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyConfigurationType']:
         """
-        The notify configuration used to construct email notifications.
+        The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
         """
         return pulumi.get(self, "notify_configuration")
 
@@ -2012,7 +2012,7 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType(dict)
     def __init__(__self__, *,
                  event_action: str):
         """
-        :param str event_action: The event action.
+        :param str event_action: The action that Amazon Cognito takes when it detects compromised credentials.
         """
         pulumi.set(__self__, "event_action", event_action)
 
@@ -2020,7 +2020,7 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType(dict)
     @pulumi.getter(name="eventAction")
     def event_action(self) -> str:
         """
-        The event action.
+        The action that Amazon Cognito takes when it detects compromised credentials.
         """
         return pulumi.get(self, "event_action")
 
@@ -2048,8 +2048,8 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfiguration
                  actions: 'outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType',
                  event_filter: Optional[Sequence[str]] = None):
         """
-        :param 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType' actions: The compromised credentials risk configuration actions.
-        :param Sequence[str] event_filter: Perform the action for these events. The default is to perform all events if no event filter is specified.
+        :param 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType' actions: Settings for the actions that you want your user pool to take when Amazon Cognito detects compromised credentials.
+        :param Sequence[str] event_filter: Settings for the sign-in activity where you want to configure compromised-credentials actions. Defaults to all events.
         """
         pulumi.set(__self__, "actions", actions)
         if event_filter is not None:
@@ -2059,7 +2059,7 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfiguration
     @pulumi.getter
     def actions(self) -> 'outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType':
         """
-        The compromised credentials risk configuration actions.
+        Settings for the actions that you want your user pool to take when Amazon Cognito detects compromised credentials.
         """
         return pulumi.get(self, "actions")
 
@@ -2067,7 +2067,7 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfiguration
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> Optional[Sequence[str]]:
         """
-        Perform the action for these events. The default is to perform all events if no event filter is specified.
+        Settings for the sign-in activity where you want to configure compromised-credentials actions. Defaults to all events.
         """
         return pulumi.get(self, "event_filter")
 
@@ -2110,11 +2110,11 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
                  reply_to: Optional[str] = None):
         """
         :param str source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
-        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' block_email: Email template used when a detected risk event is blocked.
-        :param str from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
-        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' no_action_email: The email template used when a detected risk event is allowed.
-        :param str reply_to: The destination to which the receiver of an email should reply to.
+        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' block_email: The template for the email message that your user pool sends when a detected risk event is blocked.
+        :param str from_: The email address that sends the email message. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' mfa_email: The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.
+        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' no_action_email: The template for the email message that your user pool sends when no action is taken in response to a detected risk.
+        :param str reply_to: The reply-to email address of an email template.
         """
         pulumi.set(__self__, "source_arn", source_arn)
         if block_email is not None:
@@ -2140,7 +2140,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="blockEmail")
     def block_email(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType']:
         """
-        Email template used when a detected risk event is blocked.
+        The template for the email message that your user pool sends when a detected risk event is blocked.
         """
         return pulumi.get(self, "block_email")
 
@@ -2148,7 +2148,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="from")
     def from_(self) -> Optional[str]:
         """
-        The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        The email address that sends the email message. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
         """
         return pulumi.get(self, "from_")
 
@@ -2156,7 +2156,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="mfaEmail")
     def mfa_email(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType']:
         """
-        The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
+        The template for the email message that your user pool sends when MFA is challenged in response to a detected risk.
         """
         return pulumi.get(self, "mfa_email")
 
@@ -2164,7 +2164,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="noActionEmail")
     def no_action_email(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType']:
         """
-        The email template used when a detected risk event is allowed.
+        The template for the email message that your user pool sends when no action is taken in response to a detected risk.
         """
         return pulumi.get(self, "no_action_email")
 
@@ -2172,7 +2172,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="replyTo")
     def reply_to(self) -> Optional[str]:
         """
-        The destination to which the receiver of an email should reply to.
+        The reply-to email address of an email template.
         """
         return pulumi.get(self, "reply_to")
 
@@ -2203,9 +2203,9 @@ class UserPoolRiskConfigurationAttachmentNotifyEmailType(dict):
                  html_body: Optional[str] = None,
                  text_body: Optional[str] = None):
         """
-        :param str subject: The email subject.
-        :param str html_body: The email HTML body.
-        :param str text_body: The email text body.
+        :param str subject: The subject of the threat protection email notification.
+        :param str html_body: The body of an email notification formatted in HTML. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
+        :param str text_body: The body of an email notification formatted in plaintext. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
         """
         pulumi.set(__self__, "subject", subject)
         if html_body is not None:
@@ -2217,7 +2217,7 @@ class UserPoolRiskConfigurationAttachmentNotifyEmailType(dict):
     @pulumi.getter
     def subject(self) -> str:
         """
-        The email subject.
+        The subject of the threat protection email notification.
         """
         return pulumi.get(self, "subject")
 
@@ -2225,7 +2225,7 @@ class UserPoolRiskConfigurationAttachmentNotifyEmailType(dict):
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> Optional[str]:
         """
-        The email HTML body.
+        The body of an email notification formatted in HTML. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
         """
         return pulumi.get(self, "html_body")
 
@@ -2233,7 +2233,7 @@ class UserPoolRiskConfigurationAttachmentNotifyEmailType(dict):
     @pulumi.getter(name="textBody")
     def text_body(self) -> Optional[str]:
         """
-        The email text body.
+        The body of an email notification formatted in plaintext. Choose an `HtmlBody` or a `TextBody` to send an HTML-formatted or plaintext message, respectively.
         """
         return pulumi.get(self, "text_body")
 
@@ -2263,8 +2263,8 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType(dict):
                  blocked_ip_range_list: Optional[Sequence[str]] = None,
                  skipped_ip_range_list: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] blocked_ip_range_list: Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
-        :param Sequence[str] skipped_ip_range_list: Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        :param Sequence[str] blocked_ip_range_list: An always-block IP address list. Overrides the risk decision and always blocks authentication requests. This parameter is displayed and set in CIDR notation.
+        :param Sequence[str] skipped_ip_range_list: An always-allow IP address list. Risk detection isn't performed on the IP addresses in this range list. This parameter is displayed and set in CIDR notation.
         """
         if blocked_ip_range_list is not None:
             pulumi.set(__self__, "blocked_ip_range_list", blocked_ip_range_list)
@@ -2275,7 +2275,7 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType(dict):
     @pulumi.getter(name="blockedIpRangeList")
     def blocked_ip_range_list(self) -> Optional[Sequence[str]]:
         """
-        Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        An always-block IP address list. Overrides the risk decision and always blocks authentication requests. This parameter is displayed and set in CIDR notation.
         """
         return pulumi.get(self, "blocked_ip_range_list")
 
@@ -2283,7 +2283,7 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType(dict):
     @pulumi.getter(name="skippedIpRangeList")
     def skipped_ip_range_list(self) -> Optional[Sequence[str]]:
         """
-        Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        An always-allow IP address list. Risk detection isn't performed on the IP addresses in this range list. This parameter is displayed and set in CIDR notation.
         """
         return pulumi.get(self, "skipped_ip_range_list")
 
@@ -2504,7 +2504,7 @@ class UserPoolStringAttributeConstraints(dict):
                  min_length: Optional[str] = None):
         """
         :param str max_length: The maximum length of a string attribute value. Must be a number less than or equal to `2^1023` , represented as a string with a length of 131072 characters or fewer.
-        :param str min_length: The minimum length.
+        :param str min_length: The minimum length of a string attribute value.
         """
         if max_length is not None:
             pulumi.set(__self__, "max_length", max_length)
@@ -2523,7 +2523,7 @@ class UserPoolStringAttributeConstraints(dict):
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[str]:
         """
-        The minimum length.
+        The minimum length of a string attribute value.
         """
         return pulumi.get(self, "min_length")
 
@@ -2628,8 +2628,8 @@ class UserPoolUsernameConfiguration(dict):
                
                Valid values include:
                
-               - **True** - Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
-               - **False** - Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
+               - **true** - Enables case sensitivity for all username input. When this option is set to `true` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
+               - **false** - Enables case insensitivity for all username input. For example, when this option is set to `false` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
         """
         if case_sensitive is not None:
             pulumi.set(__self__, "case_sensitive", case_sensitive)
@@ -2642,8 +2642,8 @@ class UserPoolUsernameConfiguration(dict):
 
         Valid values include:
 
-        - **True** - Enables case sensitivity for all username input. When this option is set to `True` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
-        - **False** - Enables case insensitivity for all username input. For example, when this option is set to `False` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
+        - **true** - Enables case sensitivity for all username input. When this option is set to `true` , users must sign in using the exact capitalization of their given username, such as "UserName". This is the default value.
+        - **false** - Enables case insensitivity for all username input. For example, when this option is set to `false` , users can sign in using `username` , `USERNAME` , or `UserName` . This option also enables both `preferred_username` and `email` alias to be case insensitive, in addition to the `username` attribute.
         """
         return pulumi.get(self, "case_sensitive")
 
@@ -2685,7 +2685,9 @@ class UserPoolVerificationMessageTemplate(dict):
                  email_subject_by_link: Optional[str] = None,
                  sms_message: Optional[str] = None):
         """
-        :param str default_email_option: The default email option.
+        :param str default_email_option: The configuration of verification emails to contain a clickable link or a verification code.
+               
+               For link, your template body must contain link text in the format `{##Click here##}` . "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format `{####}` .
         :param str email_message: The template for email messages that Amazon Cognito sends to your users. You can set an `EmailMessage` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
         :param str email_message_by_link: The email message template for sending a confirmation link to the user. You can set an `EmailMessageByLink` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
         :param str email_subject: The subject line for the email message template. You can set an `EmailSubject` template only if the value of [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` . When your [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is `DEVELOPER` , your user pool sends email messages with your own Amazon SES configuration.
@@ -2709,7 +2711,9 @@ class UserPoolVerificationMessageTemplate(dict):
     @pulumi.getter(name="defaultEmailOption")
     def default_email_option(self) -> Optional[str]:
         """
-        The default email option.
+        The configuration of verification emails to contain a clickable link or a verification code.
+
+        For link, your template body must contain link text in the format `{##Click here##}` . "Click here" in the example is a customizable string. For code, your template body must contain a code placeholder in the format `{####}` .
         """
         return pulumi.get(self, "default_email_option")
 

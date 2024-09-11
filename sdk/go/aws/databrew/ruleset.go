@@ -26,7 +26,7 @@ type Ruleset struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
@@ -46,6 +46,7 @@ func NewRuleset(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
+		"tags[*]",
 		"targetArn",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -91,7 +92,7 @@ type rulesetArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -107,7 +108,7 @@ type RulesetArgs struct {
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-	Tags aws.TagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 	// Arn of the target resource (dataset) to apply the ruleset to
 	TargetArn pulumi.StringInput
 }
@@ -167,8 +168,8 @@ func (o RulesetOutput) Rules() RulesetRuleArrayOutput {
 // An array of key-value pairs to apply to this resource.
 //
 // For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-func (o RulesetOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *Ruleset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+func (o RulesetOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Ruleset) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 // Arn of the target resource (dataset) to apply the ruleset to

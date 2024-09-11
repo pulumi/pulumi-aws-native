@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<string>? _command;
 
         /// <summary>
-        /// The command that's passed to the container. This parameter maps to ``Cmd`` in the docker conainer create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
+        /// The command that's passed to the container. This parameter maps to ``Cmd`` in the docker container create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
         /// </summary>
         public InputList<string> Command
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker conainer create commandand the ``--cpu-shares`` option to docker run.
+        /// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
         ///  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
         ///   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
         ///   Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the docker conainer create command.
+        /// When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the docker container create command.
         ///   This parameter is not supported for Windows containers.
         /// </summary>
         [Input("disableNetworking")]
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<string>? _dnsSearchDomains;
 
         /// <summary>
-        /// A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the docker conainer create command and the ``--dns-search`` option to docker run.
+        /// A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the docker container create command and the ``--dns-search`` option to docker run.
         ///   This parameter is not supported for Windows containers.
         /// </summary>
         public InputList<string> DnsSearchDomains
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<string>? _dnsServers;
 
         /// <summary>
-        /// A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the the docker conainer create command and the ``--dns`` option to docker run.
+        /// A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the docker container create command and the ``--dns`` option to docker run.
         ///   This parameter is not supported for Windows containers.
         /// </summary>
         public InputList<string> DnsServers
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputMap<string>? _dockerLabels;
 
         /// <summary>
-        /// A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the docker conainer create command and the ``--label`` option to docker run. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+        /// A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the docker container create command and the ``--label`` option to docker run. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
         /// </summary>
         public InputMap<string> DockerLabels
         {
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         /// A list of strings to provide custom configuration for multiple security systems. This field isn't valid for containers in tasks using the Fargate launch type.
         ///  For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems.
         ///  For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*.
-        ///  This parameter maps to ``SecurityOpt`` in the docker conainer create command and the ``--security-opt`` option to docker run.
+        ///  This parameter maps to ``SecurityOpt`` in the docker container create command and the ``--security-opt`` option to docker run.
         ///   The Amazon ECS container agent running on a container instance must register with the ``ECS_SELINUX_CAPABLE=true`` or ``ECS_APPARMOR_CAPABLE=true`` environment variables before containers placed on that instance can use these security options. For more information, see [Amazon ECS Container Agent Configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
         ///   Valid values: "no-new-privileges" | "apparmor:PROFILE" | "label:value" | "credentialspec:CredentialSpecFilePath"
         /// </summary>
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
         /// <summary>
         /// Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.
-        ///   The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in tthe docker conainer create command and the ``--entrypoint`` option to docker run.
+        ///   The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in tthe docker container create command and the ``--entrypoint`` option to docker run.
         /// </summary>
         public InputList<string> EntryPoint
         {
@@ -155,7 +155,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<Inputs.TaskDefinitionKeyValuePairArgs>? _environment;
 
         /// <summary>
-        /// The environment variables to pass to a container. This parameter maps to ``Env`` in the docker conainer create command and the ``--env`` option to docker run.
+        /// The environment variables to pass to a container. This parameter maps to ``Env`` in the docker container create command and the ``--env`` option to docker run.
         ///   We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
         /// </summary>
         public InputList<Inputs.TaskDefinitionKeyValuePairArgs> Environment
@@ -189,7 +189,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<Inputs.TaskDefinitionHostEntryArgs>? _extraHosts;
 
         /// <summary>
-        /// A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the docker conainer create command and the ``--add-host`` option to docker run.
+        /// A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the docker container create command and the ``--add-host`` option to docker run.
         ///   This parameter isn't supported for Windows containers or tasks that use the ``awsvpc`` network mode.
         /// </summary>
         public InputList<Inputs.TaskDefinitionHostEntryArgs> ExtraHosts
@@ -205,20 +205,20 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<Inputs.TaskDefinitionFirelensConfigurationArgs>? FirelensConfiguration { get; set; }
 
         /// <summary>
-        /// The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the docker conainer create command and the ``HEALTHCHECK`` parameter of docker run.
+        /// The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the docker container create command and the ``HEALTHCHECK`` parameter of docker run.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.TaskDefinitionHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// The hostname to use for your container. This parameter maps to ``Hostname`` in thethe docker conainer create command and the ``--hostname`` option to docker run.
+        /// The hostname to use for your container. This parameter maps to ``Hostname`` in thethe docker container create command and the ``--hostname`` option to docker run.
         ///   The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the docker conainer create command and the ``IMAGE`` parameter of docker run.
+        /// The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the docker container create command and the ``IMAGE`` parameter of docker run.
         ///   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image aren't propagated to already running tasks.
         ///   +  Images in Amazon ECR repositories can be specified by either using the full ``registry/repository:tag`` or ``registry/repository@digest``. For example, ``012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;:latest`` or ``012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;@sha256:94afd1f2e64d908bc90dbca0035a5b567EXAMPLE``. 
         ///   +  Images in official repositories on Docker Hub use a single name (for example, ``ubuntu`` or ``mongo``).
@@ -229,7 +229,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
-        /// When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the docker conainer create command and the ``--interactive`` option to docker run.
+        /// When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the docker container create command and the ``--interactive`` option to docker run.
         /// </summary>
         [Input("interactive")]
         public Input<bool>? Interactive { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<string>? _links;
 
         /// <summary>
-        /// The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.. This parameter maps to ``Links`` in the docker conainer create command and the ``--link`` option to docker run.
+        /// The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.. This parameter maps to ``Links`` in the docker container create command and the ``--link`` option to docker run.
         ///   This parameter is not supported for Windows containers.
         ///    Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings. Network isolation is achieved on the container instance using security groups and VPC settings.
         /// </summary>
@@ -276,7 +276,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<int>? Memory { get; set; }
 
         /// <summary>
-        /// The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the the docker conainer create command and the ``--memory-reservation`` option to docker run.
+        /// The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the docker container create command and the ``--memory-reservation`` option to docker run.
         ///  If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definition. If you specify both, ``memory`` must be greater than ``memoryReservation``. If you specify ``memoryReservation``, then that value is subtracted from the available memory resources for the container instance where the container is placed. Otherwise, the value of ``memory`` is used.
         ///  For example, if your container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of memory for short periods of time, you can set a ``memoryReservation`` of 128 MiB, and a ``memory`` hard limit of 300 MiB. This configuration would allow the container to only reserve 128 MiB of memory from the remaining resources on the container instance, but also allow the container to consume more memory resources when needed.
         ///  The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container. So, don't specify less than 6 MiB of memory for your containers. 
@@ -290,7 +290,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
         /// <summary>
         /// The mount points for data volumes in your container.
-        ///  This parameter maps to ``Volumes`` in the the docker conainer create command and the ``--volume`` option to docker run.
+        ///  This parameter maps to ``Volumes`` in the docker container create command and the ``--volume`` option to docker run.
         ///  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives.
         /// </summary>
         public InputList<Inputs.TaskDefinitionMountPointArgs> MountPoints
@@ -300,7 +300,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in tthe docker conainer create command and the ``--name`` option to docker run.
+        /// The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in tthe docker container create command and the ``--name`` option to docker run.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -322,20 +322,20 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the the docker conainer create command and the ``--privileged`` option to docker run
+        /// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the docker container create command and the ``--privileged`` option to docker run
         ///   This parameter is not supported for Windows containers or tasks run on FARGATElong.
         /// </summary>
         [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
 
         /// <summary>
-        /// When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in tthe docker conainer create command and the ``--tty`` option to docker run.
+        /// When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in tthe docker container create command and the ``--tty`` option to docker run.
         /// </summary>
         [Input("pseudoTerminal")]
         public Input<bool>? PseudoTerminal { get; set; }
 
         /// <summary>
-        /// When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the docker conainer create command and the ``--read-only`` option to docker run.
+        /// When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the docker container create command and the ``--read-only`` option to docker run.
         ///   This parameter is not supported for Windows containers.
         /// </summary>
         [Input("readonlyRootFilesystem")]
@@ -360,7 +360,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// The restart policy for a container. When you set up a restart policy, Amazon ECS can restart the container without needing to replace the task. For more information, see [Restart individual containers in Amazon ECS tasks with container restart policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html) in the *Amazon Elastic Container Service Developer Guide*.
         /// </summary>
         [Input("restartPolicy")]
         public Input<Inputs.TaskDefinitionRestartPolicyArgs>? RestartPolicy { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<Inputs.TaskDefinitionSystemControlArgs>? _systemControls;
 
         /// <summary>
-        /// A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker conainer create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+        /// A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
         /// </summary>
         public InputList<Inputs.TaskDefinitionSystemControlArgs> SystemControls
         {
@@ -429,7 +429,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// The user to use inside the container. This parameter maps to ``User`` in the docker conainer create command and the ``--user`` option to docker run.
+        /// The user to use inside the container. This parameter maps to ``User`` in the docker container create command and the ``--user`` option to docker run.
         ///   When running tasks using the ``host`` network mode, don't run containers using the root user (UID 0). We recommend using a non-root user for better security.
         ///   You can specify the ``user`` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.
         ///   +   ``user`` 
@@ -448,7 +448,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<Inputs.TaskDefinitionVolumeFromArgs>? _volumesFrom;
 
         /// <summary>
-        /// Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in tthe docker conainer create command and the ``--volumes-from`` option to docker run.
+        /// Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in tthe docker container create command and the ``--volumes-from`` option to docker run.
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeFromArgs> VolumesFrom
         {
@@ -457,7 +457,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the docker conainer create command and the ``--workdir`` option to docker run.
+        /// The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the docker container create command and the ``--workdir`` option to docker run.
         /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }

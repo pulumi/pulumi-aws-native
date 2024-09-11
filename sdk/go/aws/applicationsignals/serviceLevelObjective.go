@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -23,14 +22,18 @@ type ServiceLevelObjective struct {
 	CreatedTime pulumi.IntOutput `pulumi:"createdTime"`
 	// An optional description for this SLO. Default is 'No description'
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Displays whether this is a period-based SLO or a request-based SLO.
+	EvaluationType ServiceLevelObjectiveEvaluationTypeOutput `pulumi:"evaluationType"`
 	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 	Goal ServiceLevelObjectiveGoalPtrOutput `pulumi:"goal"`
 	// Epoch time in seconds of the time that this SLO was most recently updated
 	LastUpdatedTime pulumi.IntOutput `pulumi:"lastUpdatedTime"`
 	// The name of this SLO.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A structure containing information about the performance metric that this SLO monitors.
-	Sli ServiceLevelObjectiveSliOutput `pulumi:"sli"`
+	// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+	RequestBasedSli ServiceLevelObjectiveRequestBasedSliPtrOutput `pulumi:"requestBasedSli"`
+	// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+	Sli ServiceLevelObjectiveSliPtrOutput `pulumi:"sli"`
 	// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -41,12 +44,9 @@ type ServiceLevelObjective struct {
 func NewServiceLevelObjective(ctx *pulumi.Context,
 	name string, args *ServiceLevelObjectiveArgs, opts ...pulumi.ResourceOption) (*ServiceLevelObjective, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ServiceLevelObjectiveArgs{}
 	}
 
-	if args.Sli == nil {
-		return nil, errors.New("invalid value for required argument 'Sli'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
 	})
@@ -90,8 +90,10 @@ type serviceLevelObjectiveArgs struct {
 	Goal *ServiceLevelObjectiveGoal `pulumi:"goal"`
 	// The name of this SLO.
 	Name *string `pulumi:"name"`
-	// A structure containing information about the performance metric that this SLO monitors.
-	Sli ServiceLevelObjectiveSli `pulumi:"sli"`
+	// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+	RequestBasedSli *ServiceLevelObjectiveRequestBasedSli `pulumi:"requestBasedSli"`
+	// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+	Sli *ServiceLevelObjectiveSli `pulumi:"sli"`
 	// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -106,8 +108,10 @@ type ServiceLevelObjectiveArgs struct {
 	Goal ServiceLevelObjectiveGoalPtrInput
 	// The name of this SLO.
 	Name pulumi.StringPtrInput
-	// A structure containing information about the performance metric that this SLO monitors.
-	Sli ServiceLevelObjectiveSliInput
+	// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+	RequestBasedSli ServiceLevelObjectiveRequestBasedSliPtrInput
+	// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+	Sli ServiceLevelObjectiveSliPtrInput
 	// A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
 	//
 	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
@@ -166,6 +170,11 @@ func (o ServiceLevelObjectiveOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Displays whether this is a period-based SLO or a request-based SLO.
+func (o ServiceLevelObjectiveOutput) EvaluationType() ServiceLevelObjectiveEvaluationTypeOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveEvaluationTypeOutput { return v.EvaluationType }).(ServiceLevelObjectiveEvaluationTypeOutput)
+}
+
 // This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
 func (o ServiceLevelObjectiveOutput) Goal() ServiceLevelObjectiveGoalPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveGoalPtrOutput { return v.Goal }).(ServiceLevelObjectiveGoalPtrOutput)
@@ -181,9 +190,14 @@ func (o ServiceLevelObjectiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A structure containing information about the performance metric that this SLO monitors.
-func (o ServiceLevelObjectiveOutput) Sli() ServiceLevelObjectiveSliOutput {
-	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveSliOutput { return v.Sli }).(ServiceLevelObjectiveSliOutput)
+// A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
+func (o ServiceLevelObjectiveOutput) RequestBasedSli() ServiceLevelObjectiveRequestBasedSliPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveRequestBasedSliPtrOutput { return v.RequestBasedSli }).(ServiceLevelObjectiveRequestBasedSliPtrOutput)
+}
+
+// A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+func (o ServiceLevelObjectiveOutput) Sli() ServiceLevelObjectiveSliPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveSliPtrOutput { return v.Sli }).(ServiceLevelObjectiveSliPtrOutput)
 }
 
 // A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.

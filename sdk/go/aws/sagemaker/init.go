@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &App{}
 	case "aws-native:sagemaker:AppImageConfig":
 		r = &AppImageConfig{}
+	case "aws-native:sagemaker:Cluster":
+		r = &Cluster{}
 	case "aws-native:sagemaker:DataQualityJobDefinition":
 		r = &DataQualityJobDefinition{}
 	case "aws-native:sagemaker:Device":

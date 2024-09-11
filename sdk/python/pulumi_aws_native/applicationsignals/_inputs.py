@@ -18,6 +18,9 @@ __all__ = [
     'ServiceLevelObjectiveMetricDataQueryArgs',
     'ServiceLevelObjectiveMetricStatArgs',
     'ServiceLevelObjectiveMetricArgs',
+    'ServiceLevelObjectiveMonitoredRequestCountMetricArgs',
+    'ServiceLevelObjectiveRequestBasedSliMetricArgs',
+    'ServiceLevelObjectiveRequestBasedSliArgs',
     'ServiceLevelObjectiveRollingIntervalArgs',
     'ServiceLevelObjectiveSliMetricArgs',
     'ServiceLevelObjectiveSliArgs',
@@ -426,6 +429,201 @@ class ServiceLevelObjectiveMetricArgs:
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class ServiceLevelObjectiveMonitoredRequestCountMetricArgs:
+    def __init__(__self__, *,
+                 bad_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None,
+                 good_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
+        """
+        This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]] bad_count_metric: If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]] good_count_metric: If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
+        """
+        if bad_count_metric is not None:
+            pulumi.set(__self__, "bad_count_metric", bad_count_metric)
+        if good_count_metric is not None:
+            pulumi.set(__self__, "good_count_metric", good_count_metric)
+
+    @property
+    @pulumi.getter(name="badCountMetric")
+    def bad_count_metric(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
+        """
+        If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
+        """
+        return pulumi.get(self, "bad_count_metric")
+
+    @bad_count_metric.setter
+    def bad_count_metric(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
+        pulumi.set(self, "bad_count_metric", value)
+
+    @property
+    @pulumi.getter(name="goodCountMetric")
+    def good_count_metric(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
+        """
+        If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
+        """
+        return pulumi.get(self, "good_count_metric")
+
+    @good_count_metric.setter
+    def good_count_metric(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
+        pulumi.set(self, "good_count_metric", value)
+
+
+@pulumi.input_type
+class ServiceLevelObjectiveRequestBasedSliMetricArgs:
+    def __init__(__self__, *,
+                 key_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 metric_type: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']] = None,
+                 monitored_request_count_metric: Optional[pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']] = None,
+                 operation_name: Optional[pulumi.Input[str]] = None,
+                 total_request_count_metric: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]] = None):
+        """
+        This structure contains the information about the metric that is used for a request-based SLO.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] key_attributes: This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
+               
+               - `Type` designates the type of object that this SLO is related to.
+               - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+               - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+               - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+               - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        :param pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType'] metric_type: If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+        :param pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgs'] monitored_request_count_metric: Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+        :param pulumi.Input[str] operation_name: If the SLO monitors a specific operation of the service, this field displays that operation name.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]] total_request_count_metric: This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
+        """
+        if key_attributes is not None:
+            pulumi.set(__self__, "key_attributes", key_attributes)
+        if metric_type is not None:
+            pulumi.set(__self__, "metric_type", metric_type)
+        if monitored_request_count_metric is not None:
+            pulumi.set(__self__, "monitored_request_count_metric", monitored_request_count_metric)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if total_request_count_metric is not None:
+            pulumi.set(__self__, "total_request_count_metric", total_request_count_metric)
+
+    @property
+    @pulumi.getter(name="keyAttributes")
+    def key_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
+
+        - `Type` designates the type of object that this SLO is related to.
+        - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+        - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        """
+        return pulumi.get(self, "key_attributes")
+
+    @key_attributes.setter
+    def key_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "key_attributes", value)
+
+    @property
+    @pulumi.getter(name="metricType")
+    def metric_type(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]:
+        """
+        If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+        """
+        return pulumi.get(self, "metric_type")
+
+    @metric_type.setter
+    def metric_type(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]):
+        pulumi.set(self, "metric_type", value)
+
+    @property
+    @pulumi.getter(name="monitoredRequestCountMetric")
+    def monitored_request_count_metric(self) -> Optional[pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']]:
+        """
+        Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+        """
+        return pulumi.get(self, "monitored_request_count_metric")
+
+    @monitored_request_count_metric.setter
+    def monitored_request_count_metric(self, value: Optional[pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgs']]):
+        pulumi.set(self, "monitored_request_count_metric", value)
+
+    @property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the SLO monitors a specific operation of the service, this field displays that operation name.
+        """
+        return pulumi.get(self, "operation_name")
+
+    @operation_name.setter
+    def operation_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation_name", value)
+
+    @property
+    @pulumi.getter(name="totalRequestCountMetric")
+    def total_request_count_metric(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]:
+        """
+        This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
+        """
+        return pulumi.get(self, "total_request_count_metric")
+
+    @total_request_count_metric.setter
+    def total_request_count_metric(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
+        pulumi.set(self, "total_request_count_metric", value)
+
+
+@pulumi.input_type
+class ServiceLevelObjectiveRequestBasedSliArgs:
+    def __init__(__self__, *,
+                 request_based_sli_metric: pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricArgs'],
+                 comparison_operator: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator']] = None,
+                 metric_threshold: Optional[pulumi.Input[float]] = None):
+        """
+        This structure contains information about the performance metric that a request-based SLO monitors.
+        :param pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricArgs'] request_based_sli_metric: A structure that contains information about the metric that the SLO monitors.
+        :param pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator'] comparison_operator: The arithmetic operation used when comparing the specified metric to the threshold.
+        :param pulumi.Input[float] metric_threshold: The value that the SLI metric is compared to.
+        """
+        pulumi.set(__self__, "request_based_sli_metric", request_based_sli_metric)
+        if comparison_operator is not None:
+            pulumi.set(__self__, "comparison_operator", comparison_operator)
+        if metric_threshold is not None:
+            pulumi.set(__self__, "metric_threshold", metric_threshold)
+
+    @property
+    @pulumi.getter(name="requestBasedSliMetric")
+    def request_based_sli_metric(self) -> pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricArgs']:
+        """
+        A structure that contains information about the metric that the SLO monitors.
+        """
+        return pulumi.get(self, "request_based_sli_metric")
+
+    @request_based_sli_metric.setter
+    def request_based_sli_metric(self, value: pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricArgs']):
+        pulumi.set(self, "request_based_sli_metric", value)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]:
+        """
+        The arithmetic operation used when comparing the specified metric to the threshold.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]):
+        pulumi.set(self, "comparison_operator", value)
+
+    @property
+    @pulumi.getter(name="metricThreshold")
+    def metric_threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        The value that the SLI metric is compared to.
+        """
+        return pulumi.get(self, "metric_threshold")
+
+    @metric_threshold.setter
+    def metric_threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "metric_threshold", value)
 
 
 @pulumi.input_type

@@ -16,14 +16,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceCodeEditorAppSettings
     {
+        public readonly Outputs.SpaceAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         /// </summary>
         public readonly Outputs.SpaceResourceSpec? DefaultResourceSpec;
 
         [OutputConstructor]
-        private SpaceCodeEditorAppSettings(Outputs.SpaceResourceSpec? defaultResourceSpec)
+        private SpaceCodeEditorAppSettings(
+            Outputs.SpaceAppLifecycleManagement? appLifecycleManagement,
+
+            Outputs.SpaceResourceSpec? defaultResourceSpec)
         {
+            AppLifecycleManagement = appLifecycleManagement;
             DefaultResourceSpec = defaultResourceSpec;
         }
     }

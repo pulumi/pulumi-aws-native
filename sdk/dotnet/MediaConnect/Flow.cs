@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Output<string> FlowAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The maintenance settings you want to use for the flow. 
+        /// The maintenance settings you want to use for the flow.
         /// </summary>
         [Output("maintenance")]
         public Output<Outputs.FlowMaintenance?> Maintenance { get; private set; } = null!;
@@ -68,6 +68,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Output("sourceFailoverConfig")]
         public Output<Outputs.FlowFailoverConfig?> SourceFailoverConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The source monitoring config of the flow.
+        /// </summary>
+        [Output("sourceMonitoringConfig")]
+        public Output<Outputs.FlowSourceMonitoringConfig?> SourceMonitoringConfig { get; private set; } = null!;
 
         /// <summary>
         /// The VPC interfaces that you added to this flow.
@@ -133,7 +139,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The maintenance settings you want to use for the flow. 
+        /// The maintenance settings you want to use for the flow.
         /// </summary>
         [Input("maintenance")]
         public Input<Inputs.FlowMaintenanceArgs>? Maintenance { get; set; }
@@ -167,6 +173,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         [Input("sourceFailoverConfig")]
         public Input<Inputs.FlowFailoverConfigArgs>? SourceFailoverConfig { get; set; }
+
+        /// <summary>
+        /// The source monitoring config of the flow.
+        /// </summary>
+        [Input("sourceMonitoringConfig")]
+        public Input<Inputs.FlowSourceMonitoringConfigArgs>? SourceMonitoringConfig { get; set; }
 
         [Input("vpcInterfaces")]
         private InputList<Inputs.FlowVpcInterfaceArgs>? _vpcInterfaces;

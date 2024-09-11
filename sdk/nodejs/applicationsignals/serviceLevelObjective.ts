@@ -50,6 +50,10 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Displays whether this is a period-based SLO or a request-based SLO.
+     */
+    public /*out*/ readonly evaluationType!: pulumi.Output<enums.applicationsignals.ServiceLevelObjectiveEvaluationType>;
+    /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
      */
     public readonly goal!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveGoal | undefined>;
@@ -62,9 +66,13 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A structure containing information about the performance metric that this SLO monitors.
+     * A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
      */
-    public readonly sli!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveSli>;
+    public readonly requestBasedSli!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveRequestBasedSli | undefined>;
+    /**
+     * A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+     */
+    public readonly sli!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveSli | undefined>;
     /**
      * A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
      *
@@ -79,28 +87,29 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceLevelObjectiveArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ServiceLevelObjectiveArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.sli === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sli'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["goal"] = args ? args.goal : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["requestBasedSli"] = args ? args.requestBasedSli : undefined;
             resourceInputs["sli"] = args ? args.sli : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["evaluationType"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["evaluationType"] = undefined /*out*/;
             resourceInputs["goal"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requestBasedSli"] = undefined /*out*/;
             resourceInputs["sli"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -128,9 +137,13 @@ export interface ServiceLevelObjectiveArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A structure containing information about the performance metric that this SLO monitors.
+     * A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
      */
-    sli: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveSliArgs>;
+    requestBasedSli?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveRequestBasedSliArgs>;
+    /**
+     * A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
+     */
+    sli?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveSliArgs>;
     /**
      * A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
      *

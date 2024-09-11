@@ -47,6 +47,7 @@ __all__ = [
     'FlowSource',
     'FlowSourceEncryption',
     'FlowSourceGatewayBridgeSource',
+    'FlowSourceMonitoringConfig',
     'FlowSourceVpcInterfaceAttachment',
     'FlowVpcInterface',
     'FlowVpcInterfaceAttachment',
@@ -2661,6 +2662,45 @@ class FlowSourceGatewayBridgeSource(dict):
         The name of the VPC interface attachment to use for this bridge source.
         """
         return pulumi.get(self, "vpc_interface_attachment")
+
+
+@pulumi.output_type
+class FlowSourceMonitoringConfig(dict):
+    """
+    The settings for source monitoring.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thumbnailState":
+            suggest = "thumbnail_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSourceMonitoringConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSourceMonitoringConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSourceMonitoringConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 thumbnail_state: 'FlowSourceMonitoringConfigThumbnailState'):
+        """
+        The settings for source monitoring.
+        :param 'FlowSourceMonitoringConfigThumbnailState' thumbnail_state: The state of thumbnail monitoring.
+        """
+        pulumi.set(__self__, "thumbnail_state", thumbnail_state)
+
+    @property
+    @pulumi.getter(name="thumbnailState")
+    def thumbnail_state(self) -> 'FlowSourceMonitoringConfigThumbnailState':
+        """
+        The state of thumbnail monitoring.
+        """
+        return pulumi.get(self, "thumbnail_state")
 
 
 @pulumi.output_type

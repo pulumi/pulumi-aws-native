@@ -8681,6 +8681,10 @@
       "type" : "string",
       "enum" : [ "COMMA", "DOT", "SPACE" ]
     },
+    "QueryExecutionMode" : {
+      "type" : "string",
+      "enum" : [ "AUTO", "MANUAL" ]
+    },
     "TargetVisualOptions" : {
       "type" : "string",
       "enum" : [ "ALL_VISUALS" ]
@@ -8695,6 +8699,15 @@
         "CustomValue" : {
           "default" : null,
           "type" : "number"
+        }
+      }
+    },
+    "QueryExecutionOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "QueryExecutionMode" : {
+          "$ref" : "#/definitions/QueryExecutionMode"
         }
       }
     },
@@ -10119,6 +10132,9 @@
           "items" : {
             "$ref" : "#/definitions/FilterGroup"
           }
+        },
+        "QueryExecutionOptions" : {
+          "$ref" : "#/definitions/QueryExecutionOptions"
         },
         "CalculatedFields" : {
           "minItems" : 0,

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolPolicies
     {
         /// <summary>
-        /// The password policy.
+        /// The password policy settings for a user pool, including complexity, history, and length requirements.
         /// </summary>
         public readonly Outputs.UserPoolPasswordPolicy? PasswordPolicy;
 

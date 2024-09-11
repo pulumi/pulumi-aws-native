@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AppAutoBranchCreationConfigArgs',
     'AppBasicAuthConfigArgs',
+    'AppCacheConfigArgs',
     'AppCustomRuleArgs',
     'AppEnvironmentVariableArgs',
     'BranchBackendArgs',
@@ -282,6 +283,37 @@ class AppBasicAuthConfigArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class AppCacheConfigArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['AppCacheConfigType']] = None):
+        """
+        :param pulumi.Input['AppCacheConfigType'] type: The type of cache configuration to use for an Amplify app.
+               
+               The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
+               
+               The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AppCacheConfigType']]:
+        """
+        The type of cache configuration to use for an Amplify app.
+
+        The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
+
+        The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AppCacheConfigType']]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

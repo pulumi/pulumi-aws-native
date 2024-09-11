@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'ListenerAction',
+    'ListenerAttribute',
     'ListenerAuthenticateCognitoConfig',
     'ListenerAuthenticateOidcConfig',
     'ListenerCertificate',
@@ -177,6 +178,27 @@ class ListenerAction(dict):
         The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
         """
         return pulumi.get(self, "target_group_arn")
+
+
+@pulumi.output_type
+class ListenerAttribute(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

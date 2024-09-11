@@ -20,6 +20,12 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfig',
     'AppImageConfigKernelSpec',
     'AppResourceSpec',
+    'ClusterInstanceGroup',
+    'ClusterInstanceStorageConfig',
+    'ClusterLifeCycleConfig',
+    'ClusterOrchestrator',
+    'ClusterOrchestratorEksConfig',
+    'ClusterVpcConfig',
     'DataQualityJobDefinitionBatchTransformInput',
     'DataQualityJobDefinitionClusterConfig',
     'DataQualityJobDefinitionConstraintsResource',
@@ -40,6 +46,7 @@ __all__ = [
     'DataQualityJobDefinitionVpcConfig',
     'Device',
     'DeviceFleetEdgeOutputConfig',
+    'DomainAppLifecycleManagement',
     'DomainCodeEditorAppSettings',
     'DomainCodeRepository',
     'DomainCustomFileSystemConfig',
@@ -50,6 +57,7 @@ __all__ = [
     'DomainDefaultSpaceStorageSettings',
     'DomainDockerSettings',
     'DomainEfsFileSystemConfig',
+    'DomainIdleSettings',
     'DomainJupyterLabAppSettings',
     'DomainJupyterServerAppSettings',
     'DomainKernelGatewayAppSettings',
@@ -228,12 +236,14 @@ __all__ = [
     'ProjectProvisioningParameter',
     'ServiceCatalogProvisionedProductDetailsProperties',
     'ServiceCatalogProvisioningDetailsProperties',
+    'SpaceAppLifecycleManagement',
     'SpaceCodeEditorAppSettings',
     'SpaceCodeRepository',
     'SpaceCustomFileSystem',
     'SpaceCustomImage',
     'SpaceEbsStorageSettings',
     'SpaceEfsFileSystem',
+    'SpaceIdleSettings',
     'SpaceJupyterLabAppSettings',
     'SpaceJupyterServerAppSettings',
     'SpaceKernelGatewayAppSettings',
@@ -242,6 +252,7 @@ __all__ = [
     'SpaceSettings',
     'SpaceSharingSettings',
     'SpaceStorageSettings',
+    'UserProfileAppLifecycleManagement',
     'UserProfileCodeEditorAppSettings',
     'UserProfileCodeRepository',
     'UserProfileCustomFileSystemConfig',
@@ -250,6 +261,7 @@ __all__ = [
     'UserProfileDefaultEbsStorageSettings',
     'UserProfileDefaultSpaceStorageSettings',
     'UserProfileEfsFileSystemConfig',
+    'UserProfileIdleSettings',
     'UserProfileJupyterLabAppSettings',
     'UserProfileJupyterServerAppSettings',
     'UserProfileKernelGatewayAppSettings',
@@ -681,6 +693,300 @@ class AppResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
+
+
+@pulumi.output_type
+class ClusterInstanceGroup(dict):
+    """
+    Details of an instance group in a SageMaker HyperPod cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRole":
+            suggest = "execution_role"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceGroupName":
+            suggest = "instance_group_name"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "lifeCycleConfig":
+            suggest = "life_cycle_config"
+        elif key == "currentCount":
+            suggest = "current_count"
+        elif key == "instanceStorageConfigs":
+            suggest = "instance_storage_configs"
+        elif key == "onStartDeepHealthChecks":
+            suggest = "on_start_deep_health_checks"
+        elif key == "threadsPerCore":
+            suggest = "threads_per_core"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInstanceGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInstanceGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInstanceGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role: str,
+                 instance_count: int,
+                 instance_group_name: str,
+                 instance_type: str,
+                 life_cycle_config: 'outputs.ClusterLifeCycleConfig',
+                 current_count: Optional[int] = None,
+                 instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
+                 on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
+                 threads_per_core: Optional[int] = None):
+        """
+        Details of an instance group in a SageMaker HyperPod cluster.
+        :param int instance_count: The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
+        :param int current_count: The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+        :param int threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+        """
+        pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_group_name", instance_group_name)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "life_cycle_config", life_cycle_config)
+        if current_count is not None:
+            pulumi.set(__self__, "current_count", current_count)
+        if instance_storage_configs is not None:
+            pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
+        if on_start_deep_health_checks is not None:
+            pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> str:
+        return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> int:
+        """
+        The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="instanceGroupName")
+    def instance_group_name(self) -> str:
+        return pulumi.get(self, "instance_group_name")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="lifeCycleConfig")
+    def life_cycle_config(self) -> 'outputs.ClusterLifeCycleConfig':
+        return pulumi.get(self, "life_cycle_config")
+
+    @property
+    @pulumi.getter(name="currentCount")
+    def current_count(self) -> Optional[int]:
+        """
+        The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+        """
+        return pulumi.get(self, "current_count")
+
+    @property
+    @pulumi.getter(name="instanceStorageConfigs")
+    def instance_storage_configs(self) -> Optional[Sequence['outputs.ClusterInstanceStorageConfig']]:
+        return pulumi.get(self, "instance_storage_configs")
+
+    @property
+    @pulumi.getter(name="onStartDeepHealthChecks")
+    def on_start_deep_health_checks(self) -> Optional[Sequence['ClusterDeepHealthCheckType']]:
+        return pulumi.get(self, "on_start_deep_health_checks")
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[int]:
+        """
+        The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+        """
+        return pulumi.get(self, "threads_per_core")
+
+
+@pulumi.output_type
+class ClusterInstanceStorageConfig(dict):
+    """
+    Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
+    """
+    def __init__(__self__):
+        """
+        Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
+        """
+        pass
+
+
+@pulumi.output_type
+class ClusterLifeCycleConfig(dict):
+    """
+    The lifecycle configuration for a SageMaker HyperPod cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onCreate":
+            suggest = "on_create"
+        elif key == "sourceS3Uri":
+            suggest = "source_s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLifeCycleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLifeCycleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLifeCycleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_create: str,
+                 source_s3_uri: str):
+        """
+        The lifecycle configuration for a SageMaker HyperPod cluster.
+        :param str on_create: The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+        :param str source_s3_uri: An Amazon S3 bucket path where your lifecycle scripts are stored.
+        """
+        pulumi.set(__self__, "on_create", on_create)
+        pulumi.set(__self__, "source_s3_uri", source_s3_uri)
+
+    @property
+    @pulumi.getter(name="onCreate")
+    def on_create(self) -> str:
+        """
+        The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+        """
+        return pulumi.get(self, "on_create")
+
+    @property
+    @pulumi.getter(name="sourceS3Uri")
+    def source_s3_uri(self) -> str:
+        """
+        An Amazon S3 bucket path where your lifecycle scripts are stored.
+        """
+        return pulumi.get(self, "source_s3_uri")
+
+
+@pulumi.output_type
+class ClusterOrchestrator(dict):
+    """
+    Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+    """
+    def __init__(__self__, *,
+                 eks: 'outputs.ClusterOrchestratorEksConfig'):
+        """
+        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+        """
+        pulumi.set(__self__, "eks", eks)
+
+    @property
+    @pulumi.getter
+    def eks(self) -> 'outputs.ClusterOrchestratorEksConfig':
+        return pulumi.get(self, "eks")
+
+
+@pulumi.output_type
+class ClusterOrchestratorEksConfig(dict):
+    """
+    Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterArn":
+            suggest = "cluster_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOrchestratorEksConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOrchestratorEksConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOrchestratorEksConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_arn: str):
+        """
+        Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+        :param str cluster_arn: The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+        """
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
+
+    @property
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> str:
+        """
+        The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+        """
+        return pulumi.get(self, "cluster_arn")
+
+
+@pulumi.output_type
+class ClusterVpcConfig(dict):
+    """
+    Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnets: Sequence[str]):
+        """
+        Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+        :param Sequence[str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param Sequence[str] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
+        """
+        The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
@@ -1822,6 +2128,36 @@ class DeviceFleetEdgeOutputConfig(dict):
 
 
 @pulumi.output_type
+class DomainAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.DomainIdleSettings'] = None):
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.DomainIdleSettings']:
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
 class DomainCodeEditorAppSettings(dict):
     """
     The CodeEditor app settings.
@@ -1829,7 +2165,9 @@ class DomainCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customImages":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
@@ -1848,6 +2186,7 @@ class DomainCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.DomainAppLifecycleManagement'] = None,
                  custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
@@ -1857,12 +2196,19 @@ class DomainCodeEditorAppSettings(dict):
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.DomainAppLifecycleManagement']:
+        return pulumi.get(self, "app_lifecycle_management")
 
     @property
     @pulumi.getter(name="customImages")
@@ -2388,6 +2734,66 @@ class DomainEfsFileSystemConfig(dict):
 
 
 @pulumi.output_type
+class DomainIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "lifecycleManagement":
+            suggest = "lifecycle_management"
+        elif key == "maxIdleTimeoutInMinutes":
+            suggest = "max_idle_timeout_in_minutes"
+        elif key == "minIdleTimeoutInMinutes":
+            suggest = "min_idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 lifecycle_management: Optional['DomainLifecycleManagement'] = None,
+                 max_idle_timeout_in_minutes: Optional[int] = None,
+                 min_idle_timeout_in_minutes: Optional[int] = None):
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional['DomainLifecycleManagement']:
+        return pulumi.get(self, "lifecycle_management")
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
+
+
+@pulumi.output_type
 class DomainJupyterLabAppSettings(dict):
     """
     The JupyterLab app settings.
@@ -2395,7 +2801,9 @@ class DomainJupyterLabAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "codeRepositories":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "codeRepositories":
             suggest = "code_repositories"
         elif key == "customImages":
             suggest = "custom_images"
@@ -2416,6 +2824,7 @@ class DomainJupyterLabAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.DomainAppLifecycleManagement'] = None,
                  code_repositories: Optional[Sequence['outputs.DomainCodeRepository']] = None,
                  custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainResourceSpec'] = None,
@@ -2427,6 +2836,8 @@ class DomainJupyterLabAppSettings(dict):
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterLab apps.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
@@ -2435,6 +2846,11 @@ class DomainJupyterLabAppSettings(dict):
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.DomainAppLifecycleManagement']:
+        return pulumi.get(self, "app_lifecycle_management")
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -13659,6 +14075,36 @@ class ServiceCatalogProvisioningDetailsProperties(dict):
 
 
 @pulumi.output_type
+class SpaceAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.SpaceIdleSettings'] = None):
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.SpaceIdleSettings']:
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
 class SpaceCodeEditorAppSettings(dict):
     """
     The CodeEditor app settings.
@@ -13666,7 +14112,9 @@ class SpaceCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultResourceSpec":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
 
         if suggest:
@@ -13681,13 +14129,21 @@ class SpaceCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.SpaceAppLifecycleManagement'] = None,
                  default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
         """
         The CodeEditor app settings.
         :param 'SpaceResourceSpec' default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.SpaceAppLifecycleManagement']:
+        return pulumi.get(self, "app_lifecycle_management")
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -13898,6 +14354,42 @@ class SpaceEfsFileSystem(dict):
 
 
 @pulumi.output_type
+class SpaceIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The space idle timeout value set in minutes
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The space idle timeout value set in minutes
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+
+@pulumi.output_type
 class SpaceJupyterLabAppSettings(dict):
     """
     The JupyterServer app settings.
@@ -13905,7 +14397,9 @@ class SpaceJupyterLabAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "codeRepositories":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "codeRepositories":
             suggest = "code_repositories"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
@@ -13922,6 +14416,7 @@ class SpaceJupyterLabAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.SpaceAppLifecycleManagement'] = None,
                  code_repositories: Optional[Sequence['outputs.SpaceCodeRepository']] = None,
                  default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
         """
@@ -13929,10 +14424,17 @@ class SpaceJupyterLabAppSettings(dict):
         :param Sequence['SpaceCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param 'SpaceResourceSpec' default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.SpaceAppLifecycleManagement']:
+        return pulumi.get(self, "app_lifecycle_management")
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -14382,6 +14884,36 @@ class SpaceStorageSettings(dict):
 
 
 @pulumi.output_type
+class UserProfileAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.UserProfileIdleSettings'] = None):
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.UserProfileIdleSettings']:
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
 class UserProfileCodeEditorAppSettings(dict):
     """
     The CodeEditor app settings.
@@ -14389,7 +14921,9 @@ class UserProfileCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customImages":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
@@ -14408,6 +14942,7 @@ class UserProfileCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.UserProfileAppLifecycleManagement'] = None,
                  custom_images: Optional[Sequence['outputs.UserProfileCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
@@ -14417,12 +14952,19 @@ class UserProfileCodeEditorAppSettings(dict):
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.UserProfileAppLifecycleManagement']:
+        return pulumi.get(self, "app_lifecycle_management")
 
     @property
     @pulumi.getter(name="customImages")
@@ -14757,6 +15299,66 @@ class UserProfileEfsFileSystemConfig(dict):
 
 
 @pulumi.output_type
+class UserProfileIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "lifecycleManagement":
+            suggest = "lifecycle_management"
+        elif key == "maxIdleTimeoutInMinutes":
+            suggest = "max_idle_timeout_in_minutes"
+        elif key == "minIdleTimeoutInMinutes":
+            suggest = "min_idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 lifecycle_management: Optional['UserProfileLifecycleManagement'] = None,
+                 max_idle_timeout_in_minutes: Optional[int] = None,
+                 min_idle_timeout_in_minutes: Optional[int] = None):
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional['UserProfileLifecycleManagement']:
+        return pulumi.get(self, "lifecycle_management")
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
+
+
+@pulumi.output_type
 class UserProfileJupyterLabAppSettings(dict):
     """
     The JupyterLab app settings.
@@ -14764,7 +15366,9 @@ class UserProfileJupyterLabAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "codeRepositories":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "codeRepositories":
             suggest = "code_repositories"
         elif key == "customImages":
             suggest = "custom_images"
@@ -14785,6 +15389,7 @@ class UserProfileJupyterLabAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.UserProfileAppLifecycleManagement'] = None,
                  code_repositories: Optional[Sequence['outputs.UserProfileCodeRepository']] = None,
                  custom_images: Optional[Sequence['outputs.UserProfileCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None,
@@ -14796,6 +15401,8 @@ class UserProfileJupyterLabAppSettings(dict):
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterLab apps.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
@@ -14804,6 +15411,11 @@ class UserProfileJupyterLabAppSettings(dict):
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.UserProfileAppLifecycleManagement']:
+        return pulumi.get(self, "app_lifecycle_management")
 
     @property
     @pulumi.getter(name="codeRepositories")
