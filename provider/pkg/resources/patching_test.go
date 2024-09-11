@@ -109,6 +109,67 @@ func TestCalcPatch(t *testing.T) {
 					}})
 				assert.Equal(t, expected, patch)
 			})
+
+			t.Run("always send nested write-only properties", func(t *testing.T) {
+				expected := []jsonpatch.JsonPatchOperation{
+					{Operation: "add", Path: "/Prop1/Nested1", Value: "1a"},
+					{Operation: "replace", Path: "/Prop2", Value: "2b"},
+				}
+				patch := run(t, args{
+					oldInputs: resource.PropertyMap{
+						"prop1": resource.NewObjectProperty(resource.PropertyMap{
+							"nested1": resource.NewStringProperty("1a"),
+							"nested2": resource.NewStringProperty("1b"),
+						}),
+						"prop2": resource.NewStringProperty("2a"),
+					},
+					newInputs: resource.PropertyMap{
+						"prop1": resource.NewObjectProperty(resource.PropertyMap{
+							"nested1": resource.NewStringProperty("1a"),
+							"nested2": resource.NewStringProperty("1b"),
+						}),
+						"prop2": resource.NewStringProperty("2b"),
+					},
+					spec: metadata.CloudAPIResource{
+						Inputs: map[string]schema.PropertySpec{
+							"prop1": {TypeSpec: schema.TypeSpec{}},
+							"prop2": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						},
+						WriteOnly: []string{"prop1/nested1"},
+					}})
+				assert.Equal(t, expected, patch)
+			})
+
+			t.Run("don't send create-only properties nested in write-only properties", func(t *testing.T) {
+				expected := []jsonpatch.JsonPatchOperation{
+					{Operation: "add", Path: "/Prop1", Value: map[string]interface{}{"Nested2": "1b"}},
+					{Operation: "replace", Path: "/Prop2", Value: "2b"},
+				}
+				patch := run(t, args{
+					oldInputs: resource.PropertyMap{
+						"prop1": resource.NewObjectProperty(resource.PropertyMap{
+							"nested1": resource.NewStringProperty("1a"),
+							"nested2": resource.NewStringProperty("1b"),
+						}),
+						"prop2": resource.NewStringProperty("2a"),
+					},
+					newInputs: resource.PropertyMap{
+						"prop1": resource.NewObjectProperty(resource.PropertyMap{
+							"nested1": resource.NewStringProperty("1a"),
+							"nested2": resource.NewStringProperty("1b"),
+						}),
+						"prop2": resource.NewStringProperty("2b"),
+					},
+					spec: metadata.CloudAPIResource{
+						Inputs: map[string]schema.PropertySpec{
+							"prop1": {TypeSpec: schema.TypeSpec{}},
+							"prop2": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						},
+						WriteOnly:  []string{"prop1"},
+						CreateOnly: []string{"prop1/nested1"},
+					}})
+				assert.Equal(t, expected, patch)
+			})
 		})
 	}
 }
