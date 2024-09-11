@@ -1,141 +1,141 @@
 {
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : false
+  },
   "typeName" : "AWS::Route53Resolver::ResolverRule",
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/ResolverRuleId" ],
   "description" : "Resource Type definition for AWS::Route53Resolver::ResolverRule",
+  "createOnlyProperties" : [ "/properties/RuleType" ],
+  "primaryIdentifier" : [ "/properties/ResolverRuleId" ],
+  "required" : [ "RuleType" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/DomainName" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53resolver.git",
-  "additionalProperties" : false,
-  "properties" : {
-    "ResolverEndpointId" : {
-      "type" : "string",
-      "description" : "The ID of the endpoint that the rule is associated with.",
-      "minLength" : 1,
-      "maxLength" : 64
+  "propertyTransform" : {
+    "/properties/DomainName" : "$join([DomainName, \".\"]) $OR DomainName"
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource" ]
     },
-    "DomainName" : {
-      "type" : "string",
-      "description" : "DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps",
-      "minLength" : 1,
-      "maxLength" : 256
+    "create" : {
+      "permissions" : [ "route53resolver:CreateResolverRule", "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource", "route53resolver:TagResource" ]
     },
-    "Name" : {
-      "type" : "string",
-      "description" : "The name for the Resolver rule",
-      "minLength" : 0,
-      "maxLength" : 64
+    "update" : {
+      "permissions" : [ "route53resolver:UpdateResolverRule", "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource", "route53resolver:TagResource", "route53resolver:UntagResource" ]
     },
-    "RuleType" : {
-      "type" : "string",
-      "description" : "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.",
-      "enum" : [ "FORWARD", "SYSTEM", "RECURSIVE", "DELEGATE" ]
+    "list" : {
+      "permissions" : [ "route53resolver:ListResolverRules" ]
     },
-    "DelegationRecord" : {
-      "type" : "string",
-      "description" : "The name server domain for queries to be delegated to if a query matches the delegation record.",
-      "minLength" : 1,
-      "maxLength" : 256
-    },
-    "Tags" : {
-      "type" : "array",
-      "description" : "An array of key-value pairs to apply to this resource.",
-      "uniqueItems" : false,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/Tag"
-      }
-    },
-    "TargetIps" : {
-      "type" : "array",
-      "description" : "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.",
-      "uniqueItems" : false,
-      "insertionOrder" : false,
-      "items" : {
-        "$ref" : "#/definitions/TargetAddress"
-      }
-    },
-    "Arn" : {
-      "type" : "string",
-      "description" : "The Amazon Resource Name (ARN) of the resolver rule."
-    },
-    "ResolverRuleId" : {
-      "type" : "string",
-      "description" : "The ID of the endpoint that the rule is associated with."
+    "delete" : {
+      "permissions" : [ "route53resolver:DeleteResolverRule", "route53resolver:GetResolverRule" ]
     }
   },
+  "additionalProperties" : false,
   "definitions" : {
     "TargetAddress" : {
-      "type" : "object",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
-        "Ip" : {
-          "type" : "string",
-          "description" : "One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. "
-        },
         "Ipv6" : {
-          "type" : "string",
-          "description" : "One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. "
+          "description" : "One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. ",
+          "type" : "string"
+        },
+        "Ip" : {
+          "description" : "One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. ",
+          "type" : "string"
         },
         "Port" : {
-          "type" : "string",
-          "description" : "The port at Ip that you want to forward DNS queries to. ",
           "minLength" : 0,
+          "description" : "The port at Ip that you want to forward DNS queries to. ",
+          "type" : "string",
           "maxLength" : 65535
         },
         "Protocol" : {
-          "type" : "string",
           "description" : "The protocol that you want to use to forward DNS queries. ",
+          "type" : "string",
           "enum" : [ "Do53", "DoH" ]
         }
       }
     },
     "Tag" : {
-      "type" : "object",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
-        "Key" : {
-          "type" : "string",
-          "description" : "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
-          "minLength" : 1,
-          "maxLength" : 128
-        },
         "Value" : {
-          "type" : "string",
-          "description" : "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
           "minLength" : 0,
+          "description" : "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "type" : "string",
           "maxLength" : 256
+        },
+        "Key" : {
+          "minLength" : 1,
+          "description" : "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "type" : "string",
+          "maxLength" : 128
         }
       },
       "required" : [ "Value", "Key" ]
     }
   },
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
-  },
-  "required" : [ "RuleType" ],
-  "primaryIdentifier" : [ "/properties/ResolverRuleId" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/ResolverRuleId" ],
-  "createOnlyProperties" : [ "/properties/RuleType" ],
-  "conditionalCreateOnlyProperties" : [ "/properties/DomainName" ],
-  "propertyTransform" : {
-    "/properties/DomainName" : "$join([DomainName, \".\"]) $OR DomainName"
-  },
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "route53resolver:CreateResolverRule", "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource", "route53resolver:TagResource" ]
+  "properties" : {
+    "ResolverEndpointId" : {
+      "minLength" : 1,
+      "description" : "The ID of the endpoint that the rule is associated with.",
+      "type" : "string",
+      "maxLength" : 64
     },
-    "read" : {
-      "permissions" : [ "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource" ]
+    "DomainName" : {
+      "minLength" : 1,
+      "description" : "DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps",
+      "type" : "string",
+      "maxLength" : 256
     },
-    "update" : {
-      "permissions" : [ "route53resolver:UpdateResolverRule", "route53resolver:GetResolverRule", "route53resolver:ListTagsForResource", "route53resolver:TagResource", "route53resolver:UntagResource" ]
+    "RuleType" : {
+      "description" : "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.",
+      "type" : "string",
+      "enum" : [ "FORWARD", "SYSTEM", "RECURSIVE", "DELEGATE" ]
     },
-    "delete" : {
-      "permissions" : [ "route53resolver:DeleteResolverRule", "route53resolver:GetResolverRule" ]
+    "ResolverRuleId" : {
+      "description" : "The ID of the endpoint that the rule is associated with.",
+      "type" : "string"
     },
-    "list" : {
-      "permissions" : [ "route53resolver:ListResolverRules" ]
+    "Arn" : {
+      "description" : "The Amazon Resource Name (ARN) of the resolver rule.",
+      "type" : "string"
+    },
+    "DelegationRecord" : {
+      "minLength" : 1,
+      "description" : "The name server domain for queries to be delegated to if a query matches the delegation record.",
+      "type" : "string",
+      "maxLength" : 256
+    },
+    "Tags" : {
+      "uniqueItems" : false,
+      "description" : "An array of key-value pairs to apply to this resource.",
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    },
+    "TargetIps" : {
+      "uniqueItems" : false,
+      "description" : "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.",
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/TargetAddress"
+      }
+    },
+    "Name" : {
+      "minLength" : 0,
+      "description" : "The name for the Resolver rule",
+      "type" : "string",
+      "maxLength" : 64
     }
   }
 }

@@ -2017,7 +2017,7 @@
     "properties": {
       "accountTakeoverRiskConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType",
-        "description": "The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover."
+        "description": "The settings for automated responses and notification templates for adaptive authentication with advanced security features."
       },
       "clientId": {
         "type": "string",
@@ -2025,15 +2025,15 @@
       },
       "compromisedCredentialsRiskConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType",
-        "description": "The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` ."
+        "description": "Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode."
       },
       "riskExceptionConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType",
-        "description": "The configuration to override the risk decision."
+        "description": "Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges."
       },
       "userPoolId": {
         "type": "string",
-        "description": "The user pool ID."
+        "description": "The ID of the user pool that has the risk configuration applied."
       }
     }
   },
@@ -6605,6 +6605,12 @@
         },
         "description": "The actions for the default rule. You cannot define a condition for a default rule.\n To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html)."
       },
+      "listenerAttributes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerAttribute"
+        }
+      },
       "loadBalancerArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the load balancer."
@@ -9555,6 +9561,37 @@
       }
     }
   },
+  "aws-native:pcaconnectorscep:Challenge": {
+    "cfTypeName": "AWS::PCAConnectorSCEP::Challenge",
+    "properties": {
+      "connectorArn": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "aws-native:pcaconnectorscep:Connector": {
+    "cfTypeName": "AWS::PCAConnectorSCEP::Connector",
+    "properties": {
+      "certificateAuthorityArn": {
+        "type": "string"
+      },
+      "mobileDeviceManagement": {
+        "$ref": "#/types/aws-native:pcaconnectorscep:ConnectorMobileDeviceManagement"
+      },
+      "tags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    }
+  },
   "aws-native:proton:EnvironmentAccountConnection": {
     "cfTypeName": "AWS::Proton::EnvironmentAccountConnection",
     "properties": {
@@ -9642,7 +9679,7 @@
       },
       "roleArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics."
+        "description": "The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role."
       },
       "tags": {
         "type": "array",
@@ -11809,6 +11846,55 @@
       "statementId": {
         "type": "string",
         "description": "A unique identifier for the cross-account permission statement."
+      }
+    }
+  },
+  "aws-native:sns:Subscription": {
+    "cfTypeName": "AWS::SNS::Subscription",
+    "properties": {
+      "deliveryPolicy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The delivery policy JSON assigned to the subscription. Enables the subscriber to define the message delivery retry strategy in the case of an HTTP/S endpoint subscribed to the topic.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property."
+      },
+      "endpoint": {
+        "type": "string",
+        "description": "The subscription's endpoint. The endpoint value depends on the protocol that you specify. "
+      },
+      "filterPolicy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The filter policy JSON assigned to the subscription. Enables the subscriber to filter out unwanted messages.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property."
+      },
+      "filterPolicyScope": {
+        "type": "string",
+        "description": "This attribute lets you choose the filtering scope by using one of the following string value types: MessageAttributes (default) and MessageBody."
+      },
+      "protocol": {
+        "type": "string",
+        "description": "The subscription's protocol."
+      },
+      "rawMessageDelivery": {
+        "type": "boolean",
+        "description": "When set to true, enables raw message delivery. Raw messages don't contain any JSON formatting and can be sent to Amazon SQS and HTTP/S endpoints."
+      },
+      "redrivePolicy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors are held in the dead-letter queue for further analysis or reprocessing.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property."
+      },
+      "region": {
+        "type": "string",
+        "description": "For cross-region subscriptions, the region in which the topic resides.If no region is specified, AWS CloudFormation uses the region of the caller as the default."
+      },
+      "replayPolicy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "Specifies whether Amazon SNS resends the notification to the subscription when a message's attribute changes.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property."
+      },
+      "subscriptionRoleArn": {
+        "type": "string",
+        "description": "This property applies only to Amazon Data Firehose delivery stream subscriptions."
+      },
+      "topicArn": {
+        "type": "string",
+        "description": "The ARN of the topic to subscribe to."
       }
     }
   },
