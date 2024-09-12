@@ -19,6 +19,7 @@ VERSION_GENERIC = $(shell pulumictl convert-version --language generic --version
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION_GENERIC}"
 
 CFN_SCHEMA_DIR  := aws-cloudformation-schema
+METADATA_DIR    := meta
 
 # Only use explicitly installed plugins - this is to avoid using any ambient plugins from the PATH
 export PULUMI_IGNORE_AMBIENT_PLUGINS = true
@@ -44,6 +45,10 @@ docs:: .docs.version
 discovery:: update_submodules codegen
 	git ls-remote https://github.com/cdklabs/awscdk-service-spec refs/heads/main | awk '{print $$1}' > .docs.version
 	$(WORKING_DIR)/bin/$(CODEGEN) -schema-folder $(CFN_SCHEMA_DIR) -version ${VERSION_GENERIC} -schema-urls https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip discovery
+	# Fetch regions from botocore
+	curl -fsSL https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/endpoints.json \
+		| jq '[.partitions[].regions | to_entries[] | { name: .key, description: .value.description}]' \
+		> "$(METADATA_DIR)/regions.json"
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"
@@ -55,7 +60,7 @@ local_generate:: generate_schema generate_nodejs generate_python generate_dotnet
 
 generate_schema:: docs
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) --schema-folder $(CFN_SCHEMA_DIR) --version ${VERSION_GENERIC} schema
+	$(WORKING_DIR)/bin/$(CODEGEN) --schema-folder $(CFN_SCHEMA_DIR) --version ${VERSION_GENERIC} --metadata-folder $(METADATA_DIR) schema
 	echo "Finished generating schema."
 
 codegen::

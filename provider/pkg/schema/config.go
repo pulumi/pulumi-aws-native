@@ -15,6 +15,8 @@
 package schema
 
 import (
+	"strings"
+
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
@@ -135,38 +137,29 @@ var ignoreTags = pschema.ComplexTypeSpec{
 	},
 }
 
-var region = pschema.ComplexTypeSpec{
-	ObjectTypeSpec: pschema.ObjectTypeSpec{
-		Description: "A Region represents any valid Amazon region that may be targeted with deployments.",
-		Type:        "string",
-	},
-	Enum: []pschema.EnumValueSpec{
-		{Name: "AfSouth1", Value: "af-south-1", Description: "Africa (Cape Town)"},
-		{Name: "ApEast1", Value: "ap-east-1", Description: "Asia Pacific (Hong Kong)"},
-		{Name: "ApNortheast1", Value: "ap-northeast-1", Description: "Asia Pacific (Tokyo)"},
-		{Name: "ApNortheast2", Value: "ap-northeast-2", Description: "Asia Pacific (Seoul)"},
-		{Name: "ApNortheast3", Value: "ap-northeast-3", Description: "Asia Pacific (Osaka)"},
-		{Name: "ApSouth1", Value: "ap-south-1", Description: "Asia Pacific (Mumbai)"},
-		{Name: "ApSoutheast1", Value: "ap-southeast-1", Description: "Asia Pacific (Singapore)"},
-		{Name: "ApSoutheast2", Value: "ap-southeast-2", Description: "Asia Pacific (Sydney)"},
-		{Name: "CaCentral", Value: "ca-central-1", Description: "Canada (Central)"},
-		{Name: "CnNorth1", Value: "cn-north-1", Description: "China (Beijing)"},
-		{Name: "CnNorthwest1", Value: "cn-northwest-1", Description: "China (Ningxia)"},
-		{Name: "EuCentral1", Value: "eu-central-1", Description: "Europe (Frankfurt)"},
-		{Name: "EuNorth1", Value: "eu-north-1", Description: "Europe (Stockholm)"},
-		{Name: "EuWest1", Value: "eu-west-1", Description: "Europe (Ireland)"},
-		{Name: "EuWest2", Value: "eu-west-2", Description: "Europe (London)"},
-		{Name: "EuWest3", Value: "eu-west-3", Description: "Europe (Paris)"},
-		{Name: "EuSouth1", Value: "eu-south-1", Description: "Europe (Milan)"},
-		{Name: "MeSouth1", Value: "me-south-1", Description: "Middle East (Bahrain)"},
-		{Name: "SaEast1", Value: "sa-east-1", Description: "South America (São Paulo)"},
-		{Name: "UsGovEast1", Value: "us-gov-east-1", Description: "AWS GovCloud (US-East)"},
-		{Name: "UsGovWest1", Value: "us-gov-west-1", Description: "AWS GovCloud (US-West)"},
-		{Name: "UsEast1", Value: "us-east-1", Description: "US East (N. Virginia)"},
-		{Name: "UsEast2", Value: "us-east-2", Description: "US East (Ohio)"},
-		{Name: "UsWest1", Value: "us-west-1", Description: "US West (N. California)"},
-		{Name: "UsWest2", Value: "us-west-2", Description: "US West (Oregon)"},
-	},
+func generateRegionEnum(regions []RegionInfo) pschema.ComplexTypeSpec {
+	enums := make([]pschema.EnumValueSpec, len(regions))
+	for i, region := range regions {
+		sections := strings.Split(region.Name, "-")
+		for i, section := range sections {
+			sections[i] = strings.ToUpper(section[:1]) + strings.ToLower(section[1:])
+		}
+		capitalizedName := strings.Join(sections, "")
+
+		enums[i] = pschema.EnumValueSpec{
+			Name:        capitalizedName,
+			Value:       region.Name,
+			Description: region.Description,
+		}
+	}
+
+	return pschema.ComplexTypeSpec{
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Description: "A Region represents any valid Amazon region that may be targeted with deployments.",
+			Type:        "string",
+		},
+		Enum: enums,
+	}
 }
 
 // typeOverlays augment the types defined by the schema.
@@ -179,5 +172,4 @@ var typeOverlays = map[string]pschema.ComplexTypeSpec{
 	"aws-native:index:ProviderEndpoint":    configToProvider(endpoints),
 	"aws-native:config:IgnoreTags":         ignoreTags,
 	"aws-native:index:ProviderIgnoreTags":  configToProvider(ignoreTags),
-	"aws-native:index/Region:Region":       region,
 }
