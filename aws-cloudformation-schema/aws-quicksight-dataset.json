@@ -14,7 +14,7 @@
       "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:DescribeIngestion", "quicksight:ListIngestions", "quicksight:CreateDataSet", "quicksight:PassDataSource", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:ListTagsForResource", "quicksight:DescribeDataSetRefreshProperties", "quicksight:PutDataSetRefreshProperties" ]
     },
     "update" : {
-      "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:PassDataSource", "quicksight:UpdateDataSet", "quicksight:UpdateDataSetPermissions", "quicksight:PassDataSet", "quicksight:DescribeIngestion", "quicksight:ListIngestions", "quicksight:CancelIngestion", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource", "quicksight:PutDataSetRefreshProperties", "quicksight:DescribeDataSetRefreshProperties", "quicksight:DeleteDataSetRefreshProperties" ]
+      "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:PassDataSource", "quicksight:UpdateDataSet", "quicksight:UpdateDataSetPermissions", "quicksight:PassDataSet", "quicksight:DescribeIngestion", "quicksight:ListIngestions", "quicksight:CancelIngestion", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource", "quicksight:PutDataSetRefreshProperties", "quicksight:DescribeDataSetRefreshProperties", "quicksight:DeleteDataSetRefreshProperties" ]
     },
     "list" : {
       "permissions" : [ "quicksight:DescribeDataSet", "quicksight:ListDataSets" ]
@@ -26,7 +26,7 @@
   "typeName" : "AWS::QuickSight::DataSet",
   "readOnlyProperties" : [ "/properties/Arn", "/properties/ConsumedSpiceCapacityInBytes", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/OutputColumns" ],
   "description" : "Definition of the AWS::QuickSight::DataSet Resource Type.",
-  "writeOnlyProperties" : [ "/properties/FieldFolders", "/properties/IngestionWaitPolicy" ],
+  "writeOnlyProperties" : [ "/properties/FieldFolders", "/properties/IngestionWaitPolicy", "/properties/FolderArns" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/DataSetId" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/DataSetId" ],
@@ -117,7 +117,7 @@
           "$ref" : "#/definitions/LogicalTableSource"
         }
       },
-      "required" : [ "Alias", "Source" ]
+      "required" : [ "Alias" ]
     },
     "FileFormat" : {
       "type" : "string",
@@ -1239,6 +1239,15 @@
     },
     "DataSetId" : {
       "type" : "string"
+    },
+    "FolderArns" : {
+      "minItems" : 0,
+      "maxItems" : 10,
+      "description" : "<p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     },
     "ConsumedSpiceCapacityInBytes" : {
       "default" : 0,
