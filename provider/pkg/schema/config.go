@@ -15,6 +15,7 @@
 package schema
 
 import (
+	"sort"
 	"strings"
 
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -152,6 +153,10 @@ func generateRegionEnum(regions []RegionInfo) pschema.ComplexTypeSpec {
 			Description: region.Description,
 		}
 	}
+
+	sort.SliceStable(enums, func(i, j int) bool {
+		return enums[i].Name < enums[j].Name
+	})
 
 	return pschema.ComplexTypeSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{

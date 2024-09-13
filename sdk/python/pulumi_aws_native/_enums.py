@@ -69,6 +69,14 @@ class Region(str, Enum):
     """
     Canada West (Calgary)
     """
+    CN_NORTH1 = "cn-north-1"
+    """
+    China (Beijing)
+    """
+    CN_NORTHWEST1 = "cn-northwest-1"
+    """
+    China (Ningxia)
+    """
     EU_CENTRAL1 = "eu-central-1"
     """
     Europe (Frankfurt)
@@ -76,6 +84,10 @@ class Region(str, Enum):
     EU_CENTRAL2 = "eu-central-2"
     """
     Europe (Zurich)
+    """
+    EU_ISOE_WEST1 = "eu-isoe-west-1"
+    """
+    EU ISOE West
     """
     EU_NORTH1 = "eu-north-1"
     """
@@ -125,22 +137,6 @@ class Region(str, Enum):
     """
     US East (Ohio)
     """
-    US_WEST1 = "us-west-1"
-    """
-    US West (N. California)
-    """
-    US_WEST2 = "us-west-2"
-    """
-    US West (Oregon)
-    """
-    CN_NORTH1 = "cn-north-1"
-    """
-    China (Beijing)
-    """
-    CN_NORTHWEST1 = "cn-northwest-1"
-    """
-    China (Ningxia)
-    """
     US_GOV_EAST1 = "us-gov-east-1"
     """
     AWS GovCloud (US-East)
@@ -161,7 +157,11 @@ class Region(str, Enum):
     """
     US ISOB East (Ohio)
     """
-    EU_ISOE_WEST1 = "eu-isoe-west-1"
+    US_WEST1 = "us-west-1"
     """
-    EU ISOE West
+    US West (N. California)
+    """
+    US_WEST2 = "us-west-2"
+    """
+    US West (Oregon)
     """

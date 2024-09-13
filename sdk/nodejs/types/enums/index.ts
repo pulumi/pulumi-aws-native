@@ -392,6 +392,14 @@ export const Region = {
      */
     CaWest1: "ca-west-1",
     /**
+     * China (Beijing)
+     */
+    CnNorth1: "cn-north-1",
+    /**
+     * China (Ningxia)
+     */
+    CnNorthwest1: "cn-northwest-1",
+    /**
      * Europe (Frankfurt)
      */
     EuCentral1: "eu-central-1",
@@ -399,6 +407,10 @@ export const Region = {
      * Europe (Zurich)
      */
     EuCentral2: "eu-central-2",
+    /**
+     * EU ISOE West
+     */
+    EuIsoeWest1: "eu-isoe-west-1",
     /**
      * Europe (Stockholm)
      */
@@ -448,22 +460,6 @@ export const Region = {
      */
     UsEast2: "us-east-2",
     /**
-     * US West (N. California)
-     */
-    UsWest1: "us-west-1",
-    /**
-     * US West (Oregon)
-     */
-    UsWest2: "us-west-2",
-    /**
-     * China (Beijing)
-     */
-    CnNorth1: "cn-north-1",
-    /**
-     * China (Ningxia)
-     */
-    CnNorthwest1: "cn-northwest-1",
-    /**
      * AWS GovCloud (US-East)
      */
     UsGovEast1: "us-gov-east-1",
@@ -484,9 +480,13 @@ export const Region = {
      */
     UsIsobEast1: "us-isob-east-1",
     /**
-     * EU ISOE West
+     * US West (N. California)
      */
-    EuIsoeWest1: "eu-isoe-west-1",
+    UsWest1: "us-west-1",
+    /**
+     * US West (Oregon)
+     */
+    UsWest2: "us-west-2",
 } as const;
 
 /**

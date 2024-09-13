@@ -18,12 +18,25 @@ func marshalSpec(spec map[string]interface{}) *jsschema.Schema {
 }
 
 func runTest(t *testing.T, spec map[string]interface{}, docs Docs) (*schema.PackageSpec, *Reports) {
+	return runTestWithRegions(t, spec, docs, []RegionInfo{
+		{
+			Name: "us-west-2",
+			Description: "US West (Oregon)",
+		},
+		{
+			Name: "us-east-1",
+			Description: "US East (N. Virginia)",
+		},
+	})
+}
+
+func runTestWithRegions(t *testing.T, spec map[string]interface{}, docs Docs, regions []RegionInfo) (*schema.PackageSpec, *Reports) {
 	s := marshalSpec(spec)
 	semanticsDocument, err := GatherSemantics("../../../provider/cmd/pulumi-resource-aws-native")
 	if err != nil {
 		t.Fatalf("Error gathering semantics: %v", err)
 	}
-	packageSpec, _, reports, err := GatherPackage([]string{s.Extras["typeName"].(string)}, []*jsschema.Schema{s}, false, &semanticsDocument, &docs)
+	packageSpec, _, reports, err := GatherPackage([]string{s.Extras["typeName"].(string)}, []*jsschema.Schema{s}, false, &semanticsDocument, &docs, regions)
 	if err != nil {
 		t.Fatalf("GatherPackage failed: %v", err)
 	}
@@ -486,4 +499,53 @@ func TestGatherPackage_docs_augmentation_unknownProperty(t *testing.T) {
 	assert.Contains(t, reports.MissingDocs, "AWS::ECR::Repository")
 	assert.Contains(t, reports.MissingDocs["AWS::ECR::Repository"], "EncryptionType")
 	assert.Equal(t, fmt.Sprint(1), reports.MissingDocs["AWS::ECR::Repository"]["EncryptionType"])
+}
+
+func TestGatherPackage_regionGeneration(t *testing.T) {
+	spec := map[string]interface{}{
+		"typeName":    "AWS::EC2::Volume",
+		"properties":  map[string]interface{}{},
+		"definitions": map[string]interface{}{},
+	}
+	docs := Docs{
+		Types: map[string]DocsTypes{
+			"AWS::EC2::Volume": {
+				Description: "Specifies an Amazon Elastic Block Store (Amazon EBS) volume.\n\nWhen you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.\n\nAmazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.\n\nSome common scenarios when you might encounter a cooldown period for Amazon EBS include:\n\n- You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.\n- You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.\n\nFor more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .\n\n*DeletionPolicy attribute*\n\nTo control how AWS CloudFormation handles the volume when the stack is deleted, set a deletion policy for your volume. You can choose to retain the volume, to delete the volume, or to create a snapshot of the volume. For more information, see [DeletionPolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) .\n\n> If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.",
+				Properties:  map[string]string{},
+			},
+		},
+	}
+	packageSpec, _ := runTestWithRegions(t, spec, docs, []RegionInfo{
+		{
+			Name: "us-west-2",
+			Description: "US West (Oregon)",
+		},
+		{
+			Name: "us-east-1",
+			Description: "US East (N. Virginia)",
+		},
+		{
+			Name: "us-gov-west-1",
+			Description: "AWS GovCloud (US-West)",
+		},
+		{
+			Name: "cn-north-1",
+			Description: "China (Beijing)",
+		},
+		{
+			Name: "eu-isoe-west-1",
+			Description: "EU ISOE West",
+		},
+	})
+
+	assert.Contains(t, packageSpec.Types, "aws-native:index/Region:Region")
+	regionEnum := packageSpec.Types["aws-native:index/Region:Region"].Enum
+
+	assert.Equal(t, []schema.EnumValueSpec{
+		{Value: "cn-north-1", Name: "CnNorth1", Description: "China (Beijing)"},
+		{Value: "eu-isoe-west-1", Name: "EuIsoeWest1", Description: "EU ISOE West"},
+		{Value: "us-east-1", Name: "UsEast1", Description: "US East (N. Virginia)"},
+		{Value: "us-gov-west-1", Name: "UsGovWest1", Description: "AWS GovCloud (US-West)"},
+		{Value: "us-west-2", Name: "UsWest2", Description: "US West (Oregon)"},
+	}, regionEnum)
 }

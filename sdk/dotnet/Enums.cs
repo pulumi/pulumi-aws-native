@@ -77,6 +77,14 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region CaWest1 { get; } = new Region("ca-west-1");
         /// <summary>
+        /// China (Beijing)
+        /// </summary>
+        public static Region CnNorth1 { get; } = new Region("cn-north-1");
+        /// <summary>
+        /// China (Ningxia)
+        /// </summary>
+        public static Region CnNorthwest1 { get; } = new Region("cn-northwest-1");
+        /// <summary>
         /// Europe (Frankfurt)
         /// </summary>
         public static Region EuCentral1 { get; } = new Region("eu-central-1");
@@ -84,6 +92,10 @@ namespace Pulumi.AwsNative
         /// Europe (Zurich)
         /// </summary>
         public static Region EuCentral2 { get; } = new Region("eu-central-2");
+        /// <summary>
+        /// EU ISOE West
+        /// </summary>
+        public static Region EuIsoeWest1 { get; } = new Region("eu-isoe-west-1");
         /// <summary>
         /// Europe (Stockholm)
         /// </summary>
@@ -133,22 +145,6 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region UsEast2 { get; } = new Region("us-east-2");
         /// <summary>
-        /// US West (N. California)
-        /// </summary>
-        public static Region UsWest1 { get; } = new Region("us-west-1");
-        /// <summary>
-        /// US West (Oregon)
-        /// </summary>
-        public static Region UsWest2 { get; } = new Region("us-west-2");
-        /// <summary>
-        /// China (Beijing)
-        /// </summary>
-        public static Region CnNorth1 { get; } = new Region("cn-north-1");
-        /// <summary>
-        /// China (Ningxia)
-        /// </summary>
-        public static Region CnNorthwest1 { get; } = new Region("cn-northwest-1");
-        /// <summary>
         /// AWS GovCloud (US-East)
         /// </summary>
         public static Region UsGovEast1 { get; } = new Region("us-gov-east-1");
@@ -169,9 +165,13 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region UsIsobEast1 { get; } = new Region("us-isob-east-1");
         /// <summary>
-        /// EU ISOE West
+        /// US West (N. California)
         /// </summary>
-        public static Region EuIsoeWest1 { get; } = new Region("eu-isoe-west-1");
+        public static Region UsWest1 { get; } = new Region("us-west-1");
+        /// <summary>
+        /// US West (Oregon)
+        /// </summary>
+        public static Region UsWest2 { get; } = new Region("us-west-2");
 
         public static bool operator ==(Region left, Region right) => left.Equals(right);
         public static bool operator !=(Region left, Region right) => !left.Equals(right);
