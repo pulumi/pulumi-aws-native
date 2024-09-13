@@ -35,6 +35,16 @@
       "description" : "The AWS region in which the Amazon DataZone environment is created.",
       "pattern" : "^[a-z]{2}-[a-z]{4,10}-\\d$"
     },
+    "EnvironmentAccountIdentifier" : {
+      "type" : "string",
+      "description" : "The AWS account in which the Amazon DataZone environment is created.",
+      "pattern" : "^\\d{12}$"
+    },
+    "EnvironmentAccountRegion" : {
+      "type" : "string",
+      "description" : "The AWS region in which the Amazon DataZone environment is created.",
+      "pattern" : "^[a-z]{2}-[a-z]{4,10}-\\d$"
+    },
     "CreatedAt" : {
       "type" : "string",
       "description" : "The timestamp of when the environment was created.",
@@ -67,12 +77,12 @@
     "EnvironmentProfileId" : {
       "type" : "string",
       "description" : "The ID of the environment profile with which the Amazon DataZone environment was created.",
-      "pattern" : "^[a-zA-Z0-9_-]{1,36}$"
+      "pattern" : "^[a-zA-Z0-9_-]{0,36}$"
     },
     "EnvironmentProfileIdentifier" : {
       "type" : "string",
       "description" : "The ID of the environment profile with which the Amazon DataZone environment would be created.",
-      "pattern" : "^[a-zA-Z0-9_-]{1,36}$"
+      "pattern" : "^[a-zA-Z0-9_-]{0,36}$"
     },
     "GlossaryTerms" : {
       "type" : "array",
@@ -84,6 +94,10 @@
       },
       "maxItems" : 20,
       "minItems" : 1
+    },
+    "EnvironmentRoleArn" : {
+      "type" : "string",
+      "description" : "Environment role arn for custom aws environment permissions"
     },
     "Id" : {
       "type" : "string",
@@ -129,10 +143,10 @@
       }
     }
   },
-  "required" : [ "EnvironmentProfileIdentifier", "Name", "ProjectIdentifier", "DomainIdentifier" ],
+  "required" : [ "Name", "ProjectIdentifier", "DomainIdentifier" ],
   "readOnlyProperties" : [ "/properties/AwsAccountId", "/properties/AwsAccountRegion", "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/EnvironmentBlueprintId", "/properties/EnvironmentProfileId", "/properties/Id", "/properties/ProjectId", "/properties/Provider", "/properties/Status", "/properties/UpdatedAt" ],
-  "writeOnlyProperties" : [ "/properties/EnvironmentProfileIdentifier", "/properties/ProjectIdentifier", "/properties/DomainIdentifier" ],
-  "createOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/EnvironmentProfileIdentifier", "/properties/ProjectIdentifier", "/properties/UserParameters" ],
+  "writeOnlyProperties" : [ "/properties/EnvironmentProfileIdentifier", "/properties/ProjectIdentifier", "/properties/DomainIdentifier", "/properties/EnvironmentAccountIdentifier", "/properties/EnvironmentAccountRegion", "/properties/EnvironmentRoleArn" ],
+  "createOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/EnvironmentProfileIdentifier", "/properties/ProjectIdentifier", "/properties/UserParameters", "/properties/EnvironmentAccountIdentifier", "/properties/EnvironmentAccountRegion" ],
   "primaryIdentifier" : [ "/properties/DomainId", "/properties/Id" ],
   "additionalIdentifiers" : [ [ "/properties/DomainIdentifier" ] ],
   "tagging" : {
@@ -140,13 +154,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "datazone:CreateEnvironment", "datazone:GetEnvironment", "datazone:DeleteEnvironment" ]
+      "permissions" : [ "datazone:CreateEnvironment", "datazone:GetEnvironment", "datazone:DeleteEnvironment", "datazone:AssociateEnvironmentRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "datazone:GetEnvironment" ]
     },
     "update" : {
-      "permissions" : [ "datazone:UpdateEnvironment", "datazone:GetEnvironment", "datazone:DeleteEnvironment" ]
+      "permissions" : [ "datazone:UpdateEnvironment", "datazone:GetEnvironment", "datazone:DeleteEnvironment", "datazone:AssociateEnvironmentRole", "datazone:DisassociateEnvironmentRole", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "datazone:DeleteEnvironment", "datazone:GetEnvironment" ]
