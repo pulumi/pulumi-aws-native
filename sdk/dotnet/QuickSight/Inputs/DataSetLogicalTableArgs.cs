@@ -39,8 +39,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// Source of this logical table.
         /// </summary>
-        [Input("source", required: true)]
-        public Input<Inputs.DataSetLogicalTableSourceArgs> Source { get; set; } = null!;
+        [Input("source")]
+        public Input<Inputs.DataSetLogicalTableSourceArgs>? Source { get; set; }
 
         public DataSetLogicalTableArgs()
         {

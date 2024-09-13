@@ -64,6 +64,18 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> DomainIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS account in which the Amazon DataZone environment is created.
+        /// </summary>
+        [Output("environmentAccountIdentifier")]
+        public Output<string?> EnvironmentAccountIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS region in which the Amazon DataZone environment is created.
+        /// </summary>
+        [Output("environmentAccountRegion")]
+        public Output<string?> EnvironmentAccountRegion { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the blueprint with which the Amazon DataZone environment was created.
         /// </summary>
         [Output("environmentBlueprintId")]
@@ -79,7 +91,13 @@ namespace Pulumi.AwsNative.DataZone
         /// The ID of the environment profile with which the Amazon DataZone environment would be created.
         /// </summary>
         [Output("environmentProfileIdentifier")]
-        public Output<string> EnvironmentProfileIdentifier { get; private set; } = null!;
+        public Output<string?> EnvironmentProfileIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Environment role arn for custom aws environment permissions
+        /// </summary>
+        [Output("environmentRoleArn")]
+        public Output<string?> EnvironmentRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// The glossary terms that can be used in the Amazon DataZone environment.
@@ -155,6 +173,8 @@ namespace Pulumi.AwsNative.DataZone
                 ReplaceOnChanges =
                 {
                     "domainIdentifier",
+                    "environmentAccountIdentifier",
+                    "environmentAccountRegion",
                     "environmentProfileIdentifier",
                     "projectIdentifier",
                     "userParameters[*]",
@@ -194,10 +214,28 @@ namespace Pulumi.AwsNative.DataZone
         public Input<string> DomainIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// The AWS account in which the Amazon DataZone environment is created.
+        /// </summary>
+        [Input("environmentAccountIdentifier")]
+        public Input<string>? EnvironmentAccountIdentifier { get; set; }
+
+        /// <summary>
+        /// The AWS region in which the Amazon DataZone environment is created.
+        /// </summary>
+        [Input("environmentAccountRegion")]
+        public Input<string>? EnvironmentAccountRegion { get; set; }
+
+        /// <summary>
         /// The ID of the environment profile with which the Amazon DataZone environment would be created.
         /// </summary>
-        [Input("environmentProfileIdentifier", required: true)]
-        public Input<string> EnvironmentProfileIdentifier { get; set; } = null!;
+        [Input("environmentProfileIdentifier")]
+        public Input<string>? EnvironmentProfileIdentifier { get; set; }
+
+        /// <summary>
+        /// Environment role arn for custom aws environment permissions
+        /// </summary>
+        [Input("environmentRoleArn")]
+        public Input<string>? EnvironmentRoleArn { get; set; }
 
         [Input("glossaryTerms")]
         private InputList<string>? _glossaryTerms;

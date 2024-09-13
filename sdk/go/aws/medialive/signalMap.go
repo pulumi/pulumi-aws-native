@@ -19,31 +19,39 @@ type SignalMap struct {
 	// A signal map's ARN (Amazon Resource Name)
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A signal map's id.
-	AwsId                                   pulumi.StringOutput      `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
 	CloudWatchAlarmTemplateGroupIdentifiers pulumi.StringArrayOutput `pulumi:"cloudWatchAlarmTemplateGroupIdentifiers"`
-	CloudWatchAlarmTemplateGroupIds         pulumi.StringArrayOutput `pulumi:"cloudWatchAlarmTemplateGroupIds"`
-	CreatedAt                               pulumi.StringOutput      `pulumi:"createdAt"`
+	// An alarm template group's id.
+	CloudWatchAlarmTemplateGroupIds pulumi.StringArrayOutput `pulumi:"cloudWatchAlarmTemplateGroupIds"`
+	// The date and time of resource creation.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A resource's optional description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A top-level supported AWS resource ARN to discovery a signal map from.
 	DiscoveryEntryPointArn pulumi.StringOutput `pulumi:"discoveryEntryPointArn"`
 	// Error message associated with a failed creation or failed update attempt of a signal map.
-	ErrorMessage                            pulumi.StringOutput             `pulumi:"errorMessage"`
-	EventBridgeRuleTemplateGroupIdentifiers pulumi.StringArrayOutput        `pulumi:"eventBridgeRuleTemplateGroupIdentifiers"`
-	EventBridgeRuleTemplateGroupIds         pulumi.StringArrayOutput        `pulumi:"eventBridgeRuleTemplateGroupIds"`
-	FailedMediaResourceMap                  SignalMapMediaResourceMapOutput `pulumi:"failedMediaResourceMap"`
+	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
+	// An eventbridge rule template group's identifier. Can be either be its id or current name.
+	EventBridgeRuleTemplateGroupIdentifiers pulumi.StringArrayOutput `pulumi:"eventBridgeRuleTemplateGroupIdentifiers"`
+	// An eventbridge rule template group's id.
+	EventBridgeRuleTemplateGroupIds pulumi.StringArrayOutput        `pulumi:"eventBridgeRuleTemplateGroupIds"`
+	FailedMediaResourceMap          SignalMapMediaResourceMapOutput `pulumi:"failedMediaResourceMap"`
 	// If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
-	ForceRediscovery                pulumi.BoolPtrOutput                       `pulumi:"forceRediscovery"`
-	Identifier                      pulumi.StringOutput                        `pulumi:"identifier"`
+	ForceRediscovery pulumi.BoolPtrOutput `pulumi:"forceRediscovery"`
+	Identifier       pulumi.StringOutput  `pulumi:"identifier"`
+	// The date and time of latest discovery.
 	LastDiscoveredAt                pulumi.StringOutput                        `pulumi:"lastDiscoveredAt"`
 	LastSuccessfulMonitorDeployment SignalMapSuccessfulMonitorDeploymentOutput `pulumi:"lastSuccessfulMonitorDeployment"`
 	MediaResourceMap                SignalMapMediaResourceMapOutput            `pulumi:"mediaResourceMap"`
-	ModifiedAt                      pulumi.StringOutput                        `pulumi:"modifiedAt"`
+	// The date and time of latest resource modification.
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// If true, there are pending monitor changes for this signal map that can be deployed.
 	MonitorChangesPendingDeployment pulumi.BoolOutput                `pulumi:"monitorChangesPendingDeployment"`
 	MonitorDeployment               SignalMapMonitorDeploymentOutput `pulumi:"monitorDeployment"`
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
-	Name   pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
 	Status SignalMapStatusOutput  `pulumi:"status"`
 	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -95,11 +103,13 @@ func (SignalMapState) ElementType() reflect.Type {
 }
 
 type signalMapArgs struct {
+	// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
 	CloudWatchAlarmTemplateGroupIdentifiers []string `pulumi:"cloudWatchAlarmTemplateGroupIdentifiers"`
 	// A resource's optional description.
 	Description *string `pulumi:"description"`
 	// A top-level supported AWS resource ARN to discovery a signal map from.
-	DiscoveryEntryPointArn                  string   `pulumi:"discoveryEntryPointArn"`
+	DiscoveryEntryPointArn string `pulumi:"discoveryEntryPointArn"`
+	// An eventbridge rule template group's identifier. Can be either be its id or current name.
 	EventBridgeRuleTemplateGroupIdentifiers []string `pulumi:"eventBridgeRuleTemplateGroupIdentifiers"`
 	// If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
 	ForceRediscovery *bool `pulumi:"forceRediscovery"`
@@ -110,11 +120,13 @@ type signalMapArgs struct {
 
 // The set of arguments for constructing a SignalMap resource.
 type SignalMapArgs struct {
+	// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
 	CloudWatchAlarmTemplateGroupIdentifiers pulumi.StringArrayInput
 	// A resource's optional description.
 	Description pulumi.StringPtrInput
 	// A top-level supported AWS resource ARN to discovery a signal map from.
-	DiscoveryEntryPointArn                  pulumi.StringInput
+	DiscoveryEntryPointArn pulumi.StringInput
+	// An eventbridge rule template group's identifier. Can be either be its id or current name.
 	EventBridgeRuleTemplateGroupIdentifiers pulumi.StringArrayInput
 	// If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
 	ForceRediscovery pulumi.BoolPtrInput
@@ -170,14 +182,17 @@ func (o SignalMapOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
 func (o SignalMapOutput) CloudWatchAlarmTemplateGroupIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringArrayOutput { return v.CloudWatchAlarmTemplateGroupIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// An alarm template group's id.
 func (o SignalMapOutput) CloudWatchAlarmTemplateGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringArrayOutput { return v.CloudWatchAlarmTemplateGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The date and time of resource creation.
 func (o SignalMapOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -197,10 +212,12 @@ func (o SignalMapOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
+// An eventbridge rule template group's identifier. Can be either be its id or current name.
 func (o SignalMapOutput) EventBridgeRuleTemplateGroupIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringArrayOutput { return v.EventBridgeRuleTemplateGroupIdentifiers }).(pulumi.StringArrayOutput)
 }
 
+// An eventbridge rule template group's id.
 func (o SignalMapOutput) EventBridgeRuleTemplateGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringArrayOutput { return v.EventBridgeRuleTemplateGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -218,6 +235,7 @@ func (o SignalMapOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
+// The date and time of latest discovery.
 func (o SignalMapOutput) LastDiscoveredAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringOutput { return v.LastDiscoveredAt }).(pulumi.StringOutput)
 }
@@ -232,6 +250,7 @@ func (o SignalMapOutput) MediaResourceMap() SignalMapMediaResourceMapOutput {
 	return o.ApplyT(func(v *SignalMap) SignalMapMediaResourceMapOutput { return v.MediaResourceMap }).(SignalMapMediaResourceMapOutput)
 }
 
+// The date and time of latest resource modification.
 func (o SignalMapOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
@@ -250,6 +269,7 @@ func (o SignalMapOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SignalMap) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
 func (o SignalMapOutput) Status() SignalMapStatusOutput {
 	return o.ApplyT(func(v *SignalMap) SignalMapStatusOutput { return v.Status }).(SignalMapStatusOutput)
 }

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainCodeEditorAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+        /// </summary>
         [Input("appLifecycleManagement")]
         public Input<Inputs.DomainAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
 

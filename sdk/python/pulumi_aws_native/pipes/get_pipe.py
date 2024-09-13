@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPipeResult:
-    def __init__(__self__, arn=None, creation_time=None, current_state=None, description=None, desired_state=None, enrichment=None, enrichment_parameters=None, last_modified_time=None, log_configuration=None, role_arn=None, state_reason=None, tags=None, target=None):
+    def __init__(__self__, arn=None, creation_time=None, current_state=None, description=None, desired_state=None, enrichment=None, enrichment_parameters=None, kms_key_identifier=None, last_modified_time=None, log_configuration=None, role_arn=None, state_reason=None, tags=None, target=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetPipeResult:
         if enrichment_parameters and not isinstance(enrichment_parameters, dict):
             raise TypeError("Expected argument 'enrichment_parameters' to be a dict")
         pulumi.set(__self__, "enrichment_parameters", enrichment_parameters)
+        if kms_key_identifier and not isinstance(kms_key_identifier, str):
+            raise TypeError("Expected argument 'kms_key_identifier' to be a str")
+        pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -118,6 +121,20 @@ class GetPipeResult:
         return pulumi.get(self, "enrichment_parameters")
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[str]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+
+        To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+
+        To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+
+        For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
         """
@@ -179,6 +196,7 @@ class AwaitableGetPipeResult(GetPipeResult):
             desired_state=self.desired_state,
             enrichment=self.enrichment,
             enrichment_parameters=self.enrichment_parameters,
+            kms_key_identifier=self.kms_key_identifier,
             last_modified_time=self.last_modified_time,
             log_configuration=self.log_configuration,
             role_arn=self.role_arn,
@@ -208,6 +226,7 @@ def get_pipe(name: Optional[str] = None,
         desired_state=pulumi.get(__ret__, 'desired_state'),
         enrichment=pulumi.get(__ret__, 'enrichment'),
         enrichment_parameters=pulumi.get(__ret__, 'enrichment_parameters'),
+        kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         log_configuration=pulumi.get(__ret__, 'log_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),

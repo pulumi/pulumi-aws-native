@@ -45,7 +45,13 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
      * A cloudwatch alarm template's id. AWS provided templates have ids that start with `aws-`
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The comparison operator used to compare the specified statistic and the threshold.
+     */
     public readonly comparisonOperator!: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateComparisonOperator>;
+    /**
+     * The date and time of resource creation.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
@@ -72,6 +78,9 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
      * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
      */
     public readonly metricName!: pulumi.Output<string>;
+    /**
+     * The date and time of latest resource modification.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -81,13 +90,22 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
      * The period, in seconds, over which the specified statistic is applied.
      */
     public readonly period!: pulumi.Output<number>;
+    /**
+     * The statistic to apply to the alarm's metric data.
+     */
     public readonly statistic!: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateStatistic>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The resource type this template should dynamically generate CloudWatch metric alarms for.
+     */
     public readonly targetResourceType!: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateTargetResourceType>;
     /**
      * The threshold value to compare with the specified statistic.
      */
     public readonly threshold!: pulumi.Output<number>;
+    /**
+     * Specifies how missing data points are treated when evaluating the alarm's condition.
+     */
     public readonly treatMissingData!: pulumi.Output<enums.medialive.CloudWatchAlarmTemplateTreatMissingData>;
 
     /**
@@ -179,6 +197,9 @@ export class CloudWatchAlarmTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a CloudWatchAlarmTemplate resource.
  */
 export interface CloudWatchAlarmTemplateArgs {
+    /**
+     * The comparison operator used to compare the specified statistic and the threshold.
+     */
     comparisonOperator: pulumi.Input<enums.medialive.CloudWatchAlarmTemplateComparisonOperator>;
     /**
      * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
@@ -208,12 +229,21 @@ export interface CloudWatchAlarmTemplateArgs {
      * The period, in seconds, over which the specified statistic is applied.
      */
     period: pulumi.Input<number>;
+    /**
+     * The statistic to apply to the alarm's metric data.
+     */
     statistic: pulumi.Input<enums.medialive.CloudWatchAlarmTemplateStatistic>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The resource type this template should dynamically generate CloudWatch metric alarms for.
+     */
     targetResourceType: pulumi.Input<enums.medialive.CloudWatchAlarmTemplateTargetResourceType>;
     /**
      * The threshold value to compare with the specified statistic.
      */
     threshold: pulumi.Input<number>;
+    /**
+     * Specifies how missing data points are treated when evaluating the alarm's condition.
+     */
     treatMissingData: pulumi.Input<enums.medialive.CloudWatchAlarmTemplateTreatMissingData>;
 }

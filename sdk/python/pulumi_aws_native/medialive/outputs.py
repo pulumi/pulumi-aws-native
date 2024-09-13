@@ -741,7 +741,9 @@ class SignalMapMediaResource(dict):
                  sources: Optional[Sequence['outputs.SignalMapMediaResourceNeighbor']] = None):
         """
         An AWS resource used in media workflows.
+        :param Sequence['SignalMapMediaResourceNeighbor'] destinations: A direct destination neighbor to an Amazon Web Services media resource.
         :param str name: The logical name of an AWS media resource.
+        :param Sequence['SignalMapMediaResourceNeighbor'] sources: A direct source neighbor to an Amazon Web Services media resource.
         """
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
@@ -753,6 +755,9 @@ class SignalMapMediaResource(dict):
     @property
     @pulumi.getter
     def destinations(self) -> Optional[Sequence['outputs.SignalMapMediaResourceNeighbor']]:
+        """
+        A direct destination neighbor to an Amazon Web Services media resource.
+        """
         return pulumi.get(self, "destinations")
 
     @property
@@ -766,6 +771,9 @@ class SignalMapMediaResource(dict):
     @property
     @pulumi.getter
     def sources(self) -> Optional[Sequence['outputs.SignalMapMediaResourceNeighbor']]:
+        """
+        A direct source neighbor to an Amazon Web Services media resource.
+        """
         return pulumi.get(self, "sources")
 
 
@@ -833,6 +841,7 @@ class SignalMapMonitorDeployment(dict):
                  error_message: Optional[str] = None):
         """
         Represents the latest monitor deployment of a signal map.
+        :param 'SignalMapMonitorDeploymentStatus' status: The signal map monitor deployment status.
         :param str details_uri: URI associated with a signal map's monitor deployment.
         :param str error_message: Error message associated with a failed monitor deployment of a signal map.
         """
@@ -845,6 +854,9 @@ class SignalMapMonitorDeployment(dict):
     @property
     @pulumi.getter
     def status(self) -> 'SignalMapMonitorDeploymentStatus':
+        """
+        The signal map monitor deployment status.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -892,6 +904,7 @@ class SignalMapSuccessfulMonitorDeployment(dict):
         """
         Represents the latest successful monitor deployment of a signal map.
         :param str details_uri: URI associated with a signal map's monitor deployment.
+        :param 'SignalMapMonitorDeploymentStatus' status: A signal map's monitor deployment status.
         """
         pulumi.set(__self__, "details_uri", details_uri)
         pulumi.set(__self__, "status", status)
@@ -907,6 +920,9 @@ class SignalMapSuccessfulMonitorDeployment(dict):
     @property
     @pulumi.getter
     def status(self) -> 'SignalMapMonitorDeploymentStatus':
+        """
+        A signal map's monitor deployment status.
+        """
         return pulumi.get(self, "status")
 
 

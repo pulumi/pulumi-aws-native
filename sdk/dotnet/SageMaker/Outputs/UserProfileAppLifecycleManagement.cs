@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class UserProfileAppLifecycleManagement
     {
+        /// <summary>
+        /// Settings related to idle shutdown of Studio applications.
+        /// </summary>
         public readonly Outputs.UserProfileIdleSettings? IdleSettings;
 
         [OutputConstructor]

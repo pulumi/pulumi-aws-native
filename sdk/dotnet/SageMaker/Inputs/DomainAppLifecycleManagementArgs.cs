@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class DomainAppLifecycleManagementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Settings related to idle shutdown of Studio applications.
+        /// </summary>
         [Input("idleSettings")]
         public Input<Inputs.DomainIdleSettingsArgs>? IdleSettings { get; set; }
 

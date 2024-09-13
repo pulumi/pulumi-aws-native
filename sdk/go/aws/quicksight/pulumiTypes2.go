@@ -13,6 +13,255 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// <p>Metadata that contains a description for a column.</p>
+type DataSetColumnDescription struct {
+	// <p>The text of a description for a column.</p>
+	Text *string `pulumi:"text"`
+}
+
+// DataSetColumnDescriptionInput is an input type that accepts DataSetColumnDescriptionArgs and DataSetColumnDescriptionOutput values.
+// You can construct a concrete instance of `DataSetColumnDescriptionInput` via:
+//
+//	DataSetColumnDescriptionArgs{...}
+type DataSetColumnDescriptionInput interface {
+	pulumi.Input
+
+	ToDataSetColumnDescriptionOutput() DataSetColumnDescriptionOutput
+	ToDataSetColumnDescriptionOutputWithContext(context.Context) DataSetColumnDescriptionOutput
+}
+
+// <p>Metadata that contains a description for a column.</p>
+type DataSetColumnDescriptionArgs struct {
+	// <p>The text of a description for a column.</p>
+	Text pulumi.StringPtrInput `pulumi:"text"`
+}
+
+func (DataSetColumnDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnDescription)(nil)).Elem()
+}
+
+func (i DataSetColumnDescriptionArgs) ToDataSetColumnDescriptionOutput() DataSetColumnDescriptionOutput {
+	return i.ToDataSetColumnDescriptionOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnDescriptionArgs) ToDataSetColumnDescriptionOutputWithContext(ctx context.Context) DataSetColumnDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnDescriptionOutput)
+}
+
+func (i DataSetColumnDescriptionArgs) ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput {
+	return i.ToDataSetColumnDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnDescriptionArgs) ToDataSetColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetColumnDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnDescriptionOutput).ToDataSetColumnDescriptionPtrOutputWithContext(ctx)
+}
+
+// DataSetColumnDescriptionPtrInput is an input type that accepts DataSetColumnDescriptionArgs, DataSetColumnDescriptionPtr and DataSetColumnDescriptionPtrOutput values.
+// You can construct a concrete instance of `DataSetColumnDescriptionPtrInput` via:
+//
+//	        DataSetColumnDescriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetColumnDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput
+	ToDataSetColumnDescriptionPtrOutputWithContext(context.Context) DataSetColumnDescriptionPtrOutput
+}
+
+type dataSetColumnDescriptionPtrType DataSetColumnDescriptionArgs
+
+func DataSetColumnDescriptionPtr(v *DataSetColumnDescriptionArgs) DataSetColumnDescriptionPtrInput {
+	return (*dataSetColumnDescriptionPtrType)(v)
+}
+
+func (*dataSetColumnDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetColumnDescription)(nil)).Elem()
+}
+
+func (i *dataSetColumnDescriptionPtrType) ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput {
+	return i.ToDataSetColumnDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetColumnDescriptionPtrType) ToDataSetColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetColumnDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnDescriptionPtrOutput)
+}
+
+// <p>Metadata that contains a description for a column.</p>
+type DataSetColumnDescriptionOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnDescription)(nil)).Elem()
+}
+
+func (o DataSetColumnDescriptionOutput) ToDataSetColumnDescriptionOutput() DataSetColumnDescriptionOutput {
+	return o
+}
+
+func (o DataSetColumnDescriptionOutput) ToDataSetColumnDescriptionOutputWithContext(ctx context.Context) DataSetColumnDescriptionOutput {
+	return o
+}
+
+func (o DataSetColumnDescriptionOutput) ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput {
+	return o.ToDataSetColumnDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnDescriptionOutput) ToDataSetColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetColumnDescriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetColumnDescription) *DataSetColumnDescription {
+		return &v
+	}).(DataSetColumnDescriptionPtrOutput)
+}
+
+// <p>The text of a description for a column.</p>
+func (o DataSetColumnDescriptionOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSetColumnDescription) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type DataSetColumnDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetColumnDescription)(nil)).Elem()
+}
+
+func (o DataSetColumnDescriptionPtrOutput) ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput {
+	return o
+}
+
+func (o DataSetColumnDescriptionPtrOutput) ToDataSetColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetColumnDescriptionPtrOutput {
+	return o
+}
+
+func (o DataSetColumnDescriptionPtrOutput) Elem() DataSetColumnDescriptionOutput {
+	return o.ApplyT(func(v *DataSetColumnDescription) DataSetColumnDescription {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetColumnDescription
+		return ret
+	}).(DataSetColumnDescriptionOutput)
+}
+
+// <p>The text of a description for a column.</p>
+func (o DataSetColumnDescriptionPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetColumnDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+//
+//	a variant type structure. For this structure to be valid, only one of the attributes can
+//	be non-null.</p>
+type DataSetColumnGroup struct {
+	// Geospatial column group that denotes a hierarchy.
+	GeoSpatialColumnGroup *DataSetGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroup"`
+}
+
+// DataSetColumnGroupInput is an input type that accepts DataSetColumnGroupArgs and DataSetColumnGroupOutput values.
+// You can construct a concrete instance of `DataSetColumnGroupInput` via:
+//
+//	DataSetColumnGroupArgs{...}
+type DataSetColumnGroupInput interface {
+	pulumi.Input
+
+	ToDataSetColumnGroupOutput() DataSetColumnGroupOutput
+	ToDataSetColumnGroupOutputWithContext(context.Context) DataSetColumnGroupOutput
+}
+
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+//
+//	a variant type structure. For this structure to be valid, only one of the attributes can
+//	be non-null.</p>
+type DataSetColumnGroupArgs struct {
+	// Geospatial column group that denotes a hierarchy.
+	GeoSpatialColumnGroup DataSetGeoSpatialColumnGroupPtrInput `pulumi:"geoSpatialColumnGroup"`
+}
+
+func (DataSetColumnGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnGroup)(nil)).Elem()
+}
+
+func (i DataSetColumnGroupArgs) ToDataSetColumnGroupOutput() DataSetColumnGroupOutput {
+	return i.ToDataSetColumnGroupOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnGroupArgs) ToDataSetColumnGroupOutputWithContext(ctx context.Context) DataSetColumnGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupOutput)
+}
+
+// DataSetColumnGroupArrayInput is an input type that accepts DataSetColumnGroupArray and DataSetColumnGroupArrayOutput values.
+// You can construct a concrete instance of `DataSetColumnGroupArrayInput` via:
+//
+//	DataSetColumnGroupArray{ DataSetColumnGroupArgs{...} }
+type DataSetColumnGroupArrayInput interface {
+	pulumi.Input
+
+	ToDataSetColumnGroupArrayOutput() DataSetColumnGroupArrayOutput
+	ToDataSetColumnGroupArrayOutputWithContext(context.Context) DataSetColumnGroupArrayOutput
+}
+
+type DataSetColumnGroupArray []DataSetColumnGroupInput
+
+func (DataSetColumnGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnGroup)(nil)).Elem()
+}
+
+func (i DataSetColumnGroupArray) ToDataSetColumnGroupArrayOutput() DataSetColumnGroupArrayOutput {
+	return i.ToDataSetColumnGroupArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetColumnGroupArray) ToDataSetColumnGroupArrayOutputWithContext(ctx context.Context) DataSetColumnGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupArrayOutput)
+}
+
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+//
+//	a variant type structure. For this structure to be valid, only one of the attributes can
+//	be non-null.</p>
+type DataSetColumnGroupOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnGroup)(nil)).Elem()
+}
+
+func (o DataSetColumnGroupOutput) ToDataSetColumnGroupOutput() DataSetColumnGroupOutput {
+	return o
+}
+
+func (o DataSetColumnGroupOutput) ToDataSetColumnGroupOutputWithContext(ctx context.Context) DataSetColumnGroupOutput {
+	return o
+}
+
+// Geospatial column group that denotes a hierarchy.
+func (o DataSetColumnGroupOutput) GeoSpatialColumnGroup() DataSetGeoSpatialColumnGroupPtrOutput {
+	return o.ApplyT(func(v DataSetColumnGroup) *DataSetGeoSpatialColumnGroup { return v.GeoSpatialColumnGroup }).(DataSetGeoSpatialColumnGroupPtrOutput)
+}
+
+type DataSetColumnGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetColumnGroup)(nil)).Elem()
+}
+
+func (o DataSetColumnGroupArrayOutput) ToDataSetColumnGroupArrayOutput() DataSetColumnGroupArrayOutput {
+	return o
+}
+
+func (o DataSetColumnGroupArrayOutput) ToDataSetColumnGroupArrayOutputWithContext(ctx context.Context) DataSetColumnGroupArrayOutput {
+	return o
+}
+
+func (o DataSetColumnGroupArrayOutput) Index(i pulumi.IntInput) DataSetColumnGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetColumnGroup {
+		return vs[0].([]DataSetColumnGroup)[vs[1].(int)]
+	}).(DataSetColumnGroupOutput)
+}
+
 // <p>A rule defined to grant access on one or more restricted columns.
 //
 //	Each dataset can have multiple rules.
@@ -3030,7 +3279,7 @@ type DataSetLogicalTable struct {
 	// <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
 	DataTransforms []DataSetTransformOperation `pulumi:"dataTransforms"`
 	// Source of this logical table.
-	Source DataSetLogicalTableSource `pulumi:"source"`
+	Source *DataSetLogicalTableSource `pulumi:"source"`
 }
 
 // DataSetLogicalTableInput is an input type that accepts DataSetLogicalTableArgs and DataSetLogicalTableOutput values.
@@ -3055,7 +3304,7 @@ type DataSetLogicalTableArgs struct {
 	// <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
 	DataTransforms DataSetTransformOperationArrayInput `pulumi:"dataTransforms"`
 	// Source of this logical table.
-	Source DataSetLogicalTableSourceInput `pulumi:"source"`
+	Source DataSetLogicalTableSourcePtrInput `pulumi:"source"`
 }
 
 func (DataSetLogicalTableArgs) ElementType() reflect.Type {
@@ -3125,8 +3374,8 @@ func (o DataSetLogicalTableOutput) DataTransforms() DataSetTransformOperationArr
 }
 
 // Source of this logical table.
-func (o DataSetLogicalTableOutput) Source() DataSetLogicalTableSourceOutput {
-	return o.ApplyT(func(v DataSetLogicalTable) DataSetLogicalTableSource { return v.Source }).(DataSetLogicalTableSourceOutput)
+func (o DataSetLogicalTableOutput) Source() DataSetLogicalTableSourcePtrOutput {
+	return o.ApplyT(func(v DataSetLogicalTable) *DataSetLogicalTableSource { return v.Source }).(DataSetLogicalTableSourcePtrOutput)
 }
 
 type DataSetLogicalTableMapOutput struct{ *pulumi.OutputState }
@@ -3196,6 +3445,47 @@ func (i DataSetLogicalTableSourceArgs) ToDataSetLogicalTableSourceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableSourceOutput)
 }
 
+func (i DataSetLogicalTableSourceArgs) ToDataSetLogicalTableSourcePtrOutput() DataSetLogicalTableSourcePtrOutput {
+	return i.ToDataSetLogicalTableSourcePtrOutputWithContext(context.Background())
+}
+
+func (i DataSetLogicalTableSourceArgs) ToDataSetLogicalTableSourcePtrOutputWithContext(ctx context.Context) DataSetLogicalTableSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableSourceOutput).ToDataSetLogicalTableSourcePtrOutputWithContext(ctx)
+}
+
+// DataSetLogicalTableSourcePtrInput is an input type that accepts DataSetLogicalTableSourceArgs, DataSetLogicalTableSourcePtr and DataSetLogicalTableSourcePtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableSourcePtrInput` via:
+//
+//	        DataSetLogicalTableSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetLogicalTableSourcePtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableSourcePtrOutput() DataSetLogicalTableSourcePtrOutput
+	ToDataSetLogicalTableSourcePtrOutputWithContext(context.Context) DataSetLogicalTableSourcePtrOutput
+}
+
+type dataSetLogicalTableSourcePtrType DataSetLogicalTableSourceArgs
+
+func DataSetLogicalTableSourcePtr(v *DataSetLogicalTableSourceArgs) DataSetLogicalTableSourcePtrInput {
+	return (*dataSetLogicalTableSourcePtrType)(v)
+}
+
+func (*dataSetLogicalTableSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableSource)(nil)).Elem()
+}
+
+func (i *dataSetLogicalTableSourcePtrType) ToDataSetLogicalTableSourcePtrOutput() DataSetLogicalTableSourcePtrOutput {
+	return i.ToDataSetLogicalTableSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableSourcePtrType) ToDataSetLogicalTableSourcePtrOutputWithContext(ctx context.Context) DataSetLogicalTableSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableSourcePtrOutput)
+}
+
 // <p>Information about the source of a logical table. This is a variant type structure. For
 //
 //	this structure to be valid, only one of the attributes can be non-null.</p>
@@ -3213,6 +3503,16 @@ func (o DataSetLogicalTableSourceOutput) ToDataSetLogicalTableSourceOutputWithCo
 	return o
 }
 
+func (o DataSetLogicalTableSourceOutput) ToDataSetLogicalTableSourcePtrOutput() DataSetLogicalTableSourcePtrOutput {
+	return o.ToDataSetLogicalTableSourcePtrOutputWithContext(context.Background())
+}
+
+func (o DataSetLogicalTableSourceOutput) ToDataSetLogicalTableSourcePtrOutputWithContext(ctx context.Context) DataSetLogicalTableSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableSource) *DataSetLogicalTableSource {
+		return &v
+	}).(DataSetLogicalTableSourcePtrOutput)
+}
+
 // <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
 func (o DataSetLogicalTableSourceOutput) DataSetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableSource) *string { return v.DataSetArn }).(pulumi.StringPtrOutput)
@@ -3226,6 +3526,60 @@ func (o DataSetLogicalTableSourceOutput) JoinInstruction() DataSetJoinInstructio
 // <p>Physical table ID.</p>
 func (o DataSetLogicalTableSourceOutput) PhysicalTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableSource) *string { return v.PhysicalTableId }).(pulumi.StringPtrOutput)
+}
+
+type DataSetLogicalTableSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetLogicalTableSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableSource)(nil)).Elem()
+}
+
+func (o DataSetLogicalTableSourcePtrOutput) ToDataSetLogicalTableSourcePtrOutput() DataSetLogicalTableSourcePtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableSourcePtrOutput) ToDataSetLogicalTableSourcePtrOutputWithContext(ctx context.Context) DataSetLogicalTableSourcePtrOutput {
+	return o
+}
+
+func (o DataSetLogicalTableSourcePtrOutput) Elem() DataSetLogicalTableSourceOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableSource) DataSetLogicalTableSource {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableSource
+		return ret
+	}).(DataSetLogicalTableSourceOutput)
+}
+
+// <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
+func (o DataSetLogicalTableSourcePtrOutput) DataSetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSetArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the result of a join of two logical tables.
+func (o DataSetLogicalTableSourcePtrOutput) JoinInstruction() DataSetJoinInstructionPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableSource) *DataSetJoinInstruction {
+		if v == nil {
+			return nil
+		}
+		return v.JoinInstruction
+	}).(DataSetJoinInstructionPtrOutput)
+}
+
+// <p>Physical table ID.</p>
+func (o DataSetLogicalTableSourcePtrOutput) PhysicalTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PhysicalTableId
+	}).(pulumi.StringPtrOutput)
 }
 
 // <p>The lookback window setup of an incremental refresh configuration.</p>
@@ -81654,7 +82008,7 @@ func (o TemplateSimpleClusterMarkerPtrOutput) Color() pulumi.StringPtrOutput {
 }
 
 type TemplateSingleAxisOptions struct {
-	YAxisOptions interface{} `pulumi:"yAxisOptions"`
+	YAxisOptions *TemplateYAxisOptions `pulumi:"yAxisOptions"`
 }
 
 // TemplateSingleAxisOptionsInput is an input type that accepts TemplateSingleAxisOptionsArgs and TemplateSingleAxisOptionsOutput values.
@@ -81669,7 +82023,7 @@ type TemplateSingleAxisOptionsInput interface {
 }
 
 type TemplateSingleAxisOptionsArgs struct {
-	YAxisOptions pulumi.Input `pulumi:"yAxisOptions"`
+	YAxisOptions TemplateYAxisOptionsPtrInput `pulumi:"yAxisOptions"`
 }
 
 func (TemplateSingleAxisOptionsArgs) ElementType() reflect.Type {
@@ -81749,8 +82103,8 @@ func (o TemplateSingleAxisOptionsOutput) ToTemplateSingleAxisOptionsPtrOutputWit
 	}).(TemplateSingleAxisOptionsPtrOutput)
 }
 
-func (o TemplateSingleAxisOptionsOutput) YAxisOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v TemplateSingleAxisOptions) interface{} { return v.YAxisOptions }).(pulumi.AnyOutput)
+func (o TemplateSingleAxisOptionsOutput) YAxisOptions() TemplateYAxisOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateSingleAxisOptions) *TemplateYAxisOptions { return v.YAxisOptions }).(TemplateYAxisOptionsPtrOutput)
 }
 
 type TemplateSingleAxisOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -81777,13 +82131,13 @@ func (o TemplateSingleAxisOptionsPtrOutput) Elem() TemplateSingleAxisOptionsOutp
 	}).(TemplateSingleAxisOptionsOutput)
 }
 
-func (o TemplateSingleAxisOptionsPtrOutput) YAxisOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TemplateSingleAxisOptions) interface{} {
+func (o TemplateSingleAxisOptionsPtrOutput) YAxisOptions() TemplateYAxisOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateSingleAxisOptions) *TemplateYAxisOptions {
 		if v == nil {
 			return nil
 		}
 		return v.YAxisOptions
-	}).(pulumi.AnyOutput)
+	}).(TemplateYAxisOptionsPtrOutput)
 }
 
 type TemplateSliderControlDisplayOptions struct {
@@ -85491,302 +85845,11 @@ func (o TemplateTableFieldCustomIconContentPtrOutput) Icon() TemplateTableFieldI
 	}).(TemplateTableFieldIconSetTypePtrOutput)
 }
 
-type TemplateTableFieldCustomTextContent struct {
-	// The font configuration of the custom text content for the table URL link content.
-	FontConfiguration TemplateFontConfiguration `pulumi:"fontConfiguration"`
-	// The string value of the custom text content for the table URL link content.
-	Value *string `pulumi:"value"`
-}
-
-// TemplateTableFieldCustomTextContentInput is an input type that accepts TemplateTableFieldCustomTextContentArgs and TemplateTableFieldCustomTextContentOutput values.
-// You can construct a concrete instance of `TemplateTableFieldCustomTextContentInput` via:
-//
-//	TemplateTableFieldCustomTextContentArgs{...}
-type TemplateTableFieldCustomTextContentInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldCustomTextContentOutput() TemplateTableFieldCustomTextContentOutput
-	ToTemplateTableFieldCustomTextContentOutputWithContext(context.Context) TemplateTableFieldCustomTextContentOutput
-}
-
-type TemplateTableFieldCustomTextContentArgs struct {
-	// The font configuration of the custom text content for the table URL link content.
-	FontConfiguration TemplateFontConfigurationInput `pulumi:"fontConfiguration"`
-	// The string value of the custom text content for the table URL link content.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TemplateTableFieldCustomTextContentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldCustomTextContent)(nil)).Elem()
-}
-
-func (i TemplateTableFieldCustomTextContentArgs) ToTemplateTableFieldCustomTextContentOutput() TemplateTableFieldCustomTextContentOutput {
-	return i.ToTemplateTableFieldCustomTextContentOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldCustomTextContentArgs) ToTemplateTableFieldCustomTextContentOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomTextContentOutput)
-}
-
-func (i TemplateTableFieldCustomTextContentArgs) ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput {
-	return i.ToTemplateTableFieldCustomTextContentPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldCustomTextContentArgs) ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomTextContentOutput).ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx)
-}
-
-// TemplateTableFieldCustomTextContentPtrInput is an input type that accepts TemplateTableFieldCustomTextContentArgs, TemplateTableFieldCustomTextContentPtr and TemplateTableFieldCustomTextContentPtrOutput values.
-// You can construct a concrete instance of `TemplateTableFieldCustomTextContentPtrInput` via:
-//
-//	        TemplateTableFieldCustomTextContentArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateTableFieldCustomTextContentPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput
-	ToTemplateTableFieldCustomTextContentPtrOutputWithContext(context.Context) TemplateTableFieldCustomTextContentPtrOutput
-}
-
-type templateTableFieldCustomTextContentPtrType TemplateTableFieldCustomTextContentArgs
-
-func TemplateTableFieldCustomTextContentPtr(v *TemplateTableFieldCustomTextContentArgs) TemplateTableFieldCustomTextContentPtrInput {
-	return (*templateTableFieldCustomTextContentPtrType)(v)
-}
-
-func (*templateTableFieldCustomTextContentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldCustomTextContent)(nil)).Elem()
-}
-
-func (i *templateTableFieldCustomTextContentPtrType) ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput {
-	return i.ToTemplateTableFieldCustomTextContentPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTableFieldCustomTextContentPtrType) ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomTextContentPtrOutput)
-}
-
-type TemplateTableFieldCustomTextContentOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldCustomTextContentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldCustomTextContent)(nil)).Elem()
-}
-
-func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTextContentOutput() TemplateTableFieldCustomTextContentOutput {
-	return o
-}
-
-func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTextContentOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentOutput {
-	return o
-}
-
-func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput {
-	return o.ToTemplateTableFieldCustomTextContentPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldCustomTextContent) *TemplateTableFieldCustomTextContent {
-		return &v
-	}).(TemplateTableFieldCustomTextContentPtrOutput)
-}
-
-// The font configuration of the custom text content for the table URL link content.
-func (o TemplateTableFieldCustomTextContentOutput) FontConfiguration() TemplateFontConfigurationOutput {
-	return o.ApplyT(func(v TemplateTableFieldCustomTextContent) TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationOutput)
-}
-
-// The string value of the custom text content for the table URL link content.
-func (o TemplateTableFieldCustomTextContentOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTableFieldCustomTextContent) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TemplateTableFieldCustomTextContentPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldCustomTextContentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldCustomTextContent)(nil)).Elem()
-}
-
-func (o TemplateTableFieldCustomTextContentPtrOutput) ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldCustomTextContentPtrOutput) ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldCustomTextContentPtrOutput) Elem() TemplateTableFieldCustomTextContentOutput {
-	return o.ApplyT(func(v *TemplateTableFieldCustomTextContent) TemplateTableFieldCustomTextContent {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTableFieldCustomTextContent
-		return ret
-	}).(TemplateTableFieldCustomTextContentOutput)
-}
-
-// The font configuration of the custom text content for the table URL link content.
-func (o TemplateTableFieldCustomTextContentPtrOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateTableFieldCustomTextContent) *TemplateFontConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.FontConfiguration
-	}).(TemplateFontConfigurationPtrOutput)
-}
-
-// The string value of the custom text content for the table URL link content.
-func (o TemplateTableFieldCustomTextContentPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTableFieldCustomTextContent) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateTableFieldImageConfiguration struct {
-	// The sizing options for the table image configuration.
-	SizingOptions *TemplateTableCellImageSizingConfiguration `pulumi:"sizingOptions"`
-}
-
-// TemplateTableFieldImageConfigurationInput is an input type that accepts TemplateTableFieldImageConfigurationArgs and TemplateTableFieldImageConfigurationOutput values.
-// You can construct a concrete instance of `TemplateTableFieldImageConfigurationInput` via:
-//
-//	TemplateTableFieldImageConfigurationArgs{...}
-type TemplateTableFieldImageConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldImageConfigurationOutput() TemplateTableFieldImageConfigurationOutput
-	ToTemplateTableFieldImageConfigurationOutputWithContext(context.Context) TemplateTableFieldImageConfigurationOutput
-}
-
-type TemplateTableFieldImageConfigurationArgs struct {
-	// The sizing options for the table image configuration.
-	SizingOptions TemplateTableCellImageSizingConfigurationPtrInput `pulumi:"sizingOptions"`
-}
-
-func (TemplateTableFieldImageConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldImageConfiguration)(nil)).Elem()
-}
-
-func (i TemplateTableFieldImageConfigurationArgs) ToTemplateTableFieldImageConfigurationOutput() TemplateTableFieldImageConfigurationOutput {
-	return i.ToTemplateTableFieldImageConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldImageConfigurationArgs) ToTemplateTableFieldImageConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldImageConfigurationOutput)
-}
-
-func (i TemplateTableFieldImageConfigurationArgs) ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput {
-	return i.ToTemplateTableFieldImageConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldImageConfigurationArgs) ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldImageConfigurationOutput).ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateTableFieldImageConfigurationPtrInput is an input type that accepts TemplateTableFieldImageConfigurationArgs, TemplateTableFieldImageConfigurationPtr and TemplateTableFieldImageConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateTableFieldImageConfigurationPtrInput` via:
-//
-//	        TemplateTableFieldImageConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateTableFieldImageConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput
-	ToTemplateTableFieldImageConfigurationPtrOutputWithContext(context.Context) TemplateTableFieldImageConfigurationPtrOutput
-}
-
-type templateTableFieldImageConfigurationPtrType TemplateTableFieldImageConfigurationArgs
-
-func TemplateTableFieldImageConfigurationPtr(v *TemplateTableFieldImageConfigurationArgs) TemplateTableFieldImageConfigurationPtrInput {
-	return (*templateTableFieldImageConfigurationPtrType)(v)
-}
-
-func (*templateTableFieldImageConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldImageConfiguration)(nil)).Elem()
-}
-
-func (i *templateTableFieldImageConfigurationPtrType) ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput {
-	return i.ToTemplateTableFieldImageConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTableFieldImageConfigurationPtrType) ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldImageConfigurationPtrOutput)
-}
-
-type TemplateTableFieldImageConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldImageConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldImageConfiguration)(nil)).Elem()
-}
-
-func (o TemplateTableFieldImageConfigurationOutput) ToTemplateTableFieldImageConfigurationOutput() TemplateTableFieldImageConfigurationOutput {
-	return o
-}
-
-func (o TemplateTableFieldImageConfigurationOutput) ToTemplateTableFieldImageConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationOutput {
-	return o
-}
-
-func (o TemplateTableFieldImageConfigurationOutput) ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput {
-	return o.ToTemplateTableFieldImageConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTableFieldImageConfigurationOutput) ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldImageConfiguration) *TemplateTableFieldImageConfiguration {
-		return &v
-	}).(TemplateTableFieldImageConfigurationPtrOutput)
-}
-
-// The sizing options for the table image configuration.
-func (o TemplateTableFieldImageConfigurationOutput) SizingOptions() TemplateTableCellImageSizingConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateTableFieldImageConfiguration) *TemplateTableCellImageSizingConfiguration {
-		return v.SizingOptions
-	}).(TemplateTableCellImageSizingConfigurationPtrOutput)
-}
-
-type TemplateTableFieldImageConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldImageConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldImageConfiguration)(nil)).Elem()
-}
-
-func (o TemplateTableFieldImageConfigurationPtrOutput) ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldImageConfigurationPtrOutput) ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldImageConfigurationPtrOutput) Elem() TemplateTableFieldImageConfigurationOutput {
-	return o.ApplyT(func(v *TemplateTableFieldImageConfiguration) TemplateTableFieldImageConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTableFieldImageConfiguration
-		return ret
-	}).(TemplateTableFieldImageConfigurationOutput)
-}
-
-// The sizing options for the table image configuration.
-func (o TemplateTableFieldImageConfigurationPtrOutput) SizingOptions() TemplateTableCellImageSizingConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateTableFieldImageConfiguration) *TemplateTableCellImageSizingConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SizingOptions
-	}).(TemplateTableCellImageSizingConfigurationPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDescriptionInput)(nil)).Elem(), DataSetColumnDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDescriptionPtrInput)(nil)).Elem(), DataSetColumnDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnGroupInput)(nil)).Elem(), DataSetColumnGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnGroupArrayInput)(nil)).Elem(), DataSetColumnGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnLevelPermissionRuleInput)(nil)).Elem(), DataSetColumnLevelPermissionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnLevelPermissionRuleArrayInput)(nil)).Elem(), DataSetColumnLevelPermissionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagInput)(nil)).Elem(), DataSetColumnTagArgs{})
@@ -85828,6 +85891,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableInput)(nil)).Elem(), DataSetLogicalTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableMapInput)(nil)).Elem(), DataSetLogicalTableMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableSourceInput)(nil)).Elem(), DataSetLogicalTableSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLogicalTableSourcePtrInput)(nil)).Elem(), DataSetLogicalTableSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLookbackWindowInput)(nil)).Elem(), DataSetLookbackWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLookbackWindowPtrInput)(nil)).Elem(), DataSetLookbackWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetNewDefaultValuesInput)(nil)).Elem(), DataSetNewDefaultValuesArgs{})
@@ -86766,10 +86830,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConfigurationPtrInput)(nil)).Elem(), TemplateTableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomIconContentInput)(nil)).Elem(), TemplateTableFieldCustomIconContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomIconContentPtrInput)(nil)).Elem(), TemplateTableFieldCustomIconContentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomTextContentInput)(nil)).Elem(), TemplateTableFieldCustomTextContentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomTextContentPtrInput)(nil)).Elem(), TemplateTableFieldCustomTextContentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldImageConfigurationInput)(nil)).Elem(), TemplateTableFieldImageConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldImageConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldImageConfigurationArgs{})
+	pulumi.RegisterOutputType(DataSetColumnDescriptionOutput{})
+	pulumi.RegisterOutputType(DataSetColumnDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(DataSetColumnGroupOutput{})
+	pulumi.RegisterOutputType(DataSetColumnGroupArrayOutput{})
 	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleOutput{})
 	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleArrayOutput{})
 	pulumi.RegisterOutputType(DataSetColumnTagOutput{})
@@ -86811,6 +86875,7 @@ func init() {
 	pulumi.RegisterOutputType(DataSetLogicalTableOutput{})
 	pulumi.RegisterOutputType(DataSetLogicalTableMapOutput{})
 	pulumi.RegisterOutputType(DataSetLogicalTableSourceOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableSourcePtrOutput{})
 	pulumi.RegisterOutputType(DataSetLookbackWindowOutput{})
 	pulumi.RegisterOutputType(DataSetLookbackWindowPtrOutput{})
 	pulumi.RegisterOutputType(DataSetNewDefaultValuesOutput{})
@@ -87757,8 +87822,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTableConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldCustomIconContentOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldCustomIconContentPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldCustomTextContentOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldCustomTextContentPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldImageConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldImageConfigurationPtrOutput{})
 }

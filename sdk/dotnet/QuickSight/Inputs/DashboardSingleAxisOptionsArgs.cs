@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardSingleAxisOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("yAxisOptions")]
-        public Input<object>? YAxisOptions { get; set; }
+        public Input<Inputs.DashboardYAxisOptionsArgs>? YAxisOptions { get; set; }
 
         public DashboardSingleAxisOptionsArgs()
         {

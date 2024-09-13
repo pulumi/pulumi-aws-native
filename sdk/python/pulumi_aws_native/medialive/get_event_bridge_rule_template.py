@@ -87,6 +87,9 @@ class GetEventBridgeRuleTemplateResult:
     @property
     @pulumi.getter(name="eventType")
     def event_type(self) -> Optional['EventBridgeRuleTemplateEventType']:
+        """
+        The type of event to match with the rule.
+        """
         return pulumi.get(self, "event_type")
 
     @property

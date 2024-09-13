@@ -277,8 +277,6 @@
           "$ref" : "#/definitions/CanSignalDecoder"
         }, {
           "$ref" : "#/definitions/ObdSignalDecoder"
-        }, {
-          "$ref" : "#/definitions/CustomDecodingSignalDecoder"
         } ]
       }
     },
@@ -301,8 +299,6 @@
           "$ref" : "#/definitions/CanNetworkInterface"
         }, {
           "$ref" : "#/definitions/ObdNetworkInterface"
-        }, {
-          "$ref" : "#/definitions/CustomDecodingNetworkInterface"
         } ]
       }
     },

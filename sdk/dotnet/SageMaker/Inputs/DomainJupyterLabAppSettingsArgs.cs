@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainJupyterLabAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether idle shutdown is activated for JupyterLab applications.
+        /// </summary>
         [Input("appLifecycleManagement")]
         public Input<Inputs.DomainAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
 

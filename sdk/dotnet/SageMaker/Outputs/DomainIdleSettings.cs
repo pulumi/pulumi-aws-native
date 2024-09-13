@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainIdleSettings
     {
+        /// <summary>
+        /// The time that SageMaker waits after the application becomes idle before shutting it down.
+        /// </summary>
         public readonly int? IdleTimeoutInMinutes;
+        /// <summary>
+        /// Indicates whether idle shutdown is activated for the application type.
+        /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.DomainLifecycleManagement? LifecycleManagement;
+        /// <summary>
+        /// The maximum value in minutes that custom idle shutdown can be set to by the user.
+        /// </summary>
         public readonly int? MaxIdleTimeoutInMinutes;
+        /// <summary>
+        /// The minimum value in minutes that custom idle shutdown can be set to by the user.
+        /// </summary>
         public readonly int? MinIdleTimeoutInMinutes;
 
         [OutputConstructor]

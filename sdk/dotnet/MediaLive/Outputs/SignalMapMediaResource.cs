@@ -16,11 +16,17 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class SignalMapMediaResource
     {
+        /// <summary>
+        /// A direct destination neighbor to an Amazon Web Services media resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SignalMapMediaResourceNeighbor> Destinations;
         /// <summary>
         /// The logical name of an AWS media resource.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A direct source neighbor to an Amazon Web Services media resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SignalMapMediaResourceNeighbor> Sources;
 
         [OutputConstructor]

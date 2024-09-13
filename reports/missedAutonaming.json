@@ -5843,19 +5843,24 @@
         "description": "Indicate whether to enable acceleration for the VPN connection.\n Default: ``false``"
       },
       "localIpv4NetworkCidr": {
-        "type": "string"
+        "type": "string",
+        "description": "The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.\n\nDefault: `0.0.0.0/0`"
       },
       "localIpv6NetworkCidr": {
-        "type": "string"
+        "type": "string",
+        "description": "The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.\n\nDefault: `::/0`"
       },
       "outsideIpAddressType": {
-        "type": "string"
+        "type": "string",
+        "description": "The type of IPv4 address assigned to the outside interface of the customer gateway device.\n\nValid values: `PrivateIpv4` | `PublicIpv4`\n\nDefault: `PublicIpv4`"
       },
       "remoteIpv4NetworkCidr": {
-        "type": "string"
+        "type": "string",
+        "description": "The IPv4 CIDR on the AWS side of the VPN connection.\n\nDefault: `0.0.0.0/0`"
       },
       "remoteIpv6NetworkCidr": {
-        "type": "string"
+        "type": "string",
+        "description": "The IPv6 CIDR on the AWS side of the VPN connection.\n\nDefault: `::/0`"
       },
       "staticRoutesOnly": {
         "type": "boolean",
@@ -5873,10 +5878,12 @@
         "description": "The ID of the transit gateway associated with the VPN connection.\n You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both."
       },
       "transportTransitGatewayAttachmentId": {
-        "type": "string"
+        "type": "string",
+        "description": "The transit gateway attachment ID to use for the VPN tunnel.\n\nRequired if `OutsideIpAddressType` is set to `PrivateIpv4` ."
       },
       "tunnelInsideIpVersion": {
-        "type": "string"
+        "type": "string",
+        "description": "Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.\n\nDefault: `ipv4`"
       },
       "type": {
         "type": "string",
@@ -9699,7 +9706,7 @@
       },
       "configuration": {
         "$ref": "pulumi.json#/Any",
-        "description": "Configuration information to connect your data source repository to Amazon Q Business. Use this parameter to provide a JSON schema with configuration information specific to your data source connector.\n\nEach data source has a JSON schema provided by Amazon Q Business that you must use. For example, the Amazon S3 and Web Crawler connectors require the following JSON schemas:\n\n- [Amazon S3 JSON schema](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html)\n- [Web Crawler JSON schema](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html)\n\nYou can find configuration templates for your specific data source using the following steps:\n\n- Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source of your choice.\n- Then, from your specific data source connector page, select *Using the API* . You will find the JSON schema for your data source, including parameter descriptions, in this section.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property."
+        "description": "Use this property to specify a JSON or YAML schema with configuration information specific to your data source connector to connect your data source repository to Amazon Q Business . You must use the JSON or YAML schema provided by Amazon Q .\n\nYou can find configuration templates for your specific data source using the following steps:\n\n- Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source connector of your choice.\n- Then, from that specific data source connector's page, select *Using AWS CloudFormation* to find the schemas for your data source connector, including parameter descriptions and examples.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property."
       },
       "description": {
         "type": "string",

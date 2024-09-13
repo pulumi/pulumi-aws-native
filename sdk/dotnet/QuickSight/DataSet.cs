@@ -85,6 +85,12 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableDictionary<string, Outputs.DataSetFieldFolder>?> FieldFolders { get; private set; } = null!;
 
         /// <summary>
+        /// &lt;p&gt;When you create the dataset, Amazon QuickSight adds the dataset to these folders.&lt;/p&gt;
+        /// </summary>
+        [Output("folderArns")]
+        public Output<ImmutableArray<string>> FolderArns { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether you want to import the data into SPICE.
         /// </summary>
         [Output("importMode")]
@@ -273,6 +279,18 @@ namespace Pulumi.AwsNative.QuickSight
         {
             get => _fieldFolders ?? (_fieldFolders = new InputMap<Inputs.DataSetFieldFolderArgs>());
             set => _fieldFolders = value;
+        }
+
+        [Input("folderArns")]
+        private InputList<string>? _folderArns;
+
+        /// <summary>
+        /// &lt;p&gt;When you create the dataset, Amazon QuickSight adds the dataset to these folders.&lt;/p&gt;
+        /// </summary>
+        public InputList<string> FolderArns
+        {
+            get => _folderArns ?? (_folderArns = new InputList<string>());
+            set => _folderArns = value;
         }
 
         /// <summary>

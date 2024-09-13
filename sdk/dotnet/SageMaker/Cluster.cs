@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("failureMessage")]
         public Output<string> FailureMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// The instance groups of the SageMaker HyperPod cluster.
+        /// </summary>
         [Output("instanceGroups")]
         public Output<ImmutableArray<Outputs.ClusterInstanceGroup>> InstanceGroups { get; private set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("nodeRecovery")]
         public Output<Pulumi.AwsNative.SageMaker.ClusterNodeRecovery?> NodeRecovery { get; private set; } = null!;
 
+        /// <summary>
+        /// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+        /// </summary>
         [Output("orchestrator")]
         public Output<Outputs.ClusterOrchestrator?> Orchestrator { get; private set; } = null!;
 
@@ -132,6 +138,10 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("instanceGroups", required: true)]
         private InputList<Inputs.ClusterInstanceGroupArgs>? _instanceGroups;
+
+        /// <summary>
+        /// The instance groups of the SageMaker HyperPod cluster.
+        /// </summary>
         public InputList<Inputs.ClusterInstanceGroupArgs> InstanceGroups
         {
             get => _instanceGroups ?? (_instanceGroups = new InputList<Inputs.ClusterInstanceGroupArgs>());
@@ -144,6 +154,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("nodeRecovery")]
         public Input<Pulumi.AwsNative.SageMaker.ClusterNodeRecovery>? NodeRecovery { get; set; }
 
+        /// <summary>
+        /// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+        /// </summary>
         [Input("orchestrator")]
         public Input<Inputs.ClusterOrchestratorArgs>? Orchestrator { get; set; }
 

@@ -43,7 +43,7 @@ type Subnet struct {
 	// The IPv6 CIDR block.
 	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
-	// The IPv6 network ranges for the subnet, in CIDR notation.
+	// The IPv6 CIDR blocks that are associated with the subnet.
 	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// An IPv6 IPAM pool ID for the subnet.
 	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
@@ -317,7 +317,7 @@ func (o SubnetOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 network ranges for the subnet, in CIDR notation.
+// The IPv6 CIDR blocks that are associated with the subnet.
 func (o SubnetOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringArrayOutput { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }

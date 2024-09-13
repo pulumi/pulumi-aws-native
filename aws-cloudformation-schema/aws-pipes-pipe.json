@@ -1566,6 +1566,11 @@
     "EnrichmentParameters" : {
       "$ref" : "#/definitions/PipeEnrichmentParameters"
     },
+    "KmsKeyIdentifier" : {
+      "type" : "string",
+      "maxLength" : 2048,
+      "minLength" : 0
+    },
     "LastModifiedTime" : {
       "type" : "string",
       "format" : "date-time"
@@ -1638,7 +1643,7 @@
       "permissions" : [ "pipes:UpdatePipe", "pipes:TagResource", "pipes:UntagResource", "pipes:DescribePipe", "iam:PassRole", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "iam:CreateServiceLinkedRole", "logs:CreateLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries", "s3:PutBucketPolicy", "s3:GetBucketPolicy", "firehose:TagDeliveryStream", "kms:DescribeKey", "kms:Decrypt", "kms:GenerateDataKey" ]
     },
     "delete" : {
-      "permissions" : [ "pipes:DeletePipe", "pipes:DescribePipe", "logs:CreateLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries" ]
+      "permissions" : [ "pipes:DeletePipe", "pipes:DescribePipe", "pipes:UntagResource", "logs:CreateLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:GetLogDelivery", "logs:ListLogDeliveries", "kms:DescribeKey", "kms:Decrypt", "kms:GenerateDataKey" ]
     },
     "list" : {
       "permissions" : [ "pipes:ListPipes" ]

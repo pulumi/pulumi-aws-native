@@ -177,7 +177,13 @@ func (o ListenerActionArrayOutput) Index(i pulumi.IntInput) ListenerActionOutput
 }
 
 type ListenerAttribute struct {
-	Key   *string `pulumi:"key"`
+	// The name of the attribute.
+	//
+	// The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+	//
+	// - `tcp.idle_timeout.seconds` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+	Key *string `pulumi:"key"`
+	// The value of the attribute.
 	Value *string `pulumi:"value"`
 }
 
@@ -193,7 +199,13 @@ type ListenerAttributeInput interface {
 }
 
 type ListenerAttributeArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// The name of the attribute.
+	//
+	// The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+	//
+	// - `tcp.idle_timeout.seconds` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value of the attribute.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -248,10 +260,16 @@ func (o ListenerAttributeOutput) ToListenerAttributeOutputWithContext(ctx contex
 	return o
 }
 
+// The name of the attribute.
+//
+// The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+//
+// - `tcp.idle_timeout.seconds` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
 func (o ListenerAttributeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The value of the attribute.
 func (o ListenerAttributeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

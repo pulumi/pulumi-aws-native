@@ -891,12 +891,16 @@ class ClusterOrchestrator(dict):
                  eks: 'outputs.ClusterOrchestratorEksConfig'):
         """
         Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+        :param 'ClusterOrchestratorEksConfig' eks: The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
         """
         pulumi.set(__self__, "eks", eks)
 
     @property
     @pulumi.getter
     def eks(self) -> 'outputs.ClusterOrchestratorEksConfig':
+        """
+        The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
+        """
         return pulumi.get(self, "eks")
 
 
@@ -2148,12 +2152,18 @@ class DomainAppLifecycleManagement(dict):
 
     def __init__(__self__, *,
                  idle_settings: Optional['outputs.DomainIdleSettings'] = None):
+        """
+        :param 'DomainIdleSettings' idle_settings: Settings related to idle shutdown of Studio applications.
+        """
         if idle_settings is not None:
             pulumi.set(__self__, "idle_settings", idle_settings)
 
     @property
     @pulumi.getter(name="idleSettings")
     def idle_settings(self) -> Optional['outputs.DomainIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications.
+        """
         return pulumi.get(self, "idle_settings")
 
 
@@ -2192,6 +2202,7 @@ class DomainCodeEditorAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
         The CodeEditor app settings.
+        :param 'DomainAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         :param Sequence['DomainCustomImage'] custom_images: A list of custom images for use for CodeEditor apps.
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
@@ -2208,6 +2219,9 @@ class DomainCodeEditorAppSettings(dict):
     @property
     @pulumi.getter(name="appLifecycleManagement")
     def app_lifecycle_management(self) -> Optional['outputs.DomainAppLifecycleManagement']:
+        """
+        Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+        """
         return pulumi.get(self, "app_lifecycle_management")
 
     @property
@@ -2763,6 +2777,12 @@ class DomainIdleSettings(dict):
                  lifecycle_management: Optional['DomainLifecycleManagement'] = None,
                  max_idle_timeout_in_minutes: Optional[int] = None,
                  min_idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down.
+        :param 'DomainLifecycleManagement' lifecycle_management: Indicates whether idle shutdown is activated for the application type.
+        :param int max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user.
+        :param int min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user.
+        """
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if lifecycle_management is not None:
@@ -2775,21 +2795,33 @@ class DomainIdleSettings(dict):
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down.
+        """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="lifecycleManagement")
     def lifecycle_management(self) -> Optional['DomainLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for the application type.
+        """
         return pulumi.get(self, "lifecycle_management")
 
     @property
     @pulumi.getter(name="maxIdleTimeoutInMinutes")
     def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The maximum value in minutes that custom idle shutdown can be set to by the user.
+        """
         return pulumi.get(self, "max_idle_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="minIdleTimeoutInMinutes")
     def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The minimum value in minutes that custom idle shutdown can be set to by the user.
+        """
         return pulumi.get(self, "min_idle_timeout_in_minutes")
 
 
@@ -2831,6 +2863,7 @@ class DomainJupyterLabAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
         The JupyterLab app settings.
+        :param 'DomainAppLifecycleManagement' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
         :param Sequence['DomainCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param Sequence['DomainCustomImage'] custom_images: A list of custom images for use for JupyterLab apps.
         :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
@@ -2850,6 +2883,9 @@ class DomainJupyterLabAppSettings(dict):
     @property
     @pulumi.getter(name="appLifecycleManagement")
     def app_lifecycle_management(self) -> Optional['outputs.DomainAppLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for JupyterLab applications.
+        """
         return pulumi.get(self, "app_lifecycle_management")
 
     @property
@@ -14095,12 +14131,18 @@ class SpaceAppLifecycleManagement(dict):
 
     def __init__(__self__, *,
                  idle_settings: Optional['outputs.SpaceIdleSettings'] = None):
+        """
+        :param 'SpaceIdleSettings' idle_settings: Settings related to idle shutdown of Studio applications.
+        """
         if idle_settings is not None:
             pulumi.set(__self__, "idle_settings", idle_settings)
 
     @property
     @pulumi.getter(name="idleSettings")
     def idle_settings(self) -> Optional['outputs.SpaceIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications.
+        """
         return pulumi.get(self, "idle_settings")
 
 
@@ -14133,6 +14175,7 @@ class SpaceCodeEditorAppSettings(dict):
                  default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
         """
         The CodeEditor app settings.
+        :param 'SpaceAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
         :param 'SpaceResourceSpec' default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
         if app_lifecycle_management is not None:
@@ -14143,6 +14186,9 @@ class SpaceCodeEditorAppSettings(dict):
     @property
     @pulumi.getter(name="appLifecycleManagement")
     def app_lifecycle_management(self) -> Optional['outputs.SpaceAppLifecycleManagement']:
+        """
+        Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
+        """
         return pulumi.get(self, "app_lifecycle_management")
 
     @property
@@ -14421,6 +14467,7 @@ class SpaceJupyterLabAppSettings(dict):
                  default_resource_spec: Optional['outputs.SpaceResourceSpec'] = None):
         """
         The JupyterServer app settings.
+        :param 'SpaceAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
         :param Sequence['SpaceCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param 'SpaceResourceSpec' default_resource_spec: Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         """
@@ -14434,6 +14481,9 @@ class SpaceJupyterLabAppSettings(dict):
     @property
     @pulumi.getter(name="appLifecycleManagement")
     def app_lifecycle_management(self) -> Optional['outputs.SpaceAppLifecycleManagement']:
+        """
+        Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
+        """
         return pulumi.get(self, "app_lifecycle_management")
 
     @property
@@ -14904,12 +14954,18 @@ class UserProfileAppLifecycleManagement(dict):
 
     def __init__(__self__, *,
                  idle_settings: Optional['outputs.UserProfileIdleSettings'] = None):
+        """
+        :param 'UserProfileIdleSettings' idle_settings: Settings related to idle shutdown of Studio applications.
+        """
         if idle_settings is not None:
             pulumi.set(__self__, "idle_settings", idle_settings)
 
     @property
     @pulumi.getter(name="idleSettings")
     def idle_settings(self) -> Optional['outputs.UserProfileIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications.
+        """
         return pulumi.get(self, "idle_settings")
 
 
@@ -14948,6 +15004,7 @@ class UserProfileCodeEditorAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
         The CodeEditor app settings.
+        :param 'UserProfileAppLifecycleManagement' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of CodeEditor applications.
         :param Sequence['UserProfileCustomImage'] custom_images: A list of custom images for use for CodeEditor apps.
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
@@ -14964,6 +15021,9 @@ class UserProfileCodeEditorAppSettings(dict):
     @property
     @pulumi.getter(name="appLifecycleManagement")
     def app_lifecycle_management(self) -> Optional['outputs.UserProfileAppLifecycleManagement']:
+        """
+        Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+        """
         return pulumi.get(self, "app_lifecycle_management")
 
     @property
@@ -15328,6 +15388,12 @@ class UserProfileIdleSettings(dict):
                  lifecycle_management: Optional['UserProfileLifecycleManagement'] = None,
                  max_idle_timeout_in_minutes: Optional[int] = None,
                  min_idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down.
+        :param 'UserProfileLifecycleManagement' lifecycle_management: Indicates whether idle shutdown is activated for the application type.
+        :param int max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user.
+        :param int min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user.
+        """
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if lifecycle_management is not None:
@@ -15340,21 +15406,33 @@ class UserProfileIdleSettings(dict):
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down.
+        """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="lifecycleManagement")
     def lifecycle_management(self) -> Optional['UserProfileLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for the application type.
+        """
         return pulumi.get(self, "lifecycle_management")
 
     @property
     @pulumi.getter(name="maxIdleTimeoutInMinutes")
     def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The maximum value in minutes that custom idle shutdown can be set to by the user.
+        """
         return pulumi.get(self, "max_idle_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="minIdleTimeoutInMinutes")
     def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The minimum value in minutes that custom idle shutdown can be set to by the user.
+        """
         return pulumi.get(self, "min_idle_timeout_in_minutes")
 
 
@@ -15396,6 +15474,7 @@ class UserProfileJupyterLabAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
         The JupyterLab app settings.
+        :param 'UserProfileAppLifecycleManagement' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications.
         :param Sequence['UserProfileCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param Sequence['UserProfileCustomImage'] custom_images: A list of custom images available for use for JupyterLab apps
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
@@ -15415,6 +15494,9 @@ class UserProfileJupyterLabAppSettings(dict):
     @property
     @pulumi.getter(name="appLifecycleManagement")
     def app_lifecycle_management(self) -> Optional['outputs.UserProfileAppLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for JupyterLab applications.
+        """
         return pulumi.get(self, "app_lifecycle_management")
 
     @property

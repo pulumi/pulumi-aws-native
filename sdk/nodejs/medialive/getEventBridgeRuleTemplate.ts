@@ -42,6 +42,9 @@ export interface GetEventBridgeRuleTemplateResult {
      * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
      */
     readonly eventTargets?: outputs.medialive.EventBridgeRuleTemplateTarget[];
+    /**
+     * The type of event to match with the rule.
+     */
     readonly eventType?: enums.medialive.EventBridgeRuleTemplateEventType;
     /**
      * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`

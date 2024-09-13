@@ -90,6 +90,14 @@ type Pipe struct {
 	Enrichment pulumi.StringPtrOutput `pulumi:"enrichment"`
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	//
+	// To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+	//
+	// To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+	//
+	// For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The logging configuration settings for the pipe.
@@ -189,6 +197,14 @@ type pipeArgs struct {
 	Enrichment *string `pulumi:"enrichment"`
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	//
+	// To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+	//
+	// To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+	//
+	// For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The logging configuration settings for the pipe.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// The name of the pipe.
@@ -219,6 +235,14 @@ type PipeArgs struct {
 	Enrichment pulumi.StringPtrInput
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	//
+	// To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+	//
+	// To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+	//
+	// For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// The logging configuration settings for the pipe.
 	LogConfiguration PipeLogConfigurationPtrInput
 	// The name of the pipe.
@@ -309,6 +333,17 @@ func (o PipeOutput) Enrichment() pulumi.StringPtrOutput {
 // The parameters required to set up enrichment on your pipe.
 func (o PipeOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeEnrichmentParametersPtrOutput { return v.EnrichmentParameters }).(PipeEnrichmentParametersPtrOutput)
+}
+
+// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+//
+// To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+//
+// To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+//
+// For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
+func (o PipeOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).

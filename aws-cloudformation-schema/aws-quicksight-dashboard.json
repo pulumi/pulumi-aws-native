@@ -4732,6 +4732,16 @@
         }
       }
     },
+    "YAxisOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "YAxis" : {
+          "$ref" : "#/definitions/SingleYAxisOption"
+        }
+      },
+      "required" : [ "YAxis" ]
+    },
     "DashboardVersion" : {
       "description" : "<p>Dashboard version.</p>",
       "additionalProperties" : false,
