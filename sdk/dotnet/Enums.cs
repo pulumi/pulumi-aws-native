@@ -45,6 +45,10 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region ApSouth1 { get; } = new Region("ap-south-1");
         /// <summary>
+        /// Asia Pacific (Hyderabad)
+        /// </summary>
+        public static Region ApSouth2 { get; } = new Region("ap-south-2");
+        /// <summary>
         /// Asia Pacific (Singapore)
         /// </summary>
         public static Region ApSoutheast1 { get; } = new Region("ap-southeast-1");
@@ -53,9 +57,25 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region ApSoutheast2 { get; } = new Region("ap-southeast-2");
         /// <summary>
+        /// Asia Pacific (Jakarta)
+        /// </summary>
+        public static Region ApSoutheast3 { get; } = new Region("ap-southeast-3");
+        /// <summary>
+        /// Asia Pacific (Melbourne)
+        /// </summary>
+        public static Region ApSoutheast4 { get; } = new Region("ap-southeast-4");
+        /// <summary>
+        /// Asia Pacific (Malaysia)
+        /// </summary>
+        public static Region ApSoutheast5 { get; } = new Region("ap-southeast-5");
+        /// <summary>
         /// Canada (Central)
         /// </summary>
-        public static Region CaCentral { get; } = new Region("ca-central-1");
+        public static Region CaCentral1 { get; } = new Region("ca-central-1");
+        /// <summary>
+        /// Canada West (Calgary)
+        /// </summary>
+        public static Region CaWest1 { get; } = new Region("ca-west-1");
         /// <summary>
         /// China (Beijing)
         /// </summary>
@@ -69,9 +89,25 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region EuCentral1 { get; } = new Region("eu-central-1");
         /// <summary>
+        /// Europe (Zurich)
+        /// </summary>
+        public static Region EuCentral2 { get; } = new Region("eu-central-2");
+        /// <summary>
+        /// EU ISOE West
+        /// </summary>
+        public static Region EuIsoeWest1 { get; } = new Region("eu-isoe-west-1");
+        /// <summary>
         /// Europe (Stockholm)
         /// </summary>
         public static Region EuNorth1 { get; } = new Region("eu-north-1");
+        /// <summary>
+        /// Europe (Milan)
+        /// </summary>
+        public static Region EuSouth1 { get; } = new Region("eu-south-1");
+        /// <summary>
+        /// Europe (Spain)
+        /// </summary>
+        public static Region EuSouth2 { get; } = new Region("eu-south-2");
         /// <summary>
         /// Europe (Ireland)
         /// </summary>
@@ -85,17 +121,29 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region EuWest3 { get; } = new Region("eu-west-3");
         /// <summary>
-        /// Europe (Milan)
+        /// Israel (Tel Aviv)
         /// </summary>
-        public static Region EuSouth1 { get; } = new Region("eu-south-1");
+        public static Region IlCentral1 { get; } = new Region("il-central-1");
+        /// <summary>
+        /// Middle East (UAE)
+        /// </summary>
+        public static Region MeCentral1 { get; } = new Region("me-central-1");
         /// <summary>
         /// Middle East (Bahrain)
         /// </summary>
         public static Region MeSouth1 { get; } = new Region("me-south-1");
         /// <summary>
-        /// South America (São Paulo)
+        /// South America (Sao Paulo)
         /// </summary>
         public static Region SaEast1 { get; } = new Region("sa-east-1");
+        /// <summary>
+        /// US East (N. Virginia)
+        /// </summary>
+        public static Region UsEast1 { get; } = new Region("us-east-1");
+        /// <summary>
+        /// US East (Ohio)
+        /// </summary>
+        public static Region UsEast2 { get; } = new Region("us-east-2");
         /// <summary>
         /// AWS GovCloud (US-East)
         /// </summary>
@@ -105,13 +153,17 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region UsGovWest1 { get; } = new Region("us-gov-west-1");
         /// <summary>
-        /// US East (N. Virginia)
+        /// US ISO East
         /// </summary>
-        public static Region UsEast1 { get; } = new Region("us-east-1");
+        public static Region UsIsoEast1 { get; } = new Region("us-iso-east-1");
         /// <summary>
-        /// US East (Ohio)
+        /// US ISO WEST
         /// </summary>
-        public static Region UsEast2 { get; } = new Region("us-east-2");
+        public static Region UsIsoWest1 { get; } = new Region("us-iso-west-1");
+        /// <summary>
+        /// US ISOB East (Ohio)
+        /// </summary>
+        public static Region UsIsobEast1 { get; } = new Region("us-isob-east-1");
         /// <summary>
         /// US West (N. California)
         /// </summary>

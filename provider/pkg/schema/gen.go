@@ -37,9 +37,14 @@ var forceDocumentationAugmentation = map[string]bool{
 	"AWS::IAM::Role.RoleName":                                     true,
 }
 
+type RegionInfo struct {
+	Name string `json:"name"`
+	Description string `json:"description"`
+}
+
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Schema,
-	genAll bool, semanticsDocument *metadata.SemanticsSpecDocument, docsSchema *Docs) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
+	genAll bool, semanticsDocument *metadata.SemanticsSpecDocument, docsSchema *Docs, regionInfo []RegionInfo) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
 	globalTagType := pschema.ObjectTypeSpec{
 		Type:        "object",
 		Description: "A set of tags to apply to the resource.",
@@ -490,6 +495,9 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 			p.Types[tok] = overlayType
 		}
 	}
+
+	// Generate the region enum.
+	p.Types["aws-native:index/Region:Region"] = generateRegionEnum(regionInfo)
 
 	// Add getters for CFN pseudo parameters.
 	for name, property := range pseudoParameters {

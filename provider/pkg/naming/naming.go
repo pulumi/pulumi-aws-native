@@ -25,11 +25,11 @@ func ToCfnName(s string, lookupTable map[string]string) string {
 	if name, ok := lookupTable[s]; ok {
 		return name
 	}
-	return toPascalCase(s)
+	return ToPascalCase(s)
 }
 
-// toCfnName converts a lowerCamelCase schema property name to PascalCase .
-func toPascalCase(s string) string {
+// ToPascalCase converts a lowerCamelCase schema property name to PascalCase .
+func ToPascalCase(s string) string {
 	if r := rune(s[0]); r >= 'a' && r <= 'z' {
 		s = strings.ToUpper(string(r)) + s[1:]
 	}
