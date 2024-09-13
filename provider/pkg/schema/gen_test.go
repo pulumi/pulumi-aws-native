@@ -20,11 +20,11 @@ func marshalSpec(spec map[string]interface{}) *jsschema.Schema {
 func runTest(t *testing.T, spec map[string]interface{}, docs Docs) (*schema.PackageSpec, *Reports) {
 	return runTestWithRegions(t, spec, docs, []RegionInfo{
 		{
-			Name: "us-west-2",
+			Name:        "us-west-2",
 			Description: "US West (Oregon)",
 		},
 		{
-			Name: "us-east-1",
+			Name:        "us-east-1",
 			Description: "US East (N. Virginia)",
 		},
 	})
@@ -517,23 +517,23 @@ func TestGatherPackage_regionGeneration(t *testing.T) {
 	}
 	packageSpec, _ := runTestWithRegions(t, spec, docs, []RegionInfo{
 		{
-			Name: "us-west-2",
+			Name:        "us-west-2",
 			Description: "US West (Oregon)",
 		},
 		{
-			Name: "us-east-1",
+			Name:        "us-east-1",
 			Description: "US East (N. Virginia)",
 		},
 		{
-			Name: "us-gov-west-1",
+			Name:        "us-gov-west-1",
 			Description: "AWS GovCloud (US-West)",
 		},
 		{
-			Name: "cn-north-1",
+			Name:        "cn-north-1",
 			Description: "China (Beijing)",
 		},
 		{
-			Name: "eu-isoe-west-1",
+			Name:        "eu-isoe-west-1",
 			Description: "EU ISOE West",
 		},
 	})

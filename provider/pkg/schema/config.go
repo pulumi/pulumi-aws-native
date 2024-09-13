@@ -18,6 +18,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
@@ -143,7 +144,7 @@ func generateRegionEnum(regions []RegionInfo) pschema.ComplexTypeSpec {
 	for i, region := range regions {
 		sections := strings.Split(region.Name, "-")
 		for i, section := range sections {
-			sections[i] = strings.ToUpper(section[:1]) + strings.ToLower(section[1:])
+			sections[i] = naming.ToPascalCase(section)
 		}
 		capitalizedName := strings.Join(sections, "")
 
