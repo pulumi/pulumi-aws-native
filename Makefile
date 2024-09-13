@@ -45,8 +45,15 @@ docs:: .docs.version
 discovery:: update_submodules codegen
 	git ls-remote https://github.com/cdklabs/awscdk-service-spec refs/heads/main | awk '{print $$1}' > .docs.version
 	$(WORKING_DIR)/bin/$(CODEGEN) -schema-folder $(CFN_SCHEMA_DIR) -version ${VERSION_GENERIC} -schema-urls https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip discovery
-	# Fetch regions from botocore
-	curl -fsSL https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/endpoints.json \
+
+	# Fetch the latest version of botocore
+	git -c 'versionsort.suffix=-' ls-remote --exit-code --refs --sort='version:refname' --tags https://github.com/boto/botocore '*.*.*' \
+		| tail -n 1 \
+		| cut -d '/' -f 3 \
+		> "$(METADATA_DIR)/.botocore.version"
+
+	# Extract the regions from botocore
+	cat $(METADATA_DIR)/.botocore.version | xargs -I{} curl -fsSL https://raw.githubusercontent.com/boto/botocore/{}/botocore/data/endpoints.json \
 		| jq '[.partitions[].regions | to_entries[] | { name: .key, description: .value.description}]' \
 		> "$(METADATA_DIR)/regions.json"
 
