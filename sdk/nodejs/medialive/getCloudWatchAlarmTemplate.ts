@@ -27,7 +27,13 @@ export interface GetCloudWatchAlarmTemplateResult {
      * A cloudwatch alarm template's ARN (Amazon Resource Name)
      */
     readonly arn?: string;
+    /**
+     * The comparison operator used to compare the specified statistic and the threshold.
+     */
     readonly comparisonOperator?: enums.medialive.CloudWatchAlarmTemplateComparisonOperator;
+    /**
+     * The date and time of resource creation.
+     */
     readonly createdAt?: string;
     /**
      * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
@@ -54,6 +60,9 @@ export interface GetCloudWatchAlarmTemplateResult {
      * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
      */
     readonly metricName?: string;
+    /**
+     * The date and time of latest resource modification.
+     */
     readonly modifiedAt?: string;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -63,12 +72,21 @@ export interface GetCloudWatchAlarmTemplateResult {
      * The period, in seconds, over which the specified statistic is applied.
      */
     readonly period?: number;
+    /**
+     * The statistic to apply to the alarm's metric data.
+     */
     readonly statistic?: enums.medialive.CloudWatchAlarmTemplateStatistic;
+    /**
+     * The resource type this template should dynamically generate CloudWatch metric alarms for.
+     */
     readonly targetResourceType?: enums.medialive.CloudWatchAlarmTemplateTargetResourceType;
     /**
      * The threshold value to compare with the specified statistic.
      */
     readonly threshold?: number;
+    /**
+     * Specifies how missing data points are treated when evaluating the alarm's condition.
+     */
     readonly treatMissingData?: enums.medialive.CloudWatchAlarmTemplateTreatMissingData;
 }
 /**

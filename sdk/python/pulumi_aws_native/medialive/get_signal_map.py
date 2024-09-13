@@ -87,11 +87,17 @@ class GetSignalMapResult:
     @property
     @pulumi.getter(name="cloudWatchAlarmTemplateGroupIds")
     def cloud_watch_alarm_template_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        An alarm template group's id.
+        """
         return pulumi.get(self, "cloud_watch_alarm_template_group_ids")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The date and time of resource creation.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -121,6 +127,9 @@ class GetSignalMapResult:
     @property
     @pulumi.getter(name="eventBridgeRuleTemplateGroupIds")
     def event_bridge_rule_template_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        An eventbridge rule template group's id.
+        """
         return pulumi.get(self, "event_bridge_rule_template_group_ids")
 
     @property
@@ -144,6 +153,9 @@ class GetSignalMapResult:
     @property
     @pulumi.getter(name="lastDiscoveredAt")
     def last_discovered_at(self) -> Optional[str]:
+        """
+        The date and time of latest discovery.
+        """
         return pulumi.get(self, "last_discovered_at")
 
     @property
@@ -159,6 +171,9 @@ class GetSignalMapResult:
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        The date and time of latest resource modification.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
@@ -185,6 +200,9 @@ class GetSignalMapResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['SignalMapStatus']:
+        """
+        A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
+        """
         return pulumi.get(self, "status")
 
 

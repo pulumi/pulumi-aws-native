@@ -13,6 +13,301 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTableFieldCustomTextContent struct {
+	// The font configuration of the custom text content for the table URL link content.
+	FontConfiguration TemplateFontConfiguration `pulumi:"fontConfiguration"`
+	// The string value of the custom text content for the table URL link content.
+	Value *string `pulumi:"value"`
+}
+
+// TemplateTableFieldCustomTextContentInput is an input type that accepts TemplateTableFieldCustomTextContentArgs and TemplateTableFieldCustomTextContentOutput values.
+// You can construct a concrete instance of `TemplateTableFieldCustomTextContentInput` via:
+//
+//	TemplateTableFieldCustomTextContentArgs{...}
+type TemplateTableFieldCustomTextContentInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldCustomTextContentOutput() TemplateTableFieldCustomTextContentOutput
+	ToTemplateTableFieldCustomTextContentOutputWithContext(context.Context) TemplateTableFieldCustomTextContentOutput
+}
+
+type TemplateTableFieldCustomTextContentArgs struct {
+	// The font configuration of the custom text content for the table URL link content.
+	FontConfiguration TemplateFontConfigurationInput `pulumi:"fontConfiguration"`
+	// The string value of the custom text content for the table URL link content.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TemplateTableFieldCustomTextContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldCustomTextContent)(nil)).Elem()
+}
+
+func (i TemplateTableFieldCustomTextContentArgs) ToTemplateTableFieldCustomTextContentOutput() TemplateTableFieldCustomTextContentOutput {
+	return i.ToTemplateTableFieldCustomTextContentOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldCustomTextContentArgs) ToTemplateTableFieldCustomTextContentOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomTextContentOutput)
+}
+
+func (i TemplateTableFieldCustomTextContentArgs) ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput {
+	return i.ToTemplateTableFieldCustomTextContentPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldCustomTextContentArgs) ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomTextContentOutput).ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx)
+}
+
+// TemplateTableFieldCustomTextContentPtrInput is an input type that accepts TemplateTableFieldCustomTextContentArgs, TemplateTableFieldCustomTextContentPtr and TemplateTableFieldCustomTextContentPtrOutput values.
+// You can construct a concrete instance of `TemplateTableFieldCustomTextContentPtrInput` via:
+//
+//	        TemplateTableFieldCustomTextContentArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableFieldCustomTextContentPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput
+	ToTemplateTableFieldCustomTextContentPtrOutputWithContext(context.Context) TemplateTableFieldCustomTextContentPtrOutput
+}
+
+type templateTableFieldCustomTextContentPtrType TemplateTableFieldCustomTextContentArgs
+
+func TemplateTableFieldCustomTextContentPtr(v *TemplateTableFieldCustomTextContentArgs) TemplateTableFieldCustomTextContentPtrInput {
+	return (*templateTableFieldCustomTextContentPtrType)(v)
+}
+
+func (*templateTableFieldCustomTextContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldCustomTextContent)(nil)).Elem()
+}
+
+func (i *templateTableFieldCustomTextContentPtrType) ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput {
+	return i.ToTemplateTableFieldCustomTextContentPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableFieldCustomTextContentPtrType) ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomTextContentPtrOutput)
+}
+
+type TemplateTableFieldCustomTextContentOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldCustomTextContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldCustomTextContent)(nil)).Elem()
+}
+
+func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTextContentOutput() TemplateTableFieldCustomTextContentOutput {
+	return o
+}
+
+func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTextContentOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentOutput {
+	return o
+}
+
+func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput {
+	return o.ToTemplateTableFieldCustomTextContentPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldCustomTextContent) *TemplateTableFieldCustomTextContent {
+		return &v
+	}).(TemplateTableFieldCustomTextContentPtrOutput)
+}
+
+// The font configuration of the custom text content for the table URL link content.
+func (o TemplateTableFieldCustomTextContentOutput) FontConfiguration() TemplateFontConfigurationOutput {
+	return o.ApplyT(func(v TemplateTableFieldCustomTextContent) TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationOutput)
+}
+
+// The string value of the custom text content for the table URL link content.
+func (o TemplateTableFieldCustomTextContentOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldCustomTextContent) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TemplateTableFieldCustomTextContentPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldCustomTextContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldCustomTextContent)(nil)).Elem()
+}
+
+func (o TemplateTableFieldCustomTextContentPtrOutput) ToTemplateTableFieldCustomTextContentPtrOutput() TemplateTableFieldCustomTextContentPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldCustomTextContentPtrOutput) ToTemplateTableFieldCustomTextContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomTextContentPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldCustomTextContentPtrOutput) Elem() TemplateTableFieldCustomTextContentOutput {
+	return o.ApplyT(func(v *TemplateTableFieldCustomTextContent) TemplateTableFieldCustomTextContent {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableFieldCustomTextContent
+		return ret
+	}).(TemplateTableFieldCustomTextContentOutput)
+}
+
+// The font configuration of the custom text content for the table URL link content.
+func (o TemplateTableFieldCustomTextContentPtrOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldCustomTextContent) *TemplateFontConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.FontConfiguration
+	}).(TemplateFontConfigurationPtrOutput)
+}
+
+// The string value of the custom text content for the table URL link content.
+func (o TemplateTableFieldCustomTextContentPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldCustomTextContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateTableFieldImageConfiguration struct {
+	// The sizing options for the table image configuration.
+	SizingOptions *TemplateTableCellImageSizingConfiguration `pulumi:"sizingOptions"`
+}
+
+// TemplateTableFieldImageConfigurationInput is an input type that accepts TemplateTableFieldImageConfigurationArgs and TemplateTableFieldImageConfigurationOutput values.
+// You can construct a concrete instance of `TemplateTableFieldImageConfigurationInput` via:
+//
+//	TemplateTableFieldImageConfigurationArgs{...}
+type TemplateTableFieldImageConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldImageConfigurationOutput() TemplateTableFieldImageConfigurationOutput
+	ToTemplateTableFieldImageConfigurationOutputWithContext(context.Context) TemplateTableFieldImageConfigurationOutput
+}
+
+type TemplateTableFieldImageConfigurationArgs struct {
+	// The sizing options for the table image configuration.
+	SizingOptions TemplateTableCellImageSizingConfigurationPtrInput `pulumi:"sizingOptions"`
+}
+
+func (TemplateTableFieldImageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldImageConfiguration)(nil)).Elem()
+}
+
+func (i TemplateTableFieldImageConfigurationArgs) ToTemplateTableFieldImageConfigurationOutput() TemplateTableFieldImageConfigurationOutput {
+	return i.ToTemplateTableFieldImageConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldImageConfigurationArgs) ToTemplateTableFieldImageConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldImageConfigurationOutput)
+}
+
+func (i TemplateTableFieldImageConfigurationArgs) ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput {
+	return i.ToTemplateTableFieldImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldImageConfigurationArgs) ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldImageConfigurationOutput).ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateTableFieldImageConfigurationPtrInput is an input type that accepts TemplateTableFieldImageConfigurationArgs, TemplateTableFieldImageConfigurationPtr and TemplateTableFieldImageConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateTableFieldImageConfigurationPtrInput` via:
+//
+//	        TemplateTableFieldImageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableFieldImageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput
+	ToTemplateTableFieldImageConfigurationPtrOutputWithContext(context.Context) TemplateTableFieldImageConfigurationPtrOutput
+}
+
+type templateTableFieldImageConfigurationPtrType TemplateTableFieldImageConfigurationArgs
+
+func TemplateTableFieldImageConfigurationPtr(v *TemplateTableFieldImageConfigurationArgs) TemplateTableFieldImageConfigurationPtrInput {
+	return (*templateTableFieldImageConfigurationPtrType)(v)
+}
+
+func (*templateTableFieldImageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldImageConfiguration)(nil)).Elem()
+}
+
+func (i *templateTableFieldImageConfigurationPtrType) ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput {
+	return i.ToTemplateTableFieldImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableFieldImageConfigurationPtrType) ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldImageConfigurationPtrOutput)
+}
+
+type TemplateTableFieldImageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldImageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldImageConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableFieldImageConfigurationOutput) ToTemplateTableFieldImageConfigurationOutput() TemplateTableFieldImageConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableFieldImageConfigurationOutput) ToTemplateTableFieldImageConfigurationOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableFieldImageConfigurationOutput) ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput {
+	return o.ToTemplateTableFieldImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableFieldImageConfigurationOutput) ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldImageConfiguration) *TemplateTableFieldImageConfiguration {
+		return &v
+	}).(TemplateTableFieldImageConfigurationPtrOutput)
+}
+
+// The sizing options for the table image configuration.
+func (o TemplateTableFieldImageConfigurationOutput) SizingOptions() TemplateTableCellImageSizingConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldImageConfiguration) *TemplateTableCellImageSizingConfiguration {
+		return v.SizingOptions
+	}).(TemplateTableCellImageSizingConfigurationPtrOutput)
+}
+
+type TemplateTableFieldImageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldImageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldImageConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableFieldImageConfigurationPtrOutput) ToTemplateTableFieldImageConfigurationPtrOutput() TemplateTableFieldImageConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldImageConfigurationPtrOutput) ToTemplateTableFieldImageConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableFieldImageConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldImageConfigurationPtrOutput) Elem() TemplateTableFieldImageConfigurationOutput {
+	return o.ApplyT(func(v *TemplateTableFieldImageConfiguration) TemplateTableFieldImageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableFieldImageConfiguration
+		return ret
+	}).(TemplateTableFieldImageConfigurationOutput)
+}
+
+// The sizing options for the table image configuration.
+func (o TemplateTableFieldImageConfigurationPtrOutput) SizingOptions() TemplateTableCellImageSizingConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldImageConfiguration) *TemplateTableCellImageSizingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SizingOptions
+	}).(TemplateTableCellImageSizingConfigurationPtrOutput)
+}
+
 type TemplateTableFieldLinkConfiguration struct {
 	// The URL content (text, icon) for the table link configuration.
 	Content TemplateTableFieldLinkContentConfiguration `pulumi:"content"`
@@ -12610,6 +12905,139 @@ func (o TemplateWordCloudVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TemplateYAxisOptions struct {
+	YAxis TemplateSingleYAxisOption `pulumi:"yAxis"`
+}
+
+// TemplateYAxisOptionsInput is an input type that accepts TemplateYAxisOptionsArgs and TemplateYAxisOptionsOutput values.
+// You can construct a concrete instance of `TemplateYAxisOptionsInput` via:
+//
+//	TemplateYAxisOptionsArgs{...}
+type TemplateYAxisOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateYAxisOptionsOutput() TemplateYAxisOptionsOutput
+	ToTemplateYAxisOptionsOutputWithContext(context.Context) TemplateYAxisOptionsOutput
+}
+
+type TemplateYAxisOptionsArgs struct {
+	YAxis TemplateSingleYAxisOptionInput `pulumi:"yAxis"`
+}
+
+func (TemplateYAxisOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateYAxisOptions)(nil)).Elem()
+}
+
+func (i TemplateYAxisOptionsArgs) ToTemplateYAxisOptionsOutput() TemplateYAxisOptionsOutput {
+	return i.ToTemplateYAxisOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateYAxisOptionsArgs) ToTemplateYAxisOptionsOutputWithContext(ctx context.Context) TemplateYAxisOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateYAxisOptionsOutput)
+}
+
+func (i TemplateYAxisOptionsArgs) ToTemplateYAxisOptionsPtrOutput() TemplateYAxisOptionsPtrOutput {
+	return i.ToTemplateYAxisOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateYAxisOptionsArgs) ToTemplateYAxisOptionsPtrOutputWithContext(ctx context.Context) TemplateYAxisOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateYAxisOptionsOutput).ToTemplateYAxisOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateYAxisOptionsPtrInput is an input type that accepts TemplateYAxisOptionsArgs, TemplateYAxisOptionsPtr and TemplateYAxisOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateYAxisOptionsPtrInput` via:
+//
+//	        TemplateYAxisOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateYAxisOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateYAxisOptionsPtrOutput() TemplateYAxisOptionsPtrOutput
+	ToTemplateYAxisOptionsPtrOutputWithContext(context.Context) TemplateYAxisOptionsPtrOutput
+}
+
+type templateYAxisOptionsPtrType TemplateYAxisOptionsArgs
+
+func TemplateYAxisOptionsPtr(v *TemplateYAxisOptionsArgs) TemplateYAxisOptionsPtrInput {
+	return (*templateYAxisOptionsPtrType)(v)
+}
+
+func (*templateYAxisOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateYAxisOptions)(nil)).Elem()
+}
+
+func (i *templateYAxisOptionsPtrType) ToTemplateYAxisOptionsPtrOutput() TemplateYAxisOptionsPtrOutput {
+	return i.ToTemplateYAxisOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateYAxisOptionsPtrType) ToTemplateYAxisOptionsPtrOutputWithContext(ctx context.Context) TemplateYAxisOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateYAxisOptionsPtrOutput)
+}
+
+type TemplateYAxisOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateYAxisOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateYAxisOptions)(nil)).Elem()
+}
+
+func (o TemplateYAxisOptionsOutput) ToTemplateYAxisOptionsOutput() TemplateYAxisOptionsOutput {
+	return o
+}
+
+func (o TemplateYAxisOptionsOutput) ToTemplateYAxisOptionsOutputWithContext(ctx context.Context) TemplateYAxisOptionsOutput {
+	return o
+}
+
+func (o TemplateYAxisOptionsOutput) ToTemplateYAxisOptionsPtrOutput() TemplateYAxisOptionsPtrOutput {
+	return o.ToTemplateYAxisOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateYAxisOptionsOutput) ToTemplateYAxisOptionsPtrOutputWithContext(ctx context.Context) TemplateYAxisOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateYAxisOptions) *TemplateYAxisOptions {
+		return &v
+	}).(TemplateYAxisOptionsPtrOutput)
+}
+
+func (o TemplateYAxisOptionsOutput) YAxis() TemplateSingleYAxisOptionOutput {
+	return o.ApplyT(func(v TemplateYAxisOptions) TemplateSingleYAxisOption { return v.YAxis }).(TemplateSingleYAxisOptionOutput)
+}
+
+type TemplateYAxisOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateYAxisOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateYAxisOptions)(nil)).Elem()
+}
+
+func (o TemplateYAxisOptionsPtrOutput) ToTemplateYAxisOptionsPtrOutput() TemplateYAxisOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateYAxisOptionsPtrOutput) ToTemplateYAxisOptionsPtrOutputWithContext(ctx context.Context) TemplateYAxisOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateYAxisOptionsPtrOutput) Elem() TemplateYAxisOptionsOutput {
+	return o.ApplyT(func(v *TemplateYAxisOptions) TemplateYAxisOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateYAxisOptions
+		return ret
+	}).(TemplateYAxisOptionsOutput)
+}
+
+func (o TemplateYAxisOptionsPtrOutput) YAxis() TemplateSingleYAxisOptionPtrOutput {
+	return o.ApplyT(func(v *TemplateYAxisOptions) *TemplateSingleYAxisOption {
+		if v == nil {
+			return nil
+		}
+		return &v.YAxis
+	}).(TemplateSingleYAxisOptionPtrOutput)
+}
+
 // <p>The display options for tile borders for visuals.</p>
 type ThemeBorderStyle struct {
 	// <p>The option to enable display of borders for visuals.</p>
@@ -19463,6 +19891,10 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomTextContentInput)(nil)).Elem(), TemplateTableFieldCustomTextContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomTextContentPtrInput)(nil)).Elem(), TemplateTableFieldCustomTextContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldImageConfigurationInput)(nil)).Elem(), TemplateTableFieldImageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldImageConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldImageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkConfigurationInput)(nil)).Elem(), TemplateTableFieldLinkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkConfigurationPtrInput)(nil)).Elem(), TemplateTableFieldLinkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldLinkContentConfigurationInput)(nil)).Elem(), TemplateTableFieldLinkContentConfigurationArgs{})
@@ -19598,6 +20030,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudSortConfigurationPtrInput)(nil)).Elem(), TemplateWordCloudSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudVisualInput)(nil)).Elem(), TemplateWordCloudVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudVisualPtrInput)(nil)).Elem(), TemplateWordCloudVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateYAxisOptionsInput)(nil)).Elem(), TemplateYAxisOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateYAxisOptionsPtrInput)(nil)).Elem(), TemplateYAxisOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeBorderStyleInput)(nil)).Elem(), ThemeBorderStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeBorderStylePtrInput)(nil)).Elem(), ThemeBorderStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationInput)(nil)).Elem(), ThemeConfigurationArgs{})
@@ -19671,6 +20105,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTableFieldCustomTextContentOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldCustomTextContentPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldImageConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldImageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldLinkConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldLinkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldLinkContentConfigurationOutput{})
@@ -19808,6 +20246,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateWordCloudSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWordCloudVisualOutput{})
 	pulumi.RegisterOutputType(TemplateWordCloudVisualPtrOutput{})
+	pulumi.RegisterOutputType(TemplateYAxisOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateYAxisOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ThemeBorderStyleOutput{})
 	pulumi.RegisterOutputType(ThemeBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(ThemeConfigurationOutput{})

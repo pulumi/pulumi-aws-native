@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         /// Error message associated with a failed monitor deployment of a signal map.
         /// </summary>
         public readonly string? ErrorMessage;
+        /// <summary>
+        /// The signal map monitor deployment status.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.SignalMapMonitorDeploymentStatus Status;
 
         [OutputConstructor]

@@ -36,7 +36,8 @@ type LookupClusterResult struct {
 	// The time at which the HyperPod cluster was created.
 	CreationTime *string `pulumi:"creationTime"`
 	// The failure message of the HyperPod Cluster.
-	FailureMessage *string                `pulumi:"failureMessage"`
+	FailureMessage *string `pulumi:"failureMessage"`
+	// The instance groups of the SageMaker HyperPod cluster.
 	InstanceGroups []ClusterInstanceGroup `pulumi:"instanceGroups"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
@@ -100,6 +101,7 @@ func (o LookupClusterResultOutput) FailureMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.FailureMessage }).(pulumi.StringPtrOutput)
 }
 
+// The instance groups of the SageMaker HyperPod cluster.
 func (o LookupClusterResultOutput) InstanceGroups() ClusterInstanceGroupArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []ClusterInstanceGroup { return v.InstanceGroups }).(ClusterInstanceGroupArrayOutput)
 }

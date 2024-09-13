@@ -30,11 +30,15 @@ class CloudWatchAlarmTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CloudWatchAlarmTemplate resource.
+        :param pulumi.Input['CloudWatchAlarmTemplateComparisonOperator'] comparison_operator: The comparison operator used to compare the specified statistic and the threshold.
         :param pulumi.Input[float] evaluation_periods: The number of periods over which data is compared to the specified threshold.
         :param pulumi.Input[str] group_identifier: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] metric_name: The name of the metric associated with the alarm. Must be compatible with targetResourceType.
         :param pulumi.Input[float] period: The period, in seconds, over which the specified statistic is applied.
+        :param pulumi.Input['CloudWatchAlarmTemplateStatistic'] statistic: The statistic to apply to the alarm's metric data.
+        :param pulumi.Input['CloudWatchAlarmTemplateTargetResourceType'] target_resource_type: The resource type this template should dynamically generate CloudWatch metric alarms for.
         :param pulumi.Input[float] threshold: The threshold value to compare with the specified statistic.
+        :param pulumi.Input['CloudWatchAlarmTemplateTreatMissingData'] treat_missing_data: Specifies how missing data points are treated when evaluating the alarm's condition.
         :param pulumi.Input[float] datapoints_to_alarm: The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
         :param pulumi.Input[str] description: A resource's optional description.
         :param pulumi.Input[str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -60,6 +64,9 @@ class CloudWatchAlarmTemplateArgs:
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> pulumi.Input['CloudWatchAlarmTemplateComparisonOperator']:
+        """
+        The comparison operator used to compare the specified statistic and the threshold.
+        """
         return pulumi.get(self, "comparison_operator")
 
     @comparison_operator.setter
@@ -117,6 +124,9 @@ class CloudWatchAlarmTemplateArgs:
     @property
     @pulumi.getter
     def statistic(self) -> pulumi.Input['CloudWatchAlarmTemplateStatistic']:
+        """
+        The statistic to apply to the alarm's metric data.
+        """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
@@ -126,6 +136,9 @@ class CloudWatchAlarmTemplateArgs:
     @property
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Input['CloudWatchAlarmTemplateTargetResourceType']:
+        """
+        The resource type this template should dynamically generate CloudWatch metric alarms for.
+        """
         return pulumi.get(self, "target_resource_type")
 
     @target_resource_type.setter
@@ -147,6 +160,9 @@ class CloudWatchAlarmTemplateArgs:
     @property
     @pulumi.getter(name="treatMissingData")
     def treat_missing_data(self) -> pulumi.Input['CloudWatchAlarmTemplateTreatMissingData']:
+        """
+        Specifies how missing data points are treated when evaluating the alarm's condition.
+        """
         return pulumi.get(self, "treat_missing_data")
 
     @treat_missing_data.setter
@@ -223,6 +239,7 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['CloudWatchAlarmTemplateComparisonOperator'] comparison_operator: The comparison operator used to compare the specified statistic and the threshold.
         :param pulumi.Input[float] datapoints_to_alarm: The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
         :param pulumi.Input[str] description: A resource's optional description.
         :param pulumi.Input[float] evaluation_periods: The number of periods over which data is compared to the specified threshold.
@@ -230,7 +247,10 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] metric_name: The name of the metric associated with the alarm. Must be compatible with targetResourceType.
         :param pulumi.Input[str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
         :param pulumi.Input[float] period: The period, in seconds, over which the specified statistic is applied.
+        :param pulumi.Input['CloudWatchAlarmTemplateStatistic'] statistic: The statistic to apply to the alarm's metric data.
+        :param pulumi.Input['CloudWatchAlarmTemplateTargetResourceType'] target_resource_type: The resource type this template should dynamically generate CloudWatch metric alarms for.
         :param pulumi.Input[float] threshold: The threshold value to compare with the specified statistic.
+        :param pulumi.Input['CloudWatchAlarmTemplateTreatMissingData'] treat_missing_data: Specifies how missing data points are treated when evaluating the alarm's condition.
         """
         ...
     @overload
@@ -379,11 +399,17 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> pulumi.Output['CloudWatchAlarmTemplateComparisonOperator']:
+        """
+        The comparison operator used to compare the specified statistic and the threshold.
+        """
         return pulumi.get(self, "comparison_operator")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The date and time of resource creation.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -442,6 +468,9 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        The date and time of latest resource modification.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
@@ -463,6 +492,9 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def statistic(self) -> pulumi.Output['CloudWatchAlarmTemplateStatistic']:
+        """
+        The statistic to apply to the alarm's metric data.
+        """
         return pulumi.get(self, "statistic")
 
     @property
@@ -473,6 +505,9 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> pulumi.Output['CloudWatchAlarmTemplateTargetResourceType']:
+        """
+        The resource type this template should dynamically generate CloudWatch metric alarms for.
+        """
         return pulumi.get(self, "target_resource_type")
 
     @property
@@ -486,5 +521,8 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="treatMissingData")
     def treat_missing_data(self) -> pulumi.Output['CloudWatchAlarmTemplateTreatMissingData']:
+        """
+        Specifies how missing data points are treated when evaluating the alarm's condition.
+        """
         return pulumi.get(self, "treat_missing_data")
 

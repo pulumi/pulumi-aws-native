@@ -28,29 +28,35 @@ type LookupSignalMapArgs struct {
 
 type LookupSignalMapResult struct {
 	// A signal map's ARN (Amazon Resource Name)
-	Arn                             *string  `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// An alarm template group's id.
 	CloudWatchAlarmTemplateGroupIds []string `pulumi:"cloudWatchAlarmTemplateGroupIds"`
-	CreatedAt                       *string  `pulumi:"createdAt"`
+	// The date and time of resource creation.
+	CreatedAt *string `pulumi:"createdAt"`
 	// A resource's optional description.
 	Description *string `pulumi:"description"`
 	// A top-level supported AWS resource ARN to discovery a signal map from.
 	DiscoveryEntryPointArn *string `pulumi:"discoveryEntryPointArn"`
 	// Error message associated with a failed creation or failed update attempt of a signal map.
-	ErrorMessage                    *string                           `pulumi:"errorMessage"`
+	ErrorMessage *string `pulumi:"errorMessage"`
+	// An eventbridge rule template group's id.
 	EventBridgeRuleTemplateGroupIds []string                          `pulumi:"eventBridgeRuleTemplateGroupIds"`
 	FailedMediaResourceMap          map[string]SignalMapMediaResource `pulumi:"failedMediaResourceMap"`
 	// A signal map's id.
-	Id                              *string                               `pulumi:"id"`
-	Identifier                      *string                               `pulumi:"identifier"`
+	Id         *string `pulumi:"id"`
+	Identifier *string `pulumi:"identifier"`
+	// The date and time of latest discovery.
 	LastDiscoveredAt                *string                               `pulumi:"lastDiscoveredAt"`
 	LastSuccessfulMonitorDeployment *SignalMapSuccessfulMonitorDeployment `pulumi:"lastSuccessfulMonitorDeployment"`
 	MediaResourceMap                map[string]SignalMapMediaResource     `pulumi:"mediaResourceMap"`
-	ModifiedAt                      *string                               `pulumi:"modifiedAt"`
+	// The date and time of latest resource modification.
+	ModifiedAt *string `pulumi:"modifiedAt"`
 	// If true, there are pending monitor changes for this signal map that can be deployed.
 	MonitorChangesPendingDeployment *bool                       `pulumi:"monitorChangesPendingDeployment"`
 	MonitorDeployment               *SignalMapMonitorDeployment `pulumi:"monitorDeployment"`
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
-	Name   *string          `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
 	Status *SignalMapStatus `pulumi:"status"`
 }
 
@@ -94,10 +100,12 @@ func (o LookupSignalMapResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// An alarm template group's id.
 func (o LookupSignalMapResultOutput) CloudWatchAlarmTemplateGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) []string { return v.CloudWatchAlarmTemplateGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The date and time of resource creation.
 func (o LookupSignalMapResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -117,6 +125,7 @@ func (o LookupSignalMapResultOutput) ErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
+// An eventbridge rule template group's id.
 func (o LookupSignalMapResultOutput) EventBridgeRuleTemplateGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) []string { return v.EventBridgeRuleTemplateGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -134,6 +143,7 @@ func (o LookupSignalMapResultOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
 
+// The date and time of latest discovery.
 func (o LookupSignalMapResultOutput) LastDiscoveredAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) *string { return v.LastDiscoveredAt }).(pulumi.StringPtrOutput)
 }
@@ -148,6 +158,7 @@ func (o LookupSignalMapResultOutput) MediaResourceMap() SignalMapMediaResourceMa
 	return o.ApplyT(func(v LookupSignalMapResult) map[string]SignalMapMediaResource { return v.MediaResourceMap }).(SignalMapMediaResourceMapOutput)
 }
 
+// The date and time of latest resource modification.
 func (o LookupSignalMapResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
@@ -166,6 +177,7 @@ func (o LookupSignalMapResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
 func (o LookupSignalMapResultOutput) Status() SignalMapStatusPtrOutput {
 	return o.ApplyT(func(v LookupSignalMapResult) *SignalMapStatus { return v.Status }).(SignalMapStatusPtrOutput)
 }

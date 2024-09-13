@@ -57,6 +57,9 @@ export class EventBridgeRuleTemplate extends pulumi.CustomResource {
      * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
      */
     public readonly eventTargets!: pulumi.Output<outputs.medialive.EventBridgeRuleTemplateTarget[] | undefined>;
+    /**
+     * The type of event to match with the rule.
+     */
     public readonly eventType!: pulumi.Output<enums.medialive.EventBridgeRuleTemplateEventType>;
     /**
      * An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
@@ -142,6 +145,9 @@ export interface EventBridgeRuleTemplateArgs {
      * Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
      */
     eventTargets?: pulumi.Input<pulumi.Input<inputs.medialive.EventBridgeRuleTemplateTargetArgs>[]>;
+    /**
+     * The type of event to match with the rule.
+     */
     eventType: pulumi.Input<enums.medialive.EventBridgeRuleTemplateEventType>;
     /**
      * An eventbridge rule template group's identifier. Can be either be its id or current name.

@@ -27,12 +27,21 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+        /// </summary>
         [Output("cloudWatchAlarmTemplateGroupIdentifiers")]
         public Output<ImmutableArray<string>> CloudWatchAlarmTemplateGroupIdentifiers { get; private set; } = null!;
 
+        /// <summary>
+        /// An alarm template group's id.
+        /// </summary>
         [Output("cloudWatchAlarmTemplateGroupIds")]
         public Output<ImmutableArray<string>> CloudWatchAlarmTemplateGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time of resource creation.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
@@ -54,9 +63,15 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("errorMessage")]
         public Output<string> ErrorMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// An eventbridge rule template group's identifier. Can be either be its id or current name.
+        /// </summary>
         [Output("eventBridgeRuleTemplateGroupIdentifiers")]
         public Output<ImmutableArray<string>> EventBridgeRuleTemplateGroupIdentifiers { get; private set; } = null!;
 
+        /// <summary>
+        /// An eventbridge rule template group's id.
+        /// </summary>
         [Output("eventBridgeRuleTemplateGroupIds")]
         public Output<ImmutableArray<string>> EventBridgeRuleTemplateGroupIds { get; private set; } = null!;
 
@@ -72,6 +87,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time of latest discovery.
+        /// </summary>
         [Output("lastDiscoveredAt")]
         public Output<string> LastDiscoveredAt { get; private set; } = null!;
 
@@ -81,6 +99,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("mediaResourceMap")]
         public Output<ImmutableDictionary<string, Outputs.SignalMapMediaResource>> MediaResourceMap { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time of latest resource modification.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
@@ -99,6 +120,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.MediaLive.SignalMapStatus> Status { get; private set; } = null!;
 
@@ -156,6 +180,10 @@ namespace Pulumi.AwsNative.MediaLive
     {
         [Input("cloudWatchAlarmTemplateGroupIdentifiers")]
         private InputList<string>? _cloudWatchAlarmTemplateGroupIdentifiers;
+
+        /// <summary>
+        /// A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+        /// </summary>
         public InputList<string> CloudWatchAlarmTemplateGroupIdentifiers
         {
             get => _cloudWatchAlarmTemplateGroupIdentifiers ?? (_cloudWatchAlarmTemplateGroupIdentifiers = new InputList<string>());
@@ -176,6 +204,10 @@ namespace Pulumi.AwsNative.MediaLive
 
         [Input("eventBridgeRuleTemplateGroupIdentifiers")]
         private InputList<string>? _eventBridgeRuleTemplateGroupIdentifiers;
+
+        /// <summary>
+        /// An eventbridge rule template group's identifier. Can be either be its id or current name.
+        /// </summary>
         public InputList<string> EventBridgeRuleTemplateGroupIdentifiers
         {
             get => _eventBridgeRuleTemplateGroupIdentifiers ?? (_eventBridgeRuleTemplateGroupIdentifiers = new InputList<string>());

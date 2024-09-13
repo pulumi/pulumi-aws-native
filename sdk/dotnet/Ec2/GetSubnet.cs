@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? Ipv6CidrBlock;
         /// <summary>
-        /// The IPv6 network ranges for the subnet, in CIDR notation.
+        /// The IPv6 CIDR blocks that are associated with the subnet.
         /// </summary>
         public readonly ImmutableArray<string> Ipv6CidrBlocks;
         /// <summary>

@@ -42,6 +42,9 @@ export interface GetClusterResult {
      * The failure message of the HyperPod Cluster.
      */
     readonly failureMessage?: string;
+    /**
+     * The instance groups of the SageMaker HyperPod cluster.
+     */
     readonly instanceGroups?: outputs.sagemaker.ClusterInstanceGroup[];
     /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.

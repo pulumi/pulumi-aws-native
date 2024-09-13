@@ -24,6 +24,7 @@ class PipeArgs:
                  desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input['PipeEnrichmentParametersArgs']] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  log_configuration: Optional[pulumi.Input['PipeLogConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
@@ -38,6 +39,13 @@ class PipeArgs:
         :param pulumi.Input['PipeRequestedPipeState'] desired_state: The state the pipe should be in.
         :param pulumi.Input[str] enrichment: The ARN of the enrichment resource.
         :param pulumi.Input['PipeEnrichmentParametersArgs'] enrichment_parameters: The parameters required to set up enrichment on your pipe.
+        :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+               
+               To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+               
+               To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+               
+               For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input['PipeLogConfigurationArgs'] log_configuration: The logging configuration settings for the pipe.
         :param pulumi.Input[str] name: The name of the pipe.
         :param pulumi.Input['PipeSourceParametersArgs'] source_parameters: The parameters required to set up a source for your pipe.
@@ -57,6 +65,8 @@ class PipeArgs:
             pulumi.set(__self__, "enrichment", enrichment)
         if enrichment_parameters is not None:
             pulumi.set(__self__, "enrichment_parameters", enrichment_parameters)
+        if kms_key_identifier is not None:
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
         if name is not None:
@@ -153,6 +163,24 @@ class PipeArgs:
         pulumi.set(self, "enrichment_parameters", value)
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+
+        To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+
+        To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+
+        For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @kms_key_identifier.setter
+    def kms_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_identifier", value)
+
+    @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['PipeLogConfigurationArgs']]:
         """
@@ -224,6 +252,7 @@ class Pipe(pulumi.CustomResource):
                  desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  log_configuration: Optional[pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -272,6 +301,13 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input['PipeRequestedPipeState'] desired_state: The state the pipe should be in.
         :param pulumi.Input[str] enrichment: The ARN of the enrichment resource.
         :param pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']] enrichment_parameters: The parameters required to set up enrichment on your pipe.
+        :param pulumi.Input[str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+               
+               To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+               
+               To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+               
+               For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']] log_configuration: The logging configuration settings for the pipe.
         :param pulumi.Input[str] name: The name of the pipe.
         :param pulumi.Input[str] role_arn: The ARN of the role that allows the pipe to send data to the target.
@@ -341,6 +377,7 @@ class Pipe(pulumi.CustomResource):
                  desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
+                 kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  log_configuration: Optional[pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -362,6 +399,7 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["desired_state"] = desired_state
             __props__.__dict__["enrichment"] = enrichment
             __props__.__dict__["enrichment_parameters"] = enrichment_parameters
+            __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["log_configuration"] = log_configuration
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
@@ -412,6 +450,7 @@ class Pipe(pulumi.CustomResource):
         __props__.__dict__["desired_state"] = None
         __props__.__dict__["enrichment"] = None
         __props__.__dict__["enrichment_parameters"] = None
+        __props__.__dict__["kms_key_identifier"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["log_configuration"] = None
         __props__.__dict__["name"] = None
@@ -479,6 +518,20 @@ class Pipe(pulumi.CustomResource):
         The parameters required to set up enrichment on your pipe.
         """
         return pulumi.get(self, "enrichment_parameters")
+
+    @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+
+        To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
+
+        To update a pipe that is using a customer managed key to use the default AWS owned key , specify an empty string.
+
+        For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
+        """
+        return pulumi.get(self, "kms_key_identifier")
 
     @property
     @pulumi.getter(name="lastModifiedTime")

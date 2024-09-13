@@ -562,7 +562,12 @@
     }
   },
   "tagging" : {
-    "taggable" : true
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "network-firewall:TagResource", "network-firewall:UntagResource", "network-firewall:ListTagsForResource" ]
   },
   "required" : [ "Type", "Capacity", "RuleGroupName" ],
   "readOnlyProperties" : [ "/properties/RuleGroupArn", "/properties/RuleGroupId" ],

@@ -55,7 +55,13 @@ namespace Pulumi.AwsNative.MediaLive
         /// A signal map's ARN (Amazon Resource Name)
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// An alarm template group's id.
+        /// </summary>
         public readonly ImmutableArray<string> CloudWatchAlarmTemplateGroupIds;
+        /// <summary>
+        /// The date and time of resource creation.
+        /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
         /// A resource's optional description.
@@ -69,6 +75,9 @@ namespace Pulumi.AwsNative.MediaLive
         /// Error message associated with a failed creation or failed update attempt of a signal map.
         /// </summary>
         public readonly string? ErrorMessage;
+        /// <summary>
+        /// An eventbridge rule template group's id.
+        /// </summary>
         public readonly ImmutableArray<string> EventBridgeRuleTemplateGroupIds;
         public readonly ImmutableDictionary<string, Outputs.SignalMapMediaResource>? FailedMediaResourceMap;
         /// <summary>
@@ -76,9 +85,15 @@ namespace Pulumi.AwsNative.MediaLive
         /// </summary>
         public readonly string? Id;
         public readonly string? Identifier;
+        /// <summary>
+        /// The date and time of latest discovery.
+        /// </summary>
         public readonly string? LastDiscoveredAt;
         public readonly Outputs.SignalMapSuccessfulMonitorDeployment? LastSuccessfulMonitorDeployment;
         public readonly ImmutableDictionary<string, Outputs.SignalMapMediaResource>? MediaResourceMap;
+        /// <summary>
+        /// The date and time of latest resource modification.
+        /// </summary>
         public readonly string? ModifiedAt;
         /// <summary>
         /// If true, there are pending monitor changes for this signal map that can be deployed.
@@ -89,6 +104,9 @@ namespace Pulumi.AwsNative.MediaLive
         /// A resource's name. Names must be unique within the scope of a resource type in a specific region.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.SignalMapStatus? Status;
 
         [OutputConstructor]

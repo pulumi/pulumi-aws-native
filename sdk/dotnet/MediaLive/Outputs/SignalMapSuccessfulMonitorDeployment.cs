@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         /// URI associated with a signal map's monitor deployment.
         /// </summary>
         public readonly string DetailsUri;
+        /// <summary>
+        /// A signal map's monitor deployment status.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.SignalMapMonitorDeploymentStatus Status;
 
         [OutputConstructor]

@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("eventTargets")]
         public Output<ImmutableArray<Outputs.EventBridgeRuleTemplateTarget>> EventTargets { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of event to match with the rule.
+        /// </summary>
         [Output("eventType")]
         public Output<Pulumi.AwsNative.MediaLive.EventBridgeRuleTemplateEventType> EventType { get; private set; } = null!;
 
@@ -148,6 +151,9 @@ namespace Pulumi.AwsNative.MediaLive
             set => _eventTargets = value;
         }
 
+        /// <summary>
+        /// The type of event to match with the rule.
+        /// </summary>
         [Input("eventType", required: true)]
         public Input<Pulumi.AwsNative.MediaLive.EventBridgeRuleTemplateEventType> EventType { get; set; } = null!;
 

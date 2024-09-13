@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class SpaceAppLifecycleManagementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Settings related to idle shutdown of Studio applications.
+        /// </summary>
         [Input("idleSettings")]
         public Input<Inputs.SpaceIdleSettingsArgs>? IdleSettings { get; set; }
 

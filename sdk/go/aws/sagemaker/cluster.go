@@ -26,10 +26,12 @@ type Cluster struct {
 	// The time at which the HyperPod cluster was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The failure message of the HyperPod Cluster.
-	FailureMessage pulumi.StringOutput             `pulumi:"failureMessage"`
+	FailureMessage pulumi.StringOutput `pulumi:"failureMessage"`
+	// The instance groups of the SageMaker HyperPod cluster.
 	InstanceGroups ClusterInstanceGroupArrayOutput `pulumi:"instanceGroups"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrOutput `pulumi:"nodeRecovery"`
+	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
 	Orchestrator ClusterOrchestratorPtrOutput `pulumi:"orchestrator"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -91,10 +93,12 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// The name of the HyperPod Cluster.
-	ClusterName    *string                `pulumi:"clusterName"`
+	ClusterName *string `pulumi:"clusterName"`
+	// The instance groups of the SageMaker HyperPod cluster.
 	InstanceGroups []ClusterInstanceGroup `pulumi:"instanceGroups"`
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery *ClusterNodeRecovery `pulumi:"nodeRecovery"`
+	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
 	Orchestrator *ClusterOrchestrator `pulumi:"orchestrator"`
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -105,10 +109,12 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The name of the HyperPod Cluster.
-	ClusterName    pulumi.StringPtrInput
+	ClusterName pulumi.StringPtrInput
+	// The instance groups of the SageMaker HyperPod cluster.
 	InstanceGroups ClusterInstanceGroupArrayInput
 	// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
 	NodeRecovery ClusterNodeRecoveryPtrInput
+	// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
 	Orchestrator ClusterOrchestratorPtrInput
 	// Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
 	Tags aws.TagArrayInput
@@ -178,6 +184,7 @@ func (o ClusterOutput) FailureMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.FailureMessage }).(pulumi.StringOutput)
 }
 
+// The instance groups of the SageMaker HyperPod cluster.
 func (o ClusterOutput) InstanceGroups() ClusterInstanceGroupArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterInstanceGroupArrayOutput { return v.InstanceGroups }).(ClusterInstanceGroupArrayOutput)
 }
@@ -187,6 +194,7 @@ func (o ClusterOutput) NodeRecovery() ClusterNodeRecoveryPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterNodeRecoveryPtrOutput { return v.NodeRecovery }).(ClusterNodeRecoveryPtrOutput)
 }
 
+// The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
 func (o ClusterOutput) Orchestrator() ClusterOrchestratorPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOrchestratorPtrOutput { return v.Orchestrator }).(ClusterOrchestratorPtrOutput)
 }

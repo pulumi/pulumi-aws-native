@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Source of this logical table.
         /// </summary>
-        public readonly Outputs.DataSetLogicalTableSource Source;
+        public readonly Outputs.DataSetLogicalTableSource? Source;
 
         [OutputConstructor]
         private DataSetLogicalTable(
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.DataSetTransformOperation> dataTransforms,
 
-            Outputs.DataSetLogicalTableSource source)
+            Outputs.DataSetLogicalTableSource? source)
         {
             Alias = alias;
             DataTransforms = dataTransforms;

@@ -26,7 +26,9 @@ class SignalMapArgs:
         """
         The set of arguments for constructing a SignalMap resource.
         :param pulumi.Input[str] discovery_entry_point_arn: A top-level supported AWS resource ARN to discovery a signal map from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_watch_alarm_template_group_identifiers: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] description: A resource's optional description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_bridge_rule_template_group_identifiers: An eventbridge rule template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[bool] force_rediscovery: If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
         :param pulumi.Input[str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
@@ -59,6 +61,9 @@ class SignalMapArgs:
     @property
     @pulumi.getter(name="cloudWatchAlarmTemplateGroupIdentifiers")
     def cloud_watch_alarm_template_group_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+        """
         return pulumi.get(self, "cloud_watch_alarm_template_group_identifiers")
 
     @cloud_watch_alarm_template_group_identifiers.setter
@@ -80,6 +85,9 @@ class SignalMapArgs:
     @property
     @pulumi.getter(name="eventBridgeRuleTemplateGroupIdentifiers")
     def event_bridge_rule_template_group_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An eventbridge rule template group's identifier. Can be either be its id or current name.
+        """
         return pulumi.get(self, "event_bridge_rule_template_group_identifiers")
 
     @event_bridge_rule_template_group_identifiers.setter
@@ -138,8 +146,10 @@ class SignalMap(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cloud_watch_alarm_template_group_identifiers: A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] description: A resource's optional description.
         :param pulumi.Input[str] discovery_entry_point_arn: A top-level supported AWS resource ARN to discovery a signal map from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_bridge_rule_template_group_identifiers: An eventbridge rule template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[bool] force_rediscovery: If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
         :param pulumi.Input[str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
@@ -274,16 +284,25 @@ class SignalMap(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cloudWatchAlarmTemplateGroupIdentifiers")
     def cloud_watch_alarm_template_group_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+        """
         return pulumi.get(self, "cloud_watch_alarm_template_group_identifiers")
 
     @property
     @pulumi.getter(name="cloudWatchAlarmTemplateGroupIds")
     def cloud_watch_alarm_template_group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        An alarm template group's id.
+        """
         return pulumi.get(self, "cloud_watch_alarm_template_group_ids")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The date and time of resource creation.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -313,11 +332,17 @@ class SignalMap(pulumi.CustomResource):
     @property
     @pulumi.getter(name="eventBridgeRuleTemplateGroupIdentifiers")
     def event_bridge_rule_template_group_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        An eventbridge rule template group's identifier. Can be either be its id or current name.
+        """
         return pulumi.get(self, "event_bridge_rule_template_group_identifiers")
 
     @property
     @pulumi.getter(name="eventBridgeRuleTemplateGroupIds")
     def event_bridge_rule_template_group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        An eventbridge rule template group's id.
+        """
         return pulumi.get(self, "event_bridge_rule_template_group_ids")
 
     @property
@@ -341,6 +366,9 @@ class SignalMap(pulumi.CustomResource):
     @property
     @pulumi.getter(name="lastDiscoveredAt")
     def last_discovered_at(self) -> pulumi.Output[str]:
+        """
+        The date and time of latest discovery.
+        """
         return pulumi.get(self, "last_discovered_at")
 
     @property
@@ -356,6 +384,9 @@ class SignalMap(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        The date and time of latest resource modification.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
@@ -382,6 +413,9 @@ class SignalMap(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['SignalMapStatus']:
+        """
+        A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
+        """
         return pulumi.get(self, "status")
 
     @property

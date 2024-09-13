@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The comparison operator used to compare the specified statistic and the threshold.
+        /// </summary>
         [Output("comparisonOperator")]
         public Output<Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateComparisonOperator> ComparisonOperator { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time of resource creation.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
@@ -72,6 +78,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("metricName")]
         public Output<string> MetricName { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time of latest resource modification.
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
@@ -87,12 +96,18 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("period")]
         public Output<double> Period { get; private set; } = null!;
 
+        /// <summary>
+        /// The statistic to apply to the alarm's metric data.
+        /// </summary>
         [Output("statistic")]
         public Output<Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateStatistic> Statistic { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource type this template should dynamically generate CloudWatch metric alarms for.
+        /// </summary>
         [Output("targetResourceType")]
         public Output<Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateTargetResourceType> TargetResourceType { get; private set; } = null!;
 
@@ -102,6 +117,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("threshold")]
         public Output<double> Threshold { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies how missing data points are treated when evaluating the alarm's condition.
+        /// </summary>
         [Output("treatMissingData")]
         public Output<Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateTreatMissingData> TreatMissingData { get; private set; } = null!;
 
@@ -154,6 +172,9 @@ namespace Pulumi.AwsNative.MediaLive
 
     public sealed class CloudWatchAlarmTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The comparison operator used to compare the specified statistic and the threshold.
+        /// </summary>
         [Input("comparisonOperator", required: true)]
         public Input<Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateComparisonOperator> ComparisonOperator { get; set; } = null!;
 
@@ -199,6 +220,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Input("period", required: true)]
         public Input<double> Period { get; set; } = null!;
 
+        /// <summary>
+        /// The statistic to apply to the alarm's metric data.
+        /// </summary>
         [Input("statistic", required: true)]
         public Input<Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateStatistic> Statistic { get; set; } = null!;
 
@@ -210,6 +234,9 @@ namespace Pulumi.AwsNative.MediaLive
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The resource type this template should dynamically generate CloudWatch metric alarms for.
+        /// </summary>
         [Input("targetResourceType", required: true)]
         public Input<Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateTargetResourceType> TargetResourceType { get; set; } = null!;
 
@@ -219,6 +246,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies how missing data points are treated when evaluating the alarm's condition.
+        /// </summary>
         [Input("treatMissingData", required: true)]
         public Input<Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateTreatMissingData> TreatMissingData { get; set; } = null!;
 

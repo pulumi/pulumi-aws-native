@@ -32,12 +32,18 @@ type Environment struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The identifier of the Amazon DataZone domain in which the environment would be created.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
+	// The AWS account in which the Amazon DataZone environment is created.
+	EnvironmentAccountIdentifier pulumi.StringPtrOutput `pulumi:"environmentAccountIdentifier"`
+	// The AWS region in which the Amazon DataZone environment is created.
+	EnvironmentAccountRegion pulumi.StringPtrOutput `pulumi:"environmentAccountRegion"`
 	// The ID of the blueprint with which the Amazon DataZone environment was created.
 	EnvironmentBlueprintId pulumi.StringOutput `pulumi:"environmentBlueprintId"`
 	// The ID of the environment profile with which the Amazon DataZone environment was created.
 	EnvironmentProfileId pulumi.StringOutput `pulumi:"environmentProfileId"`
 	// The ID of the environment profile with which the Amazon DataZone environment would be created.
-	EnvironmentProfileIdentifier pulumi.StringOutput `pulumi:"environmentProfileIdentifier"`
+	EnvironmentProfileIdentifier pulumi.StringPtrOutput `pulumi:"environmentProfileIdentifier"`
+	// Environment role arn for custom aws environment permissions
+	EnvironmentRoleArn pulumi.StringPtrOutput `pulumi:"environmentRoleArn"`
 	// The glossary terms that can be used in the Amazon DataZone environment.
 	GlossaryTerms pulumi.StringArrayOutput `pulumi:"glossaryTerms"`
 	// The name of the environment.
@@ -66,14 +72,13 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.DomainIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DomainIdentifier'")
 	}
-	if args.EnvironmentProfileIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'EnvironmentProfileIdentifier'")
-	}
 	if args.ProjectIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectIdentifier'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainIdentifier",
+		"environmentAccountIdentifier",
+		"environmentAccountRegion",
 		"environmentProfileIdentifier",
 		"projectIdentifier",
 		"userParameters[*]",
@@ -116,8 +121,14 @@ type environmentArgs struct {
 	Description *string `pulumi:"description"`
 	// The identifier of the Amazon DataZone domain in which the environment would be created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
+	// The AWS account in which the Amazon DataZone environment is created.
+	EnvironmentAccountIdentifier *string `pulumi:"environmentAccountIdentifier"`
+	// The AWS region in which the Amazon DataZone environment is created.
+	EnvironmentAccountRegion *string `pulumi:"environmentAccountRegion"`
 	// The ID of the environment profile with which the Amazon DataZone environment would be created.
-	EnvironmentProfileIdentifier string `pulumi:"environmentProfileIdentifier"`
+	EnvironmentProfileIdentifier *string `pulumi:"environmentProfileIdentifier"`
+	// Environment role arn for custom aws environment permissions
+	EnvironmentRoleArn *string `pulumi:"environmentRoleArn"`
 	// The glossary terms that can be used in the Amazon DataZone environment.
 	GlossaryTerms []string `pulumi:"glossaryTerms"`
 	// The name of the environment.
@@ -134,8 +145,14 @@ type EnvironmentArgs struct {
 	Description pulumi.StringPtrInput
 	// The identifier of the Amazon DataZone domain in which the environment would be created.
 	DomainIdentifier pulumi.StringInput
+	// The AWS account in which the Amazon DataZone environment is created.
+	EnvironmentAccountIdentifier pulumi.StringPtrInput
+	// The AWS region in which the Amazon DataZone environment is created.
+	EnvironmentAccountRegion pulumi.StringPtrInput
 	// The ID of the environment profile with which the Amazon DataZone environment would be created.
-	EnvironmentProfileIdentifier pulumi.StringInput
+	EnvironmentProfileIdentifier pulumi.StringPtrInput
+	// Environment role arn for custom aws environment permissions
+	EnvironmentRoleArn pulumi.StringPtrInput
 	// The glossary terms that can be used in the Amazon DataZone environment.
 	GlossaryTerms pulumi.StringArrayInput
 	// The name of the environment.
@@ -223,6 +240,16 @@ func (o EnvironmentOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
 
+// The AWS account in which the Amazon DataZone environment is created.
+func (o EnvironmentOutput) EnvironmentAccountIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentAccountIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The AWS region in which the Amazon DataZone environment is created.
+func (o EnvironmentOutput) EnvironmentAccountRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentAccountRegion }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the blueprint with which the Amazon DataZone environment was created.
 func (o EnvironmentOutput) EnvironmentBlueprintId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentBlueprintId }).(pulumi.StringOutput)
@@ -234,8 +261,13 @@ func (o EnvironmentOutput) EnvironmentProfileId() pulumi.StringOutput {
 }
 
 // The ID of the environment profile with which the Amazon DataZone environment would be created.
-func (o EnvironmentOutput) EnvironmentProfileIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentProfileIdentifier }).(pulumi.StringOutput)
+func (o EnvironmentOutput) EnvironmentProfileIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentProfileIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Environment role arn for custom aws environment permissions
+func (o EnvironmentOutput) EnvironmentRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The glossary terms that can be used in the Amazon DataZone environment.

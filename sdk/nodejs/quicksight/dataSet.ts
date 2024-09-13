@@ -85,6 +85,10 @@ export class DataSet extends pulumi.CustomResource {
      */
     public readonly fieldFolders!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetFieldFolder} | undefined>;
     /**
+     * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+     */
+    public readonly folderArns!: pulumi.Output<string[] | undefined>;
+    /**
      * Indicates whether you want to import the data into SPICE.
      */
     public readonly importMode!: pulumi.Output<enums.quicksight.DataSetImportMode | undefined>;
@@ -149,6 +153,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["dataSetUsageConfiguration"] = args ? args.dataSetUsageConfiguration : undefined;
             resourceInputs["datasetParameters"] = args ? args.datasetParameters : undefined;
             resourceInputs["fieldFolders"] = args ? args.fieldFolders : undefined;
+            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
             resourceInputs["importMode"] = args ? args.importMode : undefined;
             resourceInputs["ingestionWaitPolicy"] = args ? args.ingestionWaitPolicy : undefined;
             resourceInputs["logicalTableMap"] = args ? args.logicalTableMap : undefined;
@@ -175,6 +180,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["dataSetUsageConfiguration"] = undefined /*out*/;
             resourceInputs["datasetParameters"] = undefined /*out*/;
             resourceInputs["fieldFolders"] = undefined /*out*/;
+            resourceInputs["folderArns"] = undefined /*out*/;
             resourceInputs["importMode"] = undefined /*out*/;
             resourceInputs["ingestionWaitPolicy"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
@@ -232,6 +238,10 @@ export interface DataSetArgs {
      * The folder that contains fields and nested subfolders for your dataset.
      */
     fieldFolders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetFieldFolderArgs>}>;
+    /**
+     * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+     */
+    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Indicates whether you want to import the data into SPICE.
      */

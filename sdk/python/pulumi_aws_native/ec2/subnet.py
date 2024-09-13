@@ -576,7 +576,7 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> pulumi.Output[Sequence[str]]:
         """
-        The IPv6 network ranges for the subnet, in CIDR notation.
+        The IPv6 CIDR blocks that are associated with the subnet.
         """
         return pulumi.get(self, "ipv6_cidr_blocks")
 

@@ -92,6 +92,7 @@ __all__ = [
     'AnalysisSimpleAttributeAggregationFunction',
     'AnalysisSimpleNumericalAggregationFunction',
     'AnalysisSimpleTotalAggregationFunction',
+    'AnalysisSingleYAxisOption',
     'AnalysisSmallMultiplesAxisPlacement',
     'AnalysisSmallMultiplesAxisScale',
     'AnalysisSortDirection',
@@ -209,6 +210,7 @@ __all__ = [
     'DashboardSimpleAttributeAggregationFunction',
     'DashboardSimpleNumericalAggregationFunction',
     'DashboardSimpleTotalAggregationFunction',
+    'DashboardSingleYAxisOption',
     'DashboardSmallMultiplesAxisPlacement',
     'DashboardSmallMultiplesAxisScale',
     'DashboardSortDirection',
@@ -350,6 +352,7 @@ __all__ = [
     'TemplateSimpleAttributeAggregationFunction',
     'TemplateSimpleNumericalAggregationFunction',
     'TemplateSimpleTotalAggregationFunction',
+    'TemplateSingleYAxisOption',
     'TemplateSmallMultiplesAxisPlacement',
     'TemplateSmallMultiplesAxisScale',
     'TemplateSortDirection',
@@ -966,6 +969,10 @@ class AnalysisSimpleTotalAggregationFunction(str, Enum):
     MIN = "MIN"
     MAX = "MAX"
     NONE = "NONE"
+
+
+class AnalysisSingleYAxisOption(str, Enum):
+    PRIMARY_Y_AXIS = "PRIMARY_Y_AXIS"
 
 
 class AnalysisSmallMultiplesAxisPlacement(str, Enum):
@@ -1690,6 +1697,10 @@ class DashboardSimpleTotalAggregationFunction(str, Enum):
     MIN = "MIN"
     MAX = "MAX"
     NONE = "NONE"
+
+
+class DashboardSingleYAxisOption(str, Enum):
+    PRIMARY_Y_AXIS = "PRIMARY_Y_AXIS"
 
 
 class DashboardSmallMultiplesAxisPlacement(str, Enum):
@@ -2625,6 +2636,10 @@ class TemplateSimpleTotalAggregationFunction(str, Enum):
     MIN = "MIN"
     MAX = "MAX"
     NONE = "NONE"
+
+
+class TemplateSingleYAxisOption(str, Enum):
+    PRIMARY_Y_AXIS = "PRIMARY_Y_AXIS"
 
 
 class TemplateSmallMultiplesAxisPlacement(str, Enum):

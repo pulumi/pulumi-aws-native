@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceCodeEditorAppSettings
     {
+        /// <summary>
+        /// Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
+        /// </summary>
         public readonly Outputs.SpaceAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.

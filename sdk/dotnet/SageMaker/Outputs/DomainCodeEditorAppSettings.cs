@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainCodeEditorAppSettings
     {
+        /// <summary>
+        /// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
+        /// </summary>
         public readonly Outputs.DomainAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// A list of custom images for use for CodeEditor apps.

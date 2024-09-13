@@ -25,6 +25,7 @@ class EventBridgeRuleTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EventBridgeRuleTemplate resource.
+        :param pulumi.Input['EventBridgeRuleTemplateEventType'] event_type: The type of event to match with the rule.
         :param pulumi.Input[str] group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] description: A resource's optional description.
         :param pulumi.Input[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]] event_targets: Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
@@ -44,6 +45,9 @@ class EventBridgeRuleTemplateArgs:
     @property
     @pulumi.getter(name="eventType")
     def event_type(self) -> pulumi.Input['EventBridgeRuleTemplateEventType']:
+        """
+        The type of event to match with the rule.
+        """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
@@ -127,6 +131,7 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A resource's optional description.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict']]]] event_targets: Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
+        :param pulumi.Input['EventBridgeRuleTemplateEventType'] event_type: The type of event to match with the rule.
         :param pulumi.Input[str] group_identifier: An eventbridge rule template group's identifier. Can be either be its id or current name.
         :param pulumi.Input[str] name: A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
@@ -266,6 +271,9 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="eventType")
     def event_type(self) -> pulumi.Output['EventBridgeRuleTemplateEventType']:
+        """
+        The type of event to match with the rule.
+        """
         return pulumi.get(self, "event_type")
 
     @property

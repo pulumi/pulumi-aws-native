@@ -2557,6 +2557,13 @@ class BotLocaleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: List of intents
         :param pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgs']]] slot_types: List of SlotTypes
         :param pulumi.Input['BotVoiceSettingsArgs'] voice_settings: Defines settings for using an Amazon Polly voice to communicate with a user.
+               
+               Valid values include:
+               
+               - `standard`
+               - `neural`
+               - `long-form`
+               - `generative`
         """
         pulumi.set(__self__, "locale_id", locale_id)
         pulumi.set(__self__, "nlu_confidence_threshold", nlu_confidence_threshold)
@@ -2648,6 +2655,13 @@ class BotLocaleArgs:
     def voice_settings(self) -> Optional[pulumi.Input['BotVoiceSettingsArgs']]:
         """
         Defines settings for using an Amazon Polly voice to communicate with a user.
+
+        Valid values include:
+
+        - `standard`
+        - `neural`
+        - `long-form`
+        - `generative`
         """
         return pulumi.get(self, "voice_settings")
 

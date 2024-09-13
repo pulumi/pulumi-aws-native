@@ -28,9 +28,11 @@ type LookupCloudWatchAlarmTemplateArgs struct {
 
 type LookupCloudWatchAlarmTemplateResult struct {
 	// A cloudwatch alarm template's ARN (Amazon Resource Name)
-	Arn                *string                                    `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The comparison operator used to compare the specified statistic and the threshold.
 	ComparisonOperator *CloudWatchAlarmTemplateComparisonOperator `pulumi:"comparisonOperator"`
-	CreatedAt          *string                                    `pulumi:"createdAt"`
+	// The date and time of resource creation.
+	CreatedAt *string `pulumi:"createdAt"`
 	// The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
 	DatapointsToAlarm *float64 `pulumi:"datapointsToAlarm"`
 	// A resource's optional description.
@@ -44,15 +46,19 @@ type LookupCloudWatchAlarmTemplateResult struct {
 	Identifier *string `pulumi:"identifier"`
 	// The name of the metric associated with the alarm. Must be compatible with targetResourceType.
 	MetricName *string `pulumi:"metricName"`
+	// The date and time of latest resource modification.
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
 	Name *string `pulumi:"name"`
 	// The period, in seconds, over which the specified statistic is applied.
-	Period             *float64                                   `pulumi:"period"`
-	Statistic          *CloudWatchAlarmTemplateStatistic          `pulumi:"statistic"`
+	Period *float64 `pulumi:"period"`
+	// The statistic to apply to the alarm's metric data.
+	Statistic *CloudWatchAlarmTemplateStatistic `pulumi:"statistic"`
+	// The resource type this template should dynamically generate CloudWatch metric alarms for.
 	TargetResourceType *CloudWatchAlarmTemplateTargetResourceType `pulumi:"targetResourceType"`
 	// The threshold value to compare with the specified statistic.
-	Threshold        *float64                                 `pulumi:"threshold"`
+	Threshold *float64 `pulumi:"threshold"`
+	// Specifies how missing data points are treated when evaluating the alarm's condition.
 	TreatMissingData *CloudWatchAlarmTemplateTreatMissingData `pulumi:"treatMissingData"`
 }
 
@@ -96,12 +102,14 @@ func (o LookupCloudWatchAlarmTemplateResultOutput) Arn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The comparison operator used to compare the specified statistic and the threshold.
 func (o LookupCloudWatchAlarmTemplateResultOutput) ComparisonOperator() CloudWatchAlarmTemplateComparisonOperatorPtrOutput {
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *CloudWatchAlarmTemplateComparisonOperator {
 		return v.ComparisonOperator
 	}).(CloudWatchAlarmTemplateComparisonOperatorPtrOutput)
 }
 
+// The date and time of resource creation.
 func (o LookupCloudWatchAlarmTemplateResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -140,6 +148,7 @@ func (o LookupCloudWatchAlarmTemplateResultOutput) MetricName() pulumi.StringPtr
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
+// The date and time of latest resource modification.
 func (o LookupCloudWatchAlarmTemplateResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
@@ -154,10 +163,12 @@ func (o LookupCloudWatchAlarmTemplateResultOutput) Period() pulumi.Float64PtrOut
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *float64 { return v.Period }).(pulumi.Float64PtrOutput)
 }
 
+// The statistic to apply to the alarm's metric data.
 func (o LookupCloudWatchAlarmTemplateResultOutput) Statistic() CloudWatchAlarmTemplateStatisticPtrOutput {
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *CloudWatchAlarmTemplateStatistic { return v.Statistic }).(CloudWatchAlarmTemplateStatisticPtrOutput)
 }
 
+// The resource type this template should dynamically generate CloudWatch metric alarms for.
 func (o LookupCloudWatchAlarmTemplateResultOutput) TargetResourceType() CloudWatchAlarmTemplateTargetResourceTypePtrOutput {
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *CloudWatchAlarmTemplateTargetResourceType {
 		return v.TargetResourceType
@@ -169,6 +180,7 @@ func (o LookupCloudWatchAlarmTemplateResultOutput) Threshold() pulumi.Float64Ptr
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies how missing data points are treated when evaluating the alarm's condition.
 func (o LookupCloudWatchAlarmTemplateResultOutput) TreatMissingData() CloudWatchAlarmTemplateTreatMissingDataPtrOutput {
 	return o.ApplyT(func(v LookupCloudWatchAlarmTemplateResult) *CloudWatchAlarmTemplateTreatMissingData {
 		return v.TreatMissingData

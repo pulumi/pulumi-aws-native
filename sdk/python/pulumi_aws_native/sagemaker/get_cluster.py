@@ -79,6 +79,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="instanceGroups")
     def instance_groups(self) -> Optional[Sequence['outputs.ClusterInstanceGroup']]:
+        """
+        The instance groups of the SageMaker HyperPod cluster.
+        """
         return pulumi.get(self, "instance_groups")
 
     @property

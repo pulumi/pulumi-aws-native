@@ -735,6 +735,12 @@ export const AnalysisSimpleTotalAggregationFunction = {
 
 export type AnalysisSimpleTotalAggregationFunction = (typeof AnalysisSimpleTotalAggregationFunction)[keyof typeof AnalysisSimpleTotalAggregationFunction];
 
+export const AnalysisSingleYAxisOption = {
+    PrimaryYAxis: "PRIMARY_Y_AXIS",
+} as const;
+
+export type AnalysisSingleYAxisOption = (typeof AnalysisSingleYAxisOption)[keyof typeof AnalysisSingleYAxisOption];
+
 export const AnalysisSmallMultiplesAxisPlacement = {
     Outside: "OUTSIDE",
     Inside: "INSIDE",
@@ -1692,6 +1698,12 @@ export const DashboardSimpleTotalAggregationFunction = {
 } as const;
 
 export type DashboardSimpleTotalAggregationFunction = (typeof DashboardSimpleTotalAggregationFunction)[keyof typeof DashboardSimpleTotalAggregationFunction];
+
+export const DashboardSingleYAxisOption = {
+    PrimaryYAxis: "PRIMARY_Y_AXIS",
+} as const;
+
+export type DashboardSingleYAxisOption = (typeof DashboardSingleYAxisOption)[keyof typeof DashboardSingleYAxisOption];
 
 export const DashboardSmallMultiplesAxisPlacement = {
     Outside: "OUTSIDE",
@@ -2909,6 +2921,12 @@ export const TemplateSimpleTotalAggregationFunction = {
 } as const;
 
 export type TemplateSimpleTotalAggregationFunction = (typeof TemplateSimpleTotalAggregationFunction)[keyof typeof TemplateSimpleTotalAggregationFunction];
+
+export const TemplateSingleYAxisOption = {
+    PrimaryYAxis: "PRIMARY_Y_AXIS",
+} as const;
+
+export type TemplateSingleYAxisOption = (typeof TemplateSingleYAxisOption)[keyof typeof TemplateSingleYAxisOption];
 
 export const TemplateSmallMultiplesAxisPlacement = {
     Outside: "OUTSIDE",
