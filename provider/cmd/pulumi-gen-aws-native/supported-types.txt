@@ -205,6 +205,7 @@ AWS::Config::ConfigurationAggregator
 AWS::Config::ConformancePack
 AWS::Config::OrganizationConformancePack
 AWS::Config::StoredQuery
+AWS::Connect::AgentStatus
 AWS::Connect::ApprovedOrigin
 AWS::Connect::ContactFlow
 AWS::Connect::ContactFlowModule
@@ -226,6 +227,7 @@ AWS::Connect::TaskTemplate
 AWS::Connect::TrafficDistributionGroup
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
+AWS::Connect::UserHierarchyStructure
 AWS::Connect::View
 AWS::Connect::ViewVersion
 AWS::ConnectCampaigns::Campaign
@@ -265,6 +267,7 @@ AWS::DataSync::Task
 AWS::DataZone::DataSource
 AWS::DataZone::Domain
 AWS::DataZone::Environment
+AWS::DataZone::EnvironmentActions
 AWS::DataZone::EnvironmentBlueprintConfiguration
 AWS::DataZone::EnvironmentProfile
 AWS::DataZone::GroupProfile

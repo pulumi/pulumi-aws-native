@@ -115,7 +115,7 @@
       "permissions" : [ "sns:Publish", "codeguru-profiler:AddNotificationChannels", "codeguru-profiler:CreateProfilingGroup", "codeguru-profiler:PutPermission", "codeguru-profiler:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "codeguru-profiler:DescribeProfilingGroup", "codeguru-profiler:ListTagsForResource" ]
+      "permissions" : [ "codeguru-profiler:DescribeProfilingGroup", "codeguru-profiler:ListTagsForResource", "codeguru-profiler:GetNotificationConfiguration", "codeguru-profiler:GetPolicy" ]
     },
     "update" : {
       "permissions" : [ "sns:Publish", "codeguru-profiler:AddNotificationChannels", "codeguru-profiler:GetNotificationConfiguration", "codeguru-profiler:RemoveNotificationChannel", "codeguru-profiler:PutPermission", "codeguru-profiler:RemovePermission", "codeguru-profiler:GetPolicy", "codeguru-profiler:TagResource", "codeguru-profiler:UntagResource", "codeguru-profiler:ListTagsForResource" ]
