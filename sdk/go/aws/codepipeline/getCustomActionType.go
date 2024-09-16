@@ -40,14 +40,20 @@ type LookupCustomActionTypeResult struct {
 
 func LookupCustomActionTypeOutput(ctx *pulumi.Context, args LookupCustomActionTypeOutputArgs, opts ...pulumi.InvokeOption) LookupCustomActionTypeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCustomActionTypeResult, error) {
+		ApplyT(func(v interface{}) (LookupCustomActionTypeResultOutput, error) {
 			args := v.(LookupCustomActionTypeArgs)
-			r, err := LookupCustomActionType(ctx, &args, opts...)
-			var s LookupCustomActionTypeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCustomActionTypeResult
+			secret, err := ctx.InvokePackageRaw("aws-native:codepipeline:getCustomActionType", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCustomActionTypeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCustomActionTypeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCustomActionTypeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCustomActionTypeResultOutput)
 }
 

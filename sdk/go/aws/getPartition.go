@@ -29,13 +29,19 @@ type GetPartitionResult struct {
 }
 
 func GetPartitionOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetPartitionResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetPartitionResult, error) {
-		r, err := GetPartition(ctx, opts...)
-		var s GetPartitionResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetPartitionResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetPartitionResult
+		secret, err := ctx.InvokePackageRaw("aws-native:index:getPartition", nil, &rv, "", opts...)
+		if err != nil {
+			return GetPartitionResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetPartitionResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetPartitionResultOutput), nil
+		}
+		return output, nil
 	}).(GetPartitionResultOutput)
 }
 

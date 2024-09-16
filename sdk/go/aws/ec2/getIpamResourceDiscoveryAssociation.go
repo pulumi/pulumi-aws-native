@@ -51,14 +51,20 @@ type LookupIpamResourceDiscoveryAssociationResult struct {
 
 func LookupIpamResourceDiscoveryAssociationOutput(ctx *pulumi.Context, args LookupIpamResourceDiscoveryAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupIpamResourceDiscoveryAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIpamResourceDiscoveryAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupIpamResourceDiscoveryAssociationResultOutput, error) {
 			args := v.(LookupIpamResourceDiscoveryAssociationArgs)
-			r, err := LookupIpamResourceDiscoveryAssociation(ctx, &args, opts...)
-			var s LookupIpamResourceDiscoveryAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIpamResourceDiscoveryAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getIpamResourceDiscoveryAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIpamResourceDiscoveryAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIpamResourceDiscoveryAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIpamResourceDiscoveryAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIpamResourceDiscoveryAssociationResultOutput)
 }
 

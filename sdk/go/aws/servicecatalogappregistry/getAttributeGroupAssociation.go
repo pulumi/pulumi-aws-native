@@ -38,14 +38,20 @@ type LookupAttributeGroupAssociationResult struct {
 
 func LookupAttributeGroupAssociationOutput(ctx *pulumi.Context, args LookupAttributeGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAttributeGroupAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAttributeGroupAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupAttributeGroupAssociationResultOutput, error) {
 			args := v.(LookupAttributeGroupAssociationArgs)
-			r, err := LookupAttributeGroupAssociation(ctx, &args, opts...)
-			var s LookupAttributeGroupAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAttributeGroupAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:servicecatalogappregistry:getAttributeGroupAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAttributeGroupAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAttributeGroupAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAttributeGroupAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAttributeGroupAssociationResultOutput)
 }
 

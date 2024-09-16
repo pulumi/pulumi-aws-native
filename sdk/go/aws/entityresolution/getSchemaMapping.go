@@ -43,14 +43,20 @@ type LookupSchemaMappingResult struct {
 
 func LookupSchemaMappingOutput(ctx *pulumi.Context, args LookupSchemaMappingOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaMappingResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSchemaMappingResult, error) {
+		ApplyT(func(v interface{}) (LookupSchemaMappingResultOutput, error) {
 			args := v.(LookupSchemaMappingArgs)
-			r, err := LookupSchemaMapping(ctx, &args, opts...)
-			var s LookupSchemaMappingResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSchemaMappingResult
+			secret, err := ctx.InvokePackageRaw("aws-native:entityresolution:getSchemaMapping", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSchemaMappingResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSchemaMappingResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSchemaMappingResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSchemaMappingResultOutput)
 }
 

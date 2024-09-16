@@ -31,14 +31,20 @@ type GetSsmParameterListResult struct {
 
 func GetSsmParameterListOutput(ctx *pulumi.Context, args GetSsmParameterListOutputArgs, opts ...pulumi.InvokeOption) GetSsmParameterListResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSsmParameterListResult, error) {
+		ApplyT(func(v interface{}) (GetSsmParameterListResultOutput, error) {
 			args := v.(GetSsmParameterListArgs)
-			r, err := GetSsmParameterList(ctx, &args, opts...)
-			var s GetSsmParameterListResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSsmParameterListResult
+			secret, err := ctx.InvokePackageRaw("aws-native:index:getSsmParameterList", args, &rv, "", opts...)
+			if err != nil {
+				return GetSsmParameterListResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSsmParameterListResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSsmParameterListResultOutput), nil
+			}
+			return output, nil
 		}).(GetSsmParameterListResultOutput)
 }
 

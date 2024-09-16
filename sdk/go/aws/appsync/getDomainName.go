@@ -38,14 +38,20 @@ type LookupDomainNameResult struct {
 
 func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDomainNameResult, error) {
+		ApplyT(func(v interface{}) (LookupDomainNameResultOutput, error) {
 			args := v.(LookupDomainNameArgs)
-			r, err := LookupDomainName(ctx, &args, opts...)
-			var s LookupDomainNameResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDomainNameResult
+			secret, err := ctx.InvokePackageRaw("aws-native:appsync:getDomainName", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDomainNameResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDomainNameResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDomainNameResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDomainNameResultOutput)
 }
 

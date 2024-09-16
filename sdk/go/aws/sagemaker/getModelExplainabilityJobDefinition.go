@@ -36,14 +36,20 @@ type LookupModelExplainabilityJobDefinitionResult struct {
 
 func LookupModelExplainabilityJobDefinitionOutput(ctx *pulumi.Context, args LookupModelExplainabilityJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupModelExplainabilityJobDefinitionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupModelExplainabilityJobDefinitionResult, error) {
+		ApplyT(func(v interface{}) (LookupModelExplainabilityJobDefinitionResultOutput, error) {
 			args := v.(LookupModelExplainabilityJobDefinitionArgs)
-			r, err := LookupModelExplainabilityJobDefinition(ctx, &args, opts...)
-			var s LookupModelExplainabilityJobDefinitionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupModelExplainabilityJobDefinitionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getModelExplainabilityJobDefinition", args, &rv, "", opts...)
+			if err != nil {
+				return LookupModelExplainabilityJobDefinitionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupModelExplainabilityJobDefinitionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupModelExplainabilityJobDefinitionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupModelExplainabilityJobDefinitionResultOutput)
 }
 

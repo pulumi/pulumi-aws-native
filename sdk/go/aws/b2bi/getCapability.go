@@ -49,14 +49,20 @@ type LookupCapabilityResult struct {
 
 func LookupCapabilityOutput(ctx *pulumi.Context, args LookupCapabilityOutputArgs, opts ...pulumi.InvokeOption) LookupCapabilityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCapabilityResult, error) {
+		ApplyT(func(v interface{}) (LookupCapabilityResultOutput, error) {
 			args := v.(LookupCapabilityArgs)
-			r, err := LookupCapability(ctx, &args, opts...)
-			var s LookupCapabilityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCapabilityResult
+			secret, err := ctx.InvokePackageRaw("aws-native:b2bi:getCapability", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCapabilityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCapabilityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCapabilityResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCapabilityResultOutput)
 }
 

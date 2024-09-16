@@ -59,14 +59,20 @@ type LookupRouteCalculatorResult struct {
 
 func LookupRouteCalculatorOutput(ctx *pulumi.Context, args LookupRouteCalculatorOutputArgs, opts ...pulumi.InvokeOption) LookupRouteCalculatorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRouteCalculatorResult, error) {
+		ApplyT(func(v interface{}) (LookupRouteCalculatorResultOutput, error) {
 			args := v.(LookupRouteCalculatorArgs)
-			r, err := LookupRouteCalculator(ctx, &args, opts...)
-			var s LookupRouteCalculatorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRouteCalculatorResult
+			secret, err := ctx.InvokePackageRaw("aws-native:location:getRouteCalculator", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRouteCalculatorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRouteCalculatorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRouteCalculatorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRouteCalculatorResultOutput)
 }
 

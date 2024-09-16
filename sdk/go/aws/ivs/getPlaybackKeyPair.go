@@ -39,14 +39,20 @@ type LookupPlaybackKeyPairResult struct {
 
 func LookupPlaybackKeyPairOutput(ctx *pulumi.Context, args LookupPlaybackKeyPairOutputArgs, opts ...pulumi.InvokeOption) LookupPlaybackKeyPairResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPlaybackKeyPairResult, error) {
+		ApplyT(func(v interface{}) (LookupPlaybackKeyPairResultOutput, error) {
 			args := v.(LookupPlaybackKeyPairArgs)
-			r, err := LookupPlaybackKeyPair(ctx, &args, opts...)
-			var s LookupPlaybackKeyPairResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPlaybackKeyPairResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ivs:getPlaybackKeyPair", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPlaybackKeyPairResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPlaybackKeyPairResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPlaybackKeyPairResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPlaybackKeyPairResultOutput)
 }
 

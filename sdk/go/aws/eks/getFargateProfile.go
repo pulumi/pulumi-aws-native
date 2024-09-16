@@ -39,14 +39,20 @@ type LookupFargateProfileResult struct {
 
 func LookupFargateProfileOutput(ctx *pulumi.Context, args LookupFargateProfileOutputArgs, opts ...pulumi.InvokeOption) LookupFargateProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFargateProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupFargateProfileResultOutput, error) {
 			args := v.(LookupFargateProfileArgs)
-			r, err := LookupFargateProfile(ctx, &args, opts...)
-			var s LookupFargateProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFargateProfileResult
+			secret, err := ctx.InvokePackageRaw("aws-native:eks:getFargateProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFargateProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFargateProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFargateProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFargateProfileResultOutput)
 }
 

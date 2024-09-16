@@ -62,14 +62,20 @@ type LookupComponentTypeResult struct {
 
 func LookupComponentTypeOutput(ctx *pulumi.Context, args LookupComponentTypeOutputArgs, opts ...pulumi.InvokeOption) LookupComponentTypeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupComponentTypeResult, error) {
+		ApplyT(func(v interface{}) (LookupComponentTypeResultOutput, error) {
 			args := v.(LookupComponentTypeArgs)
-			r, err := LookupComponentType(ctx, &args, opts...)
-			var s LookupComponentTypeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupComponentTypeResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iottwinmaker:getComponentType", args, &rv, "", opts...)
+			if err != nil {
+				return LookupComponentTypeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupComponentTypeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupComponentTypeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupComponentTypeResultOutput)
 }
 

@@ -65,14 +65,20 @@ type LookupTransitGatewayRouteTableAttachmentResult struct {
 
 func LookupTransitGatewayRouteTableAttachmentOutput(ctx *pulumi.Context, args LookupTransitGatewayRouteTableAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayRouteTableAttachmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayRouteTableAttachmentResult, error) {
+		ApplyT(func(v interface{}) (LookupTransitGatewayRouteTableAttachmentResultOutput, error) {
 			args := v.(LookupTransitGatewayRouteTableAttachmentArgs)
-			r, err := LookupTransitGatewayRouteTableAttachment(ctx, &args, opts...)
-			var s LookupTransitGatewayRouteTableAttachmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTransitGatewayRouteTableAttachmentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:networkmanager:getTransitGatewayRouteTableAttachment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTransitGatewayRouteTableAttachmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTransitGatewayRouteTableAttachmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTransitGatewayRouteTableAttachmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTransitGatewayRouteTableAttachmentResultOutput)
 }
 

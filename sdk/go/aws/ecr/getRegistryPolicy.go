@@ -40,14 +40,20 @@ type LookupRegistryPolicyResult struct {
 
 func LookupRegistryPolicyOutput(ctx *pulumi.Context, args LookupRegistryPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRegistryPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupRegistryPolicyResultOutput, error) {
 			args := v.(LookupRegistryPolicyArgs)
-			r, err := LookupRegistryPolicy(ctx, &args, opts...)
-			var s LookupRegistryPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRegistryPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ecr:getRegistryPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRegistryPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRegistryPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRegistryPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRegistryPolicyResultOutput)
 }
 

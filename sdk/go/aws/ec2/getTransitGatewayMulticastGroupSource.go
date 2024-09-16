@@ -50,14 +50,20 @@ type LookupTransitGatewayMulticastGroupSourceResult struct {
 
 func LookupTransitGatewayMulticastGroupSourceOutput(ctx *pulumi.Context, args LookupTransitGatewayMulticastGroupSourceOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayMulticastGroupSourceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastGroupSourceResult, error) {
+		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastGroupSourceResultOutput, error) {
 			args := v.(LookupTransitGatewayMulticastGroupSourceArgs)
-			r, err := LookupTransitGatewayMulticastGroupSource(ctx, &args, opts...)
-			var s LookupTransitGatewayMulticastGroupSourceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTransitGatewayMulticastGroupSourceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getTransitGatewayMulticastGroupSource", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTransitGatewayMulticastGroupSourceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTransitGatewayMulticastGroupSourceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTransitGatewayMulticastGroupSourceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTransitGatewayMulticastGroupSourceResultOutput)
 }
 

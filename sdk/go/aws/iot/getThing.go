@@ -40,14 +40,20 @@ type LookupThingResult struct {
 
 func LookupThingOutput(ctx *pulumi.Context, args LookupThingOutputArgs, opts ...pulumi.InvokeOption) LookupThingResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupThingResult, error) {
+		ApplyT(func(v interface{}) (LookupThingResultOutput, error) {
 			args := v.(LookupThingArgs)
-			r, err := LookupThing(ctx, &args, opts...)
-			var s LookupThingResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupThingResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getThing", args, &rv, "", opts...)
+			if err != nil {
+				return LookupThingResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupThingResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupThingResultOutput), nil
+			}
+			return output, nil
 		}).(LookupThingResultOutput)
 }
 

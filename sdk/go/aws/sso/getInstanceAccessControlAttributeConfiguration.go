@@ -36,14 +36,20 @@ type LookupInstanceAccessControlAttributeConfigurationResult struct {
 
 func LookupInstanceAccessControlAttributeConfigurationOutput(ctx *pulumi.Context, args LookupInstanceAccessControlAttributeConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceAccessControlAttributeConfigurationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupInstanceAccessControlAttributeConfigurationResult, error) {
+		ApplyT(func(v interface{}) (LookupInstanceAccessControlAttributeConfigurationResultOutput, error) {
 			args := v.(LookupInstanceAccessControlAttributeConfigurationArgs)
-			r, err := LookupInstanceAccessControlAttributeConfiguration(ctx, &args, opts...)
-			var s LookupInstanceAccessControlAttributeConfigurationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupInstanceAccessControlAttributeConfigurationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:sso:getInstanceAccessControlAttributeConfiguration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupInstanceAccessControlAttributeConfigurationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupInstanceAccessControlAttributeConfigurationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupInstanceAccessControlAttributeConfigurationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupInstanceAccessControlAttributeConfigurationResultOutput)
 }
 

@@ -94,14 +94,20 @@ type LookupAlarmResult struct {
 
 func LookupAlarmOutput(ctx *pulumi.Context, args LookupAlarmOutputArgs, opts ...pulumi.InvokeOption) LookupAlarmResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAlarmResult, error) {
+		ApplyT(func(v interface{}) (LookupAlarmResultOutput, error) {
 			args := v.(LookupAlarmArgs)
-			r, err := LookupAlarm(ctx, &args, opts...)
-			var s LookupAlarmResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAlarmResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cloudwatch:getAlarm", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAlarmResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAlarmResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAlarmResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAlarmResultOutput)
 }
 

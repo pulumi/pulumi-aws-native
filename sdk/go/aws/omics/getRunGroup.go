@@ -50,14 +50,20 @@ type LookupRunGroupResult struct {
 
 func LookupRunGroupOutput(ctx *pulumi.Context, args LookupRunGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRunGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRunGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupRunGroupResultOutput, error) {
 			args := v.(LookupRunGroupArgs)
-			r, err := LookupRunGroup(ctx, &args, opts...)
-			var s LookupRunGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRunGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:omics:getRunGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRunGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRunGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRunGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRunGroupResultOutput)
 }
 

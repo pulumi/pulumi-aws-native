@@ -47,14 +47,20 @@ type LookupDbClusterParameterGroupResult struct {
 
 func LookupDbClusterParameterGroupOutput(ctx *pulumi.Context, args LookupDbClusterParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDbClusterParameterGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDbClusterParameterGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupDbClusterParameterGroupResultOutput, error) {
 			args := v.(LookupDbClusterParameterGroupArgs)
-			r, err := LookupDbClusterParameterGroup(ctx, &args, opts...)
-			var s LookupDbClusterParameterGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDbClusterParameterGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rds:getDbClusterParameterGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDbClusterParameterGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDbClusterParameterGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDbClusterParameterGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDbClusterParameterGroupResultOutput)
 }
 

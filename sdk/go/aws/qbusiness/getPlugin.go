@@ -57,14 +57,20 @@ type LookupPluginResult struct {
 
 func LookupPluginOutput(ctx *pulumi.Context, args LookupPluginOutputArgs, opts ...pulumi.InvokeOption) LookupPluginResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPluginResult, error) {
+		ApplyT(func(v interface{}) (LookupPluginResultOutput, error) {
 			args := v.(LookupPluginArgs)
-			r, err := LookupPlugin(ctx, &args, opts...)
-			var s LookupPluginResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPluginResult
+			secret, err := ctx.InvokePackageRaw("aws-native:qbusiness:getPlugin", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPluginResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPluginResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPluginResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPluginResultOutput)
 }
 

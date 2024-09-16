@@ -31,14 +31,20 @@ type GetAzsResult struct {
 
 func GetAzsOutput(ctx *pulumi.Context, args GetAzsOutputArgs, opts ...pulumi.InvokeOption) GetAzsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAzsResult, error) {
+		ApplyT(func(v interface{}) (GetAzsResultOutput, error) {
 			args := v.(GetAzsArgs)
-			r, err := GetAzs(ctx, &args, opts...)
-			var s GetAzsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAzsResult
+			secret, err := ctx.InvokePackageRaw("aws-native:index:getAzs", args, &rv, "", opts...)
+			if err != nil {
+				return GetAzsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAzsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAzsResultOutput), nil
+			}
+			return output, nil
 		}).(GetAzsResultOutput)
 }
 

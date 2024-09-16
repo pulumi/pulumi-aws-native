@@ -59,14 +59,20 @@ type LookupMissionProfileResult struct {
 
 func LookupMissionProfileOutput(ctx *pulumi.Context, args LookupMissionProfileOutputArgs, opts ...pulumi.InvokeOption) LookupMissionProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMissionProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupMissionProfileResultOutput, error) {
 			args := v.(LookupMissionProfileArgs)
-			r, err := LookupMissionProfile(ctx, &args, opts...)
-			var s LookupMissionProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMissionProfileResult
+			secret, err := ctx.InvokePackageRaw("aws-native:groundstation:getMissionProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMissionProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMissionProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMissionProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMissionProfileResultOutput)
 }
 

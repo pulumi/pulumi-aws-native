@@ -45,14 +45,20 @@ type LookupDestinationResult struct {
 
 func LookupDestinationOutput(ctx *pulumi.Context, args LookupDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupDestinationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDestinationResult, error) {
+		ApplyT(func(v interface{}) (LookupDestinationResultOutput, error) {
 			args := v.(LookupDestinationArgs)
-			r, err := LookupDestination(ctx, &args, opts...)
-			var s LookupDestinationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDestinationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iotwireless:getDestination", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDestinationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDestinationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDestinationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDestinationResultOutput)
 }
 

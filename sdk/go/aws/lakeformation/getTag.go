@@ -34,14 +34,20 @@ type LookupTagResult struct {
 
 func LookupTagOutput(ctx *pulumi.Context, args LookupTagOutputArgs, opts ...pulumi.InvokeOption) LookupTagResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTagResult, error) {
+		ApplyT(func(v interface{}) (LookupTagResultOutput, error) {
 			args := v.(LookupTagArgs)
-			r, err := LookupTag(ctx, &args, opts...)
-			var s LookupTagResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTagResult
+			secret, err := ctx.InvokePackageRaw("aws-native:lakeformation:getTag", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTagResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTagResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTagResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTagResultOutput)
 }
 

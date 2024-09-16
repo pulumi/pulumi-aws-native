@@ -43,14 +43,20 @@ type LookupSoftwarePackageVersionResult struct {
 
 func LookupSoftwarePackageVersionOutput(ctx *pulumi.Context, args LookupSoftwarePackageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSoftwarePackageVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSoftwarePackageVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupSoftwarePackageVersionResultOutput, error) {
 			args := v.(LookupSoftwarePackageVersionArgs)
-			r, err := LookupSoftwarePackageVersion(ctx, &args, opts...)
-			var s LookupSoftwarePackageVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSoftwarePackageVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getSoftwarePackageVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSoftwarePackageVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSoftwarePackageVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSoftwarePackageVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSoftwarePackageVersionResultOutput)
 }
 

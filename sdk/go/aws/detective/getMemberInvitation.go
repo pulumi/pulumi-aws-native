@@ -36,14 +36,20 @@ type LookupMemberInvitationResult struct {
 
 func LookupMemberInvitationOutput(ctx *pulumi.Context, args LookupMemberInvitationOutputArgs, opts ...pulumi.InvokeOption) LookupMemberInvitationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMemberInvitationResult, error) {
+		ApplyT(func(v interface{}) (LookupMemberInvitationResultOutput, error) {
 			args := v.(LookupMemberInvitationArgs)
-			r, err := LookupMemberInvitation(ctx, &args, opts...)
-			var s LookupMemberInvitationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMemberInvitationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:detective:getMemberInvitation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMemberInvitationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMemberInvitationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMemberInvitationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMemberInvitationResultOutput)
 }
 

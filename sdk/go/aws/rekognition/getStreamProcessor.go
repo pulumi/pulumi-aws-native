@@ -41,14 +41,20 @@ type LookupStreamProcessorResult struct {
 
 func LookupStreamProcessorOutput(ctx *pulumi.Context, args LookupStreamProcessorOutputArgs, opts ...pulumi.InvokeOption) LookupStreamProcessorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStreamProcessorResult, error) {
+		ApplyT(func(v interface{}) (LookupStreamProcessorResultOutput, error) {
 			args := v.(LookupStreamProcessorArgs)
-			r, err := LookupStreamProcessor(ctx, &args, opts...)
-			var s LookupStreamProcessorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStreamProcessorResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rekognition:getStreamProcessor", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStreamProcessorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStreamProcessorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStreamProcessorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStreamProcessorResultOutput)
 }
 

@@ -36,14 +36,20 @@ type LookupReplicationConfigurationResult struct {
 
 func LookupReplicationConfigurationOutput(ctx *pulumi.Context, args LookupReplicationConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationConfigurationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupReplicationConfigurationResult, error) {
+		ApplyT(func(v interface{}) (LookupReplicationConfigurationResultOutput, error) {
 			args := v.(LookupReplicationConfigurationArgs)
-			r, err := LookupReplicationConfiguration(ctx, &args, opts...)
-			var s LookupReplicationConfigurationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupReplicationConfigurationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ecr:getReplicationConfiguration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupReplicationConfigurationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupReplicationConfigurationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupReplicationConfigurationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupReplicationConfigurationResultOutput)
 }
 

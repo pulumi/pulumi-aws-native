@@ -51,14 +51,20 @@ type LookupFindingAggregatorResult struct {
 
 func LookupFindingAggregatorOutput(ctx *pulumi.Context, args LookupFindingAggregatorOutputArgs, opts ...pulumi.InvokeOption) LookupFindingAggregatorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFindingAggregatorResult, error) {
+		ApplyT(func(v interface{}) (LookupFindingAggregatorResultOutput, error) {
 			args := v.(LookupFindingAggregatorArgs)
-			r, err := LookupFindingAggregator(ctx, &args, opts...)
-			var s LookupFindingAggregatorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFindingAggregatorResult
+			secret, err := ctx.InvokePackageRaw("aws-native:securityhub:getFindingAggregator", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFindingAggregatorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFindingAggregatorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFindingAggregatorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFindingAggregatorResultOutput)
 }
 

@@ -26,13 +26,19 @@ type GetUrlSuffixResult struct {
 }
 
 func GetUrlSuffixOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetUrlSuffixResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetUrlSuffixResult, error) {
-		r, err := GetUrlSuffix(ctx, opts...)
-		var s GetUrlSuffixResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetUrlSuffixResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetUrlSuffixResult
+		secret, err := ctx.InvokePackageRaw("aws-native:index:getUrlSuffix", nil, &rv, "", opts...)
+		if err != nil {
+			return GetUrlSuffixResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetUrlSuffixResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetUrlSuffixResultOutput), nil
+		}
+		return output, nil
 	}).(GetUrlSuffixResultOutput)
 }
 

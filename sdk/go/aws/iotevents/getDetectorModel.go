@@ -49,14 +49,20 @@ type LookupDetectorModelResult struct {
 
 func LookupDetectorModelOutput(ctx *pulumi.Context, args LookupDetectorModelOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorModelResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDetectorModelResult, error) {
+		ApplyT(func(v interface{}) (LookupDetectorModelResultOutput, error) {
 			args := v.(LookupDetectorModelArgs)
-			r, err := LookupDetectorModel(ctx, &args, opts...)
-			var s LookupDetectorModelResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDetectorModelResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iotevents:getDetectorModel", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDetectorModelResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDetectorModelResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDetectorModelResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDetectorModelResultOutput)
 }
 

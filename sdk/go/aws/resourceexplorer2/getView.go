@@ -48,14 +48,20 @@ type LookupViewResult struct {
 
 func LookupViewOutput(ctx *pulumi.Context, args LookupViewOutputArgs, opts ...pulumi.InvokeOption) LookupViewResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupViewResult, error) {
+		ApplyT(func(v interface{}) (LookupViewResultOutput, error) {
 			args := v.(LookupViewArgs)
-			r, err := LookupView(ctx, &args, opts...)
-			var s LookupViewResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupViewResult
+			secret, err := ctx.InvokePackageRaw("aws-native:resourceexplorer2:getView", args, &rv, "", opts...)
+			if err != nil {
+				return LookupViewResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupViewResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupViewResultOutput), nil
+			}
+			return output, nil
 		}).(LookupViewResultOutput)
 }
 

@@ -43,14 +43,20 @@ type LookupCampaignResult struct {
 
 func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, opts ...pulumi.InvokeOption) LookupCampaignResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCampaignResult, error) {
+		ApplyT(func(v interface{}) (LookupCampaignResultOutput, error) {
 			args := v.(LookupCampaignArgs)
-			r, err := LookupCampaign(ctx, &args, opts...)
-			var s LookupCampaignResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCampaignResult
+			secret, err := ctx.InvokePackageRaw("aws-native:connectcampaigns:getCampaign", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCampaignResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCampaignResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCampaignResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCampaignResultOutput)
 }
 

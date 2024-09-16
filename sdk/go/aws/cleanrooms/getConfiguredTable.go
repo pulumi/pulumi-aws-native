@@ -51,14 +51,20 @@ type LookupConfiguredTableResult struct {
 
 func LookupConfiguredTableOutput(ctx *pulumi.Context, args LookupConfiguredTableOutputArgs, opts ...pulumi.InvokeOption) LookupConfiguredTableResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupConfiguredTableResult, error) {
+		ApplyT(func(v interface{}) (LookupConfiguredTableResultOutput, error) {
 			args := v.(LookupConfiguredTableArgs)
-			r, err := LookupConfiguredTable(ctx, &args, opts...)
-			var s LookupConfiguredTableResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupConfiguredTableResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cleanrooms:getConfiguredTable", args, &rv, "", opts...)
+			if err != nil {
+				return LookupConfiguredTableResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupConfiguredTableResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupConfiguredTableResultOutput), nil
+			}
+			return output, nil
 		}).(LookupConfiguredTableResultOutput)
 }
 

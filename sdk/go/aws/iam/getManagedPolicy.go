@@ -64,14 +64,20 @@ type LookupManagedPolicyResult struct {
 
 func LookupManagedPolicyOutput(ctx *pulumi.Context, args LookupManagedPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupManagedPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupManagedPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupManagedPolicyResultOutput, error) {
 			args := v.(LookupManagedPolicyArgs)
-			r, err := LookupManagedPolicy(ctx, &args, opts...)
-			var s LookupManagedPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupManagedPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iam:getManagedPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupManagedPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupManagedPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupManagedPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupManagedPolicyResultOutput)
 }
 

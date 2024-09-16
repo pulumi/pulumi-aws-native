@@ -41,14 +41,20 @@ type LookupVodSourceResult struct {
 
 func LookupVodSourceOutput(ctx *pulumi.Context, args LookupVodSourceOutputArgs, opts ...pulumi.InvokeOption) LookupVodSourceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVodSourceResult, error) {
+		ApplyT(func(v interface{}) (LookupVodSourceResultOutput, error) {
 			args := v.(LookupVodSourceArgs)
-			r, err := LookupVodSource(ctx, &args, opts...)
-			var s LookupVodSourceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVodSourceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:mediatailor:getVodSource", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVodSourceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVodSourceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVodSourceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVodSourceResultOutput)
 }
 

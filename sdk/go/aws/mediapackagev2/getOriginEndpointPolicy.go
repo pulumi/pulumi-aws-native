@@ -40,14 +40,20 @@ type LookupOriginEndpointPolicyResult struct {
 
 func LookupOriginEndpointPolicyOutput(ctx *pulumi.Context, args LookupOriginEndpointPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupOriginEndpointPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupOriginEndpointPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupOriginEndpointPolicyResultOutput, error) {
 			args := v.(LookupOriginEndpointPolicyArgs)
-			r, err := LookupOriginEndpointPolicy(ctx, &args, opts...)
-			var s LookupOriginEndpointPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupOriginEndpointPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:mediapackagev2:getOriginEndpointPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupOriginEndpointPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupOriginEndpointPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupOriginEndpointPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupOriginEndpointPolicyResultOutput)
 }
 

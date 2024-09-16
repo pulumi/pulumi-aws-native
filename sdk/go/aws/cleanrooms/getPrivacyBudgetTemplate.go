@@ -49,14 +49,20 @@ type LookupPrivacyBudgetTemplateResult struct {
 
 func LookupPrivacyBudgetTemplateOutput(ctx *pulumi.Context, args LookupPrivacyBudgetTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupPrivacyBudgetTemplateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPrivacyBudgetTemplateResult, error) {
+		ApplyT(func(v interface{}) (LookupPrivacyBudgetTemplateResultOutput, error) {
 			args := v.(LookupPrivacyBudgetTemplateArgs)
-			r, err := LookupPrivacyBudgetTemplate(ctx, &args, opts...)
-			var s LookupPrivacyBudgetTemplateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPrivacyBudgetTemplateResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cleanrooms:getPrivacyBudgetTemplate", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPrivacyBudgetTemplateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPrivacyBudgetTemplateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPrivacyBudgetTemplateResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPrivacyBudgetTemplateResultOutput)
 }
 

@@ -53,14 +53,20 @@ type LookupEvaluationFormResult struct {
 
 func LookupEvaluationFormOutput(ctx *pulumi.Context, args LookupEvaluationFormOutputArgs, opts ...pulumi.InvokeOption) LookupEvaluationFormResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEvaluationFormResult, error) {
+		ApplyT(func(v interface{}) (LookupEvaluationFormResultOutput, error) {
 			args := v.(LookupEvaluationFormArgs)
-			r, err := LookupEvaluationForm(ctx, &args, opts...)
-			var s LookupEvaluationFormResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEvaluationFormResult
+			secret, err := ctx.InvokePackageRaw("aws-native:connect:getEvaluationForm", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEvaluationFormResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEvaluationFormResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEvaluationFormResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEvaluationFormResultOutput)
 }
 

@@ -44,14 +44,20 @@ type LookupUserPoolGroupResult struct {
 
 func LookupUserPoolGroupOutput(ctx *pulumi.Context, args LookupUserPoolGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupUserPoolGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupUserPoolGroupResultOutput, error) {
 			args := v.(LookupUserPoolGroupArgs)
-			r, err := LookupUserPoolGroup(ctx, &args, opts...)
-			var s LookupUserPoolGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupUserPoolGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cognito:getUserPoolGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupUserPoolGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupUserPoolGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupUserPoolGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupUserPoolGroupResultOutput)
 }
 

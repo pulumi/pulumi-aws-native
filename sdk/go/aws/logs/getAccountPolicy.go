@@ -50,14 +50,20 @@ type LookupAccountPolicyResult struct {
 
 func LookupAccountPolicyOutput(ctx *pulumi.Context, args LookupAccountPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAccountPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAccountPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupAccountPolicyResultOutput, error) {
 			args := v.(LookupAccountPolicyArgs)
-			r, err := LookupAccountPolicy(ctx, &args, opts...)
-			var s LookupAccountPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAccountPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:logs:getAccountPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAccountPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAccountPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAccountPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAccountPolicyResultOutput)
 }
 

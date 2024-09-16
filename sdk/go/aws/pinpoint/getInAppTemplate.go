@@ -57,14 +57,20 @@ type LookupInAppTemplateResult struct {
 
 func LookupInAppTemplateOutput(ctx *pulumi.Context, args LookupInAppTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupInAppTemplateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupInAppTemplateResult, error) {
+		ApplyT(func(v interface{}) (LookupInAppTemplateResultOutput, error) {
 			args := v.(LookupInAppTemplateArgs)
-			r, err := LookupInAppTemplate(ctx, &args, opts...)
-			var s LookupInAppTemplateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupInAppTemplateResult
+			secret, err := ctx.InvokePackageRaw("aws-native:pinpoint:getInAppTemplate", args, &rv, "", opts...)
+			if err != nil {
+				return LookupInAppTemplateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupInAppTemplateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupInAppTemplateResultOutput), nil
+			}
+			return output, nil
 		}).(LookupInAppTemplateResultOutput)
 }
 

@@ -51,14 +51,20 @@ type LookupWirelessGatewayResult struct {
 
 func LookupWirelessGatewayOutput(ctx *pulumi.Context, args LookupWirelessGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupWirelessGatewayResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupWirelessGatewayResult, error) {
+		ApplyT(func(v interface{}) (LookupWirelessGatewayResultOutput, error) {
 			args := v.(LookupWirelessGatewayArgs)
-			r, err := LookupWirelessGateway(ctx, &args, opts...)
-			var s LookupWirelessGatewayResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupWirelessGatewayResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iotwireless:getWirelessGateway", args, &rv, "", opts...)
+			if err != nil {
+				return LookupWirelessGatewayResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupWirelessGatewayResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupWirelessGatewayResultOutput), nil
+			}
+			return output, nil
 		}).(LookupWirelessGatewayResultOutput)
 }
 

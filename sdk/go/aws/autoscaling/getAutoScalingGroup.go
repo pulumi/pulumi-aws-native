@@ -115,14 +115,20 @@ type LookupAutoScalingGroupResult struct {
 
 func LookupAutoScalingGroupOutput(ctx *pulumi.Context, args LookupAutoScalingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupAutoScalingGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAutoScalingGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupAutoScalingGroupResultOutput, error) {
 			args := v.(LookupAutoScalingGroupArgs)
-			r, err := LookupAutoScalingGroup(ctx, &args, opts...)
-			var s LookupAutoScalingGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAutoScalingGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:autoscaling:getAutoScalingGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAutoScalingGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAutoScalingGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAutoScalingGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAutoScalingGroupResultOutput)
 }
 

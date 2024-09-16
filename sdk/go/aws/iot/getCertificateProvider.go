@@ -47,14 +47,20 @@ type LookupCertificateProviderResult struct {
 
 func LookupCertificateProviderOutput(ctx *pulumi.Context, args LookupCertificateProviderOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateProviderResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCertificateProviderResult, error) {
+		ApplyT(func(v interface{}) (LookupCertificateProviderResultOutput, error) {
 			args := v.(LookupCertificateProviderArgs)
-			r, err := LookupCertificateProvider(ctx, &args, opts...)
-			var s LookupCertificateProviderResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCertificateProviderResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getCertificateProvider", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCertificateProviderResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCertificateProviderResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCertificateProviderResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCertificateProviderResultOutput)
 }
 

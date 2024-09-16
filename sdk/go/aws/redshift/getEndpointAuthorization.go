@@ -52,14 +52,20 @@ type LookupEndpointAuthorizationResult struct {
 
 func LookupEndpointAuthorizationOutput(ctx *pulumi.Context, args LookupEndpointAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointAuthorizationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEndpointAuthorizationResult, error) {
+		ApplyT(func(v interface{}) (LookupEndpointAuthorizationResultOutput, error) {
 			args := v.(LookupEndpointAuthorizationArgs)
-			r, err := LookupEndpointAuthorization(ctx, &args, opts...)
-			var s LookupEndpointAuthorizationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEndpointAuthorizationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:redshift:getEndpointAuthorization", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEndpointAuthorizationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEndpointAuthorizationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEndpointAuthorizationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEndpointAuthorizationResultOutput)
 }
 

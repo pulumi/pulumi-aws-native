@@ -43,14 +43,20 @@ type LookupSegmentResult struct {
 
 func LookupSegmentOutput(ctx *pulumi.Context, args LookupSegmentOutputArgs, opts ...pulumi.InvokeOption) LookupSegmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSegmentResult, error) {
+		ApplyT(func(v interface{}) (LookupSegmentResultOutput, error) {
 			args := v.(LookupSegmentArgs)
-			r, err := LookupSegment(ctx, &args, opts...)
-			var s LookupSegmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSegmentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:evidently:getSegment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSegmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSegmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSegmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSegmentResultOutput)
 }
 

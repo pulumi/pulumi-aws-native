@@ -34,14 +34,20 @@ type LookupLayerVersionPermissionResult struct {
 
 func LookupLayerVersionPermissionOutput(ctx *pulumi.Context, args LookupLayerVersionPermissionOutputArgs, opts ...pulumi.InvokeOption) LookupLayerVersionPermissionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLayerVersionPermissionResult, error) {
+		ApplyT(func(v interface{}) (LookupLayerVersionPermissionResultOutput, error) {
 			args := v.(LookupLayerVersionPermissionArgs)
-			r, err := LookupLayerVersionPermission(ctx, &args, opts...)
-			var s LookupLayerVersionPermissionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLayerVersionPermissionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:lambda:getLayerVersionPermission", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLayerVersionPermissionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLayerVersionPermissionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLayerVersionPermissionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLayerVersionPermissionResultOutput)
 }
 

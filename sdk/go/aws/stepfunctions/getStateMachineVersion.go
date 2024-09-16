@@ -36,14 +36,20 @@ type LookupStateMachineVersionResult struct {
 
 func LookupStateMachineVersionOutput(ctx *pulumi.Context, args LookupStateMachineVersionOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStateMachineVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupStateMachineVersionResultOutput, error) {
 			args := v.(LookupStateMachineVersionArgs)
-			r, err := LookupStateMachineVersion(ctx, &args, opts...)
-			var s LookupStateMachineVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStateMachineVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:stepfunctions:getStateMachineVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStateMachineVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStateMachineVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStateMachineVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStateMachineVersionResultOutput)
 }
 

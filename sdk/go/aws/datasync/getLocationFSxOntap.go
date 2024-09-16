@@ -41,14 +41,20 @@ type LookupLocationFSxOntapResult struct {
 
 func LookupLocationFSxOntapOutput(ctx *pulumi.Context, args LookupLocationFSxOntapOutputArgs, opts ...pulumi.InvokeOption) LookupLocationFSxOntapResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocationFSxOntapResult, error) {
+		ApplyT(func(v interface{}) (LookupLocationFSxOntapResultOutput, error) {
 			args := v.(LookupLocationFSxOntapArgs)
-			r, err := LookupLocationFSxOntap(ctx, &args, opts...)
-			var s LookupLocationFSxOntapResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocationFSxOntapResult
+			secret, err := ctx.InvokePackageRaw("aws-native:datasync:getLocationFSxOntap", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocationFSxOntapResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocationFSxOntapResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocationFSxOntapResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocationFSxOntapResultOutput)
 }
 

@@ -34,14 +34,20 @@ type LookupTransitGatewayRouteTableResult struct {
 
 func LookupTransitGatewayRouteTableOutput(ctx *pulumi.Context, args LookupTransitGatewayRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayRouteTableResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayRouteTableResult, error) {
+		ApplyT(func(v interface{}) (LookupTransitGatewayRouteTableResultOutput, error) {
 			args := v.(LookupTransitGatewayRouteTableArgs)
-			r, err := LookupTransitGatewayRouteTable(ctx, &args, opts...)
-			var s LookupTransitGatewayRouteTableResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTransitGatewayRouteTableResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getTransitGatewayRouteTable", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTransitGatewayRouteTableResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTransitGatewayRouteTableResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTransitGatewayRouteTableResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTransitGatewayRouteTableResultOutput)
 }
 

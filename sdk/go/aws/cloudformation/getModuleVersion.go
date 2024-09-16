@@ -52,14 +52,20 @@ type LookupModuleVersionResult struct {
 
 func LookupModuleVersionOutput(ctx *pulumi.Context, args LookupModuleVersionOutputArgs, opts ...pulumi.InvokeOption) LookupModuleVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupModuleVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupModuleVersionResultOutput, error) {
 			args := v.(LookupModuleVersionArgs)
-			r, err := LookupModuleVersion(ctx, &args, opts...)
-			var s LookupModuleVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupModuleVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getModuleVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupModuleVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupModuleVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupModuleVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupModuleVersionResultOutput)
 }
 

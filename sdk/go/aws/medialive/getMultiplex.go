@@ -51,14 +51,20 @@ type LookupMultiplexResult struct {
 
 func LookupMultiplexOutput(ctx *pulumi.Context, args LookupMultiplexOutputArgs, opts ...pulumi.InvokeOption) LookupMultiplexResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMultiplexResult, error) {
+		ApplyT(func(v interface{}) (LookupMultiplexResultOutput, error) {
 			args := v.(LookupMultiplexArgs)
-			r, err := LookupMultiplex(ctx, &args, opts...)
-			var s LookupMultiplexResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMultiplexResult
+			secret, err := ctx.InvokePackageRaw("aws-native:medialive:getMultiplex", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMultiplexResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMultiplexResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMultiplexResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMultiplexResultOutput)
 }
 

@@ -43,14 +43,20 @@ type LookupServiceTemplateResult struct {
 
 func LookupServiceTemplateOutput(ctx *pulumi.Context, args LookupServiceTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupServiceTemplateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServiceTemplateResult, error) {
+		ApplyT(func(v interface{}) (LookupServiceTemplateResultOutput, error) {
 			args := v.(LookupServiceTemplateArgs)
-			r, err := LookupServiceTemplate(ctx, &args, opts...)
-			var s LookupServiceTemplateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServiceTemplateResult
+			secret, err := ctx.InvokePackageRaw("aws-native:proton:getServiceTemplate", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServiceTemplateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServiceTemplateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServiceTemplateResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServiceTemplateResultOutput)
 }
 

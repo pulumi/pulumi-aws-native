@@ -50,14 +50,20 @@ type LookupWorkspacesPoolResult struct {
 
 func LookupWorkspacesPoolOutput(ctx *pulumi.Context, args LookupWorkspacesPoolOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspacesPoolResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupWorkspacesPoolResult, error) {
+		ApplyT(func(v interface{}) (LookupWorkspacesPoolResultOutput, error) {
 			args := v.(LookupWorkspacesPoolArgs)
-			r, err := LookupWorkspacesPool(ctx, &args, opts...)
-			var s LookupWorkspacesPoolResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupWorkspacesPoolResult
+			secret, err := ctx.InvokePackageRaw("aws-native:workspaces:getWorkspacesPool", args, &rv, "", opts...)
+			if err != nil {
+				return LookupWorkspacesPoolResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupWorkspacesPoolResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupWorkspacesPoolResultOutput), nil
+			}
+			return output, nil
 		}).(LookupWorkspacesPoolResultOutput)
 }
 

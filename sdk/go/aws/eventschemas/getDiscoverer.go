@@ -45,14 +45,20 @@ type LookupDiscovererResult struct {
 
 func LookupDiscovererOutput(ctx *pulumi.Context, args LookupDiscovererOutputArgs, opts ...pulumi.InvokeOption) LookupDiscovererResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDiscovererResult, error) {
+		ApplyT(func(v interface{}) (LookupDiscovererResultOutput, error) {
 			args := v.(LookupDiscovererArgs)
-			r, err := LookupDiscoverer(ctx, &args, opts...)
-			var s LookupDiscovererResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDiscovererResult
+			secret, err := ctx.InvokePackageRaw("aws-native:eventschemas:getDiscoverer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDiscovererResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDiscovererResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDiscovererResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDiscovererResultOutput)
 }
 

@@ -43,14 +43,20 @@ type LookupMitigationActionResult struct {
 
 func LookupMitigationActionOutput(ctx *pulumi.Context, args LookupMitigationActionOutputArgs, opts ...pulumi.InvokeOption) LookupMitigationActionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMitigationActionResult, error) {
+		ApplyT(func(v interface{}) (LookupMitigationActionResultOutput, error) {
 			args := v.(LookupMitigationActionArgs)
-			r, err := LookupMitigationAction(ctx, &args, opts...)
-			var s LookupMitigationActionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMitigationActionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getMitigationAction", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMitigationActionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMitigationActionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMitigationActionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMitigationActionResultOutput)
 }
 

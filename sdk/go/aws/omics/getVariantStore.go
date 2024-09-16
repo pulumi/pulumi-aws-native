@@ -48,14 +48,20 @@ type LookupVariantStoreResult struct {
 
 func LookupVariantStoreOutput(ctx *pulumi.Context, args LookupVariantStoreOutputArgs, opts ...pulumi.InvokeOption) LookupVariantStoreResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVariantStoreResult, error) {
+		ApplyT(func(v interface{}) (LookupVariantStoreResultOutput, error) {
 			args := v.(LookupVariantStoreArgs)
-			r, err := LookupVariantStore(ctx, &args, opts...)
-			var s LookupVariantStoreResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVariantStoreResult
+			secret, err := ctx.InvokePackageRaw("aws-native:omics:getVariantStore", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVariantStoreResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVariantStoreResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVariantStoreResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVariantStoreResultOutput)
 }
 

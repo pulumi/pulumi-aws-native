@@ -38,14 +38,20 @@ type LookupGlobalClusterResult struct {
 
 func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupGlobalClusterResult, error) {
+		ApplyT(func(v interface{}) (LookupGlobalClusterResultOutput, error) {
 			args := v.(LookupGlobalClusterArgs)
-			r, err := LookupGlobalCluster(ctx, &args, opts...)
-			var s LookupGlobalClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupGlobalClusterResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rds:getGlobalCluster", args, &rv, "", opts...)
+			if err != nil {
+				return LookupGlobalClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupGlobalClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupGlobalClusterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupGlobalClusterResultOutput)
 }
 

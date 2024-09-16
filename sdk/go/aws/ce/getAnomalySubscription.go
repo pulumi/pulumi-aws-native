@@ -48,14 +48,20 @@ type LookupAnomalySubscriptionResult struct {
 
 func LookupAnomalySubscriptionOutput(ctx *pulumi.Context, args LookupAnomalySubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupAnomalySubscriptionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAnomalySubscriptionResult, error) {
+		ApplyT(func(v interface{}) (LookupAnomalySubscriptionResultOutput, error) {
 			args := v.(LookupAnomalySubscriptionArgs)
-			r, err := LookupAnomalySubscription(ctx, &args, opts...)
-			var s LookupAnomalySubscriptionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAnomalySubscriptionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ce:getAnomalySubscription", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAnomalySubscriptionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAnomalySubscriptionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAnomalySubscriptionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAnomalySubscriptionResultOutput)
 }
 

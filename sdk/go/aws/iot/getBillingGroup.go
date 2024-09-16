@@ -41,14 +41,20 @@ type LookupBillingGroupResult struct {
 
 func LookupBillingGroupOutput(ctx *pulumi.Context, args LookupBillingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupBillingGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBillingGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupBillingGroupResultOutput, error) {
 			args := v.(LookupBillingGroupArgs)
-			r, err := LookupBillingGroup(ctx, &args, opts...)
-			var s LookupBillingGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBillingGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getBillingGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBillingGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBillingGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBillingGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBillingGroupResultOutput)
 }
 

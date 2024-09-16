@@ -52,14 +52,20 @@ type LookupFilterResult struct {
 
 func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts ...pulumi.InvokeOption) LookupFilterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFilterResult, error) {
+		ApplyT(func(v interface{}) (LookupFilterResultOutput, error) {
 			args := v.(LookupFilterArgs)
-			r, err := LookupFilter(ctx, &args, opts...)
-			var s LookupFilterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFilterResult
+			secret, err := ctx.InvokePackageRaw("aws-native:guardduty:getFilter", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFilterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFilterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFilterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFilterResultOutput)
 }
 

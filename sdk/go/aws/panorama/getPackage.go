@@ -43,14 +43,20 @@ type LookupPackageResult struct {
 
 func LookupPackageOutput(ctx *pulumi.Context, args LookupPackageOutputArgs, opts ...pulumi.InvokeOption) LookupPackageResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPackageResult, error) {
+		ApplyT(func(v interface{}) (LookupPackageResultOutput, error) {
 			args := v.(LookupPackageArgs)
-			r, err := LookupPackage(ctx, &args, opts...)
-			var s LookupPackageResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPackageResult
+			secret, err := ctx.InvokePackageRaw("aws-native:panorama:getPackage", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPackageResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPackageResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPackageResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPackageResultOutput)
 }
 

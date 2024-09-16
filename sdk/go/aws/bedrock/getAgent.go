@@ -90,14 +90,20 @@ type LookupAgentResult struct {
 
 func LookupAgentOutput(ctx *pulumi.Context, args LookupAgentOutputArgs, opts ...pulumi.InvokeOption) LookupAgentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAgentResult, error) {
+		ApplyT(func(v interface{}) (LookupAgentResultOutput, error) {
 			args := v.(LookupAgentArgs)
-			r, err := LookupAgent(ctx, &args, opts...)
-			var s LookupAgentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAgentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:bedrock:getAgent", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAgentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAgentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAgentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAgentResultOutput)
 }
 

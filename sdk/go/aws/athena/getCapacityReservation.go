@@ -49,14 +49,20 @@ type LookupCapacityReservationResult struct {
 
 func LookupCapacityReservationOutput(ctx *pulumi.Context, args LookupCapacityReservationOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityReservationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCapacityReservationResult, error) {
+		ApplyT(func(v interface{}) (LookupCapacityReservationResultOutput, error) {
 			args := v.(LookupCapacityReservationArgs)
-			r, err := LookupCapacityReservation(ctx, &args, opts...)
-			var s LookupCapacityReservationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCapacityReservationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:athena:getCapacityReservation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCapacityReservationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCapacityReservationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCapacityReservationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCapacityReservationResultOutput)
 }
 

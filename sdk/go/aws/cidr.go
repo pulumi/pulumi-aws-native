@@ -33,14 +33,20 @@ type CidrResult struct {
 
 func CidrOutput(ctx *pulumi.Context, args CidrOutputArgs, opts ...pulumi.InvokeOption) CidrResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (CidrResult, error) {
+		ApplyT(func(v interface{}) (CidrResultOutput, error) {
 			args := v.(CidrArgs)
-			r, err := Cidr(ctx, &args, opts...)
-			var s CidrResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv CidrResult
+			secret, err := ctx.InvokePackageRaw("aws-native:index:cidr", args, &rv, "", opts...)
+			if err != nil {
+				return CidrResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(CidrResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(CidrResultOutput), nil
+			}
+			return output, nil
 		}).(CidrResultOutput)
 }
 

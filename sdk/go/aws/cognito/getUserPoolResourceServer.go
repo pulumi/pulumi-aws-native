@@ -38,14 +38,20 @@ type LookupUserPoolResourceServerResult struct {
 
 func LookupUserPoolResourceServerOutput(ctx *pulumi.Context, args LookupUserPoolResourceServerOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolResourceServerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupUserPoolResourceServerResult, error) {
+		ApplyT(func(v interface{}) (LookupUserPoolResourceServerResultOutput, error) {
 			args := v.(LookupUserPoolResourceServerArgs)
-			r, err := LookupUserPoolResourceServer(ctx, &args, opts...)
-			var s LookupUserPoolResourceServerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupUserPoolResourceServerResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cognito:getUserPoolResourceServer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupUserPoolResourceServerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupUserPoolResourceServerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupUserPoolResourceServerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupUserPoolResourceServerResultOutput)
 }
 

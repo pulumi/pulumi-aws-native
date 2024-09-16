@@ -38,14 +38,20 @@ type LookupPreparedStatementResult struct {
 
 func LookupPreparedStatementOutput(ctx *pulumi.Context, args LookupPreparedStatementOutputArgs, opts ...pulumi.InvokeOption) LookupPreparedStatementResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPreparedStatementResult, error) {
+		ApplyT(func(v interface{}) (LookupPreparedStatementResultOutput, error) {
 			args := v.(LookupPreparedStatementArgs)
-			r, err := LookupPreparedStatement(ctx, &args, opts...)
-			var s LookupPreparedStatementResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPreparedStatementResult
+			secret, err := ctx.InvokePackageRaw("aws-native:athena:getPreparedStatement", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPreparedStatementResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPreparedStatementResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPreparedStatementResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPreparedStatementResultOutput)
 }
 

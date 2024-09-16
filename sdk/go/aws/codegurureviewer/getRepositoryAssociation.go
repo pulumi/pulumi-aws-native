@@ -34,14 +34,20 @@ type LookupRepositoryAssociationResult struct {
 
 func LookupRepositoryAssociationOutput(ctx *pulumi.Context, args LookupRepositoryAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRepositoryAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupRepositoryAssociationResultOutput, error) {
 			args := v.(LookupRepositoryAssociationArgs)
-			r, err := LookupRepositoryAssociation(ctx, &args, opts...)
-			var s LookupRepositoryAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRepositoryAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:codegurureviewer:getRepositoryAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRepositoryAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRepositoryAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRepositoryAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRepositoryAssociationResultOutput)
 }
 

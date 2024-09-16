@@ -38,14 +38,20 @@ type LookupContinuousDeploymentPolicyResult struct {
 
 func LookupContinuousDeploymentPolicyOutput(ctx *pulumi.Context, args LookupContinuousDeploymentPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupContinuousDeploymentPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupContinuousDeploymentPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupContinuousDeploymentPolicyResultOutput, error) {
 			args := v.(LookupContinuousDeploymentPolicyArgs)
-			r, err := LookupContinuousDeploymentPolicy(ctx, &args, opts...)
-			var s LookupContinuousDeploymentPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupContinuousDeploymentPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cloudfront:getContinuousDeploymentPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupContinuousDeploymentPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupContinuousDeploymentPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupContinuousDeploymentPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupContinuousDeploymentPolicyResultOutput)
 }
 

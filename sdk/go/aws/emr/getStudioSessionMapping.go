@@ -38,14 +38,20 @@ type LookupStudioSessionMappingResult struct {
 
 func LookupStudioSessionMappingOutput(ctx *pulumi.Context, args LookupStudioSessionMappingOutputArgs, opts ...pulumi.InvokeOption) LookupStudioSessionMappingResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStudioSessionMappingResult, error) {
+		ApplyT(func(v interface{}) (LookupStudioSessionMappingResultOutput, error) {
 			args := v.(LookupStudioSessionMappingArgs)
-			r, err := LookupStudioSessionMapping(ctx, &args, opts...)
-			var s LookupStudioSessionMappingResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStudioSessionMappingResult
+			secret, err := ctx.InvokePackageRaw("aws-native:emr:getStudioSessionMapping", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStudioSessionMappingResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStudioSessionMappingResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStudioSessionMappingResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStudioSessionMappingResultOutput)
 }
 

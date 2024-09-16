@@ -50,14 +50,20 @@ type LookupEnvironmentBlueprintConfigurationResult struct {
 
 func LookupEnvironmentBlueprintConfigurationOutput(ctx *pulumi.Context, args LookupEnvironmentBlueprintConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentBlueprintConfigurationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentBlueprintConfigurationResult, error) {
+		ApplyT(func(v interface{}) (LookupEnvironmentBlueprintConfigurationResultOutput, error) {
 			args := v.(LookupEnvironmentBlueprintConfigurationArgs)
-			r, err := LookupEnvironmentBlueprintConfiguration(ctx, &args, opts...)
-			var s LookupEnvironmentBlueprintConfigurationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEnvironmentBlueprintConfigurationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:datazone:getEnvironmentBlueprintConfiguration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEnvironmentBlueprintConfigurationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEnvironmentBlueprintConfigurationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEnvironmentBlueprintConfigurationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEnvironmentBlueprintConfigurationResultOutput)
 }
 

@@ -39,14 +39,20 @@ type LookupAnalyzerResult struct {
 
 func LookupAnalyzerOutput(ctx *pulumi.Context, args LookupAnalyzerOutputArgs, opts ...pulumi.InvokeOption) LookupAnalyzerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAnalyzerResult, error) {
+		ApplyT(func(v interface{}) (LookupAnalyzerResultOutput, error) {
 			args := v.(LookupAnalyzerArgs)
-			r, err := LookupAnalyzer(ctx, &args, opts...)
-			var s LookupAnalyzerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAnalyzerResult
+			secret, err := ctx.InvokePackageRaw("aws-native:accessanalyzer:getAnalyzer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAnalyzerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAnalyzerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAnalyzerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAnalyzerResultOutput)
 }
 

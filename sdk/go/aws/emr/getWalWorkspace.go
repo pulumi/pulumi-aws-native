@@ -35,14 +35,20 @@ type LookupWalWorkspaceResult struct {
 
 func LookupWalWorkspaceOutput(ctx *pulumi.Context, args LookupWalWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWalWorkspaceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupWalWorkspaceResult, error) {
+		ApplyT(func(v interface{}) (LookupWalWorkspaceResultOutput, error) {
 			args := v.(LookupWalWorkspaceArgs)
-			r, err := LookupWalWorkspace(ctx, &args, opts...)
-			var s LookupWalWorkspaceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupWalWorkspaceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:emr:getWalWorkspace", args, &rv, "", opts...)
+			if err != nil {
+				return LookupWalWorkspaceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupWalWorkspaceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupWalWorkspaceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupWalWorkspaceResultOutput)
 }
 

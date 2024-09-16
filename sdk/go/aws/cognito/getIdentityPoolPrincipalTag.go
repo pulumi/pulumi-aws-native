@@ -40,14 +40,20 @@ type LookupIdentityPoolPrincipalTagResult struct {
 
 func LookupIdentityPoolPrincipalTagOutput(ctx *pulumi.Context, args LookupIdentityPoolPrincipalTagOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolPrincipalTagResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIdentityPoolPrincipalTagResult, error) {
+		ApplyT(func(v interface{}) (LookupIdentityPoolPrincipalTagResultOutput, error) {
 			args := v.(LookupIdentityPoolPrincipalTagArgs)
-			r, err := LookupIdentityPoolPrincipalTag(ctx, &args, opts...)
-			var s LookupIdentityPoolPrincipalTagResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIdentityPoolPrincipalTagResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cognito:getIdentityPoolPrincipalTag", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIdentityPoolPrincipalTagResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIdentityPoolPrincipalTagResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIdentityPoolPrincipalTagResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIdentityPoolPrincipalTagResultOutput)
 }
 

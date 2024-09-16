@@ -44,14 +44,20 @@ type LookupEntitlementResult struct {
 
 func LookupEntitlementOutput(ctx *pulumi.Context, args LookupEntitlementOutputArgs, opts ...pulumi.InvokeOption) LookupEntitlementResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEntitlementResult, error) {
+		ApplyT(func(v interface{}) (LookupEntitlementResultOutput, error) {
 			args := v.(LookupEntitlementArgs)
-			r, err := LookupEntitlement(ctx, &args, opts...)
-			var s LookupEntitlementResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEntitlementResult
+			secret, err := ctx.InvokePackageRaw("aws-native:appstream:getEntitlement", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEntitlementResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEntitlementResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEntitlementResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEntitlementResultOutput)
 }
 

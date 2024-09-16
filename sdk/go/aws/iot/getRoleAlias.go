@@ -43,14 +43,20 @@ type LookupRoleAliasResult struct {
 
 func LookupRoleAliasOutput(ctx *pulumi.Context, args LookupRoleAliasOutputArgs, opts ...pulumi.InvokeOption) LookupRoleAliasResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRoleAliasResult, error) {
+		ApplyT(func(v interface{}) (LookupRoleAliasResultOutput, error) {
 			args := v.(LookupRoleAliasArgs)
-			r, err := LookupRoleAlias(ctx, &args, opts...)
-			var s LookupRoleAliasResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRoleAliasResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getRoleAlias", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRoleAliasResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRoleAliasResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRoleAliasResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRoleAliasResultOutput)
 }
 

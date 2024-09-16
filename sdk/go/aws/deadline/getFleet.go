@@ -58,14 +58,20 @@ type LookupFleetResult struct {
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFleetResult, error) {
+		ApplyT(func(v interface{}) (LookupFleetResultOutput, error) {
 			args := v.(LookupFleetArgs)
-			r, err := LookupFleet(ctx, &args, opts...)
-			var s LookupFleetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFleetResult
+			secret, err := ctx.InvokePackageRaw("aws-native:deadline:getFleet", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFleetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFleetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFleetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFleetResultOutput)
 }
 

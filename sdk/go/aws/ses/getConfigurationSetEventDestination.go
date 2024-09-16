@@ -34,14 +34,20 @@ type LookupConfigurationSetEventDestinationResult struct {
 
 func LookupConfigurationSetEventDestinationOutput(ctx *pulumi.Context, args LookupConfigurationSetEventDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationSetEventDestinationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationSetEventDestinationResult, error) {
+		ApplyT(func(v interface{}) (LookupConfigurationSetEventDestinationResultOutput, error) {
 			args := v.(LookupConfigurationSetEventDestinationArgs)
-			r, err := LookupConfigurationSetEventDestination(ctx, &args, opts...)
-			var s LookupConfigurationSetEventDestinationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupConfigurationSetEventDestinationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ses:getConfigurationSetEventDestination", args, &rv, "", opts...)
+			if err != nil {
+				return LookupConfigurationSetEventDestinationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupConfigurationSetEventDestinationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupConfigurationSetEventDestinationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupConfigurationSetEventDestinationResultOutput)
 }
 

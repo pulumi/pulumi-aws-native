@@ -34,14 +34,20 @@ type LookupSolutionResult struct {
 
 func LookupSolutionOutput(ctx *pulumi.Context, args LookupSolutionOutputArgs, opts ...pulumi.InvokeOption) LookupSolutionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSolutionResult, error) {
+		ApplyT(func(v interface{}) (LookupSolutionResultOutput, error) {
 			args := v.(LookupSolutionArgs)
-			r, err := LookupSolution(ctx, &args, opts...)
-			var s LookupSolutionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSolutionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:personalize:getSolution", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSolutionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSolutionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSolutionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSolutionResultOutput)
 }
 

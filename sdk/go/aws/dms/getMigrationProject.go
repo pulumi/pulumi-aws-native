@@ -55,14 +55,20 @@ type LookupMigrationProjectResult struct {
 
 func LookupMigrationProjectOutput(ctx *pulumi.Context, args LookupMigrationProjectOutputArgs, opts ...pulumi.InvokeOption) LookupMigrationProjectResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMigrationProjectResult, error) {
+		ApplyT(func(v interface{}) (LookupMigrationProjectResultOutput, error) {
 			args := v.(LookupMigrationProjectArgs)
-			r, err := LookupMigrationProject(ctx, &args, opts...)
-			var s LookupMigrationProjectResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMigrationProjectResult
+			secret, err := ctx.InvokePackageRaw("aws-native:dms:getMigrationProject", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMigrationProjectResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMigrationProjectResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMigrationProjectResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMigrationProjectResultOutput)
 }
 

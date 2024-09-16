@@ -51,14 +51,20 @@ type LookupNetworkSettingsResult struct {
 
 func LookupNetworkSettingsOutput(ctx *pulumi.Context, args LookupNetworkSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSettingsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkSettingsResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkSettingsResultOutput, error) {
 			args := v.(LookupNetworkSettingsArgs)
-			r, err := LookupNetworkSettings(ctx, &args, opts...)
-			var s LookupNetworkSettingsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkSettingsResult
+			secret, err := ctx.InvokePackageRaw("aws-native:workspacesweb:getNetworkSettings", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkSettingsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkSettingsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkSettingsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkSettingsResultOutput)
 }
 

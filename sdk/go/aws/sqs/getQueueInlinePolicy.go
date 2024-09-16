@@ -36,14 +36,20 @@ type LookupQueueInlinePolicyResult struct {
 
 func LookupQueueInlinePolicyOutput(ctx *pulumi.Context, args LookupQueueInlinePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupQueueInlinePolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupQueueInlinePolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupQueueInlinePolicyResultOutput, error) {
 			args := v.(LookupQueueInlinePolicyArgs)
-			r, err := LookupQueueInlinePolicy(ctx, &args, opts...)
-			var s LookupQueueInlinePolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupQueueInlinePolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:sqs:getQueueInlinePolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupQueueInlinePolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupQueueInlinePolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupQueueInlinePolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupQueueInlinePolicyResultOutput)
 }
 

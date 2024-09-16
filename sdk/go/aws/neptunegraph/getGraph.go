@@ -55,14 +55,20 @@ type LookupGraphResult struct {
 
 func LookupGraphOutput(ctx *pulumi.Context, args LookupGraphOutputArgs, opts ...pulumi.InvokeOption) LookupGraphResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupGraphResult, error) {
+		ApplyT(func(v interface{}) (LookupGraphResultOutput, error) {
 			args := v.(LookupGraphArgs)
-			r, err := LookupGraph(ctx, &args, opts...)
-			var s LookupGraphResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupGraphResult
+			secret, err := ctx.InvokePackageRaw("aws-native:neptunegraph:getGraph", args, &rv, "", opts...)
+			if err != nil {
+				return LookupGraphResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupGraphResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupGraphResultOutput), nil
+			}
+			return output, nil
 		}).(LookupGraphResultOutput)
 }
 

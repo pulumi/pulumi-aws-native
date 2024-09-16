@@ -41,14 +41,20 @@ type LookupScraperResult struct {
 
 func LookupScraperOutput(ctx *pulumi.Context, args LookupScraperOutputArgs, opts ...pulumi.InvokeOption) LookupScraperResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupScraperResult, error) {
+		ApplyT(func(v interface{}) (LookupScraperResultOutput, error) {
 			args := v.(LookupScraperArgs)
-			r, err := LookupScraper(ctx, &args, opts...)
-			var s LookupScraperResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupScraperResult
+			secret, err := ctx.InvokePackageRaw("aws-native:aps:getScraper", args, &rv, "", opts...)
+			if err != nil {
+				return LookupScraperResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupScraperResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupScraperResultOutput), nil
+			}
+			return output, nil
 		}).(LookupScraperResultOutput)
 }
 

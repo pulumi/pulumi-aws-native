@@ -53,14 +53,20 @@ type LookupCaCertificateResult struct {
 
 func LookupCaCertificateOutput(ctx *pulumi.Context, args LookupCaCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCaCertificateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCaCertificateResult, error) {
+		ApplyT(func(v interface{}) (LookupCaCertificateResultOutput, error) {
 			args := v.(LookupCaCertificateArgs)
-			r, err := LookupCaCertificate(ctx, &args, opts...)
-			var s LookupCaCertificateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCaCertificateResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getCaCertificate", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCaCertificateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCaCertificateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCaCertificateResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCaCertificateResultOutput)
 }
 

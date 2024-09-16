@@ -40,14 +40,20 @@ type LookupUserPoolRiskConfigurationAttachmentResult struct {
 
 func LookupUserPoolRiskConfigurationAttachmentOutput(ctx *pulumi.Context, args LookupUserPoolRiskConfigurationAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolRiskConfigurationAttachmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupUserPoolRiskConfigurationAttachmentResult, error) {
+		ApplyT(func(v interface{}) (LookupUserPoolRiskConfigurationAttachmentResultOutput, error) {
 			args := v.(LookupUserPoolRiskConfigurationAttachmentArgs)
-			r, err := LookupUserPoolRiskConfigurationAttachment(ctx, &args, opts...)
-			var s LookupUserPoolRiskConfigurationAttachmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupUserPoolRiskConfigurationAttachmentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupUserPoolRiskConfigurationAttachmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupUserPoolRiskConfigurationAttachmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupUserPoolRiskConfigurationAttachmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupUserPoolRiskConfigurationAttachmentResultOutput)
 }
 

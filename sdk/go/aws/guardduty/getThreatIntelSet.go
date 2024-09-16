@@ -48,14 +48,20 @@ type LookupThreatIntelSetResult struct {
 
 func LookupThreatIntelSetOutput(ctx *pulumi.Context, args LookupThreatIntelSetOutputArgs, opts ...pulumi.InvokeOption) LookupThreatIntelSetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupThreatIntelSetResult, error) {
+		ApplyT(func(v interface{}) (LookupThreatIntelSetResultOutput, error) {
 			args := v.(LookupThreatIntelSetArgs)
-			r, err := LookupThreatIntelSet(ctx, &args, opts...)
-			var s LookupThreatIntelSetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupThreatIntelSetResult
+			secret, err := ctx.InvokePackageRaw("aws-native:guardduty:getThreatIntelSet", args, &rv, "", opts...)
+			if err != nil {
+				return LookupThreatIntelSetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupThreatIntelSetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupThreatIntelSetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupThreatIntelSetResultOutput)
 }
 

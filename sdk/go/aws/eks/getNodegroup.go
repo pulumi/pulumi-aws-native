@@ -50,14 +50,20 @@ type LookupNodegroupResult struct {
 
 func LookupNodegroupOutput(ctx *pulumi.Context, args LookupNodegroupOutputArgs, opts ...pulumi.InvokeOption) LookupNodegroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNodegroupResult, error) {
+		ApplyT(func(v interface{}) (LookupNodegroupResultOutput, error) {
 			args := v.(LookupNodegroupArgs)
-			r, err := LookupNodegroup(ctx, &args, opts...)
-			var s LookupNodegroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNodegroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:eks:getNodegroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNodegroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNodegroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNodegroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNodegroupResultOutput)
 }
 

@@ -33,14 +33,20 @@ type LookupChallengeResult struct {
 
 func LookupChallengeOutput(ctx *pulumi.Context, args LookupChallengeOutputArgs, opts ...pulumi.InvokeOption) LookupChallengeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupChallengeResult, error) {
+		ApplyT(func(v interface{}) (LookupChallengeResultOutput, error) {
 			args := v.(LookupChallengeArgs)
-			r, err := LookupChallenge(ctx, &args, opts...)
-			var s LookupChallengeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupChallengeResult
+			secret, err := ctx.InvokePackageRaw("aws-native:pcaconnectorscep:getChallenge", args, &rv, "", opts...)
+			if err != nil {
+				return LookupChallengeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupChallengeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupChallengeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupChallengeResultOutput)
 }
 

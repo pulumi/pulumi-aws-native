@@ -55,14 +55,20 @@ type LookupWirelessDeviceResult struct {
 
 func LookupWirelessDeviceOutput(ctx *pulumi.Context, args LookupWirelessDeviceOutputArgs, opts ...pulumi.InvokeOption) LookupWirelessDeviceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupWirelessDeviceResult, error) {
+		ApplyT(func(v interface{}) (LookupWirelessDeviceResultOutput, error) {
 			args := v.(LookupWirelessDeviceArgs)
-			r, err := LookupWirelessDevice(ctx, &args, opts...)
-			var s LookupWirelessDeviceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupWirelessDeviceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iotwireless:getWirelessDevice", args, &rv, "", opts...)
+			if err != nil {
+				return LookupWirelessDeviceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupWirelessDeviceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupWirelessDeviceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupWirelessDeviceResultOutput)
 }
 

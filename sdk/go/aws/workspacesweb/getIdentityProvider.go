@@ -77,14 +77,20 @@ type LookupIdentityProviderResult struct {
 
 func LookupIdentityProviderOutput(ctx *pulumi.Context, args LookupIdentityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityProviderResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIdentityProviderResult, error) {
+		ApplyT(func(v interface{}) (LookupIdentityProviderResultOutput, error) {
 			args := v.(LookupIdentityProviderArgs)
-			r, err := LookupIdentityProvider(ctx, &args, opts...)
-			var s LookupIdentityProviderResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIdentityProviderResult
+			secret, err := ctx.InvokePackageRaw("aws-native:workspacesweb:getIdentityProvider", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIdentityProviderResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIdentityProviderResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIdentityProviderResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIdentityProviderResultOutput)
 }
 

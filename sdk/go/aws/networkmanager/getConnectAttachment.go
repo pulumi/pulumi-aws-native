@@ -61,14 +61,20 @@ type LookupConnectAttachmentResult struct {
 
 func LookupConnectAttachmentOutput(ctx *pulumi.Context, args LookupConnectAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupConnectAttachmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupConnectAttachmentResult, error) {
+		ApplyT(func(v interface{}) (LookupConnectAttachmentResultOutput, error) {
 			args := v.(LookupConnectAttachmentArgs)
-			r, err := LookupConnectAttachment(ctx, &args, opts...)
-			var s LookupConnectAttachmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupConnectAttachmentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:networkmanager:getConnectAttachment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupConnectAttachmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupConnectAttachmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupConnectAttachmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupConnectAttachmentResultOutput)
 }
 

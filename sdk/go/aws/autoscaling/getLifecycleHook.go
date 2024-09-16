@@ -46,14 +46,20 @@ type LookupLifecycleHookResult struct {
 
 func LookupLifecycleHookOutput(ctx *pulumi.Context, args LookupLifecycleHookOutputArgs, opts ...pulumi.InvokeOption) LookupLifecycleHookResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLifecycleHookResult, error) {
+		ApplyT(func(v interface{}) (LookupLifecycleHookResultOutput, error) {
 			args := v.(LookupLifecycleHookArgs)
-			r, err := LookupLifecycleHook(ctx, &args, opts...)
-			var s LookupLifecycleHookResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLifecycleHookResult
+			secret, err := ctx.InvokePackageRaw("aws-native:autoscaling:getLifecycleHook", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLifecycleHookResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLifecycleHookResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLifecycleHookResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLifecycleHookResultOutput)
 }
 

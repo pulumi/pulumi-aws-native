@@ -44,14 +44,20 @@ type LookupPermissionResult struct {
 
 func LookupPermissionOutput(ctx *pulumi.Context, args LookupPermissionOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPermissionResult, error) {
+		ApplyT(func(v interface{}) (LookupPermissionResultOutput, error) {
 			args := v.(LookupPermissionArgs)
-			r, err := LookupPermission(ctx, &args, opts...)
-			var s LookupPermissionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPermissionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:lambda:getPermission", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPermissionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPermissionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPermissionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPermissionResultOutput)
 }
 

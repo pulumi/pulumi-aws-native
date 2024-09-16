@@ -40,14 +40,20 @@ type LookupVpcIngressConnectionResult struct {
 
 func LookupVpcIngressConnectionOutput(ctx *pulumi.Context, args LookupVpcIngressConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcIngressConnectionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVpcIngressConnectionResult, error) {
+		ApplyT(func(v interface{}) (LookupVpcIngressConnectionResultOutput, error) {
 			args := v.(LookupVpcIngressConnectionArgs)
-			r, err := LookupVpcIngressConnection(ctx, &args, opts...)
-			var s LookupVpcIngressConnectionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVpcIngressConnectionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:apprunner:getVpcIngressConnection", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVpcIngressConnectionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVpcIngressConnectionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVpcIngressConnectionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVpcIngressConnectionResultOutput)
 }
 

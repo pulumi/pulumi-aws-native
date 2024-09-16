@@ -51,14 +51,20 @@ type LookupCalculatedAttributeDefinitionResult struct {
 
 func LookupCalculatedAttributeDefinitionOutput(ctx *pulumi.Context, args LookupCalculatedAttributeDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupCalculatedAttributeDefinitionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCalculatedAttributeDefinitionResult, error) {
+		ApplyT(func(v interface{}) (LookupCalculatedAttributeDefinitionResultOutput, error) {
 			args := v.(LookupCalculatedAttributeDefinitionArgs)
-			r, err := LookupCalculatedAttributeDefinition(ctx, &args, opts...)
-			var s LookupCalculatedAttributeDefinitionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCalculatedAttributeDefinitionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:customerprofiles:getCalculatedAttributeDefinition", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCalculatedAttributeDefinitionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCalculatedAttributeDefinitionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCalculatedAttributeDefinitionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCalculatedAttributeDefinitionResultOutput)
 }
 

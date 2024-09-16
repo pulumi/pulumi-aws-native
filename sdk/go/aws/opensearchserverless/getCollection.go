@@ -44,14 +44,20 @@ type LookupCollectionResult struct {
 
 func LookupCollectionOutput(ctx *pulumi.Context, args LookupCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupCollectionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCollectionResult, error) {
+		ApplyT(func(v interface{}) (LookupCollectionResultOutput, error) {
 			args := v.(LookupCollectionArgs)
-			r, err := LookupCollection(ctx, &args, opts...)
-			var s LookupCollectionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCollectionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:opensearchserverless:getCollection", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCollectionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCollectionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCollectionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCollectionResultOutput)
 }
 

@@ -40,14 +40,20 @@ type LookupPredefinedAttributeResult struct {
 
 func LookupPredefinedAttributeOutput(ctx *pulumi.Context, args LookupPredefinedAttributeOutputArgs, opts ...pulumi.InvokeOption) LookupPredefinedAttributeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPredefinedAttributeResult, error) {
+		ApplyT(func(v interface{}) (LookupPredefinedAttributeResultOutput, error) {
 			args := v.(LookupPredefinedAttributeArgs)
-			r, err := LookupPredefinedAttribute(ctx, &args, opts...)
-			var s LookupPredefinedAttributeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPredefinedAttributeResult
+			secret, err := ctx.InvokePackageRaw("aws-native:connect:getPredefinedAttribute", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPredefinedAttributeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPredefinedAttributeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPredefinedAttributeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPredefinedAttributeResultOutput)
 }
 

@@ -34,14 +34,20 @@ type LookupProfileAssociationResult struct {
 
 func LookupProfileAssociationOutput(ctx *pulumi.Context, args LookupProfileAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupProfileAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupProfileAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupProfileAssociationResultOutput, error) {
 			args := v.(LookupProfileAssociationArgs)
-			r, err := LookupProfileAssociation(ctx, &args, opts...)
-			var s LookupProfileAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupProfileAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:route53profiles:getProfileAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupProfileAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupProfileAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupProfileAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupProfileAssociationResultOutput)
 }
 

@@ -44,14 +44,20 @@ type LookupFeatureGroupResult struct {
 
 func LookupFeatureGroupOutput(ctx *pulumi.Context, args LookupFeatureGroupOutputArgs, opts ...pulumi.InvokeOption) LookupFeatureGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFeatureGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupFeatureGroupResultOutput, error) {
 			args := v.(LookupFeatureGroupArgs)
-			r, err := LookupFeatureGroup(ctx, &args, opts...)
-			var s LookupFeatureGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFeatureGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getFeatureGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFeatureGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFeatureGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFeatureGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFeatureGroupResultOutput)
 }
 

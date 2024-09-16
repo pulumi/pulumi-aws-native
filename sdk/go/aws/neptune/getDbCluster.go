@@ -73,14 +73,20 @@ type LookupDbClusterResult struct {
 
 func LookupDbClusterOutput(ctx *pulumi.Context, args LookupDbClusterOutputArgs, opts ...pulumi.InvokeOption) LookupDbClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDbClusterResult, error) {
+		ApplyT(func(v interface{}) (LookupDbClusterResultOutput, error) {
 			args := v.(LookupDbClusterArgs)
-			r, err := LookupDbCluster(ctx, &args, opts...)
-			var s LookupDbClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDbClusterResult
+			secret, err := ctx.InvokePackageRaw("aws-native:neptune:getDbCluster", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDbClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDbClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDbClusterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDbClusterResultOutput)
 }
 

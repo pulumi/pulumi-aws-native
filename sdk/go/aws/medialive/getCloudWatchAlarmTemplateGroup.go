@@ -42,14 +42,20 @@ type LookupCloudWatchAlarmTemplateGroupResult struct {
 
 func LookupCloudWatchAlarmTemplateGroupOutput(ctx *pulumi.Context, args LookupCloudWatchAlarmTemplateGroupOutputArgs, opts ...pulumi.InvokeOption) LookupCloudWatchAlarmTemplateGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCloudWatchAlarmTemplateGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupCloudWatchAlarmTemplateGroupResultOutput, error) {
 			args := v.(LookupCloudWatchAlarmTemplateGroupArgs)
-			r, err := LookupCloudWatchAlarmTemplateGroup(ctx, &args, opts...)
-			var s LookupCloudWatchAlarmTemplateGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCloudWatchAlarmTemplateGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:medialive:getCloudWatchAlarmTemplateGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCloudWatchAlarmTemplateGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCloudWatchAlarmTemplateGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCloudWatchAlarmTemplateGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCloudWatchAlarmTemplateGroupResultOutput)
 }
 

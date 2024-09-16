@@ -39,14 +39,20 @@ type LookupLocationS3Result struct {
 
 func LookupLocationS3Output(ctx *pulumi.Context, args LookupLocationS3OutputArgs, opts ...pulumi.InvokeOption) LookupLocationS3ResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocationS3Result, error) {
+		ApplyT(func(v interface{}) (LookupLocationS3ResultOutput, error) {
 			args := v.(LookupLocationS3Args)
-			r, err := LookupLocationS3(ctx, &args, opts...)
-			var s LookupLocationS3Result
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocationS3Result
+			secret, err := ctx.InvokePackageRaw("aws-native:datasync:getLocationS3", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocationS3ResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocationS3ResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocationS3ResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocationS3ResultOutput)
 }
 

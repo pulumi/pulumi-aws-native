@@ -38,14 +38,20 @@ type LookupRoutingControlResult struct {
 
 func LookupRoutingControlOutput(ctx *pulumi.Context, args LookupRoutingControlOutputArgs, opts ...pulumi.InvokeOption) LookupRoutingControlResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRoutingControlResult, error) {
+		ApplyT(func(v interface{}) (LookupRoutingControlResultOutput, error) {
 			args := v.(LookupRoutingControlArgs)
-			r, err := LookupRoutingControl(ctx, &args, opts...)
-			var s LookupRoutingControlResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRoutingControlResult
+			secret, err := ctx.InvokePackageRaw("aws-native:route53recoverycontrol:getRoutingControl", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRoutingControlResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRoutingControlResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRoutingControlResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRoutingControlResultOutput)
 }
 

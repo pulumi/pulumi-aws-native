@@ -36,14 +36,20 @@ type LookupGatewayRouteTableAssociationResult struct {
 
 func LookupGatewayRouteTableAssociationOutput(ctx *pulumi.Context, args LookupGatewayRouteTableAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayRouteTableAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupGatewayRouteTableAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupGatewayRouteTableAssociationResultOutput, error) {
 			args := v.(LookupGatewayRouteTableAssociationArgs)
-			r, err := LookupGatewayRouteTableAssociation(ctx, &args, opts...)
-			var s LookupGatewayRouteTableAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupGatewayRouteTableAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getGatewayRouteTableAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupGatewayRouteTableAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupGatewayRouteTableAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupGatewayRouteTableAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupGatewayRouteTableAssociationResultOutput)
 }
 

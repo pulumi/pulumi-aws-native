@@ -48,14 +48,20 @@ type LookupSafetyRuleResult struct {
 
 func LookupSafetyRuleOutput(ctx *pulumi.Context, args LookupSafetyRuleOutputArgs, opts ...pulumi.InvokeOption) LookupSafetyRuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSafetyRuleResult, error) {
+		ApplyT(func(v interface{}) (LookupSafetyRuleResultOutput, error) {
 			args := v.(LookupSafetyRuleArgs)
-			r, err := LookupSafetyRule(ctx, &args, opts...)
-			var s LookupSafetyRuleResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSafetyRuleResult
+			secret, err := ctx.InvokePackageRaw("aws-native:route53recoverycontrol:getSafetyRule", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSafetyRuleResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSafetyRuleResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSafetyRuleResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSafetyRuleResultOutput)
 }
 

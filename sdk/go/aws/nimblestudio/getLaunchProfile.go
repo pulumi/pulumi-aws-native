@@ -48,14 +48,20 @@ type LookupLaunchProfileResult struct {
 
 func LookupLaunchProfileOutput(ctx *pulumi.Context, args LookupLaunchProfileOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLaunchProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupLaunchProfileResultOutput, error) {
 			args := v.(LookupLaunchProfileArgs)
-			r, err := LookupLaunchProfile(ctx, &args, opts...)
-			var s LookupLaunchProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLaunchProfileResult
+			secret, err := ctx.InvokePackageRaw("aws-native:nimblestudio:getLaunchProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLaunchProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLaunchProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLaunchProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLaunchProfileResultOutput)
 }
 

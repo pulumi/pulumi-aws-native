@@ -34,14 +34,20 @@ type LookupLogAnomalyDetectionIntegrationResult struct {
 
 func LookupLogAnomalyDetectionIntegrationOutput(ctx *pulumi.Context, args LookupLogAnomalyDetectionIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupLogAnomalyDetectionIntegrationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLogAnomalyDetectionIntegrationResult, error) {
+		ApplyT(func(v interface{}) (LookupLogAnomalyDetectionIntegrationResultOutput, error) {
 			args := v.(LookupLogAnomalyDetectionIntegrationArgs)
-			r, err := LookupLogAnomalyDetectionIntegration(ctx, &args, opts...)
-			var s LookupLogAnomalyDetectionIntegrationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLogAnomalyDetectionIntegrationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:devopsguru:getLogAnomalyDetectionIntegration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLogAnomalyDetectionIntegrationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLogAnomalyDetectionIntegrationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLogAnomalyDetectionIntegrationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLogAnomalyDetectionIntegrationResultOutput)
 }
 

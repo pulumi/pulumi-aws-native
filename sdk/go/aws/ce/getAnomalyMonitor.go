@@ -44,14 +44,20 @@ type LookupAnomalyMonitorResult struct {
 
 func LookupAnomalyMonitorOutput(ctx *pulumi.Context, args LookupAnomalyMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupAnomalyMonitorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAnomalyMonitorResult, error) {
+		ApplyT(func(v interface{}) (LookupAnomalyMonitorResultOutput, error) {
 			args := v.(LookupAnomalyMonitorArgs)
-			r, err := LookupAnomalyMonitor(ctx, &args, opts...)
-			var s LookupAnomalyMonitorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAnomalyMonitorResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ce:getAnomalyMonitor", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAnomalyMonitorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAnomalyMonitorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAnomalyMonitorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAnomalyMonitorResultOutput)
 }
 
