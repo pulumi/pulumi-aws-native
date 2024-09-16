@@ -23174,7 +23174,8 @@ type TemplateColumnTooltipItem struct {
 	// The target column of the tooltip item.
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The label of the tooltip item.
-	Label         *string                `pulumi:"label"`
+	Label *string `pulumi:"label"`
+	// Determines the target of the column tooltip item in a combo chart visual.
 	TooltipTarget *TemplateTooltipTarget `pulumi:"tooltipTarget"`
 	// The visibility of the tooltip item.
 	Visibility *TemplateVisibility `pulumi:"visibility"`
@@ -23197,7 +23198,8 @@ type TemplateColumnTooltipItemArgs struct {
 	// The target column of the tooltip item.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The label of the tooltip item.
-	Label         pulumi.StringPtrInput         `pulumi:"label"`
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Determines the target of the column tooltip item in a combo chart visual.
 	TooltipTarget TemplateTooltipTargetPtrInput `pulumi:"tooltipTarget"`
 	// The visibility of the tooltip item.
 	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
@@ -23295,6 +23297,7 @@ func (o TemplateColumnTooltipItemOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateColumnTooltipItem) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// Determines the target of the column tooltip item in a combo chart visual.
 func (o TemplateColumnTooltipItemOutput) TooltipTarget() TemplateTooltipTargetPtrOutput {
 	return o.ApplyT(func(v TemplateColumnTooltipItem) *TemplateTooltipTarget { return v.TooltipTarget }).(TemplateTooltipTargetPtrOutput)
 }
@@ -23358,6 +23361,7 @@ func (o TemplateColumnTooltipItemPtrOutput) Label() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines the target of the column tooltip item in a combo chart visual.
 func (o TemplateColumnTooltipItemPtrOutput) TooltipTarget() TemplateTooltipTargetPtrOutput {
 	return o.ApplyT(func(v *TemplateColumnTooltipItem) *TemplateTooltipTarget {
 		if v == nil {
@@ -38387,7 +38391,8 @@ type TemplateFieldTooltipItem struct {
 	// The unique ID of the field that is targeted by the tooltip.
 	FieldId string `pulumi:"fieldId"`
 	// The label of the tooltip item.
-	Label         *string                `pulumi:"label"`
+	Label *string `pulumi:"label"`
+	// Determines the target of the field tooltip item in a combo chart visual.
 	TooltipTarget *TemplateTooltipTarget `pulumi:"tooltipTarget"`
 	// The visibility of the tooltip item.
 	Visibility *TemplateVisibility `pulumi:"visibility"`
@@ -38408,7 +38413,8 @@ type TemplateFieldTooltipItemArgs struct {
 	// The unique ID of the field that is targeted by the tooltip.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
 	// The label of the tooltip item.
-	Label         pulumi.StringPtrInput         `pulumi:"label"`
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Determines the target of the field tooltip item in a combo chart visual.
 	TooltipTarget TemplateTooltipTargetPtrInput `pulumi:"tooltipTarget"`
 	// The visibility of the tooltip item.
 	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
@@ -38501,6 +38507,7 @@ func (o TemplateFieldTooltipItemOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateFieldTooltipItem) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// Determines the target of the field tooltip item in a combo chart visual.
 func (o TemplateFieldTooltipItemOutput) TooltipTarget() TemplateTooltipTargetPtrOutput {
 	return o.ApplyT(func(v TemplateFieldTooltipItem) *TemplateTooltipTarget { return v.TooltipTarget }).(TemplateTooltipTargetPtrOutput)
 }
@@ -38554,6 +38561,7 @@ func (o TemplateFieldTooltipItemPtrOutput) Label() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines the target of the field tooltip item in a combo chart visual.
 func (o TemplateFieldTooltipItemPtrOutput) TooltipTarget() TemplateTooltipTargetPtrOutput {
 	return o.ApplyT(func(v *TemplateFieldTooltipItem) *TemplateTooltipTarget {
 		if v == nil {
@@ -72621,6 +72629,7 @@ func (o TemplateProgressBarOptionsPtrOutput) Visibility() TemplateVisibilityPtrO
 }
 
 type TemplateQueryExecutionOptions struct {
+	// A structure that describes the query execution mode.
 	QueryExecutionMode *TemplateQueryExecutionMode `pulumi:"queryExecutionMode"`
 }
 
@@ -72636,6 +72645,7 @@ type TemplateQueryExecutionOptionsInput interface {
 }
 
 type TemplateQueryExecutionOptionsArgs struct {
+	// A structure that describes the query execution mode.
 	QueryExecutionMode TemplateQueryExecutionModePtrInput `pulumi:"queryExecutionMode"`
 }
 
@@ -72716,6 +72726,7 @@ func (o TemplateQueryExecutionOptionsOutput) ToTemplateQueryExecutionOptionsPtrO
 	}).(TemplateQueryExecutionOptionsPtrOutput)
 }
 
+// A structure that describes the query execution mode.
 func (o TemplateQueryExecutionOptionsOutput) QueryExecutionMode() TemplateQueryExecutionModePtrOutput {
 	return o.ApplyT(func(v TemplateQueryExecutionOptions) *TemplateQueryExecutionMode { return v.QueryExecutionMode }).(TemplateQueryExecutionModePtrOutput)
 }
@@ -72744,6 +72755,7 @@ func (o TemplateQueryExecutionOptionsPtrOutput) Elem() TemplateQueryExecutionOpt
 	}).(TemplateQueryExecutionOptionsOutput)
 }
 
+// A structure that describes the query execution mode.
 func (o TemplateQueryExecutionOptionsPtrOutput) QueryExecutionMode() TemplateQueryExecutionModePtrOutput {
 	return o.ApplyT(func(v *TemplateQueryExecutionOptions) *TemplateQueryExecutionMode {
 		if v == nil {
@@ -82008,6 +82020,7 @@ func (o TemplateSimpleClusterMarkerPtrOutput) Color() pulumi.StringPtrOutput {
 }
 
 type TemplateSingleAxisOptions struct {
+	// The Y axis options of a single axis configuration.
 	YAxisOptions *TemplateYAxisOptions `pulumi:"yAxisOptions"`
 }
 
@@ -82023,6 +82036,7 @@ type TemplateSingleAxisOptionsInput interface {
 }
 
 type TemplateSingleAxisOptionsArgs struct {
+	// The Y axis options of a single axis configuration.
 	YAxisOptions TemplateYAxisOptionsPtrInput `pulumi:"yAxisOptions"`
 }
 
@@ -82103,6 +82117,7 @@ func (o TemplateSingleAxisOptionsOutput) ToTemplateSingleAxisOptionsPtrOutputWit
 	}).(TemplateSingleAxisOptionsPtrOutput)
 }
 
+// The Y axis options of a single axis configuration.
 func (o TemplateSingleAxisOptionsOutput) YAxisOptions() TemplateYAxisOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateSingleAxisOptions) *TemplateYAxisOptions { return v.YAxisOptions }).(TemplateYAxisOptionsPtrOutput)
 }
@@ -82131,6 +82146,7 @@ func (o TemplateSingleAxisOptionsPtrOutput) Elem() TemplateSingleAxisOptionsOutp
 	}).(TemplateSingleAxisOptionsOutput)
 }
 
+// The Y axis options of a single axis configuration.
 func (o TemplateSingleAxisOptionsPtrOutput) YAxisOptions() TemplateYAxisOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateSingleAxisOptions) *TemplateYAxisOptions {
 		if v == nil {

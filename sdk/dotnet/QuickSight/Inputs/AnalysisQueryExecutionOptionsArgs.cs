@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisQueryExecutionOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A structure that describes the query execution mode.
+        /// </summary>
         [Input("queryExecutionMode")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisQueryExecutionMode>? QueryExecutionMode { get; set; }
 

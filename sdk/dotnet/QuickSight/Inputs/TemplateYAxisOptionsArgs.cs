@@ -12,6 +12,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateYAxisOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Y axis type to be used in the chart.
+        /// 
+        /// If you choose `PRIMARY_Y_AXIS` , the primary Y Axis is located on the leftmost vertical axis of the chart.
+        /// </summary>
         [Input("yAxis", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateSingleYAxisOption> YAxis { get; set; } = null!;
 

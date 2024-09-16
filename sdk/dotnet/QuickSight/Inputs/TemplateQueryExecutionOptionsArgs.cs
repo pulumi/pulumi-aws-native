@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateQueryExecutionOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A structure that describes the query execution mode.
+        /// </summary>
         [Input("queryExecutionMode")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateQueryExecutionMode>? QueryExecutionMode { get; set; }
 

@@ -26,6 +26,7 @@ __all__ = [
     'DataSourceRelationalFilterConfigurationArgs',
     'DataSourceScheduleConfigurationArgs',
     'DomainSingleSignOnArgs',
+    'EnvironmentActionsAwsConsoleLinkParametersArgs',
     'EnvironmentBlueprintConfigurationRegionalParameterArgs',
     'EnvironmentParameterArgs',
     'EnvironmentProfileEnvironmentParameterArgs',
@@ -558,6 +559,26 @@ class DomainSingleSignOnArgs:
     @user_assignment.setter
     def user_assignment(self, value: Optional[pulumi.Input['DomainUserAssignment']]):
         pulumi.set(self, "user_assignment", value)
+
+
+@pulumi.input_type
+class EnvironmentActionsAwsConsoleLinkParametersArgs:
+    def __init__(__self__, *,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        The parameters of the console link specified as part of the environment action
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
 
 
 @pulumi.input_type

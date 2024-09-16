@@ -2269,6 +2269,24 @@
       }
     }
   },
+  "aws-native:connect:UserHierarchyStructure": {
+    "cfTypeName": "AWS::Connect::UserHierarchyStructure",
+    "properties": {
+      "instanceArn": {
+        "type": "string",
+        "description": "The identifier of the Amazon Connect instance."
+      },
+      "userHierarchyStructure": {
+        "$ref": "#/types/aws-native:connect:UserHierarchyStructureProperties",
+        "description": "Information about the hierarchy structure.",
+        "language": {
+          "csharp": {
+            "name": "UserHierarchyStructureValue"
+          }
+        }
+      }
+    }
+  },
   "aws-native:connect:ViewVersion": {
     "cfTypeName": "AWS::Connect::ViewVersion",
     "properties": {

@@ -20,6 +20,11 @@ export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
 utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
+export { EnvironmentActionsArgs } from "./environmentActions";
+export type EnvironmentActions = import("./environmentActions").EnvironmentActions;
+export const EnvironmentActions: typeof import("./environmentActions").EnvironmentActions = null as any;
+utilities.lazyLoad(exports, ["EnvironmentActions"], () => require("./environmentActions"));
+
 export { EnvironmentBlueprintConfigurationArgs } from "./environmentBlueprintConfiguration";
 export type EnvironmentBlueprintConfiguration = import("./environmentBlueprintConfiguration").EnvironmentBlueprintConfiguration;
 export const EnvironmentBlueprintConfiguration: typeof import("./environmentBlueprintConfiguration").EnvironmentBlueprintConfiguration = null as any;
@@ -44,6 +49,11 @@ export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } fr
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
 export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
+
+export { GetEnvironmentActionsArgs, GetEnvironmentActionsResult, GetEnvironmentActionsOutputArgs } from "./getEnvironmentActions";
+export const getEnvironmentActions: typeof import("./getEnvironmentActions").getEnvironmentActions = null as any;
+export const getEnvironmentActionsOutput: typeof import("./getEnvironmentActions").getEnvironmentActionsOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentActions","getEnvironmentActionsOutput"], () => require("./getEnvironmentActions"));
 
 export { GetEnvironmentBlueprintConfigurationArgs, GetEnvironmentBlueprintConfigurationResult, GetEnvironmentBlueprintConfigurationOutputArgs } from "./getEnvironmentBlueprintConfiguration";
 export const getEnvironmentBlueprintConfiguration: typeof import("./getEnvironmentBlueprintConfiguration").getEnvironmentBlueprintConfiguration = null as any;
@@ -114,6 +124,8 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "aws-native:datazone:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "aws-native:datazone:EnvironmentActions":
+                return new EnvironmentActions(name, <any>undefined, { urn })
             case "aws-native:datazone:EnvironmentBlueprintConfiguration":
                 return new EnvironmentBlueprintConfiguration(name, <any>undefined, { urn })
             case "aws-native:datazone:EnvironmentProfile":

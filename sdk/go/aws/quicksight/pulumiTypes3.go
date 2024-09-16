@@ -12906,6 +12906,9 @@ func (o TemplateWordCloudVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateYAxisOptions struct {
+	// The Y axis type to be used in the chart.
+	//
+	// If you choose `PRIMARY_Y_AXIS` , the primary Y Axis is located on the leftmost vertical axis of the chart.
 	YAxis TemplateSingleYAxisOption `pulumi:"yAxis"`
 }
 
@@ -12921,6 +12924,9 @@ type TemplateYAxisOptionsInput interface {
 }
 
 type TemplateYAxisOptionsArgs struct {
+	// The Y axis type to be used in the chart.
+	//
+	// If you choose `PRIMARY_Y_AXIS` , the primary Y Axis is located on the leftmost vertical axis of the chart.
 	YAxis TemplateSingleYAxisOptionInput `pulumi:"yAxis"`
 }
 
@@ -13001,6 +13007,9 @@ func (o TemplateYAxisOptionsOutput) ToTemplateYAxisOptionsPtrOutputWithContext(c
 	}).(TemplateYAxisOptionsPtrOutput)
 }
 
+// The Y axis type to be used in the chart.
+//
+// If you choose `PRIMARY_Y_AXIS` , the primary Y Axis is located on the leftmost vertical axis of the chart.
 func (o TemplateYAxisOptionsOutput) YAxis() TemplateSingleYAxisOptionOutput {
 	return o.ApplyT(func(v TemplateYAxisOptions) TemplateSingleYAxisOption { return v.YAxis }).(TemplateSingleYAxisOptionOutput)
 }
@@ -13029,6 +13038,9 @@ func (o TemplateYAxisOptionsPtrOutput) Elem() TemplateYAxisOptionsOutput {
 	}).(TemplateYAxisOptionsOutput)
 }
 
+// The Y axis type to be used in the chart.
+//
+// If you choose `PRIMARY_Y_AXIS` , the primary Y Axis is located on the leftmost vertical axis of the chart.
 func (o TemplateYAxisOptionsPtrOutput) YAxis() TemplateSingleYAxisOptionPtrOutput {
 	return o.ApplyT(func(v *TemplateYAxisOptions) *TemplateSingleYAxisOption {
 		if v == nil {

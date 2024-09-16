@@ -269,7 +269,7 @@
     },
     "SignalDecoders" : {
       "minItems" : 1,
-      "maxItems" : 500,
+      "maxItems" : 5000,
       "insertionOrder" : false,
       "type" : "array",
       "items" : {
@@ -291,7 +291,7 @@
     },
     "NetworkInterfaces" : {
       "minItems" : 1,
-      "maxItems" : 500,
+      "maxItems" : 5000,
       "insertionOrder" : false,
       "type" : "array",
       "items" : {

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSingleAxisOptions
     {
+        /// <summary>
+        /// The Y axis options of a single axis configuration.
+        /// </summary>
         public readonly Outputs.AnalysisYAxisOptions? YAxisOptions;
 
         [OutputConstructor]

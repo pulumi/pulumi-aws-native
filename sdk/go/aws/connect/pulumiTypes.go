@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type AgentStatusTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // The constraints for the task template
 type ConstraintsProperties struct {
 	// Lists the fields that are invisible to agents.
@@ -7389,6 +7397,1032 @@ type UserHierarchyGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Information about level five.
+type UserHierarchyStructureLevelFive struct {
+	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
+	Name              string  `pulumi:"name"`
+}
+
+// UserHierarchyStructureLevelFiveInput is an input type that accepts UserHierarchyStructureLevelFiveArgs and UserHierarchyStructureLevelFiveOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelFiveInput` via:
+//
+//	UserHierarchyStructureLevelFiveArgs{...}
+type UserHierarchyStructureLevelFiveInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelFiveOutput() UserHierarchyStructureLevelFiveOutput
+	ToUserHierarchyStructureLevelFiveOutputWithContext(context.Context) UserHierarchyStructureLevelFiveOutput
+}
+
+// Information about level five.
+type UserHierarchyStructureLevelFiveArgs struct {
+	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+}
+
+func (UserHierarchyStructureLevelFiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelFive)(nil)).Elem()
+}
+
+func (i UserHierarchyStructureLevelFiveArgs) ToUserHierarchyStructureLevelFiveOutput() UserHierarchyStructureLevelFiveOutput {
+	return i.ToUserHierarchyStructureLevelFiveOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelFiveArgs) ToUserHierarchyStructureLevelFiveOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelFiveOutput)
+}
+
+func (i UserHierarchyStructureLevelFiveArgs) ToUserHierarchyStructureLevelFivePtrOutput() UserHierarchyStructureLevelFivePtrOutput {
+	return i.ToUserHierarchyStructureLevelFivePtrOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelFiveArgs) ToUserHierarchyStructureLevelFivePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelFiveOutput).ToUserHierarchyStructureLevelFivePtrOutputWithContext(ctx)
+}
+
+// UserHierarchyStructureLevelFivePtrInput is an input type that accepts UserHierarchyStructureLevelFiveArgs, UserHierarchyStructureLevelFivePtr and UserHierarchyStructureLevelFivePtrOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelFivePtrInput` via:
+//
+//	        UserHierarchyStructureLevelFiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserHierarchyStructureLevelFivePtrInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelFivePtrOutput() UserHierarchyStructureLevelFivePtrOutput
+	ToUserHierarchyStructureLevelFivePtrOutputWithContext(context.Context) UserHierarchyStructureLevelFivePtrOutput
+}
+
+type userHierarchyStructureLevelFivePtrType UserHierarchyStructureLevelFiveArgs
+
+func UserHierarchyStructureLevelFivePtr(v *UserHierarchyStructureLevelFiveArgs) UserHierarchyStructureLevelFivePtrInput {
+	return (*userHierarchyStructureLevelFivePtrType)(v)
+}
+
+func (*userHierarchyStructureLevelFivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelFive)(nil)).Elem()
+}
+
+func (i *userHierarchyStructureLevelFivePtrType) ToUserHierarchyStructureLevelFivePtrOutput() UserHierarchyStructureLevelFivePtrOutput {
+	return i.ToUserHierarchyStructureLevelFivePtrOutputWithContext(context.Background())
+}
+
+func (i *userHierarchyStructureLevelFivePtrType) ToUserHierarchyStructureLevelFivePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelFivePtrOutput)
+}
+
+// Information about level five.
+type UserHierarchyStructureLevelFiveOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelFiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelFive)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelFiveOutput) ToUserHierarchyStructureLevelFiveOutput() UserHierarchyStructureLevelFiveOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelFiveOutput) ToUserHierarchyStructureLevelFiveOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFiveOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelFiveOutput) ToUserHierarchyStructureLevelFivePtrOutput() UserHierarchyStructureLevelFivePtrOutput {
+	return o.ToUserHierarchyStructureLevelFivePtrOutputWithContext(context.Background())
+}
+
+func (o UserHierarchyStructureLevelFiveOutput) ToUserHierarchyStructureLevelFivePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserHierarchyStructureLevelFive) *UserHierarchyStructureLevelFive {
+		return &v
+	}).(UserHierarchyStructureLevelFivePtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFiveOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelFive) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFiveOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelFive) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFiveOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelFive) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type UserHierarchyStructureLevelFivePtrOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelFivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelFive)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelFivePtrOutput) ToUserHierarchyStructureLevelFivePtrOutput() UserHierarchyStructureLevelFivePtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelFivePtrOutput) ToUserHierarchyStructureLevelFivePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFivePtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelFivePtrOutput) Elem() UserHierarchyStructureLevelFiveOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelFive) UserHierarchyStructureLevelFive {
+		if v != nil {
+			return *v
+		}
+		var ret UserHierarchyStructureLevelFive
+		return ret
+	}).(UserHierarchyStructureLevelFiveOutput)
+}
+
+func (o UserHierarchyStructureLevelFivePtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelFive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFivePtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelFive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFivePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelFive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about level four.
+type UserHierarchyStructureLevelFour struct {
+	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
+	Name              string  `pulumi:"name"`
+}
+
+// UserHierarchyStructureLevelFourInput is an input type that accepts UserHierarchyStructureLevelFourArgs and UserHierarchyStructureLevelFourOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelFourInput` via:
+//
+//	UserHierarchyStructureLevelFourArgs{...}
+type UserHierarchyStructureLevelFourInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelFourOutput() UserHierarchyStructureLevelFourOutput
+	ToUserHierarchyStructureLevelFourOutputWithContext(context.Context) UserHierarchyStructureLevelFourOutput
+}
+
+// Information about level four.
+type UserHierarchyStructureLevelFourArgs struct {
+	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+}
+
+func (UserHierarchyStructureLevelFourArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelFour)(nil)).Elem()
+}
+
+func (i UserHierarchyStructureLevelFourArgs) ToUserHierarchyStructureLevelFourOutput() UserHierarchyStructureLevelFourOutput {
+	return i.ToUserHierarchyStructureLevelFourOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelFourArgs) ToUserHierarchyStructureLevelFourOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFourOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelFourOutput)
+}
+
+func (i UserHierarchyStructureLevelFourArgs) ToUserHierarchyStructureLevelFourPtrOutput() UserHierarchyStructureLevelFourPtrOutput {
+	return i.ToUserHierarchyStructureLevelFourPtrOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelFourArgs) ToUserHierarchyStructureLevelFourPtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFourPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelFourOutput).ToUserHierarchyStructureLevelFourPtrOutputWithContext(ctx)
+}
+
+// UserHierarchyStructureLevelFourPtrInput is an input type that accepts UserHierarchyStructureLevelFourArgs, UserHierarchyStructureLevelFourPtr and UserHierarchyStructureLevelFourPtrOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelFourPtrInput` via:
+//
+//	        UserHierarchyStructureLevelFourArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserHierarchyStructureLevelFourPtrInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelFourPtrOutput() UserHierarchyStructureLevelFourPtrOutput
+	ToUserHierarchyStructureLevelFourPtrOutputWithContext(context.Context) UserHierarchyStructureLevelFourPtrOutput
+}
+
+type userHierarchyStructureLevelFourPtrType UserHierarchyStructureLevelFourArgs
+
+func UserHierarchyStructureLevelFourPtr(v *UserHierarchyStructureLevelFourArgs) UserHierarchyStructureLevelFourPtrInput {
+	return (*userHierarchyStructureLevelFourPtrType)(v)
+}
+
+func (*userHierarchyStructureLevelFourPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelFour)(nil)).Elem()
+}
+
+func (i *userHierarchyStructureLevelFourPtrType) ToUserHierarchyStructureLevelFourPtrOutput() UserHierarchyStructureLevelFourPtrOutput {
+	return i.ToUserHierarchyStructureLevelFourPtrOutputWithContext(context.Background())
+}
+
+func (i *userHierarchyStructureLevelFourPtrType) ToUserHierarchyStructureLevelFourPtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFourPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelFourPtrOutput)
+}
+
+// Information about level four.
+type UserHierarchyStructureLevelFourOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelFourOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelFour)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelFourOutput) ToUserHierarchyStructureLevelFourOutput() UserHierarchyStructureLevelFourOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelFourOutput) ToUserHierarchyStructureLevelFourOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFourOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelFourOutput) ToUserHierarchyStructureLevelFourPtrOutput() UserHierarchyStructureLevelFourPtrOutput {
+	return o.ToUserHierarchyStructureLevelFourPtrOutputWithContext(context.Background())
+}
+
+func (o UserHierarchyStructureLevelFourOutput) ToUserHierarchyStructureLevelFourPtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFourPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserHierarchyStructureLevelFour) *UserHierarchyStructureLevelFour {
+		return &v
+	}).(UserHierarchyStructureLevelFourPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFourOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelFour) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFourOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelFour) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFourOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelFour) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type UserHierarchyStructureLevelFourPtrOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelFourPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelFour)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelFourPtrOutput) ToUserHierarchyStructureLevelFourPtrOutput() UserHierarchyStructureLevelFourPtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelFourPtrOutput) ToUserHierarchyStructureLevelFourPtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelFourPtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelFourPtrOutput) Elem() UserHierarchyStructureLevelFourOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelFour) UserHierarchyStructureLevelFour {
+		if v != nil {
+			return *v
+		}
+		var ret UserHierarchyStructureLevelFour
+		return ret
+	}).(UserHierarchyStructureLevelFourOutput)
+}
+
+func (o UserHierarchyStructureLevelFourPtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelFour) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFourPtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelFour) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelFourPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelFour) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about level one.
+type UserHierarchyStructureLevelOne struct {
+	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
+	Name              string  `pulumi:"name"`
+}
+
+// UserHierarchyStructureLevelOneInput is an input type that accepts UserHierarchyStructureLevelOneArgs and UserHierarchyStructureLevelOneOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelOneInput` via:
+//
+//	UserHierarchyStructureLevelOneArgs{...}
+type UserHierarchyStructureLevelOneInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelOneOutput() UserHierarchyStructureLevelOneOutput
+	ToUserHierarchyStructureLevelOneOutputWithContext(context.Context) UserHierarchyStructureLevelOneOutput
+}
+
+// Information about level one.
+type UserHierarchyStructureLevelOneArgs struct {
+	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+}
+
+func (UserHierarchyStructureLevelOneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelOne)(nil)).Elem()
+}
+
+func (i UserHierarchyStructureLevelOneArgs) ToUserHierarchyStructureLevelOneOutput() UserHierarchyStructureLevelOneOutput {
+	return i.ToUserHierarchyStructureLevelOneOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelOneArgs) ToUserHierarchyStructureLevelOneOutputWithContext(ctx context.Context) UserHierarchyStructureLevelOneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelOneOutput)
+}
+
+func (i UserHierarchyStructureLevelOneArgs) ToUserHierarchyStructureLevelOnePtrOutput() UserHierarchyStructureLevelOnePtrOutput {
+	return i.ToUserHierarchyStructureLevelOnePtrOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelOneArgs) ToUserHierarchyStructureLevelOnePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelOnePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelOneOutput).ToUserHierarchyStructureLevelOnePtrOutputWithContext(ctx)
+}
+
+// UserHierarchyStructureLevelOnePtrInput is an input type that accepts UserHierarchyStructureLevelOneArgs, UserHierarchyStructureLevelOnePtr and UserHierarchyStructureLevelOnePtrOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelOnePtrInput` via:
+//
+//	        UserHierarchyStructureLevelOneArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserHierarchyStructureLevelOnePtrInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelOnePtrOutput() UserHierarchyStructureLevelOnePtrOutput
+	ToUserHierarchyStructureLevelOnePtrOutputWithContext(context.Context) UserHierarchyStructureLevelOnePtrOutput
+}
+
+type userHierarchyStructureLevelOnePtrType UserHierarchyStructureLevelOneArgs
+
+func UserHierarchyStructureLevelOnePtr(v *UserHierarchyStructureLevelOneArgs) UserHierarchyStructureLevelOnePtrInput {
+	return (*userHierarchyStructureLevelOnePtrType)(v)
+}
+
+func (*userHierarchyStructureLevelOnePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelOne)(nil)).Elem()
+}
+
+func (i *userHierarchyStructureLevelOnePtrType) ToUserHierarchyStructureLevelOnePtrOutput() UserHierarchyStructureLevelOnePtrOutput {
+	return i.ToUserHierarchyStructureLevelOnePtrOutputWithContext(context.Background())
+}
+
+func (i *userHierarchyStructureLevelOnePtrType) ToUserHierarchyStructureLevelOnePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelOnePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelOnePtrOutput)
+}
+
+// Information about level one.
+type UserHierarchyStructureLevelOneOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelOneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelOne)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelOneOutput) ToUserHierarchyStructureLevelOneOutput() UserHierarchyStructureLevelOneOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelOneOutput) ToUserHierarchyStructureLevelOneOutputWithContext(ctx context.Context) UserHierarchyStructureLevelOneOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelOneOutput) ToUserHierarchyStructureLevelOnePtrOutput() UserHierarchyStructureLevelOnePtrOutput {
+	return o.ToUserHierarchyStructureLevelOnePtrOutputWithContext(context.Background())
+}
+
+func (o UserHierarchyStructureLevelOneOutput) ToUserHierarchyStructureLevelOnePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelOnePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserHierarchyStructureLevelOne) *UserHierarchyStructureLevelOne {
+		return &v
+	}).(UserHierarchyStructureLevelOnePtrOutput)
+}
+
+func (o UserHierarchyStructureLevelOneOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelOne) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelOneOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelOne) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelOneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelOne) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type UserHierarchyStructureLevelOnePtrOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelOnePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelOne)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelOnePtrOutput) ToUserHierarchyStructureLevelOnePtrOutput() UserHierarchyStructureLevelOnePtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelOnePtrOutput) ToUserHierarchyStructureLevelOnePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelOnePtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelOnePtrOutput) Elem() UserHierarchyStructureLevelOneOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelOne) UserHierarchyStructureLevelOne {
+		if v != nil {
+			return *v
+		}
+		var ret UserHierarchyStructureLevelOne
+		return ret
+	}).(UserHierarchyStructureLevelOneOutput)
+}
+
+func (o UserHierarchyStructureLevelOnePtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelOne) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelOnePtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelOne) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelOnePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelOne) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about level three.
+type UserHierarchyStructureLevelThree struct {
+	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
+	Name              string  `pulumi:"name"`
+}
+
+// UserHierarchyStructureLevelThreeInput is an input type that accepts UserHierarchyStructureLevelThreeArgs and UserHierarchyStructureLevelThreeOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelThreeInput` via:
+//
+//	UserHierarchyStructureLevelThreeArgs{...}
+type UserHierarchyStructureLevelThreeInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelThreeOutput() UserHierarchyStructureLevelThreeOutput
+	ToUserHierarchyStructureLevelThreeOutputWithContext(context.Context) UserHierarchyStructureLevelThreeOutput
+}
+
+// Information about level three.
+type UserHierarchyStructureLevelThreeArgs struct {
+	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+}
+
+func (UserHierarchyStructureLevelThreeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelThree)(nil)).Elem()
+}
+
+func (i UserHierarchyStructureLevelThreeArgs) ToUserHierarchyStructureLevelThreeOutput() UserHierarchyStructureLevelThreeOutput {
+	return i.ToUserHierarchyStructureLevelThreeOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelThreeArgs) ToUserHierarchyStructureLevelThreeOutputWithContext(ctx context.Context) UserHierarchyStructureLevelThreeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelThreeOutput)
+}
+
+func (i UserHierarchyStructureLevelThreeArgs) ToUserHierarchyStructureLevelThreePtrOutput() UserHierarchyStructureLevelThreePtrOutput {
+	return i.ToUserHierarchyStructureLevelThreePtrOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelThreeArgs) ToUserHierarchyStructureLevelThreePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelThreePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelThreeOutput).ToUserHierarchyStructureLevelThreePtrOutputWithContext(ctx)
+}
+
+// UserHierarchyStructureLevelThreePtrInput is an input type that accepts UserHierarchyStructureLevelThreeArgs, UserHierarchyStructureLevelThreePtr and UserHierarchyStructureLevelThreePtrOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelThreePtrInput` via:
+//
+//	        UserHierarchyStructureLevelThreeArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserHierarchyStructureLevelThreePtrInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelThreePtrOutput() UserHierarchyStructureLevelThreePtrOutput
+	ToUserHierarchyStructureLevelThreePtrOutputWithContext(context.Context) UserHierarchyStructureLevelThreePtrOutput
+}
+
+type userHierarchyStructureLevelThreePtrType UserHierarchyStructureLevelThreeArgs
+
+func UserHierarchyStructureLevelThreePtr(v *UserHierarchyStructureLevelThreeArgs) UserHierarchyStructureLevelThreePtrInput {
+	return (*userHierarchyStructureLevelThreePtrType)(v)
+}
+
+func (*userHierarchyStructureLevelThreePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelThree)(nil)).Elem()
+}
+
+func (i *userHierarchyStructureLevelThreePtrType) ToUserHierarchyStructureLevelThreePtrOutput() UserHierarchyStructureLevelThreePtrOutput {
+	return i.ToUserHierarchyStructureLevelThreePtrOutputWithContext(context.Background())
+}
+
+func (i *userHierarchyStructureLevelThreePtrType) ToUserHierarchyStructureLevelThreePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelThreePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelThreePtrOutput)
+}
+
+// Information about level three.
+type UserHierarchyStructureLevelThreeOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelThreeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelThree)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelThreeOutput) ToUserHierarchyStructureLevelThreeOutput() UserHierarchyStructureLevelThreeOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelThreeOutput) ToUserHierarchyStructureLevelThreeOutputWithContext(ctx context.Context) UserHierarchyStructureLevelThreeOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelThreeOutput) ToUserHierarchyStructureLevelThreePtrOutput() UserHierarchyStructureLevelThreePtrOutput {
+	return o.ToUserHierarchyStructureLevelThreePtrOutputWithContext(context.Background())
+}
+
+func (o UserHierarchyStructureLevelThreeOutput) ToUserHierarchyStructureLevelThreePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelThreePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserHierarchyStructureLevelThree) *UserHierarchyStructureLevelThree {
+		return &v
+	}).(UserHierarchyStructureLevelThreePtrOutput)
+}
+
+func (o UserHierarchyStructureLevelThreeOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelThree) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelThreeOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelThree) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelThreeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelThree) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type UserHierarchyStructureLevelThreePtrOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelThreePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelThree)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelThreePtrOutput) ToUserHierarchyStructureLevelThreePtrOutput() UserHierarchyStructureLevelThreePtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelThreePtrOutput) ToUserHierarchyStructureLevelThreePtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelThreePtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelThreePtrOutput) Elem() UserHierarchyStructureLevelThreeOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelThree) UserHierarchyStructureLevelThree {
+		if v != nil {
+			return *v
+		}
+		var ret UserHierarchyStructureLevelThree
+		return ret
+	}).(UserHierarchyStructureLevelThreeOutput)
+}
+
+func (o UserHierarchyStructureLevelThreePtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelThree) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelThreePtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelThree) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelThreePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelThree) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about level two.
+type UserHierarchyStructureLevelTwo struct {
+	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
+	Name              string  `pulumi:"name"`
+}
+
+// UserHierarchyStructureLevelTwoInput is an input type that accepts UserHierarchyStructureLevelTwoArgs and UserHierarchyStructureLevelTwoOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelTwoInput` via:
+//
+//	UserHierarchyStructureLevelTwoArgs{...}
+type UserHierarchyStructureLevelTwoInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelTwoOutput() UserHierarchyStructureLevelTwoOutput
+	ToUserHierarchyStructureLevelTwoOutputWithContext(context.Context) UserHierarchyStructureLevelTwoOutput
+}
+
+// Information about level two.
+type UserHierarchyStructureLevelTwoArgs struct {
+	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
+	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+}
+
+func (UserHierarchyStructureLevelTwoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelTwo)(nil)).Elem()
+}
+
+func (i UserHierarchyStructureLevelTwoArgs) ToUserHierarchyStructureLevelTwoOutput() UserHierarchyStructureLevelTwoOutput {
+	return i.ToUserHierarchyStructureLevelTwoOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelTwoArgs) ToUserHierarchyStructureLevelTwoOutputWithContext(ctx context.Context) UserHierarchyStructureLevelTwoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelTwoOutput)
+}
+
+func (i UserHierarchyStructureLevelTwoArgs) ToUserHierarchyStructureLevelTwoPtrOutput() UserHierarchyStructureLevelTwoPtrOutput {
+	return i.ToUserHierarchyStructureLevelTwoPtrOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructureLevelTwoArgs) ToUserHierarchyStructureLevelTwoPtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelTwoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelTwoOutput).ToUserHierarchyStructureLevelTwoPtrOutputWithContext(ctx)
+}
+
+// UserHierarchyStructureLevelTwoPtrInput is an input type that accepts UserHierarchyStructureLevelTwoArgs, UserHierarchyStructureLevelTwoPtr and UserHierarchyStructureLevelTwoPtrOutput values.
+// You can construct a concrete instance of `UserHierarchyStructureLevelTwoPtrInput` via:
+//
+//	        UserHierarchyStructureLevelTwoArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserHierarchyStructureLevelTwoPtrInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructureLevelTwoPtrOutput() UserHierarchyStructureLevelTwoPtrOutput
+	ToUserHierarchyStructureLevelTwoPtrOutputWithContext(context.Context) UserHierarchyStructureLevelTwoPtrOutput
+}
+
+type userHierarchyStructureLevelTwoPtrType UserHierarchyStructureLevelTwoArgs
+
+func UserHierarchyStructureLevelTwoPtr(v *UserHierarchyStructureLevelTwoArgs) UserHierarchyStructureLevelTwoPtrInput {
+	return (*userHierarchyStructureLevelTwoPtrType)(v)
+}
+
+func (*userHierarchyStructureLevelTwoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelTwo)(nil)).Elem()
+}
+
+func (i *userHierarchyStructureLevelTwoPtrType) ToUserHierarchyStructureLevelTwoPtrOutput() UserHierarchyStructureLevelTwoPtrOutput {
+	return i.ToUserHierarchyStructureLevelTwoPtrOutputWithContext(context.Background())
+}
+
+func (i *userHierarchyStructureLevelTwoPtrType) ToUserHierarchyStructureLevelTwoPtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelTwoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureLevelTwoPtrOutput)
+}
+
+// Information about level two.
+type UserHierarchyStructureLevelTwoOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelTwoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureLevelTwo)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelTwoOutput) ToUserHierarchyStructureLevelTwoOutput() UserHierarchyStructureLevelTwoOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelTwoOutput) ToUserHierarchyStructureLevelTwoOutputWithContext(ctx context.Context) UserHierarchyStructureLevelTwoOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelTwoOutput) ToUserHierarchyStructureLevelTwoPtrOutput() UserHierarchyStructureLevelTwoPtrOutput {
+	return o.ToUserHierarchyStructureLevelTwoPtrOutputWithContext(context.Background())
+}
+
+func (o UserHierarchyStructureLevelTwoOutput) ToUserHierarchyStructureLevelTwoPtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelTwoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserHierarchyStructureLevelTwo) *UserHierarchyStructureLevelTwo {
+		return &v
+	}).(UserHierarchyStructureLevelTwoPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelTwoOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelTwo) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelTwoOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelTwo) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelTwoOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHierarchyStructureLevelTwo) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type UserHierarchyStructureLevelTwoPtrOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructureLevelTwoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureLevelTwo)(nil)).Elem()
+}
+
+func (o UserHierarchyStructureLevelTwoPtrOutput) ToUserHierarchyStructureLevelTwoPtrOutput() UserHierarchyStructureLevelTwoPtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelTwoPtrOutput) ToUserHierarchyStructureLevelTwoPtrOutputWithContext(ctx context.Context) UserHierarchyStructureLevelTwoPtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructureLevelTwoPtrOutput) Elem() UserHierarchyStructureLevelTwoOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelTwo) UserHierarchyStructureLevelTwo {
+		if v != nil {
+			return *v
+		}
+		var ret UserHierarchyStructureLevelTwo
+		return ret
+	}).(UserHierarchyStructureLevelTwoOutput)
+}
+
+func (o UserHierarchyStructureLevelTwoPtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelTwo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelTwoPtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelTwo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchyLevelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserHierarchyStructureLevelTwoPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureLevelTwo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the hierarchy structure.
+type UserHierarchyStructureProperties struct {
+	LevelFive  *UserHierarchyStructureLevelFive  `pulumi:"levelFive"`
+	LevelFour  *UserHierarchyStructureLevelFour  `pulumi:"levelFour"`
+	LevelOne   *UserHierarchyStructureLevelOne   `pulumi:"levelOne"`
+	LevelThree *UserHierarchyStructureLevelThree `pulumi:"levelThree"`
+	LevelTwo   *UserHierarchyStructureLevelTwo   `pulumi:"levelTwo"`
+}
+
+// UserHierarchyStructurePropertiesInput is an input type that accepts UserHierarchyStructurePropertiesArgs and UserHierarchyStructurePropertiesOutput values.
+// You can construct a concrete instance of `UserHierarchyStructurePropertiesInput` via:
+//
+//	UserHierarchyStructurePropertiesArgs{...}
+type UserHierarchyStructurePropertiesInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructurePropertiesOutput() UserHierarchyStructurePropertiesOutput
+	ToUserHierarchyStructurePropertiesOutputWithContext(context.Context) UserHierarchyStructurePropertiesOutput
+}
+
+// Information about the hierarchy structure.
+type UserHierarchyStructurePropertiesArgs struct {
+	LevelFive  UserHierarchyStructureLevelFivePtrInput  `pulumi:"levelFive"`
+	LevelFour  UserHierarchyStructureLevelFourPtrInput  `pulumi:"levelFour"`
+	LevelOne   UserHierarchyStructureLevelOnePtrInput   `pulumi:"levelOne"`
+	LevelThree UserHierarchyStructureLevelThreePtrInput `pulumi:"levelThree"`
+	LevelTwo   UserHierarchyStructureLevelTwoPtrInput   `pulumi:"levelTwo"`
+}
+
+func (UserHierarchyStructurePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureProperties)(nil)).Elem()
+}
+
+func (i UserHierarchyStructurePropertiesArgs) ToUserHierarchyStructurePropertiesOutput() UserHierarchyStructurePropertiesOutput {
+	return i.ToUserHierarchyStructurePropertiesOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructurePropertiesArgs) ToUserHierarchyStructurePropertiesOutputWithContext(ctx context.Context) UserHierarchyStructurePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructurePropertiesOutput)
+}
+
+func (i UserHierarchyStructurePropertiesArgs) ToUserHierarchyStructurePropertiesPtrOutput() UserHierarchyStructurePropertiesPtrOutput {
+	return i.ToUserHierarchyStructurePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i UserHierarchyStructurePropertiesArgs) ToUserHierarchyStructurePropertiesPtrOutputWithContext(ctx context.Context) UserHierarchyStructurePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructurePropertiesOutput).ToUserHierarchyStructurePropertiesPtrOutputWithContext(ctx)
+}
+
+// UserHierarchyStructurePropertiesPtrInput is an input type that accepts UserHierarchyStructurePropertiesArgs, UserHierarchyStructurePropertiesPtr and UserHierarchyStructurePropertiesPtrOutput values.
+// You can construct a concrete instance of `UserHierarchyStructurePropertiesPtrInput` via:
+//
+//	        UserHierarchyStructurePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserHierarchyStructurePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToUserHierarchyStructurePropertiesPtrOutput() UserHierarchyStructurePropertiesPtrOutput
+	ToUserHierarchyStructurePropertiesPtrOutputWithContext(context.Context) UserHierarchyStructurePropertiesPtrOutput
+}
+
+type userHierarchyStructurePropertiesPtrType UserHierarchyStructurePropertiesArgs
+
+func UserHierarchyStructurePropertiesPtr(v *UserHierarchyStructurePropertiesArgs) UserHierarchyStructurePropertiesPtrInput {
+	return (*userHierarchyStructurePropertiesPtrType)(v)
+}
+
+func (*userHierarchyStructurePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureProperties)(nil)).Elem()
+}
+
+func (i *userHierarchyStructurePropertiesPtrType) ToUserHierarchyStructurePropertiesPtrOutput() UserHierarchyStructurePropertiesPtrOutput {
+	return i.ToUserHierarchyStructurePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *userHierarchyStructurePropertiesPtrType) ToUserHierarchyStructurePropertiesPtrOutputWithContext(ctx context.Context) UserHierarchyStructurePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructurePropertiesPtrOutput)
+}
+
+// Information about the hierarchy structure.
+type UserHierarchyStructurePropertiesOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructurePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHierarchyStructureProperties)(nil)).Elem()
+}
+
+func (o UserHierarchyStructurePropertiesOutput) ToUserHierarchyStructurePropertiesOutput() UserHierarchyStructurePropertiesOutput {
+	return o
+}
+
+func (o UserHierarchyStructurePropertiesOutput) ToUserHierarchyStructurePropertiesOutputWithContext(ctx context.Context) UserHierarchyStructurePropertiesOutput {
+	return o
+}
+
+func (o UserHierarchyStructurePropertiesOutput) ToUserHierarchyStructurePropertiesPtrOutput() UserHierarchyStructurePropertiesPtrOutput {
+	return o.ToUserHierarchyStructurePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o UserHierarchyStructurePropertiesOutput) ToUserHierarchyStructurePropertiesPtrOutputWithContext(ctx context.Context) UserHierarchyStructurePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserHierarchyStructureProperties) *UserHierarchyStructureProperties {
+		return &v
+	}).(UserHierarchyStructurePropertiesPtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesOutput) LevelFive() UserHierarchyStructureLevelFivePtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelFive { return v.LevelFive }).(UserHierarchyStructureLevelFivePtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesOutput) LevelFour() UserHierarchyStructureLevelFourPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelFour { return v.LevelFour }).(UserHierarchyStructureLevelFourPtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesOutput) LevelOne() UserHierarchyStructureLevelOnePtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelOne { return v.LevelOne }).(UserHierarchyStructureLevelOnePtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesOutput) LevelThree() UserHierarchyStructureLevelThreePtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelThree { return v.LevelThree }).(UserHierarchyStructureLevelThreePtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesOutput) LevelTwo() UserHierarchyStructureLevelTwoPtrOutput {
+	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelTwo { return v.LevelTwo }).(UserHierarchyStructureLevelTwoPtrOutput)
+}
+
+type UserHierarchyStructurePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (UserHierarchyStructurePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHierarchyStructureProperties)(nil)).Elem()
+}
+
+func (o UserHierarchyStructurePropertiesPtrOutput) ToUserHierarchyStructurePropertiesPtrOutput() UserHierarchyStructurePropertiesPtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructurePropertiesPtrOutput) ToUserHierarchyStructurePropertiesPtrOutputWithContext(ctx context.Context) UserHierarchyStructurePropertiesPtrOutput {
+	return o
+}
+
+func (o UserHierarchyStructurePropertiesPtrOutput) Elem() UserHierarchyStructurePropertiesOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureProperties) UserHierarchyStructureProperties {
+		if v != nil {
+			return *v
+		}
+		var ret UserHierarchyStructureProperties
+		return ret
+	}).(UserHierarchyStructurePropertiesOutput)
+}
+
+func (o UserHierarchyStructurePropertiesPtrOutput) LevelFive() UserHierarchyStructureLevelFivePtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelFive {
+		if v == nil {
+			return nil
+		}
+		return v.LevelFive
+	}).(UserHierarchyStructureLevelFivePtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesPtrOutput) LevelFour() UserHierarchyStructureLevelFourPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelFour {
+		if v == nil {
+			return nil
+		}
+		return v.LevelFour
+	}).(UserHierarchyStructureLevelFourPtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesPtrOutput) LevelOne() UserHierarchyStructureLevelOnePtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelOne {
+		if v == nil {
+			return nil
+		}
+		return v.LevelOne
+	}).(UserHierarchyStructureLevelOnePtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesPtrOutput) LevelThree() UserHierarchyStructureLevelThreePtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelThree {
+		if v == nil {
+			return nil
+		}
+		return v.LevelThree
+	}).(UserHierarchyStructureLevelThreePtrOutput)
+}
+
+func (o UserHierarchyStructurePropertiesPtrOutput) LevelTwo() UserHierarchyStructureLevelTwoPtrOutput {
+	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelTwo {
+		if v == nil {
+			return nil
+		}
+		return v.LevelTwo
+	}).(UserHierarchyStructureLevelTwoPtrOutput)
+}
+
 // Contains information about the identity of a user.
 type UserIdentityInfo struct {
 	// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
@@ -8091,6 +9125,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateReadOnlyFieldInfoArrayInput)(nil)).Elem(), TaskTemplateReadOnlyFieldInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoArrayInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelFiveInput)(nil)).Elem(), UserHierarchyStructureLevelFiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelFivePtrInput)(nil)).Elem(), UserHierarchyStructureLevelFiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelFourInput)(nil)).Elem(), UserHierarchyStructureLevelFourArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelFourPtrInput)(nil)).Elem(), UserHierarchyStructureLevelFourArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelOneInput)(nil)).Elem(), UserHierarchyStructureLevelOneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelOnePtrInput)(nil)).Elem(), UserHierarchyStructureLevelOneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelThreeInput)(nil)).Elem(), UserHierarchyStructureLevelThreeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelThreePtrInput)(nil)).Elem(), UserHierarchyStructureLevelThreeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelTwoInput)(nil)).Elem(), UserHierarchyStructureLevelTwoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureLevelTwoPtrInput)(nil)).Elem(), UserHierarchyStructureLevelTwoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructurePropertiesInput)(nil)).Elem(), UserHierarchyStructurePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructurePropertiesPtrInput)(nil)).Elem(), UserHierarchyStructurePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
@@ -8200,6 +9246,18 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateReadOnlyFieldInfoArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoOutput{})
 	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoArrayOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelFiveOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelFivePtrOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelFourOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelFourPtrOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelOneOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelOnePtrOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelThreeOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelThreePtrOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelTwoOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructureLevelTwoPtrOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructurePropertiesOutput{})
+	pulumi.RegisterOutputType(UserHierarchyStructurePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
 	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigOutput{})

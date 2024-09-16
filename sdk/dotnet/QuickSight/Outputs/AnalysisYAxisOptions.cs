@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisYAxisOptions
     {
+        /// <summary>
+        /// The Y axis type to be used in the chart.
+        /// 
+        /// If you choose `PRIMARY_Y_AXIS` , the primary Y Axis is located on the leftmost vertical axis of the chart.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSingleYAxisOption YAxis;
 
         [OutputConstructor]

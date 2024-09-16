@@ -9,11 +9,13 @@ from ._enums import *
 from .data_source import *
 from .domain import *
 from .environment import *
+from .environment_actions import *
 from .environment_blueprint_configuration import *
 from .environment_profile import *
 from .get_data_source import *
 from .get_domain import *
 from .get_environment import *
+from .get_environment_actions import *
 from .get_environment_blueprint_configuration import *
 from .get_environment_profile import *
 from .get_group_profile import *

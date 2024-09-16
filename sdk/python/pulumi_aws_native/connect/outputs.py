@@ -67,6 +67,12 @@ __all__ = [
     'TaskTemplateInvisibleFieldInfo',
     'TaskTemplateReadOnlyFieldInfo',
     'TaskTemplateRequiredFieldInfo',
+    'UserHierarchyStructureLevelFive',
+    'UserHierarchyStructureLevelFour',
+    'UserHierarchyStructureLevelOne',
+    'UserHierarchyStructureLevelThree',
+    'UserHierarchyStructureLevelTwo',
+    'UserHierarchyStructureProperties',
     'UserIdentityInfo',
     'UserPhoneConfig',
     'UserProficiency',
@@ -2941,6 +2947,347 @@ class TaskTemplateRequiredFieldInfo(dict):
     @pulumi.getter
     def id(self) -> 'outputs.TaskTemplateFieldIdentifier':
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class UserHierarchyStructureLevelFive(dict):
+    """
+    Information about level five.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hierarchyLevelArn":
+            suggest = "hierarchy_level_arn"
+        elif key == "hierarchyLevelId":
+            suggest = "hierarchy_level_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserHierarchyStructureLevelFive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserHierarchyStructureLevelFive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserHierarchyStructureLevelFive.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 hierarchy_level_arn: Optional[str] = None,
+                 hierarchy_level_id: Optional[str] = None):
+        """
+        Information about level five.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+
+@pulumi.output_type
+class UserHierarchyStructureLevelFour(dict):
+    """
+    Information about level four.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hierarchyLevelArn":
+            suggest = "hierarchy_level_arn"
+        elif key == "hierarchyLevelId":
+            suggest = "hierarchy_level_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserHierarchyStructureLevelFour. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserHierarchyStructureLevelFour.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserHierarchyStructureLevelFour.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 hierarchy_level_arn: Optional[str] = None,
+                 hierarchy_level_id: Optional[str] = None):
+        """
+        Information about level four.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+
+@pulumi.output_type
+class UserHierarchyStructureLevelOne(dict):
+    """
+    Information about level one.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hierarchyLevelArn":
+            suggest = "hierarchy_level_arn"
+        elif key == "hierarchyLevelId":
+            suggest = "hierarchy_level_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserHierarchyStructureLevelOne. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserHierarchyStructureLevelOne.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserHierarchyStructureLevelOne.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 hierarchy_level_arn: Optional[str] = None,
+                 hierarchy_level_id: Optional[str] = None):
+        """
+        Information about level one.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+
+@pulumi.output_type
+class UserHierarchyStructureLevelThree(dict):
+    """
+    Information about level three.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hierarchyLevelArn":
+            suggest = "hierarchy_level_arn"
+        elif key == "hierarchyLevelId":
+            suggest = "hierarchy_level_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserHierarchyStructureLevelThree. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserHierarchyStructureLevelThree.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserHierarchyStructureLevelThree.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 hierarchy_level_arn: Optional[str] = None,
+                 hierarchy_level_id: Optional[str] = None):
+        """
+        Information about level three.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+
+@pulumi.output_type
+class UserHierarchyStructureLevelTwo(dict):
+    """
+    Information about level two.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hierarchyLevelArn":
+            suggest = "hierarchy_level_arn"
+        elif key == "hierarchyLevelId":
+            suggest = "hierarchy_level_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserHierarchyStructureLevelTwo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserHierarchyStructureLevelTwo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserHierarchyStructureLevelTwo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 hierarchy_level_arn: Optional[str] = None,
+                 hierarchy_level_id: Optional[str] = None):
+        """
+        Information about level two.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[str]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+
+@pulumi.output_type
+class UserHierarchyStructureProperties(dict):
+    """
+    Information about the hierarchy structure.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "levelFive":
+            suggest = "level_five"
+        elif key == "levelFour":
+            suggest = "level_four"
+        elif key == "levelOne":
+            suggest = "level_one"
+        elif key == "levelThree":
+            suggest = "level_three"
+        elif key == "levelTwo":
+            suggest = "level_two"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserHierarchyStructureProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserHierarchyStructureProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserHierarchyStructureProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 level_five: Optional['outputs.UserHierarchyStructureLevelFive'] = None,
+                 level_four: Optional['outputs.UserHierarchyStructureLevelFour'] = None,
+                 level_one: Optional['outputs.UserHierarchyStructureLevelOne'] = None,
+                 level_three: Optional['outputs.UserHierarchyStructureLevelThree'] = None,
+                 level_two: Optional['outputs.UserHierarchyStructureLevelTwo'] = None):
+        """
+        Information about the hierarchy structure.
+        """
+        if level_five is not None:
+            pulumi.set(__self__, "level_five", level_five)
+        if level_four is not None:
+            pulumi.set(__self__, "level_four", level_four)
+        if level_one is not None:
+            pulumi.set(__self__, "level_one", level_one)
+        if level_three is not None:
+            pulumi.set(__self__, "level_three", level_three)
+        if level_two is not None:
+            pulumi.set(__self__, "level_two", level_two)
+
+    @property
+    @pulumi.getter(name="levelFive")
+    def level_five(self) -> Optional['outputs.UserHierarchyStructureLevelFive']:
+        return pulumi.get(self, "level_five")
+
+    @property
+    @pulumi.getter(name="levelFour")
+    def level_four(self) -> Optional['outputs.UserHierarchyStructureLevelFour']:
+        return pulumi.get(self, "level_four")
+
+    @property
+    @pulumi.getter(name="levelOne")
+    def level_one(self) -> Optional['outputs.UserHierarchyStructureLevelOne']:
+        return pulumi.get(self, "level_one")
+
+    @property
+    @pulumi.getter(name="levelThree")
+    def level_three(self) -> Optional['outputs.UserHierarchyStructureLevelThree']:
+        return pulumi.get(self, "level_three")
+
+    @property
+    @pulumi.getter(name="levelTwo")
+    def level_two(self) -> Optional['outputs.UserHierarchyStructureLevelTwo']:
+        return pulumi.get(self, "level_two")
 
 
 @pulumi.output_type
