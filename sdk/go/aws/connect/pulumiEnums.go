@@ -10,6 +10,340 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The state of the status.
+type AgentStatusStateEnum string
+
+const (
+	AgentStatusStateEnumEnabled  = AgentStatusStateEnum("ENABLED")
+	AgentStatusStateEnumDisabled = AgentStatusStateEnum("DISABLED")
+)
+
+func (AgentStatusStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentStatusStateEnum)(nil)).Elem()
+}
+
+func (e AgentStatusStateEnum) ToAgentStatusStateEnumOutput() AgentStatusStateEnumOutput {
+	return pulumi.ToOutput(e).(AgentStatusStateEnumOutput)
+}
+
+func (e AgentStatusStateEnum) ToAgentStatusStateEnumOutputWithContext(ctx context.Context) AgentStatusStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentStatusStateEnumOutput)
+}
+
+func (e AgentStatusStateEnum) ToAgentStatusStateEnumPtrOutput() AgentStatusStateEnumPtrOutput {
+	return e.ToAgentStatusStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e AgentStatusStateEnum) ToAgentStatusStateEnumPtrOutputWithContext(ctx context.Context) AgentStatusStateEnumPtrOutput {
+	return AgentStatusStateEnum(e).ToAgentStatusStateEnumOutputWithContext(ctx).ToAgentStatusStateEnumPtrOutputWithContext(ctx)
+}
+
+func (e AgentStatusStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentStatusStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentStatusStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentStatusStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentStatusStateEnumOutput struct{ *pulumi.OutputState }
+
+func (AgentStatusStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentStatusStateEnum)(nil)).Elem()
+}
+
+func (o AgentStatusStateEnumOutput) ToAgentStatusStateEnumOutput() AgentStatusStateEnumOutput {
+	return o
+}
+
+func (o AgentStatusStateEnumOutput) ToAgentStatusStateEnumOutputWithContext(ctx context.Context) AgentStatusStateEnumOutput {
+	return o
+}
+
+func (o AgentStatusStateEnumOutput) ToAgentStatusStateEnumPtrOutput() AgentStatusStateEnumPtrOutput {
+	return o.ToAgentStatusStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusStateEnumOutput) ToAgentStatusStateEnumPtrOutputWithContext(ctx context.Context) AgentStatusStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentStatusStateEnum) *AgentStatusStateEnum {
+		return &v
+	}).(AgentStatusStateEnumPtrOutput)
+}
+
+func (o AgentStatusStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentStatusStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentStatusStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentStatusStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentStatusStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentStatusStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentStatusStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentStatusStateEnum)(nil)).Elem()
+}
+
+func (o AgentStatusStateEnumPtrOutput) ToAgentStatusStateEnumPtrOutput() AgentStatusStateEnumPtrOutput {
+	return o
+}
+
+func (o AgentStatusStateEnumPtrOutput) ToAgentStatusStateEnumPtrOutputWithContext(ctx context.Context) AgentStatusStateEnumPtrOutput {
+	return o
+}
+
+func (o AgentStatusStateEnumPtrOutput) Elem() AgentStatusStateEnumOutput {
+	return o.ApplyT(func(v *AgentStatusStateEnum) AgentStatusStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret AgentStatusStateEnum
+		return ret
+	}).(AgentStatusStateEnumOutput)
+}
+
+func (o AgentStatusStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentStatusStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentStatusStateEnumInput is an input type that accepts values of the AgentStatusStateEnum enum
+// A concrete instance of `AgentStatusStateEnumInput` can be one of the following:
+//
+//	AgentStatusStateEnumEnabled
+//	AgentStatusStateEnumDisabled
+type AgentStatusStateEnumInput interface {
+	pulumi.Input
+
+	ToAgentStatusStateEnumOutput() AgentStatusStateEnumOutput
+	ToAgentStatusStateEnumOutputWithContext(context.Context) AgentStatusStateEnumOutput
+}
+
+var agentStatusStateEnumPtrType = reflect.TypeOf((**AgentStatusStateEnum)(nil)).Elem()
+
+type AgentStatusStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToAgentStatusStateEnumPtrOutput() AgentStatusStateEnumPtrOutput
+	ToAgentStatusStateEnumPtrOutputWithContext(context.Context) AgentStatusStateEnumPtrOutput
+}
+
+type agentStatusStateEnumPtr string
+
+func AgentStatusStateEnumPtr(v string) AgentStatusStateEnumPtrInput {
+	return (*agentStatusStateEnumPtr)(&v)
+}
+
+func (*agentStatusStateEnumPtr) ElementType() reflect.Type {
+	return agentStatusStateEnumPtrType
+}
+
+func (in *agentStatusStateEnumPtr) ToAgentStatusStateEnumPtrOutput() AgentStatusStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(AgentStatusStateEnumPtrOutput)
+}
+
+func (in *agentStatusStateEnumPtr) ToAgentStatusStateEnumPtrOutputWithContext(ctx context.Context) AgentStatusStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentStatusStateEnumPtrOutput)
+}
+
+// The type of agent status.
+type AgentStatusType string
+
+const (
+	AgentStatusTypeRoutable = AgentStatusType("ROUTABLE")
+	AgentStatusTypeCustom   = AgentStatusType("CUSTOM")
+	AgentStatusTypeOffline  = AgentStatusType("OFFLINE")
+)
+
+func (AgentStatusType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentStatusType)(nil)).Elem()
+}
+
+func (e AgentStatusType) ToAgentStatusTypeOutput() AgentStatusTypeOutput {
+	return pulumi.ToOutput(e).(AgentStatusTypeOutput)
+}
+
+func (e AgentStatusType) ToAgentStatusTypeOutputWithContext(ctx context.Context) AgentStatusTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentStatusTypeOutput)
+}
+
+func (e AgentStatusType) ToAgentStatusTypePtrOutput() AgentStatusTypePtrOutput {
+	return e.ToAgentStatusTypePtrOutputWithContext(context.Background())
+}
+
+func (e AgentStatusType) ToAgentStatusTypePtrOutputWithContext(ctx context.Context) AgentStatusTypePtrOutput {
+	return AgentStatusType(e).ToAgentStatusTypeOutputWithContext(ctx).ToAgentStatusTypePtrOutputWithContext(ctx)
+}
+
+func (e AgentStatusType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentStatusType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentStatusType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentStatusType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentStatusTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentStatusTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentStatusType)(nil)).Elem()
+}
+
+func (o AgentStatusTypeOutput) ToAgentStatusTypeOutput() AgentStatusTypeOutput {
+	return o
+}
+
+func (o AgentStatusTypeOutput) ToAgentStatusTypeOutputWithContext(ctx context.Context) AgentStatusTypeOutput {
+	return o
+}
+
+func (o AgentStatusTypeOutput) ToAgentStatusTypePtrOutput() AgentStatusTypePtrOutput {
+	return o.ToAgentStatusTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusTypeOutput) ToAgentStatusTypePtrOutputWithContext(ctx context.Context) AgentStatusTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentStatusType) *AgentStatusType {
+		return &v
+	}).(AgentStatusTypePtrOutput)
+}
+
+func (o AgentStatusTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentStatusTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentStatusType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentStatusTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentStatusType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentStatusTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentStatusTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentStatusType)(nil)).Elem()
+}
+
+func (o AgentStatusTypePtrOutput) ToAgentStatusTypePtrOutput() AgentStatusTypePtrOutput {
+	return o
+}
+
+func (o AgentStatusTypePtrOutput) ToAgentStatusTypePtrOutputWithContext(ctx context.Context) AgentStatusTypePtrOutput {
+	return o
+}
+
+func (o AgentStatusTypePtrOutput) Elem() AgentStatusTypeOutput {
+	return o.ApplyT(func(v *AgentStatusType) AgentStatusType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentStatusType
+		return ret
+	}).(AgentStatusTypeOutput)
+}
+
+func (o AgentStatusTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentStatusType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentStatusTypeInput is an input type that accepts values of the AgentStatusType enum
+// A concrete instance of `AgentStatusTypeInput` can be one of the following:
+//
+//	AgentStatusTypeRoutable
+//	AgentStatusTypeCustom
+//	AgentStatusTypeOffline
+type AgentStatusTypeInput interface {
+	pulumi.Input
+
+	ToAgentStatusTypeOutput() AgentStatusTypeOutput
+	ToAgentStatusTypeOutputWithContext(context.Context) AgentStatusTypeOutput
+}
+
+var agentStatusTypePtrType = reflect.TypeOf((**AgentStatusType)(nil)).Elem()
+
+type AgentStatusTypePtrInput interface {
+	pulumi.Input
+
+	ToAgentStatusTypePtrOutput() AgentStatusTypePtrOutput
+	ToAgentStatusTypePtrOutputWithContext(context.Context) AgentStatusTypePtrOutput
+}
+
+type agentStatusTypePtr string
+
+func AgentStatusTypePtr(v string) AgentStatusTypePtrInput {
+	return (*agentStatusTypePtr)(&v)
+}
+
+func (*agentStatusTypePtr) ElementType() reflect.Type {
+	return agentStatusTypePtrType
+}
+
+func (in *agentStatusTypePtr) ToAgentStatusTypePtrOutput() AgentStatusTypePtrOutput {
+	return pulumi.ToOutput(in).(AgentStatusTypePtrOutput)
+}
+
+func (in *agentStatusTypePtr) ToAgentStatusTypePtrOutputWithContext(ctx context.Context) AgentStatusTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentStatusTypePtrOutput)
+}
+
 // The state of the contact flow.
 type ContactFlowStateEnum string
 
@@ -5047,6 +5381,10 @@ func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentStatusStateEnumInput)(nil)).Elem(), AgentStatusStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentStatusStateEnumPtrInput)(nil)).Elem(), AgentStatusStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentStatusTypeInput)(nil)).Elem(), AgentStatusType("ROUTABLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentStatusTypePtrInput)(nil)).Elem(), AgentStatusType("ROUTABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowStateEnumInput)(nil)).Elem(), ContactFlowStateEnum("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowStateEnumPtrInput)(nil)).Elem(), ContactFlowStateEnum("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTypeInput)(nil)).Elem(), ContactFlowType("CONTACT_FLOW"))
@@ -5103,6 +5441,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusPtrInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypeInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypePtrInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
+	pulumi.RegisterOutputType(AgentStatusStateEnumOutput{})
+	pulumi.RegisterOutputType(AgentStatusStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(AgentStatusTypeOutput{})
+	pulumi.RegisterOutputType(AgentStatusTypePtrOutput{})
 	pulumi.RegisterOutputType(ContactFlowStateEnumOutput{})
 	pulumi.RegisterOutputType(ContactFlowStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(ContactFlowTypeOutput{})

@@ -26,7 +26,8 @@ type EventBridgeRuleTemplate struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
 	EventTargets EventBridgeRuleTemplateTargetArrayOutput `pulumi:"eventTargets"`
-	EventType    EventBridgeRuleTemplateEventTypeOutput   `pulumi:"eventType"`
+	// The type of event to match with the rule.
+	EventType EventBridgeRuleTemplateEventTypeOutput `pulumi:"eventType"`
 	// An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// An eventbridge rule template group's identifier. Can be either be its id or current name.
@@ -93,8 +94,9 @@ type eventBridgeRuleTemplateArgs struct {
 	// A resource's optional description.
 	Description *string `pulumi:"description"`
 	// Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
-	EventTargets []EventBridgeRuleTemplateTarget  `pulumi:"eventTargets"`
-	EventType    EventBridgeRuleTemplateEventType `pulumi:"eventType"`
+	EventTargets []EventBridgeRuleTemplateTarget `pulumi:"eventTargets"`
+	// The type of event to match with the rule.
+	EventType EventBridgeRuleTemplateEventType `pulumi:"eventType"`
 	// An eventbridge rule template group's identifier. Can be either be its id or current name.
 	GroupIdentifier string `pulumi:"groupIdentifier"`
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -108,7 +110,8 @@ type EventBridgeRuleTemplateArgs struct {
 	Description pulumi.StringPtrInput
 	// Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
 	EventTargets EventBridgeRuleTemplateTargetArrayInput
-	EventType    EventBridgeRuleTemplateEventTypeInput
+	// The type of event to match with the rule.
+	EventType EventBridgeRuleTemplateEventTypeInput
 	// An eventbridge rule template group's identifier. Can be either be its id or current name.
 	GroupIdentifier pulumi.StringInput
 	// A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -178,6 +181,7 @@ func (o EventBridgeRuleTemplateOutput) EventTargets() EventBridgeRuleTemplateTar
 	return o.ApplyT(func(v *EventBridgeRuleTemplate) EventBridgeRuleTemplateTargetArrayOutput { return v.EventTargets }).(EventBridgeRuleTemplateTargetArrayOutput)
 }
 
+// The type of event to match with the rule.
 func (o EventBridgeRuleTemplateOutput) EventType() EventBridgeRuleTemplateEventTypeOutput {
 	return o.ApplyT(func(v *EventBridgeRuleTemplate) EventBridgeRuleTemplateEventTypeOutput { return v.EventType }).(EventBridgeRuleTemplateEventTypeOutput)
 }

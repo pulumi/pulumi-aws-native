@@ -27,6 +27,7 @@ __all__ = [
     'DataSourceRelationalFilterConfiguration',
     'DataSourceScheduleConfiguration',
     'DomainSingleSignOn',
+    'EnvironmentActionsAwsConsoleLinkParameters',
     'EnvironmentBlueprintConfigurationRegionalParameter',
     'EnvironmentParameter',
     'EnvironmentProfileEnvironmentParameter',
@@ -732,6 +733,25 @@ class DomainSingleSignOn(dict):
         The single sign-on user assignment in Amazon DataZone.
         """
         return pulumi.get(self, "user_assignment")
+
+
+@pulumi.output_type
+class EnvironmentActionsAwsConsoleLinkParameters(dict):
+    """
+    The parameters of the console link specified as part of the environment action
+    """
+    def __init__(__self__, *,
+                 uri: Optional[str] = None):
+        """
+        The parameters of the console link specified as part of the environment action
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type

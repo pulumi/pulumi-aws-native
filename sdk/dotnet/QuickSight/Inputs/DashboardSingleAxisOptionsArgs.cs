@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSingleAxisOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Y axis options of a single axis configuration.
+        /// </summary>
         [Input("yAxisOptions")]
-        public Input<object>? YAxisOptions { get; set; }
+        public Input<Inputs.DashboardYAxisOptionsArgs>? YAxisOptions { get; set; }
 
         public DashboardSingleAxisOptionsArgs()
         {

@@ -360,6 +360,10 @@ export const Region = {
      */
     ApSouth1: "ap-south-1",
     /**
+     * Asia Pacific (Hyderabad)
+     */
+    ApSouth2: "ap-south-2",
+    /**
      * Asia Pacific (Singapore)
      */
     ApSoutheast1: "ap-southeast-1",
@@ -368,9 +372,25 @@ export const Region = {
      */
     ApSoutheast2: "ap-southeast-2",
     /**
+     * Asia Pacific (Jakarta)
+     */
+    ApSoutheast3: "ap-southeast-3",
+    /**
+     * Asia Pacific (Melbourne)
+     */
+    ApSoutheast4: "ap-southeast-4",
+    /**
+     * Asia Pacific (Malaysia)
+     */
+    ApSoutheast5: "ap-southeast-5",
+    /**
      * Canada (Central)
      */
-    CaCentral: "ca-central-1",
+    CaCentral1: "ca-central-1",
+    /**
+     * Canada West (Calgary)
+     */
+    CaWest1: "ca-west-1",
     /**
      * China (Beijing)
      */
@@ -384,9 +404,25 @@ export const Region = {
      */
     EuCentral1: "eu-central-1",
     /**
+     * Europe (Zurich)
+     */
+    EuCentral2: "eu-central-2",
+    /**
+     * EU ISOE West
+     */
+    EuIsoeWest1: "eu-isoe-west-1",
+    /**
      * Europe (Stockholm)
      */
     EuNorth1: "eu-north-1",
+    /**
+     * Europe (Milan)
+     */
+    EuSouth1: "eu-south-1",
+    /**
+     * Europe (Spain)
+     */
+    EuSouth2: "eu-south-2",
     /**
      * Europe (Ireland)
      */
@@ -400,17 +436,29 @@ export const Region = {
      */
     EuWest3: "eu-west-3",
     /**
-     * Europe (Milan)
+     * Israel (Tel Aviv)
      */
-    EuSouth1: "eu-south-1",
+    IlCentral1: "il-central-1",
+    /**
+     * Middle East (UAE)
+     */
+    MeCentral1: "me-central-1",
     /**
      * Middle East (Bahrain)
      */
     MeSouth1: "me-south-1",
     /**
-     * South America (São Paulo)
+     * South America (Sao Paulo)
      */
     SaEast1: "sa-east-1",
+    /**
+     * US East (N. Virginia)
+     */
+    UsEast1: "us-east-1",
+    /**
+     * US East (Ohio)
+     */
+    UsEast2: "us-east-2",
     /**
      * AWS GovCloud (US-East)
      */
@@ -420,13 +468,17 @@ export const Region = {
      */
     UsGovWest1: "us-gov-west-1",
     /**
-     * US East (N. Virginia)
+     * US ISO East
      */
-    UsEast1: "us-east-1",
+    UsIsoEast1: "us-iso-east-1",
     /**
-     * US East (Ohio)
+     * US ISO WEST
      */
-    UsEast2: "us-east-2",
+    UsIsoWest1: "us-iso-west-1",
+    /**
+     * US ISOB East (Ohio)
+     */
+    UsIsobEast1: "us-isob-east-1",
     /**
      * US West (N. California)
      */

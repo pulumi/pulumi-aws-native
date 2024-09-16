@@ -27,6 +27,7 @@ class DataSetArgs:
                  data_set_usage_configuration: Optional[pulumi.Input['DataSetUsageConfigurationArgs']] = None,
                  dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]]] = None,
                  field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']] = None,
                  logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]] = None,
@@ -48,6 +49,7 @@ class DataSetArgs:
         :param pulumi.Input['DataSetUsageConfigurationArgs'] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]] field_folders: The folder that contains fields and nested subfolders for your dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] folder_arns: <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
         :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
         :param pulumi.Input['DataSetIngestionWaitPolicyArgs'] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
         :param pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
@@ -74,6 +76,8 @@ class DataSetArgs:
             pulumi.set(__self__, "dataset_parameters", dataset_parameters)
         if field_folders is not None:
             pulumi.set(__self__, "field_folders", field_folders)
+        if folder_arns is not None:
+            pulumi.set(__self__, "folder_arns", folder_arns)
         if import_mode is not None:
             pulumi.set(__self__, "import_mode", import_mode)
         if ingestion_wait_policy is not None:
@@ -190,6 +194,18 @@ class DataSetArgs:
     @field_folders.setter
     def field_folders(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]]):
         pulumi.set(self, "field_folders", value)
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+        """
+        return pulumi.get(self, "folder_arns")
+
+    @folder_arns.setter
+    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "folder_arns", value)
 
     @property
     @pulumi.getter(name="importMode")
@@ -313,6 +329,7 @@ class DataSet(pulumi.CustomResource):
                  data_set_usage_configuration: Optional[pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']]] = None,
                  dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetDatasetParameterArgs', 'DataSetDatasetParameterArgsDict']]]]] = None,
                  field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']]] = None,
                  logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]]] = None,
@@ -338,6 +355,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetDatasetParameterArgs', 'DataSetDatasetParameterArgsDict']]]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]] field_folders: The folder that contains fields and nested subfolders for your dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] folder_arns: <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
         :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
         :param pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
@@ -380,6 +398,7 @@ class DataSet(pulumi.CustomResource):
                  data_set_usage_configuration: Optional[pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']]] = None,
                  dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetDatasetParameterArgs', 'DataSetDatasetParameterArgsDict']]]]] = None,
                  field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']]] = None,
                  logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]]] = None,
@@ -406,6 +425,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["data_set_usage_configuration"] = data_set_usage_configuration
             __props__.__dict__["dataset_parameters"] = dataset_parameters
             __props__.__dict__["field_folders"] = field_folders
+            __props__.__dict__["folder_arns"] = folder_arns
             __props__.__dict__["import_mode"] = import_mode
             __props__.__dict__["ingestion_wait_policy"] = ingestion_wait_policy
             __props__.__dict__["logical_table_map"] = logical_table_map
@@ -455,6 +475,7 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["data_set_usage_configuration"] = None
         __props__.__dict__["dataset_parameters"] = None
         __props__.__dict__["field_folders"] = None
+        __props__.__dict__["folder_arns"] = None
         __props__.__dict__["import_mode"] = None
         __props__.__dict__["ingestion_wait_policy"] = None
         __props__.__dict__["last_updated_time"] = None
@@ -558,6 +579,14 @@ class DataSet(pulumi.CustomResource):
         The folder that contains fields and nested subfolders for your dataset.
         """
         return pulumi.get(self, "field_folders")
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+        """
+        return pulumi.get(self, "folder_arns")
 
     @property
     @pulumi.getter(name="importMode")

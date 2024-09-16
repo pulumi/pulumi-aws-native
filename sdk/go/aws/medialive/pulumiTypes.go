@@ -1917,9 +1917,11 @@ type SdiSourceTags struct {
 
 // An AWS resource used in media workflows.
 type SignalMapMediaResource struct {
+	// A direct destination neighbor to an Amazon Web Services media resource.
 	Destinations []SignalMapMediaResourceNeighbor `pulumi:"destinations"`
 	// The logical name of an AWS media resource.
-	Name    *string                          `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A direct source neighbor to an Amazon Web Services media resource.
 	Sources []SignalMapMediaResourceNeighbor `pulumi:"sources"`
 }
 
@@ -1938,6 +1940,7 @@ func (o SignalMapMediaResourceOutput) ToSignalMapMediaResourceOutputWithContext(
 	return o
 }
 
+// A direct destination neighbor to an Amazon Web Services media resource.
 func (o SignalMapMediaResourceOutput) Destinations() SignalMapMediaResourceNeighborArrayOutput {
 	return o.ApplyT(func(v SignalMapMediaResource) []SignalMapMediaResourceNeighbor { return v.Destinations }).(SignalMapMediaResourceNeighborArrayOutput)
 }
@@ -1947,6 +1950,7 @@ func (o SignalMapMediaResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignalMapMediaResource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A direct source neighbor to an Amazon Web Services media resource.
 func (o SignalMapMediaResourceOutput) Sources() SignalMapMediaResourceNeighborArrayOutput {
 	return o.ApplyT(func(v SignalMapMediaResource) []SignalMapMediaResourceNeighbor { return v.Sources }).(SignalMapMediaResourceNeighborArrayOutput)
 }
@@ -2029,8 +2033,9 @@ type SignalMapMonitorDeployment struct {
 	// URI associated with a signal map's monitor deployment.
 	DetailsUri *string `pulumi:"detailsUri"`
 	// Error message associated with a failed monitor deployment of a signal map.
-	ErrorMessage *string                          `pulumi:"errorMessage"`
-	Status       SignalMapMonitorDeploymentStatus `pulumi:"status"`
+	ErrorMessage *string `pulumi:"errorMessage"`
+	// The signal map monitor deployment status.
+	Status SignalMapMonitorDeploymentStatus `pulumi:"status"`
 }
 
 // Represents the latest monitor deployment of a signal map.
@@ -2058,6 +2063,7 @@ func (o SignalMapMonitorDeploymentOutput) ErrorMessage() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SignalMapMonitorDeployment) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
+// The signal map monitor deployment status.
 func (o SignalMapMonitorDeploymentOutput) Status() SignalMapMonitorDeploymentStatusOutput {
 	return o.ApplyT(func(v SignalMapMonitorDeployment) SignalMapMonitorDeploymentStatus { return v.Status }).(SignalMapMonitorDeploymentStatusOutput)
 }
@@ -2106,6 +2112,7 @@ func (o SignalMapMonitorDeploymentPtrOutput) ErrorMessage() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The signal map monitor deployment status.
 func (o SignalMapMonitorDeploymentPtrOutput) Status() SignalMapMonitorDeploymentStatusPtrOutput {
 	return o.ApplyT(func(v *SignalMapMonitorDeployment) *SignalMapMonitorDeploymentStatus {
 		if v == nil {
@@ -2118,8 +2125,9 @@ func (o SignalMapMonitorDeploymentPtrOutput) Status() SignalMapMonitorDeployment
 // Represents the latest successful monitor deployment of a signal map.
 type SignalMapSuccessfulMonitorDeployment struct {
 	// URI associated with a signal map's monitor deployment.
-	DetailsUri string                           `pulumi:"detailsUri"`
-	Status     SignalMapMonitorDeploymentStatus `pulumi:"status"`
+	DetailsUri string `pulumi:"detailsUri"`
+	// A signal map's monitor deployment status.
+	Status SignalMapMonitorDeploymentStatus `pulumi:"status"`
 }
 
 // Represents the latest successful monitor deployment of a signal map.
@@ -2142,6 +2150,7 @@ func (o SignalMapSuccessfulMonitorDeploymentOutput) DetailsUri() pulumi.StringOu
 	return o.ApplyT(func(v SignalMapSuccessfulMonitorDeployment) string { return v.DetailsUri }).(pulumi.StringOutput)
 }
 
+// A signal map's monitor deployment status.
 func (o SignalMapSuccessfulMonitorDeploymentOutput) Status() SignalMapMonitorDeploymentStatusOutput {
 	return o.ApplyT(func(v SignalMapSuccessfulMonitorDeployment) SignalMapMonitorDeploymentStatus { return v.Status }).(SignalMapMonitorDeploymentStatusOutput)
 }
@@ -2180,6 +2189,7 @@ func (o SignalMapSuccessfulMonitorDeploymentPtrOutput) DetailsUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// A signal map's monitor deployment status.
 func (o SignalMapSuccessfulMonitorDeploymentPtrOutput) Status() SignalMapMonitorDeploymentStatusPtrOutput {
 	return o.ApplyT(func(v *SignalMapSuccessfulMonitorDeployment) *SignalMapMonitorDeploymentStatus {
 		if v == nil {

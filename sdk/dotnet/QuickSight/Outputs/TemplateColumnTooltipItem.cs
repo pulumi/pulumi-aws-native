@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The label of the tooltip item.
         /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// Determines the target of the column tooltip item in a combo chart visual.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTooltipTarget? TooltipTarget;
         /// <summary>
         /// The visibility of the tooltip item.

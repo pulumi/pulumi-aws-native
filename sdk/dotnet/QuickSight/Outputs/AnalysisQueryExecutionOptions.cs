@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisQueryExecutionOptions
     {
+        /// <summary>
+        /// A structure that describes the query execution mode.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisQueryExecutionMode? QueryExecutionMode;
 
         [OutputConstructor]

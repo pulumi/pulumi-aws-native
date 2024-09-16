@@ -44,7 +44,7 @@ export interface GetSubnetResult {
      */
     readonly ipv6CidrBlock?: string;
     /**
-     * The IPv6 network ranges for the subnet, in CIDR notation.
+     * The IPv6 CIDR blocks that are associated with the subnet.
      */
     readonly ipv6CidrBlocks?: string[];
     /**

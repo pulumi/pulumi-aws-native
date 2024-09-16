@@ -42,6 +42,13 @@ namespace Pulumi.AwsNative.Lex.Outputs
         public readonly ImmutableArray<Outputs.BotSlotType> SlotTypes;
         /// <summary>
         /// Defines settings for using an Amazon Polly voice to communicate with a user.
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `standard`
+        /// - `neural`
+        /// - `long-form`
+        /// - `generative`
         /// </summary>
         public readonly Outputs.BotVoiceSettings? VoiceSettings;
 

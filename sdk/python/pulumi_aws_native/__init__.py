@@ -1223,6 +1223,7 @@ _utilities.register(
   "mod": "connect",
   "fqn": "pulumi_aws_native.connect",
   "classes": {
+   "aws-native:connect:AgentStatus": "AgentStatus",
    "aws-native:connect:ApprovedOrigin": "ApprovedOrigin",
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
@@ -1244,6 +1245,7 @@ _utilities.register(
    "aws-native:connect:TrafficDistributionGroup": "TrafficDistributionGroup",
    "aws-native:connect:User": "User",
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup",
+   "aws-native:connect:UserHierarchyStructure": "UserHierarchyStructure",
    "aws-native:connect:View": "View",
    "aws-native:connect:ViewVersion": "ViewVersion"
   }
@@ -1328,6 +1330,7 @@ _utilities.register(
    "aws-native:datazone:DataSource": "DataSource",
    "aws-native:datazone:Domain": "Domain",
    "aws-native:datazone:Environment": "Environment",
+   "aws-native:datazone:EnvironmentActions": "EnvironmentActions",
    "aws-native:datazone:EnvironmentBlueprintConfiguration": "EnvironmentBlueprintConfiguration",
    "aws-native:datazone:EnvironmentProfile": "EnvironmentProfile",
    "aws-native:datazone:GroupProfile": "GroupProfile",

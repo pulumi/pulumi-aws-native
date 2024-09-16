@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:connect:AgentStatus":
+		r = &AgentStatus{}
 	case "aws-native:connect:ApprovedOrigin":
 		r = &ApprovedOrigin{}
 	case "aws-native:connect:ContactFlow":
@@ -63,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &User{}
 	case "aws-native:connect:UserHierarchyGroup":
 		r = &UserHierarchyGroup{}
+	case "aws-native:connect:UserHierarchyStructure":
+		r = &UserHierarchyStructure{}
 	case "aws-native:connect:View":
 		r = &View{}
 	case "aws-native:connect:ViewVersion":

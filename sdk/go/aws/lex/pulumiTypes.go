@@ -7031,6 +7031,13 @@ type BotLocale struct {
 	// List of SlotTypes
 	SlotTypes []BotSlotType `pulumi:"slotTypes"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
+	//
+	// Valid values include:
+	//
+	// - `standard`
+	// - `neural`
+	// - `long-form`
+	// - `generative`
 	VoiceSettings *BotVoiceSettings `pulumi:"voiceSettings"`
 }
 
@@ -7060,6 +7067,13 @@ type BotLocaleArgs struct {
 	// List of SlotTypes
 	SlotTypes BotSlotTypeArrayInput `pulumi:"slotTypes"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
+	//
+	// Valid values include:
+	//
+	// - `standard`
+	// - `neural`
+	// - `long-form`
+	// - `generative`
 	VoiceSettings BotVoiceSettingsPtrInput `pulumi:"voiceSettings"`
 }
 
@@ -7146,6 +7160,13 @@ func (o BotLocaleOutput) SlotTypes() BotSlotTypeArrayOutput {
 }
 
 // Defines settings for using an Amazon Polly voice to communicate with a user.
+//
+// Valid values include:
+//
+// - `standard`
+// - `neural`
+// - `long-form`
+// - `generative`
 func (o BotLocaleOutput) VoiceSettings() BotVoiceSettingsPtrOutput {
 	return o.ApplyT(func(v BotLocale) *BotVoiceSettings { return v.VoiceSettings }).(BotVoiceSettingsPtrOutput)
 }

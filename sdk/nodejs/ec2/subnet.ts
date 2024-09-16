@@ -81,7 +81,7 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
-     * The IPv6 network ranges for the subnet, in CIDR notation.
+     * The IPv6 CIDR blocks that are associated with the subnet.
      */
     public /*out*/ readonly ipv6CidrBlocks!: pulumi.Output<string[]>;
     /**

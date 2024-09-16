@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.MediaLive
         /// Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
         /// </summary>
         public readonly ImmutableArray<Outputs.EventBridgeRuleTemplateTarget> EventTargets;
+        /// <summary>
+        /// The type of event to match with the rule.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.EventBridgeRuleTemplateEventType? EventType;
         /// <summary>
         /// An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`

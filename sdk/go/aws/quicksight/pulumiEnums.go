@@ -14613,6 +14613,169 @@ func (in *analysisSimpleTotalAggregationFunctionPtr) ToAnalysisSimpleTotalAggreg
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSimpleTotalAggregationFunctionPtrOutput)
 }
 
+type AnalysisSingleYAxisOption string
+
+const (
+	AnalysisSingleYAxisOptionPrimaryYAxis = AnalysisSingleYAxisOption("PRIMARY_Y_AXIS")
+)
+
+func (AnalysisSingleYAxisOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSingleYAxisOption)(nil)).Elem()
+}
+
+func (e AnalysisSingleYAxisOption) ToAnalysisSingleYAxisOptionOutput() AnalysisSingleYAxisOptionOutput {
+	return pulumi.ToOutput(e).(AnalysisSingleYAxisOptionOutput)
+}
+
+func (e AnalysisSingleYAxisOption) ToAnalysisSingleYAxisOptionOutputWithContext(ctx context.Context) AnalysisSingleYAxisOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSingleYAxisOptionOutput)
+}
+
+func (e AnalysisSingleYAxisOption) ToAnalysisSingleYAxisOptionPtrOutput() AnalysisSingleYAxisOptionPtrOutput {
+	return e.ToAnalysisSingleYAxisOptionPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSingleYAxisOption) ToAnalysisSingleYAxisOptionPtrOutputWithContext(ctx context.Context) AnalysisSingleYAxisOptionPtrOutput {
+	return AnalysisSingleYAxisOption(e).ToAnalysisSingleYAxisOptionOutputWithContext(ctx).ToAnalysisSingleYAxisOptionPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSingleYAxisOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSingleYAxisOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSingleYAxisOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSingleYAxisOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSingleYAxisOptionOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSingleYAxisOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSingleYAxisOption)(nil)).Elem()
+}
+
+func (o AnalysisSingleYAxisOptionOutput) ToAnalysisSingleYAxisOptionOutput() AnalysisSingleYAxisOptionOutput {
+	return o
+}
+
+func (o AnalysisSingleYAxisOptionOutput) ToAnalysisSingleYAxisOptionOutputWithContext(ctx context.Context) AnalysisSingleYAxisOptionOutput {
+	return o
+}
+
+func (o AnalysisSingleYAxisOptionOutput) ToAnalysisSingleYAxisOptionPtrOutput() AnalysisSingleYAxisOptionPtrOutput {
+	return o.ToAnalysisSingleYAxisOptionPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSingleYAxisOptionOutput) ToAnalysisSingleYAxisOptionPtrOutputWithContext(ctx context.Context) AnalysisSingleYAxisOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSingleYAxisOption) *AnalysisSingleYAxisOption {
+		return &v
+	}).(AnalysisSingleYAxisOptionPtrOutput)
+}
+
+func (o AnalysisSingleYAxisOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSingleYAxisOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSingleYAxisOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSingleYAxisOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSingleYAxisOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSingleYAxisOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSingleYAxisOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSingleYAxisOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSingleYAxisOption)(nil)).Elem()
+}
+
+func (o AnalysisSingleYAxisOptionPtrOutput) ToAnalysisSingleYAxisOptionPtrOutput() AnalysisSingleYAxisOptionPtrOutput {
+	return o
+}
+
+func (o AnalysisSingleYAxisOptionPtrOutput) ToAnalysisSingleYAxisOptionPtrOutputWithContext(ctx context.Context) AnalysisSingleYAxisOptionPtrOutput {
+	return o
+}
+
+func (o AnalysisSingleYAxisOptionPtrOutput) Elem() AnalysisSingleYAxisOptionOutput {
+	return o.ApplyT(func(v *AnalysisSingleYAxisOption) AnalysisSingleYAxisOption {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSingleYAxisOption
+		return ret
+	}).(AnalysisSingleYAxisOptionOutput)
+}
+
+func (o AnalysisSingleYAxisOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSingleYAxisOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSingleYAxisOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSingleYAxisOptionInput is an input type that accepts values of the AnalysisSingleYAxisOption enum
+// A concrete instance of `AnalysisSingleYAxisOptionInput` can be one of the following:
+//
+//	AnalysisSingleYAxisOptionPrimaryYAxis
+type AnalysisSingleYAxisOptionInput interface {
+	pulumi.Input
+
+	ToAnalysisSingleYAxisOptionOutput() AnalysisSingleYAxisOptionOutput
+	ToAnalysisSingleYAxisOptionOutputWithContext(context.Context) AnalysisSingleYAxisOptionOutput
+}
+
+var analysisSingleYAxisOptionPtrType = reflect.TypeOf((**AnalysisSingleYAxisOption)(nil)).Elem()
+
+type AnalysisSingleYAxisOptionPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSingleYAxisOptionPtrOutput() AnalysisSingleYAxisOptionPtrOutput
+	ToAnalysisSingleYAxisOptionPtrOutputWithContext(context.Context) AnalysisSingleYAxisOptionPtrOutput
+}
+
+type analysisSingleYAxisOptionPtr string
+
+func AnalysisSingleYAxisOptionPtr(v string) AnalysisSingleYAxisOptionPtrInput {
+	return (*analysisSingleYAxisOptionPtr)(&v)
+}
+
+func (*analysisSingleYAxisOptionPtr) ElementType() reflect.Type {
+	return analysisSingleYAxisOptionPtrType
+}
+
+func (in *analysisSingleYAxisOptionPtr) ToAnalysisSingleYAxisOptionPtrOutput() AnalysisSingleYAxisOptionPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSingleYAxisOptionPtrOutput)
+}
+
+func (in *analysisSingleYAxisOptionPtr) ToAnalysisSingleYAxisOptionPtrOutputWithContext(ctx context.Context) AnalysisSingleYAxisOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSingleYAxisOptionPtrOutput)
+}
+
 type AnalysisSmallMultiplesAxisPlacement string
 
 const (
@@ -34031,6 +34194,169 @@ func (in *dashboardSimpleTotalAggregationFunctionPtr) ToDashboardSimpleTotalAggr
 
 func (in *dashboardSimpleTotalAggregationFunctionPtr) ToDashboardSimpleTotalAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardSimpleTotalAggregationFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSimpleTotalAggregationFunctionPtrOutput)
+}
+
+type DashboardSingleYAxisOption string
+
+const (
+	DashboardSingleYAxisOptionPrimaryYAxis = DashboardSingleYAxisOption("PRIMARY_Y_AXIS")
+)
+
+func (DashboardSingleYAxisOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSingleYAxisOption)(nil)).Elem()
+}
+
+func (e DashboardSingleYAxisOption) ToDashboardSingleYAxisOptionOutput() DashboardSingleYAxisOptionOutput {
+	return pulumi.ToOutput(e).(DashboardSingleYAxisOptionOutput)
+}
+
+func (e DashboardSingleYAxisOption) ToDashboardSingleYAxisOptionOutputWithContext(ctx context.Context) DashboardSingleYAxisOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardSingleYAxisOptionOutput)
+}
+
+func (e DashboardSingleYAxisOption) ToDashboardSingleYAxisOptionPtrOutput() DashboardSingleYAxisOptionPtrOutput {
+	return e.ToDashboardSingleYAxisOptionPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSingleYAxisOption) ToDashboardSingleYAxisOptionPtrOutputWithContext(ctx context.Context) DashboardSingleYAxisOptionPtrOutput {
+	return DashboardSingleYAxisOption(e).ToDashboardSingleYAxisOptionOutputWithContext(ctx).ToDashboardSingleYAxisOptionPtrOutputWithContext(ctx)
+}
+
+func (e DashboardSingleYAxisOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSingleYAxisOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSingleYAxisOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSingleYAxisOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardSingleYAxisOptionOutput struct{ *pulumi.OutputState }
+
+func (DashboardSingleYAxisOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSingleYAxisOption)(nil)).Elem()
+}
+
+func (o DashboardSingleYAxisOptionOutput) ToDashboardSingleYAxisOptionOutput() DashboardSingleYAxisOptionOutput {
+	return o
+}
+
+func (o DashboardSingleYAxisOptionOutput) ToDashboardSingleYAxisOptionOutputWithContext(ctx context.Context) DashboardSingleYAxisOptionOutput {
+	return o
+}
+
+func (o DashboardSingleYAxisOptionOutput) ToDashboardSingleYAxisOptionPtrOutput() DashboardSingleYAxisOptionPtrOutput {
+	return o.ToDashboardSingleYAxisOptionPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSingleYAxisOptionOutput) ToDashboardSingleYAxisOptionPtrOutputWithContext(ctx context.Context) DashboardSingleYAxisOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSingleYAxisOption) *DashboardSingleYAxisOption {
+		return &v
+	}).(DashboardSingleYAxisOptionPtrOutput)
+}
+
+func (o DashboardSingleYAxisOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardSingleYAxisOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSingleYAxisOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardSingleYAxisOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSingleYAxisOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSingleYAxisOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardSingleYAxisOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSingleYAxisOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSingleYAxisOption)(nil)).Elem()
+}
+
+func (o DashboardSingleYAxisOptionPtrOutput) ToDashboardSingleYAxisOptionPtrOutput() DashboardSingleYAxisOptionPtrOutput {
+	return o
+}
+
+func (o DashboardSingleYAxisOptionPtrOutput) ToDashboardSingleYAxisOptionPtrOutputWithContext(ctx context.Context) DashboardSingleYAxisOptionPtrOutput {
+	return o
+}
+
+func (o DashboardSingleYAxisOptionPtrOutput) Elem() DashboardSingleYAxisOptionOutput {
+	return o.ApplyT(func(v *DashboardSingleYAxisOption) DashboardSingleYAxisOption {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSingleYAxisOption
+		return ret
+	}).(DashboardSingleYAxisOptionOutput)
+}
+
+func (o DashboardSingleYAxisOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSingleYAxisOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardSingleYAxisOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardSingleYAxisOptionInput is an input type that accepts values of the DashboardSingleYAxisOption enum
+// A concrete instance of `DashboardSingleYAxisOptionInput` can be one of the following:
+//
+//	DashboardSingleYAxisOptionPrimaryYAxis
+type DashboardSingleYAxisOptionInput interface {
+	pulumi.Input
+
+	ToDashboardSingleYAxisOptionOutput() DashboardSingleYAxisOptionOutput
+	ToDashboardSingleYAxisOptionOutputWithContext(context.Context) DashboardSingleYAxisOptionOutput
+}
+
+var dashboardSingleYAxisOptionPtrType = reflect.TypeOf((**DashboardSingleYAxisOption)(nil)).Elem()
+
+type DashboardSingleYAxisOptionPtrInput interface {
+	pulumi.Input
+
+	ToDashboardSingleYAxisOptionPtrOutput() DashboardSingleYAxisOptionPtrOutput
+	ToDashboardSingleYAxisOptionPtrOutputWithContext(context.Context) DashboardSingleYAxisOptionPtrOutput
+}
+
+type dashboardSingleYAxisOptionPtr string
+
+func DashboardSingleYAxisOptionPtr(v string) DashboardSingleYAxisOptionPtrInput {
+	return (*dashboardSingleYAxisOptionPtr)(&v)
+}
+
+func (*dashboardSingleYAxisOptionPtr) ElementType() reflect.Type {
+	return dashboardSingleYAxisOptionPtrType
+}
+
+func (in *dashboardSingleYAxisOptionPtr) ToDashboardSingleYAxisOptionPtrOutput() DashboardSingleYAxisOptionPtrOutput {
+	return pulumi.ToOutput(in).(DashboardSingleYAxisOptionPtrOutput)
+}
+
+func (in *dashboardSingleYAxisOptionPtr) ToDashboardSingleYAxisOptionPtrOutputWithContext(ctx context.Context) DashboardSingleYAxisOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardSingleYAxisOptionPtrOutput)
 }
 
 type DashboardSmallMultiplesAxisPlacement string
@@ -57556,6 +57882,169 @@ func (in *templateSimpleTotalAggregationFunctionPtr) ToTemplateSimpleTotalAggreg
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSimpleTotalAggregationFunctionPtrOutput)
 }
 
+type TemplateSingleYAxisOption string
+
+const (
+	TemplateSingleYAxisOptionPrimaryYAxis = TemplateSingleYAxisOption("PRIMARY_Y_AXIS")
+)
+
+func (TemplateSingleYAxisOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSingleYAxisOption)(nil)).Elem()
+}
+
+func (e TemplateSingleYAxisOption) ToTemplateSingleYAxisOptionOutput() TemplateSingleYAxisOptionOutput {
+	return pulumi.ToOutput(e).(TemplateSingleYAxisOptionOutput)
+}
+
+func (e TemplateSingleYAxisOption) ToTemplateSingleYAxisOptionOutputWithContext(ctx context.Context) TemplateSingleYAxisOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateSingleYAxisOptionOutput)
+}
+
+func (e TemplateSingleYAxisOption) ToTemplateSingleYAxisOptionPtrOutput() TemplateSingleYAxisOptionPtrOutput {
+	return e.ToTemplateSingleYAxisOptionPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSingleYAxisOption) ToTemplateSingleYAxisOptionPtrOutputWithContext(ctx context.Context) TemplateSingleYAxisOptionPtrOutput {
+	return TemplateSingleYAxisOption(e).ToTemplateSingleYAxisOptionOutputWithContext(ctx).ToTemplateSingleYAxisOptionPtrOutputWithContext(ctx)
+}
+
+func (e TemplateSingleYAxisOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSingleYAxisOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSingleYAxisOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSingleYAxisOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateSingleYAxisOptionOutput struct{ *pulumi.OutputState }
+
+func (TemplateSingleYAxisOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSingleYAxisOption)(nil)).Elem()
+}
+
+func (o TemplateSingleYAxisOptionOutput) ToTemplateSingleYAxisOptionOutput() TemplateSingleYAxisOptionOutput {
+	return o
+}
+
+func (o TemplateSingleYAxisOptionOutput) ToTemplateSingleYAxisOptionOutputWithContext(ctx context.Context) TemplateSingleYAxisOptionOutput {
+	return o
+}
+
+func (o TemplateSingleYAxisOptionOutput) ToTemplateSingleYAxisOptionPtrOutput() TemplateSingleYAxisOptionPtrOutput {
+	return o.ToTemplateSingleYAxisOptionPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSingleYAxisOptionOutput) ToTemplateSingleYAxisOptionPtrOutputWithContext(ctx context.Context) TemplateSingleYAxisOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSingleYAxisOption) *TemplateSingleYAxisOption {
+		return &v
+	}).(TemplateSingleYAxisOptionPtrOutput)
+}
+
+func (o TemplateSingleYAxisOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateSingleYAxisOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSingleYAxisOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateSingleYAxisOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSingleYAxisOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSingleYAxisOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateSingleYAxisOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSingleYAxisOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSingleYAxisOption)(nil)).Elem()
+}
+
+func (o TemplateSingleYAxisOptionPtrOutput) ToTemplateSingleYAxisOptionPtrOutput() TemplateSingleYAxisOptionPtrOutput {
+	return o
+}
+
+func (o TemplateSingleYAxisOptionPtrOutput) ToTemplateSingleYAxisOptionPtrOutputWithContext(ctx context.Context) TemplateSingleYAxisOptionPtrOutput {
+	return o
+}
+
+func (o TemplateSingleYAxisOptionPtrOutput) Elem() TemplateSingleYAxisOptionOutput {
+	return o.ApplyT(func(v *TemplateSingleYAxisOption) TemplateSingleYAxisOption {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSingleYAxisOption
+		return ret
+	}).(TemplateSingleYAxisOptionOutput)
+}
+
+func (o TemplateSingleYAxisOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSingleYAxisOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateSingleYAxisOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateSingleYAxisOptionInput is an input type that accepts values of the TemplateSingleYAxisOption enum
+// A concrete instance of `TemplateSingleYAxisOptionInput` can be one of the following:
+//
+//	TemplateSingleYAxisOptionPrimaryYAxis
+type TemplateSingleYAxisOptionInput interface {
+	pulumi.Input
+
+	ToTemplateSingleYAxisOptionOutput() TemplateSingleYAxisOptionOutput
+	ToTemplateSingleYAxisOptionOutputWithContext(context.Context) TemplateSingleYAxisOptionOutput
+}
+
+var templateSingleYAxisOptionPtrType = reflect.TypeOf((**TemplateSingleYAxisOption)(nil)).Elem()
+
+type TemplateSingleYAxisOptionPtrInput interface {
+	pulumi.Input
+
+	ToTemplateSingleYAxisOptionPtrOutput() TemplateSingleYAxisOptionPtrOutput
+	ToTemplateSingleYAxisOptionPtrOutputWithContext(context.Context) TemplateSingleYAxisOptionPtrOutput
+}
+
+type templateSingleYAxisOptionPtr string
+
+func TemplateSingleYAxisOptionPtr(v string) TemplateSingleYAxisOptionPtrInput {
+	return (*templateSingleYAxisOptionPtr)(&v)
+}
+
+func (*templateSingleYAxisOptionPtr) ElementType() reflect.Type {
+	return templateSingleYAxisOptionPtrType
+}
+
+func (in *templateSingleYAxisOptionPtr) ToTemplateSingleYAxisOptionPtrOutput() TemplateSingleYAxisOptionPtrOutput {
+	return pulumi.ToOutput(in).(TemplateSingleYAxisOptionPtrOutput)
+}
+
+func (in *templateSingleYAxisOptionPtr) ToTemplateSingleYAxisOptionPtrOutputWithContext(ctx context.Context) TemplateSingleYAxisOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateSingleYAxisOptionPtrOutput)
+}
+
 type TemplateSmallMultiplesAxisPlacement string
 
 const (
@@ -66823,6 +67312,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), AnalysisSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleTotalAggregationFunctionInput)(nil)).Elem(), AnalysisSimpleTotalAggregationFunction("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleTotalAggregationFunctionPtrInput)(nil)).Elem(), AnalysisSimpleTotalAggregationFunction("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSingleYAxisOptionInput)(nil)).Elem(), AnalysisSingleYAxisOption("PRIMARY_Y_AXIS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSingleYAxisOptionPtrInput)(nil)).Elem(), AnalysisSingleYAxisOption("PRIMARY_Y_AXIS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSmallMultiplesAxisPlacementInput)(nil)).Elem(), AnalysisSmallMultiplesAxisPlacement("OUTSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSmallMultiplesAxisPlacementPtrInput)(nil)).Elem(), AnalysisSmallMultiplesAxisPlacement("OUTSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSmallMultiplesAxisScaleInput)(nil)).Elem(), AnalysisSmallMultiplesAxisScale("SHARED"))
@@ -67053,6 +67544,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), DashboardSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleTotalAggregationFunctionInput)(nil)).Elem(), DashboardSimpleTotalAggregationFunction("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleTotalAggregationFunctionPtrInput)(nil)).Elem(), DashboardSimpleTotalAggregationFunction("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSingleYAxisOptionInput)(nil)).Elem(), DashboardSingleYAxisOption("PRIMARY_Y_AXIS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSingleYAxisOptionPtrInput)(nil)).Elem(), DashboardSingleYAxisOption("PRIMARY_Y_AXIS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSmallMultiplesAxisPlacementInput)(nil)).Elem(), DashboardSmallMultiplesAxisPlacement("OUTSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSmallMultiplesAxisPlacementPtrInput)(nil)).Elem(), DashboardSmallMultiplesAxisPlacement("OUTSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSmallMultiplesAxisScaleInput)(nil)).Elem(), DashboardSmallMultiplesAxisScale("SHARED"))
@@ -67330,6 +67823,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), TemplateSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleTotalAggregationFunctionInput)(nil)).Elem(), TemplateSimpleTotalAggregationFunction("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleTotalAggregationFunctionPtrInput)(nil)).Elem(), TemplateSimpleTotalAggregationFunction("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSingleYAxisOptionInput)(nil)).Elem(), TemplateSingleYAxisOption("PRIMARY_Y_AXIS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSingleYAxisOptionPtrInput)(nil)).Elem(), TemplateSingleYAxisOption("PRIMARY_Y_AXIS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmallMultiplesAxisPlacementInput)(nil)).Elem(), TemplateSmallMultiplesAxisPlacement("OUTSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmallMultiplesAxisPlacementPtrInput)(nil)).Elem(), TemplateSmallMultiplesAxisPlacement("OUTSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmallMultiplesAxisScaleInput)(nil)).Elem(), TemplateSmallMultiplesAxisScale("SHARED"))
@@ -67607,6 +68102,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleTotalAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleTotalAggregationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSingleYAxisOptionOutput{})
+	pulumi.RegisterOutputType(AnalysisSingleYAxisOptionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSmallMultiplesAxisPlacementOutput{})
 	pulumi.RegisterOutputType(AnalysisSmallMultiplesAxisPlacementPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSmallMultiplesAxisScaleOutput{})
@@ -67841,6 +68338,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSimpleTotalAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(DashboardSimpleTotalAggregationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardSingleYAxisOptionOutput{})
+	pulumi.RegisterOutputType(DashboardSingleYAxisOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSmallMultiplesAxisPlacementOutput{})
 	pulumi.RegisterOutputType(DashboardSmallMultiplesAxisPlacementPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSmallMultiplesAxisScaleOutput{})
@@ -68124,6 +68623,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSimpleTotalAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(TemplateSimpleTotalAggregationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(TemplateSingleYAxisOptionOutput{})
+	pulumi.RegisterOutputType(TemplateSingleYAxisOptionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSmallMultiplesAxisPlacementOutput{})
 	pulumi.RegisterOutputType(TemplateSmallMultiplesAxisPlacementPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSmallMultiplesAxisScaleOutput{})

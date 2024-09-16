@@ -37,6 +37,10 @@ class Region(str, Enum):
     """
     Asia Pacific (Mumbai)
     """
+    AP_SOUTH2 = "ap-south-2"
+    """
+    Asia Pacific (Hyderabad)
+    """
     AP_SOUTHEAST1 = "ap-southeast-1"
     """
     Asia Pacific (Singapore)
@@ -45,9 +49,25 @@ class Region(str, Enum):
     """
     Asia Pacific (Sydney)
     """
-    CA_CENTRAL = "ca-central-1"
+    AP_SOUTHEAST3 = "ap-southeast-3"
+    """
+    Asia Pacific (Jakarta)
+    """
+    AP_SOUTHEAST4 = "ap-southeast-4"
+    """
+    Asia Pacific (Melbourne)
+    """
+    AP_SOUTHEAST5 = "ap-southeast-5"
+    """
+    Asia Pacific (Malaysia)
+    """
+    CA_CENTRAL1 = "ca-central-1"
     """
     Canada (Central)
+    """
+    CA_WEST1 = "ca-west-1"
+    """
+    Canada West (Calgary)
     """
     CN_NORTH1 = "cn-north-1"
     """
@@ -61,9 +81,25 @@ class Region(str, Enum):
     """
     Europe (Frankfurt)
     """
+    EU_CENTRAL2 = "eu-central-2"
+    """
+    Europe (Zurich)
+    """
+    EU_ISOE_WEST1 = "eu-isoe-west-1"
+    """
+    EU ISOE West
+    """
     EU_NORTH1 = "eu-north-1"
     """
     Europe (Stockholm)
+    """
+    EU_SOUTH1 = "eu-south-1"
+    """
+    Europe (Milan)
+    """
+    EU_SOUTH2 = "eu-south-2"
+    """
+    Europe (Spain)
     """
     EU_WEST1 = "eu-west-1"
     """
@@ -77,9 +113,13 @@ class Region(str, Enum):
     """
     Europe (Paris)
     """
-    EU_SOUTH1 = "eu-south-1"
+    IL_CENTRAL1 = "il-central-1"
     """
-    Europe (Milan)
+    Israel (Tel Aviv)
+    """
+    ME_CENTRAL1 = "me-central-1"
+    """
+    Middle East (UAE)
     """
     ME_SOUTH1 = "me-south-1"
     """
@@ -87,7 +127,15 @@ class Region(str, Enum):
     """
     SA_EAST1 = "sa-east-1"
     """
-    South America (São Paulo)
+    South America (Sao Paulo)
+    """
+    US_EAST1 = "us-east-1"
+    """
+    US East (N. Virginia)
+    """
+    US_EAST2 = "us-east-2"
+    """
+    US East (Ohio)
     """
     US_GOV_EAST1 = "us-gov-east-1"
     """
@@ -97,13 +145,17 @@ class Region(str, Enum):
     """
     AWS GovCloud (US-West)
     """
-    US_EAST1 = "us-east-1"
+    US_ISO_EAST1 = "us-iso-east-1"
     """
-    US East (N. Virginia)
+    US ISO East
     """
-    US_EAST2 = "us-east-2"
+    US_ISO_WEST1 = "us-iso-west-1"
     """
-    US East (Ohio)
+    US ISO WEST
+    """
+    US_ISOB_EAST1 = "us-isob-east-1"
+    """
+    US ISOB East (Ohio)
     """
     US_WEST1 = "us-west-1"
     """

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainJupyterLabAppSettings
     {
+        /// <summary>
+        /// Indicates whether idle shutdown is activated for JupyterLab applications.
+        /// </summary>
         public readonly Outputs.DomainAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// A list of CodeRepositories available for use with JupyterLab apps.

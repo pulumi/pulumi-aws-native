@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AgentStatusArgs } from "./agentStatus";
+export type AgentStatus = import("./agentStatus").AgentStatus;
+export const AgentStatus: typeof import("./agentStatus").AgentStatus = null as any;
+utilities.lazyLoad(exports, ["AgentStatus"], () => require("./agentStatus"));
+
 export { ApprovedOriginArgs } from "./approvedOrigin";
 export type ApprovedOrigin = import("./approvedOrigin").ApprovedOrigin;
 export const ApprovedOrigin: typeof import("./approvedOrigin").ApprovedOrigin = null as any;
@@ -24,6 +29,11 @@ export { EvaluationFormArgs } from "./evaluationForm";
 export type EvaluationForm = import("./evaluationForm").EvaluationForm;
 export const EvaluationForm: typeof import("./evaluationForm").EvaluationForm = null as any;
 utilities.lazyLoad(exports, ["EvaluationForm"], () => require("./evaluationForm"));
+
+export { GetAgentStatusArgs, GetAgentStatusResult, GetAgentStatusOutputArgs } from "./getAgentStatus";
+export const getAgentStatus: typeof import("./getAgentStatus").getAgentStatus = null as any;
+export const getAgentStatusOutput: typeof import("./getAgentStatus").getAgentStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentStatus","getAgentStatusOutput"], () => require("./getAgentStatus"));
 
 export { GetContactFlowArgs, GetContactFlowResult, GetContactFlowOutputArgs } from "./getContactFlow";
 export const getContactFlow: typeof import("./getContactFlow").getContactFlow = null as any;
@@ -125,6 +135,11 @@ export const getUserHierarchyGroup: typeof import("./getUserHierarchyGroup").get
 export const getUserHierarchyGroupOutput: typeof import("./getUserHierarchyGroup").getUserHierarchyGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getUserHierarchyGroup","getUserHierarchyGroupOutput"], () => require("./getUserHierarchyGroup"));
 
+export { GetUserHierarchyStructureArgs, GetUserHierarchyStructureResult, GetUserHierarchyStructureOutputArgs } from "./getUserHierarchyStructure";
+export const getUserHierarchyStructure: typeof import("./getUserHierarchyStructure").getUserHierarchyStructure = null as any;
+export const getUserHierarchyStructureOutput: typeof import("./getUserHierarchyStructure").getUserHierarchyStructureOutput = null as any;
+utilities.lazyLoad(exports, ["getUserHierarchyStructure","getUserHierarchyStructureOutput"], () => require("./getUserHierarchyStructure"));
+
 export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
 export const getView: typeof import("./getView").getView = null as any;
 export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
@@ -220,6 +235,11 @@ export type UserHierarchyGroup = import("./userHierarchyGroup").UserHierarchyGro
 export const UserHierarchyGroup: typeof import("./userHierarchyGroup").UserHierarchyGroup = null as any;
 utilities.lazyLoad(exports, ["UserHierarchyGroup"], () => require("./userHierarchyGroup"));
 
+export { UserHierarchyStructureArgs } from "./userHierarchyStructure";
+export type UserHierarchyStructure = import("./userHierarchyStructure").UserHierarchyStructure;
+export const UserHierarchyStructure: typeof import("./userHierarchyStructure").UserHierarchyStructure = null as any;
+utilities.lazyLoad(exports, ["UserHierarchyStructure"], () => require("./userHierarchyStructure"));
+
 export { ViewArgs } from "./view";
 export type View = import("./view").View;
 export const View: typeof import("./view").View = null as any;
@@ -238,6 +258,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:connect:AgentStatus":
+                return new AgentStatus(name, <any>undefined, { urn })
             case "aws-native:connect:ApprovedOrigin":
                 return new ApprovedOrigin(name, <any>undefined, { urn })
             case "aws-native:connect:ContactFlow":
@@ -280,6 +302,8 @@ const _module = {
                 return new User(name, <any>undefined, { urn })
             case "aws-native:connect:UserHierarchyGroup":
                 return new UserHierarchyGroup(name, <any>undefined, { urn })
+            case "aws-native:connect:UserHierarchyStructure":
+                return new UserHierarchyStructure(name, <any>undefined, { urn })
             case "aws-native:connect:View":
                 return new View(name, <any>undefined, { urn })
             case "aws-native:connect:ViewVersion":

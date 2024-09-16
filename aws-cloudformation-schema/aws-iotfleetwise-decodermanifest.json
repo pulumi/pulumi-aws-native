@@ -269,7 +269,7 @@
     },
     "SignalDecoders" : {
       "minItems" : 1,
-      "maxItems" : 500,
+      "maxItems" : 5000,
       "insertionOrder" : false,
       "type" : "array",
       "items" : {
@@ -277,8 +277,6 @@
           "$ref" : "#/definitions/CanSignalDecoder"
         }, {
           "$ref" : "#/definitions/ObdSignalDecoder"
-        }, {
-          "$ref" : "#/definitions/CustomDecodingSignalDecoder"
         } ]
       }
     },
@@ -293,7 +291,7 @@
     },
     "NetworkInterfaces" : {
       "minItems" : 1,
-      "maxItems" : 500,
+      "maxItems" : 5000,
       "insertionOrder" : false,
       "type" : "array",
       "items" : {
@@ -301,8 +299,6 @@
           "$ref" : "#/definitions/CanNetworkInterface"
         }, {
           "$ref" : "#/definitions/ObdNetworkInterface"
-        }, {
-          "$ref" : "#/definitions/CustomDecodingNetworkInterface"
         } ]
       }
     },

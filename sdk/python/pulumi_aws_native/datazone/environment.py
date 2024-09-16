@@ -18,27 +18,40 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[str],
-                 environment_profile_identifier: pulumi.Input[str],
                  project_identifier: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 environment_account_identifier: Optional[pulumi.Input[str]] = None,
+                 environment_account_region: Optional[pulumi.Input[str]] = None,
+                 environment_profile_identifier: Optional[pulumi.Input[str]] = None,
+                 environment_role_arn: Optional[pulumi.Input[str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentParameterArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] domain_identifier: The identifier of the Amazon DataZone domain in which the environment would be created.
-        :param pulumi.Input[str] environment_profile_identifier: The ID of the environment profile with which the Amazon DataZone environment would be created.
         :param pulumi.Input[str] project_identifier: The ID of the Amazon DataZone project in which the environment would be created.
         :param pulumi.Input[str] description: The description of the Amazon DataZone environment.
+        :param pulumi.Input[str] environment_account_identifier: The AWS account in which the Amazon DataZone environment is created.
+        :param pulumi.Input[str] environment_account_region: The AWS region in which the Amazon DataZone environment is created.
+        :param pulumi.Input[str] environment_profile_identifier: The ID of the environment profile with which the Amazon DataZone environment would be created.
+        :param pulumi.Input[str] environment_role_arn: Environment role arn for custom aws environment permissions
         :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: The glossary terms that can be used in the Amazon DataZone environment.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentParameterArgs']]] user_parameters: The user parameters of the Amazon DataZone environment.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
-        pulumi.set(__self__, "environment_profile_identifier", environment_profile_identifier)
         pulumi.set(__self__, "project_identifier", project_identifier)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if environment_account_identifier is not None:
+            pulumi.set(__self__, "environment_account_identifier", environment_account_identifier)
+        if environment_account_region is not None:
+            pulumi.set(__self__, "environment_account_region", environment_account_region)
+        if environment_profile_identifier is not None:
+            pulumi.set(__self__, "environment_profile_identifier", environment_profile_identifier)
+        if environment_role_arn is not None:
+            pulumi.set(__self__, "environment_role_arn", environment_role_arn)
         if glossary_terms is not None:
             pulumi.set(__self__, "glossary_terms", glossary_terms)
         if name is not None:
@@ -57,18 +70,6 @@ class EnvironmentArgs:
     @domain_identifier.setter
     def domain_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain_identifier", value)
-
-    @property
-    @pulumi.getter(name="environmentProfileIdentifier")
-    def environment_profile_identifier(self) -> pulumi.Input[str]:
-        """
-        The ID of the environment profile with which the Amazon DataZone environment would be created.
-        """
-        return pulumi.get(self, "environment_profile_identifier")
-
-    @environment_profile_identifier.setter
-    def environment_profile_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "environment_profile_identifier", value)
 
     @property
     @pulumi.getter(name="projectIdentifier")
@@ -93,6 +94,54 @@ class EnvironmentArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="environmentAccountIdentifier")
+    def environment_account_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account in which the Amazon DataZone environment is created.
+        """
+        return pulumi.get(self, "environment_account_identifier")
+
+    @environment_account_identifier.setter
+    def environment_account_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_account_identifier", value)
+
+    @property
+    @pulumi.getter(name="environmentAccountRegion")
+    def environment_account_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS region in which the Amazon DataZone environment is created.
+        """
+        return pulumi.get(self, "environment_account_region")
+
+    @environment_account_region.setter
+    def environment_account_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_account_region", value)
+
+    @property
+    @pulumi.getter(name="environmentProfileIdentifier")
+    def environment_profile_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the environment profile with which the Amazon DataZone environment would be created.
+        """
+        return pulumi.get(self, "environment_profile_identifier")
+
+    @environment_profile_identifier.setter
+    def environment_profile_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_profile_identifier", value)
+
+    @property
+    @pulumi.getter(name="environmentRoleArn")
+    def environment_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Environment role arn for custom aws environment permissions
+        """
+        return pulumi.get(self, "environment_role_arn")
+
+    @environment_role_arn.setter
+    def environment_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_role_arn", value)
 
     @property
     @pulumi.getter(name="glossaryTerms")
@@ -138,7 +187,10 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_identifier: Optional[pulumi.Input[str]] = None,
+                 environment_account_identifier: Optional[pulumi.Input[str]] = None,
+                 environment_account_region: Optional[pulumi.Input[str]] = None,
                  environment_profile_identifier: Optional[pulumi.Input[str]] = None,
+                 environment_role_arn: Optional[pulumi.Input[str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_identifier: Optional[pulumi.Input[str]] = None,
@@ -151,7 +203,10 @@ class Environment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Amazon DataZone environment.
         :param pulumi.Input[str] domain_identifier: The identifier of the Amazon DataZone domain in which the environment would be created.
+        :param pulumi.Input[str] environment_account_identifier: The AWS account in which the Amazon DataZone environment is created.
+        :param pulumi.Input[str] environment_account_region: The AWS region in which the Amazon DataZone environment is created.
         :param pulumi.Input[str] environment_profile_identifier: The ID of the environment profile with which the Amazon DataZone environment would be created.
+        :param pulumi.Input[str] environment_role_arn: Environment role arn for custom aws environment permissions
         :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: The glossary terms that can be used in the Amazon DataZone environment.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] project_identifier: The ID of the Amazon DataZone project in which the environment would be created.
@@ -183,7 +238,10 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_identifier: Optional[pulumi.Input[str]] = None,
+                 environment_account_identifier: Optional[pulumi.Input[str]] = None,
+                 environment_account_region: Optional[pulumi.Input[str]] = None,
                  environment_profile_identifier: Optional[pulumi.Input[str]] = None,
+                 environment_role_arn: Optional[pulumi.Input[str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_identifier: Optional[pulumi.Input[str]] = None,
@@ -201,9 +259,10 @@ class Environment(pulumi.CustomResource):
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
-            if environment_profile_identifier is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_profile_identifier'")
+            __props__.__dict__["environment_account_identifier"] = environment_account_identifier
+            __props__.__dict__["environment_account_region"] = environment_account_region
             __props__.__dict__["environment_profile_identifier"] = environment_profile_identifier
+            __props__.__dict__["environment_role_arn"] = environment_role_arn
             __props__.__dict__["glossary_terms"] = glossary_terms
             __props__.__dict__["name"] = name
             if project_identifier is None and not opts.urn:
@@ -222,7 +281,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["provider"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentProfileIdentifier", "projectIdentifier", "userParameters[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentAccountIdentifier", "environmentAccountRegion", "environmentProfileIdentifier", "projectIdentifier", "userParameters[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:datazone:Environment',
@@ -254,9 +313,12 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_id"] = None
         __props__.__dict__["domain_identifier"] = None
+        __props__.__dict__["environment_account_identifier"] = None
+        __props__.__dict__["environment_account_region"] = None
         __props__.__dict__["environment_blueprint_id"] = None
         __props__.__dict__["environment_profile_id"] = None
         __props__.__dict__["environment_profile_identifier"] = None
+        __props__.__dict__["environment_role_arn"] = None
         __props__.__dict__["glossary_terms"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["project_id"] = None
@@ -332,6 +394,22 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "domain_identifier")
 
     @property
+    @pulumi.getter(name="environmentAccountIdentifier")
+    def environment_account_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS account in which the Amazon DataZone environment is created.
+        """
+        return pulumi.get(self, "environment_account_identifier")
+
+    @property
+    @pulumi.getter(name="environmentAccountRegion")
+    def environment_account_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS region in which the Amazon DataZone environment is created.
+        """
+        return pulumi.get(self, "environment_account_region")
+
+    @property
     @pulumi.getter(name="environmentBlueprintId")
     def environment_blueprint_id(self) -> pulumi.Output[str]:
         """
@@ -349,11 +427,19 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentProfileIdentifier")
-    def environment_profile_identifier(self) -> pulumi.Output[str]:
+    def environment_profile_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the environment profile with which the Amazon DataZone environment would be created.
         """
         return pulumi.get(self, "environment_profile_identifier")
+
+    @property
+    @pulumi.getter(name="environmentRoleArn")
+    def environment_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        Environment role arn for custom aws environment permissions
+        """
+        return pulumi.get(self, "environment_role_arn")
 
     @property
     @pulumi.getter(name="glossaryTerms")

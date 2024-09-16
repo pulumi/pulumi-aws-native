@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'AgentStatusState',
+    'AgentStatusType',
     'ContactFlowState',
     'ContactFlowType',
     'EvaluationFormNumericQuestionPropertyValueAutomationLabel',
@@ -37,6 +39,23 @@ __all__ = [
     'TrafficDistributionGroupStatus',
     'UserPhoneType',
 ]
+
+
+class AgentStatusState(str, Enum):
+    """
+    The state of the status.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class AgentStatusType(str, Enum):
+    """
+    The type of agent status.
+    """
+    ROUTABLE = "ROUTABLE"
+    CUSTOM = "CUSTOM"
+    OFFLINE = "OFFLINE"
 
 
 class ContactFlowState(str, Enum):

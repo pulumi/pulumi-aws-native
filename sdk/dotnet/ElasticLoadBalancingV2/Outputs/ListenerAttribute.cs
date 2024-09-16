@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class ListenerAttribute
     {
+        /// <summary>
+        /// The name of the attribute.
+        /// 
+        /// The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+        /// 
+        /// - `tcp.idle_timeout.seconds` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// The value of the attribute.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

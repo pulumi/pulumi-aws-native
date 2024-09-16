@@ -66,6 +66,12 @@ __all__ = [
     'TaskTemplateInvisibleFieldInfoArgs',
     'TaskTemplateReadOnlyFieldInfoArgs',
     'TaskTemplateRequiredFieldInfoArgs',
+    'UserHierarchyStructureLevelFiveArgs',
+    'UserHierarchyStructureLevelFourArgs',
+    'UserHierarchyStructureLevelOneArgs',
+    'UserHierarchyStructureLevelThreeArgs',
+    'UserHierarchyStructureLevelTwoArgs',
+    'UserHierarchyStructurePropertiesArgs',
     'UserIdentityInfoArgs',
     'UserPhoneConfigArgs',
     'UserProficiencyArgs',
@@ -2593,6 +2599,289 @@ class TaskTemplateRequiredFieldInfoArgs:
     @id.setter
     def id(self, value: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureLevelFiveArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 hierarchy_level_arn: Optional[pulumi.Input[str]] = None,
+                 hierarchy_level_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about level five.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @hierarchy_level_arn.setter
+    def hierarchy_level_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_arn", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+    @hierarchy_level_id.setter
+    def hierarchy_level_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureLevelFourArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 hierarchy_level_arn: Optional[pulumi.Input[str]] = None,
+                 hierarchy_level_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about level four.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @hierarchy_level_arn.setter
+    def hierarchy_level_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_arn", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+    @hierarchy_level_id.setter
+    def hierarchy_level_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureLevelOneArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 hierarchy_level_arn: Optional[pulumi.Input[str]] = None,
+                 hierarchy_level_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about level one.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @hierarchy_level_arn.setter
+    def hierarchy_level_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_arn", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+    @hierarchy_level_id.setter
+    def hierarchy_level_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureLevelThreeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 hierarchy_level_arn: Optional[pulumi.Input[str]] = None,
+                 hierarchy_level_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about level three.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @hierarchy_level_arn.setter
+    def hierarchy_level_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_arn", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+    @hierarchy_level_id.setter
+    def hierarchy_level_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructureLevelTwoArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 hierarchy_level_arn: Optional[pulumi.Input[str]] = None,
+                 hierarchy_level_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about level two.
+        """
+        pulumi.set(__self__, "name", name)
+        if hierarchy_level_arn is not None:
+            pulumi.set(__self__, "hierarchy_level_arn", hierarchy_level_arn)
+        if hierarchy_level_id is not None:
+            pulumi.set(__self__, "hierarchy_level_id", hierarchy_level_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelArn")
+    def hierarchy_level_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_arn")
+
+    @hierarchy_level_arn.setter
+    def hierarchy_level_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_arn", value)
+
+    @property
+    @pulumi.getter(name="hierarchyLevelId")
+    def hierarchy_level_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hierarchy_level_id")
+
+    @hierarchy_level_id.setter
+    def hierarchy_level_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_level_id", value)
+
+
+@pulumi.input_type
+class UserHierarchyStructurePropertiesArgs:
+    def __init__(__self__, *,
+                 level_five: Optional[pulumi.Input['UserHierarchyStructureLevelFiveArgs']] = None,
+                 level_four: Optional[pulumi.Input['UserHierarchyStructureLevelFourArgs']] = None,
+                 level_one: Optional[pulumi.Input['UserHierarchyStructureLevelOneArgs']] = None,
+                 level_three: Optional[pulumi.Input['UserHierarchyStructureLevelThreeArgs']] = None,
+                 level_two: Optional[pulumi.Input['UserHierarchyStructureLevelTwoArgs']] = None):
+        """
+        Information about the hierarchy structure.
+        """
+        if level_five is not None:
+            pulumi.set(__self__, "level_five", level_five)
+        if level_four is not None:
+            pulumi.set(__self__, "level_four", level_four)
+        if level_one is not None:
+            pulumi.set(__self__, "level_one", level_one)
+        if level_three is not None:
+            pulumi.set(__self__, "level_three", level_three)
+        if level_two is not None:
+            pulumi.set(__self__, "level_two", level_two)
+
+    @property
+    @pulumi.getter(name="levelFive")
+    def level_five(self) -> Optional[pulumi.Input['UserHierarchyStructureLevelFiveArgs']]:
+        return pulumi.get(self, "level_five")
+
+    @level_five.setter
+    def level_five(self, value: Optional[pulumi.Input['UserHierarchyStructureLevelFiveArgs']]):
+        pulumi.set(self, "level_five", value)
+
+    @property
+    @pulumi.getter(name="levelFour")
+    def level_four(self) -> Optional[pulumi.Input['UserHierarchyStructureLevelFourArgs']]:
+        return pulumi.get(self, "level_four")
+
+    @level_four.setter
+    def level_four(self, value: Optional[pulumi.Input['UserHierarchyStructureLevelFourArgs']]):
+        pulumi.set(self, "level_four", value)
+
+    @property
+    @pulumi.getter(name="levelOne")
+    def level_one(self) -> Optional[pulumi.Input['UserHierarchyStructureLevelOneArgs']]:
+        return pulumi.get(self, "level_one")
+
+    @level_one.setter
+    def level_one(self, value: Optional[pulumi.Input['UserHierarchyStructureLevelOneArgs']]):
+        pulumi.set(self, "level_one", value)
+
+    @property
+    @pulumi.getter(name="levelThree")
+    def level_three(self) -> Optional[pulumi.Input['UserHierarchyStructureLevelThreeArgs']]:
+        return pulumi.get(self, "level_three")
+
+    @level_three.setter
+    def level_three(self, value: Optional[pulumi.Input['UserHierarchyStructureLevelThreeArgs']]):
+        pulumi.set(self, "level_three", value)
+
+    @property
+    @pulumi.getter(name="levelTwo")
+    def level_two(self) -> Optional[pulumi.Input['UserHierarchyStructureLevelTwoArgs']]:
+        return pulumi.get(self, "level_two")
+
+    @level_two.setter
+    def level_two(self, value: Optional[pulumi.Input['UserHierarchyStructureLevelTwoArgs']]):
+        pulumi.set(self, "level_two", value)
 
 
 @pulumi.input_type

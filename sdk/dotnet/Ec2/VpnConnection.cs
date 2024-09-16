@@ -31,18 +31,45 @@ namespace Pulumi.AwsNative.Ec2
         [Output("enableAcceleration")]
         public Output<bool?> EnableAcceleration { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// 
+        /// Default: `0.0.0.0/0`
+        /// </summary>
         [Output("localIpv4NetworkCidr")]
         public Output<string?> LocalIpv4NetworkCidr { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// 
+        /// Default: `::/0`
+        /// </summary>
         [Output("localIpv6NetworkCidr")]
         public Output<string?> LocalIpv6NetworkCidr { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of IPv4 address assigned to the outside interface of the customer gateway device.
+        /// 
+        /// Valid values: `PrivateIpv4` | `PublicIpv4`
+        /// 
+        /// Default: `PublicIpv4`
+        /// </summary>
         [Output("outsideIpAddressType")]
         public Output<string?> OutsideIpAddressType { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv4 CIDR on the AWS side of the VPN connection.
+        /// 
+        /// Default: `0.0.0.0/0`
+        /// </summary>
         [Output("remoteIpv4NetworkCidr")]
         public Output<string?> RemoteIpv4NetworkCidr { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv6 CIDR on the AWS side of the VPN connection.
+        /// 
+        /// Default: `::/0`
+        /// </summary>
         [Output("remoteIpv6NetworkCidr")]
         public Output<string?> RemoteIpv6NetworkCidr { get; private set; } = null!;
 
@@ -66,9 +93,19 @@ namespace Pulumi.AwsNative.Ec2
         [Output("transitGatewayId")]
         public Output<string?> TransitGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The transit gateway attachment ID to use for the VPN tunnel.
+        /// 
+        /// Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
+        /// </summary>
         [Output("transportTransitGatewayAttachmentId")]
         public Output<string?> TransportTransitGatewayAttachmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
+        /// 
+        /// Default: `ipv4`
+        /// </summary>
         [Output("tunnelInsideIpVersion")]
         public Output<string?> TunnelInsideIpVersion { get; private set; } = null!;
 
@@ -172,18 +209,45 @@ namespace Pulumi.AwsNative.Ec2
         [Input("enableAcceleration")]
         public Input<bool>? EnableAcceleration { get; set; }
 
+        /// <summary>
+        /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// 
+        /// Default: `0.0.0.0/0`
+        /// </summary>
         [Input("localIpv4NetworkCidr")]
         public Input<string>? LocalIpv4NetworkCidr { get; set; }
 
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// 
+        /// Default: `::/0`
+        /// </summary>
         [Input("localIpv6NetworkCidr")]
         public Input<string>? LocalIpv6NetworkCidr { get; set; }
 
+        /// <summary>
+        /// The type of IPv4 address assigned to the outside interface of the customer gateway device.
+        /// 
+        /// Valid values: `PrivateIpv4` | `PublicIpv4`
+        /// 
+        /// Default: `PublicIpv4`
+        /// </summary>
         [Input("outsideIpAddressType")]
         public Input<string>? OutsideIpAddressType { get; set; }
 
+        /// <summary>
+        /// The IPv4 CIDR on the AWS side of the VPN connection.
+        /// 
+        /// Default: `0.0.0.0/0`
+        /// </summary>
         [Input("remoteIpv4NetworkCidr")]
         public Input<string>? RemoteIpv4NetworkCidr { get; set; }
 
+        /// <summary>
+        /// The IPv6 CIDR on the AWS side of the VPN connection.
+        /// 
+        /// Default: `::/0`
+        /// </summary>
         [Input("remoteIpv6NetworkCidr")]
         public Input<string>? RemoteIpv6NetworkCidr { get; set; }
 
@@ -213,9 +277,19 @@ namespace Pulumi.AwsNative.Ec2
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
+        /// <summary>
+        /// The transit gateway attachment ID to use for the VPN tunnel.
+        /// 
+        /// Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
+        /// </summary>
         [Input("transportTransitGatewayAttachmentId")]
         public Input<string>? TransportTransitGatewayAttachmentId { get; set; }
 
+        /// <summary>
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
+        /// 
+        /// Default: `ipv4`
+        /// </summary>
         [Input("tunnelInsideIpVersion")]
         public Input<string>? TunnelInsideIpVersion { get; set; }
 

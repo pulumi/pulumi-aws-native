@@ -13,10 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSingleAxisOptions
     {
-        public readonly object? YAxisOptions;
+        /// <summary>
+        /// The Y axis options of a single axis configuration.
+        /// </summary>
+        public readonly Outputs.DashboardYAxisOptions? YAxisOptions;
 
         [OutputConstructor]
-        private DashboardSingleAxisOptions(object? yAxisOptions)
+        private DashboardSingleAxisOptions(Outputs.DashboardYAxisOptions? yAxisOptions)
         {
             YAxisOptions = yAxisOptions;
         }

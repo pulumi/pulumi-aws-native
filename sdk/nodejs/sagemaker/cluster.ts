@@ -57,11 +57,17 @@ export class Cluster extends pulumi.CustomResource {
      * The failure message of the HyperPod Cluster.
      */
     public /*out*/ readonly failureMessage!: pulumi.Output<string>;
+    /**
+     * The instance groups of the SageMaker HyperPod cluster.
+     */
     public readonly instanceGroups!: pulumi.Output<outputs.sagemaker.ClusterInstanceGroup[]>;
     /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
     public readonly nodeRecovery!: pulumi.Output<enums.sagemaker.ClusterNodeRecovery | undefined>;
+    /**
+     * The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+     */
     public readonly orchestrator!: pulumi.Output<outputs.sagemaker.ClusterOrchestrator | undefined>;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
@@ -123,11 +129,17 @@ export interface ClusterArgs {
      * The name of the HyperPod Cluster.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * The instance groups of the SageMaker HyperPod cluster.
+     */
     instanceGroups: pulumi.Input<pulumi.Input<inputs.sagemaker.ClusterInstanceGroupArgs>[]>;
     /**
      * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
      */
     nodeRecovery?: pulumi.Input<enums.sagemaker.ClusterNodeRecovery>;
+    /**
+     * The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+     */
     orchestrator?: pulumi.Input<inputs.sagemaker.ClusterOrchestratorArgs>;
     /**
      * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.

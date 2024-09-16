@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSingleAxisOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Y axis options of a single axis configuration.
+        /// </summary>
         [Input("yAxisOptions")]
-        public Input<object>? YAxisOptions { get; set; }
+        public Input<Inputs.AnalysisYAxisOptionsArgs>? YAxisOptions { get; set; }
 
         public AnalysisSingleAxisOptionsArgs()
         {

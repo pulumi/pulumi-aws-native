@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv6 network ranges for the subnet, in CIDR notation.
+        /// The IPv6 CIDR blocks that are associated with the subnet.
         /// </summary>
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;

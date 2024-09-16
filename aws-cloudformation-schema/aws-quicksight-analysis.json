@@ -4609,6 +4609,16 @@
         }
       }
     },
+    "YAxisOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "YAxis" : {
+          "$ref" : "#/definitions/SingleYAxisOption"
+        }
+      },
+      "required" : [ "YAxis" ]
+    },
     "ResourcePermission" : {
       "description" : "<p>Permission for the resource.</p>",
       "additionalProperties" : false,

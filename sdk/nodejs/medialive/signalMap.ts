@@ -45,8 +45,17 @@ export class SignalMap extends pulumi.CustomResource {
      * A signal map's id.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+     */
     public readonly cloudWatchAlarmTemplateGroupIdentifiers!: pulumi.Output<string[] | undefined>;
+    /**
+     * An alarm template group's id.
+     */
     public /*out*/ readonly cloudWatchAlarmTemplateGroupIds!: pulumi.Output<string[]>;
+    /**
+     * The date and time of resource creation.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * A resource's optional description.
@@ -60,7 +69,13 @@ export class SignalMap extends pulumi.CustomResource {
      * Error message associated with a failed creation or failed update attempt of a signal map.
      */
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    /**
+     * An eventbridge rule template group's identifier. Can be either be its id or current name.
+     */
     public readonly eventBridgeRuleTemplateGroupIdentifiers!: pulumi.Output<string[] | undefined>;
+    /**
+     * An eventbridge rule template group's id.
+     */
     public /*out*/ readonly eventBridgeRuleTemplateGroupIds!: pulumi.Output<string[]>;
     public /*out*/ readonly failedMediaResourceMap!: pulumi.Output<{[key: string]: outputs.medialive.SignalMapMediaResource}>;
     /**
@@ -68,9 +83,15 @@ export class SignalMap extends pulumi.CustomResource {
      */
     public readonly forceRediscovery!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly identifier!: pulumi.Output<string>;
+    /**
+     * The date and time of latest discovery.
+     */
     public /*out*/ readonly lastDiscoveredAt!: pulumi.Output<string>;
     public /*out*/ readonly lastSuccessfulMonitorDeployment!: pulumi.Output<outputs.medialive.SignalMapSuccessfulMonitorDeployment>;
     public /*out*/ readonly mediaResourceMap!: pulumi.Output<{[key: string]: outputs.medialive.SignalMapMediaResource}>;
+    /**
+     * The date and time of latest resource modification.
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
      * If true, there are pending monitor changes for this signal map that can be deployed.
@@ -81,6 +102,9 @@ export class SignalMap extends pulumi.CustomResource {
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.medialive.SignalMapStatus>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -155,6 +179,9 @@ export class SignalMap extends pulumi.CustomResource {
  * The set of arguments for constructing a SignalMap resource.
  */
 export interface SignalMapArgs {
+    /**
+     * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
+     */
     cloudWatchAlarmTemplateGroupIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A resource's optional description.
@@ -164,6 +191,9 @@ export interface SignalMapArgs {
      * A top-level supported AWS resource ARN to discovery a signal map from.
      */
     discoveryEntryPointArn: pulumi.Input<string>;
+    /**
+     * An eventbridge rule template group's identifier. Can be either be its id or current name.
+     */
     eventBridgeRuleTemplateGroupIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.

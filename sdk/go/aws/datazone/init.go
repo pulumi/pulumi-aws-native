@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Domain{}
 	case "aws-native:datazone:Environment":
 		r = &Environment{}
+	case "aws-native:datazone:EnvironmentActions":
+		r = &EnvironmentActions{}
 	case "aws-native:datazone:EnvironmentBlueprintConfiguration":
 		r = &EnvironmentBlueprintConfiguration{}
 	case "aws-native:datazone:EnvironmentProfile":

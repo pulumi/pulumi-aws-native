@@ -13,10 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSingleAxisOptions
     {
-        public readonly object? YAxisOptions;
+        /// <summary>
+        /// The Y axis options of a single axis configuration.
+        /// </summary>
+        public readonly Outputs.TemplateYAxisOptions? YAxisOptions;
 
         [OutputConstructor]
-        private TemplateSingleAxisOptions(object? yAxisOptions)
+        private TemplateSingleAxisOptions(Outputs.TemplateYAxisOptions? yAxisOptions)
         {
             YAxisOptions = yAxisOptions;
         }

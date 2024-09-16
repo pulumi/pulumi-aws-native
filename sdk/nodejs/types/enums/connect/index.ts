@@ -2,6 +2,27 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AgentStatusState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The state of the status.
+ */
+export type AgentStatusState = (typeof AgentStatusState)[keyof typeof AgentStatusState];
+
+export const AgentStatusType = {
+    Routable: "ROUTABLE",
+    Custom: "CUSTOM",
+    Offline: "OFFLINE",
+} as const;
+
+/**
+ * The type of agent status.
+ */
+export type AgentStatusType = (typeof AgentStatusType)[keyof typeof AgentStatusType];
+
 export const ContactFlowState = {
     Active: "ACTIVE",
     Archived: "ARCHIVED",

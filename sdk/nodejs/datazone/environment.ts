@@ -70,6 +70,14 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly domainIdentifier!: pulumi.Output<string>;
     /**
+     * The AWS account in which the Amazon DataZone environment is created.
+     */
+    public readonly environmentAccountIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS region in which the Amazon DataZone environment is created.
+     */
+    public readonly environmentAccountRegion!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the blueprint with which the Amazon DataZone environment was created.
      */
     public /*out*/ readonly environmentBlueprintId!: pulumi.Output<string>;
@@ -80,7 +88,11 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The ID of the environment profile with which the Amazon DataZone environment would be created.
      */
-    public readonly environmentProfileIdentifier!: pulumi.Output<string>;
+    public readonly environmentProfileIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Environment role arn for custom aws environment permissions
+     */
+    public readonly environmentRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The glossary terms that can be used in the Amazon DataZone environment.
      */
@@ -128,15 +140,15 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.environmentProfileIdentifier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'environmentProfileIdentifier'");
-            }
             if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
+            resourceInputs["environmentAccountIdentifier"] = args ? args.environmentAccountIdentifier : undefined;
+            resourceInputs["environmentAccountRegion"] = args ? args.environmentAccountRegion : undefined;
             resourceInputs["environmentProfileIdentifier"] = args ? args.environmentProfileIdentifier : undefined;
+            resourceInputs["environmentRoleArn"] = args ? args.environmentRoleArn : undefined;
             resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
@@ -162,9 +174,12 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainIdentifier"] = undefined /*out*/;
+            resourceInputs["environmentAccountIdentifier"] = undefined /*out*/;
+            resourceInputs["environmentAccountRegion"] = undefined /*out*/;
             resourceInputs["environmentBlueprintId"] = undefined /*out*/;
             resourceInputs["environmentProfileId"] = undefined /*out*/;
             resourceInputs["environmentProfileIdentifier"] = undefined /*out*/;
+            resourceInputs["environmentRoleArn"] = undefined /*out*/;
             resourceInputs["glossaryTerms"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["projectId"] = undefined /*out*/;
@@ -175,7 +190,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["userParameters"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "environmentProfileIdentifier", "projectIdentifier", "userParameters[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "environmentAccountIdentifier", "environmentAccountRegion", "environmentProfileIdentifier", "projectIdentifier", "userParameters[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
@@ -194,9 +209,21 @@ export interface EnvironmentArgs {
      */
     domainIdentifier: pulumi.Input<string>;
     /**
+     * The AWS account in which the Amazon DataZone environment is created.
+     */
+    environmentAccountIdentifier?: pulumi.Input<string>;
+    /**
+     * The AWS region in which the Amazon DataZone environment is created.
+     */
+    environmentAccountRegion?: pulumi.Input<string>;
+    /**
      * The ID of the environment profile with which the Amazon DataZone environment would be created.
      */
-    environmentProfileIdentifier: pulumi.Input<string>;
+    environmentProfileIdentifier?: pulumi.Input<string>;
+    /**
+     * Environment role arn for custom aws environment permissions
+     */
+    environmentRoleArn?: pulumi.Input<string>;
     /**
      * The glossary terms that can be used in the Amazon DataZone environment.
      */

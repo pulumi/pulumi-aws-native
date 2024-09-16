@@ -12,9 +12,19 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 
     public sealed class ListenerAttributeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the attribute.
+        /// 
+        /// The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+        /// 
+        /// - `tcp.idle_timeout.seconds` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The value of the attribute.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.SageMaker
         /// The failure message of the HyperPod Cluster.
         /// </summary>
         public readonly string? FailureMessage;
+        /// <summary>
+        /// The instance groups of the SageMaker HyperPod cluster.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ClusterInstanceGroup> InstanceGroups;
         /// <summary>
         /// If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.

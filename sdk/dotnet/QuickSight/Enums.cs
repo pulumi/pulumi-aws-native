@@ -2568,6 +2568,33 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisSingleYAxisOption : IEquatable<AnalysisSingleYAxisOption>
+    {
+        private readonly string _value;
+
+        private AnalysisSingleYAxisOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSingleYAxisOption PrimaryYAxis { get; } = new AnalysisSingleYAxisOption("PRIMARY_Y_AXIS");
+
+        public static bool operator ==(AnalysisSingleYAxisOption left, AnalysisSingleYAxisOption right) => left.Equals(right);
+        public static bool operator !=(AnalysisSingleYAxisOption left, AnalysisSingleYAxisOption right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSingleYAxisOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSingleYAxisOption other && Equals(other);
+        public bool Equals(AnalysisSingleYAxisOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisSmallMultiplesAxisPlacement : IEquatable<AnalysisSmallMultiplesAxisPlacement>
     {
         private readonly string _value;
@@ -5975,6 +6002,33 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardSimpleTotalAggregationFunction other && Equals(other);
         public bool Equals(DashboardSimpleTotalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardSingleYAxisOption : IEquatable<DashboardSingleYAxisOption>
+    {
+        private readonly string _value;
+
+        private DashboardSingleYAxisOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardSingleYAxisOption PrimaryYAxis { get; } = new DashboardSingleYAxisOption("PRIMARY_Y_AXIS");
+
+        public static bool operator ==(DashboardSingleYAxisOption left, DashboardSingleYAxisOption right) => left.Equals(right);
+        public static bool operator !=(DashboardSingleYAxisOption left, DashboardSingleYAxisOption right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardSingleYAxisOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardSingleYAxisOption other && Equals(other);
+        public bool Equals(DashboardSingleYAxisOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -10153,6 +10207,33 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSimpleTotalAggregationFunction other && Equals(other);
         public bool Equals(TemplateSimpleTotalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSingleYAxisOption : IEquatable<TemplateSingleYAxisOption>
+    {
+        private readonly string _value;
+
+        private TemplateSingleYAxisOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSingleYAxisOption PrimaryYAxis { get; } = new TemplateSingleYAxisOption("PRIMARY_Y_AXIS");
+
+        public static bool operator ==(TemplateSingleYAxisOption left, TemplateSingleYAxisOption right) => left.Equals(right);
+        public static bool operator !=(TemplateSingleYAxisOption left, TemplateSingleYAxisOption right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSingleYAxisOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSingleYAxisOption other && Equals(other);
+        public bool Equals(TemplateSingleYAxisOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

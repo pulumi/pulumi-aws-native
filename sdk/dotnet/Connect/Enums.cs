@@ -8,6 +8,69 @@ using Pulumi;
 namespace Pulumi.AwsNative.Connect
 {
     /// <summary>
+    /// The state of the status.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentStatusState : IEquatable<AgentStatusState>
+    {
+        private readonly string _value;
+
+        private AgentStatusState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentStatusState Enabled { get; } = new AgentStatusState("ENABLED");
+        public static AgentStatusState Disabled { get; } = new AgentStatusState("DISABLED");
+
+        public static bool operator ==(AgentStatusState left, AgentStatusState right) => left.Equals(right);
+        public static bool operator !=(AgentStatusState left, AgentStatusState right) => !left.Equals(right);
+
+        public static explicit operator string(AgentStatusState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentStatusState other && Equals(other);
+        public bool Equals(AgentStatusState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of agent status.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentStatusType : IEquatable<AgentStatusType>
+    {
+        private readonly string _value;
+
+        private AgentStatusType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentStatusType Routable { get; } = new AgentStatusType("ROUTABLE");
+        public static AgentStatusType Custom { get; } = new AgentStatusType("CUSTOM");
+        public static AgentStatusType Offline { get; } = new AgentStatusType("OFFLINE");
+
+        public static bool operator ==(AgentStatusType left, AgentStatusType right) => left.Equals(right);
+        public static bool operator !=(AgentStatusType left, AgentStatusType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentStatusType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentStatusType other && Equals(other);
+        public bool Equals(AgentStatusType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The state of the contact flow.
     /// </summary>
     [EnumType]

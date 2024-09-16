@@ -55,7 +55,13 @@ namespace Pulumi.AwsNative.MediaLive
         /// A cloudwatch alarm template's ARN (Amazon Resource Name)
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The comparison operator used to compare the specified statistic and the threshold.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateComparisonOperator? ComparisonOperator;
+        /// <summary>
+        /// The date and time of resource creation.
+        /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
         /// The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
@@ -82,6 +88,9 @@ namespace Pulumi.AwsNative.MediaLive
         /// The name of the metric associated with the alarm. Must be compatible with targetResourceType.
         /// </summary>
         public readonly string? MetricName;
+        /// <summary>
+        /// The date and time of latest resource modification.
+        /// </summary>
         public readonly string? ModifiedAt;
         /// <summary>
         /// A resource's name. Names must be unique within the scope of a resource type in a specific region.
@@ -91,12 +100,21 @@ namespace Pulumi.AwsNative.MediaLive
         /// The period, in seconds, over which the specified statistic is applied.
         /// </summary>
         public readonly double? Period;
+        /// <summary>
+        /// The statistic to apply to the alarm's metric data.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateStatistic? Statistic;
+        /// <summary>
+        /// The resource type this template should dynamically generate CloudWatch metric alarms for.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateTargetResourceType? TargetResourceType;
         /// <summary>
         /// The threshold value to compare with the specified statistic.
         /// </summary>
         public readonly double? Threshold;
+        /// <summary>
+        /// Specifies how missing data points are treated when evaluating the alarm's condition.
+        /// </summary>
         public readonly Pulumi.AwsNative.MediaLive.CloudWatchAlarmTemplateTreatMissingData? TreatMissingData;
 
         [OutputConstructor]

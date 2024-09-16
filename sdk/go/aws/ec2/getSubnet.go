@@ -41,7 +41,7 @@ type LookupSubnetResult struct {
 	// The IPv6 CIDR block.
 	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
-	// The IPv6 network ranges for the subnet, in CIDR notation.
+	// The IPv6 CIDR blocks that are associated with the subnet.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
 	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
@@ -123,7 +123,7 @@ func (o LookupSubnetResultOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 network ranges for the subnet, in CIDR notation.
+// The IPv6 CIDR blocks that are associated with the subnet.
 func (o LookupSubnetResultOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetResult) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }

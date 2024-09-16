@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ClusterOrchestrator
     {
+        /// <summary>
+        /// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
+        /// </summary>
         public readonly Outputs.ClusterOrchestratorEksConfig Eks;
 
         [OutputConstructor]

@@ -59,16 +59,17 @@ func main() {
 		flag.PrintDefaults()
 	}
 
-	var version, operation, schemaFolder, docsUrl string
+	var version, operation, schemaFolder, docsUrl, metadataFolder string
 	var jsonSchemaUrls schemaUrls
 	flag.StringVar(&version, "version", "", "the provider version to record in the generated code")
 	flag.StringVar(&schemaFolder, "schema-folder", "", "The folder containing the CloudFormation schema files")
 	flag.StringVar(&docsUrl, "docs-url", "", "The URL to download the CloudFormation docs")
+	flag.StringVar(&metadataFolder, "metadata-folder", "", "The folder containing metadata files needed for schema generation")
 	flag.Var(&jsonSchemaUrls, "schema-urls", "A comma delimited list of CloudFormation schema urls")
 
 	flag.Parse()
 	operation = flag.Arg(0)
-	fmt.Printf("%s: version: %s, schema-folder: %s, docs-url: %s, schema-urls: %s\n", operation, version, schemaFolder, docsUrl, jsonSchemaUrls)
+	fmt.Printf("%s: version: %s, schema-folder: %s, docs-url: %s, schema-urls: %s, metadata-folder: %s\n", operation, version, schemaFolder, docsUrl, jsonSchemaUrls, metadataFolder)
 	if version == "" && operation == "" && (jsonSchemaUrls == nil && docsUrl == "") {
 		flag.Usage()
 		return
@@ -115,7 +116,12 @@ func main() {
 			fatalf("error gathering semantics: %v", err)
 		}
 
-		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes)
+		regions, err := readRegions(metadataFolder)
+		if err != nil {
+			fatalf("error reading regions: %v", err)
+		}
+
+		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes, regions)
 		if err != nil {
 			fatalf("error generating schema: %v", err)
 		}
@@ -193,6 +199,23 @@ func readJsonSchema(schemaPath string) *jsschema.Schema {
 	}
 
 	return s
+}
+
+const regionsFile = "regions.json"
+
+func readRegions(metadataFolder string) ([]schema.RegionInfo, error) {
+	path := filepath.Join(metadataFolder, regionsFile)
+	bytes, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+
+	var regions []schema.RegionInfo
+	err = json.Unmarshal(bytes, &regions)
+	if err != nil {
+		return nil, err
+	}
+	return regions, nil
 }
 
 const supportedResourcesFile = "supported-types.txt"

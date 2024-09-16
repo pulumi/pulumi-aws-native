@@ -35,8 +35,9 @@ type LookupEventBridgeRuleTemplateResult struct {
 	// A resource's optional description.
 	Description *string `pulumi:"description"`
 	// Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
-	EventTargets []EventBridgeRuleTemplateTarget   `pulumi:"eventTargets"`
-	EventType    *EventBridgeRuleTemplateEventType `pulumi:"eventType"`
+	EventTargets []EventBridgeRuleTemplateTarget `pulumi:"eventTargets"`
+	// The type of event to match with the rule.
+	EventType *EventBridgeRuleTemplateEventType `pulumi:"eventType"`
 	// An eventbridge rule template group's id. AWS provided template groups have ids that start with `aws-`
 	GroupId *string `pulumi:"groupId"`
 	// An eventbridge rule template's id. AWS provided templates have ids that start with `aws-`
@@ -111,6 +112,7 @@ func (o LookupEventBridgeRuleTemplateResultOutput) EventTargets() EventBridgeRul
 	return o.ApplyT(func(v LookupEventBridgeRuleTemplateResult) []EventBridgeRuleTemplateTarget { return v.EventTargets }).(EventBridgeRuleTemplateTargetArrayOutput)
 }
 
+// The type of event to match with the rule.
 func (o LookupEventBridgeRuleTemplateResultOutput) EventType() EventBridgeRuleTemplateEventTypePtrOutput {
 	return o.ApplyT(func(v LookupEventBridgeRuleTemplateResult) *EventBridgeRuleTemplateEventType { return v.EventType }).(EventBridgeRuleTemplateEventTypePtrOutput)
 }

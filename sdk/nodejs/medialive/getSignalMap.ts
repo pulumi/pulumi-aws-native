@@ -27,7 +27,13 @@ export interface GetSignalMapResult {
      * A signal map's ARN (Amazon Resource Name)
      */
     readonly arn?: string;
+    /**
+     * An alarm template group's id.
+     */
     readonly cloudWatchAlarmTemplateGroupIds?: string[];
+    /**
+     * The date and time of resource creation.
+     */
     readonly createdAt?: string;
     /**
      * A resource's optional description.
@@ -41,6 +47,9 @@ export interface GetSignalMapResult {
      * Error message associated with a failed creation or failed update attempt of a signal map.
      */
     readonly errorMessage?: string;
+    /**
+     * An eventbridge rule template group's id.
+     */
     readonly eventBridgeRuleTemplateGroupIds?: string[];
     readonly failedMediaResourceMap?: {[key: string]: outputs.medialive.SignalMapMediaResource};
     /**
@@ -48,9 +57,15 @@ export interface GetSignalMapResult {
      */
     readonly id?: string;
     readonly identifier?: string;
+    /**
+     * The date and time of latest discovery.
+     */
     readonly lastDiscoveredAt?: string;
     readonly lastSuccessfulMonitorDeployment?: outputs.medialive.SignalMapSuccessfulMonitorDeployment;
     readonly mediaResourceMap?: {[key: string]: outputs.medialive.SignalMapMediaResource};
+    /**
+     * The date and time of latest resource modification.
+     */
     readonly modifiedAt?: string;
     /**
      * If true, there are pending monitor changes for this signal map that can be deployed.
@@ -61,6 +76,9 @@ export interface GetSignalMapResult {
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
     readonly name?: string;
+    /**
+     * A signal map's current status, which is dependent on its lifecycle actions or associated jobs.
+     */
     readonly status?: enums.medialive.SignalMapStatus;
 }
 /**

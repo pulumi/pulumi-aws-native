@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class SpaceJupyterLabAppSettings
     {
+        /// <summary>
+        /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
+        /// </summary>
         public readonly Outputs.SpaceAppLifecycleManagement? AppLifecycleManagement;
         /// <summary>
         /// A list of CodeRepositories available for use with JupyterLab apps.

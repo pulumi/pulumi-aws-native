@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// Determines the target of the column tooltip item in a combo chart visual.
+        /// </summary>
         [Input("tooltipTarget")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTooltipTarget>? TooltipTarget { get; set; }
 

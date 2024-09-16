@@ -2175,6 +2175,142 @@ type DomainTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The parameters of the console link specified as part of the environment action
+type EnvironmentActionsAwsConsoleLinkParameters struct {
+	Uri *string `pulumi:"uri"`
+}
+
+// EnvironmentActionsAwsConsoleLinkParametersInput is an input type that accepts EnvironmentActionsAwsConsoleLinkParametersArgs and EnvironmentActionsAwsConsoleLinkParametersOutput values.
+// You can construct a concrete instance of `EnvironmentActionsAwsConsoleLinkParametersInput` via:
+//
+//	EnvironmentActionsAwsConsoleLinkParametersArgs{...}
+type EnvironmentActionsAwsConsoleLinkParametersInput interface {
+	pulumi.Input
+
+	ToEnvironmentActionsAwsConsoleLinkParametersOutput() EnvironmentActionsAwsConsoleLinkParametersOutput
+	ToEnvironmentActionsAwsConsoleLinkParametersOutputWithContext(context.Context) EnvironmentActionsAwsConsoleLinkParametersOutput
+}
+
+// The parameters of the console link specified as part of the environment action
+type EnvironmentActionsAwsConsoleLinkParametersArgs struct {
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (EnvironmentActionsAwsConsoleLinkParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentActionsAwsConsoleLinkParameters)(nil)).Elem()
+}
+
+func (i EnvironmentActionsAwsConsoleLinkParametersArgs) ToEnvironmentActionsAwsConsoleLinkParametersOutput() EnvironmentActionsAwsConsoleLinkParametersOutput {
+	return i.ToEnvironmentActionsAwsConsoleLinkParametersOutputWithContext(context.Background())
+}
+
+func (i EnvironmentActionsAwsConsoleLinkParametersArgs) ToEnvironmentActionsAwsConsoleLinkParametersOutputWithContext(ctx context.Context) EnvironmentActionsAwsConsoleLinkParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentActionsAwsConsoleLinkParametersOutput)
+}
+
+func (i EnvironmentActionsAwsConsoleLinkParametersArgs) ToEnvironmentActionsAwsConsoleLinkParametersPtrOutput() EnvironmentActionsAwsConsoleLinkParametersPtrOutput {
+	return i.ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentActionsAwsConsoleLinkParametersArgs) ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(ctx context.Context) EnvironmentActionsAwsConsoleLinkParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentActionsAwsConsoleLinkParametersOutput).ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(ctx)
+}
+
+// EnvironmentActionsAwsConsoleLinkParametersPtrInput is an input type that accepts EnvironmentActionsAwsConsoleLinkParametersArgs, EnvironmentActionsAwsConsoleLinkParametersPtr and EnvironmentActionsAwsConsoleLinkParametersPtrOutput values.
+// You can construct a concrete instance of `EnvironmentActionsAwsConsoleLinkParametersPtrInput` via:
+//
+//	        EnvironmentActionsAwsConsoleLinkParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnvironmentActionsAwsConsoleLinkParametersPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentActionsAwsConsoleLinkParametersPtrOutput() EnvironmentActionsAwsConsoleLinkParametersPtrOutput
+	ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(context.Context) EnvironmentActionsAwsConsoleLinkParametersPtrOutput
+}
+
+type environmentActionsAwsConsoleLinkParametersPtrType EnvironmentActionsAwsConsoleLinkParametersArgs
+
+func EnvironmentActionsAwsConsoleLinkParametersPtr(v *EnvironmentActionsAwsConsoleLinkParametersArgs) EnvironmentActionsAwsConsoleLinkParametersPtrInput {
+	return (*environmentActionsAwsConsoleLinkParametersPtrType)(v)
+}
+
+func (*environmentActionsAwsConsoleLinkParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentActionsAwsConsoleLinkParameters)(nil)).Elem()
+}
+
+func (i *environmentActionsAwsConsoleLinkParametersPtrType) ToEnvironmentActionsAwsConsoleLinkParametersPtrOutput() EnvironmentActionsAwsConsoleLinkParametersPtrOutput {
+	return i.ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *environmentActionsAwsConsoleLinkParametersPtrType) ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(ctx context.Context) EnvironmentActionsAwsConsoleLinkParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentActionsAwsConsoleLinkParametersPtrOutput)
+}
+
+// The parameters of the console link specified as part of the environment action
+type EnvironmentActionsAwsConsoleLinkParametersOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentActionsAwsConsoleLinkParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentActionsAwsConsoleLinkParameters)(nil)).Elem()
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersOutput) ToEnvironmentActionsAwsConsoleLinkParametersOutput() EnvironmentActionsAwsConsoleLinkParametersOutput {
+	return o
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersOutput) ToEnvironmentActionsAwsConsoleLinkParametersOutputWithContext(ctx context.Context) EnvironmentActionsAwsConsoleLinkParametersOutput {
+	return o
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersOutput) ToEnvironmentActionsAwsConsoleLinkParametersPtrOutput() EnvironmentActionsAwsConsoleLinkParametersPtrOutput {
+	return o.ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersOutput) ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(ctx context.Context) EnvironmentActionsAwsConsoleLinkParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentActionsAwsConsoleLinkParameters) *EnvironmentActionsAwsConsoleLinkParameters {
+		return &v
+	}).(EnvironmentActionsAwsConsoleLinkParametersPtrOutput)
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentActionsAwsConsoleLinkParameters) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentActionsAwsConsoleLinkParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentActionsAwsConsoleLinkParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentActionsAwsConsoleLinkParameters)(nil)).Elem()
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersPtrOutput) ToEnvironmentActionsAwsConsoleLinkParametersPtrOutput() EnvironmentActionsAwsConsoleLinkParametersPtrOutput {
+	return o
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersPtrOutput) ToEnvironmentActionsAwsConsoleLinkParametersPtrOutputWithContext(ctx context.Context) EnvironmentActionsAwsConsoleLinkParametersPtrOutput {
+	return o
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersPtrOutput) Elem() EnvironmentActionsAwsConsoleLinkParametersOutput {
+	return o.ApplyT(func(v *EnvironmentActionsAwsConsoleLinkParameters) EnvironmentActionsAwsConsoleLinkParameters {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentActionsAwsConsoleLinkParameters
+		return ret
+	}).(EnvironmentActionsAwsConsoleLinkParametersOutput)
+}
+
+func (o EnvironmentActionsAwsConsoleLinkParametersPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentActionsAwsConsoleLinkParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 type EnvironmentBlueprintConfigurationRegionalParameter struct {
 	// A string to string map containing parameters for the region.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -3001,6 +3137,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceScheduleConfigurationPtrInput)(nil)).Elem(), DataSourceScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnPtrInput)(nil)).Elem(), DomainSingleSignOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentActionsAwsConsoleLinkParametersInput)(nil)).Elem(), EnvironmentActionsAwsConsoleLinkParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentActionsAwsConsoleLinkParametersPtrInput)(nil)).Elem(), EnvironmentActionsAwsConsoleLinkParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationRegionalParameterInput)(nil)).Elem(), EnvironmentBlueprintConfigurationRegionalParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationRegionalParameterArrayInput)(nil)).Elem(), EnvironmentBlueprintConfigurationRegionalParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentParameterInput)(nil)).Elem(), EnvironmentParameterArgs{})
@@ -3041,6 +3179,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceScheduleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentActionsAwsConsoleLinkParametersOutput{})
+	pulumi.RegisterOutputType(EnvironmentActionsAwsConsoleLinkParametersPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationRegionalParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationRegionalParameterArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentParameterOutput{})

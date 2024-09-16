@@ -1547,6 +1547,7 @@ func (o ClusterLifeCycleConfigOutput) SourceS3Uri() pulumi.StringOutput {
 
 // Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
 type ClusterOrchestrator struct {
+	// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
 	Eks ClusterOrchestratorEksConfig `pulumi:"eks"`
 }
 
@@ -1563,6 +1564,7 @@ type ClusterOrchestratorInput interface {
 
 // Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
 type ClusterOrchestratorArgs struct {
+	// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
 	Eks ClusterOrchestratorEksConfigInput `pulumi:"eks"`
 }
 
@@ -1644,6 +1646,7 @@ func (o ClusterOrchestratorOutput) ToClusterOrchestratorPtrOutputWithContext(ctx
 	}).(ClusterOrchestratorPtrOutput)
 }
 
+// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
 func (o ClusterOrchestratorOutput) Eks() ClusterOrchestratorEksConfigOutput {
 	return o.ApplyT(func(v ClusterOrchestrator) ClusterOrchestratorEksConfig { return v.Eks }).(ClusterOrchestratorEksConfigOutput)
 }
@@ -1672,6 +1675,7 @@ func (o ClusterOrchestratorPtrOutput) Elem() ClusterOrchestratorOutput {
 	}).(ClusterOrchestratorOutput)
 }
 
+// The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
 func (o ClusterOrchestratorPtrOutput) Eks() ClusterOrchestratorEksConfigPtrOutput {
 	return o.ApplyT(func(v *ClusterOrchestrator) *ClusterOrchestratorEksConfig {
 		if v == nil {
@@ -4693,6 +4697,7 @@ type DeviceTag struct {
 }
 
 type DomainAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications.
 	IdleSettings *DomainIdleSettings `pulumi:"idleSettings"`
 }
 
@@ -4708,6 +4713,7 @@ type DomainAppLifecycleManagementInput interface {
 }
 
 type DomainAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications.
 	IdleSettings DomainIdleSettingsPtrInput `pulumi:"idleSettings"`
 }
 
@@ -4788,6 +4794,7 @@ func (o DomainAppLifecycleManagementOutput) ToDomainAppLifecycleManagementPtrOut
 	}).(DomainAppLifecycleManagementPtrOutput)
 }
 
+// Settings related to idle shutdown of Studio applications.
 func (o DomainAppLifecycleManagementOutput) IdleSettings() DomainIdleSettingsPtrOutput {
 	return o.ApplyT(func(v DomainAppLifecycleManagement) *DomainIdleSettings { return v.IdleSettings }).(DomainIdleSettingsPtrOutput)
 }
@@ -4816,6 +4823,7 @@ func (o DomainAppLifecycleManagementPtrOutput) Elem() DomainAppLifecycleManageme
 	}).(DomainAppLifecycleManagementOutput)
 }
 
+// Settings related to idle shutdown of Studio applications.
 func (o DomainAppLifecycleManagementPtrOutput) IdleSettings() DomainIdleSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainAppLifecycleManagement) *DomainIdleSettings {
 		if v == nil {
@@ -4827,6 +4835,7 @@ func (o DomainAppLifecycleManagementPtrOutput) IdleSettings() DomainIdleSettings
 
 // The CodeEditor app settings.
 type DomainCodeEditorAppSettings struct {
+	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 	AppLifecycleManagement *DomainAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages []DomainCustomImage `pulumi:"customImages"`
@@ -4849,6 +4858,7 @@ type DomainCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type DomainCodeEditorAppSettingsArgs struct {
+	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 	AppLifecycleManagement DomainAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages DomainCustomImageArrayInput `pulumi:"customImages"`
@@ -4936,6 +4946,7 @@ func (o DomainCodeEditorAppSettingsOutput) ToDomainCodeEditorAppSettingsPtrOutpu
 	}).(DomainCodeEditorAppSettingsPtrOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 func (o DomainCodeEditorAppSettingsOutput) AppLifecycleManagement() DomainAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v DomainCodeEditorAppSettings) *DomainAppLifecycleManagement { return v.AppLifecycleManagement }).(DomainAppLifecycleManagementPtrOutput)
 }
@@ -4979,6 +4990,7 @@ func (o DomainCodeEditorAppSettingsPtrOutput) Elem() DomainCodeEditorAppSettings
 	}).(DomainCodeEditorAppSettingsOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 func (o DomainCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() DomainAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v *DomainCodeEditorAppSettings) *DomainAppLifecycleManagement {
 		if v == nil {
@@ -6376,10 +6388,14 @@ func (o DomainEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOut
 }
 
 type DomainIdleSettings struct {
-	IdleTimeoutInMinutes    *int                       `pulumi:"idleTimeoutInMinutes"`
-	LifecycleManagement     *DomainLifecycleManagement `pulumi:"lifecycleManagement"`
-	MaxIdleTimeoutInMinutes *int                       `pulumi:"maxIdleTimeoutInMinutes"`
-	MinIdleTimeoutInMinutes *int                       `pulumi:"minIdleTimeoutInMinutes"`
+	// The time that SageMaker waits after the application becomes idle before shutting it down.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type.
+	LifecycleManagement *DomainLifecycleManagement `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user.
+	MaxIdleTimeoutInMinutes *int `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user.
+	MinIdleTimeoutInMinutes *int `pulumi:"minIdleTimeoutInMinutes"`
 }
 
 // DomainIdleSettingsInput is an input type that accepts DomainIdleSettingsArgs and DomainIdleSettingsOutput values.
@@ -6394,10 +6410,14 @@ type DomainIdleSettingsInput interface {
 }
 
 type DomainIdleSettingsArgs struct {
-	IdleTimeoutInMinutes    pulumi.IntPtrInput                `pulumi:"idleTimeoutInMinutes"`
-	LifecycleManagement     DomainLifecycleManagementPtrInput `pulumi:"lifecycleManagement"`
-	MaxIdleTimeoutInMinutes pulumi.IntPtrInput                `pulumi:"maxIdleTimeoutInMinutes"`
-	MinIdleTimeoutInMinutes pulumi.IntPtrInput                `pulumi:"minIdleTimeoutInMinutes"`
+	// The time that SageMaker waits after the application becomes idle before shutting it down.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type.
+	LifecycleManagement DomainLifecycleManagementPtrInput `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user.
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user.
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"minIdleTimeoutInMinutes"`
 }
 
 func (DomainIdleSettingsArgs) ElementType() reflect.Type {
@@ -6477,18 +6497,22 @@ func (o DomainIdleSettingsOutput) ToDomainIdleSettingsPtrOutputWithContext(ctx c
 	}).(DomainIdleSettingsPtrOutput)
 }
 
+// The time that SageMaker waits after the application becomes idle before shutting it down.
 func (o DomainIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainIdleSettings) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for the application type.
 func (o DomainIdleSettingsOutput) LifecycleManagement() DomainLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v DomainIdleSettings) *DomainLifecycleManagement { return v.LifecycleManagement }).(DomainLifecycleManagementPtrOutput)
 }
 
+// The maximum value in minutes that custom idle shutdown can be set to by the user.
 func (o DomainIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainIdleSettings) *int { return v.MaxIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The minimum value in minutes that custom idle shutdown can be set to by the user.
 func (o DomainIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainIdleSettings) *int { return v.MinIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -6517,6 +6541,7 @@ func (o DomainIdleSettingsPtrOutput) Elem() DomainIdleSettingsOutput {
 	}).(DomainIdleSettingsOutput)
 }
 
+// The time that SageMaker waits after the application becomes idle before shutting it down.
 func (o DomainIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainIdleSettings) *int {
 		if v == nil {
@@ -6526,6 +6551,7 @@ func (o DomainIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for the application type.
 func (o DomainIdleSettingsPtrOutput) LifecycleManagement() DomainLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v *DomainIdleSettings) *DomainLifecycleManagement {
 		if v == nil {
@@ -6535,6 +6561,7 @@ func (o DomainIdleSettingsPtrOutput) LifecycleManagement() DomainLifecycleManage
 	}).(DomainLifecycleManagementPtrOutput)
 }
 
+// The maximum value in minutes that custom idle shutdown can be set to by the user.
 func (o DomainIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainIdleSettings) *int {
 		if v == nil {
@@ -6544,6 +6571,7 @@ func (o DomainIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum value in minutes that custom idle shutdown can be set to by the user.
 func (o DomainIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainIdleSettings) *int {
 		if v == nil {
@@ -6555,6 +6583,7 @@ func (o DomainIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutp
 
 // The JupyterLab app settings.
 type DomainJupyterLabAppSettings struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications.
 	AppLifecycleManagement *DomainAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []DomainCodeRepository `pulumi:"codeRepositories"`
@@ -6579,6 +6608,7 @@ type DomainJupyterLabAppSettingsInput interface {
 
 // The JupyterLab app settings.
 type DomainJupyterLabAppSettingsArgs struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications.
 	AppLifecycleManagement DomainAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories DomainCodeRepositoryArrayInput `pulumi:"codeRepositories"`
@@ -6668,6 +6698,7 @@ func (o DomainJupyterLabAppSettingsOutput) ToDomainJupyterLabAppSettingsPtrOutpu
 	}).(DomainJupyterLabAppSettingsPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications.
 func (o DomainJupyterLabAppSettingsOutput) AppLifecycleManagement() DomainAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v DomainJupyterLabAppSettings) *DomainAppLifecycleManagement { return v.AppLifecycleManagement }).(DomainAppLifecycleManagementPtrOutput)
 }
@@ -6716,6 +6747,7 @@ func (o DomainJupyterLabAppSettingsPtrOutput) Elem() DomainJupyterLabAppSettings
 	}).(DomainJupyterLabAppSettingsOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications.
 func (o DomainJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() DomainAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v *DomainJupyterLabAppSettings) *DomainAppLifecycleManagement {
 		if v == nil {
@@ -33368,6 +33400,7 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningParameter
 }
 
 type SpaceAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications.
 	IdleSettings *SpaceIdleSettings `pulumi:"idleSettings"`
 }
 
@@ -33383,6 +33416,7 @@ type SpaceAppLifecycleManagementInput interface {
 }
 
 type SpaceAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications.
 	IdleSettings SpaceIdleSettingsPtrInput `pulumi:"idleSettings"`
 }
 
@@ -33463,6 +33497,7 @@ func (o SpaceAppLifecycleManagementOutput) ToSpaceAppLifecycleManagementPtrOutpu
 	}).(SpaceAppLifecycleManagementPtrOutput)
 }
 
+// Settings related to idle shutdown of Studio applications.
 func (o SpaceAppLifecycleManagementOutput) IdleSettings() SpaceIdleSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceAppLifecycleManagement) *SpaceIdleSettings { return v.IdleSettings }).(SpaceIdleSettingsPtrOutput)
 }
@@ -33491,6 +33526,7 @@ func (o SpaceAppLifecycleManagementPtrOutput) Elem() SpaceAppLifecycleManagement
 	}).(SpaceAppLifecycleManagementOutput)
 }
 
+// Settings related to idle shutdown of Studio applications.
 func (o SpaceAppLifecycleManagementPtrOutput) IdleSettings() SpaceIdleSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceAppLifecycleManagement) *SpaceIdleSettings {
 		if v == nil {
@@ -33502,6 +33538,7 @@ func (o SpaceAppLifecycleManagementPtrOutput) IdleSettings() SpaceIdleSettingsPt
 
 // The CodeEditor app settings.
 type SpaceCodeEditorAppSettings struct {
+	// Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
 	AppLifecycleManagement *SpaceAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
@@ -33520,6 +33557,7 @@ type SpaceCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type SpaceCodeEditorAppSettingsArgs struct {
+	// Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
 	AppLifecycleManagement SpaceAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
@@ -33603,6 +33641,7 @@ func (o SpaceCodeEditorAppSettingsOutput) ToSpaceCodeEditorAppSettingsPtrOutputW
 	}).(SpaceCodeEditorAppSettingsPtrOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
 func (o SpaceCodeEditorAppSettingsOutput) AppLifecycleManagement() SpaceAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v SpaceCodeEditorAppSettings) *SpaceAppLifecycleManagement { return v.AppLifecycleManagement }).(SpaceAppLifecycleManagementPtrOutput)
 }
@@ -33636,6 +33675,7 @@ func (o SpaceCodeEditorAppSettingsPtrOutput) Elem() SpaceCodeEditorAppSettingsOu
 	}).(SpaceCodeEditorAppSettingsOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
 func (o SpaceCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() SpaceAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v *SpaceCodeEditorAppSettings) *SpaceAppLifecycleManagement {
 		if v == nil {
@@ -34376,6 +34416,7 @@ func (o SpaceIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 
 // The JupyterServer app settings.
 type SpaceJupyterLabAppSettings struct {
+	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
 	AppLifecycleManagement *SpaceAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []SpaceCodeRepository `pulumi:"codeRepositories"`
@@ -34396,6 +34437,7 @@ type SpaceJupyterLabAppSettingsInput interface {
 
 // The JupyterServer app settings.
 type SpaceJupyterLabAppSettingsArgs struct {
+	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
 	AppLifecycleManagement SpaceAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories SpaceCodeRepositoryArrayInput `pulumi:"codeRepositories"`
@@ -34481,6 +34523,7 @@ func (o SpaceJupyterLabAppSettingsOutput) ToSpaceJupyterLabAppSettingsPtrOutputW
 	}).(SpaceJupyterLabAppSettingsPtrOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
 func (o SpaceJupyterLabAppSettingsOutput) AppLifecycleManagement() SpaceAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v SpaceJupyterLabAppSettings) *SpaceAppLifecycleManagement { return v.AppLifecycleManagement }).(SpaceAppLifecycleManagementPtrOutput)
 }
@@ -34519,6 +34562,7 @@ func (o SpaceJupyterLabAppSettingsPtrOutput) Elem() SpaceJupyterLabAppSettingsOu
 	}).(SpaceJupyterLabAppSettingsOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
 func (o SpaceJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() SpaceAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v *SpaceJupyterLabAppSettings) *SpaceAppLifecycleManagement {
 		if v == nil {
@@ -35759,6 +35803,7 @@ type StudioLifecycleConfigTag struct {
 }
 
 type UserProfileAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications.
 	IdleSettings *UserProfileIdleSettings `pulumi:"idleSettings"`
 }
 
@@ -35774,6 +35819,7 @@ type UserProfileAppLifecycleManagementInput interface {
 }
 
 type UserProfileAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications.
 	IdleSettings UserProfileIdleSettingsPtrInput `pulumi:"idleSettings"`
 }
 
@@ -35854,6 +35900,7 @@ func (o UserProfileAppLifecycleManagementOutput) ToUserProfileAppLifecycleManage
 	}).(UserProfileAppLifecycleManagementPtrOutput)
 }
 
+// Settings related to idle shutdown of Studio applications.
 func (o UserProfileAppLifecycleManagementOutput) IdleSettings() UserProfileIdleSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileAppLifecycleManagement) *UserProfileIdleSettings { return v.IdleSettings }).(UserProfileIdleSettingsPtrOutput)
 }
@@ -35882,6 +35929,7 @@ func (o UserProfileAppLifecycleManagementPtrOutput) Elem() UserProfileAppLifecyc
 	}).(UserProfileAppLifecycleManagementOutput)
 }
 
+// Settings related to idle shutdown of Studio applications.
 func (o UserProfileAppLifecycleManagementPtrOutput) IdleSettings() UserProfileIdleSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileAppLifecycleManagement) *UserProfileIdleSettings {
 		if v == nil {
@@ -35893,6 +35941,7 @@ func (o UserProfileAppLifecycleManagementPtrOutput) IdleSettings() UserProfileId
 
 // The CodeEditor app settings.
 type UserProfileCodeEditorAppSettings struct {
+	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 	AppLifecycleManagement *UserProfileAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages []UserProfileCustomImage `pulumi:"customImages"`
@@ -35915,6 +35964,7 @@ type UserProfileCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type UserProfileCodeEditorAppSettingsArgs struct {
+	// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 	AppLifecycleManagement UserProfileAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of custom images for use for CodeEditor apps.
 	CustomImages UserProfileCustomImageArrayInput `pulumi:"customImages"`
@@ -36002,6 +36052,7 @@ func (o UserProfileCodeEditorAppSettingsOutput) ToUserProfileCodeEditorAppSettin
 	}).(UserProfileCodeEditorAppSettingsPtrOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 func (o UserProfileCodeEditorAppSettingsOutput) AppLifecycleManagement() UserProfileAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v UserProfileCodeEditorAppSettings) *UserProfileAppLifecycleManagement {
 		return v.AppLifecycleManagement
@@ -36047,6 +36098,7 @@ func (o UserProfileCodeEditorAppSettingsPtrOutput) Elem() UserProfileCodeEditorA
 	}).(UserProfileCodeEditorAppSettingsOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of CodeEditor applications.
 func (o UserProfileCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() UserProfileAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v *UserProfileCodeEditorAppSettings) *UserProfileAppLifecycleManagement {
 		if v == nil {
@@ -37014,10 +37066,14 @@ func (o UserProfileEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringP
 }
 
 type UserProfileIdleSettings struct {
-	IdleTimeoutInMinutes    *int                            `pulumi:"idleTimeoutInMinutes"`
-	LifecycleManagement     *UserProfileLifecycleManagement `pulumi:"lifecycleManagement"`
-	MaxIdleTimeoutInMinutes *int                            `pulumi:"maxIdleTimeoutInMinutes"`
-	MinIdleTimeoutInMinutes *int                            `pulumi:"minIdleTimeoutInMinutes"`
+	// The time that SageMaker waits after the application becomes idle before shutting it down.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type.
+	LifecycleManagement *UserProfileLifecycleManagement `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user.
+	MaxIdleTimeoutInMinutes *int `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user.
+	MinIdleTimeoutInMinutes *int `pulumi:"minIdleTimeoutInMinutes"`
 }
 
 // UserProfileIdleSettingsInput is an input type that accepts UserProfileIdleSettingsArgs and UserProfileIdleSettingsOutput values.
@@ -37032,10 +37088,14 @@ type UserProfileIdleSettingsInput interface {
 }
 
 type UserProfileIdleSettingsArgs struct {
-	IdleTimeoutInMinutes    pulumi.IntPtrInput                     `pulumi:"idleTimeoutInMinutes"`
-	LifecycleManagement     UserProfileLifecycleManagementPtrInput `pulumi:"lifecycleManagement"`
-	MaxIdleTimeoutInMinutes pulumi.IntPtrInput                     `pulumi:"maxIdleTimeoutInMinutes"`
-	MinIdleTimeoutInMinutes pulumi.IntPtrInput                     `pulumi:"minIdleTimeoutInMinutes"`
+	// The time that SageMaker waits after the application becomes idle before shutting it down.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type.
+	LifecycleManagement UserProfileLifecycleManagementPtrInput `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user.
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user.
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"minIdleTimeoutInMinutes"`
 }
 
 func (UserProfileIdleSettingsArgs) ElementType() reflect.Type {
@@ -37115,18 +37175,22 @@ func (o UserProfileIdleSettingsOutput) ToUserProfileIdleSettingsPtrOutputWithCon
 	}).(UserProfileIdleSettingsPtrOutput)
 }
 
+// The time that SageMaker waits after the application becomes idle before shutting it down.
 func (o UserProfileIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserProfileIdleSettings) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for the application type.
 func (o UserProfileIdleSettingsOutput) LifecycleManagement() UserProfileLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v UserProfileIdleSettings) *UserProfileLifecycleManagement { return v.LifecycleManagement }).(UserProfileLifecycleManagementPtrOutput)
 }
 
+// The maximum value in minutes that custom idle shutdown can be set to by the user.
 func (o UserProfileIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserProfileIdleSettings) *int { return v.MaxIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
+// The minimum value in minutes that custom idle shutdown can be set to by the user.
 func (o UserProfileIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserProfileIdleSettings) *int { return v.MinIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -37155,6 +37219,7 @@ func (o UserProfileIdleSettingsPtrOutput) Elem() UserProfileIdleSettingsOutput {
 	}).(UserProfileIdleSettingsOutput)
 }
 
+// The time that SageMaker waits after the application becomes idle before shutting it down.
 func (o UserProfileIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserProfileIdleSettings) *int {
 		if v == nil {
@@ -37164,6 +37229,7 @@ func (o UserProfileIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for the application type.
 func (o UserProfileIdleSettingsPtrOutput) LifecycleManagement() UserProfileLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v *UserProfileIdleSettings) *UserProfileLifecycleManagement {
 		if v == nil {
@@ -37173,6 +37239,7 @@ func (o UserProfileIdleSettingsPtrOutput) LifecycleManagement() UserProfileLifec
 	}).(UserProfileLifecycleManagementPtrOutput)
 }
 
+// The maximum value in minutes that custom idle shutdown can be set to by the user.
 func (o UserProfileIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserProfileIdleSettings) *int {
 		if v == nil {
@@ -37182,6 +37249,7 @@ func (o UserProfileIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum value in minutes that custom idle shutdown can be set to by the user.
 func (o UserProfileIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserProfileIdleSettings) *int {
 		if v == nil {
@@ -37193,6 +37261,7 @@ func (o UserProfileIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPt
 
 // The JupyterLab app settings.
 type UserProfileJupyterLabAppSettings struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications.
 	AppLifecycleManagement *UserProfileAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []UserProfileCodeRepository `pulumi:"codeRepositories"`
@@ -37217,6 +37286,7 @@ type UserProfileJupyterLabAppSettingsInput interface {
 
 // The JupyterLab app settings.
 type UserProfileJupyterLabAppSettingsArgs struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications.
 	AppLifecycleManagement UserProfileAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories UserProfileCodeRepositoryArrayInput `pulumi:"codeRepositories"`
@@ -37306,6 +37376,7 @@ func (o UserProfileJupyterLabAppSettingsOutput) ToUserProfileJupyterLabAppSettin
 	}).(UserProfileJupyterLabAppSettingsPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications.
 func (o UserProfileJupyterLabAppSettingsOutput) AppLifecycleManagement() UserProfileAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v UserProfileJupyterLabAppSettings) *UserProfileAppLifecycleManagement {
 		return v.AppLifecycleManagement
@@ -37356,6 +37427,7 @@ func (o UserProfileJupyterLabAppSettingsPtrOutput) Elem() UserProfileJupyterLabA
 	}).(UserProfileJupyterLabAppSettingsOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications.
 func (o UserProfileJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() UserProfileAppLifecycleManagementPtrOutput {
 	return o.ApplyT(func(v *UserProfileJupyterLabAppSettings) *UserProfileAppLifecycleManagement {
 		if v == nil {

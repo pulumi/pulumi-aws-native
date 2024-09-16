@@ -41,6 +41,8 @@ type DataSet struct {
 	DatasetParameters DataSetDatasetParameterArrayOutput `pulumi:"datasetParameters"`
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders DataSetFieldFolderMapOutput `pulumi:"fieldFolders"`
+	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+	FolderArns pulumi.StringArrayOutput `pulumi:"folderArns"`
 	// Indicates whether you want to import the data into SPICE.
 	ImportMode DataSetImportModePtrOutput `pulumi:"importMode"`
 	// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
@@ -129,6 +131,8 @@ type dataSetArgs struct {
 	DatasetParameters []DataSetDatasetParameter `pulumi:"datasetParameters"`
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders map[string]DataSetFieldFolder `pulumi:"fieldFolders"`
+	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+	FolderArns []string `pulumi:"folderArns"`
 	// Indicates whether you want to import the data into SPICE.
 	ImportMode *DataSetImportMode `pulumi:"importMode"`
 	// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
@@ -169,6 +173,8 @@ type DataSetArgs struct {
 	DatasetParameters DataSetDatasetParameterArrayInput
 	// The folder that contains fields and nested subfolders for your dataset.
 	FieldFolders DataSetFieldFolderMapInput
+	// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+	FolderArns pulumi.StringArrayInput
 	// Indicates whether you want to import the data into SPICE.
 	ImportMode DataSetImportModePtrInput
 	// The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
@@ -284,6 +290,11 @@ func (o DataSetOutput) DatasetParameters() DataSetDatasetParameterArrayOutput {
 // The folder that contains fields and nested subfolders for your dataset.
 func (o DataSetOutput) FieldFolders() DataSetFieldFolderMapOutput {
 	return o.ApplyT(func(v *DataSet) DataSetFieldFolderMapOutput { return v.FieldFolders }).(DataSetFieldFolderMapOutput)
+}
+
+// <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+func (o DataSetOutput) FolderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringArrayOutput { return v.FolderArns }).(pulumi.StringArrayOutput)
 }
 
 // Indicates whether you want to import the data into SPICE.

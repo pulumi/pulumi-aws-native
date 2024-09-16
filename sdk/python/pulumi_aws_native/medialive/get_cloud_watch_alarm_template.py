@@ -83,11 +83,17 @@ class GetCloudWatchAlarmTemplateResult:
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> Optional['CloudWatchAlarmTemplateComparisonOperator']:
+        """
+        The comparison operator used to compare the specified statistic and the threshold.
+        """
         return pulumi.get(self, "comparison_operator")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The date and time of resource creation.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -146,6 +152,9 @@ class GetCloudWatchAlarmTemplateResult:
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        The date and time of latest resource modification.
+        """
         return pulumi.get(self, "modified_at")
 
     @property
@@ -167,11 +176,17 @@ class GetCloudWatchAlarmTemplateResult:
     @property
     @pulumi.getter
     def statistic(self) -> Optional['CloudWatchAlarmTemplateStatistic']:
+        """
+        The statistic to apply to the alarm's metric data.
+        """
         return pulumi.get(self, "statistic")
 
     @property
     @pulumi.getter(name="targetResourceType")
     def target_resource_type(self) -> Optional['CloudWatchAlarmTemplateTargetResourceType']:
+        """
+        The resource type this template should dynamically generate CloudWatch metric alarms for.
+        """
         return pulumi.get(self, "target_resource_type")
 
     @property
@@ -185,6 +200,9 @@ class GetCloudWatchAlarmTemplateResult:
     @property
     @pulumi.getter(name="treatMissingData")
     def treat_missing_data(self) -> Optional['CloudWatchAlarmTemplateTreatMissingData']:
+        """
+        Specifies how missing data points are treated when evaluating the alarm's condition.
+        """
         return pulumi.get(self, "treat_missing_data")
 
 

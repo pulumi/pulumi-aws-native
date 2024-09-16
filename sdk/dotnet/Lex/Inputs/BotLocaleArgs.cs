@@ -65,6 +65,13 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         /// <summary>
         /// Defines settings for using an Amazon Polly voice to communicate with a user.
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `standard`
+        /// - `neural`
+        /// - `long-form`
+        /// - `generative`
         /// </summary>
         [Input("voiceSettings")]
         public Input<Inputs.BotVoiceSettingsArgs>? VoiceSettings { get; set; }
