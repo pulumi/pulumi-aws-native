@@ -48,14 +48,20 @@ type LookupEnvironmentActionsResult struct {
 
 func LookupEnvironmentActionsOutput(ctx *pulumi.Context, args LookupEnvironmentActionsOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentActionsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentActionsResult, error) {
+		ApplyT(func(v interface{}) (LookupEnvironmentActionsResultOutput, error) {
 			args := v.(LookupEnvironmentActionsArgs)
-			r, err := LookupEnvironmentActions(ctx, &args, opts...)
-			var s LookupEnvironmentActionsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEnvironmentActionsResult
+			secret, err := ctx.InvokePackageRaw("aws-native:datazone:getEnvironmentActions", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEnvironmentActionsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEnvironmentActionsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEnvironmentActionsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEnvironmentActionsResultOutput)
 }
 

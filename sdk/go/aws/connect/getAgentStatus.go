@@ -55,14 +55,20 @@ type LookupAgentStatusResult struct {
 
 func LookupAgentStatusOutput(ctx *pulumi.Context, args LookupAgentStatusOutputArgs, opts ...pulumi.InvokeOption) LookupAgentStatusResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAgentStatusResult, error) {
+		ApplyT(func(v interface{}) (LookupAgentStatusResultOutput, error) {
 			args := v.(LookupAgentStatusArgs)
-			r, err := LookupAgentStatus(ctx, &args, opts...)
-			var s LookupAgentStatusResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAgentStatusResult
+			secret, err := ctx.InvokePackageRaw("aws-native:connect:getAgentStatus", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAgentStatusResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAgentStatusResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAgentStatusResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAgentStatusResultOutput)
 }
 
