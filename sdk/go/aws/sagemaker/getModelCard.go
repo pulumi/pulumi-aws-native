@@ -53,14 +53,20 @@ type LookupModelCardResult struct {
 
 func LookupModelCardOutput(ctx *pulumi.Context, args LookupModelCardOutputArgs, opts ...pulumi.InvokeOption) LookupModelCardResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupModelCardResult, error) {
+		ApplyT(func(v interface{}) (LookupModelCardResultOutput, error) {
 			args := v.(LookupModelCardArgs)
-			r, err := LookupModelCard(ctx, &args, opts...)
-			var s LookupModelCardResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupModelCardResult
+			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getModelCard", args, &rv, "", opts...)
+			if err != nil {
+				return LookupModelCardResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupModelCardResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupModelCardResultOutput), nil
+			}
+			return output, nil
 		}).(LookupModelCardResultOutput)
 }
 

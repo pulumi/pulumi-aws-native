@@ -40,14 +40,20 @@ type LookupEnclaveCertificateIamRoleAssociationResult struct {
 
 func LookupEnclaveCertificateIamRoleAssociationOutput(ctx *pulumi.Context, args LookupEnclaveCertificateIamRoleAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupEnclaveCertificateIamRoleAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEnclaveCertificateIamRoleAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupEnclaveCertificateIamRoleAssociationResultOutput, error) {
 			args := v.(LookupEnclaveCertificateIamRoleAssociationArgs)
-			r, err := LookupEnclaveCertificateIamRoleAssociation(ctx, &args, opts...)
-			var s LookupEnclaveCertificateIamRoleAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEnclaveCertificateIamRoleAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getEnclaveCertificateIamRoleAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEnclaveCertificateIamRoleAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEnclaveCertificateIamRoleAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEnclaveCertificateIamRoleAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEnclaveCertificateIamRoleAssociationResultOutput)
 }
 

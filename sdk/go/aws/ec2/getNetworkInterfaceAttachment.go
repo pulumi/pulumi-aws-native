@@ -38,14 +38,20 @@ type LookupNetworkInterfaceAttachmentResult struct {
 
 func LookupNetworkInterfaceAttachmentOutput(ctx *pulumi.Context, args LookupNetworkInterfaceAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceAttachmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkInterfaceAttachmentResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkInterfaceAttachmentResultOutput, error) {
 			args := v.(LookupNetworkInterfaceAttachmentArgs)
-			r, err := LookupNetworkInterfaceAttachment(ctx, &args, opts...)
-			var s LookupNetworkInterfaceAttachmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkInterfaceAttachmentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getNetworkInterfaceAttachment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkInterfaceAttachmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkInterfaceAttachmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkInterfaceAttachmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkInterfaceAttachmentResultOutput)
 }
 

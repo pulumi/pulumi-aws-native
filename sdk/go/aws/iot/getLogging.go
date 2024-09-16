@@ -36,14 +36,20 @@ type LookupLoggingResult struct {
 
 func LookupLoggingOutput(ctx *pulumi.Context, args LookupLoggingOutputArgs, opts ...pulumi.InvokeOption) LookupLoggingResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLoggingResult, error) {
+		ApplyT(func(v interface{}) (LookupLoggingResultOutput, error) {
 			args := v.(LookupLoggingArgs)
-			r, err := LookupLogging(ctx, &args, opts...)
-			var s LookupLoggingResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLoggingResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getLogging", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLoggingResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLoggingResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLoggingResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLoggingResultOutput)
 }
 

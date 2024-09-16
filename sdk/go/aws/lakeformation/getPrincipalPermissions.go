@@ -38,14 +38,20 @@ type LookupPrincipalPermissionsResult struct {
 
 func LookupPrincipalPermissionsOutput(ctx *pulumi.Context, args LookupPrincipalPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupPrincipalPermissionsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPrincipalPermissionsResult, error) {
+		ApplyT(func(v interface{}) (LookupPrincipalPermissionsResultOutput, error) {
 			args := v.(LookupPrincipalPermissionsArgs)
-			r, err := LookupPrincipalPermissions(ctx, &args, opts...)
-			var s LookupPrincipalPermissionsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPrincipalPermissionsResult
+			secret, err := ctx.InvokePackageRaw("aws-native:lakeformation:getPrincipalPermissions", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPrincipalPermissionsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPrincipalPermissionsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPrincipalPermissionsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPrincipalPermissionsResultOutput)
 }
 

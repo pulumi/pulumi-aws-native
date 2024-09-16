@@ -51,14 +51,20 @@ type LookupGameSessionQueueResult struct {
 
 func LookupGameSessionQueueOutput(ctx *pulumi.Context, args LookupGameSessionQueueOutputArgs, opts ...pulumi.InvokeOption) LookupGameSessionQueueResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupGameSessionQueueResult, error) {
+		ApplyT(func(v interface{}) (LookupGameSessionQueueResultOutput, error) {
 			args := v.(LookupGameSessionQueueArgs)
-			r, err := LookupGameSessionQueue(ctx, &args, opts...)
-			var s LookupGameSessionQueueResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupGameSessionQueueResult
+			secret, err := ctx.InvokePackageRaw("aws-native:gamelift:getGameSessionQueue", args, &rv, "", opts...)
+			if err != nil {
+				return LookupGameSessionQueueResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupGameSessionQueueResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupGameSessionQueueResultOutput), nil
+			}
+			return output, nil
 		}).(LookupGameSessionQueueResultOutput)
 }
 

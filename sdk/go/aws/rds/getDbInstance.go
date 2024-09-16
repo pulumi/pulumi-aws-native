@@ -435,14 +435,20 @@ type LookupDbInstanceResult struct {
 
 func LookupDbInstanceOutput(ctx *pulumi.Context, args LookupDbInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupDbInstanceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDbInstanceResult, error) {
+		ApplyT(func(v interface{}) (LookupDbInstanceResultOutput, error) {
 			args := v.(LookupDbInstanceArgs)
-			r, err := LookupDbInstance(ctx, &args, opts...)
-			var s LookupDbInstanceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDbInstanceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rds:getDbInstance", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDbInstanceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDbInstanceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDbInstanceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDbInstanceResultOutput)
 }
 

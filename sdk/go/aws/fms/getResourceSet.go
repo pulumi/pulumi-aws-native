@@ -43,14 +43,20 @@ type LookupResourceSetResult struct {
 
 func LookupResourceSetOutput(ctx *pulumi.Context, args LookupResourceSetOutputArgs, opts ...pulumi.InvokeOption) LookupResourceSetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResourceSetResult, error) {
+		ApplyT(func(v interface{}) (LookupResourceSetResultOutput, error) {
 			args := v.(LookupResourceSetArgs)
-			r, err := LookupResourceSet(ctx, &args, opts...)
-			var s LookupResourceSetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResourceSetResult
+			secret, err := ctx.InvokePackageRaw("aws-native:fms:getResourceSet", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResourceSetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResourceSetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResourceSetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResourceSetResultOutput)
 }
 

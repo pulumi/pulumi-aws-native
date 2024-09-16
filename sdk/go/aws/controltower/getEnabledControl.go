@@ -39,14 +39,20 @@ type LookupEnabledControlResult struct {
 
 func LookupEnabledControlOutput(ctx *pulumi.Context, args LookupEnabledControlOutputArgs, opts ...pulumi.InvokeOption) LookupEnabledControlResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEnabledControlResult, error) {
+		ApplyT(func(v interface{}) (LookupEnabledControlResultOutput, error) {
 			args := v.(LookupEnabledControlArgs)
-			r, err := LookupEnabledControl(ctx, &args, opts...)
-			var s LookupEnabledControlResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEnabledControlResult
+			secret, err := ctx.InvokePackageRaw("aws-native:controltower:getEnabledControl", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEnabledControlResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEnabledControlResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEnabledControlResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEnabledControlResultOutput)
 }
 

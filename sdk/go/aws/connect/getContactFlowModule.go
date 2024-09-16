@@ -49,14 +49,20 @@ type LookupContactFlowModuleResult struct {
 
 func LookupContactFlowModuleOutput(ctx *pulumi.Context, args LookupContactFlowModuleOutputArgs, opts ...pulumi.InvokeOption) LookupContactFlowModuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupContactFlowModuleResult, error) {
+		ApplyT(func(v interface{}) (LookupContactFlowModuleResultOutput, error) {
 			args := v.(LookupContactFlowModuleArgs)
-			r, err := LookupContactFlowModule(ctx, &args, opts...)
-			var s LookupContactFlowModuleResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupContactFlowModuleResult
+			secret, err := ctx.InvokePackageRaw("aws-native:connect:getContactFlowModule", args, &rv, "", opts...)
+			if err != nil {
+				return LookupContactFlowModuleResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupContactFlowModuleResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupContactFlowModuleResultOutput), nil
+			}
+			return output, nil
 		}).(LookupContactFlowModuleResultOutput)
 }
 

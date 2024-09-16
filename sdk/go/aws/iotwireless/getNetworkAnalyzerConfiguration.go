@@ -42,14 +42,20 @@ type LookupNetworkAnalyzerConfigurationResult struct {
 
 func LookupNetworkAnalyzerConfigurationOutput(ctx *pulumi.Context, args LookupNetworkAnalyzerConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkAnalyzerConfigurationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkAnalyzerConfigurationResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkAnalyzerConfigurationResultOutput, error) {
 			args := v.(LookupNetworkAnalyzerConfigurationArgs)
-			r, err := LookupNetworkAnalyzerConfiguration(ctx, &args, opts...)
-			var s LookupNetworkAnalyzerConfigurationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkAnalyzerConfigurationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iotwireless:getNetworkAnalyzerConfiguration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkAnalyzerConfigurationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkAnalyzerConfigurationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkAnalyzerConfigurationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkAnalyzerConfigurationResultOutput)
 }
 

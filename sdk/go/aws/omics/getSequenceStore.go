@@ -38,14 +38,20 @@ type LookupSequenceStoreResult struct {
 
 func LookupSequenceStoreOutput(ctx *pulumi.Context, args LookupSequenceStoreOutputArgs, opts ...pulumi.InvokeOption) LookupSequenceStoreResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSequenceStoreResult, error) {
+		ApplyT(func(v interface{}) (LookupSequenceStoreResultOutput, error) {
 			args := v.(LookupSequenceStoreArgs)
-			r, err := LookupSequenceStore(ctx, &args, opts...)
-			var s LookupSequenceStoreResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSequenceStoreResult
+			secret, err := ctx.InvokePackageRaw("aws-native:omics:getSequenceStore", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSequenceStoreResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSequenceStoreResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSequenceStoreResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSequenceStoreResultOutput)
 }
 

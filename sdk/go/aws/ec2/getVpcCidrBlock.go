@@ -40,14 +40,20 @@ type LookupVpcCidrBlockResult struct {
 
 func LookupVpcCidrBlockOutput(ctx *pulumi.Context, args LookupVpcCidrBlockOutputArgs, opts ...pulumi.InvokeOption) LookupVpcCidrBlockResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVpcCidrBlockResult, error) {
+		ApplyT(func(v interface{}) (LookupVpcCidrBlockResultOutput, error) {
 			args := v.(LookupVpcCidrBlockArgs)
-			r, err := LookupVpcCidrBlock(ctx, &args, opts...)
-			var s LookupVpcCidrBlockResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVpcCidrBlockResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getVpcCidrBlock", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVpcCidrBlockResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVpcCidrBlockResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVpcCidrBlockResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVpcCidrBlockResultOutput)
 }
 

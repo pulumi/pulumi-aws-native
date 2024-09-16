@@ -34,14 +34,20 @@ type LookupSchemaVersionResult struct {
 
 func LookupSchemaVersionOutput(ctx *pulumi.Context, args LookupSchemaVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSchemaVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupSchemaVersionResultOutput, error) {
 			args := v.(LookupSchemaVersionArgs)
-			r, err := LookupSchemaVersion(ctx, &args, opts...)
-			var s LookupSchemaVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSchemaVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:glue:getSchemaVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSchemaVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSchemaVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSchemaVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSchemaVersionResultOutput)
 }
 

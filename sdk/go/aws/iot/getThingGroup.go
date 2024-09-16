@@ -45,14 +45,20 @@ type LookupThingGroupResult struct {
 
 func LookupThingGroupOutput(ctx *pulumi.Context, args LookupThingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupThingGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupThingGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupThingGroupResultOutput, error) {
 			args := v.(LookupThingGroupArgs)
-			r, err := LookupThingGroup(ctx, &args, opts...)
-			var s LookupThingGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupThingGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getThingGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupThingGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupThingGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupThingGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupThingGroupResultOutput)
 }
 

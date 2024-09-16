@@ -41,14 +41,20 @@ type LookupUserAccessLoggingSettingsResult struct {
 
 func LookupUserAccessLoggingSettingsOutput(ctx *pulumi.Context, args LookupUserAccessLoggingSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupUserAccessLoggingSettingsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupUserAccessLoggingSettingsResult, error) {
+		ApplyT(func(v interface{}) (LookupUserAccessLoggingSettingsResultOutput, error) {
 			args := v.(LookupUserAccessLoggingSettingsArgs)
-			r, err := LookupUserAccessLoggingSettings(ctx, &args, opts...)
-			var s LookupUserAccessLoggingSettingsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupUserAccessLoggingSettingsResult
+			secret, err := ctx.InvokePackageRaw("aws-native:workspacesweb:getUserAccessLoggingSettings", args, &rv, "", opts...)
+			if err != nil {
+				return LookupUserAccessLoggingSettingsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupUserAccessLoggingSettingsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupUserAccessLoggingSettingsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupUserAccessLoggingSettingsResultOutput)
 }
 

@@ -43,14 +43,20 @@ type LookupServiceProfileResult struct {
 
 func LookupServiceProfileOutput(ctx *pulumi.Context, args LookupServiceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupServiceProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServiceProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupServiceProfileResultOutput, error) {
 			args := v.(LookupServiceProfileArgs)
-			r, err := LookupServiceProfile(ctx, &args, opts...)
-			var s LookupServiceProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServiceProfileResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iotwireless:getServiceProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServiceProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServiceProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServiceProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServiceProfileResultOutput)
 }
 

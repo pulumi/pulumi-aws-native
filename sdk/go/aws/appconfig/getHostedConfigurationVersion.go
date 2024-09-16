@@ -38,14 +38,20 @@ type LookupHostedConfigurationVersionResult struct {
 
 func LookupHostedConfigurationVersionOutput(ctx *pulumi.Context, args LookupHostedConfigurationVersionOutputArgs, opts ...pulumi.InvokeOption) LookupHostedConfigurationVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupHostedConfigurationVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupHostedConfigurationVersionResultOutput, error) {
 			args := v.(LookupHostedConfigurationVersionArgs)
-			r, err := LookupHostedConfigurationVersion(ctx, &args, opts...)
-			var s LookupHostedConfigurationVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupHostedConfigurationVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:appconfig:getHostedConfigurationVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupHostedConfigurationVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupHostedConfigurationVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupHostedConfigurationVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupHostedConfigurationVersionResultOutput)
 }
 

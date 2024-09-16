@@ -50,14 +50,20 @@ type LookupPackageVersionResult struct {
 
 func LookupPackageVersionOutput(ctx *pulumi.Context, args LookupPackageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupPackageVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPackageVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupPackageVersionResultOutput, error) {
 			args := v.(LookupPackageVersionArgs)
-			r, err := LookupPackageVersion(ctx, &args, opts...)
-			var s LookupPackageVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPackageVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:panorama:getPackageVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPackageVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPackageVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPackageVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPackageVersionResultOutput)
 }
 

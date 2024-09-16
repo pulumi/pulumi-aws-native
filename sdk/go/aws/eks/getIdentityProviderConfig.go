@@ -41,14 +41,20 @@ type LookupIdentityProviderConfigResult struct {
 
 func LookupIdentityProviderConfigOutput(ctx *pulumi.Context, args LookupIdentityProviderConfigOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityProviderConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIdentityProviderConfigResult, error) {
+		ApplyT(func(v interface{}) (LookupIdentityProviderConfigResultOutput, error) {
 			args := v.(LookupIdentityProviderConfigArgs)
-			r, err := LookupIdentityProviderConfig(ctx, &args, opts...)
-			var s LookupIdentityProviderConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIdentityProviderConfigResult
+			secret, err := ctx.InvokePackageRaw("aws-native:eks:getIdentityProviderConfig", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIdentityProviderConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIdentityProviderConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIdentityProviderConfigResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIdentityProviderConfigResultOutput)
 }
 

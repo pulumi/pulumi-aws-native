@@ -59,14 +59,20 @@ type LookupNetworkProfileResult struct {
 
 func LookupNetworkProfileOutput(ctx *pulumi.Context, args LookupNetworkProfileOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkProfileResultOutput, error) {
 			args := v.(LookupNetworkProfileArgs)
-			r, err := LookupNetworkProfile(ctx, &args, opts...)
-			var s LookupNetworkProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkProfileResult
+			secret, err := ctx.InvokePackageRaw("aws-native:devicefarm:getNetworkProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkProfileResultOutput)
 }
 

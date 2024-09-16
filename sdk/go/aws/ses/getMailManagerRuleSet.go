@@ -43,14 +43,20 @@ type LookupMailManagerRuleSetResult struct {
 
 func LookupMailManagerRuleSetOutput(ctx *pulumi.Context, args LookupMailManagerRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupMailManagerRuleSetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMailManagerRuleSetResult, error) {
+		ApplyT(func(v interface{}) (LookupMailManagerRuleSetResultOutput, error) {
 			args := v.(LookupMailManagerRuleSetArgs)
-			r, err := LookupMailManagerRuleSet(ctx, &args, opts...)
-			var s LookupMailManagerRuleSetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMailManagerRuleSetResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ses:getMailManagerRuleSet", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMailManagerRuleSetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMailManagerRuleSetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMailManagerRuleSetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMailManagerRuleSetResultOutput)
 }
 

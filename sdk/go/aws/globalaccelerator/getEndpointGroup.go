@@ -50,14 +50,20 @@ type LookupEndpointGroupResult struct {
 
 func LookupEndpointGroupOutput(ctx *pulumi.Context, args LookupEndpointGroupOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEndpointGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupEndpointGroupResultOutput, error) {
 			args := v.(LookupEndpointGroupArgs)
-			r, err := LookupEndpointGroup(ctx, &args, opts...)
-			var s LookupEndpointGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEndpointGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:globalaccelerator:getEndpointGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEndpointGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEndpointGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEndpointGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEndpointGroupResultOutput)
 }
 

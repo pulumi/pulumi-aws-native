@@ -45,14 +45,20 @@ type LookupCrlResult struct {
 
 func LookupCrlOutput(ctx *pulumi.Context, args LookupCrlOutputArgs, opts ...pulumi.InvokeOption) LookupCrlResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCrlResult, error) {
+		ApplyT(func(v interface{}) (LookupCrlResultOutput, error) {
 			args := v.(LookupCrlArgs)
-			r, err := LookupCrl(ctx, &args, opts...)
-			var s LookupCrlResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCrlResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rolesanywhere:getCrl", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCrlResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCrlResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCrlResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCrlResultOutput)
 }
 

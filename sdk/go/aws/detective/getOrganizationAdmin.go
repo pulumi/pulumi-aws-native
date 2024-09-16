@@ -34,14 +34,20 @@ type LookupOrganizationAdminResult struct {
 
 func LookupOrganizationAdminOutput(ctx *pulumi.Context, args LookupOrganizationAdminOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationAdminResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationAdminResult, error) {
+		ApplyT(func(v interface{}) (LookupOrganizationAdminResultOutput, error) {
 			args := v.(LookupOrganizationAdminArgs)
-			r, err := LookupOrganizationAdmin(ctx, &args, opts...)
-			var s LookupOrganizationAdminResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupOrganizationAdminResult
+			secret, err := ctx.InvokePackageRaw("aws-native:detective:getOrganizationAdmin", args, &rv, "", opts...)
+			if err != nil {
+				return LookupOrganizationAdminResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupOrganizationAdminResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupOrganizationAdminResultOutput), nil
+			}
+			return output, nil
 		}).(LookupOrganizationAdminResultOutput)
 }
 

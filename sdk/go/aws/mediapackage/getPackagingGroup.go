@@ -40,14 +40,20 @@ type LookupPackagingGroupResult struct {
 
 func LookupPackagingGroupOutput(ctx *pulumi.Context, args LookupPackagingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPackagingGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPackagingGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupPackagingGroupResultOutput, error) {
 			args := v.(LookupPackagingGroupArgs)
-			r, err := LookupPackagingGroup(ctx, &args, opts...)
-			var s LookupPackagingGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPackagingGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:mediapackage:getPackagingGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPackagingGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPackagingGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPackagingGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPackagingGroupResultOutput)
 }
 

@@ -45,14 +45,20 @@ type LookupDataLakeResult struct {
 
 func LookupDataLakeOutput(ctx *pulumi.Context, args LookupDataLakeOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDataLakeResult, error) {
+		ApplyT(func(v interface{}) (LookupDataLakeResultOutput, error) {
 			args := v.(LookupDataLakeArgs)
-			r, err := LookupDataLake(ctx, &args, opts...)
-			var s LookupDataLakeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDataLakeResult
+			secret, err := ctx.InvokePackageRaw("aws-native:securitylake:getDataLake", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDataLakeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDataLakeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDataLakeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDataLakeResultOutput)
 }
 

@@ -42,14 +42,20 @@ type LookupResourceDefaultVersionResult struct {
 
 func LookupResourceDefaultVersionOutput(ctx *pulumi.Context, args LookupResourceDefaultVersionOutputArgs, opts ...pulumi.InvokeOption) LookupResourceDefaultVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResourceDefaultVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupResourceDefaultVersionResultOutput, error) {
 			args := v.(LookupResourceDefaultVersionArgs)
-			r, err := LookupResourceDefaultVersion(ctx, &args, opts...)
-			var s LookupResourceDefaultVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResourceDefaultVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getResourceDefaultVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResourceDefaultVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResourceDefaultVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResourceDefaultVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResourceDefaultVersionResultOutput)
 }
 

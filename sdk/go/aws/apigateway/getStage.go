@@ -59,14 +59,20 @@ type LookupStageResult struct {
 
 func LookupStageOutput(ctx *pulumi.Context, args LookupStageOutputArgs, opts ...pulumi.InvokeOption) LookupStageResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStageResult, error) {
+		ApplyT(func(v interface{}) (LookupStageResultOutput, error) {
 			args := v.(LookupStageArgs)
-			r, err := LookupStage(ctx, &args, opts...)
-			var s LookupStageResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStageResult
+			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getStage", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStageResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStageResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStageResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStageResultOutput)
 }
 

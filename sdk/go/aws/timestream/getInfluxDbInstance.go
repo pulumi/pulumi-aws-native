@@ -53,14 +53,20 @@ type LookupInfluxDbInstanceResult struct {
 
 func LookupInfluxDbInstanceOutput(ctx *pulumi.Context, args LookupInfluxDbInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInfluxDbInstanceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupInfluxDbInstanceResult, error) {
+		ApplyT(func(v interface{}) (LookupInfluxDbInstanceResultOutput, error) {
 			args := v.(LookupInfluxDbInstanceArgs)
-			r, err := LookupInfluxDbInstance(ctx, &args, opts...)
-			var s LookupInfluxDbInstanceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupInfluxDbInstanceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:timestream:getInfluxDbInstance", args, &rv, "", opts...)
+			if err != nil {
+				return LookupInfluxDbInstanceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupInfluxDbInstanceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupInfluxDbInstanceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupInfluxDbInstanceResultOutput)
 }
 

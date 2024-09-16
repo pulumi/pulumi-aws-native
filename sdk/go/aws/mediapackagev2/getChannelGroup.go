@@ -45,14 +45,20 @@ type LookupChannelGroupResult struct {
 
 func LookupChannelGroupOutput(ctx *pulumi.Context, args LookupChannelGroupOutputArgs, opts ...pulumi.InvokeOption) LookupChannelGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupChannelGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupChannelGroupResultOutput, error) {
 			args := v.(LookupChannelGroupArgs)
-			r, err := LookupChannelGroup(ctx, &args, opts...)
-			var s LookupChannelGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupChannelGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:mediapackagev2:getChannelGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupChannelGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupChannelGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupChannelGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupChannelGroupResultOutput)
 }
 

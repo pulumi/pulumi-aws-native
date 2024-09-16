@@ -53,14 +53,20 @@ type LookupDbParameterGroupResult struct {
 
 func LookupDbParameterGroupOutput(ctx *pulumi.Context, args LookupDbParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDbParameterGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDbParameterGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupDbParameterGroupResultOutput, error) {
 			args := v.(LookupDbParameterGroupArgs)
-			r, err := LookupDbParameterGroup(ctx, &args, opts...)
-			var s LookupDbParameterGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDbParameterGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rds:getDbParameterGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDbParameterGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDbParameterGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDbParameterGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDbParameterGroupResultOutput)
 }
 

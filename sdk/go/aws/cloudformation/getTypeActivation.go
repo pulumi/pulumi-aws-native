@@ -44,14 +44,20 @@ type LookupTypeActivationResult struct {
 
 func LookupTypeActivationOutput(ctx *pulumi.Context, args LookupTypeActivationOutputArgs, opts ...pulumi.InvokeOption) LookupTypeActivationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTypeActivationResult, error) {
+		ApplyT(func(v interface{}) (LookupTypeActivationResultOutput, error) {
 			args := v.(LookupTypeActivationArgs)
-			r, err := LookupTypeActivation(ctx, &args, opts...)
-			var s LookupTypeActivationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTypeActivationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getTypeActivation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTypeActivationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTypeActivationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTypeActivationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTypeActivationResultOutput)
 }
 

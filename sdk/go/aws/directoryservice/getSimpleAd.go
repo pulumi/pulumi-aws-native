@@ -40,14 +40,20 @@ type LookupSimpleAdResult struct {
 
 func LookupSimpleAdOutput(ctx *pulumi.Context, args LookupSimpleAdOutputArgs, opts ...pulumi.InvokeOption) LookupSimpleAdResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSimpleAdResult, error) {
+		ApplyT(func(v interface{}) (LookupSimpleAdResultOutput, error) {
 			args := v.(LookupSimpleAdArgs)
-			r, err := LookupSimpleAd(ctx, &args, opts...)
-			var s LookupSimpleAdResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSimpleAdResult
+			secret, err := ctx.InvokePackageRaw("aws-native:directoryservice:getSimpleAd", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSimpleAdResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSimpleAdResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSimpleAdResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSimpleAdResultOutput)
 }
 

@@ -36,14 +36,20 @@ type LookupDocumentationVersionResult struct {
 
 func LookupDocumentationVersionOutput(ctx *pulumi.Context, args LookupDocumentationVersionOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentationVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDocumentationVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupDocumentationVersionResultOutput, error) {
 			args := v.(LookupDocumentationVersionArgs)
-			r, err := LookupDocumentationVersion(ctx, &args, opts...)
-			var s LookupDocumentationVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDocumentationVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getDocumentationVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDocumentationVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDocumentationVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDocumentationVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDocumentationVersionResultOutput)
 }
 

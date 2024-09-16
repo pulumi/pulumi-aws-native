@@ -36,14 +36,20 @@ type LookupAppBlockResult struct {
 
 func LookupAppBlockOutput(ctx *pulumi.Context, args LookupAppBlockOutputArgs, opts ...pulumi.InvokeOption) LookupAppBlockResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAppBlockResult, error) {
+		ApplyT(func(v interface{}) (LookupAppBlockResultOutput, error) {
 			args := v.(LookupAppBlockArgs)
-			r, err := LookupAppBlock(ctx, &args, opts...)
-			var s LookupAppBlockResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAppBlockResult
+			secret, err := ctx.InvokePackageRaw("aws-native:appstream:getAppBlock", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAppBlockResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAppBlockResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAppBlockResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAppBlockResultOutput)
 }
 

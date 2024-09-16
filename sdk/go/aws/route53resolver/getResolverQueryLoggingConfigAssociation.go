@@ -42,14 +42,20 @@ type LookupResolverQueryLoggingConfigAssociationResult struct {
 
 func LookupResolverQueryLoggingConfigAssociationOutput(ctx *pulumi.Context, args LookupResolverQueryLoggingConfigAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupResolverQueryLoggingConfigAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResolverQueryLoggingConfigAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupResolverQueryLoggingConfigAssociationResultOutput, error) {
 			args := v.(LookupResolverQueryLoggingConfigAssociationArgs)
-			r, err := LookupResolverQueryLoggingConfigAssociation(ctx, &args, opts...)
-			var s LookupResolverQueryLoggingConfigAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResolverQueryLoggingConfigAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResolverQueryLoggingConfigAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResolverQueryLoggingConfigAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResolverQueryLoggingConfigAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResolverQueryLoggingConfigAssociationResultOutput)
 }
 

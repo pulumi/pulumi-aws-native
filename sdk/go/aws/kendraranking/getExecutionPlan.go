@@ -45,14 +45,20 @@ type LookupExecutionPlanResult struct {
 
 func LookupExecutionPlanOutput(ctx *pulumi.Context, args LookupExecutionPlanOutputArgs, opts ...pulumi.InvokeOption) LookupExecutionPlanResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupExecutionPlanResult, error) {
+		ApplyT(func(v interface{}) (LookupExecutionPlanResultOutput, error) {
 			args := v.(LookupExecutionPlanArgs)
-			r, err := LookupExecutionPlan(ctx, &args, opts...)
-			var s LookupExecutionPlanResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupExecutionPlanResult
+			secret, err := ctx.InvokePackageRaw("aws-native:kendraranking:getExecutionPlan", args, &rv, "", opts...)
+			if err != nil {
+				return LookupExecutionPlanResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupExecutionPlanResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupExecutionPlanResultOutput), nil
+			}
+			return output, nil
 		}).(LookupExecutionPlanResultOutput)
 }
 

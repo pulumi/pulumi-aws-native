@@ -49,14 +49,20 @@ type LookupLocationObjectStorageResult struct {
 
 func LookupLocationObjectStorageOutput(ctx *pulumi.Context, args LookupLocationObjectStorageOutputArgs, opts ...pulumi.InvokeOption) LookupLocationObjectStorageResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocationObjectStorageResult, error) {
+		ApplyT(func(v interface{}) (LookupLocationObjectStorageResultOutput, error) {
 			args := v.(LookupLocationObjectStorageArgs)
-			r, err := LookupLocationObjectStorage(ctx, &args, opts...)
-			var s LookupLocationObjectStorageResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocationObjectStorageResult
+			secret, err := ctx.InvokePackageRaw("aws-native:datasync:getLocationObjectStorage", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocationObjectStorageResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocationObjectStorageResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocationObjectStorageResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocationObjectStorageResultOutput)
 }
 

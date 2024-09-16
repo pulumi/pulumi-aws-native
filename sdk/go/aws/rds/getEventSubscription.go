@@ -54,14 +54,20 @@ type LookupEventSubscriptionResult struct {
 
 func LookupEventSubscriptionOutput(ctx *pulumi.Context, args LookupEventSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupEventSubscriptionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEventSubscriptionResult, error) {
+		ApplyT(func(v interface{}) (LookupEventSubscriptionResultOutput, error) {
 			args := v.(LookupEventSubscriptionArgs)
-			r, err := LookupEventSubscription(ctx, &args, opts...)
-			var s LookupEventSubscriptionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEventSubscriptionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rds:getEventSubscription", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEventSubscriptionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEventSubscriptionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEventSubscriptionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEventSubscriptionResultOutput)
 }
 

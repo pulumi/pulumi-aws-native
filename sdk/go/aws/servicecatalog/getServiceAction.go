@@ -42,14 +42,20 @@ type LookupServiceActionResult struct {
 
 func LookupServiceActionOutput(ctx *pulumi.Context, args LookupServiceActionOutputArgs, opts ...pulumi.InvokeOption) LookupServiceActionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServiceActionResult, error) {
+		ApplyT(func(v interface{}) (LookupServiceActionResultOutput, error) {
 			args := v.(LookupServiceActionArgs)
-			r, err := LookupServiceAction(ctx, &args, opts...)
-			var s LookupServiceActionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServiceActionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:servicecatalog:getServiceAction", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServiceActionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServiceActionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServiceActionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServiceActionResultOutput)
 }
 

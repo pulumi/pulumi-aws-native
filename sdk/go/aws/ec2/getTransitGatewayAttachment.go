@@ -41,14 +41,20 @@ type LookupTransitGatewayAttachmentResult struct {
 
 func LookupTransitGatewayAttachmentOutput(ctx *pulumi.Context, args LookupTransitGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayAttachmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayAttachmentResult, error) {
+		ApplyT(func(v interface{}) (LookupTransitGatewayAttachmentResultOutput, error) {
 			args := v.(LookupTransitGatewayAttachmentArgs)
-			r, err := LookupTransitGatewayAttachment(ctx, &args, opts...)
-			var s LookupTransitGatewayAttachmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTransitGatewayAttachmentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getTransitGatewayAttachment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTransitGatewayAttachmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTransitGatewayAttachmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTransitGatewayAttachmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTransitGatewayAttachmentResultOutput)
 }
 

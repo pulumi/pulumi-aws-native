@@ -44,14 +44,20 @@ type LookupHubResult struct {
 
 func LookupHubOutput(ctx *pulumi.Context, args LookupHubOutputArgs, opts ...pulumi.InvokeOption) LookupHubResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupHubResult, error) {
+		ApplyT(func(v interface{}) (LookupHubResultOutput, error) {
 			args := v.(LookupHubArgs)
-			r, err := LookupHub(ctx, &args, opts...)
-			var s LookupHubResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupHubResult
+			secret, err := ctx.InvokePackageRaw("aws-native:securityhub:getHub", args, &rv, "", opts...)
+			if err != nil {
+				return LookupHubResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupHubResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupHubResultOutput), nil
+			}
+			return output, nil
 		}).(LookupHubResultOutput)
 }
 

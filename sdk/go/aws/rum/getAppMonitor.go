@@ -55,14 +55,20 @@ type LookupAppMonitorResult struct {
 
 func LookupAppMonitorOutput(ctx *pulumi.Context, args LookupAppMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupAppMonitorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAppMonitorResult, error) {
+		ApplyT(func(v interface{}) (LookupAppMonitorResultOutput, error) {
 			args := v.(LookupAppMonitorArgs)
-			r, err := LookupAppMonitor(ctx, &args, opts...)
-			var s LookupAppMonitorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAppMonitorResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rum:getAppMonitor", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAppMonitorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAppMonitorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAppMonitorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAppMonitorResultOutput)
 }
 

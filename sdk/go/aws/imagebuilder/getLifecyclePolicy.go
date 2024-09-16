@@ -48,14 +48,20 @@ type LookupLifecyclePolicyResult struct {
 
 func LookupLifecyclePolicyOutput(ctx *pulumi.Context, args LookupLifecyclePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupLifecyclePolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLifecyclePolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupLifecyclePolicyResultOutput, error) {
 			args := v.(LookupLifecyclePolicyArgs)
-			r, err := LookupLifecyclePolicy(ctx, &args, opts...)
-			var s LookupLifecyclePolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLifecyclePolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:imagebuilder:getLifecyclePolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLifecyclePolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLifecyclePolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLifecyclePolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLifecyclePolicyResultOutput)
 }
 

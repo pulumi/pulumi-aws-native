@@ -49,14 +49,20 @@ type LookupRolePolicyResult struct {
 
 func LookupRolePolicyOutput(ctx *pulumi.Context, args LookupRolePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupRolePolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRolePolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupRolePolicyResultOutput, error) {
 			args := v.(LookupRolePolicyArgs)
-			r, err := LookupRolePolicy(ctx, &args, opts...)
-			var s LookupRolePolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRolePolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iam:getRolePolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRolePolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRolePolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRolePolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRolePolicyResultOutput)
 }
 

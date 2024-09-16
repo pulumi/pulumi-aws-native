@@ -55,14 +55,20 @@ type LookupPortalResult struct {
 
 func LookupPortalOutput(ctx *pulumi.Context, args LookupPortalOutputArgs, opts ...pulumi.InvokeOption) LookupPortalResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPortalResult, error) {
+		ApplyT(func(v interface{}) (LookupPortalResultOutput, error) {
 			args := v.(LookupPortalArgs)
-			r, err := LookupPortal(ctx, &args, opts...)
-			var s LookupPortalResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPortalResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iotsitewise:getPortal", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPortalResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPortalResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPortalResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPortalResultOutput)
 }
 

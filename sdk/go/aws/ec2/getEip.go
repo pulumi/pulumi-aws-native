@@ -51,14 +51,20 @@ type LookupEipResult struct {
 
 func LookupEipOutput(ctx *pulumi.Context, args LookupEipOutputArgs, opts ...pulumi.InvokeOption) LookupEipResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEipResult, error) {
+		ApplyT(func(v interface{}) (LookupEipResultOutput, error) {
 			args := v.(LookupEipArgs)
-			r, err := LookupEip(ctx, &args, opts...)
-			var s LookupEipResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEipResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getEip", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEipResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEipResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEipResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEipResultOutput)
 }
 

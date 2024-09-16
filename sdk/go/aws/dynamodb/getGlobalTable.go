@@ -73,14 +73,20 @@ type LookupGlobalTableResult struct {
 
 func LookupGlobalTableOutput(ctx *pulumi.Context, args LookupGlobalTableOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalTableResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupGlobalTableResult, error) {
+		ApplyT(func(v interface{}) (LookupGlobalTableResultOutput, error) {
 			args := v.(LookupGlobalTableArgs)
-			r, err := LookupGlobalTable(ctx, &args, opts...)
-			var s LookupGlobalTableResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupGlobalTableResult
+			secret, err := ctx.InvokePackageRaw("aws-native:dynamodb:getGlobalTable", args, &rv, "", opts...)
+			if err != nil {
+				return LookupGlobalTableResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupGlobalTableResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupGlobalTableResultOutput), nil
+			}
+			return output, nil
 		}).(LookupGlobalTableResultOutput)
 }
 

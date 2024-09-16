@@ -47,14 +47,20 @@ type LookupCapacityProviderResult struct {
 
 func LookupCapacityProviderOutput(ctx *pulumi.Context, args LookupCapacityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityProviderResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCapacityProviderResult, error) {
+		ApplyT(func(v interface{}) (LookupCapacityProviderResultOutput, error) {
 			args := v.(LookupCapacityProviderArgs)
-			r, err := LookupCapacityProvider(ctx, &args, opts...)
-			var s LookupCapacityProviderResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCapacityProviderResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ecs:getCapacityProvider", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCapacityProviderResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCapacityProviderResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCapacityProviderResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCapacityProviderResultOutput)
 }
 

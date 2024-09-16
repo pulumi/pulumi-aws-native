@@ -45,14 +45,20 @@ type LookupOptionGroupResult struct {
 
 func LookupOptionGroupOutput(ctx *pulumi.Context, args LookupOptionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupOptionGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupOptionGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupOptionGroupResultOutput, error) {
 			args := v.(LookupOptionGroupArgs)
-			r, err := LookupOptionGroup(ctx, &args, opts...)
-			var s LookupOptionGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupOptionGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rds:getOptionGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupOptionGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupOptionGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupOptionGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupOptionGroupResultOutput)
 }
 

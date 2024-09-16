@@ -37,14 +37,20 @@ type LookupKeyspaceResult struct {
 
 func LookupKeyspaceOutput(ctx *pulumi.Context, args LookupKeyspaceOutputArgs, opts ...pulumi.InvokeOption) LookupKeyspaceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupKeyspaceResult, error) {
+		ApplyT(func(v interface{}) (LookupKeyspaceResultOutput, error) {
 			args := v.(LookupKeyspaceArgs)
-			r, err := LookupKeyspace(ctx, &args, opts...)
-			var s LookupKeyspaceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupKeyspaceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cassandra:getKeyspace", args, &rv, "", opts...)
+			if err != nil {
+				return LookupKeyspaceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupKeyspaceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupKeyspaceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupKeyspaceResultOutput)
 }
 

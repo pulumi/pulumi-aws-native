@@ -56,14 +56,20 @@ type LookupEntityResult struct {
 
 func LookupEntityOutput(ctx *pulumi.Context, args LookupEntityOutputArgs, opts ...pulumi.InvokeOption) LookupEntityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEntityResult, error) {
+		ApplyT(func(v interface{}) (LookupEntityResultOutput, error) {
 			args := v.(LookupEntityArgs)
-			r, err := LookupEntity(ctx, &args, opts...)
-			var s LookupEntityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEntityResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iottwinmaker:getEntity", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEntityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEntityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEntityResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEntityResultOutput)
 }
 

@@ -38,14 +38,20 @@ type LookupSecurityConfigResult struct {
 
 func LookupSecurityConfigOutput(ctx *pulumi.Context, args LookupSecurityConfigOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSecurityConfigResult, error) {
+		ApplyT(func(v interface{}) (LookupSecurityConfigResultOutput, error) {
 			args := v.(LookupSecurityConfigArgs)
-			r, err := LookupSecurityConfig(ctx, &args, opts...)
-			var s LookupSecurityConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSecurityConfigResult
+			secret, err := ctx.InvokePackageRaw("aws-native:opensearchserverless:getSecurityConfig", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSecurityConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSecurityConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSecurityConfigResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSecurityConfigResultOutput)
 }
 

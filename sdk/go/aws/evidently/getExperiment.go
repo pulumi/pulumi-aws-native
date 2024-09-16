@@ -59,14 +59,20 @@ type LookupExperimentResult struct {
 
 func LookupExperimentOutput(ctx *pulumi.Context, args LookupExperimentOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupExperimentResult, error) {
+		ApplyT(func(v interface{}) (LookupExperimentResultOutput, error) {
 			args := v.(LookupExperimentArgs)
-			r, err := LookupExperiment(ctx, &args, opts...)
-			var s LookupExperimentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupExperimentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:evidently:getExperiment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupExperimentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupExperimentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupExperimentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupExperimentResultOutput)
 }
 

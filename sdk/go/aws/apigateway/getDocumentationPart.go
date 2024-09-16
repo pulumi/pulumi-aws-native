@@ -38,14 +38,20 @@ type LookupDocumentationPartResult struct {
 
 func LookupDocumentationPartOutput(ctx *pulumi.Context, args LookupDocumentationPartOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentationPartResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDocumentationPartResult, error) {
+		ApplyT(func(v interface{}) (LookupDocumentationPartResultOutput, error) {
 			args := v.(LookupDocumentationPartArgs)
-			r, err := LookupDocumentationPart(ctx, &args, opts...)
-			var s LookupDocumentationPartResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDocumentationPartResult
+			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getDocumentationPart", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDocumentationPartResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDocumentationPartResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDocumentationPartResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDocumentationPartResultOutput)
 }
 

@@ -34,14 +34,20 @@ type LookupSubnetRouteTableAssociationResult struct {
 
 func LookupSubnetRouteTableAssociationOutput(ctx *pulumi.Context, args LookupSubnetRouteTableAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetRouteTableAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSubnetRouteTableAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupSubnetRouteTableAssociationResultOutput, error) {
 			args := v.(LookupSubnetRouteTableAssociationArgs)
-			r, err := LookupSubnetRouteTableAssociation(ctx, &args, opts...)
-			var s LookupSubnetRouteTableAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSubnetRouteTableAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getSubnetRouteTableAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSubnetRouteTableAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSubnetRouteTableAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSubnetRouteTableAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSubnetRouteTableAssociationResultOutput)
 }
 

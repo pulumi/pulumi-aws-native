@@ -36,14 +36,20 @@ type LookupAwsLogSourceResult struct {
 
 func LookupAwsLogSourceOutput(ctx *pulumi.Context, args LookupAwsLogSourceOutputArgs, opts ...pulumi.InvokeOption) LookupAwsLogSourceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAwsLogSourceResult, error) {
+		ApplyT(func(v interface{}) (LookupAwsLogSourceResultOutput, error) {
 			args := v.(LookupAwsLogSourceArgs)
-			r, err := LookupAwsLogSource(ctx, &args, opts...)
-			var s LookupAwsLogSourceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAwsLogSourceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:securitylake:getAwsLogSource", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAwsLogSourceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAwsLogSourceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAwsLogSourceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAwsLogSourceResultOutput)
 }
 

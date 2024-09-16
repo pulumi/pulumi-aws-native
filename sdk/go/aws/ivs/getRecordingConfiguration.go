@@ -39,14 +39,20 @@ type LookupRecordingConfigurationResult struct {
 
 func LookupRecordingConfigurationOutput(ctx *pulumi.Context, args LookupRecordingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupRecordingConfigurationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRecordingConfigurationResult, error) {
+		ApplyT(func(v interface{}) (LookupRecordingConfigurationResultOutput, error) {
 			args := v.(LookupRecordingConfigurationArgs)
-			r, err := LookupRecordingConfiguration(ctx, &args, opts...)
-			var s LookupRecordingConfigurationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRecordingConfigurationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ivs:getRecordingConfiguration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRecordingConfigurationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRecordingConfigurationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRecordingConfigurationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRecordingConfigurationResultOutput)
 }
 

@@ -48,14 +48,20 @@ type LookupResolverQueryLoggingConfigResult struct {
 
 func LookupResolverQueryLoggingConfigOutput(ctx *pulumi.Context, args LookupResolverQueryLoggingConfigOutputArgs, opts ...pulumi.InvokeOption) LookupResolverQueryLoggingConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResolverQueryLoggingConfigResult, error) {
+		ApplyT(func(v interface{}) (LookupResolverQueryLoggingConfigResultOutput, error) {
 			args := v.(LookupResolverQueryLoggingConfigArgs)
-			r, err := LookupResolverQueryLoggingConfig(ctx, &args, opts...)
-			var s LookupResolverQueryLoggingConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResolverQueryLoggingConfigResult
+			secret, err := ctx.InvokePackageRaw("aws-native:route53resolver:getResolverQueryLoggingConfig", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResolverQueryLoggingConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResolverQueryLoggingConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResolverQueryLoggingConfigResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResolverQueryLoggingConfigResultOutput)
 }
 

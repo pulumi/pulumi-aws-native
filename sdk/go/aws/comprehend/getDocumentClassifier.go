@@ -47,14 +47,20 @@ type LookupDocumentClassifierResult struct {
 
 func LookupDocumentClassifierOutput(ctx *pulumi.Context, args LookupDocumentClassifierOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentClassifierResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDocumentClassifierResult, error) {
+		ApplyT(func(v interface{}) (LookupDocumentClassifierResultOutput, error) {
 			args := v.(LookupDocumentClassifierArgs)
-			r, err := LookupDocumentClassifier(ctx, &args, opts...)
-			var s LookupDocumentClassifierResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDocumentClassifierResult
+			secret, err := ctx.InvokePackageRaw("aws-native:comprehend:getDocumentClassifier", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDocumentClassifierResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDocumentClassifierResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDocumentClassifierResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDocumentClassifierResultOutput)
 }
 

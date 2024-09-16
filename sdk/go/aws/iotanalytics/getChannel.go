@@ -42,14 +42,20 @@ type LookupChannelResult struct {
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupChannelResult, error) {
+		ApplyT(func(v interface{}) (LookupChannelResultOutput, error) {
 			args := v.(LookupChannelArgs)
-			r, err := LookupChannel(ctx, &args, opts...)
-			var s LookupChannelResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupChannelResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iotanalytics:getChannel", args, &rv, "", opts...)
+			if err != nil {
+				return LookupChannelResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupChannelResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupChannelResultOutput), nil
+			}
+			return output, nil
 		}).(LookupChannelResultOutput)
 }
 

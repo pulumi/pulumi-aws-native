@@ -38,14 +38,20 @@ type LookupSecurityControlResult struct {
 
 func LookupSecurityControlOutput(ctx *pulumi.Context, args LookupSecurityControlOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityControlResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSecurityControlResult, error) {
+		ApplyT(func(v interface{}) (LookupSecurityControlResultOutput, error) {
 			args := v.(LookupSecurityControlArgs)
-			r, err := LookupSecurityControl(ctx, &args, opts...)
-			var s LookupSecurityControlResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSecurityControlResult
+			secret, err := ctx.InvokePackageRaw("aws-native:securityhub:getSecurityControl", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSecurityControlResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSecurityControlResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSecurityControlResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSecurityControlResultOutput)
 }
 

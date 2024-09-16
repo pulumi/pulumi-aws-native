@@ -58,14 +58,20 @@ type LookupFormResult struct {
 
 func LookupFormOutput(ctx *pulumi.Context, args LookupFormOutputArgs, opts ...pulumi.InvokeOption) LookupFormResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFormResult, error) {
+		ApplyT(func(v interface{}) (LookupFormResultOutput, error) {
 			args := v.(LookupFormArgs)
-			r, err := LookupForm(ctx, &args, opts...)
-			var s LookupFormResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFormResult
+			secret, err := ctx.InvokePackageRaw("aws-native:amplifyuibuilder:getForm", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFormResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFormResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFormResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFormResultOutput)
 }
 

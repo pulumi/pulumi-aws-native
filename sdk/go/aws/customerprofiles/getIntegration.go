@@ -45,14 +45,20 @@ type LookupIntegrationResult struct {
 
 func LookupIntegrationOutput(ctx *pulumi.Context, args LookupIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIntegrationResult, error) {
+		ApplyT(func(v interface{}) (LookupIntegrationResultOutput, error) {
 			args := v.(LookupIntegrationArgs)
-			r, err := LookupIntegration(ctx, &args, opts...)
-			var s LookupIntegrationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIntegrationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:customerprofiles:getIntegration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIntegrationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIntegrationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIntegrationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIntegrationResultOutput)
 }
 

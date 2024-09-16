@@ -46,14 +46,20 @@ type LookupResiliencyPolicyResult struct {
 
 func LookupResiliencyPolicyOutput(ctx *pulumi.Context, args LookupResiliencyPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResiliencyPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResiliencyPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupResiliencyPolicyResultOutput, error) {
 			args := v.(LookupResiliencyPolicyArgs)
-			r, err := LookupResiliencyPolicy(ctx, &args, opts...)
-			var s LookupResiliencyPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResiliencyPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:resiliencehub:getResiliencyPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResiliencyPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResiliencyPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResiliencyPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResiliencyPolicyResultOutput)
 }
 

@@ -42,14 +42,20 @@ type LookupLoadBalancerTlsCertificateResult struct {
 
 func LookupLoadBalancerTlsCertificateOutput(ctx *pulumi.Context, args LookupLoadBalancerTlsCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerTlsCertificateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLoadBalancerTlsCertificateResult, error) {
+		ApplyT(func(v interface{}) (LookupLoadBalancerTlsCertificateResultOutput, error) {
 			args := v.(LookupLoadBalancerTlsCertificateArgs)
-			r, err := LookupLoadBalancerTlsCertificate(ctx, &args, opts...)
-			var s LookupLoadBalancerTlsCertificateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLoadBalancerTlsCertificateResult
+			secret, err := ctx.InvokePackageRaw("aws-native:lightsail:getLoadBalancerTlsCertificate", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLoadBalancerTlsCertificateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLoadBalancerTlsCertificateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLoadBalancerTlsCertificateResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLoadBalancerTlsCertificateResultOutput)
 }
 

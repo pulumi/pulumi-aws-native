@@ -44,14 +44,20 @@ type LookupSimulationApplicationResult struct {
 
 func LookupSimulationApplicationOutput(ctx *pulumi.Context, args LookupSimulationApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupSimulationApplicationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSimulationApplicationResult, error) {
+		ApplyT(func(v interface{}) (LookupSimulationApplicationResultOutput, error) {
 			args := v.(LookupSimulationApplicationArgs)
-			r, err := LookupSimulationApplication(ctx, &args, opts...)
-			var s LookupSimulationApplicationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSimulationApplicationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:robomaker:getSimulationApplication", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSimulationApplicationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSimulationApplicationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSimulationApplicationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSimulationApplicationResultOutput)
 }
 

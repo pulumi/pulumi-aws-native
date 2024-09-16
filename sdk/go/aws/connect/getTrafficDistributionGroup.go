@@ -43,14 +43,20 @@ type LookupTrafficDistributionGroupResult struct {
 
 func LookupTrafficDistributionGroupOutput(ctx *pulumi.Context, args LookupTrafficDistributionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficDistributionGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTrafficDistributionGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupTrafficDistributionGroupResultOutput, error) {
 			args := v.(LookupTrafficDistributionGroupArgs)
-			r, err := LookupTrafficDistributionGroup(ctx, &args, opts...)
-			var s LookupTrafficDistributionGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTrafficDistributionGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:connect:getTrafficDistributionGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTrafficDistributionGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTrafficDistributionGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTrafficDistributionGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTrafficDistributionGroupResultOutput)
 }
 

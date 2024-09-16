@@ -75,14 +75,20 @@ type LookupModelPackageResult struct {
 
 func LookupModelPackageOutput(ctx *pulumi.Context, args LookupModelPackageOutputArgs, opts ...pulumi.InvokeOption) LookupModelPackageResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupModelPackageResult, error) {
+		ApplyT(func(v interface{}) (LookupModelPackageResultOutput, error) {
 			args := v.(LookupModelPackageArgs)
-			r, err := LookupModelPackage(ctx, &args, opts...)
-			var s LookupModelPackageResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupModelPackageResult
+			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getModelPackage", args, &rv, "", opts...)
+			if err != nil {
+				return LookupModelPackageResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupModelPackageResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupModelPackageResultOutput), nil
+			}
+			return output, nil
 		}).(LookupModelPackageResultOutput)
 }
 

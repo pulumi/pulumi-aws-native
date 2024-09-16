@@ -38,14 +38,20 @@ type LookupVdmAttributesResult struct {
 
 func LookupVdmAttributesOutput(ctx *pulumi.Context, args LookupVdmAttributesOutputArgs, opts ...pulumi.InvokeOption) LookupVdmAttributesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVdmAttributesResult, error) {
+		ApplyT(func(v interface{}) (LookupVdmAttributesResultOutput, error) {
 			args := v.(LookupVdmAttributesArgs)
-			r, err := LookupVdmAttributes(ctx, &args, opts...)
-			var s LookupVdmAttributesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVdmAttributesResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ses:getVdmAttributes", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVdmAttributesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVdmAttributesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVdmAttributesResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVdmAttributesResultOutput)
 }
 

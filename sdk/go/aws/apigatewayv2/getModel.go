@@ -46,14 +46,20 @@ type LookupModelResult struct {
 
 func LookupModelOutput(ctx *pulumi.Context, args LookupModelOutputArgs, opts ...pulumi.InvokeOption) LookupModelResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupModelResult, error) {
+		ApplyT(func(v interface{}) (LookupModelResultOutput, error) {
 			args := v.(LookupModelArgs)
-			r, err := LookupModel(ctx, &args, opts...)
-			var s LookupModelResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupModelResult
+			secret, err := ctx.InvokePackageRaw("aws-native:apigatewayv2:getModel", args, &rv, "", opts...)
+			if err != nil {
+				return LookupModelResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupModelResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupModelResultOutput), nil
+			}
+			return output, nil
 		}).(LookupModelResultOutput)
 }
 

@@ -43,14 +43,20 @@ type LookupCustomDbEngineVersionResult struct {
 
 func LookupCustomDbEngineVersionOutput(ctx *pulumi.Context, args LookupCustomDbEngineVersionOutputArgs, opts ...pulumi.InvokeOption) LookupCustomDbEngineVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCustomDbEngineVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupCustomDbEngineVersionResultOutput, error) {
 			args := v.(LookupCustomDbEngineVersionArgs)
-			r, err := LookupCustomDbEngineVersion(ctx, &args, opts...)
-			var s LookupCustomDbEngineVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCustomDbEngineVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:rds:getCustomDbEngineVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCustomDbEngineVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCustomDbEngineVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCustomDbEngineVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCustomDbEngineVersionResultOutput)
 }
 

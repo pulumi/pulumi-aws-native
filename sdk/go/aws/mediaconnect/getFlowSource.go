@@ -72,14 +72,20 @@ type LookupFlowSourceResult struct {
 
 func LookupFlowSourceOutput(ctx *pulumi.Context, args LookupFlowSourceOutputArgs, opts ...pulumi.InvokeOption) LookupFlowSourceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFlowSourceResult, error) {
+		ApplyT(func(v interface{}) (LookupFlowSourceResultOutput, error) {
 			args := v.(LookupFlowSourceArgs)
-			r, err := LookupFlowSource(ctx, &args, opts...)
-			var s LookupFlowSourceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFlowSourceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:mediaconnect:getFlowSource", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFlowSourceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFlowSourceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFlowSourceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFlowSourceResultOutput)
 }
 

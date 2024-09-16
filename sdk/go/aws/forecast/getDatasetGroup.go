@@ -41,14 +41,20 @@ type LookupDatasetGroupResult struct {
 
 func LookupDatasetGroupOutput(ctx *pulumi.Context, args LookupDatasetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDatasetGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupDatasetGroupResultOutput, error) {
 			args := v.(LookupDatasetGroupArgs)
-			r, err := LookupDatasetGroup(ctx, &args, opts...)
-			var s LookupDatasetGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDatasetGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:forecast:getDatasetGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDatasetGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDatasetGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDatasetGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDatasetGroupResultOutput)
 }
 

@@ -47,14 +47,20 @@ type LookupDataProviderResult struct {
 
 func LookupDataProviderOutput(ctx *pulumi.Context, args LookupDataProviderOutputArgs, opts ...pulumi.InvokeOption) LookupDataProviderResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDataProviderResult, error) {
+		ApplyT(func(v interface{}) (LookupDataProviderResultOutput, error) {
 			args := v.(LookupDataProviderArgs)
-			r, err := LookupDataProvider(ctx, &args, opts...)
-			var s LookupDataProviderResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDataProviderResult
+			secret, err := ctx.InvokePackageRaw("aws-native:dms:getDataProvider", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDataProviderResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDataProviderResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDataProviderResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDataProviderResultOutput)
 }
 

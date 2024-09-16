@@ -40,14 +40,20 @@ type LookupVpcGatewayAttachmentResult struct {
 
 func LookupVpcGatewayAttachmentOutput(ctx *pulumi.Context, args LookupVpcGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupVpcGatewayAttachmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVpcGatewayAttachmentResult, error) {
+		ApplyT(func(v interface{}) (LookupVpcGatewayAttachmentResultOutput, error) {
 			args := v.(LookupVpcGatewayAttachmentArgs)
-			r, err := LookupVpcGatewayAttachment(ctx, &args, opts...)
-			var s LookupVpcGatewayAttachmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVpcGatewayAttachmentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getVpcGatewayAttachment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVpcGatewayAttachmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVpcGatewayAttachmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVpcGatewayAttachmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVpcGatewayAttachmentResultOutput)
 }
 

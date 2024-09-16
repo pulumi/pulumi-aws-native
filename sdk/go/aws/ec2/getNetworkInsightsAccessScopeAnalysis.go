@@ -51,14 +51,20 @@ type LookupNetworkInsightsAccessScopeAnalysisResult struct {
 
 func LookupNetworkInsightsAccessScopeAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAccessScopeAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAccessScopeAnalysisResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkInsightsAccessScopeAnalysisResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkInsightsAccessScopeAnalysisResultOutput, error) {
 			args := v.(LookupNetworkInsightsAccessScopeAnalysisArgs)
-			r, err := LookupNetworkInsightsAccessScopeAnalysis(ctx, &args, opts...)
-			var s LookupNetworkInsightsAccessScopeAnalysisResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkInsightsAccessScopeAnalysisResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getNetworkInsightsAccessScopeAnalysis", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkInsightsAccessScopeAnalysisResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkInsightsAccessScopeAnalysisResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkInsightsAccessScopeAnalysisResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkInsightsAccessScopeAnalysisResultOutput)
 }
 

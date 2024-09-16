@@ -34,14 +34,20 @@ type LookupStudioLifecycleConfigResult struct {
 
 func LookupStudioLifecycleConfigOutput(ctx *pulumi.Context, args LookupStudioLifecycleConfigOutputArgs, opts ...pulumi.InvokeOption) LookupStudioLifecycleConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStudioLifecycleConfigResult, error) {
+		ApplyT(func(v interface{}) (LookupStudioLifecycleConfigResultOutput, error) {
 			args := v.(LookupStudioLifecycleConfigArgs)
-			r, err := LookupStudioLifecycleConfig(ctx, &args, opts...)
-			var s LookupStudioLifecycleConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStudioLifecycleConfigResult
+			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getStudioLifecycleConfig", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStudioLifecycleConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStudioLifecycleConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStudioLifecycleConfigResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStudioLifecycleConfigResultOutput)
 }
 

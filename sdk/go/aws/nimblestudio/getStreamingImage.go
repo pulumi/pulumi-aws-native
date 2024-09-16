@@ -47,14 +47,20 @@ type LookupStreamingImageResult struct {
 
 func LookupStreamingImageOutput(ctx *pulumi.Context, args LookupStreamingImageOutputArgs, opts ...pulumi.InvokeOption) LookupStreamingImageResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStreamingImageResult, error) {
+		ApplyT(func(v interface{}) (LookupStreamingImageResultOutput, error) {
 			args := v.(LookupStreamingImageArgs)
-			r, err := LookupStreamingImage(ctx, &args, opts...)
-			var s LookupStreamingImageResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStreamingImageResult
+			secret, err := ctx.InvokePackageRaw("aws-native:nimblestudio:getStreamingImage", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStreamingImageResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStreamingImageResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStreamingImageResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStreamingImageResultOutput)
 }
 

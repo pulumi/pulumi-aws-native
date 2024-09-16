@@ -46,14 +46,20 @@ type LookupSdiSourceResult struct {
 
 func LookupSdiSourceOutput(ctx *pulumi.Context, args LookupSdiSourceOutputArgs, opts ...pulumi.InvokeOption) LookupSdiSourceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSdiSourceResult, error) {
+		ApplyT(func(v interface{}) (LookupSdiSourceResultOutput, error) {
 			args := v.(LookupSdiSourceArgs)
-			r, err := LookupSdiSource(ctx, &args, opts...)
-			var s LookupSdiSourceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSdiSourceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:medialive:getSdiSource", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSdiSourceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSdiSourceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSdiSourceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSdiSourceResultOutput)
 }
 

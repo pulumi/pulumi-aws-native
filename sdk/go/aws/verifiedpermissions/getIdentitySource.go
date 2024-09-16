@@ -41,14 +41,20 @@ type LookupIdentitySourceResult struct {
 
 func LookupIdentitySourceOutput(ctx *pulumi.Context, args LookupIdentitySourceOutputArgs, opts ...pulumi.InvokeOption) LookupIdentitySourceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIdentitySourceResult, error) {
+		ApplyT(func(v interface{}) (LookupIdentitySourceResultOutput, error) {
 			args := v.(LookupIdentitySourceArgs)
-			r, err := LookupIdentitySource(ctx, &args, opts...)
-			var s LookupIdentitySourceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIdentitySourceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:verifiedpermissions:getIdentitySource", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIdentitySourceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIdentitySourceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIdentitySourceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIdentitySourceResultOutput)
 }
 

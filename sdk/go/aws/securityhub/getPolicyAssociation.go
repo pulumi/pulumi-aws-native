@@ -44,14 +44,20 @@ type LookupPolicyAssociationResult struct {
 
 func LookupPolicyAssociationOutput(ctx *pulumi.Context, args LookupPolicyAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPolicyAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupPolicyAssociationResultOutput, error) {
 			args := v.(LookupPolicyAssociationArgs)
-			r, err := LookupPolicyAssociation(ctx, &args, opts...)
-			var s LookupPolicyAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPolicyAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:securityhub:getPolicyAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPolicyAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPolicyAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPolicyAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPolicyAssociationResultOutput)
 }
 

@@ -60,14 +60,20 @@ type LookupInferenceExperimentResult struct {
 
 func LookupInferenceExperimentOutput(ctx *pulumi.Context, args LookupInferenceExperimentOutputArgs, opts ...pulumi.InvokeOption) LookupInferenceExperimentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupInferenceExperimentResult, error) {
+		ApplyT(func(v interface{}) (LookupInferenceExperimentResultOutput, error) {
 			args := v.(LookupInferenceExperimentArgs)
-			r, err := LookupInferenceExperiment(ctx, &args, opts...)
-			var s LookupInferenceExperimentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupInferenceExperimentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getInferenceExperiment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupInferenceExperimentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupInferenceExperimentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupInferenceExperimentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupInferenceExperimentResultOutput)
 }
 

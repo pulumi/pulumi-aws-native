@@ -51,14 +51,20 @@ type LookupVerifiedAccessInstanceResult struct {
 
 func LookupVerifiedAccessInstanceOutput(ctx *pulumi.Context, args LookupVerifiedAccessInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupVerifiedAccessInstanceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVerifiedAccessInstanceResult, error) {
+		ApplyT(func(v interface{}) (LookupVerifiedAccessInstanceResultOutput, error) {
 			args := v.(LookupVerifiedAccessInstanceArgs)
-			r, err := LookupVerifiedAccessInstance(ctx, &args, opts...)
-			var s LookupVerifiedAccessInstanceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVerifiedAccessInstanceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getVerifiedAccessInstance", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVerifiedAccessInstanceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVerifiedAccessInstanceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVerifiedAccessInstanceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVerifiedAccessInstanceResultOutput)
 }
 

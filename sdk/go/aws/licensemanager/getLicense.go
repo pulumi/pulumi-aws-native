@@ -56,14 +56,20 @@ type LookupLicenseResult struct {
 
 func LookupLicenseOutput(ctx *pulumi.Context, args LookupLicenseOutputArgs, opts ...pulumi.InvokeOption) LookupLicenseResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLicenseResult, error) {
+		ApplyT(func(v interface{}) (LookupLicenseResultOutput, error) {
 			args := v.(LookupLicenseArgs)
-			r, err := LookupLicense(ctx, &args, opts...)
-			var s LookupLicenseResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLicenseResult
+			secret, err := ctx.InvokePackageRaw("aws-native:licensemanager:getLicense", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLicenseResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLicenseResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLicenseResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLicenseResultOutput)
 }
 

@@ -41,14 +41,20 @@ type LookupCellResult struct {
 
 func LookupCellOutput(ctx *pulumi.Context, args LookupCellOutputArgs, opts ...pulumi.InvokeOption) LookupCellResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCellResult, error) {
+		ApplyT(func(v interface{}) (LookupCellResultOutput, error) {
 			args := v.(LookupCellArgs)
-			r, err := LookupCell(ctx, &args, opts...)
-			var s LookupCellResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCellResult
+			secret, err := ctx.InvokePackageRaw("aws-native:route53recoveryreadiness:getCell", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCellResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCellResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCellResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCellResultOutput)
 }
 

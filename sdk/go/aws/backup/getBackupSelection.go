@@ -36,14 +36,20 @@ type LookupBackupSelectionResult struct {
 
 func LookupBackupSelectionOutput(ctx *pulumi.Context, args LookupBackupSelectionOutputArgs, opts ...pulumi.InvokeOption) LookupBackupSelectionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBackupSelectionResult, error) {
+		ApplyT(func(v interface{}) (LookupBackupSelectionResultOutput, error) {
 			args := v.(LookupBackupSelectionArgs)
-			r, err := LookupBackupSelection(ctx, &args, opts...)
-			var s LookupBackupSelectionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBackupSelectionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:backup:getBackupSelection", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBackupSelectionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBackupSelectionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBackupSelectionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBackupSelectionResultOutput)
 }
 

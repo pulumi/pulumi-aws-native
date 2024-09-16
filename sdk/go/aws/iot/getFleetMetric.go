@@ -59,14 +59,20 @@ type LookupFleetMetricResult struct {
 
 func LookupFleetMetricOutput(ctx *pulumi.Context, args LookupFleetMetricOutputArgs, opts ...pulumi.InvokeOption) LookupFleetMetricResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFleetMetricResult, error) {
+		ApplyT(func(v interface{}) (LookupFleetMetricResultOutput, error) {
 			args := v.(LookupFleetMetricArgs)
-			r, err := LookupFleetMetric(ctx, &args, opts...)
-			var s LookupFleetMetricResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFleetMetricResult
+			secret, err := ctx.InvokePackageRaw("aws-native:iot:getFleetMetric", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFleetMetricResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFleetMetricResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFleetMetricResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFleetMetricResultOutput)
 }
 

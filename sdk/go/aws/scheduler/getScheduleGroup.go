@@ -45,14 +45,20 @@ type LookupScheduleGroupResult struct {
 
 func LookupScheduleGroupOutput(ctx *pulumi.Context, args LookupScheduleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupScheduleGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupScheduleGroupResultOutput, error) {
 			args := v.(LookupScheduleGroupArgs)
-			r, err := LookupScheduleGroup(ctx, &args, opts...)
-			var s LookupScheduleGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupScheduleGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:scheduler:getScheduleGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupScheduleGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupScheduleGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupScheduleGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupScheduleGroupResultOutput)
 }
 

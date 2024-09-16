@@ -45,14 +45,20 @@ type LookupStreamResult struct {
 
 func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts ...pulumi.InvokeOption) LookupStreamResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStreamResult, error) {
+		ApplyT(func(v interface{}) (LookupStreamResultOutput, error) {
 			args := v.(LookupStreamArgs)
-			r, err := LookupStream(ctx, &args, opts...)
-			var s LookupStreamResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStreamResult
+			secret, err := ctx.InvokePackageRaw("aws-native:kinesisvideo:getStream", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStreamResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStreamResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStreamResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStreamResultOutput)
 }
 

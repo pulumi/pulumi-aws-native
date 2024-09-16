@@ -38,14 +38,20 @@ type LookupDrtAccessResult struct {
 
 func LookupDrtAccessOutput(ctx *pulumi.Context, args LookupDrtAccessOutputArgs, opts ...pulumi.InvokeOption) LookupDrtAccessResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDrtAccessResult, error) {
+		ApplyT(func(v interface{}) (LookupDrtAccessResultOutput, error) {
 			args := v.(LookupDrtAccessArgs)
-			r, err := LookupDrtAccess(ctx, &args, opts...)
-			var s LookupDrtAccessResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDrtAccessResult
+			secret, err := ctx.InvokePackageRaw("aws-native:shield:getDrtAccess", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDrtAccessResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDrtAccessResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDrtAccessResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDrtAccessResultOutput)
 }
 

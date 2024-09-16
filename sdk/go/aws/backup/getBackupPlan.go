@@ -42,14 +42,20 @@ type LookupBackupPlanResult struct {
 
 func LookupBackupPlanOutput(ctx *pulumi.Context, args LookupBackupPlanOutputArgs, opts ...pulumi.InvokeOption) LookupBackupPlanResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBackupPlanResult, error) {
+		ApplyT(func(v interface{}) (LookupBackupPlanResultOutput, error) {
 			args := v.(LookupBackupPlanArgs)
-			r, err := LookupBackupPlan(ctx, &args, opts...)
-			var s LookupBackupPlanResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBackupPlanResult
+			secret, err := ctx.InvokePackageRaw("aws-native:backup:getBackupPlan", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBackupPlanResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBackupPlanResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBackupPlanResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBackupPlanResultOutput)
 }
 

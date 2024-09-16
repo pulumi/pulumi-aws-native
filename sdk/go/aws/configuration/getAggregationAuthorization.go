@@ -39,14 +39,20 @@ type LookupAggregationAuthorizationResult struct {
 
 func LookupAggregationAuthorizationOutput(ctx *pulumi.Context, args LookupAggregationAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupAggregationAuthorizationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAggregationAuthorizationResult, error) {
+		ApplyT(func(v interface{}) (LookupAggregationAuthorizationResultOutput, error) {
 			args := v.(LookupAggregationAuthorizationArgs)
-			r, err := LookupAggregationAuthorization(ctx, &args, opts...)
-			var s LookupAggregationAuthorizationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAggregationAuthorizationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:configuration:getAggregationAuthorization", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAggregationAuthorizationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAggregationAuthorizationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAggregationAuthorizationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAggregationAuthorizationResultOutput)
 }
 

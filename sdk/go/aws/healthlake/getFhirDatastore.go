@@ -46,14 +46,20 @@ type LookupFhirDatastoreResult struct {
 
 func LookupFhirDatastoreOutput(ctx *pulumi.Context, args LookupFhirDatastoreOutputArgs, opts ...pulumi.InvokeOption) LookupFhirDatastoreResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFhirDatastoreResult, error) {
+		ApplyT(func(v interface{}) (LookupFhirDatastoreResultOutput, error) {
 			args := v.(LookupFhirDatastoreArgs)
-			r, err := LookupFhirDatastore(ctx, &args, opts...)
-			var s LookupFhirDatastoreResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFhirDatastoreResult
+			secret, err := ctx.InvokePackageRaw("aws-native:healthlake:getFhirDatastore", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFhirDatastoreResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFhirDatastoreResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFhirDatastoreResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFhirDatastoreResultOutput)
 }
 

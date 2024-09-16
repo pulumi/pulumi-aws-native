@@ -40,14 +40,20 @@ type LookupVersionResult struct {
 
 func LookupVersionOutput(ctx *pulumi.Context, args LookupVersionOutputArgs, opts ...pulumi.InvokeOption) LookupVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupVersionResultOutput, error) {
 			args := v.(LookupVersionArgs)
-			r, err := LookupVersion(ctx, &args, opts...)
-			var s LookupVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:lambda:getVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVersionResultOutput)
 }
 

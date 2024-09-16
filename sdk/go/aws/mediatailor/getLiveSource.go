@@ -41,14 +41,20 @@ type LookupLiveSourceResult struct {
 
 func LookupLiveSourceOutput(ctx *pulumi.Context, args LookupLiveSourceOutputArgs, opts ...pulumi.InvokeOption) LookupLiveSourceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLiveSourceResult, error) {
+		ApplyT(func(v interface{}) (LookupLiveSourceResultOutput, error) {
 			args := v.(LookupLiveSourceArgs)
-			r, err := LookupLiveSource(ctx, &args, opts...)
-			var s LookupLiveSourceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLiveSourceResult
+			secret, err := ctx.InvokePackageRaw("aws-native:mediatailor:getLiveSource", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLiveSourceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLiveSourceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLiveSourceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLiveSourceResultOutput)
 }
 

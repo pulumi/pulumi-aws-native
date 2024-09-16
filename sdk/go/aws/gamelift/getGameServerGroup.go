@@ -46,14 +46,20 @@ type LookupGameServerGroupResult struct {
 
 func LookupGameServerGroupOutput(ctx *pulumi.Context, args LookupGameServerGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGameServerGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupGameServerGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupGameServerGroupResultOutput, error) {
 			args := v.(LookupGameServerGroupArgs)
-			r, err := LookupGameServerGroup(ctx, &args, opts...)
-			var s LookupGameServerGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupGameServerGroupResult
+			secret, err := ctx.InvokePackageRaw("aws-native:gamelift:getGameServerGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupGameServerGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupGameServerGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupGameServerGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupGameServerGroupResultOutput)
 }
 

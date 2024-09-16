@@ -40,14 +40,20 @@ type LookupSessionResult struct {
 
 func LookupSessionOutput(ctx *pulumi.Context, args LookupSessionOutputArgs, opts ...pulumi.InvokeOption) LookupSessionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSessionResult, error) {
+		ApplyT(func(v interface{}) (LookupSessionResultOutput, error) {
 			args := v.(LookupSessionArgs)
-			r, err := LookupSession(ctx, &args, opts...)
-			var s LookupSessionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSessionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:macie:getSession", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSessionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSessionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSessionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSessionResultOutput)
 }
 

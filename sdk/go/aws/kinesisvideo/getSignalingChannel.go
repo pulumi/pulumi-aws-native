@@ -41,14 +41,20 @@ type LookupSignalingChannelResult struct {
 
 func LookupSignalingChannelOutput(ctx *pulumi.Context, args LookupSignalingChannelOutputArgs, opts ...pulumi.InvokeOption) LookupSignalingChannelResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSignalingChannelResult, error) {
+		ApplyT(func(v interface{}) (LookupSignalingChannelResultOutput, error) {
 			args := v.(LookupSignalingChannelArgs)
-			r, err := LookupSignalingChannel(ctx, &args, opts...)
-			var s LookupSignalingChannelResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSignalingChannelResult
+			secret, err := ctx.InvokePackageRaw("aws-native:kinesisvideo:getSignalingChannel", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSignalingChannelResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSignalingChannelResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSignalingChannelResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSignalingChannelResultOutput)
 }
 

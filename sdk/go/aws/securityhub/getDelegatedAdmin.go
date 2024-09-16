@@ -40,14 +40,20 @@ type LookupDelegatedAdminResult struct {
 
 func LookupDelegatedAdminOutput(ctx *pulumi.Context, args LookupDelegatedAdminOutputArgs, opts ...pulumi.InvokeOption) LookupDelegatedAdminResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDelegatedAdminResult, error) {
+		ApplyT(func(v interface{}) (LookupDelegatedAdminResultOutput, error) {
 			args := v.(LookupDelegatedAdminArgs)
-			r, err := LookupDelegatedAdmin(ctx, &args, opts...)
-			var s LookupDelegatedAdminResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDelegatedAdminResult
+			secret, err := ctx.InvokePackageRaw("aws-native:securityhub:getDelegatedAdmin", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDelegatedAdminResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDelegatedAdminResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDelegatedAdminResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDelegatedAdminResultOutput)
 }
 

@@ -44,14 +44,20 @@ type LookupStorageProfileResult struct {
 
 func LookupStorageProfileOutput(ctx *pulumi.Context, args LookupStorageProfileOutputArgs, opts ...pulumi.InvokeOption) LookupStorageProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStorageProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupStorageProfileResultOutput, error) {
 			args := v.(LookupStorageProfileArgs)
-			r, err := LookupStorageProfile(ctx, &args, opts...)
-			var s LookupStorageProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStorageProfileResult
+			secret, err := ctx.InvokePackageRaw("aws-native:deadline:getStorageProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStorageProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStorageProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStorageProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStorageProfileResultOutput)
 }
 

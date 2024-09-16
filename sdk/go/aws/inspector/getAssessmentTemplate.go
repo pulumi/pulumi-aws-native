@@ -34,14 +34,20 @@ type LookupAssessmentTemplateResult struct {
 
 func LookupAssessmentTemplateOutput(ctx *pulumi.Context, args LookupAssessmentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupAssessmentTemplateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAssessmentTemplateResult, error) {
+		ApplyT(func(v interface{}) (LookupAssessmentTemplateResultOutput, error) {
 			args := v.(LookupAssessmentTemplateArgs)
-			r, err := LookupAssessmentTemplate(ctx, &args, opts...)
-			var s LookupAssessmentTemplateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAssessmentTemplateResult
+			secret, err := ctx.InvokePackageRaw("aws-native:inspector:getAssessmentTemplate", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAssessmentTemplateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAssessmentTemplateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAssessmentTemplateResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAssessmentTemplateResultOutput)
 }
 

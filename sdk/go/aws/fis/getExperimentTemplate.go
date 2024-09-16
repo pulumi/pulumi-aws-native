@@ -48,14 +48,20 @@ type LookupExperimentTemplateResult struct {
 
 func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentTemplateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupExperimentTemplateResult, error) {
+		ApplyT(func(v interface{}) (LookupExperimentTemplateResultOutput, error) {
 			args := v.(LookupExperimentTemplateArgs)
-			r, err := LookupExperimentTemplate(ctx, &args, opts...)
-			var s LookupExperimentTemplateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupExperimentTemplateResult
+			secret, err := ctx.InvokePackageRaw("aws-native:fis:getExperimentTemplate", args, &rv, "", opts...)
+			if err != nil {
+				return LookupExperimentTemplateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupExperimentTemplateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupExperimentTemplateResultOutput), nil
+			}
+			return output, nil
 		}).(LookupExperimentTemplateResultOutput)
 }
 

@@ -40,14 +40,20 @@ type LookupMetricFilterResult struct {
 
 func LookupMetricFilterOutput(ctx *pulumi.Context, args LookupMetricFilterOutputArgs, opts ...pulumi.InvokeOption) LookupMetricFilterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMetricFilterResult, error) {
+		ApplyT(func(v interface{}) (LookupMetricFilterResultOutput, error) {
 			args := v.(LookupMetricFilterArgs)
-			r, err := LookupMetricFilter(ctx, &args, opts...)
-			var s LookupMetricFilterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMetricFilterResult
+			secret, err := ctx.InvokePackageRaw("aws-native:logs:getMetricFilter", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMetricFilterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMetricFilterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMetricFilterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMetricFilterResultOutput)
 }
 

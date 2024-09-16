@@ -48,14 +48,20 @@ type LookupHookVersionResult struct {
 
 func LookupHookVersionOutput(ctx *pulumi.Context, args LookupHookVersionOutputArgs, opts ...pulumi.InvokeOption) LookupHookVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupHookVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupHookVersionResultOutput, error) {
 			args := v.(LookupHookVersionArgs)
-			r, err := LookupHookVersion(ctx, &args, opts...)
-			var s LookupHookVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupHookVersionResult
+			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getHookVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupHookVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupHookVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupHookVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupHookVersionResultOutput)
 }
 

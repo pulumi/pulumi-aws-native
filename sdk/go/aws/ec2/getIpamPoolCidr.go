@@ -38,14 +38,20 @@ type LookupIpamPoolCidrResult struct {
 
 func LookupIpamPoolCidrOutput(ctx *pulumi.Context, args LookupIpamPoolCidrOutputArgs, opts ...pulumi.InvokeOption) LookupIpamPoolCidrResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIpamPoolCidrResult, error) {
+		ApplyT(func(v interface{}) (LookupIpamPoolCidrResultOutput, error) {
 			args := v.(LookupIpamPoolCidrArgs)
-			r, err := LookupIpamPoolCidr(ctx, &args, opts...)
-			var s LookupIpamPoolCidrResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIpamPoolCidrResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getIpamPoolCidr", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIpamPoolCidrResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIpamPoolCidrResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIpamPoolCidrResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIpamPoolCidrResultOutput)
 }
 

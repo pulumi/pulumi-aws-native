@@ -40,14 +40,20 @@ type LookupRequestValidatorResult struct {
 
 func LookupRequestValidatorOutput(ctx *pulumi.Context, args LookupRequestValidatorOutputArgs, opts ...pulumi.InvokeOption) LookupRequestValidatorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRequestValidatorResult, error) {
+		ApplyT(func(v interface{}) (LookupRequestValidatorResultOutput, error) {
 			args := v.(LookupRequestValidatorArgs)
-			r, err := LookupRequestValidator(ctx, &args, opts...)
-			var s LookupRequestValidatorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRequestValidatorResult
+			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getRequestValidator", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRequestValidatorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRequestValidatorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRequestValidatorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRequestValidatorResultOutput)
 }
 

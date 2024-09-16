@@ -40,14 +40,20 @@ type LookupResourceAssociationResult struct {
 
 func LookupResourceAssociationOutput(ctx *pulumi.Context, args LookupResourceAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupResourceAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResourceAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupResourceAssociationResultOutput, error) {
 			args := v.(LookupResourceAssociationArgs)
-			r, err := LookupResourceAssociation(ctx, &args, opts...)
-			var s LookupResourceAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResourceAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:servicecatalogappregistry:getResourceAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResourceAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResourceAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResourceAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResourceAssociationResultOutput)
 }
 

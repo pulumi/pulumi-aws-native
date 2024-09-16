@@ -36,14 +36,20 @@ type LookupKeySigningKeyResult struct {
 
 func LookupKeySigningKeyOutput(ctx *pulumi.Context, args LookupKeySigningKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeySigningKeyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupKeySigningKeyResult, error) {
+		ApplyT(func(v interface{}) (LookupKeySigningKeyResultOutput, error) {
 			args := v.(LookupKeySigningKeyArgs)
-			r, err := LookupKeySigningKey(ctx, &args, opts...)
-			var s LookupKeySigningKeyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupKeySigningKeyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:route53:getKeySigningKey", args, &rv, "", opts...)
+			if err != nil {
+				return LookupKeySigningKeyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupKeySigningKeyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupKeySigningKeyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupKeySigningKeyResultOutput)
 }
 

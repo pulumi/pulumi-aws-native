@@ -56,14 +56,20 @@ type LookupScalingPolicyResult struct {
 
 func LookupScalingPolicyOutput(ctx *pulumi.Context, args LookupScalingPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupScalingPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupScalingPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupScalingPolicyResultOutput, error) {
 			args := v.(LookupScalingPolicyArgs)
-			r, err := LookupScalingPolicy(ctx, &args, opts...)
-			var s LookupScalingPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupScalingPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:autoscaling:getScalingPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupScalingPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupScalingPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupScalingPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupScalingPolicyResultOutput)
 }
 

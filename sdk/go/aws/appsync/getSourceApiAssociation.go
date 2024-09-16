@@ -54,14 +54,20 @@ type LookupSourceApiAssociationResult struct {
 
 func LookupSourceApiAssociationOutput(ctx *pulumi.Context, args LookupSourceApiAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupSourceApiAssociationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSourceApiAssociationResult, error) {
+		ApplyT(func(v interface{}) (LookupSourceApiAssociationResultOutput, error) {
 			args := v.(LookupSourceApiAssociationArgs)
-			r, err := LookupSourceApiAssociation(ctx, &args, opts...)
-			var s LookupSourceApiAssociationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSourceApiAssociationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:appsync:getSourceApiAssociation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSourceApiAssociationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSourceApiAssociationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSourceApiAssociationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSourceApiAssociationResultOutput)
 }
 

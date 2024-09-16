@@ -39,14 +39,20 @@ type LookupPublicKeyResult struct {
 
 func LookupPublicKeyOutput(ctx *pulumi.Context, args LookupPublicKeyOutputArgs, opts ...pulumi.InvokeOption) LookupPublicKeyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPublicKeyResult, error) {
+		ApplyT(func(v interface{}) (LookupPublicKeyResultOutput, error) {
 			args := v.(LookupPublicKeyArgs)
-			r, err := LookupPublicKey(ctx, &args, opts...)
-			var s LookupPublicKeyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPublicKeyResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ivs:getPublicKey", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPublicKeyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPublicKeyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPublicKeyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPublicKeyResultOutput)
 }
 

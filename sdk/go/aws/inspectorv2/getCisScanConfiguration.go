@@ -44,14 +44,20 @@ type LookupCisScanConfigurationResult struct {
 
 func LookupCisScanConfigurationOutput(ctx *pulumi.Context, args LookupCisScanConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupCisScanConfigurationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCisScanConfigurationResult, error) {
+		ApplyT(func(v interface{}) (LookupCisScanConfigurationResultOutput, error) {
 			args := v.(LookupCisScanConfigurationArgs)
-			r, err := LookupCisScanConfiguration(ctx, &args, opts...)
-			var s LookupCisScanConfigurationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCisScanConfigurationResult
+			secret, err := ctx.InvokePackageRaw("aws-native:inspectorv2:getCisScanConfiguration", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCisScanConfigurationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCisScanConfigurationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCisScanConfigurationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCisScanConfigurationResultOutput)
 }
 

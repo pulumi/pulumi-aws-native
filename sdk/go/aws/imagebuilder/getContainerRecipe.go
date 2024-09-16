@@ -34,14 +34,20 @@ type LookupContainerRecipeResult struct {
 
 func LookupContainerRecipeOutput(ctx *pulumi.Context, args LookupContainerRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupContainerRecipeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupContainerRecipeResult, error) {
+		ApplyT(func(v interface{}) (LookupContainerRecipeResultOutput, error) {
 			args := v.(LookupContainerRecipeArgs)
-			r, err := LookupContainerRecipe(ctx, &args, opts...)
-			var s LookupContainerRecipeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupContainerRecipeResult
+			secret, err := ctx.InvokePackageRaw("aws-native:imagebuilder:getContainerRecipe", args, &rv, "", opts...)
+			if err != nil {
+				return LookupContainerRecipeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupContainerRecipeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupContainerRecipeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupContainerRecipeResultOutput)
 }
 

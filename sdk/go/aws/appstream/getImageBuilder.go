@@ -97,14 +97,20 @@ type LookupImageBuilderResult struct {
 
 func LookupImageBuilderOutput(ctx *pulumi.Context, args LookupImageBuilderOutputArgs, opts ...pulumi.InvokeOption) LookupImageBuilderResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupImageBuilderResult, error) {
+		ApplyT(func(v interface{}) (LookupImageBuilderResultOutput, error) {
 			args := v.(LookupImageBuilderArgs)
-			r, err := LookupImageBuilder(ctx, &args, opts...)
-			var s LookupImageBuilderResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupImageBuilderResult
+			secret, err := ctx.InvokePackageRaw("aws-native:appstream:getImageBuilder", args, &rv, "", opts...)
+			if err != nil {
+				return LookupImageBuilderResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupImageBuilderResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupImageBuilderResultOutput), nil
+			}
+			return output, nil
 		}).(LookupImageBuilderResultOutput)
 }
 

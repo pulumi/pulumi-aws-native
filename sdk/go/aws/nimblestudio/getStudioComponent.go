@@ -54,14 +54,20 @@ type LookupStudioComponentResult struct {
 
 func LookupStudioComponentOutput(ctx *pulumi.Context, args LookupStudioComponentOutputArgs, opts ...pulumi.InvokeOption) LookupStudioComponentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStudioComponentResult, error) {
+		ApplyT(func(v interface{}) (LookupStudioComponentResultOutput, error) {
 			args := v.(LookupStudioComponentArgs)
-			r, err := LookupStudioComponent(ctx, &args, opts...)
-			var s LookupStudioComponentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStudioComponentResult
+			secret, err := ctx.InvokePackageRaw("aws-native:nimblestudio:getStudioComponent", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStudioComponentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStudioComponentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStudioComponentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStudioComponentResultOutput)
 }
 

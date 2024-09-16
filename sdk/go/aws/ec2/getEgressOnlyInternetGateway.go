@@ -34,14 +34,20 @@ type LookupEgressOnlyInternetGatewayResult struct {
 
 func LookupEgressOnlyInternetGatewayOutput(ctx *pulumi.Context, args LookupEgressOnlyInternetGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupEgressOnlyInternetGatewayResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEgressOnlyInternetGatewayResult, error) {
+		ApplyT(func(v interface{}) (LookupEgressOnlyInternetGatewayResultOutput, error) {
 			args := v.(LookupEgressOnlyInternetGatewayArgs)
-			r, err := LookupEgressOnlyInternetGateway(ctx, &args, opts...)
-			var s LookupEgressOnlyInternetGatewayResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEgressOnlyInternetGatewayResult
+			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getEgressOnlyInternetGateway", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEgressOnlyInternetGatewayResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEgressOnlyInternetGatewayResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEgressOnlyInternetGatewayResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEgressOnlyInternetGatewayResultOutput)
 }
 

@@ -47,14 +47,20 @@ type LookupLocationSmbResult struct {
 
 func LookupLocationSmbOutput(ctx *pulumi.Context, args LookupLocationSmbOutputArgs, opts ...pulumi.InvokeOption) LookupLocationSmbResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLocationSmbResult, error) {
+		ApplyT(func(v interface{}) (LookupLocationSmbResultOutput, error) {
 			args := v.(LookupLocationSmbArgs)
-			r, err := LookupLocationSmb(ctx, &args, opts...)
-			var s LookupLocationSmbResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLocationSmbResult
+			secret, err := ctx.InvokePackageRaw("aws-native:datasync:getLocationSmb", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLocationSmbResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLocationSmbResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLocationSmbResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLocationSmbResultOutput)
 }
 
