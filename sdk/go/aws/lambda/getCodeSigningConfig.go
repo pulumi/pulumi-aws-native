@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupCodeSigningConfigResult struct {
 	CodeSigningPolicies *CodeSigningConfigCodeSigningPolicies `pulumi:"codeSigningPolicies"`
 	// A description of the CodeSigningConfig
 	Description *string `pulumi:"description"`
+	// A list of tags to apply to CodeSigningConfig resource
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningConfigOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSigningConfigResultOutput {
@@ -107,6 +110,11 @@ func (o LookupCodeSigningConfigResultOutput) CodeSigningPolicies() CodeSigningCo
 // A description of the CodeSigningConfig
 func (o LookupCodeSigningConfigResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to apply to CodeSigningConfig resource
+func (o LookupCodeSigningConfigResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupCodeSigningConfigResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -36,7 +36,6 @@ class InstanceProfileNetworkType(str, Enum):
     The property describes a network type for the instance profile.
     """
     IPV4 = "IPV4"
-    IPV6 = "IPV6"
     DUAL = "DUAL"
 
 

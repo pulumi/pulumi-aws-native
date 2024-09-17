@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterPublicAccess
     {
-        /// <summary>
-        /// DISABLED means that public access is turned off. SERVICE_PROVIDED_EIPS means that public access is turned on.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

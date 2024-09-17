@@ -16,8 +16,7 @@ import (
 type ServerlessCluster struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Includes all client authentication information.
+	Arn                  pulumi.StringOutput                         `pulumi:"arn"`
 	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
 	ClusterName          pulumi.StringOutput                         `pulumi:"clusterName"`
 	// A key-value pair to associate with a resource.
@@ -78,7 +77,6 @@ func (ServerlessClusterState) ElementType() reflect.Type {
 }
 
 type serverlessClusterArgs struct {
-	// Includes all client authentication information.
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
 	ClusterName          *string                               `pulumi:"clusterName"`
 	// A key-value pair to associate with a resource.
@@ -88,7 +86,6 @@ type serverlessClusterArgs struct {
 
 // The set of arguments for constructing a ServerlessCluster resource.
 type ServerlessClusterArgs struct {
-	// Includes all client authentication information.
 	ClientAuthentication ServerlessClusterClientAuthenticationInput
 	ClusterName          pulumi.StringPtrInput
 	// A key-value pair to associate with a resource.
@@ -137,7 +134,6 @@ func (o ServerlessClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Includes all client authentication information.
 func (o ServerlessClusterOutput) ClientAuthentication() ServerlessClusterClientAuthenticationOutput {
 	return o.ApplyT(func(v *ServerlessCluster) ServerlessClusterClientAuthenticationOutput { return v.ClientAuthentication }).(ServerlessClusterClientAuthenticationOutput)
 }

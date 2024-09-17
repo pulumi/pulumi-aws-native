@@ -16,26 +16,12 @@ __all__ = [
 
 
 class ClusterEncryptionInTransitClientBroker(str, Enum):
-    """
-    Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
-
-    `TLS` means that client-broker communication is enabled with TLS only.
-
-    `TLS_PLAINTEXT` means that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
-
-    `PLAINTEXT` means that client-broker communication is enabled in plaintext only.
-
-    The default value is `TLS` .
-    """
     TLS = "TLS"
     TLS_PLAINTEXT = "TLS_PLAINTEXT"
     PLAINTEXT = "PLAINTEXT"
 
 
 class ClusterEnhancedMonitoring(str, Enum):
-    """
-    Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
-    """
     DEFAULT = "DEFAULT"
     PER_BROKER = "PER_BROKER"
     PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
@@ -43,9 +29,6 @@ class ClusterEnhancedMonitoring(str, Enum):
 
 
 class ClusterStorageMode(str, Enum):
-    """
-    This controls storage mode for supported storage tiers.
-    """
     LOCAL = "LOCAL"
     TIERED = "TIERED"
 

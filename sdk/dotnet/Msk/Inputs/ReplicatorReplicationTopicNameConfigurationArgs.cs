@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
     /// </summary>
     public sealed class ReplicatorReplicationTopicNameConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of replication topic name configuration, identical to upstream topic name or prefixed with source cluster alias.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.Msk.ReplicatorReplicationTopicNameConfigurationType>? Type { get; set; }
 

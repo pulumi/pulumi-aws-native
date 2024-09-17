@@ -38,9 +38,6 @@ export class ServerlessCluster extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Includes all client authentication information.
-     */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
     public readonly clusterName!: pulumi.Output<string>;
     /**
@@ -89,9 +86,6 @@ export class ServerlessCluster extends pulumi.CustomResource {
  * The set of arguments for constructing a ServerlessCluster resource.
  */
 export interface ServerlessClusterArgs {
-    /**
-     * Includes all client authentication information.
-     */
     clientAuthentication: pulumi.Input<inputs.msk.ServerlessClusterClientAuthenticationArgs>;
     clusterName?: pulumi.Input<string>;
     /**

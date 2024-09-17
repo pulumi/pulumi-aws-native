@@ -38,22 +38,10 @@ export class Configuration extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the configuration.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kafkaVersionsList!: pulumi.Output<string[] | undefined>;
-    /**
-     * Latest revision of the configuration.
-     */
     public readonly latestRevision!: pulumi.Output<outputs.msk.ConfigurationLatestRevision | undefined>;
-    /**
-     * The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
-     */
     public readonly serverProperties!: pulumi.Output<string>;
 
     /**
@@ -95,21 +83,9 @@ export class Configuration extends pulumi.CustomResource {
  * The set of arguments for constructing a Configuration resource.
  */
 export interface ConfigurationArgs {
-    /**
-     * The description of the configuration.
-     */
     description?: pulumi.Input<string>;
     kafkaVersionsList?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Latest revision of the configuration.
-     */
     latestRevision?: pulumi.Input<inputs.msk.ConfigurationLatestRevisionArgs>;
-    /**
-     * The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
-     */
     serverProperties: pulumi.Input<string>;
 }

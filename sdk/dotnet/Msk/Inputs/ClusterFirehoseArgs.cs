@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterFirehoseArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Kinesis Data Firehose delivery stream that is the destination for broker logs.
-        /// </summary>
         [Input("deliveryStream")]
         public Input<string>? DeliveryStream { get; set; }
 
-        /// <summary>
-        /// Specifies whether broker logs get sent to the specified Kinesis Data Firehose delivery stream.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

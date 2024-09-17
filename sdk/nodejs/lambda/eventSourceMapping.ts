@@ -91,6 +91,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      *   +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
      */
     public readonly eventSourceArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly eventSourceMappingArn!: pulumi.Output<string>;
     /**
      * An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
      */
@@ -107,12 +108,12 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
-     * (Streams and SQS) A list of current response type enums applied to the event source mapping.
+     * (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
      *  Valid Values: ``ReportBatchItemFailures``
      */
     public readonly functionResponseTypes!: pulumi.Output<enums.lambda.EventSourceMappingFunctionResponseTypesItem[] | undefined>;
     /**
-     * The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+     * The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
@@ -166,6 +167,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
      */
     public readonly startingPositionTimestamp!: pulumi.Output<number | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the Kafka topic.
      */
@@ -211,9 +213,11 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
             resourceInputs["startingPosition"] = args ? args.startingPosition : undefined;
             resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["eventSourceMappingArn"] = undefined /*out*/;
         } else {
             resourceInputs["amazonManagedKafkaEventSourceConfig"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -223,6 +227,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["documentDbEventSourceConfig"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["eventSourceArn"] = undefined /*out*/;
+            resourceInputs["eventSourceMappingArn"] = undefined /*out*/;
             resourceInputs["filterCriteria"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["functionResponseTypes"] = undefined /*out*/;
@@ -238,6 +243,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["sourceAccessConfigurations"] = undefined /*out*/;
             resourceInputs["startingPosition"] = undefined /*out*/;
             resourceInputs["startingPositionTimestamp"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["topics"] = undefined /*out*/;
             resourceInputs["tumblingWindowInSeconds"] = undefined /*out*/;
         }
@@ -310,12 +316,12 @@ export interface EventSourceMappingArgs {
      */
     functionName: pulumi.Input<string>;
     /**
-     * (Streams and SQS) A list of current response type enums applied to the event source mapping.
+     * (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
      *  Valid Values: ``ReportBatchItemFailures``
      */
     functionResponseTypes?: pulumi.Input<pulumi.Input<enums.lambda.EventSourceMappingFunctionResponseTypesItem>[]>;
     /**
-     * The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+     * The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -369,6 +375,7 @@ export interface EventSourceMappingArgs {
      * With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
      */
     startingPositionTimestamp?: pulumi.Input<number>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The name of the Kafka topic.
      */

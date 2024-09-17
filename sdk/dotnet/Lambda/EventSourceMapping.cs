@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("eventSourceArn")]
         public Output<string?> EventSourceArn { get; private set; } = null!;
 
+        [Output("eventSourceMappingArn")]
+        public Output<string> EventSourceMappingArn { get; private set; } = null!;
+
         /// <summary>
         /// An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
         /// </summary>
@@ -105,14 +108,14 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string> FunctionName { get; private set; } = null!;
 
         /// <summary>
-        /// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        /// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
         ///  Valid Values: ``ReportBatchItemFailures``
         /// </summary>
         [Output("functionResponseTypes")]
         public Output<ImmutableArray<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem>> FunctionResponseTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        /// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
@@ -189,6 +192,9 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Output("startingPositionTimestamp")]
         public Output<double?> StartingPositionTimestamp { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Kafka topic.
@@ -335,7 +341,7 @@ namespace Pulumi.AwsNative.Lambda
         private InputList<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem>? _functionResponseTypes;
 
         /// <summary>
-        /// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        /// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
         ///  Valid Values: ``ReportBatchItemFailures``
         /// </summary>
         public InputList<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem> FunctionResponseTypes
@@ -345,7 +351,7 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         /// <summary>
-        /// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        /// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -434,6 +440,14 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("startingPositionTimestamp")]
         public Input<double>? StartingPositionTimestamp { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         [Input("topics")]
         private InputList<string>? _topics;

@@ -38,17 +38,11 @@ class GetConfigurationResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
-        """
-        The description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional['outputs.ConfigurationLatestRevision']:
-        """
-        Latest revision of the configuration.
-        """
         return pulumi.get(self, "latest_revision")
 
 

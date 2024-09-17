@@ -358,7 +358,6 @@ type InstanceProfileNetworkType string
 
 const (
 	InstanceProfileNetworkTypeIpv4 = InstanceProfileNetworkType("IPV4")
-	InstanceProfileNetworkTypeIpv6 = InstanceProfileNetworkType("IPV6")
 	InstanceProfileNetworkTypeDual = InstanceProfileNetworkType("DUAL")
 )
 
@@ -485,7 +484,6 @@ func (o InstanceProfileNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 // A concrete instance of `InstanceProfileNetworkTypeInput` can be one of the following:
 //
 //	InstanceProfileNetworkTypeIpv4
-//	InstanceProfileNetworkTypeIpv6
 //	InstanceProfileNetworkTypeDual
 type InstanceProfileNetworkTypeInput interface {
 	pulumi.Input

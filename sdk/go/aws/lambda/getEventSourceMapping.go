@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -54,7 +55,8 @@ type LookupEventSourceMappingResult struct {
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
 	// When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
 	//  Default: True
-	Enabled *bool `pulumi:"enabled"`
+	Enabled               *bool   `pulumi:"enabled"`
+	EventSourceMappingArn *string `pulumi:"eventSourceMappingArn"`
 	// An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
 	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
 	// The name or ARN of the Lambda function.
@@ -66,12 +68,12 @@ type LookupEventSourceMappingResult struct {
 	//
 	//  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	FunctionName *string `pulumi:"functionName"`
-	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+	// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes []EventSourceMappingFunctionResponseTypesItem `pulumi:"functionResponseTypes"`
 	// The event source mapping's ID.
 	Id *string `pulumi:"id"`
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+	// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//   *Default (, , event sources)*: 0
@@ -91,6 +93,7 @@ type LookupEventSourceMappingResult struct {
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
+	Tags                       []aws.Tag                                     `pulumi:"tags"`
 	// The name of the Kafka topic.
 	Topics []string `pulumi:"topics"`
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -177,6 +180,10 @@ func (o LookupEventSourceMappingResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+func (o LookupEventSourceMappingResultOutput) EventSourceMappingArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.EventSourceMappingArn }).(pulumi.StringPtrOutput)
+}
+
 // An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
 func (o LookupEventSourceMappingResultOutput) FilterCriteria() EventSourceMappingFilterCriteriaPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingFilterCriteria { return v.FilterCriteria }).(EventSourceMappingFilterCriteriaPtrOutput)
@@ -195,7 +202,7 @@ func (o LookupEventSourceMappingResultOutput) FunctionName() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.FunctionName }).(pulumi.StringPtrOutput)
 }
 
-// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
 //
 //	Valid Values: ``ReportBatchItemFailures``
 func (o LookupEventSourceMappingResultOutput) FunctionResponseTypes() EventSourceMappingFunctionResponseTypesItemArrayOutput {
@@ -209,7 +216,7 @@ func (o LookupEventSourceMappingResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 func (o LookupEventSourceMappingResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -255,6 +262,10 @@ func (o LookupEventSourceMappingResultOutput) SourceAccessConfigurations() Event
 	return o.ApplyT(func(v LookupEventSourceMappingResult) []EventSourceMappingSourceAccessConfiguration {
 		return v.SourceAccessConfigurations
 	}).(EventSourceMappingSourceAccessConfigurationArrayOutput)
+}
+
+func (o LookupEventSourceMappingResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the Kafka topic.

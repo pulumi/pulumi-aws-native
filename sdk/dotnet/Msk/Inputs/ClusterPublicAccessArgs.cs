@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterPublicAccessArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DISABLED means that public access is turned off. SERVICE_PROVIDED_EIPS means that public access is turned on.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

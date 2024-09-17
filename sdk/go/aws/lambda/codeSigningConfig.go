@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,6 +27,8 @@ type CodeSigningConfig struct {
 	CodeSigningPolicies CodeSigningConfigCodeSigningPoliciesPtrOutput `pulumi:"codeSigningPolicies"`
 	// A description of the CodeSigningConfig
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A list of tags to apply to CodeSigningConfig resource
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCodeSigningConfig registers a new resource with the given unique name, arguments, and options.
@@ -77,6 +80,8 @@ type codeSigningConfigArgs struct {
 	CodeSigningPolicies *CodeSigningConfigCodeSigningPolicies `pulumi:"codeSigningPolicies"`
 	// A description of the CodeSigningConfig
 	Description *string `pulumi:"description"`
+	// A list of tags to apply to CodeSigningConfig resource
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CodeSigningConfig resource.
@@ -87,6 +92,8 @@ type CodeSigningConfigArgs struct {
 	CodeSigningPolicies CodeSigningConfigCodeSigningPoliciesPtrInput
 	// A description of the CodeSigningConfig
 	Description pulumi.StringPtrInput
+	// A list of tags to apply to CodeSigningConfig resource
+	Tags aws.TagArrayInput
 }
 
 func (CodeSigningConfigArgs) ElementType() reflect.Type {
@@ -149,6 +156,11 @@ func (o CodeSigningConfigOutput) CodeSigningPolicies() CodeSigningConfigCodeSign
 // A description of the CodeSigningConfig
 func (o CodeSigningConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to apply to CodeSigningConfig resource
+func (o CodeSigningConfigOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -27,9 +27,6 @@ export interface GetVpcConnectionResult {
      * The ARN of the VPC connection.
      */
     readonly arn?: string;
-    /**
-     * Create tags when creating the VPC connection.
-     */
     readonly tags?: {[key: string]: string};
 }
 /**

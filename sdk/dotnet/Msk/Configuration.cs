@@ -18,30 +18,18 @@ namespace Pulumi.AwsNative.Msk
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the configuration.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("kafkaVersionsList")]
         public Output<ImmutableArray<string>> KafkaVersionsList { get; private set; } = null!;
 
-        /// <summary>
-        /// Latest revision of the configuration.
-        /// </summary>
         [Output("latestRevision")]
         public Output<Outputs.ConfigurationLatestRevision?> LatestRevision { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
-        /// </summary>
         [Output("serverProperties")]
         public Output<string> ServerProperties { get; private set; } = null!;
 
@@ -95,9 +83,6 @@ namespace Pulumi.AwsNative.Msk
 
     public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the configuration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -109,21 +94,12 @@ namespace Pulumi.AwsNative.Msk
             set => _kafkaVersionsList = value;
         }
 
-        /// <summary>
-        /// Latest revision of the configuration.
-        /// </summary>
         [Input("latestRevision")]
         public Input<Inputs.ConfigurationLatestRevisionArgs>? LatestRevision { get; set; }
 
-        /// <summary>
-        /// The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Contents of the server.properties file. When using the API, you must ensure that the contents of the file are base64 encoded. When using the console, the SDK, or the CLI, the contents of server.properties can be in plaintext.
-        /// </summary>
         [Input("serverProperties", required: true)]
         public Input<string> ServerProperties { get; set; } = null!;
 

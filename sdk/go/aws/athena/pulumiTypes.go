@@ -410,7 +410,7 @@ type WorkGroupConfiguration struct {
 	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
 	// Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.
 	CustomerContentEncryptionConfiguration *WorkGroupCustomerContentEncryptionConfiguration `pulumi:"customerContentEncryptionConfiguration"`
-	// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+	// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	EnforceWorkGroupConfiguration *bool `pulumi:"enforceWorkGroupConfiguration"`
 	// The engine version that all queries running on the workgroup use.
 	EngineVersion *WorkGroupEngineVersion `pulumi:"engineVersion"`
@@ -420,7 +420,7 @@ type WorkGroupConfiguration struct {
 	PublishCloudWatchMetricsEnabled *bool `pulumi:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
 	RequesterPaysEnabled *bool `pulumi:"requesterPaysEnabled"`
-	// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
+	// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
 	ResultConfiguration *WorkGroupResultConfiguration `pulumi:"resultConfiguration"`
 }
 
@@ -444,7 +444,7 @@ type WorkGroupConfigurationArgs struct {
 	BytesScannedCutoffPerQuery pulumi.IntPtrInput `pulumi:"bytesScannedCutoffPerQuery"`
 	// Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.
 	CustomerContentEncryptionConfiguration WorkGroupCustomerContentEncryptionConfigurationPtrInput `pulumi:"customerContentEncryptionConfiguration"`
-	// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+	// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	EnforceWorkGroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkGroupConfiguration"`
 	// The engine version that all queries running on the workgroup use.
 	EngineVersion WorkGroupEngineVersionPtrInput `pulumi:"engineVersion"`
@@ -454,7 +454,7 @@ type WorkGroupConfigurationArgs struct {
 	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
 	RequesterPaysEnabled pulumi.BoolPtrInput `pulumi:"requesterPaysEnabled"`
-	// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
+	// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
 	ResultConfiguration WorkGroupResultConfigurationPtrInput `pulumi:"resultConfiguration"`
 }
 
@@ -554,7 +554,7 @@ func (o WorkGroupConfigurationOutput) CustomerContentEncryptionConfiguration() W
 	}).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
 }
 
-// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 func (o WorkGroupConfigurationOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfiguration) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
 }
@@ -579,7 +579,7 @@ func (o WorkGroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v WorkGroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
+// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
 func (o WorkGroupConfigurationOutput) ResultConfiguration() WorkGroupResultConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupResultConfiguration { return v.ResultConfiguration }).(WorkGroupResultConfigurationPtrOutput)
 }
@@ -640,7 +640,7 @@ func (o WorkGroupConfigurationPtrOutput) CustomerContentEncryptionConfiguration(
 	}).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
 }
 
-// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 func (o WorkGroupConfigurationPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupConfiguration) *bool {
 		if v == nil {
@@ -690,7 +690,7 @@ func (o WorkGroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
+// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
 func (o WorkGroupConfigurationPtrOutput) ResultConfiguration() WorkGroupResultConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkGroupConfiguration) *WorkGroupResultConfiguration {
 		if v == nil {
@@ -1460,13 +1460,13 @@ func (o WorkGroupEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPt
 type WorkGroupResultConfiguration struct {
 	// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . This is a client-side setting. If workgroup settings override client-side settings, then the query uses the ACL configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
 	AclConfiguration *WorkGroupAclConfiguration `pulumi:"aclConfiguration"`
-	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	EncryptionConfiguration *WorkGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The account ID that you expect to be the owner of the Amazon S3 bucket specified by `ResultConfiguration:OutputLocation` . If set, Athena uses the value for `ExpectedBucketOwner` when it makes Amazon S3 calls to your specified output location. If the `ExpectedBucketOwner` account ID does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions error.
 	//
 	// This is a client-side setting. If workgroup settings override client-side settings, then the query uses the `ExpectedBucketOwner` setting that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
+	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
 	OutputLocation *string `pulumi:"outputLocation"`
 }
 
@@ -1485,13 +1485,13 @@ type WorkGroupResultConfigurationInput interface {
 type WorkGroupResultConfigurationArgs struct {
 	// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. Currently the only supported canned ACL is `BUCKET_OWNER_FULL_CONTROL` . This is a client-side setting. If workgroup settings override client-side settings, then the query uses the ACL configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
 	AclConfiguration WorkGroupAclConfigurationPtrInput `pulumi:"aclConfiguration"`
-	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+	// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	EncryptionConfiguration WorkGroupEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
 	// The account ID that you expect to be the owner of the Amazon S3 bucket specified by `ResultConfiguration:OutputLocation` . If set, Athena uses the value for `ExpectedBucketOwner` when it makes Amazon S3 calls to your specified output location. If the `ExpectedBucketOwner` account ID does not match the actual owner of the Amazon S3 bucket, the call fails with a permissions error.
 	//
 	// This is a client-side setting. If workgroup settings override client-side settings, then the query uses the `ExpectedBucketOwner` setting that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` .
 	ExpectedBucketOwner pulumi.StringPtrInput `pulumi:"expectedBucketOwner"`
-	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
+	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
 	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
 }
 
@@ -1578,7 +1578,7 @@ func (o WorkGroupResultConfigurationOutput) AclConfiguration() WorkGroupAclConfi
 	return o.ApplyT(func(v WorkGroupResultConfiguration) *WorkGroupAclConfiguration { return v.AclConfiguration }).(WorkGroupAclConfigurationPtrOutput)
 }
 
-// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 func (o WorkGroupResultConfigurationOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfiguration) *WorkGroupEncryptionConfiguration {
 		return v.EncryptionConfiguration
@@ -1592,7 +1592,7 @@ func (o WorkGroupResultConfigurationOutput) ExpectedBucketOwner() pulumi.StringP
 	return o.ApplyT(func(v WorkGroupResultConfiguration) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
+// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
 func (o WorkGroupResultConfigurationOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfiguration) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
 }
@@ -1631,7 +1631,7 @@ func (o WorkGroupResultConfigurationPtrOutput) AclConfiguration() WorkGroupAclCo
 	}).(WorkGroupAclConfigurationPtrOutput)
 }
 
-// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See `EnforceWorkGroupConfiguration` and [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 func (o WorkGroupResultConfigurationPtrOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfiguration) *WorkGroupEncryptionConfiguration {
 		if v == nil {
@@ -1653,7 +1653,7 @@ func (o WorkGroupResultConfigurationPtrOutput) ExpectedBucketOwner() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
+// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/` . To run a query, you must specify the query results location using either a client-side setting for individual queries or a location specified by the workgroup. If workgroup settings override client-side settings, then the query uses the location specified for the workgroup. If no query location is set, Athena issues an error. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) and `EnforceWorkGroupConfiguration` .
 func (o WorkGroupResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfiguration) *string {
 		if v == nil {
@@ -1677,11 +1677,11 @@ type WorkGroupResultConfigurationUpdates struct {
 	OutputLocation *string `pulumi:"outputLocation"`
 	// If set to `true` , indicates that the previously-specified ACL configuration for queries in this workgroup should be ignored and set to null. If set to `false` or not set, and a value is present in the `AclConfiguration` of `ResultConfigurationUpdates` , the `AclConfiguration` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	RemoveAclConfiguration *bool `pulumi:"removeAclConfiguration"`
-	// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+	// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	RemoveEncryptionConfiguration *bool `pulumi:"removeEncryptionConfiguration"`
 	// If set to "true", removes the AWS account ID previously specified for `ResultConfiguration$ExpectedBucketOwner` . If set to "false" or not set, and a value is present in the `ExpectedBucketOwner` in `ResultConfigurationUpdates` (the client-side setting), the `ExpectedBucketOwner` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	RemoveExpectedBucketOwner *bool `pulumi:"removeExpectedBucketOwner"`
-	// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+	// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	RemoveOutputLocation *bool `pulumi:"removeOutputLocation"`
 }
 
@@ -1710,11 +1710,11 @@ type WorkGroupResultConfigurationUpdatesArgs struct {
 	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
 	// If set to `true` , indicates that the previously-specified ACL configuration for queries in this workgroup should be ignored and set to null. If set to `false` or not set, and a value is present in the `AclConfiguration` of `ResultConfigurationUpdates` , the `AclConfiguration` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	RemoveAclConfiguration pulumi.BoolPtrInput `pulumi:"removeAclConfiguration"`
-	// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+	// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	RemoveEncryptionConfiguration pulumi.BoolPtrInput `pulumi:"removeEncryptionConfiguration"`
 	// If set to "true", removes the AWS account ID previously specified for `ResultConfiguration$ExpectedBucketOwner` . If set to "false" or not set, and a value is present in the `ExpectedBucketOwner` in `ResultConfigurationUpdates` (the client-side setting), the `ExpectedBucketOwner` in the workgroup's `ResultConfiguration` is updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	RemoveExpectedBucketOwner pulumi.BoolPtrInput `pulumi:"removeExpectedBucketOwner"`
-	// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+	// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 	RemoveOutputLocation pulumi.BoolPtrInput `pulumi:"removeOutputLocation"`
 }
 
@@ -1825,7 +1825,7 @@ func (o WorkGroupResultConfigurationUpdatesOutput) RemoveAclConfiguration() pulu
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveAclConfiguration }).(pulumi.BoolPtrOutput)
 }
 
-// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 func (o WorkGroupResultConfigurationUpdatesOutput) RemoveEncryptionConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveEncryptionConfiguration }).(pulumi.BoolPtrOutput)
 }
@@ -1835,7 +1835,7 @@ func (o WorkGroupResultConfigurationUpdatesOutput) RemoveExpectedBucketOwner() p
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveExpectedBucketOwner }).(pulumi.BoolPtrOutput)
 }
 
-// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 func (o WorkGroupResultConfigurationUpdatesOutput) RemoveOutputLocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveOutputLocation }).(pulumi.BoolPtrOutput)
 }
@@ -1916,7 +1916,7 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveAclConfiguration() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+// If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveEncryptionConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *bool {
 		if v == nil {
@@ -1936,7 +1936,7 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveExpectedBucketOwner(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+// If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see [Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveOutputLocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *bool {
 		if v == nil {

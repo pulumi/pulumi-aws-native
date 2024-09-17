@@ -27,7 +27,6 @@ export type DataProviderEngine = (typeof DataProviderEngine)[keyof typeof DataPr
 
 export const InstanceProfileNetworkType = {
     Ipv4: "IPV4",
-    Ipv6: "IPV6",
     Dual: "DUAL",
 } as const;
 

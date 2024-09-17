@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterUnauthenticatedArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unauthenticated is enabled or not.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

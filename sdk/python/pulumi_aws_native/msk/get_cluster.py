@@ -69,25 +69,16 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="brokerNodeGroupInfo")
     def broker_node_group_info(self) -> Optional['outputs.ClusterBrokerNodeGroupInfo']:
-        """
-        Information about the broker nodes in the cluster.
-        """
         return pulumi.get(self, "broker_node_group_info")
 
     @property
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> Optional['outputs.ClusterClientAuthentication']:
-        """
-        Includes all client authentication related information.
-        """
         return pulumi.get(self, "client_authentication")
 
     @property
     @pulumi.getter(name="configurationInfo")
     def configuration_info(self) -> Optional['outputs.ClusterConfigurationInfo']:
-        """
-        Represents the configuration that you want MSK to use for the cluster.
-        """
         return pulumi.get(self, "configuration_info")
 
     @property
@@ -101,57 +92,36 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> Optional['outputs.ClusterEncryptionInfo']:
-        """
-        Includes all encryption-related information.
-        """
         return pulumi.get(self, "encryption_info")
 
     @property
     @pulumi.getter(name="enhancedMonitoring")
     def enhanced_monitoring(self) -> Optional['ClusterEnhancedMonitoring']:
-        """
-        Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
-        """
         return pulumi.get(self, "enhanced_monitoring")
 
     @property
     @pulumi.getter(name="kafkaVersion")
     def kafka_version(self) -> Optional[str]:
-        """
-        The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.
-        """
         return pulumi.get(self, "kafka_version")
 
     @property
     @pulumi.getter(name="loggingInfo")
     def logging_info(self) -> Optional['outputs.ClusterLoggingInfo']:
-        """
-        Logging Info details.
-        """
         return pulumi.get(self, "logging_info")
 
     @property
     @pulumi.getter(name="numberOfBrokerNodes")
     def number_of_broker_nodes(self) -> Optional[int]:
-        """
-        The number of broker nodes in the cluster.
-        """
         return pulumi.get(self, "number_of_broker_nodes")
 
     @property
     @pulumi.getter(name="openMonitoring")
     def open_monitoring(self) -> Optional['outputs.ClusterOpenMonitoring']:
-        """
-        The settings for open monitoring.
-        """
         return pulumi.get(self, "open_monitoring")
 
     @property
     @pulumi.getter(name="storageMode")
     def storage_mode(self) -> Optional['ClusterStorageMode']:
-        """
-        This controls storage mode for supported storage tiers.
-        """
         return pulumi.get(self, "storage_mode")
 
     @property

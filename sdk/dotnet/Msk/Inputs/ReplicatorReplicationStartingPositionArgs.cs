@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
     /// </summary>
     public sealed class ReplicatorReplicationStartingPositionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of replication starting position.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.Msk.ReplicatorReplicationStartingPositionType>? Type { get; set; }
 

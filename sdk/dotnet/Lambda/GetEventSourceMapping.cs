@@ -101,6 +101,7 @@ namespace Pulumi.AwsNative.Lambda
         ///  Default: True
         /// </summary>
         public readonly bool? Enabled;
+        public readonly string? EventSourceMappingArn;
         /// <summary>
         /// An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
         /// </summary>
@@ -117,7 +118,7 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly string? FunctionName;
         /// <summary>
-        /// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        /// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
         ///  Valid Values: ``ReportBatchItemFailures``
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem> FunctionResponseTypes;
@@ -126,7 +127,7 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        /// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
         /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>
@@ -161,6 +162,7 @@ namespace Pulumi.AwsNative.Lambda
         /// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> SourceAccessConfigurations;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The name of the Kafka topic.
         /// </summary>
@@ -181,6 +183,8 @@ namespace Pulumi.AwsNative.Lambda
             Outputs.EventSourceMappingDocumentDbEventSourceConfig? documentDbEventSourceConfig,
 
             bool? enabled,
+
+            string? eventSourceMappingArn,
 
             Outputs.EventSourceMappingFilterCriteria? filterCriteria,
 
@@ -206,6 +210,8 @@ namespace Pulumi.AwsNative.Lambda
 
             ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> sourceAccessConfigurations,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             ImmutableArray<string> topics,
 
             int? tumblingWindowInSeconds)
@@ -215,6 +221,7 @@ namespace Pulumi.AwsNative.Lambda
             DestinationConfig = destinationConfig;
             DocumentDbEventSourceConfig = documentDbEventSourceConfig;
             Enabled = enabled;
+            EventSourceMappingArn = eventSourceMappingArn;
             FilterCriteria = filterCriteria;
             FunctionName = functionName;
             FunctionResponseTypes = functionResponseTypes;
@@ -227,6 +234,7 @@ namespace Pulumi.AwsNative.Lambda
             Queues = queues;
             ScalingConfig = scalingConfig;
             SourceAccessConfigurations = sourceAccessConfigurations;
+            Tags = tags;
             Topics = topics;
             TumblingWindowInSeconds = tumblingWindowInSeconds;
         }

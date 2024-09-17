@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterVpcConnectivityScramArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// SASL/SCRAM authentication is enabled or not.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

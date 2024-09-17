@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -54,7 +55,8 @@ type EventSourceMapping struct {
 	//   +   *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).
 	//   +   *Amazon MQ* – The ARN of the broker.
 	//   +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
-	EventSourceArn pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
+	EventSourceArn        pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
+	EventSourceMappingArn pulumi.StringOutput    `pulumi:"eventSourceMappingArn"`
 	// An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
 	FilterCriteria EventSourceMappingFilterCriteriaPtrOutput `pulumi:"filterCriteria"`
 	// The name or ARN of the Lambda function.
@@ -66,10 +68,10 @@ type EventSourceMapping struct {
 	//
 	//  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
-	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+	// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes EventSourceMappingFunctionResponseTypesItemArrayOutput `pulumi:"functionResponseTypes"`
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+	// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//   *Default (, , event sources)*: 0
@@ -100,6 +102,7 @@ type EventSourceMapping struct {
 	StartingPosition pulumi.StringPtrOutput `pulumi:"startingPosition"`
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp pulumi.Float64PtrOutput `pulumi:"startingPositionTimestamp"`
+	Tags                      aws.TagArrayOutput      `pulumi:"tags"`
 	// The name of the Kafka topic.
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -197,10 +200,10 @@ type eventSourceMappingArgs struct {
 	//
 	//  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	FunctionName string `pulumi:"functionName"`
-	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+	// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes []EventSourceMappingFunctionResponseTypesItem `pulumi:"functionResponseTypes"`
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+	// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//   *Default (, , event sources)*: 0
@@ -230,7 +233,8 @@ type eventSourceMappingArgs struct {
 	//   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
 	StartingPosition *string `pulumi:"startingPosition"`
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
-	StartingPositionTimestamp *float64 `pulumi:"startingPositionTimestamp"`
+	StartingPositionTimestamp *float64  `pulumi:"startingPositionTimestamp"`
+	Tags                      []aws.Tag `pulumi:"tags"`
 	// The name of the Kafka topic.
 	Topics []string `pulumi:"topics"`
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -278,10 +282,10 @@ type EventSourceMappingArgs struct {
 	//
 	//  The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 	FunctionName pulumi.StringInput
-	// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+	// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
 	//  Valid Values: ``ReportBatchItemFailures``
 	FunctionResponseTypes EventSourceMappingFunctionResponseTypesItemArrayInput
-	// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+	// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 	KmsKeyArn pulumi.StringPtrInput
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//   *Default (, , event sources)*: 0
@@ -312,6 +316,7 @@ type EventSourceMappingArgs struct {
 	StartingPosition pulumi.StringPtrInput
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp pulumi.Float64PtrInput
+	Tags                      aws.TagArrayInput
 	// The name of the Kafka topic.
 	Topics pulumi.StringArrayInput
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -414,6 +419,10 @@ func (o EventSourceMappingOutput) EventSourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.EventSourceArn }).(pulumi.StringPtrOutput)
 }
 
+func (o EventSourceMappingOutput) EventSourceMappingArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.EventSourceMappingArn }).(pulumi.StringOutput)
+}
+
 // An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
 func (o EventSourceMappingOutput) FilterCriteria() EventSourceMappingFilterCriteriaPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingFilterCriteriaPtrOutput { return v.FilterCriteria }).(EventSourceMappingFilterCriteriaPtrOutput)
@@ -432,7 +441,7 @@ func (o EventSourceMappingOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// (Streams and SQS) A list of current response type enums applied to the event source mapping.
+// (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
 //
 //	Valid Values: ``ReportBatchItemFailures``
 func (o EventSourceMappingOutput) FunctionResponseTypes() EventSourceMappingFunctionResponseTypesItemArrayOutput {
@@ -441,7 +450,7 @@ func (o EventSourceMappingOutput) FunctionResponseTypes() EventSourceMappingFunc
 	}).(EventSourceMappingFunctionResponseTypesItemArrayOutput)
 }
 
-// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 func (o EventSourceMappingOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -514,6 +523,10 @@ func (o EventSourceMappingOutput) StartingPosition() pulumi.StringPtrOutput {
 // With “StartingPosition“ set to “AT_TIMESTAMP“, the time from which to start reading, in Unix time seconds. “StartingPositionTimestamp“ cannot be in the future.
 func (o EventSourceMappingOutput) StartingPositionTimestamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.Float64PtrOutput { return v.StartingPositionTimestamp }).(pulumi.Float64PtrOutput)
+}
+
+func (o EventSourceMappingOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EventSourceMapping) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The name of the Kafka topic.

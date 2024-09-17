@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -39,6 +41,7 @@ class EventSourceMappingArgs:
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
                  starting_position_timestamp: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -73,9 +76,9 @@ class EventSourceMappingArgs:
                  +   *Amazon MQ* – The ARN of the broker.
                  +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
         :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
                 Valid Values: ``ReportBatchItemFailures``
-        :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
                  *Default (, , event sources)*: 0
                  *Default (, Kafka, , event sources)*: 500 ms
@@ -140,6 +143,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "starting_position", starting_position)
         if starting_position_timestamp is not None:
             pulumi.set(__self__, "starting_position_timestamp", starting_position_timestamp)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if topics is not None:
             pulumi.set(__self__, "topics", topics)
         if tumbling_window_in_seconds is not None:
@@ -278,7 +283,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="functionResponseTypes")
     def function_response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]]:
         """
-        (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
          Valid Values: ``ReportBatchItemFailures``
         """
         return pulumi.get(self, "function_response_types")
@@ -291,7 +296,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -440,6 +445,15 @@ class EventSourceMappingArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The name of the Kafka topic.
@@ -490,6 +504,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourceMappingSourceAccessConfigurationArgs', 'EventSourceMappingSourceAccessConfigurationArgsDict']]]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
                  starting_position_timestamp: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -536,9 +551,9 @@ class EventSourceMapping(pulumi.CustomResource):
                  +   *Partial ARN* – ``123456789012:function:MyFunction``.
                  
                 The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
                 Valid Values: ``ReportBatchItemFailures``
-        :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
                  *Default (, , event sources)*: 0
                  *Default (, Kafka, , event sources)*: 500 ms
@@ -614,6 +629,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourceMappingSourceAccessConfigurationArgs', 'EventSourceMappingSourceAccessConfigurationArgsDict']]]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
                  starting_position_timestamp: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -649,9 +665,11 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["source_access_configurations"] = source_access_configurations
             __props__.__dict__["starting_position"] = starting_position
             __props__.__dict__["starting_position_timestamp"] = starting_position_timestamp
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["topics"] = topics
             __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["event_source_mapping_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonManagedKafkaEventSourceConfig", "eventSourceArn", "selfManagedEventSource", "selfManagedKafkaEventSourceConfig", "startingPosition", "startingPositionTimestamp"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventSourceMapping, __self__).__init__(
@@ -684,6 +702,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["document_db_event_source_config"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["event_source_arn"] = None
+        __props__.__dict__["event_source_mapping_arn"] = None
         __props__.__dict__["filter_criteria"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["function_response_types"] = None
@@ -699,6 +718,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["source_access_configurations"] = None
         __props__.__dict__["starting_position"] = None
         __props__.__dict__["starting_position_timestamp"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["topics"] = None
         __props__.__dict__["tumbling_window_in_seconds"] = None
         return EventSourceMapping(resource_name, opts=opts, __props__=__props__)
@@ -782,6 +802,11 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "event_source_arn")
 
     @property
+    @pulumi.getter(name="eventSourceMappingArn")
+    def event_source_mapping_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "event_source_mapping_arn")
+
+    @property
     @pulumi.getter(name="filterCriteria")
     def filter_criteria(self) -> pulumi.Output[Optional['outputs.EventSourceMappingFilterCriteria']]:
         """
@@ -808,7 +833,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="functionResponseTypes")
     def function_response_types(self) -> pulumi.Output[Optional[Sequence['EventSourceMappingFunctionResponseTypesItem']]]:
         """
-        (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
          Valid Values: ``ReportBatchItemFailures``
         """
         return pulumi.get(self, "function_response_types")
@@ -817,7 +842,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -915,6 +940,11 @@ class EventSourceMapping(pulumi.CustomResource):
         With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
         """
         return pulumi.get(self, "starting_position_timestamp")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

@@ -10,15 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
-//
-// `TLS` means that client-broker communication is enabled with TLS only.
-//
-// `TLS_PLAINTEXT` means that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.
-//
-// `PLAINTEXT` means that client-broker communication is enabled in plaintext only.
-//
-// The default value is `TLS` .
 type ClusterEncryptionInTransitClientBroker string
 
 const (
@@ -186,7 +177,6 @@ func (in *clusterEncryptionInTransitClientBrokerPtr) ToClusterEncryptionInTransi
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
-// Specifies the level of monitoring for the MSK cluster. The possible values are `DEFAULT` , `PER_BROKER` , and `PER_TOPIC_PER_BROKER` .
 type ClusterEnhancedMonitoring string
 
 const (
@@ -356,7 +346,6 @@ func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEnhancedMonitoringPtrOutput)
 }
 
-// This controls storage mode for supported storage tiers.
 type ClusterStorageMode string
 
 const (

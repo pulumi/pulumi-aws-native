@@ -20,16 +20,12 @@ type VpcConnection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The type of private link authentication.
 	Authentication VpcConnectionAuthenticationOutput `pulumi:"authentication"`
-	// The list of subnets in the client VPC to connect to.
-	ClientSubnets pulumi.StringArrayOutput `pulumi:"clientSubnets"`
-	// The security groups to attach to the ENIs for the broker nodes.
-	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// Create tags when creating the VPC connection.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	ClientSubnets  pulumi.StringArrayOutput          `pulumi:"clientSubnets"`
+	SecurityGroups pulumi.StringArrayOutput          `pulumi:"securityGroups"`
+	Tags           pulumi.StringMapOutput            `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the target cluster
 	TargetClusterArn pulumi.StringOutput `pulumi:"targetClusterArn"`
-	// The VPC id of the remote client.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	VpcId            pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewVpcConnection registers a new resource with the given unique name, arguments, and options.
@@ -97,32 +93,24 @@ func (VpcConnectionState) ElementType() reflect.Type {
 type vpcConnectionArgs struct {
 	// The type of private link authentication.
 	Authentication VpcConnectionAuthentication `pulumi:"authentication"`
-	// The list of subnets in the client VPC to connect to.
-	ClientSubnets []string `pulumi:"clientSubnets"`
-	// The security groups to attach to the ENIs for the broker nodes.
-	SecurityGroups []string `pulumi:"securityGroups"`
-	// Create tags when creating the VPC connection.
-	Tags map[string]string `pulumi:"tags"`
+	ClientSubnets  []string                    `pulumi:"clientSubnets"`
+	SecurityGroups []string                    `pulumi:"securityGroups"`
+	Tags           map[string]string           `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the target cluster
 	TargetClusterArn string `pulumi:"targetClusterArn"`
-	// The VPC id of the remote client.
-	VpcId string `pulumi:"vpcId"`
+	VpcId            string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpcConnection resource.
 type VpcConnectionArgs struct {
 	// The type of private link authentication.
 	Authentication VpcConnectionAuthenticationInput
-	// The list of subnets in the client VPC to connect to.
-	ClientSubnets pulumi.StringArrayInput
-	// The security groups to attach to the ENIs for the broker nodes.
+	ClientSubnets  pulumi.StringArrayInput
 	SecurityGroups pulumi.StringArrayInput
-	// Create tags when creating the VPC connection.
-	Tags pulumi.StringMapInput
+	Tags           pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the target cluster
 	TargetClusterArn pulumi.StringInput
-	// The VPC id of the remote client.
-	VpcId pulumi.StringInput
+	VpcId            pulumi.StringInput
 }
 
 func (VpcConnectionArgs) ElementType() reflect.Type {
@@ -172,17 +160,14 @@ func (o VpcConnectionOutput) Authentication() VpcConnectionAuthenticationOutput 
 	return o.ApplyT(func(v *VpcConnection) VpcConnectionAuthenticationOutput { return v.Authentication }).(VpcConnectionAuthenticationOutput)
 }
 
-// The list of subnets in the client VPC to connect to.
 func (o VpcConnectionOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
-// The security groups to attach to the ENIs for the broker nodes.
 func (o VpcConnectionOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// Create tags when creating the VPC connection.
 func (o VpcConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -192,7 +177,6 @@ func (o VpcConnectionOutput) TargetClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.TargetClusterArn }).(pulumi.StringOutput)
 }
 
-// The VPC id of the remote client.
 func (o VpcConnectionOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

@@ -46,6 +46,10 @@ export interface GetCodeSigningConfigResult {
      * A description of the CodeSigningConfig
      */
     readonly description?: string;
+    /**
+     * A list of tags to apply to CodeSigningConfig resource
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Lambda::CodeSigningConfig.

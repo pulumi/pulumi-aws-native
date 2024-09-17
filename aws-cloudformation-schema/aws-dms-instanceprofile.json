@@ -71,7 +71,7 @@
     "NetworkType" : {
       "description" : "The property describes a network type for the instance profile.",
       "type" : "string",
-      "enum" : [ "IPV4", "IPV6", "DUAL" ]
+      "enum" : [ "IPV4", "DUAL" ]
     },
     "InstanceProfileName" : {
       "description" : "The property describes a name for the instance profile.",

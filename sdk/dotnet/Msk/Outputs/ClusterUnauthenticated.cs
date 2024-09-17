@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterUnauthenticated
     {
-        /// <summary>
-        /// Unauthenticated is enabled or not.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

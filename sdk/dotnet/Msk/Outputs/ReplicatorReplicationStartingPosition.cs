@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ReplicatorReplicationStartingPosition
     {
+        /// <summary>
+        /// The type of replication starting position.
+        /// </summary>
         public readonly Pulumi.AwsNative.Msk.ReplicatorReplicationStartingPositionType? Type;
 
         [OutputConstructor]

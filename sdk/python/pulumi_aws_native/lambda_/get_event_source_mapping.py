@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -20,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSourceMappingResult:
-    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, scaling_config=None, source_access_configurations=None, topics=None, tumbling_window_in_seconds=None):
+    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, event_source_mapping_arn=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, scaling_config=None, source_access_configurations=None, tags=None, topics=None, tumbling_window_in_seconds=None):
         if batch_size and not isinstance(batch_size, int):
             raise TypeError("Expected argument 'batch_size' to be a int")
         pulumi.set(__self__, "batch_size", batch_size)
@@ -36,6 +37,9 @@ class GetEventSourceMappingResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if event_source_mapping_arn and not isinstance(event_source_mapping_arn, str):
+            raise TypeError("Expected argument 'event_source_mapping_arn' to be a str")
+        pulumi.set(__self__, "event_source_mapping_arn", event_source_mapping_arn)
         if filter_criteria and not isinstance(filter_criteria, dict):
             raise TypeError("Expected argument 'filter_criteria' to be a dict")
         pulumi.set(__self__, "filter_criteria", filter_criteria)
@@ -72,6 +76,9 @@ class GetEventSourceMappingResult:
         if source_access_configurations and not isinstance(source_access_configurations, list):
             raise TypeError("Expected argument 'source_access_configurations' to be a list")
         pulumi.set(__self__, "source_access_configurations", source_access_configurations)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if topics and not isinstance(topics, list):
             raise TypeError("Expected argument 'topics' to be a list")
         pulumi.set(__self__, "topics", topics)
@@ -128,6 +135,11 @@ class GetEventSourceMappingResult:
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter(name="eventSourceMappingArn")
+    def event_source_mapping_arn(self) -> Optional[str]:
+        return pulumi.get(self, "event_source_mapping_arn")
+
+    @property
     @pulumi.getter(name="filterCriteria")
     def filter_criteria(self) -> Optional['outputs.EventSourceMappingFilterCriteria']:
         """
@@ -154,7 +166,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="functionResponseTypes")
     def function_response_types(self) -> Optional[Sequence['EventSourceMappingFunctionResponseTypesItem']]:
         """
-        (Streams and SQS) A list of current response type enums applied to the event source mapping.
+        (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
          Valid Values: ``ReportBatchItemFailures``
         """
         return pulumi.get(self, "function_response_types")
@@ -171,7 +183,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         """
-        The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+        The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -237,6 +249,11 @@ class GetEventSourceMappingResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def topics(self) -> Optional[Sequence[str]]:
         """
         The name of the Kafka topic.
@@ -263,6 +280,7 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             destination_config=self.destination_config,
             document_db_event_source_config=self.document_db_event_source_config,
             enabled=self.enabled,
+            event_source_mapping_arn=self.event_source_mapping_arn,
             filter_criteria=self.filter_criteria,
             function_name=self.function_name,
             function_response_types=self.function_response_types,
@@ -275,6 +293,7 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             queues=self.queues,
             scaling_config=self.scaling_config,
             source_access_configurations=self.source_access_configurations,
+            tags=self.tags,
             topics=self.topics,
             tumbling_window_in_seconds=self.tumbling_window_in_seconds)
 
@@ -306,6 +325,7 @@ def get_event_source_mapping(id: Optional[str] = None,
         destination_config=pulumi.get(__ret__, 'destination_config'),
         document_db_event_source_config=pulumi.get(__ret__, 'document_db_event_source_config'),
         enabled=pulumi.get(__ret__, 'enabled'),
+        event_source_mapping_arn=pulumi.get(__ret__, 'event_source_mapping_arn'),
         filter_criteria=pulumi.get(__ret__, 'filter_criteria'),
         function_name=pulumi.get(__ret__, 'function_name'),
         function_response_types=pulumi.get(__ret__, 'function_response_types'),
@@ -318,6 +338,7 @@ def get_event_source_mapping(id: Optional[str] = None,
         queues=pulumi.get(__ret__, 'queues'),
         scaling_config=pulumi.get(__ret__, 'scaling_config'),
         source_access_configurations=pulumi.get(__ret__, 'source_access_configurations'),
+        tags=pulumi.get(__ret__, 'tags'),
         topics=pulumi.get(__ret__, 'topics'),
         tumbling_window_in_seconds=pulumi.get(__ret__, 'tumbling_window_in_seconds'))
 

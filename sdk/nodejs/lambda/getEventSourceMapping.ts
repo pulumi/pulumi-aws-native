@@ -62,6 +62,7 @@ export interface GetEventSourceMappingResult {
      *  Default: True
      */
     readonly enabled?: boolean;
+    readonly eventSourceMappingArn?: string;
     /**
      * An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
      */
@@ -78,7 +79,7 @@ export interface GetEventSourceMappingResult {
      */
     readonly functionName?: string;
     /**
-     * (Streams and SQS) A list of current response type enums applied to the event source mapping.
+     * (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
      *  Valid Values: ``ReportBatchItemFailures``
      */
     readonly functionResponseTypes?: enums.lambda.EventSourceMappingFunctionResponseTypesItem[];
@@ -87,7 +88,7 @@ export interface GetEventSourceMappingResult {
      */
     readonly id?: string;
     /**
-     * The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) .
+     * The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
      */
     readonly kmsKeyArn?: string;
     /**
@@ -122,6 +123,7 @@ export interface GetEventSourceMappingResult {
      * An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
      */
     readonly sourceAccessConfigurations?: outputs.lambda.EventSourceMappingSourceAccessConfiguration[];
+    readonly tags?: outputs.Tag[];
     /**
      * The name of the Kafka topic.
      */

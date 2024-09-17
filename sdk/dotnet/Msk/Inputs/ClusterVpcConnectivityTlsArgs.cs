@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterVpcConnectivityTlsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// TLS authentication is enabled or not.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

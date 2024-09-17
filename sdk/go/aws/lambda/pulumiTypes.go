@@ -633,6 +633,13 @@ func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) UntrustedArtifactOnDeploy
 	}).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput)
 }
 
+type CodeSigningConfigTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
 // A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfig struct {
 	// The destination configuration for failed invocations.
@@ -2622,6 +2629,13 @@ func (o EventSourceMappingSourceAccessConfigurationArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingSourceAccessConfiguration {
 		return vs[0].([]EventSourceMappingSourceAccessConfiguration)[vs[1].(int)]
 	}).(EventSourceMappingSourceAccessConfigurationOutput)
+}
+
+type EventSourceMappingTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
 }
 
 // The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.

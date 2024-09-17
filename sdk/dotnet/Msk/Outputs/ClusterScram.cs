@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterScram
     {
-        /// <summary>
-        /// SASL/SCRAM authentication is enabled or not.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

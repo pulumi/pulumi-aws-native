@@ -18,15 +18,27 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("levelFive")]
         public Input<Inputs.UserHierarchyStructureLevelFiveArgs>? LevelFive { get; set; }
 
+        /// <summary>
+        /// The update for level four.
+        /// </summary>
         [Input("levelFour")]
         public Input<Inputs.UserHierarchyStructureLevelFourArgs>? LevelFour { get; set; }
 
+        /// <summary>
+        /// The update for level one.
+        /// </summary>
         [Input("levelOne")]
         public Input<Inputs.UserHierarchyStructureLevelOneArgs>? LevelOne { get; set; }
 
+        /// <summary>
+        /// The update for level three.
+        /// </summary>
         [Input("levelThree")]
         public Input<Inputs.UserHierarchyStructureLevelThreeArgs>? LevelThree { get; set; }
 
+        /// <summary>
+        /// The update for level two.
+        /// </summary>
         [Input("levelTwo")]
         public Input<Inputs.UserHierarchyStructureLevelTwoArgs>? LevelTwo { get; set; }
 

@@ -16,8 +16,14 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class UserHierarchyStructureLevelThree
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the hierarchy level.
+        /// </summary>
         public readonly string? HierarchyLevelArn;
         public readonly string? HierarchyLevelId;
+        /// <summary>
+        /// The name of the hierarchy level.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

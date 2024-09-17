@@ -45,6 +45,12 @@ namespace Pulumi.AwsNative.Lambda
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags to apply to CodeSigningConfig resource
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CodeSigningConfig resource with the given unique name, arguments, and options.
@@ -107,6 +113,18 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A list of tags to apply to CodeSigningConfig resource
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public CodeSigningConfigArgs()
         {

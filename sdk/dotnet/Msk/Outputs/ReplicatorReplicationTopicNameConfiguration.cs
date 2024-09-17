@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ReplicatorReplicationTopicNameConfiguration
     {
+        /// <summary>
+        /// The type of replication topic name configuration, identical to upstream topic name or prefixed with source cluster alias.
+        /// </summary>
         public readonly Pulumi.AwsNative.Msk.ReplicatorReplicationTopicNameConfigurationType? Type;
 
         [OutputConstructor]

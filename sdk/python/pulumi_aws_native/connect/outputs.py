@@ -2979,6 +2979,9 @@ class UserHierarchyStructureLevelFive(dict):
                  hierarchy_level_id: Optional[str] = None):
         """
         Information about level five.
+        :param str name: The name of the hierarchy level.
+        :param str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str hierarchy_level_id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
         if hierarchy_level_arn is not None:
@@ -2989,16 +2992,25 @@ class UserHierarchyStructureLevelFive(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the hierarchy level.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="hierarchyLevelArn")
     def hierarchy_level_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_arn")
 
     @property
     @pulumi.getter(name="hierarchyLevelId")
     def hierarchy_level_id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_id")
 
 
@@ -3032,6 +3044,9 @@ class UserHierarchyStructureLevelFour(dict):
                  hierarchy_level_id: Optional[str] = None):
         """
         Information about level four.
+        :param str name: The name of the hierarchy level.
+        :param str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str hierarchy_level_id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
         if hierarchy_level_arn is not None:
@@ -3042,16 +3057,25 @@ class UserHierarchyStructureLevelFour(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the hierarchy level.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="hierarchyLevelArn")
     def hierarchy_level_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_arn")
 
     @property
     @pulumi.getter(name="hierarchyLevelId")
     def hierarchy_level_id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_id")
 
 
@@ -3085,6 +3109,9 @@ class UserHierarchyStructureLevelOne(dict):
                  hierarchy_level_id: Optional[str] = None):
         """
         Information about level one.
+        :param str name: The name of the hierarchy level.
+        :param str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str hierarchy_level_id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
         if hierarchy_level_arn is not None:
@@ -3095,16 +3122,25 @@ class UserHierarchyStructureLevelOne(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the hierarchy level.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="hierarchyLevelArn")
     def hierarchy_level_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_arn")
 
     @property
     @pulumi.getter(name="hierarchyLevelId")
     def hierarchy_level_id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_id")
 
 
@@ -3138,6 +3174,8 @@ class UserHierarchyStructureLevelThree(dict):
                  hierarchy_level_id: Optional[str] = None):
         """
         Information about level three.
+        :param str name: The name of the hierarchy level.
+        :param str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
         if hierarchy_level_arn is not None:
@@ -3148,11 +3186,17 @@ class UserHierarchyStructureLevelThree(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the hierarchy level.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="hierarchyLevelArn")
     def hierarchy_level_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_arn")
 
     @property
@@ -3191,6 +3235,9 @@ class UserHierarchyStructureLevelTwo(dict):
                  hierarchy_level_id: Optional[str] = None):
         """
         Information about level two.
+        :param str name: The name of the hierarchy level.
+        :param str hierarchy_level_arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str hierarchy_level_id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
         if hierarchy_level_arn is not None:
@@ -3201,16 +3248,25 @@ class UserHierarchyStructureLevelTwo(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the hierarchy level.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="hierarchyLevelArn")
     def hierarchy_level_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_arn")
 
     @property
     @pulumi.getter(name="hierarchyLevelId")
     def hierarchy_level_id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy level.
+        """
         return pulumi.get(self, "hierarchy_level_id")
 
 
@@ -3252,6 +3308,10 @@ class UserHierarchyStructureProperties(dict):
                  level_two: Optional['outputs.UserHierarchyStructureLevelTwo'] = None):
         """
         Information about the hierarchy structure.
+        :param 'UserHierarchyStructureLevelFour' level_four: The update for level four.
+        :param 'UserHierarchyStructureLevelOne' level_one: The update for level one.
+        :param 'UserHierarchyStructureLevelThree' level_three: The update for level three.
+        :param 'UserHierarchyStructureLevelTwo' level_two: The update for level two.
         """
         if level_five is not None:
             pulumi.set(__self__, "level_five", level_five)
@@ -3272,21 +3332,33 @@ class UserHierarchyStructureProperties(dict):
     @property
     @pulumi.getter(name="levelFour")
     def level_four(self) -> Optional['outputs.UserHierarchyStructureLevelFour']:
+        """
+        The update for level four.
+        """
         return pulumi.get(self, "level_four")
 
     @property
     @pulumi.getter(name="levelOne")
     def level_one(self) -> Optional['outputs.UserHierarchyStructureLevelOne']:
+        """
+        The update for level one.
+        """
         return pulumi.get(self, "level_one")
 
     @property
     @pulumi.getter(name="levelThree")
     def level_three(self) -> Optional['outputs.UserHierarchyStructureLevelThree']:
+        """
+        The update for level three.
+        """
         return pulumi.get(self, "level_three")
 
     @property
     @pulumi.getter(name="levelTwo")
     def level_two(self) -> Optional['outputs.UserHierarchyStructureLevelTwo']:
+        """
+        The update for level two.
+        """
         return pulumi.get(self, "level_two")
 
 

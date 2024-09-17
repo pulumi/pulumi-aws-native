@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -20,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCodeSigningConfigResult:
-    def __init__(__self__, allowed_publishers=None, code_signing_config_arn=None, code_signing_config_id=None, code_signing_policies=None, description=None):
+    def __init__(__self__, allowed_publishers=None, code_signing_config_arn=None, code_signing_config_id=None, code_signing_policies=None, description=None, tags=None):
         if allowed_publishers and not isinstance(allowed_publishers, dict):
             raise TypeError("Expected argument 'allowed_publishers' to be a dict")
         pulumi.set(__self__, "allowed_publishers", allowed_publishers)
@@ -36,6 +37,9 @@ class GetCodeSigningConfigResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="allowedPublishers")
@@ -77,6 +81,14 @@ class GetCodeSigningConfigResult:
         """
         return pulumi.get(self, "description")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to apply to CodeSigningConfig resource
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetCodeSigningConfigResult(GetCodeSigningConfigResult):
     # pylint: disable=using-constant-test
@@ -88,7 +100,8 @@ class AwaitableGetCodeSigningConfigResult(GetCodeSigningConfigResult):
             code_signing_config_arn=self.code_signing_config_arn,
             code_signing_config_id=self.code_signing_config_id,
             code_signing_policies=self.code_signing_policies,
-            description=self.description)
+            description=self.description,
+            tags=self.tags)
 
 
 def get_code_signing_config(code_signing_config_arn: Optional[str] = None,
@@ -109,7 +122,8 @@ def get_code_signing_config(code_signing_config_arn: Optional[str] = None,
         code_signing_config_arn=pulumi.get(__ret__, 'code_signing_config_arn'),
         code_signing_config_id=pulumi.get(__ret__, 'code_signing_config_id'),
         code_signing_policies=pulumi.get(__ret__, 'code_signing_policies'),
-        description=pulumi.get(__ret__, 'description'))
+        description=pulumi.get(__ret__, 'description'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_code_signing_config)

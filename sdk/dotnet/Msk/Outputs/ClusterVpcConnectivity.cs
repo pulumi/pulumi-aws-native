@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterVpcConnectivity
     {
-        /// <summary>
-        /// VPC connection control settings for brokers.
-        /// </summary>
         public readonly Outputs.ClusterVpcConnectivityClientAuthentication? ClientAuthentication;
 
         [OutputConstructor]

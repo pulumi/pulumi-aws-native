@@ -77,6 +77,10 @@ namespace Pulumi.AwsNative.Lambda
         /// A description of the CodeSigningConfig
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A list of tags to apply to CodeSigningConfig resource
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetCodeSigningConfigResult(
@@ -88,13 +92,16 @@ namespace Pulumi.AwsNative.Lambda
 
             Outputs.CodeSigningConfigCodeSigningPolicies? codeSigningPolicies,
 
-            string? description)
+            string? description,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllowedPublishers = allowedPublishers;
             CodeSigningConfigArn = codeSigningConfigArn;
             CodeSigningConfigId = codeSigningConfigId;
             CodeSigningPolicies = codeSigningPolicies;
             Description = description;
+            Tags = tags;
         }
     }
 }

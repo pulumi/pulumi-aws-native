@@ -61,9 +61,6 @@ namespace Pulumi.AwsNative.Msk
         /// The ARN of the VPC connection.
         /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// Create tags when creating the VPC connection.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

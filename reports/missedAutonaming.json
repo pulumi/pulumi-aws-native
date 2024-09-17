@@ -8022,6 +8022,13 @@
       "description": {
         "type": "string",
         "description": "A description of the CodeSigningConfig"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tags to apply to CodeSigningConfig resource"
       }
     }
   },
@@ -8094,11 +8101,11 @@
         "items": {
           "$ref": "#/types/aws-native:lambda:EventSourceMappingFunctionResponseTypesItem"
         },
-        "description": "(Streams and SQS) A list of current response type enums applied to the event source mapping.\n Valid Values: ``ReportBatchItemFailures``"
+        "description": "(Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.\n Valid Values: ``ReportBatchItemFailures``"
       },
       "kmsKeyArn": {
         "type": "string",
-        "description": "The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics) ."
+        "description": "The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics)."
       },
       "maximumBatchingWindowInSeconds": {
         "type": "integer",
@@ -8149,6 +8156,12 @@
       "startingPositionTimestamp": {
         "type": "number",
         "description": "With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       },
       "topics": {
         "type": "array",
@@ -8790,30 +8803,26 @@
         "type": "array",
         "items": {
           "type": "string"
-        },
-        "description": "The list of subnets in the client VPC to connect to."
+        }
       },
       "securityGroups": {
         "type": "array",
         "items": {
           "type": "string"
-        },
-        "description": "The security groups to attach to the ENIs for the broker nodes."
+        }
       },
       "tags": {
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        },
-        "description": "Create tags when creating the VPC connection."
+        }
       },
       "targetClusterArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the target cluster"
       },
       "vpcId": {
-        "type": "string",
-        "description": "The VPC id of the remote client."
+        "type": "string"
       }
     }
   },

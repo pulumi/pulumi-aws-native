@@ -57,6 +57,10 @@ export class CodeSigningConfig extends pulumi.CustomResource {
      * A description of the CodeSigningConfig
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * A list of tags to apply to CodeSigningConfig resource
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a CodeSigningConfig resource with the given unique name, arguments, and options.
@@ -75,6 +79,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             resourceInputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
             resourceInputs["codeSigningPolicies"] = args ? args.codeSigningPolicies : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["codeSigningConfigArn"] = undefined /*out*/;
             resourceInputs["codeSigningConfigId"] = undefined /*out*/;
         } else {
@@ -83,6 +88,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             resourceInputs["codeSigningConfigId"] = undefined /*out*/;
             resourceInputs["codeSigningPolicies"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CodeSigningConfig.__pulumiType, name, resourceInputs, opts);
@@ -105,4 +111,8 @@ export interface CodeSigningConfigArgs {
      * A description of the CodeSigningConfig
      */
     description?: pulumi.Input<string>;
+    /**
+     * A list of tags to apply to CodeSigningConfig resource
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

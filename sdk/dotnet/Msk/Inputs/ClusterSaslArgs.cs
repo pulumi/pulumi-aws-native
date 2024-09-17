@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterSaslArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Details for ClientAuthentication using IAM.
-        /// </summary>
         [Input("iam")]
         public Input<Inputs.ClusterIamArgs>? Iam { get; set; }
 
-        /// <summary>
-        /// Details for SASL/SCRAM client authentication.
-        /// </summary>
         [Input("scram")]
         public Input<Inputs.ClusterScramArgs>? Scram { get; set; }
 

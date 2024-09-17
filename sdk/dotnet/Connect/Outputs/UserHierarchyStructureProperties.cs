@@ -17,9 +17,21 @@ namespace Pulumi.AwsNative.Connect.Outputs
     public sealed class UserHierarchyStructureProperties
     {
         public readonly Outputs.UserHierarchyStructureLevelFive? LevelFive;
+        /// <summary>
+        /// The update for level four.
+        /// </summary>
         public readonly Outputs.UserHierarchyStructureLevelFour? LevelFour;
+        /// <summary>
+        /// The update for level one.
+        /// </summary>
         public readonly Outputs.UserHierarchyStructureLevelOne? LevelOne;
+        /// <summary>
+        /// The update for level three.
+        /// </summary>
         public readonly Outputs.UserHierarchyStructureLevelThree? LevelThree;
+        /// <summary>
+        /// The update for level two.
+        /// </summary>
         public readonly Outputs.UserHierarchyStructureLevelTwo? LevelTwo;
 
         [OutputConstructor]

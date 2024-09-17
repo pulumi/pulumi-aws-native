@@ -37,9 +37,6 @@ class GetVpcConnectionResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Create tags when creating the VPC connection.
-        """
         return pulumi.get(self, "tags")
 
 

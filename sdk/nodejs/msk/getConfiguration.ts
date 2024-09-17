@@ -24,13 +24,7 @@ export interface GetConfigurationArgs {
 
 export interface GetConfigurationResult {
     readonly arn?: string;
-    /**
-     * The description of the configuration.
-     */
     readonly description?: string;
-    /**
-     * Latest revision of the configuration.
-     */
     readonly latestRevision?: outputs.msk.ConfigurationLatestRevision;
 }
 /**

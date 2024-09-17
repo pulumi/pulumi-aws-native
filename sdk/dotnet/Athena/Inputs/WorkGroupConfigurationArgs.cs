@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public Input<Inputs.WorkGroupCustomerContentEncryptionConfigurationArgs>? CustomerContentEncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
+        /// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
         /// </summary>
         [Input("enforceWorkGroupConfiguration")]
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public Input<bool>? RequesterPaysEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
+        /// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
         /// </summary>
         [Input("resultConfiguration")]
         public Input<Inputs.WorkGroupResultConfigurationArgs>? ResultConfiguration { get; set; }

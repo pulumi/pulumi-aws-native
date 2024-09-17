@@ -86,7 +86,6 @@ namespace Pulumi.AwsNative.Dms
         }
 
         public static InstanceProfileNetworkType Ipv4 { get; } = new InstanceProfileNetworkType("IPV4");
-        public static InstanceProfileNetworkType Ipv6 { get; } = new InstanceProfileNetworkType("IPV6");
         public static InstanceProfileNetworkType Dual { get; } = new InstanceProfileNetworkType("DUAL");
 
         public static bool operator ==(InstanceProfileNetworkType left, InstanceProfileNetworkType right) => left.Equals(right);

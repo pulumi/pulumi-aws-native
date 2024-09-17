@@ -7399,9 +7399,12 @@ type UserHierarchyGroupTag struct {
 
 // Information about level five.
 type UserHierarchyStructureLevelFive struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
-	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
-	Name              string  `pulumi:"name"`
+	// The identifier of the hierarchy level.
+	HierarchyLevelId *string `pulumi:"hierarchyLevelId"`
+	// The name of the hierarchy level.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureLevelFiveInput is an input type that accepts UserHierarchyStructureLevelFiveArgs and UserHierarchyStructureLevelFiveOutput values.
@@ -7417,9 +7420,12 @@ type UserHierarchyStructureLevelFiveInput interface {
 
 // Information about level five.
 type UserHierarchyStructureLevelFiveArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
-	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
-	Name              pulumi.StringInput    `pulumi:"name"`
+	// The identifier of the hierarchy level.
+	HierarchyLevelId pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	// The name of the hierarchy level.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureLevelFiveArgs) ElementType() reflect.Type {
@@ -7500,14 +7506,17 @@ func (o UserHierarchyStructureLevelFiveOutput) ToUserHierarchyStructureLevelFive
 	}).(UserHierarchyStructureLevelFivePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelFiveOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelFive) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the hierarchy level.
 func (o UserHierarchyStructureLevelFiveOutput) HierarchyLevelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelFive) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelFiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelFive) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7536,6 +7545,7 @@ func (o UserHierarchyStructureLevelFivePtrOutput) Elem() UserHierarchyStructureL
 	}).(UserHierarchyStructureLevelFiveOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelFivePtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelFive) *string {
 		if v == nil {
@@ -7545,6 +7555,7 @@ func (o UserHierarchyStructureLevelFivePtrOutput) HierarchyLevelArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the hierarchy level.
 func (o UserHierarchyStructureLevelFivePtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelFive) *string {
 		if v == nil {
@@ -7554,6 +7565,7 @@ func (o UserHierarchyStructureLevelFivePtrOutput) HierarchyLevelId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelFivePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelFive) *string {
 		if v == nil {
@@ -7565,9 +7577,12 @@ func (o UserHierarchyStructureLevelFivePtrOutput) Name() pulumi.StringPtrOutput 
 
 // Information about level four.
 type UserHierarchyStructureLevelFour struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
-	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
-	Name              string  `pulumi:"name"`
+	// The identifier of the hierarchy level.
+	HierarchyLevelId *string `pulumi:"hierarchyLevelId"`
+	// The name of the hierarchy level.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureLevelFourInput is an input type that accepts UserHierarchyStructureLevelFourArgs and UserHierarchyStructureLevelFourOutput values.
@@ -7583,9 +7598,12 @@ type UserHierarchyStructureLevelFourInput interface {
 
 // Information about level four.
 type UserHierarchyStructureLevelFourArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
-	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
-	Name              pulumi.StringInput    `pulumi:"name"`
+	// The identifier of the hierarchy level.
+	HierarchyLevelId pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	// The name of the hierarchy level.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureLevelFourArgs) ElementType() reflect.Type {
@@ -7666,14 +7684,17 @@ func (o UserHierarchyStructureLevelFourOutput) ToUserHierarchyStructureLevelFour
 	}).(UserHierarchyStructureLevelFourPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelFourOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelFour) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the hierarchy level.
 func (o UserHierarchyStructureLevelFourOutput) HierarchyLevelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelFour) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelFourOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelFour) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7702,6 +7723,7 @@ func (o UserHierarchyStructureLevelFourPtrOutput) Elem() UserHierarchyStructureL
 	}).(UserHierarchyStructureLevelFourOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelFourPtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelFour) *string {
 		if v == nil {
@@ -7711,6 +7733,7 @@ func (o UserHierarchyStructureLevelFourPtrOutput) HierarchyLevelArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the hierarchy level.
 func (o UserHierarchyStructureLevelFourPtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelFour) *string {
 		if v == nil {
@@ -7720,6 +7743,7 @@ func (o UserHierarchyStructureLevelFourPtrOutput) HierarchyLevelId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelFourPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelFour) *string {
 		if v == nil {
@@ -7731,9 +7755,12 @@ func (o UserHierarchyStructureLevelFourPtrOutput) Name() pulumi.StringPtrOutput 
 
 // Information about level one.
 type UserHierarchyStructureLevelOne struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
-	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
-	Name              string  `pulumi:"name"`
+	// The identifier of the hierarchy level.
+	HierarchyLevelId *string `pulumi:"hierarchyLevelId"`
+	// The name of the hierarchy level.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureLevelOneInput is an input type that accepts UserHierarchyStructureLevelOneArgs and UserHierarchyStructureLevelOneOutput values.
@@ -7749,9 +7776,12 @@ type UserHierarchyStructureLevelOneInput interface {
 
 // Information about level one.
 type UserHierarchyStructureLevelOneArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
-	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
-	Name              pulumi.StringInput    `pulumi:"name"`
+	// The identifier of the hierarchy level.
+	HierarchyLevelId pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	// The name of the hierarchy level.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureLevelOneArgs) ElementType() reflect.Type {
@@ -7832,14 +7862,17 @@ func (o UserHierarchyStructureLevelOneOutput) ToUserHierarchyStructureLevelOnePt
 	}).(UserHierarchyStructureLevelOnePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelOneOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelOne) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the hierarchy level.
 func (o UserHierarchyStructureLevelOneOutput) HierarchyLevelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelOne) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelOneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelOne) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7868,6 +7901,7 @@ func (o UserHierarchyStructureLevelOnePtrOutput) Elem() UserHierarchyStructureLe
 	}).(UserHierarchyStructureLevelOneOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelOnePtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelOne) *string {
 		if v == nil {
@@ -7877,6 +7911,7 @@ func (o UserHierarchyStructureLevelOnePtrOutput) HierarchyLevelArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the hierarchy level.
 func (o UserHierarchyStructureLevelOnePtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelOne) *string {
 		if v == nil {
@@ -7886,6 +7921,7 @@ func (o UserHierarchyStructureLevelOnePtrOutput) HierarchyLevelId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelOnePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelOne) *string {
 		if v == nil {
@@ -7897,9 +7933,11 @@ func (o UserHierarchyStructureLevelOnePtrOutput) Name() pulumi.StringPtrOutput {
 
 // Information about level three.
 type UserHierarchyStructureLevelThree struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
 	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
-	Name              string  `pulumi:"name"`
+	// The name of the hierarchy level.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureLevelThreeInput is an input type that accepts UserHierarchyStructureLevelThreeArgs and UserHierarchyStructureLevelThreeOutput values.
@@ -7915,9 +7953,11 @@ type UserHierarchyStructureLevelThreeInput interface {
 
 // Information about level three.
 type UserHierarchyStructureLevelThreeArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
 	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
-	Name              pulumi.StringInput    `pulumi:"name"`
+	// The name of the hierarchy level.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureLevelThreeArgs) ElementType() reflect.Type {
@@ -7998,6 +8038,7 @@ func (o UserHierarchyStructureLevelThreeOutput) ToUserHierarchyStructureLevelThr
 	}).(UserHierarchyStructureLevelThreePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelThreeOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelThree) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
 }
@@ -8006,6 +8047,7 @@ func (o UserHierarchyStructureLevelThreeOutput) HierarchyLevelId() pulumi.String
 	return o.ApplyT(func(v UserHierarchyStructureLevelThree) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelThreeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelThree) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8034,6 +8076,7 @@ func (o UserHierarchyStructureLevelThreePtrOutput) Elem() UserHierarchyStructure
 	}).(UserHierarchyStructureLevelThreeOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelThreePtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelThree) *string {
 		if v == nil {
@@ -8052,6 +8095,7 @@ func (o UserHierarchyStructureLevelThreePtrOutput) HierarchyLevelId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelThreePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelThree) *string {
 		if v == nil {
@@ -8063,9 +8107,12 @@ func (o UserHierarchyStructureLevelThreePtrOutput) Name() pulumi.StringPtrOutput
 
 // Information about level two.
 type UserHierarchyStructureLevelTwo struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn *string `pulumi:"hierarchyLevelArn"`
-	HierarchyLevelId  *string `pulumi:"hierarchyLevelId"`
-	Name              string  `pulumi:"name"`
+	// The identifier of the hierarchy level.
+	HierarchyLevelId *string `pulumi:"hierarchyLevelId"`
+	// The name of the hierarchy level.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureLevelTwoInput is an input type that accepts UserHierarchyStructureLevelTwoArgs and UserHierarchyStructureLevelTwoOutput values.
@@ -8081,9 +8128,12 @@ type UserHierarchyStructureLevelTwoInput interface {
 
 // Information about level two.
 type UserHierarchyStructureLevelTwoArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy level.
 	HierarchyLevelArn pulumi.StringPtrInput `pulumi:"hierarchyLevelArn"`
-	HierarchyLevelId  pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
-	Name              pulumi.StringInput    `pulumi:"name"`
+	// The identifier of the hierarchy level.
+	HierarchyLevelId pulumi.StringPtrInput `pulumi:"hierarchyLevelId"`
+	// The name of the hierarchy level.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureLevelTwoArgs) ElementType() reflect.Type {
@@ -8164,14 +8214,17 @@ func (o UserHierarchyStructureLevelTwoOutput) ToUserHierarchyStructureLevelTwoPt
 	}).(UserHierarchyStructureLevelTwoPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelTwoOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelTwo) *string { return v.HierarchyLevelArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the hierarchy level.
 func (o UserHierarchyStructureLevelTwoOutput) HierarchyLevelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelTwo) *string { return v.HierarchyLevelId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelTwoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureLevelTwo) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8200,6 +8253,7 @@ func (o UserHierarchyStructureLevelTwoPtrOutput) Elem() UserHierarchyStructureLe
 	}).(UserHierarchyStructureLevelTwoOutput)
 }
 
+// The Amazon Resource Name (ARN) of the hierarchy level.
 func (o UserHierarchyStructureLevelTwoPtrOutput) HierarchyLevelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelTwo) *string {
 		if v == nil {
@@ -8209,6 +8263,7 @@ func (o UserHierarchyStructureLevelTwoPtrOutput) HierarchyLevelArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the hierarchy level.
 func (o UserHierarchyStructureLevelTwoPtrOutput) HierarchyLevelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelTwo) *string {
 		if v == nil {
@@ -8218,6 +8273,7 @@ func (o UserHierarchyStructureLevelTwoPtrOutput) HierarchyLevelId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the hierarchy level.
 func (o UserHierarchyStructureLevelTwoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureLevelTwo) *string {
 		if v == nil {
@@ -8229,11 +8285,15 @@ func (o UserHierarchyStructureLevelTwoPtrOutput) Name() pulumi.StringPtrOutput {
 
 // Information about the hierarchy structure.
 type UserHierarchyStructureProperties struct {
-	LevelFive  *UserHierarchyStructureLevelFive  `pulumi:"levelFive"`
-	LevelFour  *UserHierarchyStructureLevelFour  `pulumi:"levelFour"`
-	LevelOne   *UserHierarchyStructureLevelOne   `pulumi:"levelOne"`
+	LevelFive *UserHierarchyStructureLevelFive `pulumi:"levelFive"`
+	// The update for level four.
+	LevelFour *UserHierarchyStructureLevelFour `pulumi:"levelFour"`
+	// The update for level one.
+	LevelOne *UserHierarchyStructureLevelOne `pulumi:"levelOne"`
+	// The update for level three.
 	LevelThree *UserHierarchyStructureLevelThree `pulumi:"levelThree"`
-	LevelTwo   *UserHierarchyStructureLevelTwo   `pulumi:"levelTwo"`
+	// The update for level two.
+	LevelTwo *UserHierarchyStructureLevelTwo `pulumi:"levelTwo"`
 }
 
 // UserHierarchyStructurePropertiesInput is an input type that accepts UserHierarchyStructurePropertiesArgs and UserHierarchyStructurePropertiesOutput values.
@@ -8249,11 +8309,15 @@ type UserHierarchyStructurePropertiesInput interface {
 
 // Information about the hierarchy structure.
 type UserHierarchyStructurePropertiesArgs struct {
-	LevelFive  UserHierarchyStructureLevelFivePtrInput  `pulumi:"levelFive"`
-	LevelFour  UserHierarchyStructureLevelFourPtrInput  `pulumi:"levelFour"`
-	LevelOne   UserHierarchyStructureLevelOnePtrInput   `pulumi:"levelOne"`
+	LevelFive UserHierarchyStructureLevelFivePtrInput `pulumi:"levelFive"`
+	// The update for level four.
+	LevelFour UserHierarchyStructureLevelFourPtrInput `pulumi:"levelFour"`
+	// The update for level one.
+	LevelOne UserHierarchyStructureLevelOnePtrInput `pulumi:"levelOne"`
+	// The update for level three.
 	LevelThree UserHierarchyStructureLevelThreePtrInput `pulumi:"levelThree"`
-	LevelTwo   UserHierarchyStructureLevelTwoPtrInput   `pulumi:"levelTwo"`
+	// The update for level two.
+	LevelTwo UserHierarchyStructureLevelTwoPtrInput `pulumi:"levelTwo"`
 }
 
 func (UserHierarchyStructurePropertiesArgs) ElementType() reflect.Type {
@@ -8338,18 +8402,22 @@ func (o UserHierarchyStructurePropertiesOutput) LevelFive() UserHierarchyStructu
 	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelFive { return v.LevelFive }).(UserHierarchyStructureLevelFivePtrOutput)
 }
 
+// The update for level four.
 func (o UserHierarchyStructurePropertiesOutput) LevelFour() UserHierarchyStructureLevelFourPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelFour { return v.LevelFour }).(UserHierarchyStructureLevelFourPtrOutput)
 }
 
+// The update for level one.
 func (o UserHierarchyStructurePropertiesOutput) LevelOne() UserHierarchyStructureLevelOnePtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelOne { return v.LevelOne }).(UserHierarchyStructureLevelOnePtrOutput)
 }
 
+// The update for level three.
 func (o UserHierarchyStructurePropertiesOutput) LevelThree() UserHierarchyStructureLevelThreePtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelThree { return v.LevelThree }).(UserHierarchyStructureLevelThreePtrOutput)
 }
 
+// The update for level two.
 func (o UserHierarchyStructurePropertiesOutput) LevelTwo() UserHierarchyStructureLevelTwoPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureProperties) *UserHierarchyStructureLevelTwo { return v.LevelTwo }).(UserHierarchyStructureLevelTwoPtrOutput)
 }
@@ -8387,6 +8455,7 @@ func (o UserHierarchyStructurePropertiesPtrOutput) LevelFive() UserHierarchyStru
 	}).(UserHierarchyStructureLevelFivePtrOutput)
 }
 
+// The update for level four.
 func (o UserHierarchyStructurePropertiesPtrOutput) LevelFour() UserHierarchyStructureLevelFourPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelFour {
 		if v == nil {
@@ -8396,6 +8465,7 @@ func (o UserHierarchyStructurePropertiesPtrOutput) LevelFour() UserHierarchyStru
 	}).(UserHierarchyStructureLevelFourPtrOutput)
 }
 
+// The update for level one.
 func (o UserHierarchyStructurePropertiesPtrOutput) LevelOne() UserHierarchyStructureLevelOnePtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelOne {
 		if v == nil {
@@ -8405,6 +8475,7 @@ func (o UserHierarchyStructurePropertiesPtrOutput) LevelOne() UserHierarchyStruc
 	}).(UserHierarchyStructureLevelOnePtrOutput)
 }
 
+// The update for level three.
 func (o UserHierarchyStructurePropertiesPtrOutput) LevelThree() UserHierarchyStructureLevelThreePtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelThree {
 		if v == nil {
@@ -8414,6 +8485,7 @@ func (o UserHierarchyStructurePropertiesPtrOutput) LevelThree() UserHierarchyStr
 	}).(UserHierarchyStructureLevelThreePtrOutput)
 }
 
+// The update for level two.
 func (o UserHierarchyStructurePropertiesPtrOutput) LevelTwo() UserHierarchyStructureLevelTwoPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureProperties) *UserHierarchyStructureLevelTwo {
 		if v == nil {

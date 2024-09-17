@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterProvisionedThroughputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Provisioned throughput is enabled or not.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
-        /// </summary>
         [Input("volumeThroughput")]
         public Input<int>? VolumeThroughput { get; set; }
 

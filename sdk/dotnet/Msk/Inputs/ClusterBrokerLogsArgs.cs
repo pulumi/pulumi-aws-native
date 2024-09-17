@@ -12,21 +12,12 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterBrokerLogsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Details of the CloudWatch Logs destination for broker logs.
-        /// </summary>
         [Input("cloudWatchLogs")]
         public Input<Inputs.ClusterCloudWatchLogsArgs>? CloudWatchLogs { get; set; }
 
-        /// <summary>
-        /// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
-        /// </summary>
         [Input("firehose")]
         public Input<Inputs.ClusterFirehoseArgs>? Firehose { get; set; }
 
-        /// <summary>
-        /// Details of the Amazon S3 destination for broker logs.
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.ClusterS3Args>? S3 { get; set; }
 
