@@ -19,14 +19,26 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetConnectorArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the connector.
+     */
     connectorArn: string;
 }
 
 export interface GetConnectorResult {
+    /**
+     * The Amazon Resource Name (ARN) of the connector.
+     */
     readonly connectorArn?: string;
+    /**
+     * The connector's HTTPS public SCEP URL.
+     */
     readonly endpoint?: string;
     readonly openIdConfiguration?: outputs.pcaconnectorscep.ConnectorOpenIdConfiguration;
     readonly tags?: {[key: string]: string};
+    /**
+     * The connector type.
+     */
     readonly type?: enums.pcaconnectorscep.ConnectorType;
 }
 /**
@@ -37,5 +49,8 @@ export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.I
 }
 
 export interface GetConnectorOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the connector.
+     */
     connectorArn: pulumi.Input<string>;
 }

@@ -37,12 +37,27 @@ export class Connector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connector.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+     */
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the connector.
+     */
     public /*out*/ readonly connectorArn!: pulumi.Output<string>;
+    /**
+     * The connector's HTTPS public SCEP URL.
+     */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+     */
     public readonly mobileDeviceManagement!: pulumi.Output<outputs.pcaconnectorscep.ConnectorMobileDeviceManagement | undefined>;
     public /*out*/ readonly openIdConfiguration!: pulumi.Output<outputs.pcaconnectorscep.ConnectorOpenIdConfiguration>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The connector type.
+     */
     public /*out*/ readonly type!: pulumi.Output<enums.pcaconnectorscep.ConnectorType>;
 
     /**
@@ -86,7 +101,13 @@ export class Connector extends pulumi.CustomResource {
  * The set of arguments for constructing a Connector resource.
  */
 export interface ConnectorArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+     */
     certificateAuthorityArn: pulumi.Input<string>;
+    /**
+     * Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+     */
     mobileDeviceManagement?: pulumi.Input<inputs.pcaconnectorscep.ConnectorMobileDeviceManagementArgs>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

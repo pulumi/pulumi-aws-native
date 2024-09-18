@@ -2177,6 +2177,7 @@ type DomainTag struct {
 
 // The parameters of the console link specified as part of the environment action
 type EnvironmentActionsAwsConsoleLinkParameters struct {
+	// The URI of the console link specified as part of the environment action.
 	Uri *string `pulumi:"uri"`
 }
 
@@ -2193,6 +2194,7 @@ type EnvironmentActionsAwsConsoleLinkParametersInput interface {
 
 // The parameters of the console link specified as part of the environment action
 type EnvironmentActionsAwsConsoleLinkParametersArgs struct {
+	// The URI of the console link specified as part of the environment action.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -2274,6 +2276,7 @@ func (o EnvironmentActionsAwsConsoleLinkParametersOutput) ToEnvironmentActionsAw
 	}).(EnvironmentActionsAwsConsoleLinkParametersPtrOutput)
 }
 
+// The URI of the console link specified as part of the environment action.
 func (o EnvironmentActionsAwsConsoleLinkParametersOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentActionsAwsConsoleLinkParameters) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -2302,6 +2305,7 @@ func (o EnvironmentActionsAwsConsoleLinkParametersPtrOutput) Elem() EnvironmentA
 	}).(EnvironmentActionsAwsConsoleLinkParametersOutput)
 }
 
+// The URI of the console link specified as part of the environment action.
 func (o EnvironmentActionsAwsConsoleLinkParametersPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentActionsAwsConsoleLinkParameters) *string {
 		if v == nil {

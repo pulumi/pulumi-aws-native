@@ -59,7 +59,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "config:TagResource", "config:UntagResource", "config:ListTagsForResource" ]
   },
   "primaryIdentifier" : [ "/properties/AuthorizedAccountId", "/properties/AuthorizedAwsRegion" ],
   "handlers" : {

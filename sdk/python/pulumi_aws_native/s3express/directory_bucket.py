@@ -17,15 +17,19 @@ class DirectoryBucketArgs:
     def __init__(__self__, *,
                  data_redundancy: pulumi.Input['DirectoryBucketDataRedundancy'],
                  location_name: pulumi.Input[str],
+                 bucket_encryption: Optional[Any] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
         :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone that's used for redundancy for the bucket.
         :param pulumi.Input[str] location_name: Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+        :param Any bucket_encryption: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
         :param pulumi.Input[str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         """
         pulumi.set(__self__, "data_redundancy", data_redundancy)
         pulumi.set(__self__, "location_name", location_name)
+        if bucket_encryption is not None:
+            pulumi.set(__self__, "bucket_encryption", bucket_encryption)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
 
@@ -54,6 +58,18 @@ class DirectoryBucketArgs:
         pulumi.set(self, "location_name", value)
 
     @property
+    @pulumi.getter(name="bucketEncryption")
+    def bucket_encryption(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "bucket_encryption")
+
+    @bucket_encryption.setter
+    def bucket_encryption(self, value: Optional[Any]):
+        pulumi.set(self, "bucket_encryption", value)
+
+    @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -71,6 +87,7 @@ class DirectoryBucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bucket_encryption: Optional[Any] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  data_redundancy: Optional[pulumi.Input['DirectoryBucketDataRedundancy']] = None,
                  location_name: Optional[pulumi.Input[str]] = None,
@@ -80,6 +97,7 @@ class DirectoryBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any bucket_encryption: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
         :param pulumi.Input[str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone that's used for redundancy for the bucket.
         :param pulumi.Input[str] location_name: Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
@@ -108,6 +126,7 @@ class DirectoryBucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bucket_encryption: Optional[Any] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  data_redundancy: Optional[pulumi.Input['DirectoryBucketDataRedundancy']] = None,
                  location_name: Optional[pulumi.Input[str]] = None,
@@ -120,6 +139,7 @@ class DirectoryBucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DirectoryBucketArgs.__new__(DirectoryBucketArgs)
 
+            __props__.__dict__["bucket_encryption"] = bucket_encryption
             __props__.__dict__["bucket_name"] = bucket_name
             if data_redundancy is None and not opts.urn:
                 raise TypeError("Missing required property 'data_redundancy'")
@@ -128,6 +148,7 @@ class DirectoryBucket(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location_name'")
             __props__.__dict__["location_name"] = location_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["availability_zone_name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName", "dataRedundancy", "locationName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DirectoryBucket, __self__).__init__(
@@ -153,6 +174,8 @@ class DirectoryBucket(pulumi.CustomResource):
         __props__ = DirectoryBucketArgs.__new__(DirectoryBucketArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["availability_zone_name"] = None
+        __props__.__dict__["bucket_encryption"] = None
         __props__.__dict__["bucket_name"] = None
         __props__.__dict__["data_redundancy"] = None
         __props__.__dict__["location_name"] = None
@@ -165,6 +188,22 @@ class DirectoryBucket(pulumi.CustomResource):
         Returns the Amazon Resource Name (ARN) of the specified bucket.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> pulumi.Output[str]:
+        """
+        Returns the code for the Availability Zone where the directory bucket was created.
+        """
+        return pulumi.get(self, "availability_zone_name")
+
+    @property
+    @pulumi.getter(name="bucketEncryption")
+    def bucket_encryption(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "bucket_encryption")
 
     @property
     @pulumi.getter(name="bucketName")

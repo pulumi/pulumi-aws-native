@@ -61,11 +61,26 @@ namespace Pulumi.AwsNative.S3Express
         /// Returns the Amazon Resource Name (ARN) of the specified bucket.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Returns the code for the Availability Zone where the directory bucket was created.
+        /// </summary>
+        public readonly string? AvailabilityZoneName;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? BucketEncryption;
 
         [OutputConstructor]
-        private GetDirectoryBucketResult(string? arn)
+        private GetDirectoryBucketResult(
+            string? arn,
+
+            string? availabilityZoneName,
+
+            object? bucketEncryption)
         {
             Arn = arn;
+            AvailabilityZoneName = availabilityZoneName;
+            BucketEncryption = bucketEncryption;
         }
     }
 }

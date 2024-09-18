@@ -567,6 +567,7 @@ class EnvironmentActionsAwsConsoleLinkParametersArgs:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The parameters of the console link specified as part of the environment action
+        :param pulumi.Input[str] uri: The URI of the console link specified as part of the environment action.
         """
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
@@ -574,6 +575,9 @@ class EnvironmentActionsAwsConsoleLinkParametersArgs:
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the console link specified as part of the environment action.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter

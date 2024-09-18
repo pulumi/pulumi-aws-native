@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CrawlerArgs } from "./crawler";
+export type Crawler = import("./crawler").Crawler;
+export const Crawler: typeof import("./crawler").Crawler = null as any;
+utilities.lazyLoad(exports, ["Crawler"], () => require("./crawler"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { GetCrawlerArgs, GetCrawlerResult, GetCrawlerOutputArgs } from "./getCrawler";
+export const getCrawler: typeof import("./getCrawler").getCrawler = null as any;
+export const getCrawlerOutput: typeof import("./getCrawler").getCrawlerOutput = null as any;
+utilities.lazyLoad(exports, ["getCrawler","getCrawlerOutput"], () => require("./getCrawler"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -68,6 +78,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:glue:Crawler":
+                return new Crawler(name, <any>undefined, { urn })
             case "aws-native:glue:Database":
                 return new Database(name, <any>undefined, { urn })
             case "aws-native:glue:Registry":

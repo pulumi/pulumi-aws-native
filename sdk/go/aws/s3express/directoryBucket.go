@@ -18,6 +18,10 @@ type DirectoryBucket struct {
 
 	// Returns the Amazon Resource Name (ARN) of the specified bucket.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Returns the code for the Availability Zone where the directory bucket was created.
+	AvailabilityZoneName pulumi.StringOutput `pulumi:"availabilityZoneName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+	BucketEncryption pulumi.AnyOutput `pulumi:"bucketEncryption"`
 	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
 	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
@@ -78,6 +82,8 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 }
 
 type directoryBucketArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+	BucketEncryption interface{} `pulumi:"bucketEncryption"`
 	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName *string `pulumi:"bucketName"`
 	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
@@ -88,6 +94,8 @@ type directoryBucketArgs struct {
 
 // The set of arguments for constructing a DirectoryBucket resource.
 type DirectoryBucketArgs struct {
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+	BucketEncryption pulumi.Input
 	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName pulumi.StringPtrInput
 	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
@@ -136,6 +144,16 @@ func (o DirectoryBucketOutput) ToDirectoryBucketOutputWithContext(ctx context.Co
 // Returns the Amazon Resource Name (ARN) of the specified bucket.
 func (o DirectoryBucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Returns the code for the Availability Zone where the directory bucket was created.
+func (o DirectoryBucketOutput) AvailabilityZoneName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.AvailabilityZoneName }).(pulumi.StringOutput)
+}
+
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+func (o DirectoryBucketOutput) BucketEncryption() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DirectoryBucket) pulumi.AnyOutput { return v.BucketEncryption }).(pulumi.AnyOutput)
 }
 
 // Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.

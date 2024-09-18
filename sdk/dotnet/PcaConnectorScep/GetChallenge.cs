@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
 
     public sealed class GetChallengeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the challenge.
+        /// </summary>
         [Input("challengeArn", required: true)]
         public string ChallengeArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
 
     public sealed class GetChallengeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the challenge.
+        /// </summary>
         [Input("challengeArn", required: true)]
         public Input<string> ChallengeArn { get; set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
     [OutputType]
     public sealed class GetChallengeResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the challenge.
+        /// </summary>
         public readonly string? ChallengeArn;
         public readonly ImmutableDictionary<string, string>? Tags;
 

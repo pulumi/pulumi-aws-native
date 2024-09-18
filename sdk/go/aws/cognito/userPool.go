@@ -38,7 +38,9 @@ type UserPool struct {
 	// The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
 	//
 	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
-	DeviceConfiguration UserPoolDeviceConfigurationPtrOutput `pulumi:"deviceConfiguration"`
+	DeviceConfiguration        UserPoolDeviceConfigurationPtrOutput `pulumi:"deviceConfiguration"`
+	EmailAuthenticationMessage pulumi.StringPtrOutput               `pulumi:"emailAuthenticationMessage"`
+	EmailAuthenticationSubject pulumi.StringPtrOutput               `pulumi:"emailAuthenticationSubject"`
 	// The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 	EmailConfiguration UserPoolEmailConfigurationPtrOutput `pulumi:"emailConfiguration"`
 	// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
@@ -165,7 +167,9 @@ type userPoolArgs struct {
 	// The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
 	//
 	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
-	DeviceConfiguration *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
+	DeviceConfiguration        *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
+	EmailAuthenticationMessage *string                      `pulumi:"emailAuthenticationMessage"`
+	EmailAuthenticationSubject *string                      `pulumi:"emailAuthenticationSubject"`
 	// The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 	EmailConfiguration *UserPoolEmailConfiguration `pulumi:"emailConfiguration"`
 	// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
@@ -248,7 +252,9 @@ type UserPoolArgs struct {
 	// The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
 	//
 	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
-	DeviceConfiguration UserPoolDeviceConfigurationPtrInput
+	DeviceConfiguration        UserPoolDeviceConfigurationPtrInput
+	EmailAuthenticationMessage pulumi.StringPtrInput
+	EmailAuthenticationSubject pulumi.StringPtrInput
 	// The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
 	EmailConfiguration UserPoolEmailConfigurationPtrInput
 	// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
@@ -388,6 +394,14 @@ func (o UserPoolOutput) DeletionProtection() pulumi.StringPtrOutput {
 // > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
 func (o UserPoolOutput) DeviceConfiguration() UserPoolDeviceConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolDeviceConfigurationPtrOutput { return v.DeviceConfiguration }).(UserPoolDeviceConfigurationPtrOutput)
+}
+
+func (o UserPoolOutput) EmailAuthenticationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.EmailAuthenticationMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) EmailAuthenticationSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.EmailAuthenticationSubject }).(pulumi.StringPtrOutput)
 }
 
 // The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.

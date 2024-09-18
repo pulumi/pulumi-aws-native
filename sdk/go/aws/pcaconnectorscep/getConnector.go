@@ -23,15 +23,19 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 }
 
 type LookupConnectorArgs struct {
+	// The Amazon Resource Name (ARN) of the connector.
 	ConnectorArn string `pulumi:"connectorArn"`
 }
 
 type LookupConnectorResult struct {
-	ConnectorArn        *string                       `pulumi:"connectorArn"`
+	// The Amazon Resource Name (ARN) of the connector.
+	ConnectorArn *string `pulumi:"connectorArn"`
+	// The connector's HTTPS public SCEP URL.
 	Endpoint            *string                       `pulumi:"endpoint"`
 	OpenIdConfiguration *ConnectorOpenIdConfiguration `pulumi:"openIdConfiguration"`
 	Tags                map[string]string             `pulumi:"tags"`
-	Type                *ConnectorType                `pulumi:"type"`
+	// The connector type.
+	Type *ConnectorType `pulumi:"type"`
 }
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
@@ -54,6 +58,7 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 }
 
 type LookupConnectorOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the connector.
 	ConnectorArn pulumi.StringInput `pulumi:"connectorArn"`
 }
 
@@ -75,10 +80,12 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the connector.
 func (o LookupConnectorResultOutput) ConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorArn }).(pulumi.StringPtrOutput)
 }
 
+// The connector's HTTPS public SCEP URL.
 func (o LookupConnectorResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -91,6 +98,7 @@ func (o LookupConnectorResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The connector type.
 func (o LookupConnectorResultOutput) Type() ConnectorTypePtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *ConnectorType { return v.Type }).(ConnectorTypePtrOutput)
 }

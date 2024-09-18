@@ -11,6 +11,18 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CrawlerCatalogTargetArgs',
+    'CrawlerDeltaTargetArgs',
+    'CrawlerDynamoDbTargetArgs',
+    'CrawlerIcebergTargetArgs',
+    'CrawlerJdbcTargetArgs',
+    'CrawlerLakeFormationConfigurationArgs',
+    'CrawlerMongoDbTargetArgs',
+    'CrawlerRecrawlPolicyArgs',
+    'CrawlerS3TargetArgs',
+    'CrawlerScheduleArgs',
+    'CrawlerSchemaChangePolicyArgs',
+    'CrawlerTargetsArgs',
     'DatabaseDataLakePrincipalArgs',
     'DatabaseFederatedDatabaseArgs',
     'DatabaseIdentifierArgs',
@@ -25,6 +37,730 @@ __all__ = [
     'TriggerNotificationPropertyArgs',
     'TriggerPredicateArgs',
 ]
+
+@pulumi.input_type
+class CrawlerCatalogTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 dlq_event_queue_arn: Optional[pulumi.Input[str]] = None,
+                 event_queue_arn: Optional[pulumi.Input[str]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Specifies an AWS Glue Data Catalog target.
+        :param pulumi.Input[str] connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+        :param pulumi.Input[str] database_name: The name of the database to be synchronized.
+        :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tables: A list of the tables to be synchronized.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database to be synchronized.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        """
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @dlq_event_queue_arn.setter
+    def dlq_event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dlq_event_queue_arn", value)
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        """
+        return pulumi.get(self, "event_queue_arn")
+
+    @event_queue_arn.setter
+    def event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_queue_arn", value)
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the tables to be synchronized.
+        """
+        return pulumi.get(self, "tables")
+
+    @tables.setter
+    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tables", value)
+
+
+@pulumi.input_type
+class CrawlerDeltaTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 create_native_delta_table: Optional[pulumi.Input[bool]] = None,
+                 delta_tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 write_manifest: Optional[pulumi.Input[bool]] = None):
+        """
+        Specifies a Delta data store to crawl one or more Delta tables.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
+        :param pulumi.Input[bool] create_native_delta_table: Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] delta_tables: A list of the Amazon S3 paths to the Delta tables.
+        :param pulumi.Input[bool] write_manifest: Specifies whether to write the manifest files to the Delta table path.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if create_native_delta_table is not None:
+            pulumi.set(__self__, "create_native_delta_table", create_native_delta_table)
+        if delta_tables is not None:
+            pulumi.set(__self__, "delta_tables", delta_tables)
+        if write_manifest is not None:
+            pulumi.set(__self__, "write_manifest", write_manifest)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to use to connect to the Delta table target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="createNativeDeltaTable")
+    def create_native_delta_table(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+        """
+        return pulumi.get(self, "create_native_delta_table")
+
+    @create_native_delta_table.setter
+    def create_native_delta_table(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_native_delta_table", value)
+
+    @property
+    @pulumi.getter(name="deltaTables")
+    def delta_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the Amazon S3 paths to the Delta tables.
+        """
+        return pulumi.get(self, "delta_tables")
+
+    @delta_tables.setter
+    def delta_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "delta_tables", value)
+
+    @property
+    @pulumi.getter(name="writeManifest")
+    def write_manifest(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to write the manifest files to the Delta table path.
+        """
+        return pulumi.get(self, "write_manifest")
+
+    @write_manifest.setter
+    def write_manifest(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "write_manifest", value)
+
+
+@pulumi.input_type
+class CrawlerDynamoDbTargetArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies an Amazon DynamoDB table to crawl.
+        :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DynamoDB table to crawl.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class CrawlerIcebergTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 maximum_traversal_depth: Optional[pulumi.Input[int]] = None,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Specifies Apache Iceberg data store targets.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Iceberg target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of global patterns used to exclude from the crawl.
+        :param pulumi.Input[int] maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix .
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if maximum_traversal_depth is not None:
+            pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to use to connect to the Iceberg target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of global patterns used to exclude from the crawl.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter(name="maximumTraversalDepth")
+    def maximum_traversal_depth(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+        """
+        return pulumi.get(self, "maximum_traversal_depth")
+
+    @maximum_traversal_depth.setter
+    def maximum_traversal_depth(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_traversal_depth", value)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix .
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "paths", value)
+
+
+@pulumi.input_type
+class CrawlerJdbcTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 enable_additional_metadata: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies a JDBC data store to crawl.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_additional_metadata: Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+               
+               If you do not need additional metadata, keep the field empty.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+        :param pulumi.Input[str] path: The path of the JDBC target.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if enable_additional_metadata is not None:
+            pulumi.set(__self__, "enable_additional_metadata", enable_additional_metadata)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to use to connect to the JDBC target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="enableAdditionalMetadata")
+    def enable_additional_metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+
+        If you do not need additional metadata, keep the field empty.
+        """
+        return pulumi.get(self, "enable_additional_metadata")
+
+    @enable_additional_metadata.setter
+    def enable_additional_metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enable_additional_metadata", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the JDBC target.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class CrawlerLakeFormationConfigurationArgs:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 use_lake_formation_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        Specifies AWS Lake Formation configuration settings for the crawler
+        :param pulumi.Input[str] account_id: Required for cross account crawls. For same account crawls as the target data, this can be left as null.
+        :param pulumi.Input[bool] use_lake_formation_credentials: Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if use_lake_formation_credentials is not None:
+            pulumi.set(__self__, "use_lake_formation_credentials", use_lake_formation_credentials)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required for cross account crawls. For same account crawls as the target data, this can be left as null.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="useLakeFormationCredentials")
+    def use_lake_formation_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
+        """
+        return pulumi.get(self, "use_lake_formation_credentials")
+
+    @use_lake_formation_credentials.setter
+    def use_lake_formation_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_lake_formation_credentials", value)
+
+
+@pulumi.input_type
+class CrawlerMongoDbTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class CrawlerRecrawlPolicyArgs:
+    def __init__(__self__, *,
+                 recrawl_behavior: Optional[pulumi.Input[str]] = None):
+        """
+        When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
+        :param pulumi.Input[str] recrawl_behavior: Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+        """
+        if recrawl_behavior is not None:
+            pulumi.set(__self__, "recrawl_behavior", recrawl_behavior)
+
+    @property
+    @pulumi.getter(name="recrawlBehavior")
+    def recrawl_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+        """
+        return pulumi.get(self, "recrawl_behavior")
+
+    @recrawl_behavior.setter
+    def recrawl_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recrawl_behavior", value)
+
+
+@pulumi.input_type
+class CrawlerS3TargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 dlq_event_queue_arn: Optional[pulumi.Input[str]] = None,
+                 event_queue_arn: Optional[pulumi.Input[str]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 sample_size: Optional[pulumi.Input[int]] = None):
+        """
+        Specifies a data store in Amazon Simple Storage Service (Amazon S3).
+        :param pulumi.Input[str] connection_name: The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
+        :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
+        :param pulumi.Input[str] path: The path to the Amazon S3 target.
+        :param pulumi.Input[int] sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        """
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @dlq_event_queue_arn.setter
+    def dlq_event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dlq_event_queue_arn", value)
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        """
+        return pulumi.get(self, "event_queue_arn")
+
+    @event_queue_arn.setter
+    def event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_queue_arn", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the Amazon S3 target.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+        """
+        return pulumi.get(self, "sample_size")
+
+    @sample_size.setter
+    def sample_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sample_size", value)
+
+
+@pulumi.input_type
+class CrawlerScheduleArgs:
+    def __init__(__self__, *,
+                 schedule_expression: Optional[pulumi.Input[str]] = None):
+        """
+        A scheduling object using a cron statement to schedule an event.
+        :param pulumi.Input[str] schedule_expression: A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+        """
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_expression", value)
+
+
+@pulumi.input_type
+class CrawlerSchemaChangePolicyArgs:
+    def __init__(__self__, *,
+                 delete_behavior: Optional[pulumi.Input[str]] = None,
+                 update_behavior: Optional[pulumi.Input[str]] = None):
+        """
+        The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
+        :param pulumi.Input[str] delete_behavior: The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+        :param pulumi.Input[str] update_behavior: The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+        """
+        if delete_behavior is not None:
+            pulumi.set(__self__, "delete_behavior", delete_behavior)
+        if update_behavior is not None:
+            pulumi.set(__self__, "update_behavior", update_behavior)
+
+    @property
+    @pulumi.getter(name="deleteBehavior")
+    def delete_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+        """
+        return pulumi.get(self, "delete_behavior")
+
+    @delete_behavior.setter
+    def delete_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete_behavior", value)
+
+    @property
+    @pulumi.getter(name="updateBehavior")
+    def update_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+        """
+        return pulumi.get(self, "update_behavior")
+
+    @update_behavior.setter
+    def update_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_behavior", value)
+
+
+@pulumi.input_type
+class CrawlerTargetsArgs:
+    def __init__(__self__, *,
+                 catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
+                 delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
+                 dynamo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]] = None,
+                 iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]] = None,
+                 jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
+                 mongo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]] = None,
+                 s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None):
+        """
+        Specifies data stores to crawl.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: Specifies AWS Glue Data Catalog targets.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: Specifies an array of Delta data store targets.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]] dynamo_db_targets: Specifies Amazon DynamoDB targets.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: Specifies Apache Iceberg data store targets.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: Specifies JDBC targets.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]] mongo_db_targets: A list of Mongo DB targets.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: Specifies Amazon Simple Storage Service (Amazon S3) targets.
+        """
+        if catalog_targets is not None:
+            pulumi.set(__self__, "catalog_targets", catalog_targets)
+        if delta_targets is not None:
+            pulumi.set(__self__, "delta_targets", delta_targets)
+        if dynamo_db_targets is not None:
+            pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
+        if iceberg_targets is not None:
+            pulumi.set(__self__, "iceberg_targets", iceberg_targets)
+        if jdbc_targets is not None:
+            pulumi.set(__self__, "jdbc_targets", jdbc_targets)
+        if mongo_db_targets is not None:
+            pulumi.set(__self__, "mongo_db_targets", mongo_db_targets)
+        if s3_targets is not None:
+            pulumi.set(__self__, "s3_targets", s3_targets)
+
+    @property
+    @pulumi.getter(name="catalogTargets")
+    def catalog_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]:
+        """
+        Specifies AWS Glue Data Catalog targets.
+        """
+        return pulumi.get(self, "catalog_targets")
+
+    @catalog_targets.setter
+    def catalog_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]):
+        pulumi.set(self, "catalog_targets", value)
+
+    @property
+    @pulumi.getter(name="deltaTargets")
+    def delta_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]:
+        """
+        Specifies an array of Delta data store targets.
+        """
+        return pulumi.get(self, "delta_targets")
+
+    @delta_targets.setter
+    def delta_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]]):
+        pulumi.set(self, "delta_targets", value)
+
+    @property
+    @pulumi.getter(name="dynamoDbTargets")
+    def dynamo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]]:
+        """
+        Specifies Amazon DynamoDB targets.
+        """
+        return pulumi.get(self, "dynamo_db_targets")
+
+    @dynamo_db_targets.setter
+    def dynamo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]]]):
+        pulumi.set(self, "dynamo_db_targets", value)
+
+    @property
+    @pulumi.getter(name="icebergTargets")
+    def iceberg_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]:
+        """
+        Specifies Apache Iceberg data store targets.
+        """
+        return pulumi.get(self, "iceberg_targets")
+
+    @iceberg_targets.setter
+    def iceberg_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]):
+        pulumi.set(self, "iceberg_targets", value)
+
+    @property
+    @pulumi.getter(name="jdbcTargets")
+    def jdbc_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]:
+        """
+        Specifies JDBC targets.
+        """
+        return pulumi.get(self, "jdbc_targets")
+
+    @jdbc_targets.setter
+    def jdbc_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]):
+        pulumi.set(self, "jdbc_targets", value)
+
+    @property
+    @pulumi.getter(name="mongoDbTargets")
+    def mongo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]]:
+        """
+        A list of Mongo DB targets.
+        """
+        return pulumi.get(self, "mongo_db_targets")
+
+    @mongo_db_targets.setter
+    def mongo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]]):
+        pulumi.set(self, "mongo_db_targets", value)
+
+    @property
+    @pulumi.getter(name="s3Targets")
+    def s3_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]:
+        """
+        Specifies Amazon Simple Storage Service (Amazon S3) targets.
+        """
+        return pulumi.get(self, "s3_targets")
+
+    @s3_targets.setter
+    def s3_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]):
+        pulumi.set(self, "s3_targets", value)
+
 
 @pulumi.input_type
 class DatabaseDataLakePrincipalArgs:

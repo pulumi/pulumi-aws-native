@@ -27,6 +27,14 @@ export interface GetDirectoryBucketResult {
      * Returns the Amazon Resource Name (ARN) of the specified bucket.
      */
     readonly arn?: string;
+    /**
+     * Returns the code for the Availability Zone where the directory bucket was created.
+     */
+    readonly availabilityZoneName?: string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+     */
+    readonly bucketEncryption?: any;
 }
 /**
  * Resource Type definition for AWS::S3Express::DirectoryBucket.

@@ -18,10 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDirectoryBucketResult:
-    def __init__(__self__, arn=None):
+    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if availability_zone_name and not isinstance(availability_zone_name, str):
+            raise TypeError("Expected argument 'availability_zone_name' to be a str")
+        pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+        if bucket_encryption and not isinstance(bucket_encryption, dict):
+            raise TypeError("Expected argument 'bucket_encryption' to be a dict")
+        pulumi.set(__self__, "bucket_encryption", bucket_encryption)
 
     @property
     @pulumi.getter
@@ -31,6 +37,22 @@ class GetDirectoryBucketResult:
         """
         return pulumi.get(self, "arn")
 
+    @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> Optional[str]:
+        """
+        Returns the code for the Availability Zone where the directory bucket was created.
+        """
+        return pulumi.get(self, "availability_zone_name")
+
+    @property
+    @pulumi.getter(name="bucketEncryption")
+    def bucket_encryption(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "bucket_encryption")
+
 
 class AwaitableGetDirectoryBucketResult(GetDirectoryBucketResult):
     # pylint: disable=using-constant-test
@@ -38,7 +60,9 @@ class AwaitableGetDirectoryBucketResult(GetDirectoryBucketResult):
         if False:
             yield self
         return GetDirectoryBucketResult(
-            arn=self.arn)
+            arn=self.arn,
+            availability_zone_name=self.availability_zone_name,
+            bucket_encryption=self.bucket_encryption)
 
 
 def get_directory_bucket(bucket_name: Optional[str] = None,
@@ -55,7 +79,9 @@ def get_directory_bucket(bucket_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3express:getDirectoryBucket', __args__, opts=opts, typ=GetDirectoryBucketResult).value
 
     return AwaitableGetDirectoryBucketResult(
-        arn=pulumi.get(__ret__, 'arn'))
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
+        bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'))
 
 
 @_utilities.lift_output_func(get_directory_bucket)

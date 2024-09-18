@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
 
     public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connector.
+        /// </summary>
         [Input("connectorArn", required: true)]
         public string ConnectorArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
 
     public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connector.
+        /// </summary>
         [Input("connectorArn", required: true)]
         public Input<string> ConnectorArn { get; set; } = null!;
 
@@ -51,10 +57,19 @@ namespace Pulumi.AwsNative.PcaConnectorScep
     [OutputType]
     public sealed class GetConnectorResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connector.
+        /// </summary>
         public readonly string? ConnectorArn;
+        /// <summary>
+        /// The connector's HTTPS public SCEP URL.
+        /// </summary>
         public readonly string? Endpoint;
         public readonly Outputs.ConnectorOpenIdConfiguration? OpenIdConfiguration;
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The connector type.
+        /// </summary>
         public readonly Pulumi.AwsNative.PcaConnectorScep.ConnectorType? Type;
 
         [OutputConstructor]

@@ -1648,7 +1648,7 @@ class ConfigurationPolicyPolicyArgs:
                  security_hub: Optional[pulumi.Input['ConfigurationPolicySecurityHubPolicyArgs']] = None):
         """
         An object that defines how Security Hub is configured.
-        :param pulumi.Input['ConfigurationPolicySecurityHubPolicyArgs'] security_hub: The AWS-service that the configuration policy applies to.
+        :param pulumi.Input['ConfigurationPolicySecurityHubPolicyArgs'] security_hub: The AWS service that the configuration policy applies to.
         """
         if security_hub is not None:
             pulumi.set(__self__, "security_hub", security_hub)
@@ -1657,7 +1657,7 @@ class ConfigurationPolicyPolicyArgs:
     @pulumi.getter(name="securityHub")
     def security_hub(self) -> Optional[pulumi.Input['ConfigurationPolicySecurityHubPolicyArgs']]:
         """
-        The AWS-service that the configuration policy applies to.
+        The AWS service that the configuration policy applies to.
         """
         return pulumi.get(self, "security_hub")
 

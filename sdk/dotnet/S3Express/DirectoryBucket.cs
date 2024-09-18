@@ -22,6 +22,18 @@ namespace Pulumi.AwsNative.S3Express
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Returns the code for the Availability Zone where the directory bucket was created.
+        /// </summary>
+        [Output("availabilityZoneName")]
+        public Output<string> AvailabilityZoneName { get; private set; } = null!;
+
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+        /// </summary>
+        [Output("bucketEncryption")]
+        public Output<object?> BucketEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         /// </summary>
         [Output("bucketName")]
@@ -90,6 +102,12 @@ namespace Pulumi.AwsNative.S3Express
 
     public sealed class DirectoryBucketArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+        /// </summary>
+        [Input("bucketEncryption")]
+        public Input<object>? BucketEncryption { get; set; }
+
         /// <summary>
         /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         /// </summary>

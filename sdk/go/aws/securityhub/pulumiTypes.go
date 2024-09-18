@@ -3161,7 +3161,7 @@ func (o ConfigurationPolicyParameterValuePtrOutput) StringList() pulumi.StringAr
 
 // An object that defines how Security Hub is configured.
 type ConfigurationPolicyPolicy struct {
-	// The AWS-service that the configuration policy applies to.
+	// The AWS service that the configuration policy applies to.
 	SecurityHub *ConfigurationPolicySecurityHubPolicy `pulumi:"securityHub"`
 }
 
@@ -3178,7 +3178,7 @@ type ConfigurationPolicyPolicyInput interface {
 
 // An object that defines how Security Hub is configured.
 type ConfigurationPolicyPolicyArgs struct {
-	// The AWS-service that the configuration policy applies to.
+	// The AWS service that the configuration policy applies to.
 	SecurityHub ConfigurationPolicySecurityHubPolicyPtrInput `pulumi:"securityHub"`
 }
 
@@ -3209,7 +3209,7 @@ func (o ConfigurationPolicyPolicyOutput) ToConfigurationPolicyPolicyOutputWithCo
 	return o
 }
 
-// The AWS-service that the configuration policy applies to.
+// The AWS service that the configuration policy applies to.
 func (o ConfigurationPolicyPolicyOutput) SecurityHub() ConfigurationPolicySecurityHubPolicyPtrOutput {
 	return o.ApplyT(func(v ConfigurationPolicyPolicy) *ConfigurationPolicySecurityHubPolicy { return v.SecurityHub }).(ConfigurationPolicySecurityHubPolicyPtrOutput)
 }
@@ -3238,7 +3238,7 @@ func (o ConfigurationPolicyPolicyPtrOutput) Elem() ConfigurationPolicyPolicyOutp
 	}).(ConfigurationPolicyPolicyOutput)
 }
 
-// The AWS-service that the configuration policy applies to.
+// The AWS service that the configuration policy applies to.
 func (o ConfigurationPolicyPolicyPtrOutput) SecurityHub() ConfigurationPolicySecurityHubPolicyPtrOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyPolicy) *ConfigurationPolicySecurityHubPolicy {
 		if v == nil {

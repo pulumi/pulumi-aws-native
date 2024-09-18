@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .crawler import *
 from .database import *
+from .get_crawler import *
 from .get_database import *
 from .get_registry import *
 from .get_schema import *

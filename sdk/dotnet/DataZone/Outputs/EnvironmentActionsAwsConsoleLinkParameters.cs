@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class EnvironmentActionsAwsConsoleLinkParameters
     {
+        /// <summary>
+        /// The URI of the console link specified as part of the environment action.
+        /// </summary>
         public readonly string? Uri;
 
         [OutputConstructor]

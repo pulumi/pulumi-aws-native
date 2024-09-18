@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.PcaConnectorScep.Outputs
     [OutputType]
     public sealed class ConnectorOpenIdConfiguration
     {
+        /// <summary>
+        /// The audience value to copy into your Microsoft Entra app registration's OIDC.
+        /// </summary>
         public readonly string? Audience;
+        /// <summary>
+        /// The issuer value to copy into your Microsoft Entra app registration's OIDC.
+        /// </summary>
         public readonly string? Issuer;
+        /// <summary>
+        /// The subject value to copy into your Microsoft Entra app registration's OIDC.
+        /// </summary>
         public readonly string? Subject;
 
         [OutputConstructor]

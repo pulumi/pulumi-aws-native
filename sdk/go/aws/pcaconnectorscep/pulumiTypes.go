@@ -132,9 +132,12 @@ func (o ConnectorMobileDeviceManagementPtrOutput) Elem() ConnectorMobileDeviceMa
 }
 
 type ConnectorOpenIdConfiguration struct {
+	// The audience value to copy into your Microsoft Entra app registration's OIDC.
 	Audience *string `pulumi:"audience"`
-	Issuer   *string `pulumi:"issuer"`
-	Subject  *string `pulumi:"subject"`
+	// The issuer value to copy into your Microsoft Entra app registration's OIDC.
+	Issuer *string `pulumi:"issuer"`
+	// The subject value to copy into your Microsoft Entra app registration's OIDC.
+	Subject *string `pulumi:"subject"`
 }
 
 type ConnectorOpenIdConfigurationOutput struct{ *pulumi.OutputState }
@@ -151,14 +154,17 @@ func (o ConnectorOpenIdConfigurationOutput) ToConnectorOpenIdConfigurationOutput
 	return o
 }
 
+// The audience value to copy into your Microsoft Entra app registration's OIDC.
 func (o ConnectorOpenIdConfigurationOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorOpenIdConfiguration) *string { return v.Audience }).(pulumi.StringPtrOutput)
 }
 
+// The issuer value to copy into your Microsoft Entra app registration's OIDC.
 func (o ConnectorOpenIdConfigurationOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorOpenIdConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// The subject value to copy into your Microsoft Entra app registration's OIDC.
 func (o ConnectorOpenIdConfigurationOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorOpenIdConfiguration) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
@@ -187,6 +193,7 @@ func (o ConnectorOpenIdConfigurationPtrOutput) Elem() ConnectorOpenIdConfigurati
 	}).(ConnectorOpenIdConfigurationOutput)
 }
 
+// The audience value to copy into your Microsoft Entra app registration's OIDC.
 func (o ConnectorOpenIdConfigurationPtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorOpenIdConfiguration) *string {
 		if v == nil {
@@ -196,6 +203,7 @@ func (o ConnectorOpenIdConfigurationPtrOutput) Audience() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The issuer value to copy into your Microsoft Entra app registration's OIDC.
 func (o ConnectorOpenIdConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorOpenIdConfiguration) *string {
 		if v == nil {
@@ -205,6 +213,7 @@ func (o ConnectorOpenIdConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The subject value to copy into your Microsoft Entra app registration's OIDC.
 func (o ConnectorOpenIdConfigurationPtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorOpenIdConfiguration) *string {
 		if v == nil {

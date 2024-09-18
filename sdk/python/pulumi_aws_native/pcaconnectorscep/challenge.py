@@ -18,6 +18,7 @@ class ChallengeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Challenge resource.
+        :param pulumi.Input[str] connector_arn: The Amazon Resource Name (ARN) of the connector.
         """
         pulumi.set(__self__, "connector_arn", connector_arn)
         if tags is not None:
@@ -26,6 +27,9 @@ class ChallengeArgs:
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the connector.
+        """
         return pulumi.get(self, "connector_arn")
 
     @connector_arn.setter
@@ -55,6 +59,7 @@ class Challenge(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connector_arn: The Amazon Resource Name (ARN) of the connector.
         """
         ...
     @overload
@@ -128,11 +133,17 @@ class Challenge(pulumi.CustomResource):
     @property
     @pulumi.getter(name="challengeArn")
     def challenge_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the challenge.
+        """
         return pulumi.get(self, "challenge_arn")
 
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the connector.
+        """
         return pulumi.get(self, "connector_arn")
 
     @property

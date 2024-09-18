@@ -30,6 +30,10 @@ type LookupDirectoryBucketArgs struct {
 type LookupDirectoryBucketResult struct {
 	// Returns the Amazon Resource Name (ARN) of the specified bucket.
 	Arn *string `pulumi:"arn"`
+	// Returns the code for the Availability Zone where the directory bucket was created.
+	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+	BucketEncryption interface{} `pulumi:"bucketEncryption"`
 }
 
 func LookupDirectoryBucketOutput(ctx *pulumi.Context, args LookupDirectoryBucketOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryBucketResultOutput {
@@ -77,6 +81,16 @@ func (o LookupDirectoryBucketResultOutput) ToLookupDirectoryBucketResultOutputWi
 // Returns the Amazon Resource Name (ARN) of the specified bucket.
 func (o LookupDirectoryBucketResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryBucketResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// Returns the code for the Availability Zone where the directory bucket was created.
+func (o LookupDirectoryBucketResultOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDirectoryBucketResult) *string { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
+}
+
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+func (o LookupDirectoryBucketResultOutput) BucketEncryption() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDirectoryBucketResult) interface{} { return v.BucketEncryption }).(pulumi.AnyOutput)
 }
 
 func init() {

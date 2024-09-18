@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.PcaConnectorScep
     [AwsNativeResourceType("aws-native:pcaconnectorscep:Challenge")]
     public partial class Challenge : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the challenge.
+        /// </summary>
         [Output("challengeArn")]
         public Output<string> ChallengeArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connector.
+        /// </summary>
         [Output("connectorArn")]
         public Output<string> ConnectorArn { get; private set; } = null!;
 
@@ -73,6 +79,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
 
     public sealed class ChallengeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connector.
+        /// </summary>
         [Input("connectorArn", required: true)]
         public Input<string> ConnectorArn { get; set; } = null!;
 

@@ -1767,6 +1767,7 @@ _utilities.register(
   "mod": "glue",
   "fqn": "pulumi_aws_native.glue",
   "classes": {
+   "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:Database": "Database",
    "aws-native:glue:Registry": "Registry",
    "aws-native:glue:Schema": "Schema",

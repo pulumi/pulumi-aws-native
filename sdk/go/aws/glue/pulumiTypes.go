@@ -13,6 +13,1684 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Specifies an AWS Glue Data Catalog target.
+type CrawlerCatalogTarget struct {
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+	ConnectionName *string `pulumi:"connectionName"`
+	// The name of the database to be synchronized.
+	DatabaseName *string `pulumi:"databaseName"`
+	// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
+	// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+	EventQueueArn *string `pulumi:"eventQueueArn"`
+	// A list of the tables to be synchronized.
+	Tables []string `pulumi:"tables"`
+}
+
+// CrawlerCatalogTargetInput is an input type that accepts CrawlerCatalogTargetArgs and CrawlerCatalogTargetOutput values.
+// You can construct a concrete instance of `CrawlerCatalogTargetInput` via:
+//
+//	CrawlerCatalogTargetArgs{...}
+type CrawlerCatalogTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerCatalogTargetOutput() CrawlerCatalogTargetOutput
+	ToCrawlerCatalogTargetOutputWithContext(context.Context) CrawlerCatalogTargetOutput
+}
+
+// Specifies an AWS Glue Data Catalog target.
+type CrawlerCatalogTargetArgs struct {
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// The name of the database to be synchronized.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
+	// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
+	// A list of the tables to be synchronized.
+	Tables pulumi.StringArrayInput `pulumi:"tables"`
+}
+
+func (CrawlerCatalogTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerCatalogTarget)(nil)).Elem()
+}
+
+func (i CrawlerCatalogTargetArgs) ToCrawlerCatalogTargetOutput() CrawlerCatalogTargetOutput {
+	return i.ToCrawlerCatalogTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerCatalogTargetArgs) ToCrawlerCatalogTargetOutputWithContext(ctx context.Context) CrawlerCatalogTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerCatalogTargetOutput)
+}
+
+// CrawlerCatalogTargetArrayInput is an input type that accepts CrawlerCatalogTargetArray and CrawlerCatalogTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerCatalogTargetArrayInput` via:
+//
+//	CrawlerCatalogTargetArray{ CrawlerCatalogTargetArgs{...} }
+type CrawlerCatalogTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerCatalogTargetArrayOutput() CrawlerCatalogTargetArrayOutput
+	ToCrawlerCatalogTargetArrayOutputWithContext(context.Context) CrawlerCatalogTargetArrayOutput
+}
+
+type CrawlerCatalogTargetArray []CrawlerCatalogTargetInput
+
+func (CrawlerCatalogTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerCatalogTarget)(nil)).Elem()
+}
+
+func (i CrawlerCatalogTargetArray) ToCrawlerCatalogTargetArrayOutput() CrawlerCatalogTargetArrayOutput {
+	return i.ToCrawlerCatalogTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerCatalogTargetArray) ToCrawlerCatalogTargetArrayOutputWithContext(ctx context.Context) CrawlerCatalogTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerCatalogTargetArrayOutput)
+}
+
+// Specifies an AWS Glue Data Catalog target.
+type CrawlerCatalogTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerCatalogTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerCatalogTarget)(nil)).Elem()
+}
+
+func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutput() CrawlerCatalogTargetOutput {
+	return o
+}
+
+func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutputWithContext(ctx context.Context) CrawlerCatalogTargetOutput {
+	return o
+}
+
+// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+func (o CrawlerCatalogTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database to be synchronized.
+func (o CrawlerCatalogTargetOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+func (o CrawlerCatalogTargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
+}
+
+// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+func (o CrawlerCatalogTargetOutput) EventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of the tables to be synchronized.
+func (o CrawlerCatalogTargetOutput) Tables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) []string { return v.Tables }).(pulumi.StringArrayOutput)
+}
+
+type CrawlerCatalogTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerCatalogTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerCatalogTarget)(nil)).Elem()
+}
+
+func (o CrawlerCatalogTargetArrayOutput) ToCrawlerCatalogTargetArrayOutput() CrawlerCatalogTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerCatalogTargetArrayOutput) ToCrawlerCatalogTargetArrayOutputWithContext(ctx context.Context) CrawlerCatalogTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalogTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerCatalogTarget {
+		return vs[0].([]CrawlerCatalogTarget)[vs[1].(int)]
+	}).(CrawlerCatalogTargetOutput)
+}
+
+// Specifies a Delta data store to crawl one or more Delta tables.
+type CrawlerDeltaTarget struct {
+	// The name of the connection to use to connect to the Delta table target.
+	ConnectionName *string `pulumi:"connectionName"`
+	// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+	CreateNativeDeltaTable *bool `pulumi:"createNativeDeltaTable"`
+	// A list of the Amazon S3 paths to the Delta tables.
+	DeltaTables []string `pulumi:"deltaTables"`
+	// Specifies whether to write the manifest files to the Delta table path.
+	WriteManifest *bool `pulumi:"writeManifest"`
+}
+
+// CrawlerDeltaTargetInput is an input type that accepts CrawlerDeltaTargetArgs and CrawlerDeltaTargetOutput values.
+// You can construct a concrete instance of `CrawlerDeltaTargetInput` via:
+//
+//	CrawlerDeltaTargetArgs{...}
+type CrawlerDeltaTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput
+	ToCrawlerDeltaTargetOutputWithContext(context.Context) CrawlerDeltaTargetOutput
+}
+
+// Specifies a Delta data store to crawl one or more Delta tables.
+type CrawlerDeltaTargetArgs struct {
+	// The name of the connection to use to connect to the Delta table target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+	CreateNativeDeltaTable pulumi.BoolPtrInput `pulumi:"createNativeDeltaTable"`
+	// A list of the Amazon S3 paths to the Delta tables.
+	DeltaTables pulumi.StringArrayInput `pulumi:"deltaTables"`
+	// Specifies whether to write the manifest files to the Delta table path.
+	WriteManifest pulumi.BoolPtrInput `pulumi:"writeManifest"`
+}
+
+func (CrawlerDeltaTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (i CrawlerDeltaTargetArgs) ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput {
+	return i.ToCrawlerDeltaTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerDeltaTargetArgs) ToCrawlerDeltaTargetOutputWithContext(ctx context.Context) CrawlerDeltaTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDeltaTargetOutput)
+}
+
+// CrawlerDeltaTargetArrayInput is an input type that accepts CrawlerDeltaTargetArray and CrawlerDeltaTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerDeltaTargetArrayInput` via:
+//
+//	CrawlerDeltaTargetArray{ CrawlerDeltaTargetArgs{...} }
+type CrawlerDeltaTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput
+	ToCrawlerDeltaTargetArrayOutputWithContext(context.Context) CrawlerDeltaTargetArrayOutput
+}
+
+type CrawlerDeltaTargetArray []CrawlerDeltaTargetInput
+
+func (CrawlerDeltaTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (i CrawlerDeltaTargetArray) ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput {
+	return i.ToCrawlerDeltaTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerDeltaTargetArray) ToCrawlerDeltaTargetArrayOutputWithContext(ctx context.Context) CrawlerDeltaTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDeltaTargetArrayOutput)
+}
+
+// Specifies a Delta data store to crawl one or more Delta tables.
+type CrawlerDeltaTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDeltaTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutput() CrawlerDeltaTargetOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutputWithContext(ctx context.Context) CrawlerDeltaTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the Delta table target.
+func (o CrawlerDeltaTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+func (o CrawlerDeltaTargetOutput) CreateNativeDeltaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) *bool { return v.CreateNativeDeltaTable }).(pulumi.BoolPtrOutput)
+}
+
+// A list of the Amazon S3 paths to the Delta tables.
+func (o CrawlerDeltaTargetOutput) DeltaTables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) []string { return v.DeltaTables }).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether to write the manifest files to the Delta table path.
+func (o CrawlerDeltaTargetOutput) WriteManifest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerDeltaTarget) *bool { return v.WriteManifest }).(pulumi.BoolPtrOutput)
+}
+
+type CrawlerDeltaTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDeltaTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDeltaTarget)(nil)).Elem()
+}
+
+func (o CrawlerDeltaTargetArrayOutput) ToCrawlerDeltaTargetArrayOutput() CrawlerDeltaTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetArrayOutput) ToCrawlerDeltaTargetArrayOutputWithContext(ctx context.Context) CrawlerDeltaTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDeltaTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDeltaTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerDeltaTarget {
+		return vs[0].([]CrawlerDeltaTarget)[vs[1].(int)]
+	}).(CrawlerDeltaTargetOutput)
+}
+
+// Specifies an Amazon DynamoDB table to crawl.
+type CrawlerDynamoDbTarget struct {
+	// The name of the DynamoDB table to crawl.
+	Path *string `pulumi:"path"`
+}
+
+// CrawlerDynamoDbTargetInput is an input type that accepts CrawlerDynamoDbTargetArgs and CrawlerDynamoDbTargetOutput values.
+// You can construct a concrete instance of `CrawlerDynamoDbTargetInput` via:
+//
+//	CrawlerDynamoDbTargetArgs{...}
+type CrawlerDynamoDbTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerDynamoDbTargetOutput() CrawlerDynamoDbTargetOutput
+	ToCrawlerDynamoDbTargetOutputWithContext(context.Context) CrawlerDynamoDbTargetOutput
+}
+
+// Specifies an Amazon DynamoDB table to crawl.
+type CrawlerDynamoDbTargetArgs struct {
+	// The name of the DynamoDB table to crawl.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CrawlerDynamoDbTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDynamoDbTarget)(nil)).Elem()
+}
+
+func (i CrawlerDynamoDbTargetArgs) ToCrawlerDynamoDbTargetOutput() CrawlerDynamoDbTargetOutput {
+	return i.ToCrawlerDynamoDbTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerDynamoDbTargetArgs) ToCrawlerDynamoDbTargetOutputWithContext(ctx context.Context) CrawlerDynamoDbTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDbTargetOutput)
+}
+
+// CrawlerDynamoDbTargetArrayInput is an input type that accepts CrawlerDynamoDbTargetArray and CrawlerDynamoDbTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerDynamoDbTargetArrayInput` via:
+//
+//	CrawlerDynamoDbTargetArray{ CrawlerDynamoDbTargetArgs{...} }
+type CrawlerDynamoDbTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerDynamoDbTargetArrayOutput() CrawlerDynamoDbTargetArrayOutput
+	ToCrawlerDynamoDbTargetArrayOutputWithContext(context.Context) CrawlerDynamoDbTargetArrayOutput
+}
+
+type CrawlerDynamoDbTargetArray []CrawlerDynamoDbTargetInput
+
+func (CrawlerDynamoDbTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDynamoDbTarget)(nil)).Elem()
+}
+
+func (i CrawlerDynamoDbTargetArray) ToCrawlerDynamoDbTargetArrayOutput() CrawlerDynamoDbTargetArrayOutput {
+	return i.ToCrawlerDynamoDbTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerDynamoDbTargetArray) ToCrawlerDynamoDbTargetArrayOutputWithContext(ctx context.Context) CrawlerDynamoDbTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDbTargetArrayOutput)
+}
+
+// Specifies an Amazon DynamoDB table to crawl.
+type CrawlerDynamoDbTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDynamoDbTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDynamoDbTarget)(nil)).Elem()
+}
+
+func (o CrawlerDynamoDbTargetOutput) ToCrawlerDynamoDbTargetOutput() CrawlerDynamoDbTargetOutput {
+	return o
+}
+
+func (o CrawlerDynamoDbTargetOutput) ToCrawlerDynamoDbTargetOutputWithContext(ctx context.Context) CrawlerDynamoDbTargetOutput {
+	return o
+}
+
+// The name of the DynamoDB table to crawl.
+func (o CrawlerDynamoDbTargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerDynamoDbTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerDynamoDbTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDynamoDbTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDynamoDbTarget)(nil)).Elem()
+}
+
+func (o CrawlerDynamoDbTargetArrayOutput) ToCrawlerDynamoDbTargetArrayOutput() CrawlerDynamoDbTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDynamoDbTargetArrayOutput) ToCrawlerDynamoDbTargetArrayOutputWithContext(ctx context.Context) CrawlerDynamoDbTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDynamoDbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamoDbTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerDynamoDbTarget {
+		return vs[0].([]CrawlerDynamoDbTarget)[vs[1].(int)]
+	}).(CrawlerDynamoDbTargetOutput)
+}
+
+// Specifies Apache Iceberg data store targets.
+type CrawlerIcebergTarget struct {
+	// The name of the connection to use to connect to the Iceberg target.
+	ConnectionName *string `pulumi:"connectionName"`
+	// A list of global patterns used to exclude from the crawl.
+	Exclusions []string `pulumi:"exclusions"`
+	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+	MaximumTraversalDepth *int `pulumi:"maximumTraversalDepth"`
+	// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix .
+	Paths []string `pulumi:"paths"`
+}
+
+// CrawlerIcebergTargetInput is an input type that accepts CrawlerIcebergTargetArgs and CrawlerIcebergTargetOutput values.
+// You can construct a concrete instance of `CrawlerIcebergTargetInput` via:
+//
+//	CrawlerIcebergTargetArgs{...}
+type CrawlerIcebergTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput
+	ToCrawlerIcebergTargetOutputWithContext(context.Context) CrawlerIcebergTargetOutput
+}
+
+// Specifies Apache Iceberg data store targets.
+type CrawlerIcebergTargetArgs struct {
+	// The name of the connection to use to connect to the Iceberg target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A list of global patterns used to exclude from the crawl.
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+	MaximumTraversalDepth pulumi.IntPtrInput `pulumi:"maximumTraversalDepth"`
+	// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix .
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (CrawlerIcebergTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (i CrawlerIcebergTargetArgs) ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput {
+	return i.ToCrawlerIcebergTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerIcebergTargetArgs) ToCrawlerIcebergTargetOutputWithContext(ctx context.Context) CrawlerIcebergTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetOutput)
+}
+
+// CrawlerIcebergTargetArrayInput is an input type that accepts CrawlerIcebergTargetArray and CrawlerIcebergTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerIcebergTargetArrayInput` via:
+//
+//	CrawlerIcebergTargetArray{ CrawlerIcebergTargetArgs{...} }
+type CrawlerIcebergTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput
+	ToCrawlerIcebergTargetArrayOutputWithContext(context.Context) CrawlerIcebergTargetArrayOutput
+}
+
+type CrawlerIcebergTargetArray []CrawlerIcebergTargetInput
+
+func (CrawlerIcebergTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput {
+	return i.ToCrawlerIcebergTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutputWithContext(ctx context.Context) CrawlerIcebergTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetArrayOutput)
+}
+
+// Specifies Apache Iceberg data store targets.
+type CrawlerIcebergTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerIcebergTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutputWithContext(ctx context.Context) CrawlerIcebergTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the Iceberg target.
+func (o CrawlerIcebergTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A list of global patterns used to exclude from the crawl.
+func (o CrawlerIcebergTargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+func (o CrawlerIcebergTargetOutput) MaximumTraversalDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) *int { return v.MaximumTraversalDepth }).(pulumi.IntPtrOutput)
+}
+
+// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix .
+func (o CrawlerIcebergTargetOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type CrawlerIcebergTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerIcebergTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (o CrawlerIcebergTargetArrayOutput) ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetArrayOutput) ToCrawlerIcebergTargetArrayOutputWithContext(ctx context.Context) CrawlerIcebergTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetArrayOutput) Index(i pulumi.IntInput) CrawlerIcebergTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerIcebergTarget {
+		return vs[0].([]CrawlerIcebergTarget)[vs[1].(int)]
+	}).(CrawlerIcebergTargetOutput)
+}
+
+// Specifies a JDBC data store to crawl.
+type CrawlerJdbcTarget struct {
+	// The name of the connection to use to connect to the JDBC target.
+	ConnectionName *string `pulumi:"connectionName"`
+	// Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+	//
+	// If you do not need additional metadata, keep the field empty.
+	EnableAdditionalMetadata []string `pulumi:"enableAdditionalMetadata"`
+	// A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+	Exclusions []string `pulumi:"exclusions"`
+	// The path of the JDBC target.
+	Path *string `pulumi:"path"`
+}
+
+// CrawlerJdbcTargetInput is an input type that accepts CrawlerJdbcTargetArgs and CrawlerJdbcTargetOutput values.
+// You can construct a concrete instance of `CrawlerJdbcTargetInput` via:
+//
+//	CrawlerJdbcTargetArgs{...}
+type CrawlerJdbcTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerJdbcTargetOutput() CrawlerJdbcTargetOutput
+	ToCrawlerJdbcTargetOutputWithContext(context.Context) CrawlerJdbcTargetOutput
+}
+
+// Specifies a JDBC data store to crawl.
+type CrawlerJdbcTargetArgs struct {
+	// The name of the connection to use to connect to the JDBC target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+	//
+	// If you do not need additional metadata, keep the field empty.
+	EnableAdditionalMetadata pulumi.StringArrayInput `pulumi:"enableAdditionalMetadata"`
+	// A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// The path of the JDBC target.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CrawlerJdbcTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerJdbcTarget)(nil)).Elem()
+}
+
+func (i CrawlerJdbcTargetArgs) ToCrawlerJdbcTargetOutput() CrawlerJdbcTargetOutput {
+	return i.ToCrawlerJdbcTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerJdbcTargetArgs) ToCrawlerJdbcTargetOutputWithContext(ctx context.Context) CrawlerJdbcTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerJdbcTargetOutput)
+}
+
+// CrawlerJdbcTargetArrayInput is an input type that accepts CrawlerJdbcTargetArray and CrawlerJdbcTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerJdbcTargetArrayInput` via:
+//
+//	CrawlerJdbcTargetArray{ CrawlerJdbcTargetArgs{...} }
+type CrawlerJdbcTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerJdbcTargetArrayOutput() CrawlerJdbcTargetArrayOutput
+	ToCrawlerJdbcTargetArrayOutputWithContext(context.Context) CrawlerJdbcTargetArrayOutput
+}
+
+type CrawlerJdbcTargetArray []CrawlerJdbcTargetInput
+
+func (CrawlerJdbcTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerJdbcTarget)(nil)).Elem()
+}
+
+func (i CrawlerJdbcTargetArray) ToCrawlerJdbcTargetArrayOutput() CrawlerJdbcTargetArrayOutput {
+	return i.ToCrawlerJdbcTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerJdbcTargetArray) ToCrawlerJdbcTargetArrayOutputWithContext(ctx context.Context) CrawlerJdbcTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerJdbcTargetArrayOutput)
+}
+
+// Specifies a JDBC data store to crawl.
+type CrawlerJdbcTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerJdbcTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerJdbcTarget)(nil)).Elem()
+}
+
+func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutput() CrawlerJdbcTargetOutput {
+	return o
+}
+
+func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutputWithContext(ctx context.Context) CrawlerJdbcTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the JDBC target.
+func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerJdbcTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+//
+// If you do not need additional metadata, keep the field empty.
+func (o CrawlerJdbcTargetOutput) EnableAdditionalMetadata() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.EnableAdditionalMetadata }).(pulumi.StringArrayOutput)
+}
+
+// A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+func (o CrawlerJdbcTargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+// The path of the JDBC target.
+func (o CrawlerJdbcTargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerJdbcTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerJdbcTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerJdbcTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerJdbcTarget)(nil)).Elem()
+}
+
+func (o CrawlerJdbcTargetArrayOutput) ToCrawlerJdbcTargetArrayOutput() CrawlerJdbcTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerJdbcTargetArrayOutput) ToCrawlerJdbcTargetArrayOutputWithContext(ctx context.Context) CrawlerJdbcTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerJdbcTarget {
+		return vs[0].([]CrawlerJdbcTarget)[vs[1].(int)]
+	}).(CrawlerJdbcTargetOutput)
+}
+
+// Specifies AWS Lake Formation configuration settings for the crawler
+type CrawlerLakeFormationConfiguration struct {
+	// Required for cross account crawls. For same account crawls as the target data, this can be left as null.
+	AccountId *string `pulumi:"accountId"`
+	// Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
+	UseLakeFormationCredentials *bool `pulumi:"useLakeFormationCredentials"`
+}
+
+// CrawlerLakeFormationConfigurationInput is an input type that accepts CrawlerLakeFormationConfigurationArgs and CrawlerLakeFormationConfigurationOutput values.
+// You can construct a concrete instance of `CrawlerLakeFormationConfigurationInput` via:
+//
+//	CrawlerLakeFormationConfigurationArgs{...}
+type CrawlerLakeFormationConfigurationInput interface {
+	pulumi.Input
+
+	ToCrawlerLakeFormationConfigurationOutput() CrawlerLakeFormationConfigurationOutput
+	ToCrawlerLakeFormationConfigurationOutputWithContext(context.Context) CrawlerLakeFormationConfigurationOutput
+}
+
+// Specifies AWS Lake Formation configuration settings for the crawler
+type CrawlerLakeFormationConfigurationArgs struct {
+	// Required for cross account crawls. For same account crawls as the target data, this can be left as null.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
+	UseLakeFormationCredentials pulumi.BoolPtrInput `pulumi:"useLakeFormationCredentials"`
+}
+
+func (CrawlerLakeFormationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (i CrawlerLakeFormationConfigurationArgs) ToCrawlerLakeFormationConfigurationOutput() CrawlerLakeFormationConfigurationOutput {
+	return i.ToCrawlerLakeFormationConfigurationOutputWithContext(context.Background())
+}
+
+func (i CrawlerLakeFormationConfigurationArgs) ToCrawlerLakeFormationConfigurationOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLakeFormationConfigurationOutput)
+}
+
+func (i CrawlerLakeFormationConfigurationArgs) ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput {
+	return i.ToCrawlerLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerLakeFormationConfigurationArgs) ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLakeFormationConfigurationOutput).ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx)
+}
+
+// CrawlerLakeFormationConfigurationPtrInput is an input type that accepts CrawlerLakeFormationConfigurationArgs, CrawlerLakeFormationConfigurationPtr and CrawlerLakeFormationConfigurationPtrOutput values.
+// You can construct a concrete instance of `CrawlerLakeFormationConfigurationPtrInput` via:
+//
+//	        CrawlerLakeFormationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CrawlerLakeFormationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput
+	ToCrawlerLakeFormationConfigurationPtrOutputWithContext(context.Context) CrawlerLakeFormationConfigurationPtrOutput
+}
+
+type crawlerLakeFormationConfigurationPtrType CrawlerLakeFormationConfigurationArgs
+
+func CrawlerLakeFormationConfigurationPtr(v *CrawlerLakeFormationConfigurationArgs) CrawlerLakeFormationConfigurationPtrInput {
+	return (*crawlerLakeFormationConfigurationPtrType)(v)
+}
+
+func (*crawlerLakeFormationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (i *crawlerLakeFormationConfigurationPtrType) ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput {
+	return i.ToCrawlerLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerLakeFormationConfigurationPtrType) ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLakeFormationConfigurationPtrOutput)
+}
+
+// Specifies AWS Lake Formation configuration settings for the crawler
+type CrawlerLakeFormationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CrawlerLakeFormationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (o CrawlerLakeFormationConfigurationOutput) ToCrawlerLakeFormationConfigurationOutput() CrawlerLakeFormationConfigurationOutput {
+	return o
+}
+
+func (o CrawlerLakeFormationConfigurationOutput) ToCrawlerLakeFormationConfigurationOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationOutput {
+	return o
+}
+
+func (o CrawlerLakeFormationConfigurationOutput) ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput {
+	return o.ToCrawlerLakeFormationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerLakeFormationConfigurationOutput) ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerLakeFormationConfiguration) *CrawlerLakeFormationConfiguration {
+		return &v
+	}).(CrawlerLakeFormationConfigurationPtrOutput)
+}
+
+// Required for cross account crawls. For same account crawls as the target data, this can be left as null.
+func (o CrawlerLakeFormationConfigurationOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerLakeFormationConfiguration) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
+func (o CrawlerLakeFormationConfigurationOutput) UseLakeFormationCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CrawlerLakeFormationConfiguration) *bool { return v.UseLakeFormationCredentials }).(pulumi.BoolPtrOutput)
+}
+
+type CrawlerLakeFormationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerLakeFormationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerLakeFormationConfiguration)(nil)).Elem()
+}
+
+func (o CrawlerLakeFormationConfigurationPtrOutput) ToCrawlerLakeFormationConfigurationPtrOutput() CrawlerLakeFormationConfigurationPtrOutput {
+	return o
+}
+
+func (o CrawlerLakeFormationConfigurationPtrOutput) ToCrawlerLakeFormationConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLakeFormationConfigurationPtrOutput {
+	return o
+}
+
+func (o CrawlerLakeFormationConfigurationPtrOutput) Elem() CrawlerLakeFormationConfigurationOutput {
+	return o.ApplyT(func(v *CrawlerLakeFormationConfiguration) CrawlerLakeFormationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerLakeFormationConfiguration
+		return ret
+	}).(CrawlerLakeFormationConfigurationOutput)
+}
+
+// Required for cross account crawls. For same account crawls as the target data, this can be left as null.
+func (o CrawlerLakeFormationConfigurationPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerLakeFormationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
+func (o CrawlerLakeFormationConfigurationPtrOutput) UseLakeFormationCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CrawlerLakeFormationConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLakeFormationCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+type CrawlerMongoDbTarget struct {
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	ConnectionName *string `pulumi:"connectionName"`
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	Path *string `pulumi:"path"`
+}
+
+// CrawlerMongoDbTargetInput is an input type that accepts CrawlerMongoDbTargetArgs and CrawlerMongoDbTargetOutput values.
+// You can construct a concrete instance of `CrawlerMongoDbTargetInput` via:
+//
+//	CrawlerMongoDbTargetArgs{...}
+type CrawlerMongoDbTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerMongoDbTargetOutput() CrawlerMongoDbTargetOutput
+	ToCrawlerMongoDbTargetOutputWithContext(context.Context) CrawlerMongoDbTargetOutput
+}
+
+// Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+type CrawlerMongoDbTargetArgs struct {
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CrawlerMongoDbTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerMongoDbTarget)(nil)).Elem()
+}
+
+func (i CrawlerMongoDbTargetArgs) ToCrawlerMongoDbTargetOutput() CrawlerMongoDbTargetOutput {
+	return i.ToCrawlerMongoDbTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerMongoDbTargetArgs) ToCrawlerMongoDbTargetOutputWithContext(ctx context.Context) CrawlerMongoDbTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDbTargetOutput)
+}
+
+// CrawlerMongoDbTargetArrayInput is an input type that accepts CrawlerMongoDbTargetArray and CrawlerMongoDbTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerMongoDbTargetArrayInput` via:
+//
+//	CrawlerMongoDbTargetArray{ CrawlerMongoDbTargetArgs{...} }
+type CrawlerMongoDbTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerMongoDbTargetArrayOutput() CrawlerMongoDbTargetArrayOutput
+	ToCrawlerMongoDbTargetArrayOutputWithContext(context.Context) CrawlerMongoDbTargetArrayOutput
+}
+
+type CrawlerMongoDbTargetArray []CrawlerMongoDbTargetInput
+
+func (CrawlerMongoDbTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerMongoDbTarget)(nil)).Elem()
+}
+
+func (i CrawlerMongoDbTargetArray) ToCrawlerMongoDbTargetArrayOutput() CrawlerMongoDbTargetArrayOutput {
+	return i.ToCrawlerMongoDbTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerMongoDbTargetArray) ToCrawlerMongoDbTargetArrayOutputWithContext(ctx context.Context) CrawlerMongoDbTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDbTargetArrayOutput)
+}
+
+// Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+type CrawlerMongoDbTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerMongoDbTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerMongoDbTarget)(nil)).Elem()
+}
+
+func (o CrawlerMongoDbTargetOutput) ToCrawlerMongoDbTargetOutput() CrawlerMongoDbTargetOutput {
+	return o
+}
+
+func (o CrawlerMongoDbTargetOutput) ToCrawlerMongoDbTargetOutputWithContext(ctx context.Context) CrawlerMongoDbTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+func (o CrawlerMongoDbTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerMongoDbTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+func (o CrawlerMongoDbTargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerMongoDbTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerMongoDbTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerMongoDbTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerMongoDbTarget)(nil)).Elem()
+}
+
+func (o CrawlerMongoDbTargetArrayOutput) ToCrawlerMongoDbTargetArrayOutput() CrawlerMongoDbTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerMongoDbTargetArrayOutput) ToCrawlerMongoDbTargetArrayOutputWithContext(ctx context.Context) CrawlerMongoDbTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerMongoDbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongoDbTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerMongoDbTarget {
+		return vs[0].([]CrawlerMongoDbTarget)[vs[1].(int)]
+	}).(CrawlerMongoDbTargetOutput)
+}
+
+// When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
+type CrawlerRecrawlPolicy struct {
+	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+	RecrawlBehavior *string `pulumi:"recrawlBehavior"`
+}
+
+// CrawlerRecrawlPolicyInput is an input type that accepts CrawlerRecrawlPolicyArgs and CrawlerRecrawlPolicyOutput values.
+// You can construct a concrete instance of `CrawlerRecrawlPolicyInput` via:
+//
+//	CrawlerRecrawlPolicyArgs{...}
+type CrawlerRecrawlPolicyInput interface {
+	pulumi.Input
+
+	ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput
+	ToCrawlerRecrawlPolicyOutputWithContext(context.Context) CrawlerRecrawlPolicyOutput
+}
+
+// When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
+type CrawlerRecrawlPolicyArgs struct {
+	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+	RecrawlBehavior pulumi.StringPtrInput `pulumi:"recrawlBehavior"`
+}
+
+func (CrawlerRecrawlPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput {
+	return i.ToCrawlerRecrawlPolicyOutputWithContext(context.Background())
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyOutput)
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return i.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyOutput).ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx)
+}
+
+// CrawlerRecrawlPolicyPtrInput is an input type that accepts CrawlerRecrawlPolicyArgs, CrawlerRecrawlPolicyPtr and CrawlerRecrawlPolicyPtrOutput values.
+// You can construct a concrete instance of `CrawlerRecrawlPolicyPtrInput` via:
+//
+//	        CrawlerRecrawlPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type CrawlerRecrawlPolicyPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput
+	ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Context) CrawlerRecrawlPolicyPtrOutput
+}
+
+type crawlerRecrawlPolicyPtrType CrawlerRecrawlPolicyArgs
+
+func CrawlerRecrawlPolicyPtr(v *CrawlerRecrawlPolicyArgs) CrawlerRecrawlPolicyPtrInput {
+	return (*crawlerRecrawlPolicyPtrType)(v)
+}
+
+func (*crawlerRecrawlPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (i *crawlerRecrawlPolicyPtrType) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return i.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerRecrawlPolicyPtrType) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyPtrOutput)
+}
+
+// When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
+type CrawlerRecrawlPolicyOutput struct{ *pulumi.OutputState }
+
+func (CrawlerRecrawlPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return o.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerRecrawlPolicy) *CrawlerRecrawlPolicy {
+		return &v
+	}).(CrawlerRecrawlPolicyPtrOutput)
+}
+
+// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+func (o CrawlerRecrawlPolicyOutput) RecrawlBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerRecrawlPolicy) *string { return v.RecrawlBehavior }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerRecrawlPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerRecrawlPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) Elem() CrawlerRecrawlPolicyOutput {
+	return o.ApplyT(func(v *CrawlerRecrawlPolicy) CrawlerRecrawlPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerRecrawlPolicy
+		return ret
+	}).(CrawlerRecrawlPolicyOutput)
+}
+
+// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerRecrawlPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecrawlBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a data store in Amazon Simple Storage Service (Amazon S3).
+type CrawlerS3Target struct {
+	// The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
+	ConnectionName *string `pulumi:"connectionName"`
+	// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
+	// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+	EventQueueArn *string `pulumi:"eventQueueArn"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions []string `pulumi:"exclusions"`
+	// The path to the Amazon S3 target.
+	Path *string `pulumi:"path"`
+	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+	SampleSize *int `pulumi:"sampleSize"`
+}
+
+// CrawlerS3TargetInput is an input type that accepts CrawlerS3TargetArgs and CrawlerS3TargetOutput values.
+// You can construct a concrete instance of `CrawlerS3TargetInput` via:
+//
+//	CrawlerS3TargetArgs{...}
+type CrawlerS3TargetInput interface {
+	pulumi.Input
+
+	ToCrawlerS3TargetOutput() CrawlerS3TargetOutput
+	ToCrawlerS3TargetOutputWithContext(context.Context) CrawlerS3TargetOutput
+}
+
+// Specifies a data store in Amazon Simple Storage Service (Amazon S3).
+type CrawlerS3TargetArgs struct {
+	// The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
+	// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// The path to the Amazon S3 target.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+}
+
+func (CrawlerS3TargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerS3Target)(nil)).Elem()
+}
+
+func (i CrawlerS3TargetArgs) ToCrawlerS3TargetOutput() CrawlerS3TargetOutput {
+	return i.ToCrawlerS3TargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerS3TargetArgs) ToCrawlerS3TargetOutputWithContext(ctx context.Context) CrawlerS3TargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerS3TargetOutput)
+}
+
+// CrawlerS3TargetArrayInput is an input type that accepts CrawlerS3TargetArray and CrawlerS3TargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerS3TargetArrayInput` via:
+//
+//	CrawlerS3TargetArray{ CrawlerS3TargetArgs{...} }
+type CrawlerS3TargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerS3TargetArrayOutput() CrawlerS3TargetArrayOutput
+	ToCrawlerS3TargetArrayOutputWithContext(context.Context) CrawlerS3TargetArrayOutput
+}
+
+type CrawlerS3TargetArray []CrawlerS3TargetInput
+
+func (CrawlerS3TargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerS3Target)(nil)).Elem()
+}
+
+func (i CrawlerS3TargetArray) ToCrawlerS3TargetArrayOutput() CrawlerS3TargetArrayOutput {
+	return i.ToCrawlerS3TargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerS3TargetArray) ToCrawlerS3TargetArrayOutputWithContext(ctx context.Context) CrawlerS3TargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerS3TargetArrayOutput)
+}
+
+// Specifies a data store in Amazon Simple Storage Service (Amazon S3).
+type CrawlerS3TargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerS3TargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerS3Target)(nil)).Elem()
+}
+
+func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutput() CrawlerS3TargetOutput {
+	return o
+}
+
+func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Context) CrawlerS3TargetOutput {
+	return o
+}
+
+// The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
+func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
+}
+
+// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
+}
+
+// A list of glob patterns used to exclude from the crawl.
+func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+// The path to the Amazon S3 target.
+func (o CrawlerS3TargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+func (o CrawlerS3TargetOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+}
+
+type CrawlerS3TargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerS3TargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerS3Target)(nil)).Elem()
+}
+
+func (o CrawlerS3TargetArrayOutput) ToCrawlerS3TargetArrayOutput() CrawlerS3TargetArrayOutput {
+	return o
+}
+
+func (o CrawlerS3TargetArrayOutput) ToCrawlerS3TargetArrayOutputWithContext(ctx context.Context) CrawlerS3TargetArrayOutput {
+	return o
+}
+
+func (o CrawlerS3TargetArrayOutput) Index(i pulumi.IntInput) CrawlerS3TargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerS3Target {
+		return vs[0].([]CrawlerS3Target)[vs[1].(int)]
+	}).(CrawlerS3TargetOutput)
+}
+
+// A scheduling object using a cron statement to schedule an event.
+type CrawlerSchedule struct {
+	// A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+}
+
+// CrawlerScheduleInput is an input type that accepts CrawlerScheduleArgs and CrawlerScheduleOutput values.
+// You can construct a concrete instance of `CrawlerScheduleInput` via:
+//
+//	CrawlerScheduleArgs{...}
+type CrawlerScheduleInput interface {
+	pulumi.Input
+
+	ToCrawlerScheduleOutput() CrawlerScheduleOutput
+	ToCrawlerScheduleOutputWithContext(context.Context) CrawlerScheduleOutput
+}
+
+// A scheduling object using a cron statement to schedule an event.
+type CrawlerScheduleArgs struct {
+	// A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
+}
+
+func (CrawlerScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerSchedule)(nil)).Elem()
+}
+
+func (i CrawlerScheduleArgs) ToCrawlerScheduleOutput() CrawlerScheduleOutput {
+	return i.ToCrawlerScheduleOutputWithContext(context.Background())
+}
+
+func (i CrawlerScheduleArgs) ToCrawlerScheduleOutputWithContext(ctx context.Context) CrawlerScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerScheduleOutput)
+}
+
+func (i CrawlerScheduleArgs) ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput {
+	return i.ToCrawlerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerScheduleArgs) ToCrawlerSchedulePtrOutputWithContext(ctx context.Context) CrawlerSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerScheduleOutput).ToCrawlerSchedulePtrOutputWithContext(ctx)
+}
+
+// CrawlerSchedulePtrInput is an input type that accepts CrawlerScheduleArgs, CrawlerSchedulePtr and CrawlerSchedulePtrOutput values.
+// You can construct a concrete instance of `CrawlerSchedulePtrInput` via:
+//
+//	        CrawlerScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type CrawlerSchedulePtrInput interface {
+	pulumi.Input
+
+	ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput
+	ToCrawlerSchedulePtrOutputWithContext(context.Context) CrawlerSchedulePtrOutput
+}
+
+type crawlerSchedulePtrType CrawlerScheduleArgs
+
+func CrawlerSchedulePtr(v *CrawlerScheduleArgs) CrawlerSchedulePtrInput {
+	return (*crawlerSchedulePtrType)(v)
+}
+
+func (*crawlerSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerSchedule)(nil)).Elem()
+}
+
+func (i *crawlerSchedulePtrType) ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput {
+	return i.ToCrawlerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerSchedulePtrType) ToCrawlerSchedulePtrOutputWithContext(ctx context.Context) CrawlerSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchedulePtrOutput)
+}
+
+// A scheduling object using a cron statement to schedule an event.
+type CrawlerScheduleOutput struct{ *pulumi.OutputState }
+
+func (CrawlerScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerSchedule)(nil)).Elem()
+}
+
+func (o CrawlerScheduleOutput) ToCrawlerScheduleOutput() CrawlerScheduleOutput {
+	return o
+}
+
+func (o CrawlerScheduleOutput) ToCrawlerScheduleOutputWithContext(ctx context.Context) CrawlerScheduleOutput {
+	return o
+}
+
+func (o CrawlerScheduleOutput) ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput {
+	return o.ToCrawlerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerScheduleOutput) ToCrawlerSchedulePtrOutputWithContext(ctx context.Context) CrawlerSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerSchedule) *CrawlerSchedule {
+		return &v
+	}).(CrawlerSchedulePtrOutput)
+}
+
+// A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+func (o CrawlerScheduleOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerSchedule) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerSchedule)(nil)).Elem()
+}
+
+func (o CrawlerSchedulePtrOutput) ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput {
+	return o
+}
+
+func (o CrawlerSchedulePtrOutput) ToCrawlerSchedulePtrOutputWithContext(ctx context.Context) CrawlerSchedulePtrOutput {
+	return o
+}
+
+func (o CrawlerSchedulePtrOutput) Elem() CrawlerScheduleOutput {
+	return o.ApplyT(func(v *CrawlerSchedule) CrawlerSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerSchedule
+		return ret
+	}).(CrawlerScheduleOutput)
+}
+
+// A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+func (o CrawlerSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
+type CrawlerSchemaChangePolicy struct {
+	// The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+	DeleteBehavior *string `pulumi:"deleteBehavior"`
+	// The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+	UpdateBehavior *string `pulumi:"updateBehavior"`
+}
+
+// CrawlerSchemaChangePolicyInput is an input type that accepts CrawlerSchemaChangePolicyArgs and CrawlerSchemaChangePolicyOutput values.
+// You can construct a concrete instance of `CrawlerSchemaChangePolicyInput` via:
+//
+//	CrawlerSchemaChangePolicyArgs{...}
+type CrawlerSchemaChangePolicyInput interface {
+	pulumi.Input
+
+	ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput
+	ToCrawlerSchemaChangePolicyOutputWithContext(context.Context) CrawlerSchemaChangePolicyOutput
+}
+
+// The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
+type CrawlerSchemaChangePolicyArgs struct {
+	// The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+	DeleteBehavior pulumi.StringPtrInput `pulumi:"deleteBehavior"`
+	// The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+	UpdateBehavior pulumi.StringPtrInput `pulumi:"updateBehavior"`
+}
+
+func (CrawlerSchemaChangePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerSchemaChangePolicy)(nil)).Elem()
+}
+
+func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput {
+	return i.ToCrawlerSchemaChangePolicyOutputWithContext(context.Background())
+}
+
+func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyOutput)
+}
+
+func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput {
+	return i.ToCrawlerSchemaChangePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyOutput).ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx)
+}
+
+// CrawlerSchemaChangePolicyPtrInput is an input type that accepts CrawlerSchemaChangePolicyArgs, CrawlerSchemaChangePolicyPtr and CrawlerSchemaChangePolicyPtrOutput values.
+// You can construct a concrete instance of `CrawlerSchemaChangePolicyPtrInput` via:
+//
+//	        CrawlerSchemaChangePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type CrawlerSchemaChangePolicyPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput
+	ToCrawlerSchemaChangePolicyPtrOutputWithContext(context.Context) CrawlerSchemaChangePolicyPtrOutput
+}
+
+type crawlerSchemaChangePolicyPtrType CrawlerSchemaChangePolicyArgs
+
+func CrawlerSchemaChangePolicyPtr(v *CrawlerSchemaChangePolicyArgs) CrawlerSchemaChangePolicyPtrInput {
+	return (*crawlerSchemaChangePolicyPtrType)(v)
+}
+
+func (*crawlerSchemaChangePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerSchemaChangePolicy)(nil)).Elem()
+}
+
+func (i *crawlerSchemaChangePolicyPtrType) ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput {
+	return i.ToCrawlerSchemaChangePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerSchemaChangePolicyPtrType) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyPtrOutput)
+}
+
+// The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
+type CrawlerSchemaChangePolicyOutput struct{ *pulumi.OutputState }
+
+func (CrawlerSchemaChangePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerSchemaChangePolicy)(nil)).Elem()
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput {
+	return o.ToCrawlerSchemaChangePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerSchemaChangePolicy) *CrawlerSchemaChangePolicy {
+		return &v
+	}).(CrawlerSchemaChangePolicyPtrOutput)
+}
+
+// The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+func (o CrawlerSchemaChangePolicyOutput) DeleteBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.DeleteBehavior }).(pulumi.StringPtrOutput)
+}
+
+// The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+func (o CrawlerSchemaChangePolicyOutput) UpdateBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.UpdateBehavior }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerSchemaChangePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerSchemaChangePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerSchemaChangePolicy)(nil)).Elem()
+}
+
+func (o CrawlerSchemaChangePolicyPtrOutput) ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyPtrOutput) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyPtrOutput) Elem() CrawlerSchemaChangePolicyOutput {
+	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) CrawlerSchemaChangePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerSchemaChangePolicy
+		return ret
+	}).(CrawlerSchemaChangePolicyOutput)
+}
+
+// The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+func (o CrawlerSchemaChangePolicyPtrOutput) DeleteBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies data stores to crawl.
+type CrawlerTargets struct {
+	// Specifies AWS Glue Data Catalog targets.
+	CatalogTargets []CrawlerCatalogTarget `pulumi:"catalogTargets"`
+	// Specifies an array of Delta data store targets.
+	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
+	// Specifies Amazon DynamoDB targets.
+	DynamoDbTargets []CrawlerDynamoDbTarget `pulumi:"dynamoDbTargets"`
+	// Specifies Apache Iceberg data store targets.
+	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
+	// Specifies JDBC targets.
+	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
+	// A list of Mongo DB targets.
+	MongoDbTargets []CrawlerMongoDbTarget `pulumi:"mongoDbTargets"`
+	// Specifies Amazon Simple Storage Service (Amazon S3) targets.
+	S3Targets []CrawlerS3Target `pulumi:"s3Targets"`
+}
+
+// CrawlerTargetsInput is an input type that accepts CrawlerTargetsArgs and CrawlerTargetsOutput values.
+// You can construct a concrete instance of `CrawlerTargetsInput` via:
+//
+//	CrawlerTargetsArgs{...}
+type CrawlerTargetsInput interface {
+	pulumi.Input
+
+	ToCrawlerTargetsOutput() CrawlerTargetsOutput
+	ToCrawlerTargetsOutputWithContext(context.Context) CrawlerTargetsOutput
+}
+
+// Specifies data stores to crawl.
+type CrawlerTargetsArgs struct {
+	// Specifies AWS Glue Data Catalog targets.
+	CatalogTargets CrawlerCatalogTargetArrayInput `pulumi:"catalogTargets"`
+	// Specifies an array of Delta data store targets.
+	DeltaTargets CrawlerDeltaTargetArrayInput `pulumi:"deltaTargets"`
+	// Specifies Amazon DynamoDB targets.
+	DynamoDbTargets CrawlerDynamoDbTargetArrayInput `pulumi:"dynamoDbTargets"`
+	// Specifies Apache Iceberg data store targets.
+	IcebergTargets CrawlerIcebergTargetArrayInput `pulumi:"icebergTargets"`
+	// Specifies JDBC targets.
+	JdbcTargets CrawlerJdbcTargetArrayInput `pulumi:"jdbcTargets"`
+	// A list of Mongo DB targets.
+	MongoDbTargets CrawlerMongoDbTargetArrayInput `pulumi:"mongoDbTargets"`
+	// Specifies Amazon Simple Storage Service (Amazon S3) targets.
+	S3Targets CrawlerS3TargetArrayInput `pulumi:"s3Targets"`
+}
+
+func (CrawlerTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerTargets)(nil)).Elem()
+}
+
+func (i CrawlerTargetsArgs) ToCrawlerTargetsOutput() CrawlerTargetsOutput {
+	return i.ToCrawlerTargetsOutputWithContext(context.Background())
+}
+
+func (i CrawlerTargetsArgs) ToCrawlerTargetsOutputWithContext(ctx context.Context) CrawlerTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerTargetsOutput)
+}
+
+// Specifies data stores to crawl.
+type CrawlerTargetsOutput struct{ *pulumi.OutputState }
+
+func (CrawlerTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerTargets)(nil)).Elem()
+}
+
+func (o CrawlerTargetsOutput) ToCrawlerTargetsOutput() CrawlerTargetsOutput {
+	return o
+}
+
+func (o CrawlerTargetsOutput) ToCrawlerTargetsOutputWithContext(ctx context.Context) CrawlerTargetsOutput {
+	return o
+}
+
+// Specifies AWS Glue Data Catalog targets.
+func (o CrawlerTargetsOutput) CatalogTargets() CrawlerCatalogTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerCatalogTarget { return v.CatalogTargets }).(CrawlerCatalogTargetArrayOutput)
+}
+
+// Specifies an array of Delta data store targets.
+func (o CrawlerTargetsOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerDeltaTarget { return v.DeltaTargets }).(CrawlerDeltaTargetArrayOutput)
+}
+
+// Specifies Amazon DynamoDB targets.
+func (o CrawlerTargetsOutput) DynamoDbTargets() CrawlerDynamoDbTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerDynamoDbTarget { return v.DynamoDbTargets }).(CrawlerDynamoDbTargetArrayOutput)
+}
+
+// Specifies Apache Iceberg data store targets.
+func (o CrawlerTargetsOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerIcebergTarget { return v.IcebergTargets }).(CrawlerIcebergTargetArrayOutput)
+}
+
+// Specifies JDBC targets.
+func (o CrawlerTargetsOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerJdbcTarget { return v.JdbcTargets }).(CrawlerJdbcTargetArrayOutput)
+}
+
+// A list of Mongo DB targets.
+func (o CrawlerTargetsOutput) MongoDbTargets() CrawlerMongoDbTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerMongoDbTarget { return v.MongoDbTargets }).(CrawlerMongoDbTargetArrayOutput)
+}
+
+// Specifies Amazon Simple Storage Service (Amazon S3) targets.
+func (o CrawlerTargetsOutput) S3Targets() CrawlerS3TargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerS3Target { return v.S3Targets }).(CrawlerS3TargetArrayOutput)
+}
+
+type CrawlerTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerTargets)(nil)).Elem()
+}
+
+func (o CrawlerTargetsPtrOutput) ToCrawlerTargetsPtrOutput() CrawlerTargetsPtrOutput {
+	return o
+}
+
+func (o CrawlerTargetsPtrOutput) ToCrawlerTargetsPtrOutputWithContext(ctx context.Context) CrawlerTargetsPtrOutput {
+	return o
+}
+
+func (o CrawlerTargetsPtrOutput) Elem() CrawlerTargetsOutput {
+	return o.ApplyT(func(v *CrawlerTargets) CrawlerTargets {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerTargets
+		return ret
+	}).(CrawlerTargetsOutput)
+}
+
+// Specifies AWS Glue Data Catalog targets.
+func (o CrawlerTargetsPtrOutput) CatalogTargets() CrawlerCatalogTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerCatalogTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogTargets
+	}).(CrawlerCatalogTargetArrayOutput)
+}
+
+// Specifies an array of Delta data store targets.
+func (o CrawlerTargetsPtrOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerDeltaTarget {
+		if v == nil {
+			return nil
+		}
+		return v.DeltaTargets
+	}).(CrawlerDeltaTargetArrayOutput)
+}
+
+// Specifies Amazon DynamoDB targets.
+func (o CrawlerTargetsPtrOutput) DynamoDbTargets() CrawlerDynamoDbTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerDynamoDbTarget {
+		if v == nil {
+			return nil
+		}
+		return v.DynamoDbTargets
+	}).(CrawlerDynamoDbTargetArrayOutput)
+}
+
+// Specifies Apache Iceberg data store targets.
+func (o CrawlerTargetsPtrOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerIcebergTarget {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergTargets
+	}).(CrawlerIcebergTargetArrayOutput)
+}
+
+// Specifies JDBC targets.
+func (o CrawlerTargetsPtrOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerJdbcTarget {
+		if v == nil {
+			return nil
+		}
+		return v.JdbcTargets
+	}).(CrawlerJdbcTargetArrayOutput)
+}
+
+// A list of Mongo DB targets.
+func (o CrawlerTargetsPtrOutput) MongoDbTargets() CrawlerMongoDbTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerMongoDbTarget {
+		if v == nil {
+			return nil
+		}
+		return v.MongoDbTargets
+	}).(CrawlerMongoDbTargetArrayOutput)
+}
+
+// Specifies Amazon Simple Storage Service (Amazon S3) targets.
+func (o CrawlerTargetsPtrOutput) S3Targets() CrawlerS3TargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerS3Target {
+		if v == nil {
+			return nil
+		}
+		return v.S3Targets
+	}).(CrawlerS3TargetArrayOutput)
+}
+
 // The AWS Lake Formation principal.
 type DatabaseDataLakePrincipal struct {
 	// An identifier for the AWS Lake Formation principal.
@@ -1947,6 +3625,29 @@ func (o TriggerPredicatePtrOutput) Logical() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetInput)(nil)).Elem(), CrawlerCatalogTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetArrayInput)(nil)).Elem(), CrawlerCatalogTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetInput)(nil)).Elem(), CrawlerDeltaTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetArrayInput)(nil)).Elem(), CrawlerDeltaTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDbTargetInput)(nil)).Elem(), CrawlerDynamoDbTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamoDbTargetArrayInput)(nil)).Elem(), CrawlerDynamoDbTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetInput)(nil)).Elem(), CrawlerIcebergTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetArrayInput)(nil)).Elem(), CrawlerIcebergTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetArrayInput)(nil)).Elem(), CrawlerJdbcTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerLakeFormationConfigurationInput)(nil)).Elem(), CrawlerLakeFormationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerLakeFormationConfigurationPtrInput)(nil)).Elem(), CrawlerLakeFormationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDbTargetInput)(nil)).Elem(), CrawlerMongoDbTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMongoDbTargetArrayInput)(nil)).Elem(), CrawlerMongoDbTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerRecrawlPolicyInput)(nil)).Elem(), CrawlerRecrawlPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerRecrawlPolicyPtrInput)(nil)).Elem(), CrawlerRecrawlPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerS3TargetInput)(nil)).Elem(), CrawlerS3TargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerS3TargetArrayInput)(nil)).Elem(), CrawlerS3TargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerScheduleInput)(nil)).Elem(), CrawlerScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerSchedulePtrInput)(nil)).Elem(), CrawlerScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerSchemaChangePolicyInput)(nil)).Elem(), CrawlerSchemaChangePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerSchemaChangePolicyPtrInput)(nil)).Elem(), CrawlerSchemaChangePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerTargetsInput)(nil)).Elem(), CrawlerTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalPtrInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseFederatedDatabaseInput)(nil)).Elem(), DatabaseFederatedDatabaseArgs{})
@@ -1971,6 +3672,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerNotificationPropertyPtrInput)(nil)).Elem(), TriggerNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateInput)(nil)).Elem(), TriggerPredicateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicatePtrInput)(nil)).Elem(), TriggerPredicateArgs{})
+	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerDeltaTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerDeltaTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerDynamoDbTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerDynamoDbTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerIcebergTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerIcebergTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerLakeFormationConfigurationOutput{})
+	pulumi.RegisterOutputType(CrawlerLakeFormationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CrawlerMongoDbTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerMongoDbTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerRecrawlPolicyOutput{})
+	pulumi.RegisterOutputType(CrawlerRecrawlPolicyPtrOutput{})
+	pulumi.RegisterOutputType(CrawlerS3TargetOutput{})
+	pulumi.RegisterOutputType(CrawlerS3TargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerScheduleOutput{})
+	pulumi.RegisterOutputType(CrawlerSchedulePtrOutput{})
+	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyOutput{})
+	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyPtrOutput{})
+	pulumi.RegisterOutputType(CrawlerTargetsOutput{})
+	pulumi.RegisterOutputType(CrawlerTargetsPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseFederatedDatabaseOutput{})

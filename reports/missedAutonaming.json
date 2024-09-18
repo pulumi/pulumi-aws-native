@@ -9599,7 +9599,8 @@
     "cfTypeName": "AWS::PCAConnectorSCEP::Challenge",
     "properties": {
       "connectorArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the connector."
       },
       "tags": {
         "type": "object",
@@ -9613,10 +9614,12 @@
     "cfTypeName": "AWS::PCAConnectorSCEP::Connector",
     "properties": {
       "certificateAuthorityArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the certificate authority associated with the connector."
       },
       "mobileDeviceManagement": {
-        "$ref": "#/types/aws-native:pcaconnectorscep:ConnectorMobileDeviceManagement"
+        "$ref": "#/types/aws-native:pcaconnectorscep:ConnectorMobileDeviceManagement",
+        "description": "Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty."
       },
       "tags": {
         "type": "object",

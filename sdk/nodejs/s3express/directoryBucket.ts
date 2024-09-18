@@ -42,6 +42,14 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Returns the code for the Availability Zone where the directory bucket was created.
+     */
+    public /*out*/ readonly availabilityZoneName!: pulumi.Output<string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+     */
+    public readonly bucketEncryption!: pulumi.Output<any | undefined>;
+    /**
      * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
      */
     public readonly bucketName!: pulumi.Output<string | undefined>;
@@ -71,12 +79,16 @@ export class DirectoryBucket extends pulumi.CustomResource {
             if ((!args || args.locationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locationName'");
             }
+            resourceInputs["bucketEncryption"] = args ? args.bucketEncryption : undefined;
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
             resourceInputs["dataRedundancy"] = args ? args.dataRedundancy : undefined;
             resourceInputs["locationName"] = args ? args.locationName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["availabilityZoneName"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["availabilityZoneName"] = undefined /*out*/;
+            resourceInputs["bucketEncryption"] = undefined /*out*/;
             resourceInputs["bucketName"] = undefined /*out*/;
             resourceInputs["dataRedundancy"] = undefined /*out*/;
             resourceInputs["locationName"] = undefined /*out*/;
@@ -92,6 +104,10 @@ export class DirectoryBucket extends pulumi.CustomResource {
  * The set of arguments for constructing a DirectoryBucket resource.
  */
 export interface DirectoryBucketArgs {
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
+     */
+    bucketEncryption?: any;
     /**
      * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
      */

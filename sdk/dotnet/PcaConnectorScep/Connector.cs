@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.PcaConnectorScep
     [AwsNativeResourceType("aws-native:pcaconnectorscep:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+        /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the connector.
+        /// </summary>
         [Output("connectorArn")]
         public Output<string> ConnectorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The connector's HTTPS public SCEP URL.
+        /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+        /// </summary>
         [Output("mobileDeviceManagement")]
         public Output<Outputs.ConnectorMobileDeviceManagement?> MobileDeviceManagement { get; private set; } = null!;
 
@@ -33,6 +45,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The connector type.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.PcaConnectorScep.ConnectorType> Type { get; private set; } = null!;
 
@@ -86,9 +101,15 @@ namespace Pulumi.AwsNative.PcaConnectorScep
 
     public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+        /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
+        /// <summary>
+        /// Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+        /// </summary>
         [Input("mobileDeviceManagement")]
         public Input<Inputs.ConnectorMobileDeviceManagementArgs>? MobileDeviceManagement { get; set; }
 

@@ -23,10 +23,12 @@ func LookupChallenge(ctx *pulumi.Context, args *LookupChallengeArgs, opts ...pul
 }
 
 type LookupChallengeArgs struct {
+	// The Amazon Resource Name (ARN) of the challenge.
 	ChallengeArn string `pulumi:"challengeArn"`
 }
 
 type LookupChallengeResult struct {
+	// The Amazon Resource Name (ARN) of the challenge.
 	ChallengeArn *string           `pulumi:"challengeArn"`
 	Tags         map[string]string `pulumi:"tags"`
 }
@@ -51,6 +53,7 @@ func LookupChallengeOutput(ctx *pulumi.Context, args LookupChallengeOutputArgs, 
 }
 
 type LookupChallengeOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the challenge.
 	ChallengeArn pulumi.StringInput `pulumi:"challengeArn"`
 }
 
@@ -72,6 +75,7 @@ func (o LookupChallengeResultOutput) ToLookupChallengeResultOutputWithContext(ct
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the challenge.
 func (o LookupChallengeResultOutput) ChallengeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChallengeResult) *string { return v.ChallengeArn }).(pulumi.StringPtrOutput)
 }

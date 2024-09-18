@@ -16,10 +16,16 @@ export function getChallenge(args: GetChallengeArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetChallengeArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the challenge.
+     */
     challengeArn: string;
 }
 
 export interface GetChallengeResult {
+    /**
+     * The Amazon Resource Name (ARN) of the challenge.
+     */
     readonly challengeArn?: string;
     readonly tags?: {[key: string]: string};
 }
@@ -31,5 +37,8 @@ export function getChallengeOutput(args: GetChallengeOutputArgs, opts?: pulumi.I
 }
 
 export interface GetChallengeOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the challenge.
+     */
     challengeArn: pulumi.Input<string>;
 }

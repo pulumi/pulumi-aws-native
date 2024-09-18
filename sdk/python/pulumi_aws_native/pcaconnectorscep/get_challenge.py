@@ -29,6 +29,9 @@ class GetChallengeResult:
     @property
     @pulumi.getter(name="challengeArn")
     def challenge_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the challenge.
+        """
         return pulumi.get(self, "challenge_arn")
 
     @property
@@ -51,6 +54,9 @@ def get_challenge(challenge_arn: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChallengeResult:
     """
     Represents a SCEP Challenge that is used for certificate enrollment
+
+
+    :param str challenge_arn: The Amazon Resource Name (ARN) of the challenge.
     """
     __args__ = dict()
     __args__['challengeArn'] = challenge_arn
@@ -67,5 +73,8 @@ def get_challenge_output(challenge_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChallengeResult]:
     """
     Represents a SCEP Challenge that is used for certificate enrollment
+
+
+    :param str challenge_arn: The Amazon Resource Name (ARN) of the challenge.
     """
     ...

@@ -22,6 +22,8 @@ class ConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
+        :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+        :param pulumi.Input['ConnectorMobileDeviceManagementArgs'] mobile_device_management: Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
         """
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if mobile_device_management is not None:
@@ -32,6 +34,9 @@ class ConnectorArgs:
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -41,6 +46,9 @@ class ConnectorArgs:
     @property
     @pulumi.getter(name="mobileDeviceManagement")
     def mobile_device_management(self) -> Optional[pulumi.Input['ConnectorMobileDeviceManagementArgs']]:
+        """
+        Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+        """
         return pulumi.get(self, "mobile_device_management")
 
     @mobile_device_management.setter
@@ -71,6 +79,8 @@ class Connector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+        :param pulumi.Input[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']] mobile_device_management: Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
         """
         ...
     @overload
@@ -153,21 +163,33 @@ class Connector(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the connector.
+        """
         return pulumi.get(self, "connector_arn")
 
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
+        """
+        The connector's HTTPS public SCEP URL.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="mobileDeviceManagement")
     def mobile_device_management(self) -> pulumi.Output[Optional['outputs.ConnectorMobileDeviceManagement']]:
+        """
+        Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+        """
         return pulumi.get(self, "mobile_device_management")
 
     @property
@@ -183,5 +205,8 @@ class Connector(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['ConnectorType']:
+        """
+        The connector type.
+        """
         return pulumi.get(self, "type")
 

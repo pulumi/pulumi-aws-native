@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     /// </summary>
     public sealed class EnvironmentActionsAwsConsoleLinkParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URI of the console link specified as part of the environment action.
+        /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 

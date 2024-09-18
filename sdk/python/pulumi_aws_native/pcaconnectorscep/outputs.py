@@ -27,6 +27,11 @@ class ConnectorOpenIdConfiguration(dict):
                  audience: Optional[str] = None,
                  issuer: Optional[str] = None,
                  subject: Optional[str] = None):
+        """
+        :param str audience: The audience value to copy into your Microsoft Entra app registration's OIDC.
+        :param str issuer: The issuer value to copy into your Microsoft Entra app registration's OIDC.
+        :param str subject: The subject value to copy into your Microsoft Entra app registration's OIDC.
+        """
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
         if issuer is not None:
@@ -37,16 +42,25 @@ class ConnectorOpenIdConfiguration(dict):
     @property
     @pulumi.getter
     def audience(self) -> Optional[str]:
+        """
+        The audience value to copy into your Microsoft Entra app registration's OIDC.
+        """
         return pulumi.get(self, "audience")
 
     @property
     @pulumi.getter
     def issuer(self) -> Optional[str]:
+        """
+        The issuer value to copy into your Microsoft Entra app registration's OIDC.
+        """
         return pulumi.get(self, "issuer")
 
     @property
     @pulumi.getter
     def subject(self) -> Optional[str]:
+        """
+        The subject value to copy into your Microsoft Entra app registration's OIDC.
+        """
         return pulumi.get(self, "subject")
 
 

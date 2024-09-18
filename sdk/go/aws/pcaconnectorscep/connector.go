@@ -16,13 +16,18 @@ import (
 type Connector struct {
 	pulumi.CustomResourceState
 
-	CertificateAuthorityArn pulumi.StringOutput                      `pulumi:"certificateAuthorityArn"`
-	ConnectorArn            pulumi.StringOutput                      `pulumi:"connectorArn"`
-	Endpoint                pulumi.StringOutput                      `pulumi:"endpoint"`
-	MobileDeviceManagement  ConnectorMobileDeviceManagementPtrOutput `pulumi:"mobileDeviceManagement"`
-	OpenIdConfiguration     ConnectorOpenIdConfigurationOutput       `pulumi:"openIdConfiguration"`
-	Tags                    pulumi.StringMapOutput                   `pulumi:"tags"`
-	Type                    ConnectorTypeOutput                      `pulumi:"type"`
+	// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
+	// The Amazon Resource Name (ARN) of the connector.
+	ConnectorArn pulumi.StringOutput `pulumi:"connectorArn"`
+	// The connector's HTTPS public SCEP URL.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+	MobileDeviceManagement ConnectorMobileDeviceManagementPtrOutput `pulumi:"mobileDeviceManagement"`
+	OpenIdConfiguration    ConnectorOpenIdConfigurationOutput       `pulumi:"openIdConfiguration"`
+	Tags                   pulumi.StringMapOutput                   `pulumi:"tags"`
+	// The connector type.
+	Type ConnectorTypeOutput `pulumi:"type"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -73,16 +78,20 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
-	CertificateAuthorityArn string                           `pulumi:"certificateAuthorityArn"`
-	MobileDeviceManagement  *ConnectorMobileDeviceManagement `pulumi:"mobileDeviceManagement"`
-	Tags                    map[string]string                `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
+	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
+	// Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+	MobileDeviceManagement *ConnectorMobileDeviceManagement `pulumi:"mobileDeviceManagement"`
+	Tags                   map[string]string                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
+	// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
 	CertificateAuthorityArn pulumi.StringInput
-	MobileDeviceManagement  ConnectorMobileDeviceManagementPtrInput
-	Tags                    pulumi.StringMapInput
+	// Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+	MobileDeviceManagement ConnectorMobileDeviceManagementPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -122,18 +131,22 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
 func (o ConnectorOutput) CertificateAuthorityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the connector.
 func (o ConnectorOutput) ConnectorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorArn }).(pulumi.StringOutput)
 }
 
+// The connector's HTTPS public SCEP URL.
 func (o ConnectorOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
 func (o ConnectorOutput) MobileDeviceManagement() ConnectorMobileDeviceManagementPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorMobileDeviceManagementPtrOutput { return v.MobileDeviceManagement }).(ConnectorMobileDeviceManagementPtrOutput)
 }
@@ -146,6 +159,7 @@ func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The connector type.
 func (o ConnectorOutput) Type() ConnectorTypeOutput {
 	return o.ApplyT(func(v *Connector) ConnectorTypeOutput { return v.Type }).(ConnectorTypeOutput)
 }

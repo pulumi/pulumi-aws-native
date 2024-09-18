@@ -75,6 +75,8 @@ export class UserPool extends pulumi.CustomResource {
      * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
      */
     public readonly deviceConfiguration!: pulumi.Output<outputs.cognito.UserPoolDeviceConfiguration | undefined>;
+    public readonly emailAuthenticationMessage!: pulumi.Output<string | undefined>;
+    public readonly emailAuthenticationSubject!: pulumi.Output<string | undefined>;
     /**
      * The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
      */
@@ -198,6 +200,8 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["autoVerifiedAttributes"] = args ? args.autoVerifiedAttributes : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["deviceConfiguration"] = args ? args.deviceConfiguration : undefined;
+            resourceInputs["emailAuthenticationMessage"] = args ? args.emailAuthenticationMessage : undefined;
+            resourceInputs["emailAuthenticationSubject"] = args ? args.emailAuthenticationSubject : undefined;
             resourceInputs["emailConfiguration"] = args ? args.emailConfiguration : undefined;
             resourceInputs["emailVerificationMessage"] = args ? args.emailVerificationMessage : undefined;
             resourceInputs["emailVerificationSubject"] = args ? args.emailVerificationSubject : undefined;
@@ -228,6 +232,8 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["autoVerifiedAttributes"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["deviceConfiguration"] = undefined /*out*/;
+            resourceInputs["emailAuthenticationMessage"] = undefined /*out*/;
+            resourceInputs["emailAuthenticationSubject"] = undefined /*out*/;
             resourceInputs["emailConfiguration"] = undefined /*out*/;
             resourceInputs["emailVerificationMessage"] = undefined /*out*/;
             resourceInputs["emailVerificationSubject"] = undefined /*out*/;
@@ -293,6 +299,8 @@ export interface UserPoolArgs {
      * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
      */
     deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfigurationArgs>;
+    emailAuthenticationMessage?: pulumi.Input<string>;
+    emailAuthenticationSubject?: pulumi.Input<string>;
     /**
      * The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
      */

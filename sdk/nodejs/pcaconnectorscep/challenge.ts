@@ -34,7 +34,13 @@ export class Challenge extends pulumi.CustomResource {
         return obj['__pulumiType'] === Challenge.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the challenge.
+     */
     public /*out*/ readonly challengeArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the connector.
+     */
     public readonly connectorArn!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -71,6 +77,9 @@ export class Challenge extends pulumi.CustomResource {
  * The set of arguments for constructing a Challenge resource.
  */
 export interface ChallengeArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the connector.
+     */
     connectorArn: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

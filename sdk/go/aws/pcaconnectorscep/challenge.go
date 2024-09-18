@@ -16,7 +16,9 @@ import (
 type Challenge struct {
 	pulumi.CustomResourceState
 
-	ChallengeArn pulumi.StringOutput    `pulumi:"challengeArn"`
+	// The Amazon Resource Name (ARN) of the challenge.
+	ChallengeArn pulumi.StringOutput `pulumi:"challengeArn"`
+	// The Amazon Resource Name (ARN) of the connector.
 	ConnectorArn pulumi.StringOutput    `pulumi:"connectorArn"`
 	Tags         pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -68,12 +70,14 @@ func (ChallengeState) ElementType() reflect.Type {
 }
 
 type challengeArgs struct {
+	// The Amazon Resource Name (ARN) of the connector.
 	ConnectorArn string            `pulumi:"connectorArn"`
 	Tags         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Challenge resource.
 type ChallengeArgs struct {
+	// The Amazon Resource Name (ARN) of the connector.
 	ConnectorArn pulumi.StringInput
 	Tags         pulumi.StringMapInput
 }
@@ -115,10 +119,12 @@ func (o ChallengeOutput) ToChallengeOutputWithContext(ctx context.Context) Chall
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the challenge.
 func (o ChallengeOutput) ChallengeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Challenge) pulumi.StringOutput { return v.ChallengeArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the connector.
 func (o ChallengeOutput) ConnectorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Challenge) pulumi.StringOutput { return v.ConnectorArn }).(pulumi.StringOutput)
 }

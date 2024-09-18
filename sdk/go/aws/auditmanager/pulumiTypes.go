@@ -238,7 +238,7 @@ func (o AssessmentAwsAccountArrayOutput) Index(i pulumi.IntInput) AssessmentAwsA
 
 // An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 type AssessmentAwsService struct {
-	// The name of the AWS-service .
+	// The name of the AWS service .
 	ServiceName *string `pulumi:"serviceName"`
 }
 
@@ -255,7 +255,7 @@ type AssessmentAwsServiceInput interface {
 
 // An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 type AssessmentAwsServiceArgs struct {
-	// The name of the AWS-service .
+	// The name of the AWS service .
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 }
 
@@ -311,7 +311,7 @@ func (o AssessmentAwsServiceOutput) ToAssessmentAwsServiceOutputWithContext(ctx 
 	return o
 }
 
-// The name of the AWS-service .
+// The name of the AWS service .
 func (o AssessmentAwsServiceOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAwsService) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }

@@ -40,11 +40,17 @@ class GetConnectorResult:
     @property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the connector.
+        """
         return pulumi.get(self, "connector_arn")
 
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[str]:
+        """
+        The connector's HTTPS public SCEP URL.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -60,6 +66,9 @@ class GetConnectorResult:
     @property
     @pulumi.getter
     def type(self) -> Optional['ConnectorType']:
+        """
+        The connector type.
+        """
         return pulumi.get(self, "type")
 
 
@@ -80,6 +89,9 @@ def get_connector(connector_arn: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
+
+
+    :param str connector_arn: The Amazon Resource Name (ARN) of the connector.
     """
     __args__ = dict()
     __args__['connectorArn'] = connector_arn
@@ -99,5 +111,8 @@ def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
+
+
+    :param str connector_arn: The Amazon Resource Name (ARN) of the connector.
     """
     ...
