@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
-    /// <summary>
-    /// Specifies an AWS Glue Data Catalog target.
-    /// </summary>
     [OutputType]
     public sealed class CrawlerCatalogTarget
     {
         /// <summary>
-        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
@@ -25,11 +22,11 @@ namespace Pulumi.AwsNative.Glue.Outputs
         /// </summary>
         public readonly string? DatabaseName;
         /// <summary>
-        /// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        /// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
         /// </summary>
         public readonly string? DlqEventQueueArn;
         /// <summary>
-        /// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        /// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
         /// </summary>
         public readonly string? EventQueueArn;
         /// <summary>

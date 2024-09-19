@@ -67,12 +67,6 @@ namespace Pulumi.AwsNative.Cognito
         [Output("deviceConfiguration")]
         public Output<Outputs.UserPoolDeviceConfiguration?> DeviceConfiguration { get; private set; } = null!;
 
-        [Output("emailAuthenticationMessage")]
-        public Output<string?> EmailAuthenticationMessage { get; private set; } = null!;
-
-        [Output("emailAuthenticationSubject")]
-        public Output<string?> EmailAuthenticationSubject { get; private set; } = null!;
-
         /// <summary>
         /// The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
         /// </summary>
@@ -322,12 +316,6 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         [Input("deviceConfiguration")]
         public Input<Inputs.UserPoolDeviceConfigurationArgs>? DeviceConfiguration { get; set; }
-
-        [Input("emailAuthenticationMessage")]
-        public Input<string>? EmailAuthenticationMessage { get; set; }
-
-        [Input("emailAuthenticationSubject")]
-        public Input<string>? EmailAuthenticationSubject { get; set; }
 
         /// <summary>
         /// The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.

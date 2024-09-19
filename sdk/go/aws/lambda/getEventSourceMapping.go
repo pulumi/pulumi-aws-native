@@ -93,7 +93,10 @@ type LookupEventSourceMappingResult struct {
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
-	Tags                       []aws.Tag                                     `pulumi:"tags"`
+	// A list of tags to add to the event source mapping.
+	//
+	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the Kafka topic.
 	Topics []string `pulumi:"topics"`
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -264,6 +267,9 @@ func (o LookupEventSourceMappingResultOutput) SourceAccessConfigurations() Event
 	}).(EventSourceMappingSourceAccessConfigurationArrayOutput)
 }
 
+// A list of tags to add to the event source mapping.
+//
+// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 func (o LookupEventSourceMappingResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

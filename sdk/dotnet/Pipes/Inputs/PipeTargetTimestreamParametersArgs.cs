@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string> TimeValue { get; set; } = null!;
 
         /// <summary>
-        /// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+        /// How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
         /// 
         /// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
         /// </summary>

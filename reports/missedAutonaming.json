@@ -8161,7 +8161,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "A list of tags to add to the event source mapping.\n\n\u003e You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update."
       },
       "topics": {
         "type": "array",

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    /// <summary>
-    /// Specifies Apache Iceberg data store targets.
-    /// </summary>
     public sealed class CrawlerIcebergTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    /// <summary>
-    /// Specifies AWS Lake Formation configuration settings for the crawler
-    /// </summary>
     public sealed class CrawlerLakeFormationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

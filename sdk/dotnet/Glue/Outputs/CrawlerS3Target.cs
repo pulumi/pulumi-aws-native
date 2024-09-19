@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
-    /// <summary>
-    /// Specifies a data store in Amazon Simple Storage Service (Amazon S3).
-    /// </summary>
     [OutputType]
     public sealed class CrawlerS3Target
     {
@@ -21,15 +18,15 @@ namespace Pulumi.AwsNative.Glue.Outputs
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
-        /// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        /// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
         /// </summary>
         public readonly string? DlqEventQueueArn;
         /// <summary>
-        /// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        /// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
         /// </summary>
         public readonly string? EventQueueArn;
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
+        /// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>

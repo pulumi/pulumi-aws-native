@@ -4085,7 +4085,7 @@ class PipeTargetTimestreamParameters(dict):
         :param 'PipeTimeFieldType' time_field_type: The type of time value used.
                
                The default is `EPOCH` .
-        :param str timestamp_format: How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+        :param str timestamp_format: How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
                
                Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
         """
@@ -4179,7 +4179,7 @@ class PipeTargetTimestreamParameters(dict):
     @pulumi.getter(name="timestampFormat")
     def timestamp_format(self) -> Optional[str]:
         """
-        How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+        How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
 
         Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
         """

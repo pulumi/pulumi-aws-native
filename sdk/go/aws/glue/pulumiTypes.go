@@ -13,15 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Specifies an AWS Glue Data Catalog target.
 type CrawlerCatalogTarget struct {
-	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
 	ConnectionName *string `pulumi:"connectionName"`
 	// The name of the database to be synchronized.
 	DatabaseName *string `pulumi:"databaseName"`
-	// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+	// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+	// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
 	EventQueueArn *string `pulumi:"eventQueueArn"`
 	// A list of the tables to be synchronized.
 	Tables []string `pulumi:"tables"`
@@ -38,15 +37,14 @@ type CrawlerCatalogTargetInput interface {
 	ToCrawlerCatalogTargetOutputWithContext(context.Context) CrawlerCatalogTargetOutput
 }
 
-// Specifies an AWS Glue Data Catalog target.
 type CrawlerCatalogTargetArgs struct {
-	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// The name of the database to be synchronized.
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+	// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+	// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
 	// A list of the tables to be synchronized.
 	Tables pulumi.StringArrayInput `pulumi:"tables"`
@@ -89,7 +87,6 @@ func (i CrawlerCatalogTargetArray) ToCrawlerCatalogTargetArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerCatalogTargetArrayOutput)
 }
 
-// Specifies an AWS Glue Data Catalog target.
 type CrawlerCatalogTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerCatalogTargetOutput) ElementType() reflect.Type {
@@ -104,7 +101,7 @@ func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutputWithContext(ctx 
 	return o
 }
 
-// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
 func (o CrawlerCatalogTargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
@@ -114,12 +111,12 @@ func (o CrawlerCatalogTargetOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 func (o CrawlerCatalogTargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
 func (o CrawlerCatalogTargetOutput) EventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +146,6 @@ func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalog
 	}).(CrawlerCatalogTargetOutput)
 }
 
-// Specifies a Delta data store to crawl one or more Delta tables.
 type CrawlerDeltaTarget struct {
 	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName *string `pulumi:"connectionName"`
@@ -172,7 +168,6 @@ type CrawlerDeltaTargetInput interface {
 	ToCrawlerDeltaTargetOutputWithContext(context.Context) CrawlerDeltaTargetOutput
 }
 
-// Specifies a Delta data store to crawl one or more Delta tables.
 type CrawlerDeltaTargetArgs struct {
 	// The name of the connection to use to connect to the Delta table target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
@@ -221,7 +216,6 @@ func (i CrawlerDeltaTargetArray) ToCrawlerDeltaTargetArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDeltaTargetArrayOutput)
 }
 
-// Specifies a Delta data store to crawl one or more Delta tables.
 type CrawlerDeltaTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerDeltaTargetOutput) ElementType() reflect.Type {
@@ -276,7 +270,6 @@ func (o CrawlerDeltaTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDeltaTarg
 	}).(CrawlerDeltaTargetOutput)
 }
 
-// Specifies an Amazon DynamoDB table to crawl.
 type CrawlerDynamoDbTarget struct {
 	// The name of the DynamoDB table to crawl.
 	Path *string `pulumi:"path"`
@@ -293,7 +286,6 @@ type CrawlerDynamoDbTargetInput interface {
 	ToCrawlerDynamoDbTargetOutputWithContext(context.Context) CrawlerDynamoDbTargetOutput
 }
 
-// Specifies an Amazon DynamoDB table to crawl.
 type CrawlerDynamoDbTargetArgs struct {
 	// The name of the DynamoDB table to crawl.
 	Path pulumi.StringPtrInput `pulumi:"path"`
@@ -336,7 +328,6 @@ func (i CrawlerDynamoDbTargetArray) ToCrawlerDynamoDbTargetArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDbTargetArrayOutput)
 }
 
-// Specifies an Amazon DynamoDB table to crawl.
 type CrawlerDynamoDbTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerDynamoDbTargetOutput) ElementType() reflect.Type {
@@ -376,7 +367,6 @@ func (o CrawlerDynamoDbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 	}).(CrawlerDynamoDbTargetOutput)
 }
 
-// Specifies Apache Iceberg data store targets.
 type CrawlerIcebergTarget struct {
 	// The name of the connection to use to connect to the Iceberg target.
 	ConnectionName *string `pulumi:"connectionName"`
@@ -399,7 +389,6 @@ type CrawlerIcebergTargetInput interface {
 	ToCrawlerIcebergTargetOutputWithContext(context.Context) CrawlerIcebergTargetOutput
 }
 
-// Specifies Apache Iceberg data store targets.
 type CrawlerIcebergTargetArgs struct {
 	// The name of the connection to use to connect to the Iceberg target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
@@ -448,7 +437,6 @@ func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetArrayOutput)
 }
 
-// Specifies Apache Iceberg data store targets.
 type CrawlerIcebergTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerIcebergTargetOutput) ElementType() reflect.Type {
@@ -503,15 +491,14 @@ func (o CrawlerIcebergTargetArrayOutput) Index(i pulumi.IntInput) CrawlerIceberg
 	}).(CrawlerIcebergTargetOutput)
 }
 
-// Specifies a JDBC data store to crawl.
 type CrawlerJdbcTarget struct {
 	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName *string `pulumi:"connectionName"`
-	// Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+	// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata in table responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
 	//
 	// If you do not need additional metadata, keep the field empty.
 	EnableAdditionalMetadata []string `pulumi:"enableAdditionalMetadata"`
-	// A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+	// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
 	Exclusions []string `pulumi:"exclusions"`
 	// The path of the JDBC target.
 	Path *string `pulumi:"path"`
@@ -528,15 +515,14 @@ type CrawlerJdbcTargetInput interface {
 	ToCrawlerJdbcTargetOutputWithContext(context.Context) CrawlerJdbcTargetOutput
 }
 
-// Specifies a JDBC data store to crawl.
 type CrawlerJdbcTargetArgs struct {
 	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+	// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata in table responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
 	//
 	// If you do not need additional metadata, keep the field empty.
 	EnableAdditionalMetadata pulumi.StringArrayInput `pulumi:"enableAdditionalMetadata"`
-	// A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+	// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
 	// The path of the JDBC target.
 	Path pulumi.StringPtrInput `pulumi:"path"`
@@ -579,7 +565,6 @@ func (i CrawlerJdbcTargetArray) ToCrawlerJdbcTargetArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerJdbcTargetArrayOutput)
 }
 
-// Specifies a JDBC data store to crawl.
 type CrawlerJdbcTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerJdbcTargetOutput) ElementType() reflect.Type {
@@ -599,14 +584,14 @@ func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata in table responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
 //
 // If you do not need additional metadata, keep the field empty.
 func (o CrawlerJdbcTargetOutput) EnableAdditionalMetadata() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.EnableAdditionalMetadata }).(pulumi.StringArrayOutput)
 }
 
-// A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
 func (o CrawlerJdbcTargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
@@ -636,7 +621,6 @@ func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTarget
 	}).(CrawlerJdbcTargetOutput)
 }
 
-// Specifies AWS Lake Formation configuration settings for the crawler
 type CrawlerLakeFormationConfiguration struct {
 	// Required for cross account crawls. For same account crawls as the target data, this can be left as null.
 	AccountId *string `pulumi:"accountId"`
@@ -655,7 +639,6 @@ type CrawlerLakeFormationConfigurationInput interface {
 	ToCrawlerLakeFormationConfigurationOutputWithContext(context.Context) CrawlerLakeFormationConfigurationOutput
 }
 
-// Specifies AWS Lake Formation configuration settings for the crawler
 type CrawlerLakeFormationConfigurationArgs struct {
 	// Required for cross account crawls. For same account crawls as the target data, this can be left as null.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
@@ -716,7 +699,6 @@ func (i *crawlerLakeFormationConfigurationPtrType) ToCrawlerLakeFormationConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerLakeFormationConfigurationPtrOutput)
 }
 
-// Specifies AWS Lake Formation configuration settings for the crawler
 type CrawlerLakeFormationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CrawlerLakeFormationConfigurationOutput) ElementType() reflect.Type {
@@ -795,7 +777,6 @@ func (o CrawlerLakeFormationConfigurationPtrOutput) UseLakeFormationCredentials(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon DocumentDB or MongoDB data store to crawl.
 type CrawlerMongoDbTarget struct {
 	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName *string `pulumi:"connectionName"`
@@ -814,7 +795,6 @@ type CrawlerMongoDbTargetInput interface {
 	ToCrawlerMongoDbTargetOutputWithContext(context.Context) CrawlerMongoDbTargetOutput
 }
 
-// Specifies an Amazon DocumentDB or MongoDB data store to crawl.
 type CrawlerMongoDbTargetArgs struct {
 	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
@@ -859,7 +839,6 @@ func (i CrawlerMongoDbTargetArray) ToCrawlerMongoDbTargetArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMongoDbTargetArrayOutput)
 }
 
-// Specifies an Amazon DocumentDB or MongoDB data store to crawl.
 type CrawlerMongoDbTargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerMongoDbTargetOutput) ElementType() reflect.Type {
@@ -904,9 +883,14 @@ func (o CrawlerMongoDbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongoDb
 	}).(CrawlerMongoDbTargetOutput)
 }
 
-// When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
 type CrawlerRecrawlPolicy struct {
-	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+	//
+	// A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
+	//
+	// A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
+	//
+	// A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
 	RecrawlBehavior *string `pulumi:"recrawlBehavior"`
 }
 
@@ -921,9 +905,14 @@ type CrawlerRecrawlPolicyInput interface {
 	ToCrawlerRecrawlPolicyOutputWithContext(context.Context) CrawlerRecrawlPolicyOutput
 }
 
-// When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
 type CrawlerRecrawlPolicyArgs struct {
-	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+	//
+	// A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
+	//
+	// A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
+	//
+	// A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
 	RecrawlBehavior pulumi.StringPtrInput `pulumi:"recrawlBehavior"`
 }
 
@@ -980,7 +969,6 @@ func (i *crawlerRecrawlPolicyPtrType) ToCrawlerRecrawlPolicyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyPtrOutput)
 }
 
-// When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
 type CrawlerRecrawlPolicyOutput struct{ *pulumi.OutputState }
 
 func (CrawlerRecrawlPolicyOutput) ElementType() reflect.Type {
@@ -1005,7 +993,13 @@ func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(c
 	}).(CrawlerRecrawlPolicyPtrOutput)
 }
 
-// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+//
+// A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
+//
+// A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
+//
+// A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
 func (o CrawlerRecrawlPolicyOutput) RecrawlBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerRecrawlPolicy) *string { return v.RecrawlBehavior }).(pulumi.StringPtrOutput)
 }
@@ -1034,7 +1028,13 @@ func (o CrawlerRecrawlPolicyPtrOutput) Elem() CrawlerRecrawlPolicyOutput {
 	}).(CrawlerRecrawlPolicyOutput)
 }
 
-// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+//
+// A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
+//
+// A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
+//
+// A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
 func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerRecrawlPolicy) *string {
 		if v == nil {
@@ -1044,15 +1044,14 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a data store in Amazon Simple Storage Service (Amazon S3).
 type CrawlerS3Target struct {
 	// The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
 	ConnectionName *string `pulumi:"connectionName"`
-	// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+	// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+	// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
 	EventQueueArn *string `pulumi:"eventQueueArn"`
-	// A list of glob patterns used to exclude from the crawl.
+	// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
 	Exclusions []string `pulumi:"exclusions"`
 	// The path to the Amazon S3 target.
 	Path *string `pulumi:"path"`
@@ -1071,15 +1070,14 @@ type CrawlerS3TargetInput interface {
 	ToCrawlerS3TargetOutputWithContext(context.Context) CrawlerS3TargetOutput
 }
 
-// Specifies a data store in Amazon Simple Storage Service (Amazon S3).
 type CrawlerS3TargetArgs struct {
 	// The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+	// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+	// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
-	// A list of glob patterns used to exclude from the crawl.
+	// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
 	// The path to the Amazon S3 target.
 	Path pulumi.StringPtrInput `pulumi:"path"`
@@ -1124,7 +1122,6 @@ func (i CrawlerS3TargetArray) ToCrawlerS3TargetArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerS3TargetArrayOutput)
 }
 
-// Specifies a data store in Amazon Simple Storage Service (Amazon S3).
 type CrawlerS3TargetOutput struct{ *pulumi.OutputState }
 
 func (CrawlerS3TargetOutput) ElementType() reflect.Type {
@@ -1144,17 +1141,17 @@ func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
 func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
 func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// A list of glob patterns used to exclude from the crawl.
+// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
 func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
@@ -1189,9 +1186,8 @@ func (o CrawlerS3TargetArrayOutput) Index(i pulumi.IntInput) CrawlerS3TargetOutp
 	}).(CrawlerS3TargetOutput)
 }
 
-// A scheduling object using a cron statement to schedule an event.
 type CrawlerSchedule struct {
-	// A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+	// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 }
 
@@ -1206,9 +1202,8 @@ type CrawlerScheduleInput interface {
 	ToCrawlerScheduleOutputWithContext(context.Context) CrawlerScheduleOutput
 }
 
-// A scheduling object using a cron statement to schedule an event.
 type CrawlerScheduleArgs struct {
-	// A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+	// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
 	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
 
@@ -1265,7 +1260,6 @@ func (i *crawlerSchedulePtrType) ToCrawlerSchedulePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchedulePtrOutput)
 }
 
-// A scheduling object using a cron statement to schedule an event.
 type CrawlerScheduleOutput struct{ *pulumi.OutputState }
 
 func (CrawlerScheduleOutput) ElementType() reflect.Type {
@@ -1290,7 +1284,7 @@ func (o CrawlerScheduleOutput) ToCrawlerSchedulePtrOutputWithContext(ctx context
 	}).(CrawlerSchedulePtrOutput)
 }
 
-// A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
 func (o CrawlerScheduleOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerSchedule) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
@@ -1319,7 +1313,7 @@ func (o CrawlerSchedulePtrOutput) Elem() CrawlerScheduleOutput {
 	}).(CrawlerScheduleOutput)
 }
 
-// A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+// A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
 func (o CrawlerSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerSchedule) *string {
 		if v == nil {
@@ -1329,11 +1323,20 @@ func (o CrawlerSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
 type CrawlerSchemaChangePolicy struct {
-	// The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+	// The deletion behavior when the crawler finds a deleted object.
+	//
+	// A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
+	//
+	// A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
+	//
+	// A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
 	DeleteBehavior *string `pulumi:"deleteBehavior"`
-	// The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+	// The update behavior when the crawler finds a changed schema.
+	//
+	// A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
+	//
+	// A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
 	UpdateBehavior *string `pulumi:"updateBehavior"`
 }
 
@@ -1348,11 +1351,20 @@ type CrawlerSchemaChangePolicyInput interface {
 	ToCrawlerSchemaChangePolicyOutputWithContext(context.Context) CrawlerSchemaChangePolicyOutput
 }
 
-// The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
 type CrawlerSchemaChangePolicyArgs struct {
-	// The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+	// The deletion behavior when the crawler finds a deleted object.
+	//
+	// A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
+	//
+	// A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
+	//
+	// A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
 	DeleteBehavior pulumi.StringPtrInput `pulumi:"deleteBehavior"`
-	// The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+	// The update behavior when the crawler finds a changed schema.
+	//
+	// A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
+	//
+	// A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
 	UpdateBehavior pulumi.StringPtrInput `pulumi:"updateBehavior"`
 }
 
@@ -1409,7 +1421,6 @@ func (i *crawlerSchemaChangePolicyPtrType) ToCrawlerSchemaChangePolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyPtrOutput)
 }
 
-// The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
 type CrawlerSchemaChangePolicyOutput struct{ *pulumi.OutputState }
 
 func (CrawlerSchemaChangePolicyOutput) ElementType() reflect.Type {
@@ -1434,12 +1445,22 @@ func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutputWit
 	}).(CrawlerSchemaChangePolicyPtrOutput)
 }
 
-// The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+// The deletion behavior when the crawler finds a deleted object.
+//
+// A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
+//
+// A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
+//
+// A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
 func (o CrawlerSchemaChangePolicyOutput) DeleteBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.DeleteBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+// The update behavior when the crawler finds a changed schema.
+//
+// A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
+//
+// A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
 func (o CrawlerSchemaChangePolicyOutput) UpdateBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.UpdateBehavior }).(pulumi.StringPtrOutput)
 }
@@ -1468,7 +1489,13 @@ func (o CrawlerSchemaChangePolicyPtrOutput) Elem() CrawlerSchemaChangePolicyOutp
 	}).(CrawlerSchemaChangePolicyOutput)
 }
 
-// The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+// The deletion behavior when the crawler finds a deleted object.
+//
+// A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
+//
+// A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
+//
+// A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
 func (o CrawlerSchemaChangePolicyPtrOutput) DeleteBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) *string {
 		if v == nil {
@@ -1478,7 +1505,11 @@ func (o CrawlerSchemaChangePolicyPtrOutput) DeleteBehavior() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+// The update behavior when the crawler finds a changed schema.
+//
+// A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
+//
+// A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
 func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) *string {
 		if v == nil {
@@ -1488,7 +1519,6 @@ func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies data stores to crawl.
 type CrawlerTargets struct {
 	// Specifies AWS Glue Data Catalog targets.
 	CatalogTargets []CrawlerCatalogTarget `pulumi:"catalogTargets"`
@@ -1517,7 +1547,6 @@ type CrawlerTargetsInput interface {
 	ToCrawlerTargetsOutputWithContext(context.Context) CrawlerTargetsOutput
 }
 
-// Specifies data stores to crawl.
 type CrawlerTargetsArgs struct {
 	// Specifies AWS Glue Data Catalog targets.
 	CatalogTargets CrawlerCatalogTargetArrayInput `pulumi:"catalogTargets"`
@@ -1547,7 +1576,6 @@ func (i CrawlerTargetsArgs) ToCrawlerTargetsOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerTargetsOutput)
 }
 
-// Specifies data stores to crawl.
 type CrawlerTargetsOutput struct{ *pulumi.OutputState }
 
 func (CrawlerTargetsOutput) ElementType() reflect.Type {

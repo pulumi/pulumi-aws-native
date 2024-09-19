@@ -27,11 +27,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetCrawlerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the crawler.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetCrawlerArgs()
         {
@@ -41,11 +38,8 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class GetCrawlerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the crawler.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetCrawlerInvokeArgs()
         {
@@ -62,11 +56,11 @@ namespace Pulumi.AwsNative.Glue
         /// </summary>
         public readonly ImmutableArray<string> Classifiers;
         /// <summary>
-        /// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+        /// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
         /// </summary>
         public readonly string? Configuration;
         /// <summary>
-        /// The name of the SecurityConfiguration structure to be used by this crawler.
+        /// The name of the `SecurityConfiguration` structure to be used by this crawler.
         /// </summary>
         public readonly string? CrawlerSecurityConfiguration;
         /// <summary>
@@ -77,6 +71,7 @@ namespace Pulumi.AwsNative.Glue
         /// A description of the crawler.
         /// </summary>
         public readonly string? Description;
+        public readonly string? Id;
         /// <summary>
         /// Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
         /// </summary>
@@ -126,6 +121,8 @@ namespace Pulumi.AwsNative.Glue
 
             string? description,
 
+            string? id,
+
             Outputs.CrawlerLakeFormationConfiguration? lakeFormationConfiguration,
 
             Outputs.CrawlerRecrawlPolicy? recrawlPolicy,
@@ -147,6 +144,7 @@ namespace Pulumi.AwsNative.Glue
             CrawlerSecurityConfiguration = crawlerSecurityConfiguration;
             DatabaseName = databaseName;
             Description = description;
+            Id = id;
             LakeFormationConfiguration = lakeFormationConfiguration;
             RecrawlPolicy = recrawlPolicy;
             Role = role;

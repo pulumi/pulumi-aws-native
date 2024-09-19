@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// </summary>
         public readonly string TimeValue;
         /// <summary>
-        /// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+        /// How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
         /// 
         /// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
         /// </summary>

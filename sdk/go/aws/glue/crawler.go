@@ -16,11 +16,12 @@ import (
 type Crawler struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
 	Classifiers pulumi.StringArrayOutput `pulumi:"classifiers"`
-	// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+	// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
 	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
-	// The name of the SecurityConfiguration structure to be used by this crawler.
+	// The name of the `SecurityConfiguration` structure to be used by this crawler.
 	CrawlerSecurityConfiguration pulumi.StringPtrOutput `pulumi:"crawlerSecurityConfiguration"`
 	// The name of the database in which the crawler's output is stored.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
@@ -102,9 +103,9 @@ func (CrawlerState) ElementType() reflect.Type {
 type crawlerArgs struct {
 	// A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
 	Classifiers []string `pulumi:"classifiers"`
-	// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+	// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
 	Configuration *string `pulumi:"configuration"`
-	// The name of the SecurityConfiguration structure to be used by this crawler.
+	// The name of the `SecurityConfiguration` structure to be used by this crawler.
 	CrawlerSecurityConfiguration *string `pulumi:"crawlerSecurityConfiguration"`
 	// The name of the database in which the crawler's output is stored.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -138,9 +139,9 @@ type crawlerArgs struct {
 type CrawlerArgs struct {
 	// A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
 	Classifiers pulumi.StringArrayInput
-	// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+	// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
 	Configuration pulumi.StringPtrInput
-	// The name of the SecurityConfiguration structure to be used by this crawler.
+	// The name of the `SecurityConfiguration` structure to be used by this crawler.
 	CrawlerSecurityConfiguration pulumi.StringPtrInput
 	// The name of the database in which the crawler's output is stored.
 	DatabaseName pulumi.StringPtrInput
@@ -207,17 +208,21 @@ func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOu
 	return o
 }
 
+func (o CrawlerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
 // A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
 func (o CrawlerOutput) Classifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringArrayOutput { return v.Classifiers }).(pulumi.StringArrayOutput)
 }
 
-// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
 func (o CrawlerOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SecurityConfiguration structure to be used by this crawler.
+// The name of the `SecurityConfiguration` structure to be used by this crawler.
 func (o CrawlerOutput) CrawlerSecurityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.CrawlerSecurityConfiguration }).(pulumi.StringPtrOutput)
 }

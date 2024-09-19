@@ -162,6 +162,11 @@ namespace Pulumi.AwsNative.Lambda
         /// An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> SourceAccessConfigurations;
+        /// <summary>
+        /// A list of tags to add to the event source mapping.
+        /// 
+        /// &gt; You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The name of the Kafka topic.

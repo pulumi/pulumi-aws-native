@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:Crawler")]
     public partial class Crawler : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
         /// </summary>
@@ -22,13 +25,13 @@ namespace Pulumi.AwsNative.Glue
         public Output<ImmutableArray<string>> Classifiers { get; private set; } = null!;
 
         /// <summary>
-        /// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+        /// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
         /// </summary>
         [Output("configuration")]
         public Output<string?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SecurityConfiguration structure to be used by this crawler.
+        /// The name of the `SecurityConfiguration` structure to be used by this crawler.
         /// </summary>
         [Output("crawlerSecurityConfiguration")]
         public Output<string?> CrawlerSecurityConfiguration { get; private set; } = null!;
@@ -165,13 +168,13 @@ namespace Pulumi.AwsNative.Glue
         }
 
         /// <summary>
-        /// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+        /// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
         /// </summary>
         [Input("configuration")]
         public Input<string>? Configuration { get; set; }
 
         /// <summary>
-        /// The name of the SecurityConfiguration structure to be used by this crawler.
+        /// The name of the `SecurityConfiguration` structure to be used by this crawler.
         /// </summary>
         [Input("crawlerSecurityConfiguration")]
         public Input<string>? CrawlerSecurityConfiguration { get; set; }

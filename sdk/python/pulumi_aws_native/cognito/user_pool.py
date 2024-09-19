@@ -22,8 +22,6 @@ class UserPoolArgs:
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']] = None,
-                 email_authentication_message: Optional[pulumi.Input[str]] = None,
-                 email_authentication_subject: Optional[pulumi.Input[str]] = None,
                  email_configuration: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
                  email_verification_subject: Optional[pulumi.Input[str]] = None,
@@ -112,10 +110,6 @@ class UserPoolArgs:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if device_configuration is not None:
             pulumi.set(__self__, "device_configuration", device_configuration)
-        if email_authentication_message is not None:
-            pulumi.set(__self__, "email_authentication_message", email_authentication_message)
-        if email_authentication_subject is not None:
-            pulumi.set(__self__, "email_authentication_subject", email_authentication_subject)
         if email_configuration is not None:
             pulumi.set(__self__, "email_configuration", email_configuration)
         if email_verification_message is not None:
@@ -234,24 +228,6 @@ class UserPoolArgs:
     @device_configuration.setter
     def device_configuration(self, value: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]):
         pulumi.set(self, "device_configuration", value)
-
-    @property
-    @pulumi.getter(name="emailAuthenticationMessage")
-    def email_authentication_message(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "email_authentication_message")
-
-    @email_authentication_message.setter
-    def email_authentication_message(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "email_authentication_message", value)
-
-    @property
-    @pulumi.getter(name="emailAuthenticationSubject")
-    def email_authentication_subject(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "email_authentication_subject")
-
-    @email_authentication_subject.setter
-    def email_authentication_subject(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "email_authentication_subject", value)
 
     @property
     @pulumi.getter(name="emailConfiguration")
@@ -502,8 +478,6 @@ class UserPool(pulumi.CustomResource):
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']]] = None,
-                 email_authentication_message: Optional[pulumi.Input[str]] = None,
-                 email_authentication_subject: Optional[pulumi.Input[str]] = None,
                  email_configuration: Optional[pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']]] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
                  email_verification_subject: Optional[pulumi.Input[str]] = None,
@@ -614,8 +588,6 @@ class UserPool(pulumi.CustomResource):
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input[Union['UserPoolDeviceConfigurationArgs', 'UserPoolDeviceConfigurationArgsDict']]] = None,
-                 email_authentication_message: Optional[pulumi.Input[str]] = None,
-                 email_authentication_subject: Optional[pulumi.Input[str]] = None,
                  email_configuration: Optional[pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']]] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
                  email_verification_subject: Optional[pulumi.Input[str]] = None,
@@ -649,8 +621,6 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["auto_verified_attributes"] = auto_verified_attributes
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["device_configuration"] = device_configuration
-            __props__.__dict__["email_authentication_message"] = email_authentication_message
-            __props__.__dict__["email_authentication_subject"] = email_authentication_subject
             __props__.__dict__["email_configuration"] = email_configuration
             __props__.__dict__["email_verification_message"] = email_verification_message
             __props__.__dict__["email_verification_subject"] = email_verification_subject
@@ -702,8 +672,6 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["auto_verified_attributes"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["device_configuration"] = None
-        __props__.__dict__["email_authentication_message"] = None
-        __props__.__dict__["email_authentication_subject"] = None
         __props__.__dict__["email_configuration"] = None
         __props__.__dict__["email_verification_message"] = None
         __props__.__dict__["email_verification_subject"] = None
@@ -792,16 +760,6 @@ class UserPool(pulumi.CustomResource):
         > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
         """
         return pulumi.get(self, "device_configuration")
-
-    @property
-    @pulumi.getter(name="emailAuthenticationMessage")
-    def email_authentication_message(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "email_authentication_message")
-
-    @property
-    @pulumi.getter(name="emailAuthenticationSubject")
-    def email_authentication_subject(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "email_authentication_subject")
 
     @property
     @pulumi.getter(name="emailConfiguration")

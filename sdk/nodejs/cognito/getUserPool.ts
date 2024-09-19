@@ -64,8 +64,6 @@ export interface GetUserPoolResult {
      * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
      */
     readonly deviceConfiguration?: outputs.cognito.UserPoolDeviceConfiguration;
-    readonly emailAuthenticationMessage?: string;
-    readonly emailAuthenticationSubject?: string;
     /**
      * The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
      */

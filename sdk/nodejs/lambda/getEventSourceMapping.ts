@@ -123,6 +123,11 @@ export interface GetEventSourceMappingResult {
      * An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
      */
     readonly sourceAccessConfigurations?: outputs.lambda.EventSourceMappingSourceAccessConfiguration[];
+    /**
+     * A list of tags to add to the event source mapping.
+     *
+     * > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * The name of the Kafka topic.

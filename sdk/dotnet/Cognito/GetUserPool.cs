@@ -95,8 +95,6 @@ namespace Pulumi.AwsNative.Cognito
         /// &gt; When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
         /// </summary>
         public readonly Outputs.UserPoolDeviceConfiguration? DeviceConfiguration;
-        public readonly string? EmailAuthenticationMessage;
-        public readonly string? EmailAuthenticationSubject;
         /// <summary>
         /// The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
         /// </summary>
@@ -210,10 +208,6 @@ namespace Pulumi.AwsNative.Cognito
 
             Outputs.UserPoolDeviceConfiguration? deviceConfiguration,
 
-            string? emailAuthenticationMessage,
-
-            string? emailAuthenticationSubject,
-
             Outputs.UserPoolEmailConfiguration? emailConfiguration,
 
             string? emailVerificationMessage,
@@ -261,8 +255,6 @@ namespace Pulumi.AwsNative.Cognito
             AutoVerifiedAttributes = autoVerifiedAttributes;
             DeletionProtection = deletionProtection;
             DeviceConfiguration = deviceConfiguration;
-            EmailAuthenticationMessage = emailAuthenticationMessage;
-            EmailAuthenticationSubject = emailAuthenticationSubject;
             EmailConfiguration = emailConfiguration;
             EmailVerificationMessage = emailVerificationMessage;
             EmailVerificationSubject = emailVerificationSubject;

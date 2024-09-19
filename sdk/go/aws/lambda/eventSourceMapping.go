@@ -102,7 +102,10 @@ type EventSourceMapping struct {
 	StartingPosition pulumi.StringPtrOutput `pulumi:"startingPosition"`
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp pulumi.Float64PtrOutput `pulumi:"startingPositionTimestamp"`
-	Tags                      aws.TagArrayOutput      `pulumi:"tags"`
+	// A list of tags to add to the event source mapping.
+	//
+	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the Kafka topic.
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -233,8 +236,11 @@ type eventSourceMappingArgs struct {
 	//   +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
 	StartingPosition *string `pulumi:"startingPosition"`
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
-	StartingPositionTimestamp *float64  `pulumi:"startingPositionTimestamp"`
-	Tags                      []aws.Tag `pulumi:"tags"`
+	StartingPositionTimestamp *float64 `pulumi:"startingPositionTimestamp"`
+	// A list of tags to add to the event source mapping.
+	//
+	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the Kafka topic.
 	Topics []string `pulumi:"topics"`
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -316,7 +322,10 @@ type EventSourceMappingArgs struct {
 	StartingPosition pulumi.StringPtrInput
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp pulumi.Float64PtrInput
-	Tags                      aws.TagArrayInput
+	// A list of tags to add to the event source mapping.
+	//
+	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	Tags aws.TagArrayInput
 	// The name of the Kafka topic.
 	Topics pulumi.StringArrayInput
 	// (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
@@ -525,6 +534,9 @@ func (o EventSourceMappingOutput) StartingPositionTimestamp() pulumi.Float64PtrO
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.Float64PtrOutput { return v.StartingPositionTimestamp }).(pulumi.Float64PtrOutput)
 }
 
+// A list of tags to add to the event source mapping.
+//
+// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 func (o EventSourceMappingOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EventSourceMapping) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

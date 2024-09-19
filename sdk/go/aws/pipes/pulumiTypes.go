@@ -10380,7 +10380,7 @@ type PipeTargetTimestreamParameters struct {
 	TimeFieldType *PipeTimeFieldType `pulumi:"timeFieldType"`
 	// Dynamic path to the source data field that represents the time value for your data.
 	TimeValue string `pulumi:"timeValue"`
-	// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+	// How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
 	//
 	// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
 	TimestampFormat *string `pulumi:"timestampFormat"`
@@ -10428,7 +10428,7 @@ type PipeTargetTimestreamParametersArgs struct {
 	TimeFieldType PipeTimeFieldTypePtrInput `pulumi:"timeFieldType"`
 	// Dynamic path to the source data field that represents the time value for your data.
 	TimeValue pulumi.StringInput `pulumi:"timeValue"`
-	// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+	// How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
 	//
 	// Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
 	TimestampFormat pulumi.StringPtrInput `pulumi:"timestampFormat"`
@@ -10559,7 +10559,7 @@ func (o PipeTargetTimestreamParametersOutput) TimeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetTimestreamParameters) string { return v.TimeValue }).(pulumi.StringOutput)
 }
 
-// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+// How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
 //
 // Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
 func (o PipeTargetTimestreamParametersOutput) TimestampFormat() pulumi.StringPtrOutput {
@@ -10671,7 +10671,7 @@ func (o PipeTargetTimestreamParametersPtrOutput) TimeValue() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// How to format the timestamps. For example, `YYYY-MM-DDThh:mm:ss.sssTZD` .
+// How to format the timestamps. For example, `yyyy-MM-dd'T'HH:mm:ss'Z'` .
 //
 // Required if `TimeFieldType` is specified as `TIMESTAMP_FORMAT` .
 func (o PipeTargetTimestreamParametersPtrOutput) TimestampFormat() pulumi.StringPtrOutput {

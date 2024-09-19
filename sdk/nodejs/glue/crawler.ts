@@ -37,16 +37,17 @@ export class Crawler extends pulumi.CustomResource {
         return obj['__pulumiType'] === Crawler.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
      */
     public readonly classifiers!: pulumi.Output<string[] | undefined>;
     /**
-     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
      */
     public readonly configuration!: pulumi.Output<string | undefined>;
     /**
-     * The name of the SecurityConfiguration structure to be used by this crawler.
+     * The name of the `SecurityConfiguration` structure to be used by this crawler.
      */
     public readonly crawlerSecurityConfiguration!: pulumi.Output<string | undefined>;
     /**
@@ -129,7 +130,9 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["tablePrefix"] = args ? args.tablePrefix : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["classifiers"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["crawlerSecurityConfiguration"] = undefined /*out*/;
@@ -161,11 +164,11 @@ export interface CrawlerArgs {
      */
     classifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
      */
     configuration?: pulumi.Input<string>;
     /**
-     * The name of the SecurityConfiguration structure to be used by this crawler.
+     * The name of the `SecurityConfiguration` structure to be used by this crawler.
      */
     crawlerSecurityConfiguration?: pulumi.Input<string>;
     /**
