@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoTAnalytics::Dataset
  */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotanalytics:getDataset", {
         "datasetName": args.datasetName,
@@ -62,7 +61,10 @@ export interface GetDatasetResult {
  * Resource Type definition for AWS::IoTAnalytics::Dataset
  */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
-    return pulumi.output(args).apply((a: any) => getDataset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iotanalytics:getDataset", {
+        "datasetName": args.datasetName,
+    }, opts);
 }
 
 export interface GetDatasetOutputArgs {

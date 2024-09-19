@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Describes a local gateway route table virtual interface group association for a local gateway.
  */
 export function getLocalGatewayRouteTableVirtualInterfaceGroupAssociation(args: GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", {
         "localGatewayRouteTableVirtualInterfaceGroupAssociationId": args.localGatewayRouteTableVirtualInterfaceGroupAssociationId,
@@ -55,7 +54,10 @@ export interface GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult
  * Describes a local gateway route table virtual interface group association for a local gateway.
  */
 export function getLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput(args: GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getLocalGatewayRouteTableVirtualInterfaceGroupAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", {
+        "localGatewayRouteTableVirtualInterfaceGroupAssociationId": args.localGatewayRouteTableVirtualInterfaceGroupAssociationId,
+    }, opts);
 }
 
 export interface GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputArgs {

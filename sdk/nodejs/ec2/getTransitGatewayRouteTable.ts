@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::TransitGatewayRouteTable
  */
 export function getTransitGatewayRouteTable(args: GetTransitGatewayRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTransitGatewayRouteTable", {
         "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
@@ -32,7 +31,10 @@ export interface GetTransitGatewayRouteTableResult {
  * Resource Type definition for AWS::EC2::TransitGatewayRouteTable
  */
 export function getTransitGatewayRouteTableOutput(args: GetTransitGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTableResult> {
-    return pulumi.output(args).apply((a: any) => getTransitGatewayRouteTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayRouteTable", {
+        "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
+    }, opts);
 }
 
 export interface GetTransitGatewayRouteTableOutputArgs {

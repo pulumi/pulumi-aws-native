@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::Task.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getTask", {
         "taskArn": args.taskArn,
@@ -85,7 +84,10 @@ export interface GetTaskResult {
  * Resource schema for AWS::DataSync::Task.
  */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
-    return pulumi.output(args).apply((a: any) => getTask(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datasync:getTask", {
+        "taskArn": args.taskArn,
+    }, opts);
 }
 
 export interface GetTaskOutputArgs {

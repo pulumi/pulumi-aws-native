@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * An object representing an Amazon EKS PodIdentityAssociation.
  */
 export function getPodIdentityAssociation(args: GetPodIdentityAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetPodIdentityAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eks:getPodIdentityAssociation", {
         "associationArn": args.associationArn,
@@ -47,7 +46,10 @@ export interface GetPodIdentityAssociationResult {
  * An object representing an Amazon EKS PodIdentityAssociation.
  */
 export function getPodIdentityAssociationOutput(args: GetPodIdentityAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPodIdentityAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getPodIdentityAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:eks:getPodIdentityAssociation", {
+        "associationArn": args.associationArn,
+    }, opts);
 }
 
 export interface GetPodIdentityAssociationOutputArgs {

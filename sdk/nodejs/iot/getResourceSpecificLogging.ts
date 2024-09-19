@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource-specific logging allows you to specify a logging level for a specific thing group.
  */
 export function getResourceSpecificLogging(args: GetResourceSpecificLoggingArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSpecificLoggingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getResourceSpecificLogging", {
         "targetId": args.targetId,
@@ -39,7 +38,10 @@ export interface GetResourceSpecificLoggingResult {
  * Resource-specific logging allows you to specify a logging level for a specific thing group.
  */
 export function getResourceSpecificLoggingOutput(args: GetResourceSpecificLoggingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSpecificLoggingResult> {
-    return pulumi.output(args).apply((a: any) => getResourceSpecificLogging(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iot:getResourceSpecificLogging", {
+        "targetId": args.targetId,
+    }, opts);
 }
 
 export interface GetResourceSpecificLoggingOutputArgs {

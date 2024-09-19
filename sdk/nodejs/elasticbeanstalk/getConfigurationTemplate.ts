@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
  */
 export function getConfigurationTemplate(args: GetConfigurationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticbeanstalk:getConfigurationTemplate", {
         "applicationName": args.applicationName,
@@ -48,7 +47,11 @@ export interface GetConfigurationTemplateResult {
  * Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
  */
 export function getConfigurationTemplateOutput(args: GetConfigurationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:elasticbeanstalk:getConfigurationTemplate", {
+        "applicationName": args.applicationName,
+        "templateName": args.templateName,
+    }, opts);
 }
 
 export interface GetConfigurationTemplateOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Represents a stored analysis within a collaboration
  */
 export function getAnalysisTemplate(args: GetAnalysisTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalysisTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cleanrooms:getAnalysisTemplate", {
         "analysisTemplateIdentifier": args.analysisTemplateIdentifier,
@@ -77,7 +76,11 @@ export interface GetAnalysisTemplateResult {
  * Represents a stored analysis within a collaboration
  */
 export function getAnalysisTemplateOutput(args: GetAnalysisTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalysisTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getAnalysisTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getAnalysisTemplate", {
+        "analysisTemplateIdentifier": args.analysisTemplateIdentifier,
+        "membershipIdentifier": args.membershipIdentifier,
+    }, opts);
 }
 
 export interface GetAnalysisTemplateOutputArgs {

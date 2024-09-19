@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource type definition for AWS::RAM::Permission
  */
 export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ram:getPermission", {
         "arn": args.arn,
@@ -54,7 +53,10 @@ export interface GetPermissionResult {
  * Resource type definition for AWS::RAM::Permission
  */
 export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
-    return pulumi.output(args).apply((a: any) => getPermission(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ram:getPermission", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetPermissionOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::ImageBuilder::Workflow
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:imagebuilder:getWorkflow", {
         "arn": args.arn,
@@ -32,7 +31,10 @@ export interface GetWorkflowResult {
  * Resource schema for AWS::ImageBuilder::Workflow
  */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
-    return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getWorkflow", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetWorkflowOutputArgs {

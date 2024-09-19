@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
  */
 export function getVerifiedAccessInstance(args: GetVerifiedAccessInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetVerifiedAccessInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVerifiedAccessInstance", {
         "verifiedAccessInstanceId": args.verifiedAccessInstanceId,
@@ -67,7 +66,10 @@ export interface GetVerifiedAccessInstanceResult {
  * The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
  */
 export function getVerifiedAccessInstanceOutput(args: GetVerifiedAccessInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifiedAccessInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getVerifiedAccessInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getVerifiedAccessInstance", {
+        "verifiedAccessInstanceId": args.verifiedAccessInstanceId,
+    }, opts);
 }
 
 export interface GetVerifiedAccessInstanceOutputArgs {

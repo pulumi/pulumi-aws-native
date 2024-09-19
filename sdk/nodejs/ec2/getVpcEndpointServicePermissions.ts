@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
  */
 export function getVpcEndpointServicePermissions(args: GetVpcEndpointServicePermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServicePermissionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpcEndpointServicePermissions", {
         "serviceId": args.serviceId,
@@ -32,7 +31,10 @@ export interface GetVpcEndpointServicePermissionsResult {
  * Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
  */
 export function getVpcEndpointServicePermissionsOutput(args: GetVpcEndpointServicePermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointServicePermissionsResult> {
-    return pulumi.output(args).apply((a: any) => getVpcEndpointServicePermissions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcEndpointServicePermissions", {
+        "serviceId": args.serviceId,
+    }, opts);
 }
 
 export interface GetVpcEndpointServicePermissionsOutputArgs {

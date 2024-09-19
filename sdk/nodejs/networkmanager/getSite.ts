@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::NetworkManager::Site type describes a site.
  */
 export function getSite(args: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getSite", {
         "globalNetworkId": args.globalNetworkId,
@@ -64,7 +63,11 @@ export interface GetSiteResult {
  * The AWS::NetworkManager::Site type describes a site.
  */
 export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
-    return pulumi.output(args).apply((a: any) => getSite(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:networkmanager:getSite", {
+        "globalNetworkId": args.globalNetworkId,
+        "siteId": args.siteId,
+    }, opts);
 }
 
 export interface GetSiteOutputArgs {

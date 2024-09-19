@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::ViewVersion
  */
 export function getViewVersion(args: GetViewVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetViewVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getViewVersion", {
         "viewVersionArn": args.viewVersionArn,
@@ -36,7 +35,10 @@ export interface GetViewVersionResult {
  * Resource Type definition for AWS::Connect::ViewVersion
  */
 export function getViewVersionOutput(args: GetViewVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewVersionResult> {
-    return pulumi.output(args).apply((a: any) => getViewVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getViewVersion", {
+        "viewVersionArn": args.viewVersionArn,
+    }, opts);
 }
 
 export interface GetViewVersionOutputArgs {

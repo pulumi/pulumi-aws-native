@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getRegion(opts?: pulumi.InvokeOptions): Promise<GetRegionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:index:getRegion", {
     }, opts);
@@ -15,5 +14,7 @@ export interface GetRegionResult {
     readonly region: string;
 }
 export function getRegionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionResult> {
-    return pulumi.output(getRegion(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:index:getRegion", {
+    }, opts);
 }

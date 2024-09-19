@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The default version of a resource that has been registered in the CloudFormation Registry.
  */
 export function getResourceDefaultVersion(args: GetResourceDefaultVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceDefaultVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getResourceDefaultVersion", {
         "arn": args.arn,
@@ -46,7 +45,10 @@ export interface GetResourceDefaultVersionResult {
  * The default version of a resource that has been registered in the CloudFormation Registry.
  */
 export function getResourceDefaultVersionOutput(args: GetResourceDefaultVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefaultVersionResult> {
-    return pulumi.output(args).apply((a: any) => getResourceDefaultVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudformation:getResourceDefaultVersion", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetResourceDefaultVersionOutputArgs {

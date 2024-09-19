@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lex:getResourcePolicy", {
         "id": args.id,
@@ -47,7 +46,10 @@ export interface GetResourcePolicyResult {
  * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getResourcePolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lex:getResourcePolicy", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetResourcePolicyOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::EC2::NetworkInterface resource creates network interface
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNetworkInterface", {
         "id": args.id,
@@ -107,7 +106,10 @@ export interface GetNetworkInterfaceResult {
  * The AWS::EC2::NetworkInterface resource creates network interface
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getNetworkInterface", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetNetworkInterfaceOutputArgs {

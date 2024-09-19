@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource for Greengrass component version.
  */
 export function getComponentVersion(args: GetComponentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:greengrassv2:getComponentVersion", {
         "arn": args.arn,
@@ -51,7 +50,10 @@ export interface GetComponentVersionResult {
  * Resource for Greengrass component version.
  */
 export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentVersionResult> {
-    return pulumi.output(args).apply((a: any) => getComponentVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:greengrassv2:getComponentVersion", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetComponentVersionOutputArgs {

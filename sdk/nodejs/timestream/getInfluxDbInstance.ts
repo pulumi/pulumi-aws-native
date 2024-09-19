@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::Timestream::InfluxDBInstance resource creates an InfluxDB instance.
  */
 export function getInfluxDbInstance(args: GetInfluxDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInfluxDbInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:timestream:getInfluxDbInstance", {
         "id": args.id,
@@ -71,7 +70,10 @@ export interface GetInfluxDbInstanceResult {
  * The AWS::Timestream::InfluxDBInstance resource creates an InfluxDB instance.
  */
 export function getInfluxDbInstanceOutput(args: GetInfluxDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfluxDbInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getInfluxDbInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:timestream:getInfluxDbInstance", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetInfluxDbInstanceOutputArgs {

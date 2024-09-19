@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getFunctionConfiguration(args: GetFunctionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getFunctionConfiguration", {
         "functionArn": args.functionArn,
@@ -79,7 +78,10 @@ export interface GetFunctionConfigurationResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getFunctionConfigurationOutput(args: GetFunctionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getFunctionConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:appsync:getFunctionConfiguration", {
+        "functionArn": args.functionArn,
+    }, opts);
 }
 
 export interface GetFunctionConfigurationOutputArgs {

@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *  For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securityhub:getStandard", {
         "standardsSubscriptionArn": args.standardsSubscriptionArn,
@@ -44,7 +43,10 @@ export interface GetStandardResult {
  *  For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
  */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
-    return pulumi.output(args).apply((a: any) => getStandard(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:securityhub:getStandard", {
+        "standardsSubscriptionArn": args.standardsSubscriptionArn,
+    }, opts);
 }
 
 export interface GetStandardOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::B2BI::Partnership Resource Type
  */
 export function getPartnership(args: GetPartnershipArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnershipResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:b2bi:getPartnership", {
         "partnershipId": args.partnershipId,
@@ -63,7 +62,10 @@ export interface GetPartnershipResult {
  * Definition of AWS::B2BI::Partnership Resource Type
  */
 export function getPartnershipOutput(args: GetPartnershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnershipResult> {
-    return pulumi.output(args).apply((a: any) => getPartnership(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:b2bi:getPartnership", {
+        "partnershipId": args.partnershipId,
+    }, opts);
 }
 
 export interface GetPartnershipOutputArgs {

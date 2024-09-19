@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::B2BI::Capability Resource Type
  */
 export function getCapability(args: GetCapabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetCapabilityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:b2bi:getCapability", {
         "capabilityId": args.capabilityId,
@@ -63,7 +62,10 @@ export interface GetCapabilityResult {
  * Definition of AWS::B2BI::Capability Resource Type
  */
 export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {
-    return pulumi.output(args).apply((a: any) => getCapability(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:b2bi:getCapability", {
+        "capabilityId": args.capabilityId,
+    }, opts);
 }
 
 export interface GetCapabilityOutputArgs {

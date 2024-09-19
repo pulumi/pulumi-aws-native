@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
  */
 export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesweb:getUserSettings", {
         "userSettingsArn": args.userSettingsArn,
@@ -79,7 +78,10 @@ export interface GetUserSettingsResult {
  * Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
  */
 export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSettingsResult> {
-    return pulumi.output(args).apply((a: any) => getUserSettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getUserSettings", {
+        "userSettingsArn": args.userSettingsArn,
+    }, opts);
 }
 
 export interface GetUserSettingsOutputArgs {

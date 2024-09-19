@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Represents a runtime environment that can run migrated mainframe applications.
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:m2:getEnvironment", {
         "environmentArn": args.environmentArn,
@@ -59,7 +58,10 @@ export interface GetEnvironmentResult {
  * Represents a runtime environment that can run migrated mainframe applications.
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:m2:getEnvironment", {
+        "environmentArn": args.environmentArn,
+    }, opts);
 }
 
 export interface GetEnvironmentOutputArgs {

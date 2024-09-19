@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The AWS::EC2::TransitGatewayMulticastDomainAssociation type
  */
 export function getTransitGatewayMulticastDomainAssociation(args: GetTransitGatewayMulticastDomainAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastDomainAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", {
         "subnetId": args.subnetId,
@@ -50,7 +49,12 @@ export interface GetTransitGatewayMulticastDomainAssociationResult {
  * The AWS::EC2::TransitGatewayMulticastDomainAssociation type
  */
 export function getTransitGatewayMulticastDomainAssociationOutput(args: GetTransitGatewayMulticastDomainAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastDomainAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getTransitGatewayMulticastDomainAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", {
+        "subnetId": args.subnetId,
+        "transitGatewayAttachmentId": args.transitGatewayAttachmentId,
+        "transitGatewayMulticastDomainId": args.transitGatewayMulticastDomainId,
+    }, opts);
 }
 
 export interface GetTransitGatewayMulticastDomainAssociationOutputArgs {

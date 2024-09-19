@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
  */
 export function getAssociation(args: GetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssm:getAssociation", {
         "associationId": args.associationId,
@@ -107,7 +106,10 @@ export interface GetAssociationResult {
  * The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
  */
 export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ssm:getAssociation", {
+        "associationId": args.associationId,
+    }, opts);
 }
 
 export interface GetAssociationOutputArgs {

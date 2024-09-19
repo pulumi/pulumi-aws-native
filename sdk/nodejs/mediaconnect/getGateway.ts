@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaConnect::Gateway
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconnect:getGateway", {
         "gatewayArn": args.gatewayArn,
@@ -39,7 +38,10 @@ export interface GetGatewayResult {
  * Resource schema for AWS::MediaConnect::Gateway
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediaconnect:getGateway", {
+        "gatewayArn": args.gatewayArn,
+    }, opts);
 }
 
 export interface GetGatewayOutputArgs {

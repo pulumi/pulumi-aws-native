@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Evidently::Experiment.
  */
 export function getExperiment(args: GetExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:evidently:getExperiment", {
         "arn": args.arn,
@@ -79,7 +78,10 @@ export interface GetExperimentResult {
  * Resource Type definition for AWS::Evidently::Experiment.
  */
 export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
-    return pulumi.output(args).apply((a: any) => getExperiment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:evidently:getExperiment", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetExperimentOutputArgs {

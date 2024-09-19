@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * IdNamespace defined in AWS Entity Resolution service
  */
 export function getIdNamespace(args: GetIdNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetIdNamespaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:entityresolution:getIdNamespace", {
         "idNamespaceName": args.idNamespaceName,
@@ -71,7 +70,10 @@ export interface GetIdNamespaceResult {
  * IdNamespace defined in AWS Entity Resolution service
  */
 export function getIdNamespaceOutput(args: GetIdNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdNamespaceResult> {
-    return pulumi.output(args).apply((a: any) => getIdNamespace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:entityresolution:getIdNamespace", {
+        "idNamespaceName": args.idNamespaceName,
+    }, opts);
 }
 
 export interface GetIdNamespaceOutputArgs {

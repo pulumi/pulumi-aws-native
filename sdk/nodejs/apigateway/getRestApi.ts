@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *  On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getRestApi", {
         "restApiId": args.restApiId,
@@ -79,7 +78,10 @@ export interface GetRestApiResult {
  *  On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
  */
 export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
-    return pulumi.output(args).apply((a: any) => getRestApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigateway:getRestApi", {
+        "restApiId": args.restApiId,
+    }, opts);
 }
 
 export interface GetRestApiOutputArgs {

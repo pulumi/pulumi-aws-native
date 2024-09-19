@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::PhoneNumber
  */
 export function getPhoneNumber(args: GetPhoneNumberArgs, opts?: pulumi.InvokeOptions): Promise<GetPhoneNumberResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getPhoneNumber", {
         "phoneNumberArn": args.phoneNumberArn,
@@ -51,7 +50,10 @@ export interface GetPhoneNumberResult {
  * Resource Type definition for AWS::Connect::PhoneNumber
  */
 export function getPhoneNumberOutput(args: GetPhoneNumberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPhoneNumberResult> {
-    return pulumi.output(args).apply((a: any) => getPhoneNumber(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getPhoneNumber", {
+        "phoneNumberArn": args.phoneNumberArn,
+    }, opts);
 }
 
 export interface GetPhoneNumberOutputArgs {

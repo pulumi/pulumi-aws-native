@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::SAMLProvider
  */
 export function getSamlProvider(args: GetSamlProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getSamlProvider", {
         "arn": args.arn,
@@ -47,7 +46,10 @@ export interface GetSamlProviderResult {
  * Resource Type definition for AWS::IAM::SAMLProvider
  */
 export function getSamlProviderOutput(args: GetSamlProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlProviderResult> {
-    return pulumi.output(args).apply((a: any) => getSamlProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iam:getSamlProvider", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetSamlProviderOutputArgs {

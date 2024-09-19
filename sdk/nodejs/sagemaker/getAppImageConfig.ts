@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::AppImageConfig
  */
 export function getAppImageConfig(args: GetAppImageConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetAppImageConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getAppImageConfig", {
         "appImageConfigName": args.appImageConfigName,
@@ -47,7 +46,10 @@ export interface GetAppImageConfigResult {
  * Resource Type definition for AWS::SageMaker::AppImageConfig
  */
 export function getAppImageConfigOutput(args: GetAppImageConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppImageConfigResult> {
-    return pulumi.output(args).apply((a: any) => getAppImageConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getAppImageConfig", {
+        "appImageConfigName": args.appImageConfigName,
+    }, opts);
 }
 
 export interface GetAppImageConfigOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
  */
 export function getIdentitySource(args: GetIdentitySourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentitySourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:verifiedpermissions:getIdentitySource", {
         "identitySourceId": args.identitySourceId,
@@ -49,7 +48,11 @@ export interface GetIdentitySourceResult {
  * Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
  */
 export function getIdentitySourceOutput(args: GetIdentitySourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentitySourceResult> {
-    return pulumi.output(args).apply((a: any) => getIdentitySource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:verifiedpermissions:getIdentitySource", {
+        "identitySourceId": args.identitySourceId,
+        "policyStoreId": args.policyStoreId,
+    }, opts);
 }
 
 export interface GetIdentitySourceOutputArgs {

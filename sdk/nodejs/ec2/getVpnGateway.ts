@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpnGateway", {
         "vpnGatewayId": args.vpnGatewayId,
@@ -41,7 +40,10 @@ export interface GetVpnGatewayResult {
  *  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
  */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getVpnGateway", {
+        "vpnGatewayId": args.vpnGatewayId,
+    }, opts);
 }
 
 export interface GetVpnGatewayOutputArgs {
