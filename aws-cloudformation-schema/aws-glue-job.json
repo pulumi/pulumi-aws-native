@@ -9,6 +9,9 @@
     "MaxRetries" : {
       "type" : "number"
     },
+    "JobMode" : {
+      "type" : "string"
+    },
     "Description" : {
       "type" : "string"
     },
