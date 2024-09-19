@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT::ThingGroup
  */
 export function getThingGroup(args: GetThingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetThingGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getThingGroup", {
         "thingGroupName": args.thingGroupName,
@@ -53,7 +52,10 @@ export interface GetThingGroupResult {
  * Resource Type definition for AWS::IoT::ThingGroup
  */
 export function getThingGroupOutput(args: GetThingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThingGroupResult> {
-    return pulumi.output(args).apply((a: any) => getThingGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iot:getThingGroup", {
+        "thingGroupName": args.thingGroupName,
+    }, opts);
 }
 
 export interface GetThingGroupOutputArgs {

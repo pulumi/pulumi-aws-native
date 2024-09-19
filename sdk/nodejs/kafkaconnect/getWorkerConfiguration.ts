@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The configuration of the workers, which are the processes that run the connector logic.
  */
 export function getWorkerConfiguration(args: GetWorkerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkerConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kafkaconnect:getWorkerConfiguration", {
         "workerConfigurationArn": args.workerConfigurationArn,
@@ -43,7 +42,10 @@ export interface GetWorkerConfigurationResult {
  * The configuration of the workers, which are the processes that run the connector logic.
  */
 export function getWorkerConfigurationOutput(args: GetWorkerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkerConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getWorkerConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:kafkaconnect:getWorkerConfiguration", {
+        "workerConfigurationArn": args.workerConfigurationArn,
+    }, opts);
 }
 
 export interface GetWorkerConfigurationOutputArgs {

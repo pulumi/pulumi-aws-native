@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
  */
 export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getAuthorizer", {
         "authorizerId": args.authorizerId,
@@ -73,7 +72,11 @@ export interface GetAuthorizerResult {
  * The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
  */
 export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigateway:getAuthorizer", {
+        "authorizerId": args.authorizerId,
+        "restApiId": args.restApiId,
+    }, opts);
 }
 
 export interface GetAuthorizerOutputArgs {

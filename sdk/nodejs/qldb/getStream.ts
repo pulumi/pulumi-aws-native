@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::QLDB::Stream.
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:qldb:getStream", {
         "id": args.id,
@@ -48,7 +47,11 @@ export interface GetStreamResult {
  * Resource schema for AWS::QLDB::Stream.
  */
 export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
-    return pulumi.output(args).apply((a: any) => getStream(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:qldb:getStream", {
+        "id": args.id,
+        "ledgerName": args.ledgerName,
+    }, opts);
 }
 
 export interface GetStreamOutputArgs {

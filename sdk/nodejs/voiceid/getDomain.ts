@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:voiceid:getDomain", {
         "domainId": args.domainId,
@@ -39,7 +38,10 @@ export interface GetDomainResult {
  * The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:voiceid:getDomain", {
+        "domainId": args.domainId,
+    }, opts);
 }
 
 export interface GetDomainOutputArgs {

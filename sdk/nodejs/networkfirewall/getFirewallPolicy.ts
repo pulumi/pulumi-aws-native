@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource type definition for AWS::NetworkFirewall::FirewallPolicy
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkfirewall:getFirewallPolicy", {
         "firewallPolicyArn": args.firewallPolicyArn,
@@ -53,7 +52,10 @@ export interface GetFirewallPolicyResult {
  * Resource type definition for AWS::NetworkFirewall::FirewallPolicy
  */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:networkfirewall:getFirewallPolicy", {
+        "firewallPolicyArn": args.firewallPolicyArn,
+    }, opts);
 }
 
 export interface GetFirewallPolicyOutputArgs {

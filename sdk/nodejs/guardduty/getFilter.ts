@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GuardDuty::Filter
  */
 export function getFilter(args: GetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFilterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:guardduty:getFilter", {
         "detectorId": args.detectorId,
@@ -63,7 +62,11 @@ export interface GetFilterResult {
  * Resource Type definition for AWS::GuardDuty::Filter
  */
 export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {
-    return pulumi.output(args).apply((a: any) => getFilter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:guardduty:getFilter", {
+        "detectorId": args.detectorId,
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetFilterOutputArgs {

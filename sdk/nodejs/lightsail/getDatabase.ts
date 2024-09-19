@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lightsail::Database
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lightsail:getDatabase", {
         "relationalDatabaseName": args.relationalDatabaseName,
@@ -59,7 +58,10 @@ export interface GetDatabaseResult {
  * Resource Type definition for AWS::Lightsail::Database
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lightsail:getDatabase", {
+        "relationalDatabaseName": args.relationalDatabaseName,
+    }, opts);
 }
 
 export interface GetDatabaseOutputArgs {

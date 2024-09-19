@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Evidently::Segment
  */
 export function getSegment(args: GetSegmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSegmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:evidently:getSegment", {
         "arn": args.arn,
@@ -51,7 +50,10 @@ export interface GetSegmentResult {
  * Resource Type definition for AWS::Evidently::Segment
  */
 export function getSegmentOutput(args: GetSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSegmentResult> {
-    return pulumi.output(args).apply((a: any) => getSegment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:evidently:getSegment", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetSegmentOutputArgs {

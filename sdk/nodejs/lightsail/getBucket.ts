@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lightsail::Bucket
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lightsail:getBucket", {
         "bucketName": args.bucketName,
@@ -67,7 +66,10 @@ export interface GetBucketResult {
  * Resource Type definition for AWS::Lightsail::Bucket
  */
 export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
-    return pulumi.output(args).apply((a: any) => getBucket(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lightsail:getBucket", {
+        "bucketName": args.bucketName,
+    }, opts);
 }
 
 export interface GetBucketOutputArgs {

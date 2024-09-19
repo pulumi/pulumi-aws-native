@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::Amplify::Branch resource creates a new branch within an app.
  */
 export function getBranch(args: GetBranchArgs, opts?: pulumi.InvokeOptions): Promise<GetBranchResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amplify:getBranch", {
         "arn": args.arn,
@@ -93,7 +92,10 @@ export interface GetBranchResult {
  * The AWS::Amplify::Branch resource creates a new branch within an app.
  */
 export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
-    return pulumi.output(args).apply((a: any) => getBranch(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:amplify:getBranch", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetBranchOutputArgs {

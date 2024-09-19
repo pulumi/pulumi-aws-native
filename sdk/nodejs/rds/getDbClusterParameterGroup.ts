@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *  If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
  */
 export function getDbClusterParameterGroup(args: GetDbClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDbClusterParameterGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDbClusterParameterGroup", {
         "dbClusterParameterGroupName": args.dbClusterParameterGroupName,
@@ -51,7 +50,10 @@ export interface GetDbClusterParameterGroupResult {
  *  If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
  */
 export function getDbClusterParameterGroupOutput(args: GetDbClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbClusterParameterGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDbClusterParameterGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:rds:getDbClusterParameterGroup", {
+        "dbClusterParameterGroupName": args.dbClusterParameterGroupName,
+    }, opts);
 }
 
 export interface GetDbClusterParameterGroupOutputArgs {

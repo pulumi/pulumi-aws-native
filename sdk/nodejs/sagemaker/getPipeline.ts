@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::Pipeline
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getPipeline", {
         "pipelineName": args.pipelineName,
@@ -55,7 +54,10 @@ export interface GetPipelineResult {
  * Resource Type definition for AWS::SageMaker::Pipeline
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getPipeline", {
+        "pipelineName": args.pipelineName,
+    }, opts);
 }
 
 export interface GetPipelineOutputArgs {

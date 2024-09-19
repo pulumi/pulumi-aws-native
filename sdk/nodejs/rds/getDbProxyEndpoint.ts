@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::RDS::DBProxyEndpoint.
  */
 export function getDbProxyEndpoint(args: GetDbProxyEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDbProxyEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDbProxyEndpoint", {
         "dbProxyEndpointName": args.dbProxyEndpointName,
@@ -59,7 +58,10 @@ export interface GetDbProxyEndpointResult {
  * Resource schema for AWS::RDS::DBProxyEndpoint.
  */
 export function getDbProxyEndpointOutput(args: GetDbProxyEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbProxyEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getDbProxyEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:rds:getDbProxyEndpoint", {
+        "dbProxyEndpointName": args.dbProxyEndpointName,
+    }, opts);
 }
 
 export interface GetDbProxyEndpointOutputArgs {

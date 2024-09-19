@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
  */
 export function getVpcConnector(args: GetVpcConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apprunner:getVpcConnector", {
         "vpcConnectorArn": args.vpcConnectorArn,
@@ -36,7 +35,10 @@ export interface GetVpcConnectorResult {
  * The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
  */
 export function getVpcConnectorOutput(args: GetVpcConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getVpcConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apprunner:getVpcConnector", {
+        "vpcConnectorArn": args.vpcConnectorArn,
+    }, opts);
 }
 
 export interface GetVpcConnectorOutputArgs {

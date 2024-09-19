@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::CertificateManager::Account.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:certificatemanager:getAccount", {
         "accountId": args.accountId,
@@ -39,7 +38,10 @@ export interface GetAccountResult {
  * Resource schema for AWS::CertificateManager::Account.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:certificatemanager:getAccount", {
+        "accountId": args.accountId,
+    }, opts);
 }
 
 export interface GetAccountOutputArgs {

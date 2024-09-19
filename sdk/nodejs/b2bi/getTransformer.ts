@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::B2BI::Transformer Resource Type
  */
 export function getTransformer(args: GetTransformerArgs, opts?: pulumi.InvokeOptions): Promise<GetTransformerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:b2bi:getTransformer", {
         "transformerId": args.transformerId,
@@ -75,7 +74,10 @@ export interface GetTransformerResult {
  * Definition of AWS::B2BI::Transformer Resource Type
  */
 export function getTransformerOutput(args: GetTransformerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformerResult> {
-    return pulumi.output(args).apply((a: any) => getTransformer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:b2bi:getTransformer", {
+        "transformerId": args.transformerId,
+    }, opts);
 }
 
 export interface GetTransformerOutputArgs {

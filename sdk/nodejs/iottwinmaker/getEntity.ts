@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTTwinMaker::Entity
  */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iottwinmaker:getEntity", {
         "entityId": args.entityId,
@@ -80,7 +79,11 @@ export interface GetEntityResult {
  * Resource schema for AWS::IoTTwinMaker::Entity
  */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
-    return pulumi.output(args).apply((a: any) => getEntity(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iottwinmaker:getEntity", {
+        "entityId": args.entityId,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetEntityOutputArgs {

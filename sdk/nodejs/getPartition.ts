@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:index:getPartition", {
     }, opts);
@@ -22,5 +21,7 @@ export interface GetPartitionResult {
     readonly partition: string;
 }
 export function getPartitionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
-    return pulumi.output(getPartition(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:index:getPartition", {
+    }, opts);
 }

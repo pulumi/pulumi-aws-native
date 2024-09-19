@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * SchemaMapping defined in AWS Entity Resolution service
  */
 export function getSchemaMapping(args: GetSchemaMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaMappingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:entityresolution:getSchemaMapping", {
         "schemaName": args.schemaName,
@@ -47,7 +46,10 @@ export interface GetSchemaMappingResult {
  * SchemaMapping defined in AWS Entity Resolution service
  */
 export function getSchemaMappingOutput(args: GetSchemaMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaMappingResult> {
-    return pulumi.output(args).apply((a: any) => getSchemaMapping(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:entityresolution:getSchemaMapping", {
+        "schemaName": args.schemaName,
+    }, opts);
 }
 
 export interface GetSchemaMappingOutputArgs {

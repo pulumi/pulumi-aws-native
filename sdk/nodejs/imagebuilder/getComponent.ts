@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::ImageBuilder::Component
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:imagebuilder:getComponent", {
         "arn": args.arn,
@@ -43,7 +42,10 @@ export interface GetComponentResult {
  * Resource schema for AWS::ImageBuilder::Component
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
-    return pulumi.output(args).apply((a: any) => getComponent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getComponent", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetComponentOutputArgs {

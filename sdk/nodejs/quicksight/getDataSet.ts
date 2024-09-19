@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of the AWS::QuickSight::DataSet Resource Type.
  */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:quicksight:getDataSet", {
         "awsAccountId": args.awsAccountId,
@@ -112,7 +111,11 @@ export interface GetDataSetResult {
  * Definition of the AWS::QuickSight::DataSet Resource Type.
  */
 export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getDataSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:quicksight:getDataSet", {
+        "awsAccountId": args.awsAccountId,
+        "dataSetId": args.dataSetId,
+    }, opts);
 }
 
 export interface GetDataSetOutputArgs {

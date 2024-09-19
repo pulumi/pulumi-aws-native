@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::EC2::TransitGatewayConnect type
  */
 export function getTransitGatewayConnect(args: GetTransitGatewayConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayConnectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTransitGatewayConnect", {
         "transitGatewayAttachmentId": args.transitGatewayAttachmentId,
@@ -51,7 +50,10 @@ export interface GetTransitGatewayConnectResult {
  * The AWS::EC2::TransitGatewayConnect type
  */
 export function getTransitGatewayConnectOutput(args: GetTransitGatewayConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayConnectResult> {
-    return pulumi.output(args).apply((a: any) => getTransitGatewayConnect(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayConnect", {
+        "transitGatewayAttachmentId": args.transitGatewayAttachmentId,
+    }, opts);
 }
 
 export interface GetTransitGatewayConnectOutputArgs {

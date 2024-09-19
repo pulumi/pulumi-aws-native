@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A resource schema for a Detector in Amazon Fraud Detector.
  */
 export function getDetector(args: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:frauddetector:getDetector", {
         "arn": args.arn,
@@ -83,7 +82,10 @@ export interface GetDetectorResult {
  * A resource schema for a Detector in Amazon Fraud Detector.
  */
 export function getDetectorOutput(args: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
-    return pulumi.output(args).apply((a: any) => getDetector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:frauddetector:getDetector", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetDetectorOutputArgs {

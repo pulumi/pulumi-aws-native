@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::ImageVersion
  */
 export function getImageVersion(args: GetImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetImageVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getImageVersion", {
         "imageVersionArn": args.imageVersionArn,
@@ -66,7 +65,10 @@ export interface GetImageVersionResult {
  * Resource Type definition for AWS::SageMaker::ImageVersion
  */
 export function getImageVersionOutput(args: GetImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageVersionResult> {
-    return pulumi.output(args).apply((a: any) => getImageVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getImageVersion", {
+        "imageVersionArn": args.imageVersionArn,
+    }, opts);
 }
 
 export interface GetImageVersionOutputArgs {

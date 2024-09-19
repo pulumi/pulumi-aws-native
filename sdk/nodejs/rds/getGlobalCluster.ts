@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::RDS::GlobalCluster
  */
 export function getGlobalCluster(args: GetGlobalClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getGlobalCluster", {
         "globalClusterIdentifier": args.globalClusterIdentifier,
@@ -40,7 +39,10 @@ export interface GetGlobalClusterResult {
  * Resource Type definition for AWS::RDS::GlobalCluster
  */
 export function getGlobalClusterOutput(args: GetGlobalClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalClusterResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:rds:getGlobalCluster", {
+        "globalClusterIdentifier": args.globalClusterIdentifier,
+    }, opts);
 }
 
 export interface GetGlobalClusterOutputArgs {

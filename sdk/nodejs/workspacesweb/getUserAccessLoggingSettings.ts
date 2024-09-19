@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
  */
 export function getUserAccessLoggingSettings(args: GetUserAccessLoggingSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAccessLoggingSettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesweb:getUserAccessLoggingSettings", {
         "userAccessLoggingSettingsArn": args.userAccessLoggingSettingsArn,
@@ -47,7 +46,10 @@ export interface GetUserAccessLoggingSettingsResult {
  * Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
  */
 export function getUserAccessLoggingSettingsOutput(args: GetUserAccessLoggingSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAccessLoggingSettingsResult> {
-    return pulumi.output(args).apply((a: any) => getUserAccessLoggingSettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getUserAccessLoggingSettings", {
+        "userAccessLoggingSettingsArn": args.userAccessLoggingSettingsArn,
+    }, opts);
 }
 
 export interface GetUserAccessLoggingSettingsOutputArgs {

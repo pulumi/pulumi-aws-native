@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
  */
 export function getAttributeGroupAssociation(args: GetAttributeGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttributeGroupAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalogappregistry:getAttributeGroupAssociation", {
         "applicationArn": args.applicationArn,
@@ -41,7 +40,11 @@ export interface GetAttributeGroupAssociationResult {
  * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
  */
 export function getAttributeGroupAssociationOutput(args: GetAttributeGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttributeGroupAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getAttributeGroupAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:servicecatalogappregistry:getAttributeGroupAssociation", {
+        "applicationArn": args.applicationArn,
+        "attributeGroupArn": args.attributeGroupArn,
+    }, opts);
 }
 
 export interface GetAttributeGroupAssociationOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::PCAConnectorAD::Connector Resource Type
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pcaconnectorad:getConnector", {
         "connectorArn": args.connectorArn,
@@ -32,7 +31,10 @@ export interface GetConnectorResult {
  * Definition of AWS::PCAConnectorAD::Connector Resource Type
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
-    return pulumi.output(args).apply((a: any) => getConnector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:pcaconnectorad:getConnector", {
+        "connectorArn": args.connectorArn,
+    }, opts);
 }
 
 export interface GetConnectorOutputArgs {

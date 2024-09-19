@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::ServiceLinkedRole
  */
 export function getServiceLinkedRole(args: GetServiceLinkedRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLinkedRoleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getServiceLinkedRole", {
         "roleName": args.roleName,
@@ -36,7 +35,10 @@ export interface GetServiceLinkedRoleResult {
  * Resource Type definition for AWS::IAM::ServiceLinkedRole
  */
 export function getServiceLinkedRoleOutput(args: GetServiceLinkedRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLinkedRoleResult> {
-    return pulumi.output(args).apply((a: any) => getServiceLinkedRole(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iam:getServiceLinkedRole", {
+        "roleName": args.roleName,
+    }, opts);
 }
 
 export interface GetServiceLinkedRoleOutputArgs {

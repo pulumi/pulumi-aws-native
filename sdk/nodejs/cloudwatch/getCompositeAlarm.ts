@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
  */
 export function getCompositeAlarm(args: GetCompositeAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetCompositeAlarmResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudwatch:getCompositeAlarm", {
         "alarmName": args.alarmName,
@@ -75,7 +74,10 @@ export interface GetCompositeAlarmResult {
  * The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
  */
 export function getCompositeAlarmOutput(args: GetCompositeAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCompositeAlarmResult> {
-    return pulumi.output(args).apply((a: any) => getCompositeAlarm(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudwatch:getCompositeAlarm", {
+        "alarmName": args.alarmName,
+    }, opts);
 }
 
 export interface GetCompositeAlarmOutputArgs {
