@@ -160,6 +160,8 @@ type Canary struct {
 	FailureRetentionPeriod pulumi.IntPtrOutput `pulumi:"failureRetentionPeriod"`
 	// Name of the canary.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of resources which canary tags should be replicated to.
+	ResourcesToReplicateTags CanaryResourceToTagArrayOutput `pulumi:"resourcesToReplicateTags"`
 	// Provide canary run configuration
 	RunConfig CanaryRunConfigPtrOutput `pulumi:"runConfig"`
 	// Runtime version of Synthetics Library
@@ -253,6 +255,8 @@ type canaryArgs struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Name of the canary.
 	Name *string `pulumi:"name"`
+	// List of resources which canary tags should be replicated to.
+	ResourcesToReplicateTags []CanaryResourceToTag `pulumi:"resourcesToReplicateTags"`
 	// Provide canary run configuration
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
 	// Runtime version of Synthetics Library
@@ -287,6 +291,8 @@ type CanaryArgs struct {
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Name of the canary.
 	Name pulumi.StringPtrInput
+	// List of resources which canary tags should be replicated to.
+	ResourcesToReplicateTags CanaryResourceToTagArrayInput
 	// Provide canary run configuration
 	RunConfig CanaryRunConfigPtrInput
 	// Runtime version of Synthetics Library
@@ -380,6 +386,11 @@ func (o CanaryOutput) FailureRetentionPeriod() pulumi.IntPtrOutput {
 // Name of the canary.
 func (o CanaryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of resources which canary tags should be replicated to.
+func (o CanaryOutput) ResourcesToReplicateTags() CanaryResourceToTagArrayOutput {
+	return o.ApplyT(func(v *Canary) CanaryResourceToTagArrayOutput { return v.ResourcesToReplicateTags }).(CanaryResourceToTagArrayOutput)
 }
 
 // Provide canary run configuration

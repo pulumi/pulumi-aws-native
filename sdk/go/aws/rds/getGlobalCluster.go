@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type LookupGlobalClusterResult struct {
 	EngineLifecycleSupport *string `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalClusterResultOutput {
@@ -91,6 +94,11 @@ func (o LookupGlobalClusterResultOutput) EngineLifecycleSupport() pulumi.StringP
 // The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 func (o LookupGlobalClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupGlobalClusterResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGlobalClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

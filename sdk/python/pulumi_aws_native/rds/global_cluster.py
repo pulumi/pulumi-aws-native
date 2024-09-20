@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = ['GlobalClusterArgs', 'GlobalCluster']
@@ -21,7 +23,8 @@ class GlobalClusterArgs:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 storage_encrypted: Optional[pulumi.Input[bool]] = None):
+                 storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
         :param pulumi.Input[bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
@@ -33,6 +36,7 @@ class GlobalClusterArgs:
         :param pulumi.Input[str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         :param pulumi.Input[bool] storage_encrypted:  The storage encryption setting for the new global database cluster.
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -48,6 +52,8 @@ class GlobalClusterArgs:
             pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -135,6 +141,18 @@ class GlobalClusterArgs:
     def storage_encrypted(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "storage_encrypted", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class GlobalCluster(pulumi.CustomResource):
     @overload
@@ -148,6 +166,7 @@ class GlobalCluster(pulumi.CustomResource):
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RDS::GlobalCluster
@@ -163,6 +182,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         :param pulumi.Input[bool] storage_encrypted:  The storage encryption setting for the new global database cluster.
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -195,6 +215,7 @@ class GlobalCluster(pulumi.CustomResource):
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -211,6 +232,7 @@ class GlobalCluster(pulumi.CustomResource):
             __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
+            __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine", "globalClusterIdentifier", "sourceDbClusterIdentifier", "storageEncrypted"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GlobalCluster, __self__).__init__(
@@ -242,6 +264,7 @@ class GlobalCluster(pulumi.CustomResource):
         __props__.__dict__["global_cluster_identifier"] = None
         __props__.__dict__["source_db_cluster_identifier"] = None
         __props__.__dict__["storage_encrypted"] = None
+        __props__.__dict__["tags"] = None
         return GlobalCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -301,4 +324,12 @@ class GlobalCluster(pulumi.CustomResource):
         If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         return pulumi.get(self, "storage_encrypted")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

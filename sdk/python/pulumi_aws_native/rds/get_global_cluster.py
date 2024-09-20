@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetGlobalClusterResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalClusterResult:
-    def __init__(__self__, deletion_protection=None, engine_lifecycle_support=None, engine_version=None):
+    def __init__(__self__, deletion_protection=None, engine_lifecycle_support=None, engine_version=None, tags=None):
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -28,6 +29,9 @@ class GetGlobalClusterResult:
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -53,6 +57,14 @@ class GetGlobalClusterResult:
         """
         return pulumi.get(self, "engine_version")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetGlobalClusterResult(GetGlobalClusterResult):
     # pylint: disable=using-constant-test
@@ -62,7 +74,8 @@ class AwaitableGetGlobalClusterResult(GetGlobalClusterResult):
         return GetGlobalClusterResult(
             deletion_protection=self.deletion_protection,
             engine_lifecycle_support=self.engine_lifecycle_support,
-            engine_version=self.engine_version)
+            engine_version=self.engine_version,
+            tags=self.tags)
 
 
 def get_global_cluster(global_cluster_identifier: Optional[str] = None,
@@ -81,7 +94,8 @@ def get_global_cluster(global_cluster_identifier: Optional[str] = None,
     return AwaitableGetGlobalClusterResult(
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         engine_lifecycle_support=pulumi.get(__ret__, 'engine_lifecycle_support'),
-        engine_version=pulumi.get(__ret__, 'engine_version'))
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_global_cluster)

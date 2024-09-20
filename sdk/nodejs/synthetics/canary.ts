@@ -159,6 +159,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * List of resources which canary tags should be replicated to.
+     */
+    public readonly resourcesToReplicateTags!: pulumi.Output<enums.synthetics.CanaryResourceToTag[] | undefined>;
+    /**
      * Provide canary run configuration
      */
     public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig | undefined>;
@@ -228,6 +232,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourcesToReplicateTags"] = args ? args.resourcesToReplicateTags : undefined;
             resourceInputs["runConfig"] = args ? args.runConfig : undefined;
             resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
@@ -247,6 +252,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["failureRetentionPeriod"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourcesToReplicateTags"] = undefined /*out*/;
             resourceInputs["runConfig"] = undefined /*out*/;
             resourceInputs["runtimeVersion"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
@@ -296,6 +302,10 @@ export interface CanaryArgs {
      * Name of the canary.
      */
     name?: pulumi.Input<string>;
+    /**
+     * List of resources which canary tags should be replicated to.
+     */
+    resourcesToReplicateTags?: pulumi.Input<pulumi.Input<enums.synthetics.CanaryResourceToTag>[]>;
     /**
      * Provide canary run configuration
      */

@@ -181,6 +181,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of resources which canary tags should be replicated to.
+        /// </summary>
+        [Output("resourcesToReplicateTags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Synthetics.CanaryResourceToTag>> ResourcesToReplicateTags { get; private set; } = null!;
+
+        /// <summary>
         /// Provide canary run configuration
         /// </summary>
         [Output("runConfig")]
@@ -324,6 +330,18 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("resourcesToReplicateTags")]
+        private InputList<Pulumi.AwsNative.Synthetics.CanaryResourceToTag>? _resourcesToReplicateTags;
+
+        /// <summary>
+        /// List of resources which canary tags should be replicated to.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Synthetics.CanaryResourceToTag> ResourcesToReplicateTags
+        {
+            get => _resourcesToReplicateTags ?? (_resourcesToReplicateTags = new InputList<Pulumi.AwsNative.Synthetics.CanaryResourceToTag>());
+            set => _resourcesToReplicateTags = value;
+        }
 
         /// <summary>
         /// Provide canary run configuration

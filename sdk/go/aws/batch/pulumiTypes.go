@@ -6417,6 +6417,8 @@ func (o JobDefinitionNodeRangePropertyArrayOutput) Index(i pulumi.IntInput) JobD
 
 type JobDefinitionPodProperties struct {
 	// The properties of the container that's used on the Amazon EKS pod.
+	//
+	// > This object is limited to 10 elements.
 	Containers []JobDefinitionEksContainer `pulumi:"containers"`
 	// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
 	//
@@ -6427,7 +6429,7 @@ type JobDefinitionPodProperties struct {
 	ImagePullSecrets []JobDefinitionImagePullSecret `pulumi:"imagePullSecrets"`
 	// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
 	//
-	// > This object is limited to 10 elements
+	// > This object is limited to 10 elements.
 	InitContainers []JobDefinitionEksContainer `pulumi:"initContainers"`
 	// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
 	Metadata *JobDefinitionMetadata `pulumi:"metadata"`
@@ -6452,6 +6454,8 @@ type JobDefinitionPodPropertiesInput interface {
 
 type JobDefinitionPodPropertiesArgs struct {
 	// The properties of the container that's used on the Amazon EKS pod.
+	//
+	// > This object is limited to 10 elements.
 	Containers JobDefinitionEksContainerArrayInput `pulumi:"containers"`
 	// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
 	//
@@ -6462,7 +6466,7 @@ type JobDefinitionPodPropertiesArgs struct {
 	ImagePullSecrets JobDefinitionImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
 	// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
 	//
-	// > This object is limited to 10 elements
+	// > This object is limited to 10 elements.
 	InitContainers JobDefinitionEksContainerArrayInput `pulumi:"initContainers"`
 	// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
 	Metadata JobDefinitionMetadataPtrInput `pulumi:"metadata"`
@@ -6552,6 +6556,8 @@ func (o JobDefinitionPodPropertiesOutput) ToJobDefinitionPodPropertiesPtrOutputW
 }
 
 // The properties of the container that's used on the Amazon EKS pod.
+//
+// > This object is limited to 10 elements.
 func (o JobDefinitionPodPropertiesOutput) Containers() JobDefinitionEksContainerArrayOutput {
 	return o.ApplyT(func(v JobDefinitionPodProperties) []JobDefinitionEksContainer { return v.Containers }).(JobDefinitionEksContainerArrayOutput)
 }
@@ -6574,7 +6580,7 @@ func (o JobDefinitionPodPropertiesOutput) ImagePullSecrets() JobDefinitionImageP
 
 // These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
 //
-// > This object is limited to 10 elements
+// > This object is limited to 10 elements.
 func (o JobDefinitionPodPropertiesOutput) InitContainers() JobDefinitionEksContainerArrayOutput {
 	return o.ApplyT(func(v JobDefinitionPodProperties) []JobDefinitionEksContainer { return v.InitContainers }).(JobDefinitionEksContainerArrayOutput)
 }
@@ -6624,6 +6630,8 @@ func (o JobDefinitionPodPropertiesPtrOutput) Elem() JobDefinitionPodPropertiesOu
 }
 
 // The properties of the container that's used on the Amazon EKS pod.
+//
+// > This object is limited to 10 elements.
 func (o JobDefinitionPodPropertiesPtrOutput) Containers() JobDefinitionEksContainerArrayOutput {
 	return o.ApplyT(func(v *JobDefinitionPodProperties) []JobDefinitionEksContainer {
 		if v == nil {
@@ -6666,7 +6674,7 @@ func (o JobDefinitionPodPropertiesPtrOutput) ImagePullSecrets() JobDefinitionIma
 
 // These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
 //
-// > This object is limited to 10 elements
+// > This object is limited to 10 elements.
 func (o JobDefinitionPodPropertiesPtrOutput) InitContainers() JobDefinitionEksContainerArrayOutput {
 	return o.ApplyT(func(v *JobDefinitionPodProperties) []JobDefinitionEksContainer {
 		if v == nil {

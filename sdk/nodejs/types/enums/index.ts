@@ -156,6 +156,7 @@ import * as ssmquicksetup from "./ssmquicksetup";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as supportapp from "./supportapp";
+import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
@@ -322,6 +323,7 @@ export {
     sso,
     stepfunctions,
     supportapp,
+    synthetics,
     systemsmanagersap,
     timestream,
     transfer,

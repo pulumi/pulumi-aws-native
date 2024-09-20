@@ -26,6 +26,8 @@ if typing.TYPE_CHECKING:
     accessanalyzer = __accessanalyzer
     import pulumi_aws_native.acmpca as __acmpca
     acmpca = __acmpca
+    import pulumi_aws_native.amazonmq as __amazonmq
+    amazonmq = __amazonmq
     import pulumi_aws_native.amplify as __amplify
     amplify = __amplify
     import pulumi_aws_native.amplifyuibuilder as __amplifyuibuilder
@@ -457,6 +459,7 @@ if typing.TYPE_CHECKING:
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws_native.accessanalyzer')
     acmpca = _utilities.lazy_import('pulumi_aws_native.acmpca')
+    amazonmq = _utilities.lazy_import('pulumi_aws_native.amazonmq')
     amplify = _utilities.lazy_import('pulumi_aws_native.amplify')
     amplifyuibuilder = _utilities.lazy_import('pulumi_aws_native.amplifyuibuilder')
     apigateway = _utilities.lazy_import('pulumi_aws_native.apigateway')
@@ -692,6 +695,14 @@ _utilities.register(
    "aws-native:acmpca:CertificateAuthority": "CertificateAuthority",
    "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation",
    "aws-native:acmpca:Permission": "Permission"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "amazonmq",
+  "fqn": "pulumi_aws_native.amazonmq",
+  "classes": {
+   "aws-native:amazonmq:Configuration": "Configuration"
   }
  },
  {

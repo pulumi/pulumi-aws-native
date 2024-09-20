@@ -357,7 +357,6 @@
   "required" : [ "InstanceName", "BlueprintId", "BundleId" ],
   "readOnlyProperties" : [ "/properties/InstanceArn", "/properties/SshKeyName", "/properties/SupportCode", "/properties/ResourceType", "/properties/IsStaticIp", "/properties/PrivateIpAddress", "/properties/PublicIpAddress", "/properties/Ipv6Addresses", "/properties/Location/AvailabilityZone", "/properties/Location/RegionName", "/properties/Hardware/CpuCount", "/properties/Hardware/RamSizeInGb", "/properties/State/Code", "/properties/State/Name", "/properties/UserName", "/properties/Networking/MonthlyTransfer/GbPerMonthAllocated" ],
   "writeOnlyProperties" : [ "/properties/UserData" ],
-  "taggable" : true,
   "primaryIdentifier" : [ "/properties/InstanceName" ],
   "createOnlyProperties" : [ "/properties/InstanceName", "/properties/BlueprintId", "/properties/BundleId", "/properties/AvailabilityZone" ],
   "handlers" : {
@@ -377,5 +376,13 @@
       "permissions" : [ "lightsail:GetInstances", "lightsail:GetInstance", "lightsail:DeleteInstance", "lightsail:EnableAddOn", "lightsail:DisableAddOn", "lightsail:PutInstancePublicPorts", "lightsail:AttachDisk", "lightsail:DetachDisk", "lightsail:StartInstance", "lightsail:StopInstance", "lightsail:GetDisk", "lightsail:TagResource", "lightsail:UntagResource" ],
       "timeoutInMinutes" : 2160
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "lightsail:TagResource", "lightsail:UntagResource" ]
   }
 }

@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['CanaryArgs', 'Canary']
@@ -27,6 +28,7 @@ class CanaryArgs:
                  delete_lambda_resources_on_canary_deletion: Optional[pulumi.Input[bool]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resources_to_replicate_tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
                  start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
@@ -44,6 +46,7 @@ class CanaryArgs:
         :param pulumi.Input[bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
         :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input[str] name: Name of the canary.
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]] resources_to_replicate_tags: List of resources which canary tags should be replicated to.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Provide canary run configuration
         :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
         :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
@@ -64,6 +67,8 @@ class CanaryArgs:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resources_to_replicate_tags is not None:
+            pulumi.set(__self__, "resources_to_replicate_tags", resources_to_replicate_tags)
         if run_config is not None:
             pulumi.set(__self__, "run_config", run_config)
         if start_canary_after_creation is not None:
@@ -186,6 +191,18 @@ class CanaryArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="resourcesToReplicateTags")
+    def resources_to_replicate_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]]]:
+        """
+        List of resources which canary tags should be replicated to.
+        """
+        return pulumi.get(self, "resources_to_replicate_tags")
+
+    @resources_to_replicate_tags.setter
+    def resources_to_replicate_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]]]):
+        pulumi.set(self, "resources_to_replicate_tags", value)
+
+    @property
     @pulumi.getter(name="runConfig")
     def run_config(self) -> Optional[pulumi.Input['CanaryRunConfigArgs']]:
         """
@@ -270,6 +287,7 @@ class Canary(pulumi.CustomResource):
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resources_to_replicate_tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]]] = None,
                  run_config: Optional[pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[Union['CanaryScheduleArgs', 'CanaryScheduleArgsDict']]] = None,
@@ -378,6 +396,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: Lambda Execution role used to run your canaries
         :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
         :param pulumi.Input[str] name: Name of the canary.
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]] resources_to_replicate_tags: List of resources which canary tags should be replicated to.
         :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Provide canary run configuration
         :param pulumi.Input[str] runtime_version: Runtime version of Synthetics Library
         :param pulumi.Input[Union['CanaryScheduleArgs', 'CanaryScheduleArgsDict']] schedule: Frequency to run your canaries
@@ -505,6 +524,7 @@ class Canary(pulumi.CustomResource):
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resources_to_replicate_tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]]] = None,
                  run_config: Optional[pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[Union['CanaryScheduleArgs', 'CanaryScheduleArgsDict']]] = None,
@@ -535,6 +555,7 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["failure_retention_period"] = failure_retention_period
             __props__.__dict__["name"] = name
+            __props__.__dict__["resources_to_replicate_tags"] = resources_to_replicate_tags
             __props__.__dict__["run_config"] = run_config
             if runtime_version is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_version'")
@@ -581,6 +602,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["failure_retention_period"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["resources_to_replicate_tags"] = None
         __props__.__dict__["run_config"] = None
         __props__.__dict__["runtime_version"] = None
         __props__.__dict__["schedule"] = None
@@ -655,6 +677,14 @@ class Canary(pulumi.CustomResource):
         Name of the canary.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourcesToReplicateTags")
+    def resources_to_replicate_tags(self) -> pulumi.Output[Optional[Sequence['CanaryResourceToTag']]]:
+        """
+        List of resources which canary tags should be replicated to.
+        """
+        return pulumi.get(self, "resources_to_replicate_tags")
 
     @property
     @pulumi.getter(name="runConfig")

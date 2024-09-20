@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
         /// <summary>
         /// The properties of the container that's used on the Amazon EKS pod.
+        /// 
+        /// &gt; This object is limited to 10 elements.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksContainerArgs> Containers
         {
@@ -52,7 +54,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// <summary>
         /// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
         /// 
-        /// &gt; This object is limited to 10 elements
+        /// &gt; This object is limited to 10 elements.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksContainerArgs> InitContainers
         {

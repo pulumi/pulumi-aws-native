@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,6 +32,8 @@ type GlobalCluster struct {
 	//  The storage encryption setting for the new global database cluster.
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewGlobalCluster registers a new resource with the given unique name, arguments, and options.
@@ -96,6 +99,8 @@ type globalClusterArgs struct {
 	//  The storage encryption setting for the new global database cluster.
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalCluster resource.
@@ -116,6 +121,8 @@ type GlobalClusterArgs struct {
 	//  The storage encryption setting for the new global database cluster.
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	StorageEncrypted pulumi.BoolPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (GlobalClusterArgs) ElementType() reflect.Type {
@@ -191,6 +198,11 @@ func (o GlobalClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput 
 // If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 func (o GlobalClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o GlobalClusterOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *GlobalCluster) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

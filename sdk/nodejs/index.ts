@@ -67,6 +67,7 @@ export * from "./types/enums";
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
 import * as acmpca from "./acmpca";
+import * as amazonmq from "./amazonmq";
 import * as amplify from "./amplify";
 import * as amplifyuibuilder from "./amplifyuibuilder";
 import * as apigateway from "./apigateway";
@@ -286,6 +287,7 @@ import * as xray from "./xray";
 export {
     accessanalyzer,
     acmpca,
+    amazonmq,
     amplify,
     amplifyuibuilder,
     apigateway,

@@ -8,6 +8,7 @@ AWS::APS::Workspace
 AWS::ARCZonalShift::AutoshiftObserverNotificationStatus
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
+AWS::AmazonMQ::Configuration
 AWS::Amplify::App
 AWS::Amplify::Branch
 AWS::Amplify::Domain
@@ -1161,6 +1162,7 @@ MongoDB::Atlas::PrivatelinkEndpointServiceDataFederationOnlineArchive
 MongoDB::Atlas::Project
 MongoDB::Atlas::ProjectInvitation
 MongoDB::Atlas::ProjectIpAccessList
+MongoDB::Atlas::ResourcePolicy
 MongoDB::Atlas::SearchDeployment
 MongoDB::Atlas::SearchIndex
 MongoDB::Atlas::ServerlessInstance

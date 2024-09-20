@@ -67,6 +67,10 @@ export class GlobalCluster extends pulumi.CustomResource {
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.
@@ -86,6 +90,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
@@ -94,6 +99,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["engine", "globalClusterIdentifier", "sourceDbClusterIdentifier", "storageEncrypted"] };
@@ -136,4 +142,8 @@ export interface GlobalClusterArgs {
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

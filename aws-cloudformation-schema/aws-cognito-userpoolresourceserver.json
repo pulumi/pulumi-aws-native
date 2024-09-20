@@ -46,14 +46,14 @@
   "primaryIdentifier" : [ "/properties/UserPoolId", "/properties/Identifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cognito-idp:CreateResourceServer", "iam:PassRole" ],
+      "permissions" : [ "cognito-idp:CreateResourceServer" ],
       "timeoutInMinutes" : 2
     },
     "read" : {
       "permissions" : [ "cognito-idp:DescribeResourceServer" ]
     },
     "update" : {
-      "permissions" : [ "cognito-idp:UpdateResourceServer", "iam:PassRole" ],
+      "permissions" : [ "cognito-idp:UpdateResourceServer" ],
       "timeoutInMinutes" : 2
     },
     "delete" : {
