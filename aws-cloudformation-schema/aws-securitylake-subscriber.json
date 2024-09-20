@@ -165,7 +165,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "securitylake:TagResource", "securitylake:UntagResource", "securitylake:ListTagsForResource" ]
   },
   "required" : [ "AccessTypes", "DataLakeArn", "Sources", "SubscriberIdentity", "SubscriberName" ],
   "primaryIdentifier" : [ "/properties/SubscriberArn" ],
