@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public partial class FindingAggregator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The aggregation Region.
+        /// The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
         /// </summary>
         [Output("findingAggregationRegion")]
         public Output<string> FindingAggregationRegion { get; private set; } = null!;

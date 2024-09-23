@@ -238,7 +238,6 @@
   "additionalProperties" : false,
   "required" : [ "DistributionName", "BundleId", "DefaultCacheBehavior", "Origin" ],
   "readOnlyProperties" : [ "/properties/DistributionArn", "/properties/Status", "/properties/AbleToUpdateBundle" ],
-  "taggable" : true,
   "primaryIdentifier" : [ "/properties/DistributionName" ],
   "createOnlyProperties" : [ "/properties/DistributionName", "/properties/IpAddressType" ],
   "handlers" : {
@@ -257,5 +256,13 @@
     "list" : {
       "permissions" : [ "lightsail:GetDistributions" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "lightsail:TagResource", "lightsail:UntagResource" ]
   }
 }

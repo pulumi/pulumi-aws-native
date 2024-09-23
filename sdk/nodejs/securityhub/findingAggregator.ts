@@ -40,7 +40,7 @@ export class FindingAggregator extends pulumi.CustomResource {
     }
 
     /**
-     * The aggregation Region.
+     * The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
      */
     public /*out*/ readonly findingAggregationRegion!: pulumi.Output<string>;
     /**

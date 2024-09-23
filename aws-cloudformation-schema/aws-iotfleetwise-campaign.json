@@ -455,14 +455,15 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotfleetwise:UntagResource", "iotfleetwise:TagResource", "iotfleetwise:ListTagsForResource" ]
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Status", "/properties/CreationTime", "/properties/LastModificationTime" ],
   "writeOnlyProperties" : [ "/properties/Action" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/TargetArn", "/properties/SignalCatalogArn", "/properties/PostTriggerCollectionDuration", "/properties/DiagnosticsMode", "/properties/SpoolingMode", "/properties/CollectionScheme", "/properties/Priority", "/properties/Compression", "/properties/StartTime", "/properties/ExpiryTime" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Name" ],
-  "required" : [ "Name", "Action", "CollectionScheme", "SignalCatalogArn", "TargetArn" ],
+  "required" : [ "Name", "CollectionScheme", "SignalCatalogArn", "TargetArn" ],
   "handlers" : {
     "read" : {
       "permissions" : [ "iotfleetwise:GetCampaign", "iotfleetwise:ListTagsForResource" ]

@@ -37,7 +37,7 @@ class GetFindingAggregatorResult:
     @pulumi.getter(name="findingAggregationRegion")
     def finding_aggregation_region(self) -> Optional[str]:
         """
-        The aggregation Region.
+        The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
         """
         return pulumi.get(self, "finding_aggregation_region")
 

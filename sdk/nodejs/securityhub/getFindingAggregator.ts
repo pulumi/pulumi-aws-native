@@ -28,7 +28,7 @@ export interface GetFindingAggregatorArgs {
 
 export interface GetFindingAggregatorResult {
     /**
-     * The aggregation Region.
+     * The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
      */
     readonly findingAggregationRegion?: string;
     /**

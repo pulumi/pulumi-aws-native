@@ -3,6 +3,7 @@
   "typeName" : "AWS::GameLift::GameServerGroup",
   "description" : "The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
+  "taggable" : true,
   "definitions" : {
     "AutoScalingPolicy" : {
       "type" : "object",
@@ -337,6 +338,5 @@
     "list" : {
       "permissions" : [ "gamelift:ListGameServerGroups" ]
     }
-  },
-  "taggable" : true
+  }
 }

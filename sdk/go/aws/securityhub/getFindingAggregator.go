@@ -31,7 +31,7 @@ type LookupFindingAggregatorArgs struct {
 }
 
 type LookupFindingAggregatorResult struct {
-	// The aggregation Region.
+	// The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
 	FindingAggregationRegion *string `pulumi:"findingAggregationRegion"`
 	// The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
 	FindingAggregatorArn *string `pulumi:"findingAggregatorArn"`
@@ -91,7 +91,7 @@ func (o LookupFindingAggregatorResultOutput) ToLookupFindingAggregatorResultOutp
 	return o
 }
 
-// The aggregation Region.
+// The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
 func (o LookupFindingAggregatorResultOutput) FindingAggregationRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFindingAggregatorResult) *string { return v.FindingAggregationRegion }).(pulumi.StringPtrOutput)
 }

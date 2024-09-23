@@ -331,6 +331,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
     "permissions" : [ "fis:TagResource", "fis:UntagResource", "fis:ListTagsForResource" ]
   },
   "primaryIdentifier" : [ "/properties/Id" ],

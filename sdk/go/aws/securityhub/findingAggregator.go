@@ -19,7 +19,7 @@ import (
 type FindingAggregator struct {
 	pulumi.CustomResourceState
 
-	// The aggregation Region.
+	// The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
 	FindingAggregationRegion pulumi.StringOutput `pulumi:"findingAggregationRegion"`
 	// The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
 	FindingAggregatorArn pulumi.StringOutput `pulumi:"findingAggregatorArn"`
@@ -147,7 +147,7 @@ func (o FindingAggregatorOutput) ToFindingAggregatorOutputWithContext(ctx contex
 	return o
 }
 
-// The aggregation Region.
+// The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
 func (o FindingAggregatorOutput) FindingAggregationRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingAggregator) pulumi.StringOutput { return v.FindingAggregationRegion }).(pulumi.StringOutput)
 }

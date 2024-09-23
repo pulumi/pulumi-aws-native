@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetFindingAggregatorResult
     {
         /// <summary>
-        /// The aggregation Region.
+        /// The home Region. Findings generated in linked Regions are replicated and sent to the home Region.
         /// </summary>
         public readonly string? FindingAggregationRegion;
         /// <summary>
