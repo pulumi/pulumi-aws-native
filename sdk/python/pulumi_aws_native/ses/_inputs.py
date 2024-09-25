@@ -66,7 +66,8 @@ __all__ = [
     'MailManagerRuleSetRuleNumberExpressionArgs',
     'MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs',
     'MailManagerRuleSetRuleStringExpressionArgs',
-    'MailManagerRuleSetRuleStringToEvaluatePropertiesArgs',
+    'MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs',
+    'MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs',
     'MailManagerRuleSetRuleVerdictExpressionArgs',
     'MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs',
     'MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs',
@@ -1508,7 +1509,7 @@ class MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs:
 @pulumi.input_type
 class MailManagerRuleSetRuleStringExpressionArgs:
     def __init__(__self__, *,
-                 evaluate: pulumi.Input['MailManagerRuleSetRuleStringToEvaluatePropertiesArgs'],
+                 evaluate: pulumi.Input[Union['MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs']],
                  operator: pulumi.Input['MailManagerRuleSetRuleStringOperator'],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(__self__, "evaluate", evaluate)
@@ -1517,11 +1518,11 @@ class MailManagerRuleSetRuleStringExpressionArgs:
 
     @property
     @pulumi.getter
-    def evaluate(self) -> pulumi.Input['MailManagerRuleSetRuleStringToEvaluatePropertiesArgs']:
+    def evaluate(self) -> pulumi.Input[Union['MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs']]:
         return pulumi.get(self, "evaluate")
 
     @evaluate.setter
-    def evaluate(self, value: pulumi.Input['MailManagerRuleSetRuleStringToEvaluatePropertiesArgs']):
+    def evaluate(self, value: pulumi.Input[Union['MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs', 'MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs']]):
         pulumi.set(self, "evaluate", value)
 
     @property
@@ -1544,7 +1545,7 @@ class MailManagerRuleSetRuleStringExpressionArgs:
 
 
 @pulumi.input_type
-class MailManagerRuleSetRuleStringToEvaluatePropertiesArgs:
+class MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs:
     def __init__(__self__, *,
                  attribute: pulumi.Input['MailManagerRuleSetRuleStringEmailAttribute']):
         pulumi.set(__self__, "attribute", attribute)
@@ -1557,6 +1558,22 @@ class MailManagerRuleSetRuleStringToEvaluatePropertiesArgs:
     @attribute.setter
     def attribute(self, value: pulumi.Input['MailManagerRuleSetRuleStringEmailAttribute']):
         pulumi.set(self, "attribute", value)
+
+
+@pulumi.input_type
+class MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs:
+    def __init__(__self__, *,
+                 mime_header_attribute: pulumi.Input[str]):
+        pulumi.set(__self__, "mime_header_attribute", mime_header_attribute)
+
+    @property
+    @pulumi.getter(name="mimeHeaderAttribute")
+    def mime_header_attribute(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mime_header_attribute")
+
+    @mime_header_attribute.setter
+    def mime_header_attribute(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mime_header_attribute", value)
 
 
 @pulumi.input_type

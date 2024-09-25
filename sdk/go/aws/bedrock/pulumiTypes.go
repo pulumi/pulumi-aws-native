@@ -19593,7 +19593,7 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Dimensions() p
 type KnowledgeBaseConfiguration struct {
 	// The type of data that the data source is converted into for the knowledge base.
 	Type KnowledgeBaseType `pulumi:"type"`
-	// Contains details about the embeddings model that'sused to convert the data source.
+	// Contains details about the model that's used to convert the data source into vector embeddings.
 	VectorKnowledgeBaseConfiguration KnowledgeBaseVectorKnowledgeBaseConfiguration `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -19612,7 +19612,7 @@ type KnowledgeBaseConfigurationInput interface {
 type KnowledgeBaseConfigurationArgs struct {
 	// The type of data that the data source is converted into for the knowledge base.
 	Type KnowledgeBaseTypeInput `pulumi:"type"`
-	// Contains details about the embeddings model that'sused to convert the data source.
+	// Contains details about the model that's used to convert the data source into vector embeddings.
 	VectorKnowledgeBaseConfiguration KnowledgeBaseVectorKnowledgeBaseConfigurationInput `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -19648,7 +19648,7 @@ func (o KnowledgeBaseConfigurationOutput) Type() KnowledgeBaseTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseConfiguration) KnowledgeBaseType { return v.Type }).(KnowledgeBaseTypeOutput)
 }
 
-// Contains details about the embeddings model that'sused to convert the data source.
+// Contains details about the model that's used to convert the data source into vector embeddings.
 func (o KnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() KnowledgeBaseVectorKnowledgeBaseConfigurationOutput {
 	return o.ApplyT(func(v KnowledgeBaseConfiguration) KnowledgeBaseVectorKnowledgeBaseConfiguration {
 		return v.VectorKnowledgeBaseConfiguration

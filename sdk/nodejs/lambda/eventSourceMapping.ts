@@ -91,6 +91,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
      *   +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
      */
     public readonly eventSourceArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the event source mapping.
+     */
     public /*out*/ readonly eventSourceMappingArn!: pulumi.Output<string>;
     /**
      * An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).

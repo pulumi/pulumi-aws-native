@@ -37,7 +37,8 @@ type LookupListenerResult struct {
 	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
 	DefaultActions []ListenerAction `pulumi:"defaultActions"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn        *string             `pulumi:"listenerArn"`
+	ListenerArn *string `pulumi:"listenerArn"`
+	// The listener attributes.
 	ListenerAttributes []ListenerAttribute `pulumi:"listenerAttributes"`
 	// The mutual authentication configuration information.
 	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
@@ -117,6 +118,7 @@ func (o LookupListenerResultOutput) ListenerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ListenerArn }).(pulumi.StringPtrOutput)
 }
 
+// The listener attributes.
 func (o LookupListenerResultOutput) ListenerAttributes() ListenerAttributeArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []ListenerAttribute { return v.ListenerAttributes }).(ListenerAttributeArrayOutput)
 }

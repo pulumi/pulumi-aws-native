@@ -5264,9 +5264,9 @@ func (o MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput) Attribute() Mail
 }
 
 type MailManagerRuleSetRuleStringExpression struct {
-	Evaluate MailManagerRuleSetRuleStringToEvaluateProperties `pulumi:"evaluate"`
-	Operator MailManagerRuleSetRuleStringOperator             `pulumi:"operator"`
-	Values   []string                                         `pulumi:"values"`
+	Evaluate interface{}                          `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleStringOperator `pulumi:"operator"`
+	Values   []string                             `pulumi:"values"`
 }
 
 // MailManagerRuleSetRuleStringExpressionInput is an input type that accepts MailManagerRuleSetRuleStringExpressionArgs and MailManagerRuleSetRuleStringExpressionOutput values.
@@ -5281,9 +5281,9 @@ type MailManagerRuleSetRuleStringExpressionInput interface {
 }
 
 type MailManagerRuleSetRuleStringExpressionArgs struct {
-	Evaluate MailManagerRuleSetRuleStringToEvaluatePropertiesInput `pulumi:"evaluate"`
-	Operator MailManagerRuleSetRuleStringOperatorInput             `pulumi:"operator"`
-	Values   pulumi.StringArrayInput                               `pulumi:"values"`
+	Evaluate pulumi.Input                              `pulumi:"evaluate"`
+	Operator MailManagerRuleSetRuleStringOperatorInput `pulumi:"operator"`
+	Values   pulumi.StringArrayInput                   `pulumi:"values"`
 }
 
 func (MailManagerRuleSetRuleStringExpressionArgs) ElementType() reflect.Type {
@@ -5312,10 +5312,8 @@ func (o MailManagerRuleSetRuleStringExpressionOutput) ToMailManagerRuleSetRuleSt
 	return o
 }
 
-func (o MailManagerRuleSetRuleStringExpressionOutput) Evaluate() MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
-	return o.ApplyT(func(v MailManagerRuleSetRuleStringExpression) MailManagerRuleSetRuleStringToEvaluateProperties {
-		return v.Evaluate
-	}).(MailManagerRuleSetRuleStringToEvaluatePropertiesOutput)
+func (o MailManagerRuleSetRuleStringExpressionOutput) Evaluate() pulumi.AnyOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleStringExpression) interface{} { return v.Evaluate }).(pulumi.AnyOutput)
 }
 
 func (o MailManagerRuleSetRuleStringExpressionOutput) Operator() MailManagerRuleSetRuleStringOperatorOutput {
@@ -5330,55 +5328,100 @@ type MailManagerRuleSetRuleStringToEvaluate0Properties struct {
 	Attribute MailManagerRuleSetRuleStringEmailAttribute `pulumi:"attribute"`
 }
 
-type MailManagerRuleSetRuleStringToEvaluateProperties struct {
-	Attribute MailManagerRuleSetRuleStringEmailAttribute `pulumi:"attribute"`
-}
-
-// MailManagerRuleSetRuleStringToEvaluatePropertiesInput is an input type that accepts MailManagerRuleSetRuleStringToEvaluatePropertiesArgs and MailManagerRuleSetRuleStringToEvaluatePropertiesOutput values.
-// You can construct a concrete instance of `MailManagerRuleSetRuleStringToEvaluatePropertiesInput` via:
+// MailManagerRuleSetRuleStringToEvaluate0PropertiesInput is an input type that accepts MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs and MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleStringToEvaluate0PropertiesInput` via:
 //
-//	MailManagerRuleSetRuleStringToEvaluatePropertiesArgs{...}
-type MailManagerRuleSetRuleStringToEvaluatePropertiesInput interface {
+//	MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs{...}
+type MailManagerRuleSetRuleStringToEvaluate0PropertiesInput interface {
 	pulumi.Input
 
-	ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutput() MailManagerRuleSetRuleStringToEvaluatePropertiesOutput
-	ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleStringToEvaluatePropertiesOutput
+	ToMailManagerRuleSetRuleStringToEvaluate0PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput
+	ToMailManagerRuleSetRuleStringToEvaluate0PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput
 }
 
-type MailManagerRuleSetRuleStringToEvaluatePropertiesArgs struct {
+type MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs struct {
 	Attribute MailManagerRuleSetRuleStringEmailAttributeInput `pulumi:"attribute"`
 }
 
-func (MailManagerRuleSetRuleStringToEvaluatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluateProperties)(nil)).Elem()
+func (MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate0Properties)(nil)).Elem()
 }
 
-func (i MailManagerRuleSetRuleStringToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutput() MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
-	return i.ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutputWithContext(context.Background())
+func (i MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluate0PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleStringToEvaluate0PropertiesOutputWithContext(context.Background())
 }
 
-func (i MailManagerRuleSetRuleStringToEvaluatePropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleStringToEvaluatePropertiesOutput)
+func (i MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput)
 }
 
-type MailManagerRuleSetRuleStringToEvaluatePropertiesOutput struct{ *pulumi.OutputState }
+type MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (MailManagerRuleSetRuleStringToEvaluatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluateProperties)(nil)).Elem()
+func (MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate0Properties)(nil)).Elem()
 }
 
-func (o MailManagerRuleSetRuleStringToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutput() MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
+func (o MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluate0PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput {
 	return o
 }
 
-func (o MailManagerRuleSetRuleStringToEvaluatePropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluatePropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluatePropertiesOutput {
+func (o MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluate0PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput {
 	return o
 }
 
-func (o MailManagerRuleSetRuleStringToEvaluatePropertiesOutput) Attribute() MailManagerRuleSetRuleStringEmailAttributeOutput {
-	return o.ApplyT(func(v MailManagerRuleSetRuleStringToEvaluateProperties) MailManagerRuleSetRuleStringEmailAttribute {
+func (o MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput) Attribute() MailManagerRuleSetRuleStringEmailAttributeOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleStringToEvaluate0Properties) MailManagerRuleSetRuleStringEmailAttribute {
 		return v.Attribute
 	}).(MailManagerRuleSetRuleStringEmailAttributeOutput)
+}
+
+type MailManagerRuleSetRuleStringToEvaluate1Properties struct {
+	MimeHeaderAttribute string `pulumi:"mimeHeaderAttribute"`
+}
+
+// MailManagerRuleSetRuleStringToEvaluate1PropertiesInput is an input type that accepts MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs and MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput values.
+// You can construct a concrete instance of `MailManagerRuleSetRuleStringToEvaluate1PropertiesInput` via:
+//
+//	MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs{...}
+type MailManagerRuleSetRuleStringToEvaluate1PropertiesInput interface {
+	pulumi.Input
+
+	ToMailManagerRuleSetRuleStringToEvaluate1PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput
+	ToMailManagerRuleSetRuleStringToEvaluate1PropertiesOutputWithContext(context.Context) MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput
+}
+
+type MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs struct {
+	MimeHeaderAttribute pulumi.StringInput `pulumi:"mimeHeaderAttribute"`
+}
+
+func (MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate1Properties)(nil)).Elem()
+}
+
+func (i MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluate1PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput {
+	return i.ToMailManagerRuleSetRuleStringToEvaluate1PropertiesOutputWithContext(context.Background())
+}
+
+func (i MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs) ToMailManagerRuleSetRuleStringToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput)
+}
+
+type MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate1Properties)(nil)).Elem()
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluate1PropertiesOutput() MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput) ToMailManagerRuleSetRuleStringToEvaluate1PropertiesOutputWithContext(ctx context.Context) MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput {
+	return o
+}
+
+func (o MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput) MimeHeaderAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v MailManagerRuleSetRuleStringToEvaluate1Properties) string { return v.MimeHeaderAttribute }).(pulumi.StringOutput)
 }
 
 type MailManagerRuleSetRuleVerdictExpression struct {
@@ -7090,7 +7133,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleNumberExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleNumberExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleNumberToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleStringExpressionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluatePropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleStringToEvaluatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleStringToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictExpressionInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate0PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerRuleSetRuleVerdictToEvaluate1PropertiesInput)(nil)).Elem(), MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs{})
@@ -7200,7 +7244,8 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleNumberExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleNumberToEvaluatePropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringExpressionOutput{})
-	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringToEvaluatePropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringToEvaluate0PropertiesOutput{})
+	pulumi.RegisterOutputType(MailManagerRuleSetRuleStringToEvaluate1PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictExpressionOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictToEvaluate0PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerRuleSetRuleVerdictToEvaluate1PropertiesOutput{})

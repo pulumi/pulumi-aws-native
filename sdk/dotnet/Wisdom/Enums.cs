@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.Wisdom
 
         public static KnowledgeBaseType External { get; } = new KnowledgeBaseType("EXTERNAL");
         public static KnowledgeBaseType Custom { get; } = new KnowledgeBaseType("CUSTOM");
+        public static KnowledgeBaseType MessageTemplates { get; } = new KnowledgeBaseType("MESSAGE_TEMPLATES");
 
         public static bool operator ==(KnowledgeBaseType left, KnowledgeBaseType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseType left, KnowledgeBaseType right) => !left.Equals(right);

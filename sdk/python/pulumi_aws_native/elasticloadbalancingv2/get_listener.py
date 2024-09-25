@@ -85,6 +85,9 @@ class GetListenerResult:
     @property
     @pulumi.getter(name="listenerAttributes")
     def listener_attributes(self) -> Optional[Sequence['outputs.ListenerAttribute']]:
+        """
+        The listener attributes.
+        """
         return pulumi.get(self, "listener_attributes")
 
     @property

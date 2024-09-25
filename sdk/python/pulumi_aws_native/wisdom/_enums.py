@@ -22,3 +22,4 @@ class AssistantType(str, Enum):
 class KnowledgeBaseType(str, Enum):
     EXTERNAL = "EXTERNAL"
     CUSTOM = "CUSTOM"
+    MESSAGE_TEMPLATES = "MESSAGE_TEMPLATES"

@@ -339,8 +339,9 @@ func (in *assistantTypePtr) ToAssistantTypePtrOutputWithContext(ctx context.Cont
 type KnowledgeBaseType string
 
 const (
-	KnowledgeBaseTypeExternal = KnowledgeBaseType("EXTERNAL")
-	KnowledgeBaseTypeCustom   = KnowledgeBaseType("CUSTOM")
+	KnowledgeBaseTypeExternal         = KnowledgeBaseType("EXTERNAL")
+	KnowledgeBaseTypeCustom           = KnowledgeBaseType("CUSTOM")
+	KnowledgeBaseTypeMessageTemplates = KnowledgeBaseType("MESSAGE_TEMPLATES")
 )
 
 func (KnowledgeBaseType) ElementType() reflect.Type {
@@ -467,6 +468,7 @@ func (o KnowledgeBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 //
 //	KnowledgeBaseTypeExternal
 //	KnowledgeBaseTypeCustom
+//	KnowledgeBaseTypeMessageTemplates
 type KnowledgeBaseTypeInput interface {
 	pulumi.Input
 

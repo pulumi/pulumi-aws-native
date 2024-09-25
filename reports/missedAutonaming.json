@@ -6634,7 +6634,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerAttribute"
-        }
+        },
+        "description": "The listener attributes."
       },
       "loadBalancerArn": {
         "type": "string",

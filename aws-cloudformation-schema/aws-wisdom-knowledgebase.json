@@ -28,7 +28,7 @@
     },
     "KnowledgeBaseType" : {
       "type" : "string",
-      "enum" : [ "EXTERNAL", "CUSTOM" ]
+      "enum" : [ "EXTERNAL", "CUSTOM", "MESSAGE_TEMPLATES" ]
     },
     "RenderingConfiguration" : {
       "type" : "object",

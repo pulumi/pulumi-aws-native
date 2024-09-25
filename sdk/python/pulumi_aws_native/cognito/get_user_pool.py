@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolResult:
-    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_id=None, user_pool_name=None, user_pool_tags=None, username_attributes=None, username_configuration=None, verification_message_template=None):
+    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_authentication_message=None, email_authentication_subject=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_id=None, user_pool_name=None, user_pool_tags=None, username_attributes=None, username_configuration=None, verification_message_template=None):
         if account_recovery_setting and not isinstance(account_recovery_setting, dict):
             raise TypeError("Expected argument 'account_recovery_setting' to be a dict")
         pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
@@ -41,6 +41,12 @@ class GetUserPoolResult:
         if device_configuration and not isinstance(device_configuration, dict):
             raise TypeError("Expected argument 'device_configuration' to be a dict")
         pulumi.set(__self__, "device_configuration", device_configuration)
+        if email_authentication_message and not isinstance(email_authentication_message, str):
+            raise TypeError("Expected argument 'email_authentication_message' to be a str")
+        pulumi.set(__self__, "email_authentication_message", email_authentication_message)
+        if email_authentication_subject and not isinstance(email_authentication_subject, str):
+            raise TypeError("Expected argument 'email_authentication_subject' to be a str")
+        pulumi.set(__self__, "email_authentication_subject", email_authentication_subject)
         if email_configuration and not isinstance(email_configuration, dict):
             raise TypeError("Expected argument 'email_configuration' to be a dict")
         pulumi.set(__self__, "email_configuration", email_configuration)
@@ -167,6 +173,16 @@ class GetUserPoolResult:
         > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
         """
         return pulumi.get(self, "device_configuration")
+
+    @property
+    @pulumi.getter(name="emailAuthenticationMessage")
+    def email_authentication_message(self) -> Optional[str]:
+        return pulumi.get(self, "email_authentication_message")
+
+    @property
+    @pulumi.getter(name="emailAuthenticationSubject")
+    def email_authentication_subject(self) -> Optional[str]:
+        return pulumi.get(self, "email_authentication_subject")
 
     @property
     @pulumi.getter(name="emailConfiguration")
@@ -358,6 +374,8 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             auto_verified_attributes=self.auto_verified_attributes,
             deletion_protection=self.deletion_protection,
             device_configuration=self.device_configuration,
+            email_authentication_message=self.email_authentication_message,
+            email_authentication_subject=self.email_authentication_subject,
             email_configuration=self.email_configuration,
             email_verification_message=self.email_verification_message,
             email_verification_subject=self.email_verification_subject,
@@ -401,6 +419,8 @@ def get_user_pool(user_pool_id: Optional[str] = None,
         auto_verified_attributes=pulumi.get(__ret__, 'auto_verified_attributes'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         device_configuration=pulumi.get(__ret__, 'device_configuration'),
+        email_authentication_message=pulumi.get(__ret__, 'email_authentication_message'),
+        email_authentication_subject=pulumi.get(__ret__, 'email_authentication_subject'),
         email_configuration=pulumi.get(__ret__, 'email_configuration'),
         email_verification_message=pulumi.get(__ret__, 'email_verification_message'),
         email_verification_subject=pulumi.get(__ret__, 'email_verification_subject'),

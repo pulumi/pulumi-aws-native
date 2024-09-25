@@ -61,6 +61,9 @@ export interface GetEventSourceMappingResult {
      *  Default: True
      */
     readonly enabled?: boolean;
+    /**
+     * The Amazon Resource Name (ARN) of the event source mapping.
+     */
     readonly eventSourceMappingArn?: string;
     /**
      * An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).

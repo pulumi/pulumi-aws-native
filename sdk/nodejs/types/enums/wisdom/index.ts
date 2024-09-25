@@ -17,6 +17,7 @@ export type AssistantType = (typeof AssistantType)[keyof typeof AssistantType];
 export const KnowledgeBaseType = {
     External: "EXTERNAL",
     Custom: "CUSTOM",
+    MessageTemplates: "MESSAGE_TEMPLATES",
 } as const;
 
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];

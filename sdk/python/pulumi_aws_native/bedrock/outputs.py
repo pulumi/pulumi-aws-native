@@ -6857,7 +6857,7 @@ class KnowledgeBaseConfiguration(dict):
         """
         Contains details about the embeddings model used for the knowledge base.
         :param 'KnowledgeBaseType' type: The type of data that the data source is converted into for the knowledge base.
-        :param 'KnowledgeBaseVectorKnowledgeBaseConfiguration' vector_knowledge_base_configuration: Contains details about the embeddings model that'sused to convert the data source.
+        :param 'KnowledgeBaseVectorKnowledgeBaseConfiguration' vector_knowledge_base_configuration: Contains details about the model that's used to convert the data source into vector embeddings.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "vector_knowledge_base_configuration", vector_knowledge_base_configuration)
@@ -6874,7 +6874,7 @@ class KnowledgeBaseConfiguration(dict):
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
     def vector_knowledge_base_configuration(self) -> 'outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration':
         """
-        Contains details about the embeddings model that'sused to convert the data source.
+        Contains details about the model that's used to convert the data source into vector embeddings.
         """
         return pulumi.get(self, "vector_knowledge_base_configuration")
 

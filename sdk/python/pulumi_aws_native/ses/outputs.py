@@ -68,7 +68,8 @@ __all__ = [
     'MailManagerRuleSetRuleNumberExpression',
     'MailManagerRuleSetRuleNumberToEvaluateProperties',
     'MailManagerRuleSetRuleStringExpression',
-    'MailManagerRuleSetRuleStringToEvaluateProperties',
+    'MailManagerRuleSetRuleStringToEvaluate0Properties',
+    'MailManagerRuleSetRuleStringToEvaluate1Properties',
     'MailManagerRuleSetRuleVerdictExpression',
     'MailManagerRuleSetRuleVerdictToEvaluate0Properties',
     'MailManagerRuleSetRuleVerdictToEvaluate1Properties',
@@ -2024,7 +2025,7 @@ class MailManagerRuleSetRuleNumberToEvaluateProperties(dict):
 @pulumi.output_type
 class MailManagerRuleSetRuleStringExpression(dict):
     def __init__(__self__, *,
-                 evaluate: 'outputs.MailManagerRuleSetRuleStringToEvaluateProperties',
+                 evaluate: Any,
                  operator: 'MailManagerRuleSetRuleStringOperator',
                  values: Sequence[str]):
         pulumi.set(__self__, "evaluate", evaluate)
@@ -2033,7 +2034,7 @@ class MailManagerRuleSetRuleStringExpression(dict):
 
     @property
     @pulumi.getter
-    def evaluate(self) -> 'outputs.MailManagerRuleSetRuleStringToEvaluateProperties':
+    def evaluate(self) -> Any:
         return pulumi.get(self, "evaluate")
 
     @property
@@ -2048,7 +2049,7 @@ class MailManagerRuleSetRuleStringExpression(dict):
 
 
 @pulumi.output_type
-class MailManagerRuleSetRuleStringToEvaluateProperties(dict):
+class MailManagerRuleSetRuleStringToEvaluate0Properties(dict):
     def __init__(__self__, *,
                  attribute: 'MailManagerRuleSetRuleStringEmailAttribute'):
         pulumi.set(__self__, "attribute", attribute)
@@ -2057,6 +2058,35 @@ class MailManagerRuleSetRuleStringToEvaluateProperties(dict):
     @pulumi.getter
     def attribute(self) -> 'MailManagerRuleSetRuleStringEmailAttribute':
         return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleStringToEvaluate1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mimeHeaderAttribute":
+            suggest = "mime_header_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleStringToEvaluate1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleStringToEvaluate1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleStringToEvaluate1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mime_header_attribute: str):
+        pulumi.set(__self__, "mime_header_attribute", mime_header_attribute)
+
+    @property
+    @pulumi.getter(name="mimeHeaderAttribute")
+    def mime_header_attribute(self) -> str:
+        return pulumi.get(self, "mime_header_attribute")
 
 
 @pulumi.output_type

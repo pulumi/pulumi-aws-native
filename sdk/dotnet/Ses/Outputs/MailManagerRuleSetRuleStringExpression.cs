@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Ses.Outputs
     [OutputType]
     public sealed class MailManagerRuleSetRuleStringExpression
     {
-        public readonly Outputs.MailManagerRuleSetRuleStringToEvaluateProperties Evaluate;
+        public readonly Union<Outputs.MailManagerRuleSetRuleStringToEvaluate0Properties, Outputs.MailManagerRuleSetRuleStringToEvaluate1Properties> Evaluate;
         public readonly Pulumi.AwsNative.Ses.MailManagerRuleSetRuleStringOperator Operator;
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
         private MailManagerRuleSetRuleStringExpression(
-            Outputs.MailManagerRuleSetRuleStringToEvaluateProperties evaluate,
+            Union<Outputs.MailManagerRuleSetRuleStringToEvaluate0Properties, Outputs.MailManagerRuleSetRuleStringToEvaluate1Properties> evaluate,
 
             Pulumi.AwsNative.Ses.MailManagerRuleSetRuleStringOperator @operator,
 

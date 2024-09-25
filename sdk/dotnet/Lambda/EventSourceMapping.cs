@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("eventSourceArn")]
         public Output<string?> EventSourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the event source mapping.
+        /// </summary>
         [Output("eventSourceMappingArn")]
         public Output<string> EventSourceMappingArn { get; private set; } = null!;
 

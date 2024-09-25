@@ -112,7 +112,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "route53resolver:TagResource", "route53resolver:UntagResource" ]
   },
   "required" : [ "FirewallRuleGroupId", "VpcId", "Priority" ],
   "primaryIdentifier" : [ "/properties/Id" ],
@@ -121,19 +122,19 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53resolver:*", "ec2:*", "logs:*", "iam:*", "lambda:*", "s3:*" ]
+      "permissions" : [ "route53resolver:AssociateFirewallRuleGroup", "route53resolver:GetFirewallRuleGroupAssociation", "route53resolver:TagResource", "route53resolver:ListTagsForResource", "ec2:DescribeVpcs" ]
     },
     "read" : {
-      "permissions" : [ "route53resolver:*", "ec2:*", "logs:*", "iam:*", "lambda:*", "s3:*" ]
+      "permissions" : [ "route53resolver:GetFirewallRuleGroupAssociation", "route53resolver:ListTagsForResource" ]
     },
     "list" : {
-      "permissions" : [ "route53resolver:*", "ec2:*", "logs:*", "iam:*", "lambda:*", "s3:*" ]
+      "permissions" : [ "route53resolver:ListFirewallRuleGroupAssociations", "route53resolver:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "route53resolver:*", "ec2:*", "logs:*", "iam:*", "lambda:*", "s3:*" ]
+      "permissions" : [ "route53resolver:DisassociateFirewallRuleGroup", "route53resolver:GetFirewallRuleGroupAssociation", "route53resolver:UntagResource", "route53resolver:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "route53resolver:*", "ec2:*", "logs:*", "iam:*", "lambda:*", "s3:*" ]
+      "permissions" : [ "route53resolver:UpdateFirewallRuleGroupAssociation", "route53resolver:GetFirewallRuleGroupAssociation", "route53resolver:TagResource", "route53resolver:UntagResource", "route53resolver:ListTagsForResource" ]
     }
   }
 }

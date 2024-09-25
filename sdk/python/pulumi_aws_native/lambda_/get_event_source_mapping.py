@@ -137,6 +137,9 @@ class GetEventSourceMappingResult:
     @property
     @pulumi.getter(name="eventSourceMappingArn")
     def event_source_mapping_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the event source mapping.
+        """
         return pulumi.get(self, "event_source_mapping_arn")
 
     @property

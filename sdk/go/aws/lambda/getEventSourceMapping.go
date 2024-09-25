@@ -55,7 +55,8 @@ type LookupEventSourceMappingResult struct {
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
 	// When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
 	//  Default: True
-	Enabled               *bool   `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// The Amazon Resource Name (ARN) of the event source mapping.
 	EventSourceMappingArn *string `pulumi:"eventSourceMappingArn"`
 	// An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
 	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
@@ -183,6 +184,7 @@ func (o LookupEventSourceMappingResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the event source mapping.
 func (o LookupEventSourceMappingResultOutput) EventSourceMappingArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.EventSourceMappingArn }).(pulumi.StringPtrOutput)
 }

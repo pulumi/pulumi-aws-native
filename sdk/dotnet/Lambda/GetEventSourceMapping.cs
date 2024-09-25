@@ -101,6 +101,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  Default: True
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the event source mapping.
+        /// </summary>
         public readonly string? EventSourceMappingArn;
         /// <summary>
         /// An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).

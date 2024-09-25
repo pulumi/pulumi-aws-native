@@ -41,6 +41,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The listener attributes.
+        /// </summary>
         [Output("listenerAttributes")]
         public Output<ImmutableArray<Outputs.ListenerAttribute>> ListenerAttributes { get; private set; } = null!;
 
@@ -165,6 +168,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [Input("listenerAttributes")]
         private InputList<Inputs.ListenerAttributeArgs>? _listenerAttributes;
+
+        /// <summary>
+        /// The listener attributes.
+        /// </summary>
         public InputList<Inputs.ListenerAttributeArgs> ListenerAttributes
         {
             get => _listenerAttributes ?? (_listenerAttributes = new InputList<Inputs.ListenerAttributeArgs>());

@@ -55,8 +55,9 @@ type EventSourceMapping struct {
 	//   +   *Amazon Managed Streaming for Apache Kafka* – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).
 	//   +   *Amazon MQ* – The ARN of the broker.
 	//   +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
-	EventSourceArn        pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
-	EventSourceMappingArn pulumi.StringOutput    `pulumi:"eventSourceMappingArn"`
+	EventSourceArn pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
+	// The Amazon Resource Name (ARN) of the event source mapping.
+	EventSourceMappingArn pulumi.StringOutput `pulumi:"eventSourceMappingArn"`
 	// An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
 	FilterCriteria EventSourceMappingFilterCriteriaPtrOutput `pulumi:"filterCriteria"`
 	// The name or ARN of the Lambda function.
@@ -428,6 +429,7 @@ func (o EventSourceMappingOutput) EventSourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.EventSourceArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the event source mapping.
 func (o EventSourceMappingOutput) EventSourceMappingArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.EventSourceMappingArn }).(pulumi.StringOutput)
 }

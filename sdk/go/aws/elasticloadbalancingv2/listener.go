@@ -25,7 +25,8 @@ type Listener struct {
 	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
 	DefaultActions ListenerActionArrayOutput `pulumi:"defaultActions"`
 	// The Amazon Resource Name (ARN) of the listener.
-	ListenerArn        pulumi.StringOutput          `pulumi:"listenerArn"`
+	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
+	// The listener attributes.
 	ListenerAttributes ListenerAttributeArrayOutput `pulumi:"listenerAttributes"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
@@ -98,7 +99,8 @@ type listenerArgs struct {
 	Certificates []ListenerCertificate `pulumi:"certificates"`
 	// The actions for the default rule. You cannot define a condition for a default rule.
 	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
-	DefaultActions     []ListenerAction    `pulumi:"defaultActions"`
+	DefaultActions []ListenerAction `pulumi:"defaultActions"`
+	// The listener attributes.
 	ListenerAttributes []ListenerAttribute `pulumi:"listenerAttributes"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
@@ -123,7 +125,8 @@ type ListenerArgs struct {
 	Certificates ListenerCertificateArrayInput
 	// The actions for the default rule. You cannot define a condition for a default rule.
 	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
-	DefaultActions     ListenerActionArrayInput
+	DefaultActions ListenerActionArrayInput
+	// The listener attributes.
 	ListenerAttributes ListenerAttributeArrayInput
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn pulumi.StringInput
@@ -200,6 +203,7 @@ func (o ListenerOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
 }
 
+// The listener attributes.
 func (o ListenerOutput) ListenerAttributes() ListenerAttributeArrayOutput {
 	return o.ApplyT(func(v *Listener) ListenerAttributeArrayOutput { return v.ListenerAttributes }).(ListenerAttributeArrayOutput)
 }

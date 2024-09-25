@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The Amazon Resource Name (ARN) of the listener.
         /// </summary>
         public readonly string? ListenerArn;
+        /// <summary>
+        /// The listener attributes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ListenerAttribute> ListenerAttributes;
         /// <summary>
         /// The mutual authentication configuration information.

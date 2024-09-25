@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ses.Inputs
     public sealed class MailManagerRuleSetRuleStringExpressionArgs : global::Pulumi.ResourceArgs
     {
         [Input("evaluate", required: true)]
-        public Input<Inputs.MailManagerRuleSetRuleStringToEvaluatePropertiesArgs> Evaluate { get; set; } = null!;
+        public InputUnion<Inputs.MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs, Inputs.MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs> Evaluate { get; set; } = null!;
 
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.Ses.MailManagerRuleSetRuleStringOperator> Operator { get; set; } = null!;

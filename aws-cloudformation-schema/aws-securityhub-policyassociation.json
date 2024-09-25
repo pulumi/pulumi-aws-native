@@ -50,13 +50,15 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "securityhub:StartConfigurationPolicyAssociation", "securityhub:GetConfigurationPolicyAssociation" ]
+      "permissions" : [ "securityhub:StartConfigurationPolicyAssociation", "securityhub:GetConfigurationPolicyAssociation" ],
+      "timeoutInMinutes" : 1440
     },
     "read" : {
       "permissions" : [ "securityhub:GetConfigurationPolicyAssociation", "securityhub:GetConfigurationPolicyAssociation" ]
     },
     "update" : {
-      "permissions" : [ "securityhub:StartConfigurationPolicyAssociation", "securityhub:GetConfigurationPolicyAssociation" ]
+      "permissions" : [ "securityhub:StartConfigurationPolicyAssociation", "securityhub:GetConfigurationPolicyAssociation" ],
+      "timeoutInMinutes" : 1440
     },
     "delete" : {
       "permissions" : [ "securityhub:StartConfigurationPolicyDisassociation", "securityhub:GetConfigurationPolicyAssociation" ]
