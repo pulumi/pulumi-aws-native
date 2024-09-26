@@ -169,7 +169,7 @@
   "primaryIdentifier" : [ "/properties/PortalArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "workspaces-web:CreatePortal", "workspaces-web:GetPortal", "workspaces-web:GetPortalServiceProviderMetadata", "workspaces-web:AssociateBrowserSettings", "workspaces-web:AssociateIpAccessSettings", "workspaces-web:AssociateNetworkSettings", "workspaces-web:AssociateTrustStore", "workspaces-web:AssociateUserAccessLoggingSettings", "workspaces-web:AssociateUserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource", "kms:CreateGrant", "kms:GenerateDataKey", "kms:Decrypt", "kms:DescribeKey", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:DeleteNetworkInterface", "ec2:DeleteNetworkInterfacePermission", "ec2:ModifyNetworkInterfaceAttribute", "kinesis:PutRecord", "kinesis:PutRecords", "kinesis:DescribeStreamSummary", "sso:CreateManagedApplicationInstance", "sso:DescribeRegisteredRegions" ]
+      "permissions" : [ "workspaces-web:CreatePortal", "workspaces-web:GetPortal", "workspaces-web:GetPortalServiceProviderMetadata", "workspaces-web:AssociateBrowserSettings", "workspaces-web:AssociateIpAccessSettings", "workspaces-web:AssociateNetworkSettings", "workspaces-web:AssociateTrustStore", "workspaces-web:AssociateUserAccessLoggingSettings", "workspaces-web:AssociateUserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptTo", "kms:ReEncryptFrom", "ec2:CreateNetworkInterface", "ec2:CreateNetworkInterfacePermission", "ec2:DeleteNetworkInterface", "ec2:DeleteNetworkInterfacePermission", "ec2:ModifyNetworkInterfaceAttribute", "kinesis:PutRecord", "kinesis:PutRecords", "kinesis:DescribeStreamSummary", "sso:CreateManagedApplicationInstance", "sso:DescribeRegisteredRegions" ]
     },
     "read" : {
       "permissions" : [ "workspaces-web:GetPortal", "workspaces-web:GetPortalServiceProviderMetadata", "workspaces-web:ListTagsForResource", "kms:Decrypt", "kms:DescribeKey" ]
@@ -189,7 +189,8 @@
     "tagOnCreate" : true,
     "tagProperty" : "/properties/Tags",
     "tagUpdatable" : true,
-    "taggable" : true
+    "taggable" : true,
+    "permissions" : [ "workspaces-web:UntagResource", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource" ]
   },
   "additionalProperties" : false
 }
