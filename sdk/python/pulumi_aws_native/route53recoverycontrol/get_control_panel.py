@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -109,9 +114,6 @@ def get_control_panel(control_panel_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         routing_control_count=pulumi.get(__ret__, 'routing_control_count'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_control_panel)
 def get_control_panel_output(control_panel_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlPanelResult]:
     """
@@ -120,4 +122,13 @@ def get_control_panel_output(control_panel_arn: Optional[pulumi.Input[str]] = No
 
     :param str control_panel_arn: The Amazon Resource Name (ARN) of the cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['controlPanelArn'] = control_panel_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoverycontrol:getControlPanel', __args__, opts=opts, typ=GetControlPanelResult)
+    return __ret__.apply(lambda __response__: GetControlPanelResult(
+        control_panel_arn=pulumi.get(__response__, 'control_panel_arn'),
+        default_control_panel=pulumi.get(__response__, 'default_control_panel'),
+        name=pulumi.get(__response__, 'name'),
+        routing_control_count=pulumi.get(__response__, 'routing_control_count'),
+        status=pulumi.get(__response__, 'status')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -256,9 +261,6 @@ def get_web_acl(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         token_domains=pulumi.get(__ret__, 'token_domains'),
         visibility_config=pulumi.get(__ret__, 'visibility_config'))
-
-
-@_utilities.lift_output_func(get_web_acl)
 def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        scope: Optional[pulumi.Input['WebAclScope']] = None,
@@ -275,4 +277,24 @@ def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
            
            For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:wafv2:getWebAcl', __args__, opts=opts, typ=GetWebAclResult)
+    return __ret__.apply(lambda __response__: GetWebAclResult(
+        arn=pulumi.get(__response__, 'arn'),
+        association_config=pulumi.get(__response__, 'association_config'),
+        capacity=pulumi.get(__response__, 'capacity'),
+        captcha_config=pulumi.get(__response__, 'captcha_config'),
+        challenge_config=pulumi.get(__response__, 'challenge_config'),
+        custom_response_bodies=pulumi.get(__response__, 'custom_response_bodies'),
+        default_action=pulumi.get(__response__, 'default_action'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        label_namespace=pulumi.get(__response__, 'label_namespace'),
+        rules=pulumi.get(__response__, 'rules'),
+        tags=pulumi.get(__response__, 'tags'),
+        token_domains=pulumi.get(__response__, 'token_domains'),
+        visibility_config=pulumi.get(__response__, 'visibility_config')))

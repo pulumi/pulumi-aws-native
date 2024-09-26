@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -202,9 +207,6 @@ def get_user_settings(user_settings_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         upload_allowed=pulumi.get(__ret__, 'upload_allowed'),
         user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'))
-
-
-@_utilities.lift_output_func(get_user_settings)
 def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsResult]:
     """
@@ -213,4 +215,20 @@ def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[str]] = No
 
     :param str user_settings_arn: The ARN of the user settings.
     """
-    ...
+    __args__ = dict()
+    __args__['userSettingsArn'] = user_settings_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getUserSettings', __args__, opts=opts, typ=GetUserSettingsResult)
+    return __ret__.apply(lambda __response__: GetUserSettingsResult(
+        associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),
+        cookie_synchronization_configuration=pulumi.get(__response__, 'cookie_synchronization_configuration'),
+        copy_allowed=pulumi.get(__response__, 'copy_allowed'),
+        deep_link_allowed=pulumi.get(__response__, 'deep_link_allowed'),
+        disconnect_timeout_in_minutes=pulumi.get(__response__, 'disconnect_timeout_in_minutes'),
+        download_allowed=pulumi.get(__response__, 'download_allowed'),
+        idle_disconnect_timeout_in_minutes=pulumi.get(__response__, 'idle_disconnect_timeout_in_minutes'),
+        paste_allowed=pulumi.get(__response__, 'paste_allowed'),
+        print_allowed=pulumi.get(__response__, 'print_allowed'),
+        tags=pulumi.get(__response__, 'tags'),
+        upload_allowed=pulumi.get(__response__, 'upload_allowed'),
+        user_settings_arn=pulumi.get(__response__, 'user_settings_arn')))

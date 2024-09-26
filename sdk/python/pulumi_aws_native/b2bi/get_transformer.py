@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -189,9 +194,6 @@ def get_transformer(transformer_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transformer_arn=pulumi.get(__ret__, 'transformer_arn'),
         transformer_id=pulumi.get(__ret__, 'transformer_id'))
-
-
-@_utilities.lift_output_func(get_transformer)
 def get_transformer_output(transformer_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransformerResult]:
     """
@@ -200,4 +202,19 @@ def get_transformer_output(transformer_id: Optional[pulumi.Input[str]] = None,
 
     :param str transformer_id: The system-assigned unique identifier for the transformer.
     """
-    ...
+    __args__ = dict()
+    __args__['transformerId'] = transformer_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:b2bi:getTransformer', __args__, opts=opts, typ=GetTransformerResult)
+    return __ret__.apply(lambda __response__: GetTransformerResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        edi_type=pulumi.get(__response__, 'edi_type'),
+        file_format=pulumi.get(__response__, 'file_format'),
+        mapping_template=pulumi.get(__response__, 'mapping_template'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        name=pulumi.get(__response__, 'name'),
+        sample_document=pulumi.get(__response__, 'sample_document'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        transformer_arn=pulumi.get(__response__, 'transformer_arn'),
+        transformer_id=pulumi.get(__response__, 'transformer_id')))

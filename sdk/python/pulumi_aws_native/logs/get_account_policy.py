@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -108,9 +113,6 @@ def get_account_policy(account_id: Optional[str] = None,
         policy_document=pulumi.get(__ret__, 'policy_document'),
         scope=pulumi.get(__ret__, 'scope'),
         selection_criteria=pulumi.get(__ret__, 'selection_criteria'))
-
-
-@_utilities.lift_output_func(get_account_policy)
 def get_account_policy_output(account_id: Optional[pulumi.Input[str]] = None,
                               policy_name: Optional[pulumi.Input[str]] = None,
                               policy_type: Optional[pulumi.Input['AccountPolicyPolicyType']] = None,
@@ -123,4 +125,14 @@ def get_account_policy_output(account_id: Optional[pulumi.Input[str]] = None,
     :param str policy_name: The name of the account policy
     :param 'AccountPolicyPolicyType' policy_type: Type of the policy.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    __args__['policyName'] = policy_name
+    __args__['policyType'] = policy_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getAccountPolicy', __args__, opts=opts, typ=GetAccountPolicyResult)
+    return __ret__.apply(lambda __response__: GetAccountPolicyResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        policy_document=pulumi.get(__response__, 'policy_document'),
+        scope=pulumi.get(__response__, 'scope'),
+        selection_criteria=pulumi.get(__response__, 'selection_criteria')))

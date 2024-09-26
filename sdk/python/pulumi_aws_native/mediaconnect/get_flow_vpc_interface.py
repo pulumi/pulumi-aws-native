@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -98,9 +103,6 @@ def get_flow_vpc_interface(flow_arn: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'))
-
-
-@_utilities.lift_output_func(get_flow_vpc_interface)
 def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowVpcInterfaceResult]:
@@ -111,4 +113,13 @@ def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[str]] = None,
     :param str flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
     :param str name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
     """
-    ...
+    __args__ = dict()
+    __args__['flowArn'] = flow_arn
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlowVpcInterface', __args__, opts=opts, typ=GetFlowVpcInterfaceResult)
+    return __ret__.apply(lambda __response__: GetFlowVpcInterfaceResult(
+        network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        subnet_id=pulumi.get(__response__, 'subnet_id')))

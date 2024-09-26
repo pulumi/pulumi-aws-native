@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -98,9 +103,6 @@ def get_local_gateway_route(destination_cidr_block: Optional[str] = None,
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_local_gateway_route)
 def get_local_gateway_route_output(destination_cidr_block: Optional[pulumi.Input[str]] = None,
                                    local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteResult]:
@@ -111,4 +113,13 @@ def get_local_gateway_route_output(destination_cidr_block: Optional[pulumi.Input
     :param str destination_cidr_block: The CIDR block used for destination matches.
     :param str local_gateway_route_table_id: The ID of the local gateway route table.
     """
-    ...
+    __args__ = dict()
+    __args__['destinationCidrBlock'] = destination_cidr_block
+    __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getLocalGatewayRoute', __args__, opts=opts, typ=GetLocalGatewayRouteResult)
+    return __ret__.apply(lambda __response__: GetLocalGatewayRouteResult(
+        local_gateway_virtual_interface_group_id=pulumi.get(__response__, 'local_gateway_virtual_interface_group_id'),
+        network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        state=pulumi.get(__response__, 'state'),
+        type=pulumi.get(__response__, 'type')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -149,9 +154,6 @@ def get_location_object_storage(location_arn: Optional[str] = None,
         server_port=pulumi.get(__ret__, 'server_port'),
         server_protocol=pulumi.get(__ret__, 'server_protocol'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_location_object_storage)
 def get_location_object_storage_output(location_arn: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationObjectStorageResult]:
     """
@@ -160,4 +162,16 @@ def get_location_object_storage_output(location_arn: Optional[pulumi.Input[str]]
 
     :param str location_arn: The Amazon Resource Name (ARN) of the location that is created.
     """
-    ...
+    __args__ = dict()
+    __args__['locationArn'] = location_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationObjectStorage', __args__, opts=opts, typ=GetLocationObjectStorageResult)
+    return __ret__.apply(lambda __response__: GetLocationObjectStorageResult(
+        access_key=pulumi.get(__response__, 'access_key'),
+        agent_arns=pulumi.get(__response__, 'agent_arns'),
+        location_arn=pulumi.get(__response__, 'location_arn'),
+        location_uri=pulumi.get(__response__, 'location_uri'),
+        server_certificate=pulumi.get(__response__, 'server_certificate'),
+        server_port=pulumi.get(__response__, 'server_port'),
+        server_protocol=pulumi.get(__response__, 'server_protocol'),
+        tags=pulumi.get(__response__, 'tags')))

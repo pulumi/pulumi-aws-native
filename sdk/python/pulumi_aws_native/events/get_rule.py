@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -152,9 +157,6 @@ def get_rule(arn: Optional[str] = None,
         schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
         state=pulumi.get(__ret__, 'state'),
         targets=pulumi.get(__ret__, 'targets'))
-
-
-@_utilities.lift_output_func(get_rule)
 def get_rule_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
@@ -163,4 +165,16 @@ def get_rule_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:events:getRule', __args__, opts=opts, typ=GetRuleResult)
+    return __ret__.apply(lambda __response__: GetRuleResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        event_bus_name=pulumi.get(__response__, 'event_bus_name'),
+        event_pattern=pulumi.get(__response__, 'event_pattern'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        schedule_expression=pulumi.get(__response__, 'schedule_expression'),
+        state=pulumi.get(__response__, 'state'),
+        targets=pulumi.get(__response__, 'targets')))

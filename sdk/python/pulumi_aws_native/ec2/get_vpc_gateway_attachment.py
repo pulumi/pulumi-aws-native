@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -85,9 +90,6 @@ def get_vpc_gateway_attachment(attachment_type: Optional[str] = None,
         attachment_type=pulumi.get(__ret__, 'attachment_type'),
         internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
-
-
-@_utilities.lift_output_func(get_vpc_gateway_attachment)
 def get_vpc_gateway_attachment_output(attachment_type: Optional[pulumi.Input[str]] = None,
                                       vpc_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcGatewayAttachmentResult]:
@@ -98,4 +100,12 @@ def get_vpc_gateway_attachment_output(attachment_type: Optional[pulumi.Input[str
     :param str attachment_type: Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
     :param str vpc_id: The ID of the VPC.
     """
-    ...
+    __args__ = dict()
+    __args__['attachmentType'] = attachment_type
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcGatewayAttachment', __args__, opts=opts, typ=GetVpcGatewayAttachmentResult)
+    return __ret__.apply(lambda __response__: GetVpcGatewayAttachmentResult(
+        attachment_type=pulumi.get(__response__, 'attachment_type'),
+        internet_gateway_id=pulumi.get(__response__, 'internet_gateway_id'),
+        vpn_gateway_id=pulumi.get(__response__, 'vpn_gateway_id')))

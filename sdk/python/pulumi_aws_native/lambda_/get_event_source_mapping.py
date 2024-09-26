@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -349,9 +354,6 @@ def get_event_source_mapping(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topics=pulumi.get(__ret__, 'topics'),
         tumbling_window_in_seconds=pulumi.get(__ret__, 'tumbling_window_in_seconds'))
-
-
-@_utilities.lift_output_func(get_event_source_mapping)
 def get_event_source_mapping_output(id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceMappingResult]:
     """
@@ -368,4 +370,29 @@ def get_event_source_mapping_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The event source mapping's ID.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getEventSourceMapping', __args__, opts=opts, typ=GetEventSourceMappingResult)
+    return __ret__.apply(lambda __response__: GetEventSourceMappingResult(
+        batch_size=pulumi.get(__response__, 'batch_size'),
+        bisect_batch_on_function_error=pulumi.get(__response__, 'bisect_batch_on_function_error'),
+        destination_config=pulumi.get(__response__, 'destination_config'),
+        document_db_event_source_config=pulumi.get(__response__, 'document_db_event_source_config'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        event_source_mapping_arn=pulumi.get(__response__, 'event_source_mapping_arn'),
+        filter_criteria=pulumi.get(__response__, 'filter_criteria'),
+        function_name=pulumi.get(__response__, 'function_name'),
+        function_response_types=pulumi.get(__response__, 'function_response_types'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        maximum_batching_window_in_seconds=pulumi.get(__response__, 'maximum_batching_window_in_seconds'),
+        maximum_record_age_in_seconds=pulumi.get(__response__, 'maximum_record_age_in_seconds'),
+        maximum_retry_attempts=pulumi.get(__response__, 'maximum_retry_attempts'),
+        parallelization_factor=pulumi.get(__response__, 'parallelization_factor'),
+        queues=pulumi.get(__response__, 'queues'),
+        scaling_config=pulumi.get(__response__, 'scaling_config'),
+        source_access_configurations=pulumi.get(__response__, 'source_access_configurations'),
+        tags=pulumi.get(__response__, 'tags'),
+        topics=pulumi.get(__response__, 'topics'),
+        tumbling_window_in_seconds=pulumi.get(__response__, 'tumbling_window_in_seconds')))

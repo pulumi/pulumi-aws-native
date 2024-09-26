@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -83,9 +88,6 @@ def get_network_interface_attachment(attachment_id: Optional[str] = None,
         attachment_id=pulumi.get(__ret__, 'attachment_id'),
         delete_on_termination=pulumi.get(__ret__, 'delete_on_termination'),
         ena_srd_specification=pulumi.get(__ret__, 'ena_srd_specification'))
-
-
-@_utilities.lift_output_func(get_network_interface_attachment)
 def get_network_interface_attachment_output(attachment_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceAttachmentResult]:
     """
@@ -94,4 +96,11 @@ def get_network_interface_attachment_output(attachment_id: Optional[pulumi.Input
 
     :param str attachment_id: The ID of the network interface attachment.
     """
-    ...
+    __args__ = dict()
+    __args__['attachmentId'] = attachment_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInterfaceAttachment', __args__, opts=opts, typ=GetNetworkInterfaceAttachmentResult)
+    return __ret__.apply(lambda __response__: GetNetworkInterfaceAttachmentResult(
+        attachment_id=pulumi.get(__response__, 'attachment_id'),
+        delete_on_termination=pulumi.get(__response__, 'delete_on_termination'),
+        ena_srd_specification=pulumi.get(__response__, 'ena_srd_specification')))

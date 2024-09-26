@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -150,9 +155,6 @@ def get_response_plan(arn: Optional[str] = None,
         incident_template=pulumi.get(__ret__, 'incident_template'),
         integrations=pulumi.get(__ret__, 'integrations'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_response_plan)
 def get_response_plan_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResponsePlanResult]:
     """
@@ -161,4 +163,16 @@ def get_response_plan_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the response plan.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ssmincidents:getResponsePlan', __args__, opts=opts, typ=GetResponsePlanResult)
+    return __ret__.apply(lambda __response__: GetResponsePlanResult(
+        actions=pulumi.get(__response__, 'actions'),
+        arn=pulumi.get(__response__, 'arn'),
+        chat_channel=pulumi.get(__response__, 'chat_channel'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        engagements=pulumi.get(__response__, 'engagements'),
+        incident_template=pulumi.get(__response__, 'incident_template'),
+        integrations=pulumi.get(__response__, 'integrations'),
+        tags=pulumi.get(__response__, 'tags')))

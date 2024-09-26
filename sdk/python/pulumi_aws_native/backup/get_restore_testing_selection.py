@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -116,9 +121,6 @@ def get_restore_testing_selection(restore_testing_plan_name: Optional[str] = Non
         protected_resource_conditions=pulumi.get(__ret__, 'protected_resource_conditions'),
         restore_metadata_overrides=pulumi.get(__ret__, 'restore_metadata_overrides'),
         validation_window_hours=pulumi.get(__ret__, 'validation_window_hours'))
-
-
-@_utilities.lift_output_func(get_restore_testing_selection)
 def get_restore_testing_selection_output(restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
                                          restore_testing_selection_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestoreTestingSelectionResult]:
@@ -131,4 +133,14 @@ def get_restore_testing_selection_output(restore_testing_plan_name: Optional[pul
            The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
     :param str restore_testing_selection_name: The unique name of the restore testing selection that belongs to the related restore testing plan.
     """
-    ...
+    __args__ = dict()
+    __args__['restoreTestingPlanName'] = restore_testing_plan_name
+    __args__['restoreTestingSelectionName'] = restore_testing_selection_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getRestoreTestingSelection', __args__, opts=opts, typ=GetRestoreTestingSelectionResult)
+    return __ret__.apply(lambda __response__: GetRestoreTestingSelectionResult(
+        iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
+        protected_resource_arns=pulumi.get(__response__, 'protected_resource_arns'),
+        protected_resource_conditions=pulumi.get(__response__, 'protected_resource_conditions'),
+        restore_metadata_overrides=pulumi.get(__response__, 'restore_metadata_overrides'),
+        validation_window_hours=pulumi.get(__response__, 'validation_window_hours')))

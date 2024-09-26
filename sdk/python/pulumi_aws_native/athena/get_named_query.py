@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_named_query(named_query_id: Optional[str] = None,
 
     return AwaitableGetNamedQueryResult(
         named_query_id=pulumi.get(__ret__, 'named_query_id'))
-
-
-@_utilities.lift_output_func(get_named_query)
 def get_named_query_output(named_query_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedQueryResult]:
     """
@@ -67,4 +69,9 @@ def get_named_query_output(named_query_id: Optional[pulumi.Input[str]] = None,
 
     :param str named_query_id: The unique ID of the query.
     """
-    ...
+    __args__ = dict()
+    __args__['namedQueryId'] = named_query_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getNamedQuery', __args__, opts=opts, typ=GetNamedQueryResult)
+    return __ret__.apply(lambda __response__: GetNamedQueryResult(
+        named_query_id=pulumi.get(__response__, 'named_query_id')))

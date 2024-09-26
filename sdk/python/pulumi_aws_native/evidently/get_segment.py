@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -109,9 +114,6 @@ def get_segment(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         pattern=pulumi.get(__ret__, 'pattern'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_segment)
 def get_segment_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSegmentResult]:
     """
@@ -120,4 +122,13 @@ def get_segment_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the segment. For example, `arn:aws:evidently:us-west-2:123456789012:segment/australiaSegment`
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:evidently:getSegment', __args__, opts=opts, typ=GetSegmentResult)
+    return __ret__.apply(lambda __response__: GetSegmentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        name=pulumi.get(__response__, 'name'),
+        pattern=pulumi.get(__response__, 'pattern'),
+        tags=pulumi.get(__response__, 'tags')))

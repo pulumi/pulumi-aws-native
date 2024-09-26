@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -189,9 +194,6 @@ def get_email_identity(email_identity: Optional[str] = None,
         dkim_signing_attributes=pulumi.get(__ret__, 'dkim_signing_attributes'),
         feedback_attributes=pulumi.get(__ret__, 'feedback_attributes'),
         mail_from_attributes=pulumi.get(__ret__, 'mail_from_attributes'))
-
-
-@_utilities.lift_output_func(get_email_identity)
 def get_email_identity_output(email_identity: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
@@ -200,4 +202,19 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[str]] = None
 
     :param str email_identity: The email address or domain to verify.
     """
-    ...
+    __args__ = dict()
+    __args__['emailIdentity'] = email_identity
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult)
+    return __ret__.apply(lambda __response__: GetEmailIdentityResult(
+        configuration_set_attributes=pulumi.get(__response__, 'configuration_set_attributes'),
+        dkim_attributes=pulumi.get(__response__, 'dkim_attributes'),
+        dkim_dns_token_name1=pulumi.get(__response__, 'dkim_dns_token_name1'),
+        dkim_dns_token_name2=pulumi.get(__response__, 'dkim_dns_token_name2'),
+        dkim_dns_token_name3=pulumi.get(__response__, 'dkim_dns_token_name3'),
+        dkim_dns_token_value1=pulumi.get(__response__, 'dkim_dns_token_value1'),
+        dkim_dns_token_value2=pulumi.get(__response__, 'dkim_dns_token_value2'),
+        dkim_dns_token_value3=pulumi.get(__response__, 'dkim_dns_token_value3'),
+        dkim_signing_attributes=pulumi.get(__response__, 'dkim_signing_attributes'),
+        feedback_attributes=pulumi.get(__response__, 'feedback_attributes'),
+        mail_from_attributes=pulumi.get(__response__, 'mail_from_attributes')))

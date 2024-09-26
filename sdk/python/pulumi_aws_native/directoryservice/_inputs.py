@@ -4,14 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'SimpleAdVpcSettingsArgs',
+    'SimpleAdVpcSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SimpleAdVpcSettingsArgsDict(TypedDict):
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+        """
+        vpc_id: pulumi.Input[str]
+        """
+        The identifier of the VPC in which to create the directory.
+        """
+elif False:
+    SimpleAdVpcSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimpleAdVpcSettingsArgs:

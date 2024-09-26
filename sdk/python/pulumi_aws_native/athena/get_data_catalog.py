@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -97,9 +102,6 @@ def get_data_catalog(name: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_data_catalog)
 def get_data_catalog_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCatalogResult]:
     """
@@ -108,4 +110,12 @@ def get_data_catalog_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getDataCatalog', __args__, opts=opts, typ=GetDataCatalogResult)
+    return __ret__.apply(lambda __response__: GetDataCatalogResult(
+        description=pulumi.get(__response__, 'description'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

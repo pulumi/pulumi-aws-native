@@ -4,51 +4,112 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AnalysisTemplateAnalysisParameterArgs',
+    'AnalysisTemplateAnalysisParameterArgsDict',
     'AnalysisTemplateAnalysisSourceArgs',
+    'AnalysisTemplateAnalysisSourceArgsDict',
     'CollaborationDataEncryptionMetadataArgs',
+    'CollaborationDataEncryptionMetadataArgsDict',
     'CollaborationMemberSpecificationArgs',
+    'CollaborationMemberSpecificationArgsDict',
     'CollaborationPaymentConfigurationArgs',
+    'CollaborationPaymentConfigurationArgsDict',
     'CollaborationQueryComputePaymentConfigArgs',
+    'CollaborationQueryComputePaymentConfigArgsDict',
     'ConfiguredTableAggregateColumnArgs',
+    'ConfiguredTableAggregateColumnArgsDict',
     'ConfiguredTableAggregationConstraintArgs',
+    'ConfiguredTableAggregationConstraintArgsDict',
     'ConfiguredTableAnalysisRuleAggregationArgs',
+    'ConfiguredTableAnalysisRuleAggregationArgsDict',
     'ConfiguredTableAnalysisRuleCustomArgs',
+    'ConfiguredTableAnalysisRuleCustomArgsDict',
     'ConfiguredTableAnalysisRuleListArgs',
+    'ConfiguredTableAnalysisRuleListArgsDict',
     'ConfiguredTableAnalysisRulePolicyV10PropertiesArgs',
+    'ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict',
     'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs',
+    'ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict',
     'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs',
+    'ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict',
     'ConfiguredTableAnalysisRulePolicyArgs',
+    'ConfiguredTableAnalysisRulePolicyArgsDict',
     'ConfiguredTableAnalysisRuleArgs',
+    'ConfiguredTableAnalysisRuleArgsDict',
     'ConfiguredTableAssociationAnalysisRuleAggregationArgs',
+    'ConfiguredTableAssociationAnalysisRuleAggregationArgsDict',
     'ConfiguredTableAssociationAnalysisRuleCustomArgs',
+    'ConfiguredTableAssociationAnalysisRuleCustomArgsDict',
     'ConfiguredTableAssociationAnalysisRuleListArgs',
+    'ConfiguredTableAssociationAnalysisRuleListArgsDict',
     'ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs',
+    'ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict',
     'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs',
+    'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict',
     'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs',
+    'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict',
     'ConfiguredTableAssociationAnalysisRulePolicyArgs',
+    'ConfiguredTableAssociationAnalysisRulePolicyArgsDict',
     'ConfiguredTableAssociationAnalysisRuleArgs',
+    'ConfiguredTableAssociationAnalysisRuleArgsDict',
     'ConfiguredTableDifferentialPrivacyColumnArgs',
+    'ConfiguredTableDifferentialPrivacyColumnArgsDict',
     'ConfiguredTableDifferentialPrivacyArgs',
+    'ConfiguredTableDifferentialPrivacyArgsDict',
     'ConfiguredTableGlueTableReferenceArgs',
+    'ConfiguredTableGlueTableReferenceArgsDict',
     'ConfiguredTableTableReferenceArgs',
+    'ConfiguredTableTableReferenceArgsDict',
     'IdMappingTableInputReferenceConfigArgs',
+    'IdMappingTableInputReferenceConfigArgsDict',
     'IdNamespaceAssociationIdMappingConfigArgs',
+    'IdNamespaceAssociationIdMappingConfigArgsDict',
     'IdNamespaceAssociationInputReferenceConfigArgs',
+    'IdNamespaceAssociationInputReferenceConfigArgsDict',
     'MembershipPaymentConfigurationArgs',
+    'MembershipPaymentConfigurationArgsDict',
     'MembershipProtectedQueryOutputConfigurationArgs',
+    'MembershipProtectedQueryOutputConfigurationArgsDict',
     'MembershipProtectedQueryResultConfigurationArgs',
+    'MembershipProtectedQueryResultConfigurationArgsDict',
     'MembershipProtectedQueryS3OutputConfigurationArgs',
+    'MembershipProtectedQueryS3OutputConfigurationArgsDict',
     'MembershipQueryComputePaymentConfigArgs',
+    'MembershipQueryComputePaymentConfigArgsDict',
     'ParametersPropertiesArgs',
+    'ParametersPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnalysisTemplateAnalysisParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the parameter. The name must use only alphanumeric, underscore (_), or hyphen (-) characters but cannot start or end with a hyphen.
+        """
+        type: pulumi.Input['AnalysisTemplateAnalysisParameterType']
+        """
+        The type of parameter.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+        """
+elif False:
+    AnalysisTemplateAnalysisParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalysisTemplateAnalysisParameterArgs:
@@ -103,6 +164,15 @@ class AnalysisTemplateAnalysisParameterArgs:
         pulumi.set(self, "default_value", value)
 
 
+if not MYPY:
+    class AnalysisTemplateAnalysisSourceArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        """
+        The query text.
+        """
+elif False:
+    AnalysisTemplateAnalysisSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalysisTemplateAnalysisSourceArgs:
     def __init__(__self__, *,
@@ -124,6 +194,27 @@ class AnalysisTemplateAnalysisSourceArgs:
     def text(self, value: pulumi.Input[str]):
         pulumi.set(self, "text", value)
 
+
+if not MYPY:
+    class CollaborationDataEncryptionMetadataArgsDict(TypedDict):
+        allow_cleartext: pulumi.Input[bool]
+        """
+        Indicates whether encrypted tables can contain cleartext data ( `TRUE` ) or are to cryptographically process every column ( `FALSE` ).
+        """
+        allow_duplicates: pulumi.Input[bool]
+        """
+        Indicates whether Fingerprint columns can contain duplicate entries ( `TRUE` ) or are to contain only non-repeated values ( `FALSE` ).
+        """
+        allow_joins_on_columns_with_different_names: pulumi.Input[bool]
+        """
+        Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name ( `TRUE` ) or can only be joined on Fingerprint columns of the same name ( `FALSE` ).
+        """
+        preserve_nulls: pulumi.Input[bool]
+        """
+        Indicates whether NULL values are to be copied as NULL to encrypted tables ( `TRUE` ) or cryptographically processed ( `FALSE` ).
+        """
+elif False:
+    CollaborationDataEncryptionMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollaborationDataEncryptionMetadataArgs:
@@ -191,6 +282,31 @@ class CollaborationDataEncryptionMetadataArgs:
     def preserve_nulls(self, value: pulumi.Input[bool]):
         pulumi.set(self, "preserve_nulls", value)
 
+
+if not MYPY:
+    class CollaborationMemberSpecificationArgsDict(TypedDict):
+        account_id: pulumi.Input[str]
+        """
+        The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
+        """
+        display_name: pulumi.Input[str]
+        """
+        The member's display name.
+        """
+        member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]
+        """
+        The abilities granted to the collaboration member.
+
+        *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        """
+        payment_configuration: NotRequired[pulumi.Input['CollaborationPaymentConfigurationArgsDict']]
+        """
+        The collaboration member's payment responsibilities set by the collaboration creator.
+
+        If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
+        """
+elif False:
+    CollaborationMemberSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollaborationMemberSpecificationArgs:
@@ -268,6 +384,15 @@ class CollaborationMemberSpecificationArgs:
         pulumi.set(self, "payment_configuration", value)
 
 
+if not MYPY:
+    class CollaborationPaymentConfigurationArgsDict(TypedDict):
+        query_compute: pulumi.Input['CollaborationQueryComputePaymentConfigArgsDict']
+        """
+        The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        """
+elif False:
+    CollaborationPaymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CollaborationPaymentConfigurationArgs:
     def __init__(__self__, *,
@@ -289,6 +414,19 @@ class CollaborationPaymentConfigurationArgs:
     def query_compute(self, value: pulumi.Input['CollaborationQueryComputePaymentConfigArgs']):
         pulumi.set(self, "query_compute", value)
 
+
+if not MYPY:
+    class CollaborationQueryComputePaymentConfigArgsDict(TypedDict):
+        is_responsible: pulumi.Input[bool]
+        """
+        Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs ( `TRUE` ) or has not configured the collaboration member to pay for query compute costs ( `FALSE` ).
+
+        Exactly one member can be configured to pay for query compute costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+
+        If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+        """
+elif False:
+    CollaborationQueryComputePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollaborationQueryComputePaymentConfigArgs:
@@ -320,6 +458,13 @@ class CollaborationQueryComputePaymentConfigArgs:
         pulumi.set(self, "is_responsible", value)
 
 
+if not MYPY:
+    class ConfiguredTableAggregateColumnArgsDict(TypedDict):
+        column_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        function: pulumi.Input['ConfiguredTableAggregateFunctionName']
+elif False:
+    ConfiguredTableAggregateColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAggregateColumnArgs:
     def __init__(__self__, *,
@@ -346,6 +491,14 @@ class ConfiguredTableAggregateColumnArgs:
     def function(self, value: pulumi.Input['ConfiguredTableAggregateFunctionName']):
         pulumi.set(self, "function", value)
 
+
+if not MYPY:
+    class ConfiguredTableAggregationConstraintArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        minimum: pulumi.Input[float]
+        type: pulumi.Input['ConfiguredTableAggregationType']
+elif False:
+    ConfiguredTableAggregationConstraintArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAggregationConstraintArgs:
@@ -384,6 +537,19 @@ class ConfiguredTableAggregationConstraintArgs:
     def type(self, value: pulumi.Input['ConfiguredTableAggregationType']):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ConfiguredTableAnalysisRuleAggregationArgsDict(TypedDict):
+        aggregate_columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregateColumnArgsDict']]]
+        dimension_columns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        join_columns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        output_constraints: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregationConstraintArgsDict']]]
+        scalar_functions: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableScalarFunctions']]]
+        additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
+        allowed_join_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]
+        join_required: NotRequired[pulumi.Input['ConfiguredTableJoinRequiredOption']]
+elif False:
+    ConfiguredTableAnalysisRuleAggregationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleAggregationArgs:
@@ -481,6 +647,16 @@ class ConfiguredTableAnalysisRuleAggregationArgs:
         pulumi.set(self, "join_required", value)
 
 
+if not MYPY:
+    class ConfiguredTableAnalysisRuleCustomArgsDict(TypedDict):
+        allowed_analyses: pulumi.Input[Sequence[pulumi.Input[str]]]
+        additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
+        allowed_analysis_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        differential_privacy: NotRequired[pulumi.Input['ConfiguredTableDifferentialPrivacyArgsDict']]
+        disallowed_output_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ConfiguredTableAnalysisRuleCustomArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleCustomArgs:
     def __init__(__self__, *,
@@ -545,6 +721,15 @@ class ConfiguredTableAnalysisRuleCustomArgs:
         pulumi.set(self, "disallowed_output_columns", value)
 
 
+if not MYPY:
+    class ConfiguredTableAnalysisRuleListArgsDict(TypedDict):
+        join_columns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        list_columns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        additional_analyses: NotRequired[pulumi.Input['ConfiguredTableAdditionalAnalyses']]
+        allowed_join_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]]
+elif False:
+    ConfiguredTableAnalysisRuleListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleListArgs:
     def __init__(__self__, *,
@@ -596,6 +781,12 @@ class ConfiguredTableAnalysisRuleListArgs:
         pulumi.set(self, "allowed_join_operators", value)
 
 
+if not MYPY:
+    class ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict(TypedDict):
+        list: pulumi.Input['ConfiguredTableAnalysisRuleListArgsDict']
+elif False:
+    ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyV10PropertiesArgs:
     def __init__(__self__, *,
@@ -611,6 +802,12 @@ class ConfiguredTableAnalysisRulePolicyV10PropertiesArgs:
     def list(self, value: pulumi.Input['ConfiguredTableAnalysisRuleListArgs']):
         pulumi.set(self, "list", value)
 
+
+if not MYPY:
+    class ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict(TypedDict):
+        aggregation: pulumi.Input['ConfiguredTableAnalysisRuleAggregationArgsDict']
+elif False:
+    ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyV11PropertiesArgs:
@@ -628,6 +825,12 @@ class ConfiguredTableAnalysisRulePolicyV11PropertiesArgs:
         pulumi.set(self, "aggregation", value)
 
 
+if not MYPY:
+    class ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict(TypedDict):
+        custom: pulumi.Input['ConfiguredTableAnalysisRuleCustomArgsDict']
+elif False:
+    ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyV12PropertiesArgs:
     def __init__(__self__, *,
@@ -643,6 +846,15 @@ class ConfiguredTableAnalysisRulePolicyV12PropertiesArgs:
     def custom(self, value: pulumi.Input['ConfiguredTableAnalysisRuleCustomArgs']):
         pulumi.set(self, "custom", value)
 
+
+if not MYPY:
+    class ConfiguredTableAnalysisRulePolicyArgsDict(TypedDict):
+        v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgsDict']]
+        """
+        Controls on the query specifications that can be run on a configured table.
+        """
+elif False:
+    ConfiguredTableAnalysisRulePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRulePolicyArgs:
@@ -665,6 +877,19 @@ class ConfiguredTableAnalysisRulePolicyArgs:
     def v1(self, value: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]):
         pulumi.set(self, "v1", value)
 
+
+if not MYPY:
+    class ConfiguredTableAnalysisRuleArgsDict(TypedDict):
+        policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgsDict']
+        """
+        A policy that describes the associated data usage limitations.
+        """
+        type: pulumi.Input['ConfiguredTableAnalysisRuleType']
+        """
+        The type of analysis rule.
+        """
+elif False:
+    ConfiguredTableAnalysisRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAnalysisRuleArgs:
@@ -703,6 +928,13 @@ class ConfiguredTableAnalysisRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ConfiguredTableAssociationAnalysisRuleAggregationArgsDict(TypedDict):
+        allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ConfiguredTableAssociationAnalysisRuleAggregationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleAggregationArgs:
     def __init__(__self__, *,
@@ -731,6 +963,13 @@ class ConfiguredTableAssociationAnalysisRuleAggregationArgs:
     def allowed_result_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_result_receivers", value)
 
+
+if not MYPY:
+    class ConfiguredTableAssociationAnalysisRuleCustomArgsDict(TypedDict):
+        allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ConfiguredTableAssociationAnalysisRuleCustomArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleCustomArgs:
@@ -761,6 +1000,13 @@ class ConfiguredTableAssociationAnalysisRuleCustomArgs:
         pulumi.set(self, "allowed_result_receivers", value)
 
 
+if not MYPY:
+    class ConfiguredTableAssociationAnalysisRuleListArgsDict(TypedDict):
+        allowed_additional_analyses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        allowed_result_receivers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ConfiguredTableAssociationAnalysisRuleListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleListArgs:
     def __init__(__self__, *,
@@ -790,6 +1036,12 @@ class ConfiguredTableAssociationAnalysisRuleListArgs:
         pulumi.set(self, "allowed_result_receivers", value)
 
 
+if not MYPY:
+    class ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict(TypedDict):
+        list: pulumi.Input['ConfiguredTableAssociationAnalysisRuleListArgsDict']
+elif False:
+    ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs:
     def __init__(__self__, *,
@@ -805,6 +1057,12 @@ class ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs:
     def list(self, value: pulumi.Input['ConfiguredTableAssociationAnalysisRuleListArgs']):
         pulumi.set(self, "list", value)
 
+
+if not MYPY:
+    class ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict(TypedDict):
+        aggregation: pulumi.Input['ConfiguredTableAssociationAnalysisRuleAggregationArgsDict']
+elif False:
+    ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs:
@@ -822,6 +1080,12 @@ class ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs:
         pulumi.set(self, "aggregation", value)
 
 
+if not MYPY:
+    class ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict(TypedDict):
+        custom: pulumi.Input['ConfiguredTableAssociationAnalysisRuleCustomArgsDict']
+elif False:
+    ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs:
     def __init__(__self__, *,
@@ -837,6 +1101,15 @@ class ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs:
     def custom(self, value: pulumi.Input['ConfiguredTableAssociationAnalysisRuleCustomArgs']):
         pulumi.set(self, "custom", value)
 
+
+if not MYPY:
+    class ConfiguredTableAssociationAnalysisRulePolicyArgsDict(TypedDict):
+        v1: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgsDict', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict']]
+        """
+        The policy for the configured table association analysis rule.
+        """
+elif False:
+    ConfiguredTableAssociationAnalysisRulePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRulePolicyArgs:
@@ -859,6 +1132,19 @@ class ConfiguredTableAssociationAnalysisRulePolicyArgs:
     def v1(self, value: pulumi.Input[Union['ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs']]):
         pulumi.set(self, "v1", value)
 
+
+if not MYPY:
+    class ConfiguredTableAssociationAnalysisRuleArgsDict(TypedDict):
+        policy: pulumi.Input['ConfiguredTableAssociationAnalysisRulePolicyArgsDict']
+        """
+        The policy of the configured table association analysis rule.
+        """
+        type: pulumi.Input['ConfiguredTableAssociationAnalysisRuleType']
+        """
+        The type of the configured table association analysis rule.
+        """
+elif False:
+    ConfiguredTableAssociationAnalysisRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableAssociationAnalysisRuleArgs:
@@ -897,6 +1183,12 @@ class ConfiguredTableAssociationAnalysisRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ConfiguredTableDifferentialPrivacyColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+elif False:
+    ConfiguredTableDifferentialPrivacyColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableDifferentialPrivacyColumnArgs:
     def __init__(__self__, *,
@@ -913,6 +1205,12 @@ class ConfiguredTableDifferentialPrivacyColumnArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ConfiguredTableDifferentialPrivacyArgsDict(TypedDict):
+        columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgsDict']]]
+elif False:
+    ConfiguredTableDifferentialPrivacyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableDifferentialPrivacyArgs:
     def __init__(__self__, *,
@@ -928,6 +1226,19 @@ class ConfiguredTableDifferentialPrivacyArgs:
     def columns(self, value: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgs']]]):
         pulumi.set(self, "columns", value)
 
+
+if not MYPY:
+    class ConfiguredTableGlueTableReferenceArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The name of the database the AWS Glue table belongs to.
+        """
+        table_name: pulumi.Input[str]
+        """
+        The name of the AWS Glue table.
+        """
+elif False:
+    ConfiguredTableGlueTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableGlueTableReferenceArgs:
@@ -966,6 +1277,15 @@ class ConfiguredTableGlueTableReferenceArgs:
         pulumi.set(self, "table_name", value)
 
 
+if not MYPY:
+    class ConfiguredTableTableReferenceArgsDict(TypedDict):
+        glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgsDict']
+        """
+        If present, a reference to the AWS Glue table referred to by this table reference.
+        """
+elif False:
+    ConfiguredTableTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfiguredTableTableReferenceArgs:
     def __init__(__self__, *,
@@ -987,6 +1307,21 @@ class ConfiguredTableTableReferenceArgs:
     def glue(self, value: pulumi.Input['ConfiguredTableGlueTableReferenceArgs']):
         pulumi.set(self, "glue", value)
 
+
+if not MYPY:
+    class IdMappingTableInputReferenceConfigArgsDict(TypedDict):
+        input_reference_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the referenced resource in AWS Entity Resolution . Valid values are ID mapping workflow ARNs.
+        """
+        manage_resource_policies: pulumi.Input[bool]
+        """
+        When `TRUE` , AWS Clean Rooms manages permissions for the ID mapping table resource.
+
+        When `FALSE` , the resource owner manages permissions for the ID mapping table resource.
+        """
+elif False:
+    IdMappingTableInputReferenceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdMappingTableInputReferenceConfigArgs:
@@ -1029,6 +1364,17 @@ class IdMappingTableInputReferenceConfigArgs:
         pulumi.set(self, "manage_resource_policies", value)
 
 
+if not MYPY:
+    class IdNamespaceAssociationIdMappingConfigArgsDict(TypedDict):
+        allow_use_as_dimension_column: pulumi.Input[bool]
+        """
+        An indicator as to whether you can use your column as a dimension column in the ID mapping table ( `TRUE` ) or not ( `FALSE` ).
+
+        Default is `FALSE` .
+        """
+elif False:
+    IdNamespaceAssociationIdMappingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdNamespaceAssociationIdMappingConfigArgs:
     def __init__(__self__, *,
@@ -1054,6 +1400,21 @@ class IdNamespaceAssociationIdMappingConfigArgs:
     def allow_use_as_dimension_column(self, value: pulumi.Input[bool]):
         pulumi.set(self, "allow_use_as_dimension_column", value)
 
+
+if not MYPY:
+    class IdNamespaceAssociationInputReferenceConfigArgsDict(TypedDict):
+        input_reference_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the AWS Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+        """
+        manage_resource_policies: pulumi.Input[bool]
+        """
+        When `TRUE` , AWS Clean Rooms manages permissions for the ID namespace association resource.
+
+        When `FALSE` , the resource owner manages permissions for the ID namespace association resource.
+        """
+elif False:
+    IdNamespaceAssociationInputReferenceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdNamespaceAssociationInputReferenceConfigArgs:
@@ -1096,6 +1457,15 @@ class IdNamespaceAssociationInputReferenceConfigArgs:
         pulumi.set(self, "manage_resource_policies", value)
 
 
+if not MYPY:
+    class MembershipPaymentConfigurationArgsDict(TypedDict):
+        query_compute: pulumi.Input['MembershipQueryComputePaymentConfigArgsDict']
+        """
+        The payment responsibilities accepted by the collaboration member for query compute costs.
+        """
+elif False:
+    MembershipPaymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MembershipPaymentConfigurationArgs:
     def __init__(__self__, *,
@@ -1118,6 +1488,15 @@ class MembershipPaymentConfigurationArgs:
         pulumi.set(self, "query_compute", value)
 
 
+if not MYPY:
+    class MembershipProtectedQueryOutputConfigurationArgsDict(TypedDict):
+        s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgsDict']
+        """
+        Required configuration for a protected query with an `s3` output type.
+        """
+elif False:
+    MembershipProtectedQueryOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MembershipProtectedQueryOutputConfigurationArgs:
     def __init__(__self__, *,
@@ -1139,6 +1518,19 @@ class MembershipProtectedQueryOutputConfigurationArgs:
     def s3(self, value: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']):
         pulumi.set(self, "s3", value)
 
+
+if not MYPY:
+    class MembershipProtectedQueryResultConfigurationArgsDict(TypedDict):
+        output_configuration: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgsDict']
+        """
+        Configuration for protected query results.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
+        """
+elif False:
+    MembershipProtectedQueryResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MembershipProtectedQueryResultConfigurationArgs:
@@ -1177,6 +1569,23 @@ class MembershipProtectedQueryResultConfigurationArgs:
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
 
+
+if not MYPY:
+    class MembershipProtectedQueryS3OutputConfigurationArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        """
+        The S3 bucket to unload the protected query results.
+        """
+        result_format: pulumi.Input['MembershipResultFormat']
+        """
+        Intended file format of the result.
+        """
+        key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The S3 prefix to unload the protected query results.
+        """
+elif False:
+    MembershipProtectedQueryS3OutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MembershipProtectedQueryS3OutputConfigurationArgs:
@@ -1231,6 +1640,22 @@ class MembershipProtectedQueryS3OutputConfigurationArgs:
         pulumi.set(self, "key_prefix", value)
 
 
+if not MYPY:
+    class MembershipQueryComputePaymentConfigArgsDict(TypedDict):
+        is_responsible: pulumi.Input[bool]
+        """
+        Indicates whether the collaboration member has accepted to pay for query compute costs ( `TRUE` ) or has not accepted to pay for query compute costs ( `FALSE` ).
+
+        If the collaboration creator has not specified anyone to pay for query compute costs, then the member who can query is the default payer.
+
+        An error message is returned for the following reasons:
+
+        - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
+        - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
+        """
+elif False:
+    MembershipQueryComputePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MembershipQueryComputePaymentConfigArgs:
     def __init__(__self__, *,
@@ -1266,6 +1691,22 @@ class MembershipQueryComputePaymentConfigArgs:
     def is_responsible(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_responsible", value)
 
+
+if not MYPY:
+    class ParametersPropertiesArgsDict(TypedDict):
+        """
+        Specifies the epsilon and noise parameters for the privacy budget template.
+        """
+        epsilon: pulumi.Input[int]
+        """
+        The epsilon value that you want to use.
+        """
+        users_noise_per_query: pulumi.Input[int]
+        """
+        Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
+        """
+elif False:
+    ParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParametersPropertiesArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -91,9 +96,6 @@ def get_account_audit_configuration(account_id: Optional[str] = None,
         audit_check_configurations=pulumi.get(__ret__, 'audit_check_configurations'),
         audit_notification_target_configurations=pulumi.get(__ret__, 'audit_notification_target_configurations'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-
-
-@_utilities.lift_output_func(get_account_audit_configuration)
 def get_account_audit_configuration_output(account_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountAuditConfigurationResult]:
     """
@@ -102,4 +104,11 @@ def get_account_audit_configuration_output(account_id: Optional[pulumi.Input[str
 
     :param str account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getAccountAuditConfiguration', __args__, opts=opts, typ=GetAccountAuditConfigurationResult)
+    return __ret__.apply(lambda __response__: GetAccountAuditConfigurationResult(
+        audit_check_configurations=pulumi.get(__response__, 'audit_check_configurations'),
+        audit_notification_target_configurations=pulumi.get(__response__, 'audit_notification_target_configurations'),
+        role_arn=pulumi.get(__response__, 'role_arn')))

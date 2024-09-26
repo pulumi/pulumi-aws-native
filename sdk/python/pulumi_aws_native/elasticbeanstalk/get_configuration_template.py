@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -86,9 +91,6 @@ def get_configuration_template(application_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         option_settings=pulumi.get(__ret__, 'option_settings'),
         template_name=pulumi.get(__ret__, 'template_name'))
-
-
-@_utilities.lift_output_func(get_configuration_template)
 def get_configuration_template_output(application_name: Optional[pulumi.Input[str]] = None,
                                       template_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationTemplateResult]:
@@ -99,4 +101,12 @@ def get_configuration_template_output(application_name: Optional[pulumi.Input[st
     :param str application_name: The name of the Elastic Beanstalk application to associate with this configuration template. 
     :param str template_name: The name of the configuration template
     """
-    ...
+    __args__ = dict()
+    __args__['applicationName'] = application_name
+    __args__['templateName'] = template_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticbeanstalk:getConfigurationTemplate', __args__, opts=opts, typ=GetConfigurationTemplateResult)
+    return __ret__.apply(lambda __response__: GetConfigurationTemplateResult(
+        description=pulumi.get(__response__, 'description'),
+        option_settings=pulumi.get(__response__, 'option_settings'),
+        template_name=pulumi.get(__response__, 'template_name')))

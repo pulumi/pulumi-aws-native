@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -123,9 +128,6 @@ def get_attribute_group(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_attribute_group)
 def get_attribute_group_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttributeGroupResult]:
     """
@@ -134,4 +136,14 @@ def get_attribute_group_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The globally unique attribute group identifier of the attribute group.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalogappregistry:getAttributeGroup', __args__, opts=opts, typ=GetAttributeGroupResult)
+    return __ret__.apply(lambda __response__: GetAttributeGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attributes=pulumi.get(__response__, 'attributes'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

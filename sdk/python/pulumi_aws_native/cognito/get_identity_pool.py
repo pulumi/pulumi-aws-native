@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -194,12 +199,24 @@ def get_identity_pool(id: Optional[str] = None,
         open_id_connect_provider_arns=pulumi.get(__ret__, 'open_id_connect_provider_arns'),
         saml_provider_arns=pulumi.get(__ret__, 'saml_provider_arns'),
         supported_login_providers=pulumi.get(__ret__, 'supported_login_providers'))
-
-
-@_utilities.lift_output_func(get_identity_pool)
 def get_identity_pool_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPool
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult)
+    return __ret__.apply(lambda __response__: GetIdentityPoolResult(
+        allow_classic_flow=pulumi.get(__response__, 'allow_classic_flow'),
+        allow_unauthenticated_identities=pulumi.get(__response__, 'allow_unauthenticated_identities'),
+        cognito_identity_providers=pulumi.get(__response__, 'cognito_identity_providers'),
+        developer_provider_name=pulumi.get(__response__, 'developer_provider_name'),
+        id=pulumi.get(__response__, 'id'),
+        identity_pool_name=pulumi.get(__response__, 'identity_pool_name'),
+        identity_pool_tags=pulumi.get(__response__, 'identity_pool_tags'),
+        name=pulumi.get(__response__, 'name'),
+        open_id_connect_provider_arns=pulumi.get(__response__, 'open_id_connect_provider_arns'),
+        saml_provider_arns=pulumi.get(__response__, 'saml_provider_arns'),
+        supported_login_providers=pulumi.get(__response__, 'supported_login_providers')))

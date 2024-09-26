@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -109,9 +114,6 @@ def get_profile(profile_id: Optional[str] = None,
         certificate_ids=pulumi.get(__ret__, 'certificate_ids'),
         profile_id=pulumi.get(__ret__, 'profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_profile)
 def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
@@ -120,4 +122,13 @@ def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
 
     :param str profile_id: A unique identifier for the profile
     """
-    ...
+    __args__ = dict()
+    __args__['profileId'] = profile_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:transfer:getProfile', __args__, opts=opts, typ=GetProfileResult)
+    return __ret__.apply(lambda __response__: GetProfileResult(
+        arn=pulumi.get(__response__, 'arn'),
+        as2_id=pulumi.get(__response__, 'as2_id'),
+        certificate_ids=pulumi.get(__response__, 'certificate_ids'),
+        profile_id=pulumi.get(__response__, 'profile_id'),
+        tags=pulumi.get(__response__, 'tags')))

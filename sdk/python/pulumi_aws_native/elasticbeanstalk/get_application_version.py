@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -68,9 +73,6 @@ def get_application_version(application_name: Optional[str] = None,
     return AwaitableGetApplicationVersionResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_application_version)
 def get_application_version_output(application_name: Optional[pulumi.Input[str]] = None,
                                    id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationVersionResult]:
@@ -80,4 +82,11 @@ def get_application_version_output(application_name: Optional[pulumi.Input[str]]
 
     :param str application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
     """
-    ...
+    __args__ = dict()
+    __args__['applicationName'] = application_name
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticbeanstalk:getApplicationVersion', __args__, opts=opts, typ=GetApplicationVersionResult)
+    return __ret__.apply(lambda __response__: GetApplicationVersionResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id')))

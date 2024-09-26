@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -174,9 +179,6 @@ def get_environment(environment_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         sage_maker_studio_domain_url=pulumi.get(__ret__, 'sage_maker_studio_domain_url'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_environment)
 def get_environment_output(environment_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
@@ -185,4 +187,18 @@ def get_environment_output(environment_id: Optional[pulumi.Input[str]] = None,
 
     :param str environment_id: Unique identifier for representing FinSpace Environment
     """
-    ...
+    __args__ = dict()
+    __args__['environmentId'] = environment_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:finspace:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentResult(
+        aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        dedicated_service_account_id=pulumi.get(__response__, 'dedicated_service_account_id'),
+        description=pulumi.get(__response__, 'description'),
+        environment_arn=pulumi.get(__response__, 'environment_arn'),
+        environment_id=pulumi.get(__response__, 'environment_id'),
+        environment_url=pulumi.get(__response__, 'environment_url'),
+        federation_mode=pulumi.get(__response__, 'federation_mode'),
+        name=pulumi.get(__response__, 'name'),
+        sage_maker_studio_domain_url=pulumi.get(__response__, 'sage_maker_studio_domain_url'),
+        status=pulumi.get(__response__, 'status')))

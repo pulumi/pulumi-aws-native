@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -96,9 +101,6 @@ def get_parameter_group(cache_parameter_group_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_parameter_group)
 def get_parameter_group_output(cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
@@ -107,4 +109,12 @@ def get_parameter_group_output(cache_parameter_group_name: Optional[pulumi.Input
 
     :param str cache_parameter_group_name: The name of the Cache Parameter Group.
     """
-    ...
+    __args__ = dict()
+    __args__['cacheParameterGroupName'] = cache_parameter_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult)
+    return __ret__.apply(lambda __response__: GetParameterGroupResult(
+        cache_parameter_group_name=pulumi.get(__response__, 'cache_parameter_group_name'),
+        description=pulumi.get(__response__, 'description'),
+        properties=pulumi.get(__response__, 'properties'),
+        tags=pulumi.get(__response__, 'tags')))

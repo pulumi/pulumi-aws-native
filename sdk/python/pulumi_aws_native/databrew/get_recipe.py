@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -70,9 +75,6 @@ def get_recipe(name: Optional[str] = None,
     return AwaitableGetRecipeResult(
         description=pulumi.get(__ret__, 'description'),
         steps=pulumi.get(__ret__, 'steps'))
-
-
-@_utilities.lift_output_func(get_recipe)
 def get_recipe_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecipeResult]:
     """
@@ -81,4 +83,10 @@ def get_recipe_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Recipe name
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getRecipe', __args__, opts=opts, typ=GetRecipeResult)
+    return __ret__.apply(lambda __response__: GetRecipeResult(
+        description=pulumi.get(__response__, 'description'),
+        steps=pulumi.get(__response__, 'steps')))

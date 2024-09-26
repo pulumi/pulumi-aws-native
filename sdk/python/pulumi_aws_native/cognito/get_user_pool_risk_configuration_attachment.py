@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -86,9 +91,6 @@ def get_user_pool_risk_configuration_attachment(client_id: Optional[str] = None,
         account_takeover_risk_configuration=pulumi.get(__ret__, 'account_takeover_risk_configuration'),
         compromised_credentials_risk_configuration=pulumi.get(__ret__, 'compromised_credentials_risk_configuration'),
         risk_exception_configuration=pulumi.get(__ret__, 'risk_exception_configuration'))
-
-
-@_utilities.lift_output_func(get_user_pool_risk_configuration_attachment)
 def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulumi.Input[str]] = None,
                                                        user_pool_id: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolRiskConfigurationAttachmentResult]:
@@ -99,4 +101,12 @@ def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulum
     :param str client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
     :param str user_pool_id: The ID of the user pool that has the risk configuration applied.
     """
-    ...
+    __args__ = dict()
+    __args__['clientId'] = client_id
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolRiskConfigurationAttachment', __args__, opts=opts, typ=GetUserPoolRiskConfigurationAttachmentResult)
+    return __ret__.apply(lambda __response__: GetUserPoolRiskConfigurationAttachmentResult(
+        account_takeover_risk_configuration=pulumi.get(__response__, 'account_takeover_risk_configuration'),
+        compromised_credentials_risk_configuration=pulumi.get(__response__, 'compromised_credentials_risk_configuration'),
+        risk_exception_configuration=pulumi.get(__response__, 'risk_exception_configuration')))

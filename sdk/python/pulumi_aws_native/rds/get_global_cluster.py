@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -96,9 +101,6 @@ def get_global_cluster(global_cluster_identifier: Optional[str] = None,
         engine_lifecycle_support=pulumi.get(__ret__, 'engine_lifecycle_support'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_global_cluster)
 def get_global_cluster_output(global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalClusterResult]:
     """
@@ -107,4 +109,12 @@ def get_global_cluster_output(global_cluster_identifier: Optional[pulumi.Input[s
 
     :param str global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
     """
-    ...
+    __args__ = dict()
+    __args__['globalClusterIdentifier'] = global_cluster_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getGlobalCluster', __args__, opts=opts, typ=GetGlobalClusterResult)
+    return __ret__.apply(lambda __response__: GetGlobalClusterResult(
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
+        engine_lifecycle_support=pulumi.get(__response__, 'engine_lifecycle_support'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        tags=pulumi.get(__response__, 'tags')))

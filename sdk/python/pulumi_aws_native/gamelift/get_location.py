@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -70,9 +75,6 @@ def get_location(location_name: Optional[str] = None,
     return AwaitableGetLocationResult(
         location_arn=pulumi.get(__ret__, 'location_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_location)
 def get_location_output(location_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
     """
@@ -81,4 +83,10 @@ def get_location_output(location_name: Optional[pulumi.Input[str]] = None,
 
     :param str location_name: A descriptive name for the custom location.
     """
-    ...
+    __args__ = dict()
+    __args__['locationName'] = location_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getLocation', __args__, opts=opts, typ=GetLocationResult)
+    return __ret__.apply(lambda __response__: GetLocationResult(
+        location_arn=pulumi.get(__response__, 'location_arn'),
+        tags=pulumi.get(__response__, 'tags')))

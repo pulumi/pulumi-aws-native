@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -83,9 +88,6 @@ def get_conformance_pack(conformance_pack_name: Optional[str] = None,
         conformance_pack_input_parameters=pulumi.get(__ret__, 'conformance_pack_input_parameters'),
         delivery_s3_bucket=pulumi.get(__ret__, 'delivery_s3_bucket'),
         delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'))
-
-
-@_utilities.lift_output_func(get_conformance_pack)
 def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConformancePackResult]:
     """
@@ -94,4 +96,11 @@ def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[str
 
     :param str conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['conformancePackName'] = conformance_pack_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getConformancePack', __args__, opts=opts, typ=GetConformancePackResult)
+    return __ret__.apply(lambda __response__: GetConformancePackResult(
+        conformance_pack_input_parameters=pulumi.get(__response__, 'conformance_pack_input_parameters'),
+        delivery_s3_bucket=pulumi.get(__response__, 'delivery_s3_bucket'),
+        delivery_s3_key_prefix=pulumi.get(__response__, 'delivery_s3_key_prefix')))

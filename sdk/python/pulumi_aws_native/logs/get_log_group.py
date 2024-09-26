@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -139,9 +144,6 @@ def get_log_group(log_group_name: Optional[str] = None,
         log_group_class=pulumi.get(__ret__, 'log_group_class'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_log_group)
 def get_log_group_output(log_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogGroupResult]:
     """
@@ -154,4 +156,14 @@ def get_log_group_output(log_group_name: Optional[pulumi.Input[str]] = None,
 
     :param str log_group_name: The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
     """
-    ...
+    __args__ = dict()
+    __args__['logGroupName'] = log_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult)
+    return __ret__.apply(lambda __response__: GetLogGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        data_protection_policy=pulumi.get(__response__, 'data_protection_policy'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        log_group_class=pulumi.get(__response__, 'log_group_class'),
+        retention_in_days=pulumi.get(__response__, 'retention_in_days'),
+        tags=pulumi.get(__response__, 'tags')))

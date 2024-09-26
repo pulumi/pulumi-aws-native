@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -72,9 +77,6 @@ def get_base_path_mapping(base_path: Optional[str] = None,
     return AwaitableGetBasePathMappingResult(
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         stage=pulumi.get(__ret__, 'stage'))
-
-
-@_utilities.lift_output_func(get_base_path_mapping)
 def get_base_path_mapping_output(base_path: Optional[pulumi.Input[str]] = None,
                                  domain_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBasePathMappingResult]:
@@ -85,4 +87,11 @@ def get_base_path_mapping_output(base_path: Optional[pulumi.Input[str]] = None,
     :param str base_path: The base path name that callers of the API must provide as part of the URL after the domain name.
     :param str domain_name: The domain name of the BasePathMapping resource to be described.
     """
-    ...
+    __args__ = dict()
+    __args__['basePath'] = base_path
+    __args__['domainName'] = domain_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getBasePathMapping', __args__, opts=opts, typ=GetBasePathMappingResult)
+    return __ret__.apply(lambda __response__: GetBasePathMappingResult(
+        rest_api_id=pulumi.get(__response__, 'rest_api_id'),
+        stage=pulumi.get(__response__, 'stage')))

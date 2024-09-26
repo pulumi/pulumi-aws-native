@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -166,9 +171,6 @@ def get_id_namespace_association(id_namespace_association_identifier: Optional[s
         membership_arn=pulumi.get(__ret__, 'membership_arn'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_id_namespace_association)
 def get_id_namespace_association_output(id_namespace_association_identifier: Optional[pulumi.Input[str]] = None,
                                         membership_identifier: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdNamespaceAssociationResult]:
@@ -178,4 +180,19 @@ def get_id_namespace_association_output(id_namespace_association_identifier: Opt
 
     :param str membership_identifier: The unique identifier of the membership that contains the ID namespace association.
     """
-    ...
+    __args__ = dict()
+    __args__['idNamespaceAssociationIdentifier'] = id_namespace_association_identifier
+    __args__['membershipIdentifier'] = membership_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getIdNamespaceAssociation', __args__, opts=opts, typ=GetIdNamespaceAssociationResult)
+    return __ret__.apply(lambda __response__: GetIdNamespaceAssociationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        collaboration_arn=pulumi.get(__response__, 'collaboration_arn'),
+        collaboration_identifier=pulumi.get(__response__, 'collaboration_identifier'),
+        description=pulumi.get(__response__, 'description'),
+        id_mapping_config=pulumi.get(__response__, 'id_mapping_config'),
+        id_namespace_association_identifier=pulumi.get(__response__, 'id_namespace_association_identifier'),
+        input_reference_properties=pulumi.get(__response__, 'input_reference_properties'),
+        membership_arn=pulumi.get(__response__, 'membership_arn'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

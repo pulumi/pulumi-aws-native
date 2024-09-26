@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -143,9 +148,6 @@ def get_graph(graph_id: Optional[str] = None,
         provisioned_memory=pulumi.get(__ret__, 'provisioned_memory'),
         public_connectivity=pulumi.get(__ret__, 'public_connectivity'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_graph)
 def get_graph_output(graph_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphResult]:
     """
@@ -154,4 +156,15 @@ def get_graph_output(graph_id: Optional[pulumi.Input[str]] = None,
 
     :param str graph_id: The auto-generated id assigned by the service.
     """
-    ...
+    __args__ = dict()
+    __args__['graphId'] = graph_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:neptunegraph:getGraph', __args__, opts=opts, typ=GetGraphResult)
+    return __ret__.apply(lambda __response__: GetGraphResult(
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        graph_arn=pulumi.get(__response__, 'graph_arn'),
+        graph_id=pulumi.get(__response__, 'graph_id'),
+        provisioned_memory=pulumi.get(__response__, 'provisioned_memory'),
+        public_connectivity=pulumi.get(__response__, 'public_connectivity'),
+        tags=pulumi.get(__response__, 'tags')))

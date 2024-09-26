@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -136,9 +141,6 @@ def get_restore_testing_plan(restore_testing_plan_name: Optional[str] = None,
         schedule_status=pulumi.get(__ret__, 'schedule_status'),
         start_window_hours=pulumi.get(__ret__, 'start_window_hours'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_restore_testing_plan)
 def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestoreTestingPlanResult]:
     """
@@ -147,4 +149,15 @@ def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.I
 
     :param str restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
     """
-    ...
+    __args__ = dict()
+    __args__['restoreTestingPlanName'] = restore_testing_plan_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getRestoreTestingPlan', __args__, opts=opts, typ=GetRestoreTestingPlanResult)
+    return __ret__.apply(lambda __response__: GetRestoreTestingPlanResult(
+        recovery_point_selection=pulumi.get(__response__, 'recovery_point_selection'),
+        restore_testing_plan_arn=pulumi.get(__response__, 'restore_testing_plan_arn'),
+        schedule_expression=pulumi.get(__response__, 'schedule_expression'),
+        schedule_expression_timezone=pulumi.get(__response__, 'schedule_expression_timezone'),
+        schedule_status=pulumi.get(__response__, 'schedule_status'),
+        start_window_hours=pulumi.get(__response__, 'start_window_hours'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -160,9 +165,6 @@ def get_domain(domain_name: Optional[str] = None,
         rule_based_matching=pulumi.get(__ret__, 'rule_based_matching'),
         stats=pulumi.get(__ret__, 'stats'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -171,4 +173,17 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
 
     :param str domain_name: The unique name of the domain.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        dead_letter_queue_url=pulumi.get(__response__, 'dead_letter_queue_url'),
+        default_encryption_key=pulumi.get(__response__, 'default_encryption_key'),
+        default_expiration_days=pulumi.get(__response__, 'default_expiration_days'),
+        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        matching=pulumi.get(__response__, 'matching'),
+        rule_based_matching=pulumi.get(__response__, 'rule_based_matching'),
+        stats=pulumi.get(__response__, 'stats'),
+        tags=pulumi.get(__response__, 'tags')))

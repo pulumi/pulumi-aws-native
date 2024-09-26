@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -136,9 +141,6 @@ def get_location_azure_blob(location_arn: Optional[str] = None,
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_location_azure_blob)
 def get_location_azure_blob_output(location_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationAzureBlobResult]:
     """
@@ -147,4 +149,15 @@ def get_location_azure_blob_output(location_arn: Optional[pulumi.Input[str]] = N
 
     :param str location_arn: The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
     """
-    ...
+    __args__ = dict()
+    __args__['locationArn'] = location_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationAzureBlob', __args__, opts=opts, typ=GetLocationAzureBlobResult)
+    return __ret__.apply(lambda __response__: GetLocationAzureBlobResult(
+        agent_arns=pulumi.get(__response__, 'agent_arns'),
+        azure_access_tier=pulumi.get(__response__, 'azure_access_tier'),
+        azure_blob_authentication_type=pulumi.get(__response__, 'azure_blob_authentication_type'),
+        azure_blob_type=pulumi.get(__response__, 'azure_blob_type'),
+        location_arn=pulumi.get(__response__, 'location_arn'),
+        location_uri=pulumi.get(__response__, 'location_uri'),
+        tags=pulumi.get(__response__, 'tags')))

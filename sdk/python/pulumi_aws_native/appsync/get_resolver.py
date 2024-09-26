@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -206,9 +211,6 @@ def get_resolver(resolver_arn: Optional[str] = None,
         response_mapping_template=pulumi.get(__ret__, 'response_mapping_template'),
         runtime=pulumi.get(__ret__, 'runtime'),
         sync_config=pulumi.get(__ret__, 'sync_config'))
-
-
-@_utilities.lift_output_func(get_resolver)
 def get_resolver_output(resolver_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverResult]:
     """
@@ -219,4 +221,20 @@ def get_resolver_output(resolver_arn: Optional[pulumi.Input[str]] = None,
 
     :param str resolver_arn: ARN of the resolver, such as `arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/types/typename/resolvers/resolvername` .
     """
-    ...
+    __args__ = dict()
+    __args__['resolverArn'] = resolver_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getResolver', __args__, opts=opts, typ=GetResolverResult)
+    return __ret__.apply(lambda __response__: GetResolverResult(
+        caching_config=pulumi.get(__response__, 'caching_config'),
+        code=pulumi.get(__response__, 'code'),
+        data_source_name=pulumi.get(__response__, 'data_source_name'),
+        kind=pulumi.get(__response__, 'kind'),
+        max_batch_size=pulumi.get(__response__, 'max_batch_size'),
+        metrics_config=pulumi.get(__response__, 'metrics_config'),
+        pipeline_config=pulumi.get(__response__, 'pipeline_config'),
+        request_mapping_template=pulumi.get(__response__, 'request_mapping_template'),
+        resolver_arn=pulumi.get(__response__, 'resolver_arn'),
+        response_mapping_template=pulumi.get(__response__, 'response_mapping_template'),
+        runtime=pulumi.get(__response__, 'runtime'),
+        sync_config=pulumi.get(__response__, 'sync_config')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -133,9 +138,6 @@ def get_configured_table_association(configured_table_association_identifier: Op
         description=pulumi.get(__ret__, 'description'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_configured_table_association)
 def get_configured_table_association_output(configured_table_association_identifier: Optional[pulumi.Input[str]] = None,
                                             membership_identifier: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfiguredTableAssociationResult]:
@@ -148,4 +150,15 @@ def get_configured_table_association_output(configured_table_association_identif
            Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
     :param str membership_identifier: The unique ID for the membership this configured table association belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['configuredTableAssociationIdentifier'] = configured_table_association_identifier
+    __args__['membershipIdentifier'] = membership_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getConfiguredTableAssociation', __args__, opts=opts, typ=GetConfiguredTableAssociationResult)
+    return __ret__.apply(lambda __response__: GetConfiguredTableAssociationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        configured_table_association_analysis_rules=pulumi.get(__response__, 'configured_table_association_analysis_rules'),
+        configured_table_association_identifier=pulumi.get(__response__, 'configured_table_association_identifier'),
+        description=pulumi.get(__response__, 'description'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        tags=pulumi.get(__response__, 'tags')))
