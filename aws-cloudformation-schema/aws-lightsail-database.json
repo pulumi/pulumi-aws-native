@@ -157,7 +157,6 @@
   "required" : [ "RelationalDatabaseName", "RelationalDatabaseBlueprintId", "RelationalDatabaseBundleId", "MasterDatabaseName", "MasterUsername" ],
   "readOnlyProperties" : [ "/properties/DatabaseArn" ],
   "writeOnlyProperties" : [ "/properties/MasterUserPassword", "/properties/RelationalDatabaseParameters", "/properties/RotateMasterUserPassword" ],
-  "taggable" : true,
   "primaryIdentifier" : [ "/properties/RelationalDatabaseName" ],
   "createOnlyProperties" : [ "/properties/RelationalDatabaseName", "/properties/AvailabilityZone", "/properties/RelationalDatabaseBlueprintId", "/properties/RelationalDatabaseBundleId", "/properties/MasterDatabaseName", "/properties/MasterUsername" ],
   "propertyTransform" : {
@@ -179,5 +178,13 @@
     "list" : {
       "permissions" : [ "lightsail:GetRelationalDatabases" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "lightsail:TagResource", "lightsail:UntagResource" ]
   }
 }

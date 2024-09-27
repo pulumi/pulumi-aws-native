@@ -5061,6 +5061,9 @@
         "type": "string",
         "description": "The ID of the default propagation route table."
       },
+      "securityGroupReferencingSupport": {
+        "type": "string"
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -11390,6 +11393,10 @@
       },
       "vendorGuidance": {
         "$ref": "#/types/aws-native:sagemaker:ImageVersionVendorGuidance"
+      },
+      "version": {
+        "type": "integer",
+        "description": "The version of the image."
       }
     }
   },

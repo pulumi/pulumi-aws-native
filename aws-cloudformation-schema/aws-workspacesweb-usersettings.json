@@ -158,11 +158,10 @@
   },
   "required" : [ "CopyAllowed", "DownloadAllowed", "PasteAllowed", "PrintAllowed", "UploadAllowed" ],
   "readOnlyProperties" : [ "/properties/AssociatedPortalArns", "/properties/UserSettingsArn" ],
-  "createOnlyProperties" : [ "/properties/AdditionalEncryptionContext", "/properties/CustomerManagedKey" ],
   "primaryIdentifier" : [ "/properties/UserSettingsArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "workspaces-web:CreateUserSettings", "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "workspaces-web:CreateUserSettings", "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptTo", "kms:ReEncryptFrom" ]
     },
     "read" : {
       "permissions" : [ "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
@@ -182,7 +181,8 @@
     "tagOnCreate" : true,
     "tagProperty" : "/properties/Tags",
     "tagUpdatable" : true,
-    "taggable" : true
+    "taggable" : true,
+    "permissions" : [ "workspaces-web:UntagResource", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource" ]
   },
   "additionalProperties" : false
 }
