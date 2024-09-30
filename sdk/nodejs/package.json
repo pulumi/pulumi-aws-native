@@ -5,6 +5,8 @@
         "pulumi",
         "aws",
         "aws-native",
+        "cloud control",
+        "ccapi",
         "category/cloud",
         "kind/native"
     ],
