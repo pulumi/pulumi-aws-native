@@ -1,4 +1,4 @@
-# Pulumi AWS Cloud Control Provider (preview)
+# Pulumi AWS Cloud Control Provider
 
 The Pulumi AWS Cloud Control Provider enables you to build, deploy, and manage [any AWS resource that's supported by the AWS Cloud Control API](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt).
 With Pulumi's native provider for AWS Cloud Control, you get same-day access to all new AWS resources and all new properties on existing resources supported by the Cloud Control API.
@@ -7,7 +7,6 @@ You'll need to [install and configure the Pulumi CLI](https://pulumi.com/docs/ge
 
 ---
 > [!NOTE]
-> AWS Cloud Control is in public preview.
 > This provider covers all resources as supported by the [AWS Cloud Control API](https://aws.amazon.com/cloudcontrolapi/). This does not yet include all AWS resources. See the [list of supported resources](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt) for full details.
 
 For new projects, we recommend starting with our primary [AWS Provider](https://github.com/pulumi/pulumi-aws) and adding AWS Cloud Control resources on an as needed basis.
