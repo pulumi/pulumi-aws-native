@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayResult:
-    def __init__(__self__, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, id=None, propagation_default_route_table_id=None, tags=None, transit_gateway_arn=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
+    def __init__(__self__, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, id=None, propagation_default_route_table_id=None, security_group_referencing_support=None, tags=None, transit_gateway_arn=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
         if association_default_route_table_id and not isinstance(association_default_route_table_id, str):
             raise TypeError("Expected argument 'association_default_route_table_id' to be a str")
         pulumi.set(__self__, "association_default_route_table_id", association_default_route_table_id)
@@ -49,6 +49,9 @@ class GetTransitGatewayResult:
         if propagation_default_route_table_id and not isinstance(propagation_default_route_table_id, str):
             raise TypeError("Expected argument 'propagation_default_route_table_id' to be a str")
         pulumi.set(__self__, "propagation_default_route_table_id", propagation_default_route_table_id)
+        if security_group_referencing_support and not isinstance(security_group_referencing_support, str):
+            raise TypeError("Expected argument 'security_group_referencing_support' to be a str")
+        pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -127,6 +130,16 @@ class GetTransitGatewayResult:
         return pulumi.get(self, "propagation_default_route_table_id")
 
     @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[str]:
+        """
+        Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+
+        For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -170,6 +183,7 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
             dns_support=self.dns_support,
             id=self.id,
             propagation_default_route_table_id=self.propagation_default_route_table_id,
+            security_group_referencing_support=self.security_group_referencing_support,
             tags=self.tags,
             transit_gateway_arn=self.transit_gateway_arn,
             transit_gateway_cidr_blocks=self.transit_gateway_cidr_blocks,
@@ -198,6 +212,7 @@ def get_transit_gateway(id: Optional[str] = None,
         dns_support=pulumi.get(__ret__, 'dns_support'),
         id=pulumi.get(__ret__, 'id'),
         propagation_default_route_table_id=pulumi.get(__ret__, 'propagation_default_route_table_id'),
+        security_group_referencing_support=pulumi.get(__ret__, 'security_group_referencing_support'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_arn=pulumi.get(__ret__, 'transit_gateway_arn'),
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
@@ -223,6 +238,7 @@ def get_transit_gateway_output(id: Optional[pulumi.Input[str]] = None,
         dns_support=pulumi.get(__response__, 'dns_support'),
         id=pulumi.get(__response__, 'id'),
         propagation_default_route_table_id=pulumi.get(__response__, 'propagation_default_route_table_id'),
+        security_group_referencing_support=pulumi.get(__response__, 'security_group_referencing_support'),
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_arn=pulumi.get(__response__, 'transit_gateway_arn'),
         transit_gateway_cidr_blocks=pulumi.get(__response__, 'transit_gateway_cidr_blocks'),

@@ -13,18 +13,19 @@ import (
 type PrincipalPermissionsPermission string
 
 const (
-	PrincipalPermissionsPermissionAll                = PrincipalPermissionsPermission("ALL")
-	PrincipalPermissionsPermissionSelect             = PrincipalPermissionsPermission("SELECT")
-	PrincipalPermissionsPermissionAlter              = PrincipalPermissionsPermission("ALTER")
-	PrincipalPermissionsPermissionDrop               = PrincipalPermissionsPermission("DROP")
-	PrincipalPermissionsPermissionDelete             = PrincipalPermissionsPermission("DELETE")
-	PrincipalPermissionsPermissionInsert             = PrincipalPermissionsPermission("INSERT")
-	PrincipalPermissionsPermissionDescribe           = PrincipalPermissionsPermission("DESCRIBE")
-	PrincipalPermissionsPermissionCreateDatabase     = PrincipalPermissionsPermission("CREATE_DATABASE")
-	PrincipalPermissionsPermissionCreateTable        = PrincipalPermissionsPermission("CREATE_TABLE")
-	PrincipalPermissionsPermissionDataLocationAccess = PrincipalPermissionsPermission("DATA_LOCATION_ACCESS")
-	PrincipalPermissionsPermissionCreateTag          = PrincipalPermissionsPermission("CREATE_TAG")
-	PrincipalPermissionsPermissionAssociate          = PrincipalPermissionsPermission("ASSOCIATE")
+	PrincipalPermissionsPermissionAll                      = PrincipalPermissionsPermission("ALL")
+	PrincipalPermissionsPermissionSelect                   = PrincipalPermissionsPermission("SELECT")
+	PrincipalPermissionsPermissionAlter                    = PrincipalPermissionsPermission("ALTER")
+	PrincipalPermissionsPermissionDrop                     = PrincipalPermissionsPermission("DROP")
+	PrincipalPermissionsPermissionDelete                   = PrincipalPermissionsPermission("DELETE")
+	PrincipalPermissionsPermissionInsert                   = PrincipalPermissionsPermission("INSERT")
+	PrincipalPermissionsPermissionDescribe                 = PrincipalPermissionsPermission("DESCRIBE")
+	PrincipalPermissionsPermissionCreateDatabase           = PrincipalPermissionsPermission("CREATE_DATABASE")
+	PrincipalPermissionsPermissionCreateTable              = PrincipalPermissionsPermission("CREATE_TABLE")
+	PrincipalPermissionsPermissionDataLocationAccess       = PrincipalPermissionsPermission("DATA_LOCATION_ACCESS")
+	PrincipalPermissionsPermissionCreateLfTag              = PrincipalPermissionsPermission("CREATE_LF_TAG")
+	PrincipalPermissionsPermissionAssociate                = PrincipalPermissionsPermission("ASSOCIATE")
+	PrincipalPermissionsPermissionGrantWithLfTagExpression = PrincipalPermissionsPermission("GRANT_WITH_LF_TAG_EXPRESSION")
 )
 
 func (PrincipalPermissionsPermission) ElementType() reflect.Type {
@@ -159,8 +160,9 @@ func (o PrincipalPermissionsPermissionPtrOutput) ToStringPtrOutputWithContext(ct
 //	PrincipalPermissionsPermissionCreateDatabase
 //	PrincipalPermissionsPermissionCreateTable
 //	PrincipalPermissionsPermissionDataLocationAccess
-//	PrincipalPermissionsPermissionCreateTag
+//	PrincipalPermissionsPermissionCreateLfTag
 //	PrincipalPermissionsPermissionAssociate
+//	PrincipalPermissionsPermissionGrantWithLfTagExpression
 type PrincipalPermissionsPermissionInput interface {
 	pulumi.Input
 

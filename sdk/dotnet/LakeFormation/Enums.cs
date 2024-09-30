@@ -27,8 +27,9 @@ namespace Pulumi.AwsNative.LakeFormation
         public static PrincipalPermissionsPermission CreateDatabase { get; } = new PrincipalPermissionsPermission("CREATE_DATABASE");
         public static PrincipalPermissionsPermission CreateTable { get; } = new PrincipalPermissionsPermission("CREATE_TABLE");
         public static PrincipalPermissionsPermission DataLocationAccess { get; } = new PrincipalPermissionsPermission("DATA_LOCATION_ACCESS");
-        public static PrincipalPermissionsPermission CreateTag { get; } = new PrincipalPermissionsPermission("CREATE_TAG");
+        public static PrincipalPermissionsPermission CreateLfTag { get; } = new PrincipalPermissionsPermission("CREATE_LF_TAG");
         public static PrincipalPermissionsPermission Associate { get; } = new PrincipalPermissionsPermission("ASSOCIATE");
+        public static PrincipalPermissionsPermission GrantWithLfTagExpression { get; } = new PrincipalPermissionsPermission("GRANT_WITH_LF_TAG_EXPRESSION");
 
         public static bool operator ==(PrincipalPermissionsPermission left, PrincipalPermissionsPermission right) => left.Equals(right);
         public static bool operator !=(PrincipalPermissionsPermission left, PrincipalPermissionsPermission right) => !left.Equals(right);

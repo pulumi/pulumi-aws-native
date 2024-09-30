@@ -56,7 +56,8 @@ type LookupClusterResult struct {
 	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version *string `pulumi:"version"`
+	Version          *string                  `pulumi:"version"`
+	ZonalShiftConfig *ClusterZonalShiftConfig `pulumi:"zonalShiftConfig"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -166,6 +167,10 @@ func (o LookupClusterResultOutput) UpgradePolicy() ClusterUpgradePolicyPtrOutput
 // The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 func (o LookupClusterResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupClusterResultOutput) ZonalShiftConfig() ClusterZonalShiftConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterZonalShiftConfig { return v.ZonalShiftConfig }).(ClusterZonalShiftConfigPtrOutput)
 }
 
 func init() {

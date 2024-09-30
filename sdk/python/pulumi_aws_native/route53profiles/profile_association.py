@@ -30,7 +30,7 @@ class ProfileAssociationArgs:
         The set of arguments for constructing a ProfileAssociation resource.
         :param pulumi.Input[str] profile_id: The ID of the  profile that you associated with the resource that is specified by ResourceId.
         :param pulumi.Input[str] resource_id: The resource that you associated the  profile with.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the  profile association.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the profile association.
         :param pulumi.Input[str] name: The name of an association between a  Profile and a VPC.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -71,7 +71,7 @@ class ProfileAssociationArgs:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the  profile association.
+        The Amazon Resource Name (ARN) of the profile association.
         """
         return pulumi.get(self, "arn")
 
@@ -120,7 +120,7 @@ class ProfileAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the  profile association.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the profile association.
         :param pulumi.Input[str] name: The name of an association between a  Profile and a VPC.
         :param pulumi.Input[str] profile_id: The ID of the  profile that you associated with the resource that is specified by ResourceId.
         :param pulumi.Input[str] resource_id: The resource that you associated the  profile with.
@@ -210,7 +210,7 @@ class ProfileAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The Amazon Resource Name (ARN) of the  profile association.
+        The Amazon Resource Name (ARN) of the profile association.
         """
         return pulumi.get(self, "arn")
 

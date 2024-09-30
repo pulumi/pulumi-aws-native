@@ -36,6 +36,10 @@ type TransitGateway struct {
 	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
 	// The ID of the default propagation route table.
 	PropagationDefaultRouteTableId pulumi.StringPtrOutput `pulumi:"propagationDefaultRouteTableId"`
+	// Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+	//
+	// For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+	SecurityGroupReferencingSupport pulumi.StringPtrOutput `pulumi:"securityGroupReferencingSupport"`
 	// The tags for the transit gateway.
 	Tags              aws.TagArrayOutput  `pulumi:"tags"`
 	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
@@ -108,6 +112,10 @@ type transitGatewayArgs struct {
 	MulticastSupport *string `pulumi:"multicastSupport"`
 	// The ID of the default propagation route table.
 	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
+	// Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+	//
+	// For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// The tags for the transit gateway.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The transit gateway CIDR blocks.
@@ -136,6 +144,10 @@ type TransitGatewayArgs struct {
 	MulticastSupport pulumi.StringPtrInput
 	// The ID of the default propagation route table.
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
+	// Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+	//
+	// For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// The tags for the transit gateway.
 	Tags aws.TagArrayInput
 	// The transit gateway CIDR blocks.
@@ -229,6 +241,13 @@ func (o TransitGatewayOutput) MulticastSupport() pulumi.StringPtrOutput {
 // The ID of the default propagation route table.
 func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
+}
+
+// Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+//
+// For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+func (o TransitGatewayOutput) SecurityGroupReferencingSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.SecurityGroupReferencingSupport }).(pulumi.StringPtrOutput)
 }
 
 // The tags for the transit gateway.

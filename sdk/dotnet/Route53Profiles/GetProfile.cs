@@ -69,6 +69,10 @@ namespace Pulumi.AwsNative.Route53Profiles
         /// The ID of the profile.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetProfileResult(
@@ -76,11 +80,14 @@ namespace Pulumi.AwsNative.Route53Profiles
 
             string? clientToken,
 
-            string? id)
+            string? id,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ClientToken = clientToken;
             Id = id;
+            Tags = tags;
         }
     }
 }

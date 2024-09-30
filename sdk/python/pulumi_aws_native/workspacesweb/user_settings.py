@@ -321,8 +321,6 @@ class UserSettings(pulumi.CustomResource):
             __props__.__dict__["upload_allowed"] = upload_allowed
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["user_settings_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additionalEncryptionContext.*", "customerManagedKey"])
-        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserSettings, __self__).__init__(
             'aws-native:workspacesweb:UserSettings',
             resource_name,

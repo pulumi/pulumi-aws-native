@@ -61,11 +61,19 @@ namespace Pulumi.AwsNative.Route53Profiles
         /// Primary Identifier for  Profile Association
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetProfileAssociationResult(string? id)
+        private GetProfileAssociationResult(
+            string? id,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
+            Tags = tags;
         }
     }
 }

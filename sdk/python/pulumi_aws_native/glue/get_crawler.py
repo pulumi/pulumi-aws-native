@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCrawlerResult:
-    def __init__(__self__, classifiers=None, configuration=None, crawler_security_configuration=None, database_name=None, description=None, id=None, lake_formation_configuration=None, recrawl_policy=None, role=None, schedule=None, schema_change_policy=None, table_prefix=None, tags=None, targets=None):
+    def __init__(__self__, classifiers=None, configuration=None, crawler_security_configuration=None, database_name=None, description=None, lake_formation_configuration=None, recrawl_policy=None, role=None, schedule=None, schema_change_policy=None, table_prefix=None, tags=None, targets=None):
         if classifiers and not isinstance(classifiers, list):
             raise TypeError("Expected argument 'classifiers' to be a list")
         pulumi.set(__self__, "classifiers", classifiers)
@@ -40,9 +40,6 @@ class GetCrawlerResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if lake_formation_configuration and not isinstance(lake_formation_configuration, dict):
             raise TypeError("Expected argument 'lake_formation_configuration' to be a dict")
         pulumi.set(__self__, "lake_formation_configuration", lake_formation_configuration)
@@ -80,7 +77,7 @@ class GetCrawlerResult:
     @pulumi.getter
     def configuration(self) -> Optional[str]:
         """
-        Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
+        Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
         """
         return pulumi.get(self, "configuration")
 
@@ -88,7 +85,7 @@ class GetCrawlerResult:
     @pulumi.getter(name="crawlerSecurityConfiguration")
     def crawler_security_configuration(self) -> Optional[str]:
         """
-        The name of the `SecurityConfiguration` structure to be used by this crawler.
+        The name of the SecurityConfiguration structure to be used by this crawler.
         """
         return pulumi.get(self, "crawler_security_configuration")
 
@@ -107,11 +104,6 @@ class GetCrawlerResult:
         A description of the crawler.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lakeFormationConfiguration")
@@ -193,7 +185,6 @@ class AwaitableGetCrawlerResult(GetCrawlerResult):
             crawler_security_configuration=self.crawler_security_configuration,
             database_name=self.database_name,
             description=self.description,
-            id=self.id,
             lake_formation_configuration=self.lake_formation_configuration,
             recrawl_policy=self.recrawl_policy,
             role=self.role,
@@ -204,13 +195,16 @@ class AwaitableGetCrawlerResult(GetCrawlerResult):
             targets=self.targets)
 
 
-def get_crawler(id: Optional[str] = None,
+def get_crawler(name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCrawlerResult:
     """
     Resource Type definition for AWS::Glue::Crawler
+
+
+    :param str name: The name of the crawler.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getCrawler', __args__, opts=opts, typ=GetCrawlerResult).value
 
@@ -220,7 +214,6 @@ def get_crawler(id: Optional[str] = None,
         crawler_security_configuration=pulumi.get(__ret__, 'crawler_security_configuration'),
         database_name=pulumi.get(__ret__, 'database_name'),
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
         lake_formation_configuration=pulumi.get(__ret__, 'lake_formation_configuration'),
         recrawl_policy=pulumi.get(__ret__, 'recrawl_policy'),
         role=pulumi.get(__ret__, 'role'),
@@ -229,13 +222,16 @@ def get_crawler(id: Optional[str] = None,
         table_prefix=pulumi.get(__ret__, 'table_prefix'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
-def get_crawler_output(id: Optional[pulumi.Input[str]] = None,
+def get_crawler_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrawlerResult]:
     """
     Resource Type definition for AWS::Glue::Crawler
+
+
+    :param str name: The name of the crawler.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getCrawler', __args__, opts=opts, typ=GetCrawlerResult)
     return __ret__.apply(lambda __response__: GetCrawlerResult(
@@ -244,7 +240,6 @@ def get_crawler_output(id: Optional[pulumi.Input[str]] = None,
         crawler_security_configuration=pulumi.get(__response__, 'crawler_security_configuration'),
         database_name=pulumi.get(__response__, 'database_name'),
         description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
         lake_formation_configuration=pulumi.get(__response__, 'lake_formation_configuration'),
         recrawl_policy=pulumi.get(__response__, 'recrawl_policy'),
         role=pulumi.get(__response__, 'role'),

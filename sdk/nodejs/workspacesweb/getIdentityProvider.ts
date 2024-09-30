@@ -78,6 +78,7 @@ export interface GetIdentityProviderResult {
      * The identity provider type.
      */
     readonly identityProviderType?: enums.workspacesweb.IdentityProviderType;
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type

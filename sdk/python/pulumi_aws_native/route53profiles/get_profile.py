@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetProfileResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProfileResult:
-    def __init__(__self__, arn=None, client_token=None, id=None):
+    def __init__(__self__, arn=None, client_token=None, id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,6 +34,9 @@ class GetProfileResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -58,6 +62,14 @@ class GetProfileResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetProfileResult(GetProfileResult):
     # pylint: disable=using-constant-test
@@ -67,7 +79,8 @@ class AwaitableGetProfileResult(GetProfileResult):
         return GetProfileResult(
             arn=self.arn,
             client_token=self.client_token,
-            id=self.id)
+            id=self.id,
+            tags=self.tags)
 
 
 def get_profile(id: Optional[str] = None,
@@ -86,7 +99,8 @@ def get_profile(id: Optional[str] = None,
     return AwaitableGetProfileResult(
         arn=pulumi.get(__ret__, 'arn'),
         client_token=pulumi.get(__ret__, 'client_token'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_profile_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
@@ -102,4 +116,5 @@ def get_profile_output(id: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetProfileResult(
         arn=pulumi.get(__response__, 'arn'),
         client_token=pulumi.get(__response__, 'client_token'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -9796,6 +9796,8 @@ class OptionsProperties(dict):
             suggest = "dns_support"
         elif key == "ipv6Support":
             suggest = "ipv6_support"
+        elif key == "securityGroupReferencingSupport":
+            suggest = "security_group_referencing_support"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OptionsProperties. Access the value via the '{suggest}' property getter instead.")
@@ -9811,12 +9813,14 @@ class OptionsProperties(dict):
     def __init__(__self__, *,
                  appliance_mode_support: Optional[str] = None,
                  dns_support: Optional[str] = None,
-                 ipv6_support: Optional[str] = None):
+                 ipv6_support: Optional[str] = None,
+                 security_group_referencing_support: Optional[str] = None):
         """
         The options for the transit gateway vpc attachment.
         :param str appliance_mode_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         :param str dns_support: Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
         :param str ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        :param str security_group_referencing_support: Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
@@ -9824,6 +9828,8 @@ class OptionsProperties(dict):
             pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
 
     @property
     @pulumi.getter(name="applianceModeSupport")
@@ -9848,6 +9854,14 @@ class OptionsProperties(dict):
         Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         """
         return pulumi.get(self, "ipv6_support")
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[str]:
+        """
+        Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+        """
+        return pulumi.get(self, "security_group_referencing_support")
 
 
 @pulumi.output_type

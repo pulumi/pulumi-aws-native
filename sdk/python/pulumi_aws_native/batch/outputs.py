@@ -1258,7 +1258,7 @@ class JobDefinitionEcsProperties(dict):
         """
         :param Sequence['JobDefinitionEcsTaskProperties'] task_properties: An object that contains the properties for the Amazon ECS task definition of a job.
                
-               > This object is currently limited to one element.
+               > This object is currently limited to one task element. However, the task element can run up to 10 containers.
         """
         pulumi.set(__self__, "task_properties", task_properties)
 
@@ -1268,7 +1268,7 @@ class JobDefinitionEcsProperties(dict):
         """
         An object that contains the properties for the Amazon ECS task definition of a job.
 
-        > This object is currently limited to one element.
+        > This object is currently limited to one task element. However, the task element can run up to 10 containers.
         """
         return pulumi.get(self, "task_properties")
 

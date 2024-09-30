@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Eks
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Set this value to false to avoid creating the default networking addons when the cluster is created.
+        /// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         /// </summary>
         [Output("bootstrapSelfManagedAddons")]
         public Output<bool?> BootstrapSelfManagedAddons { get; private set; } = null!;
@@ -131,6 +131,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
+        [Output("zonalShiftConfig")]
+        public Output<Outputs.ClusterZonalShiftConfig?> ZonalShiftConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Cluster resource with the given unique name, arguments, and options.
@@ -193,7 +196,7 @@ namespace Pulumi.AwsNative.Eks
         public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
 
         /// <summary>
-        /// Set this value to false to avoid creating the default networking addons when the cluster is created.
+        /// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         /// </summary>
         [Input("bootstrapSelfManagedAddons")]
         public Input<bool>? BootstrapSelfManagedAddons { get; set; }
@@ -271,6 +274,9 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        [Input("zonalShiftConfig")]
+        public Input<Inputs.ClusterZonalShiftConfigArgs>? ZonalShiftConfig { get; set; }
 
         public ClusterArgs()
         {

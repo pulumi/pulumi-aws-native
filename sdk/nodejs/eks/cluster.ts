@@ -50,7 +50,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Set this value to false to avoid creating the default networking addons when the cluster is created.
+     * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
      */
     public readonly bootstrapSelfManagedAddons!: pulumi.Output<boolean | undefined>;
     /**
@@ -115,6 +115,7 @@ export class Cluster extends pulumi.CustomResource {
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */
     public readonly version!: pulumi.Output<string | undefined>;
+    public readonly zonalShiftConfig!: pulumi.Output<outputs.eks.ClusterZonalShiftConfig | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -145,6 +146,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["zonalShiftConfig"] = args ? args.zonalShiftConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;
@@ -172,6 +174,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["upgradePolicy"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["zonalShiftConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"] };
@@ -189,7 +192,7 @@ export interface ClusterArgs {
      */
     accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfigArgs>;
     /**
-     * Set this value to false to avoid creating the default networking addons when the cluster is created.
+     * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
      */
     bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
     /**
@@ -234,4 +237,5 @@ export interface ClusterArgs {
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */
     version?: pulumi.Input<string>;
+    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfigArgs>;
 }

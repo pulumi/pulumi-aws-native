@@ -90,6 +90,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? PropagationDefaultRouteTableId;
         /// <summary>
+        /// Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+        /// 
+        /// For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+        /// </summary>
+        public readonly string? SecurityGroupReferencingSupport;
+        /// <summary>
         /// The tags for the transit gateway.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -121,6 +127,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? propagationDefaultRouteTableId,
 
+            string? securityGroupReferencingSupport,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? transitGatewayArn,
@@ -137,6 +145,7 @@ namespace Pulumi.AwsNative.Ec2
             DnsSupport = dnsSupport;
             Id = id;
             PropagationDefaultRouteTableId = propagationDefaultRouteTableId;
+            SecurityGroupReferencingSupport = securityGroupReferencingSupport;
             Tags = tags;
             TransitGatewayArn = transitGatewayArn;
             TransitGatewayCidrBlocks = transitGatewayCidrBlocks;

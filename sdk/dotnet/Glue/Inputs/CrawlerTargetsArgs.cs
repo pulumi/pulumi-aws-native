@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
+    /// <summary>
+    /// Specifies data stores to crawl.
+    /// </summary>
     public sealed class CrawlerTargetsArgs : global::Pulumi.ResourceArgs
     {
         [Input("catalogTargets")]

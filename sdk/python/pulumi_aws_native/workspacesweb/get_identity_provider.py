@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIdentityProviderResult:
-    def __init__(__self__, identity_provider_arn=None, identity_provider_details=None, identity_provider_name=None, identity_provider_type=None):
+    def __init__(__self__, identity_provider_arn=None, identity_provider_details=None, identity_provider_name=None, identity_provider_type=None, tags=None):
         if identity_provider_arn and not isinstance(identity_provider_arn, str):
             raise TypeError("Expected argument 'identity_provider_arn' to be a str")
         pulumi.set(__self__, "identity_provider_arn", identity_provider_arn)
@@ -37,6 +38,9 @@ class GetIdentityProviderResult:
         if identity_provider_type and not isinstance(identity_provider_type, str):
             raise TypeError("Expected argument 'identity_provider_type' to be a str")
         pulumi.set(__self__, "identity_provider_type", identity_provider_type)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="identityProviderArn")
@@ -107,6 +111,11 @@ class GetIdentityProviderResult:
         """
         return pulumi.get(self, "identity_provider_type")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetIdentityProviderResult(GetIdentityProviderResult):
     # pylint: disable=using-constant-test
@@ -117,7 +126,8 @@ class AwaitableGetIdentityProviderResult(GetIdentityProviderResult):
             identity_provider_arn=self.identity_provider_arn,
             identity_provider_details=self.identity_provider_details,
             identity_provider_name=self.identity_provider_name,
-            identity_provider_type=self.identity_provider_type)
+            identity_provider_type=self.identity_provider_type,
+            tags=self.tags)
 
 
 def get_identity_provider(identity_provider_arn: Optional[str] = None,
@@ -137,7 +147,8 @@ def get_identity_provider(identity_provider_arn: Optional[str] = None,
         identity_provider_arn=pulumi.get(__ret__, 'identity_provider_arn'),
         identity_provider_details=pulumi.get(__ret__, 'identity_provider_details'),
         identity_provider_name=pulumi.get(__ret__, 'identity_provider_name'),
-        identity_provider_type=pulumi.get(__ret__, 'identity_provider_type'))
+        identity_provider_type=pulumi.get(__ret__, 'identity_provider_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_identity_provider_output(identity_provider_arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
@@ -154,4 +165,5 @@ def get_identity_provider_output(identity_provider_arn: Optional[pulumi.Input[st
         identity_provider_arn=pulumi.get(__response__, 'identity_provider_arn'),
         identity_provider_details=pulumi.get(__response__, 'identity_provider_details'),
         identity_provider_name=pulumi.get(__response__, 'identity_provider_name'),
-        identity_provider_type=pulumi.get(__response__, 'identity_provider_type')))
+        identity_provider_type=pulumi.get(__response__, 'identity_provider_type'),
+        tags=pulumi.get(__response__, 'tags')))

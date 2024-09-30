@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -63,6 +64,7 @@ type IdentityProvider struct {
 	IdentityProviderType IdentityProviderTypeOutput `pulumi:"identityProviderType"`
 	// The ARN of the identity provider.
 	PortalArn pulumi.StringPtrOutput `pulumi:"portalArn"`
+	Tags      aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
@@ -159,7 +161,8 @@ type identityProviderArgs struct {
 	// The identity provider type.
 	IdentityProviderType IdentityProviderType `pulumi:"identityProviderType"`
 	// The ARN of the identity provider.
-	PortalArn *string `pulumi:"portalArn"`
+	PortalArn *string   `pulumi:"portalArn"`
+	Tags      []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IdentityProvider resource.
@@ -209,6 +212,7 @@ type IdentityProviderArgs struct {
 	IdentityProviderType IdentityProviderTypeInput
 	// The ARN of the identity provider.
 	PortalArn pulumi.StringPtrInput
+	Tags      aws.TagArrayInput
 }
 
 func (IdentityProviderArgs) ElementType() reflect.Type {
@@ -308,6 +312,10 @@ func (o IdentityProviderOutput) IdentityProviderType() IdentityProviderTypeOutpu
 // The ARN of the identity provider.
 func (o IdentityProviderOutput) PortalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.PortalArn }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityProviderOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *IdentityProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

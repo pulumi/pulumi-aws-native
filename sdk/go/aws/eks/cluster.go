@@ -23,7 +23,7 @@ type Cluster struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The unique ID given to your cluster.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Set this value to false to avoid creating the default networking addons when the cluster is created.
+	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
 	BootstrapSelfManagedAddons pulumi.BoolPtrOutput `pulumi:"bootstrapSelfManagedAddons"`
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData pulumi.StringOutput `pulumi:"certificateAuthorityData"`
@@ -56,7 +56,8 @@ type Cluster struct {
 	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy ClusterUpgradePolicyPtrOutput `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Version          pulumi.StringPtrOutput           `pulumi:"version"`
+	ZonalShiftConfig ClusterZonalShiftConfigPtrOutput `pulumi:"zonalShiftConfig"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -117,7 +118,7 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// The access configuration for the cluster.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
-	// Set this value to false to avoid creating the default networking addons when the cluster is created.
+	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
 	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"encryptionConfig"`
@@ -140,14 +141,15 @@ type clusterArgs struct {
 	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version *string `pulumi:"version"`
+	Version          *string                  `pulumi:"version"`
+	ZonalShiftConfig *ClusterZonalShiftConfig `pulumi:"zonalShiftConfig"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The access configuration for the cluster.
 	AccessConfig ClusterAccessConfigPtrInput
-	// Set this value to false to avoid creating the default networking addons when the cluster is created.
+	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayInput
@@ -170,7 +172,8 @@ type ClusterArgs struct {
 	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version pulumi.StringPtrInput
+	Version          pulumi.StringPtrInput
+	ZonalShiftConfig ClusterZonalShiftConfigPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -225,7 +228,7 @@ func (o ClusterOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Set this value to false to avoid creating the default networking addons when the cluster is created.
+// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
 func (o ClusterOutput) BootstrapSelfManagedAddons() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.BootstrapSelfManagedAddons }).(pulumi.BoolPtrOutput)
 }
@@ -305,6 +308,10 @@ func (o ClusterOutput) UpgradePolicy() ClusterUpgradePolicyPtrOutput {
 // The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
 func (o ClusterOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) ZonalShiftConfig() ClusterZonalShiftConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterZonalShiftConfigPtrOutput { return v.ZonalShiftConfig }).(ClusterZonalShiftConfigPtrOutput)
 }
 
 func init() {

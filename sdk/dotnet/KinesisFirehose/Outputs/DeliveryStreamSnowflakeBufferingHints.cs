@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly int? IntervalInSeconds;
         /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 128.
         /// </summary>
         public readonly int? SizeInMbs;
 

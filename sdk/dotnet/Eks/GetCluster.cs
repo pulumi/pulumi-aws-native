@@ -111,6 +111,7 @@ namespace Pulumi.AwsNative.Eks
         /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         /// </summary>
         public readonly string? Version;
+        public readonly Outputs.ClusterZonalShiftConfig? ZonalShiftConfig;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -138,7 +139,9 @@ namespace Pulumi.AwsNative.Eks
 
             Outputs.ClusterUpgradePolicy? upgradePolicy,
 
-            string? version)
+            string? version,
+
+            Outputs.ClusterZonalShiftConfig? zonalShiftConfig)
         {
             AccessConfig = accessConfig;
             Arn = arn;
@@ -153,6 +156,7 @@ namespace Pulumi.AwsNative.Eks
             Tags = tags;
             UpgradePolicy = upgradePolicy;
             Version = version;
+            ZonalShiftConfig = zonalShiftConfig;
         }
     }
 }

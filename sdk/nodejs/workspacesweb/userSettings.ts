@@ -151,8 +151,6 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "customerManagedKey"] };
-        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserSettings.__pulumiType, name, resourceInputs, opts);
     }
 }

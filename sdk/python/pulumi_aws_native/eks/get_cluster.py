@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, upgrade_policy=None, version=None):
+    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
         if access_config and not isinstance(access_config, dict):
             raise TypeError("Expected argument 'access_config' to be a dict")
         pulumi.set(__self__, "access_config", access_config)
@@ -66,6 +66,9 @@ class GetClusterResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if zonal_shift_config and not isinstance(zonal_shift_config, dict):
+            raise TypeError("Expected argument 'zonal_shift_config' to be a dict")
+        pulumi.set(__self__, "zonal_shift_config", zonal_shift_config)
 
     @property
     @pulumi.getter(name="accessConfig")
@@ -173,6 +176,11 @@ class GetClusterResult:
         """
         return pulumi.get(self, "version")
 
+    @property
+    @pulumi.getter(name="zonalShiftConfig")
+    def zonal_shift_config(self) -> Optional['outputs.ClusterZonalShiftConfig']:
+        return pulumi.get(self, "zonal_shift_config")
+
 
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
@@ -192,7 +200,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             resources_vpc_config=self.resources_vpc_config,
             tags=self.tags,
             upgrade_policy=self.upgrade_policy,
-            version=self.version)
+            version=self.version,
+            zonal_shift_config=self.zonal_shift_config)
 
 
 def get_cluster(name: Optional[str] = None,
@@ -221,7 +230,8 @@ def get_cluster(name: Optional[str] = None,
         resources_vpc_config=pulumi.get(__ret__, 'resources_vpc_config'),
         tags=pulumi.get(__ret__, 'tags'),
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
-        version=pulumi.get(__ret__, 'version'))
+        version=pulumi.get(__ret__, 'version'),
+        zonal_shift_config=pulumi.get(__ret__, 'zonal_shift_config'))
 def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -247,4 +257,5 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
         resources_vpc_config=pulumi.get(__response__, 'resources_vpc_config'),
         tags=pulumi.get(__response__, 'tags'),
         upgrade_policy=pulumi.get(__response__, 'upgrade_policy'),
-        version=pulumi.get(__response__, 'version')))
+        version=pulumi.get(__response__, 'version'),
+        zonal_shift_config=pulumi.get(__response__, 'zonal_shift_config')))

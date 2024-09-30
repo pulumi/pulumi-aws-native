@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetProfileAssociationResult',
@@ -23,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetProfileAssociationResult:
-    def __init__(__self__, id=None):
+    def __init__(__self__, id=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -36,6 +40,14 @@ class GetProfileAssociationResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetProfileAssociationResult(GetProfileAssociationResult):
     # pylint: disable=using-constant-test
@@ -43,7 +55,8 @@ class AwaitableGetProfileAssociationResult(GetProfileAssociationResult):
         if False:
             yield self
         return GetProfileAssociationResult(
-            id=self.id)
+            id=self.id,
+            tags=self.tags)
 
 
 def get_profile_association(id: Optional[str] = None,
@@ -60,7 +73,8 @@ def get_profile_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53profiles:getProfileAssociation', __args__, opts=opts, typ=GetProfileAssociationResult).value
 
     return AwaitableGetProfileAssociationResult(
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_profile_association_output(id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileAssociationResult]:
     """
@@ -74,4 +88,5 @@ def get_profile_association_output(id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53profiles:getProfileAssociation', __args__, opts=opts, typ=GetProfileAssociationResult)
     return __ret__.apply(lambda __response__: GetProfileAssociationResult(
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))

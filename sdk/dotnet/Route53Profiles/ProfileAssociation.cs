@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Route53Profiles
     public partial class ProfileAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the  profile association.
+        /// The Amazon Resource Name (ARN) of the profile association.
         /// </summary>
         [Output("arn")]
         public Output<string?> Arn { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Route53Profiles
     public sealed class ProfileAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the  profile association.
+        /// The Amazon Resource Name (ARN) of the profile association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

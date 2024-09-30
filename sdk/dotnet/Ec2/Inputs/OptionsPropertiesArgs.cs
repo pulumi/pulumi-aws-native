@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("ipv6Support")]
         public Input<string>? Ipv6Support { get; set; }
 
+        /// <summary>
+        /// Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+        /// </summary>
+        [Input("securityGroupReferencingSupport")]
+        public Input<string>? SecurityGroupReferencingSupport { get; set; }
+
         public OptionsPropertiesArgs()
         {
         }

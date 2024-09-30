@@ -1773,6 +1773,146 @@ func (o ClusterUpgradePolicyPtrOutput) SupportType() ClusterUpgradePolicySupport
 	}).(ClusterUpgradePolicySupportTypePtrOutput)
 }
 
+// The current zonal shift configuration to use for the cluster.
+type ClusterZonalShiftConfig struct {
+	// Set this value to true to enable zonal shift for the cluster.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ClusterZonalShiftConfigInput is an input type that accepts ClusterZonalShiftConfigArgs and ClusterZonalShiftConfigOutput values.
+// You can construct a concrete instance of `ClusterZonalShiftConfigInput` via:
+//
+//	ClusterZonalShiftConfigArgs{...}
+type ClusterZonalShiftConfigInput interface {
+	pulumi.Input
+
+	ToClusterZonalShiftConfigOutput() ClusterZonalShiftConfigOutput
+	ToClusterZonalShiftConfigOutputWithContext(context.Context) ClusterZonalShiftConfigOutput
+}
+
+// The current zonal shift configuration to use for the cluster.
+type ClusterZonalShiftConfigArgs struct {
+	// Set this value to true to enable zonal shift for the cluster.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ClusterZonalShiftConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterZonalShiftConfig)(nil)).Elem()
+}
+
+func (i ClusterZonalShiftConfigArgs) ToClusterZonalShiftConfigOutput() ClusterZonalShiftConfigOutput {
+	return i.ToClusterZonalShiftConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterZonalShiftConfigArgs) ToClusterZonalShiftConfigOutputWithContext(ctx context.Context) ClusterZonalShiftConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterZonalShiftConfigOutput)
+}
+
+func (i ClusterZonalShiftConfigArgs) ToClusterZonalShiftConfigPtrOutput() ClusterZonalShiftConfigPtrOutput {
+	return i.ToClusterZonalShiftConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterZonalShiftConfigArgs) ToClusterZonalShiftConfigPtrOutputWithContext(ctx context.Context) ClusterZonalShiftConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterZonalShiftConfigOutput).ToClusterZonalShiftConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterZonalShiftConfigPtrInput is an input type that accepts ClusterZonalShiftConfigArgs, ClusterZonalShiftConfigPtr and ClusterZonalShiftConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterZonalShiftConfigPtrInput` via:
+//
+//	        ClusterZonalShiftConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterZonalShiftConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterZonalShiftConfigPtrOutput() ClusterZonalShiftConfigPtrOutput
+	ToClusterZonalShiftConfigPtrOutputWithContext(context.Context) ClusterZonalShiftConfigPtrOutput
+}
+
+type clusterZonalShiftConfigPtrType ClusterZonalShiftConfigArgs
+
+func ClusterZonalShiftConfigPtr(v *ClusterZonalShiftConfigArgs) ClusterZonalShiftConfigPtrInput {
+	return (*clusterZonalShiftConfigPtrType)(v)
+}
+
+func (*clusterZonalShiftConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterZonalShiftConfig)(nil)).Elem()
+}
+
+func (i *clusterZonalShiftConfigPtrType) ToClusterZonalShiftConfigPtrOutput() ClusterZonalShiftConfigPtrOutput {
+	return i.ToClusterZonalShiftConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterZonalShiftConfigPtrType) ToClusterZonalShiftConfigPtrOutputWithContext(ctx context.Context) ClusterZonalShiftConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterZonalShiftConfigPtrOutput)
+}
+
+// The current zonal shift configuration to use for the cluster.
+type ClusterZonalShiftConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterZonalShiftConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterZonalShiftConfig)(nil)).Elem()
+}
+
+func (o ClusterZonalShiftConfigOutput) ToClusterZonalShiftConfigOutput() ClusterZonalShiftConfigOutput {
+	return o
+}
+
+func (o ClusterZonalShiftConfigOutput) ToClusterZonalShiftConfigOutputWithContext(ctx context.Context) ClusterZonalShiftConfigOutput {
+	return o
+}
+
+func (o ClusterZonalShiftConfigOutput) ToClusterZonalShiftConfigPtrOutput() ClusterZonalShiftConfigPtrOutput {
+	return o.ToClusterZonalShiftConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterZonalShiftConfigOutput) ToClusterZonalShiftConfigPtrOutputWithContext(ctx context.Context) ClusterZonalShiftConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterZonalShiftConfig) *ClusterZonalShiftConfig {
+		return &v
+	}).(ClusterZonalShiftConfigPtrOutput)
+}
+
+// Set this value to true to enable zonal shift for the cluster.
+func (o ClusterZonalShiftConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterZonalShiftConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterZonalShiftConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterZonalShiftConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterZonalShiftConfig)(nil)).Elem()
+}
+
+func (o ClusterZonalShiftConfigPtrOutput) ToClusterZonalShiftConfigPtrOutput() ClusterZonalShiftConfigPtrOutput {
+	return o
+}
+
+func (o ClusterZonalShiftConfigPtrOutput) ToClusterZonalShiftConfigPtrOutputWithContext(ctx context.Context) ClusterZonalShiftConfigPtrOutput {
+	return o
+}
+
+func (o ClusterZonalShiftConfigPtrOutput) Elem() ClusterZonalShiftConfigOutput {
+	return o.ApplyT(func(v *ClusterZonalShiftConfig) ClusterZonalShiftConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterZonalShiftConfig
+		return ret
+	}).(ClusterZonalShiftConfigOutput)
+}
+
+// Set this value to true to enable zonal shift for the cluster.
+func (o ClusterZonalShiftConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterZonalShiftConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A key-value pair to associate with a pod.
 type FargateProfileLabel struct {
 	// The key name of the label.
@@ -3374,6 +3514,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterResourcesVpcConfigInput)(nil)).Elem(), ClusterResourcesVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyInput)(nil)).Elem(), ClusterUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyPtrInput)(nil)).Elem(), ClusterUpgradePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterZonalShiftConfigInput)(nil)).Elem(), ClusterZonalShiftConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterZonalShiftConfigPtrInput)(nil)).Elem(), ClusterZonalShiftConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileLabelInput)(nil)).Elem(), FargateProfileLabelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileLabelArrayInput)(nil)).Elem(), FargateProfileLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileSelectorInput)(nil)).Elem(), FargateProfileSelectorArgs{})
@@ -3419,6 +3561,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterZonalShiftConfigOutput{})
+	pulumi.RegisterOutputType(ClusterZonalShiftConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})

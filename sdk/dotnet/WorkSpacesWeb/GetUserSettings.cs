@@ -58,6 +58,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     public sealed class GetUserSettingsResult
     {
         /// <summary>
+        /// The additional encryption context of the user settings.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AdditionalEncryptionContext;
+        /// <summary>
         /// A list of web portal ARNs that this user settings resource is associated with.
         /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
@@ -69,6 +73,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// Specifies whether the user can copy text from the streaming session to the local device.
         /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? CopyAllowed;
+        /// <summary>
+        /// The customer managed key used to encrypt sensitive information in the user settings.
+        /// </summary>
+        public readonly string? CustomerManagedKey;
         /// <summary>
         /// Specifies whether the user can use deep links that open automatically when connecting to a session.
         /// </summary>
@@ -108,11 +116,15 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
         [OutputConstructor]
         private GetUserSettingsResult(
+            ImmutableDictionary<string, string>? additionalEncryptionContext,
+
             ImmutableArray<string> associatedPortalArns,
 
             Outputs.UserSettingsCookieSynchronizationConfiguration? cookieSynchronizationConfiguration,
 
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? copyAllowed,
+
+            string? customerManagedKey,
 
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? deepLinkAllowed,
 
@@ -132,9 +144,11 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? userSettingsArn)
         {
+            AdditionalEncryptionContext = additionalEncryptionContext;
             AssociatedPortalArns = associatedPortalArns;
             CookieSynchronizationConfiguration = cookieSynchronizationConfiguration;
             CopyAllowed = copyAllowed;
+            CustomerManagedKey = customerManagedKey;
             DeepLinkAllowed = deepLinkAllowed;
             DisconnectTimeoutInMinutes = disconnectTimeoutInMinutes;
             DownloadAllowed = downloadAllowed;

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
+    /// <summary>
+    /// Specifies a Delta data store to crawl one or more Delta tables.
+    /// </summary>
     [OutputType]
     public sealed class CrawlerDeltaTarget
     {

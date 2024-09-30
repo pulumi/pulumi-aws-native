@@ -30,7 +30,8 @@ class ImageVersionArgs:
                  processor: Optional[pulumi.Input['ImageVersionProcessor']] = None,
                  programming_lang: Optional[pulumi.Input[str]] = None,
                  release_notes: Optional[pulumi.Input[str]] = None,
-                 vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None):
+                 vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None,
+                 version: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a ImageVersion resource.
         :param pulumi.Input[str] base_image: The container image that the SageMaker image version is based on.
@@ -39,6 +40,7 @@ class ImageVersionArgs:
                *Length Constraints* : Minimum length of 1. Maximum length of 63.
                
                *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        :param pulumi.Input[int] version: The version of the image.
         """
         pulumi.set(__self__, "base_image", base_image)
         pulumi.set(__self__, "image_name", image_name)
@@ -60,6 +62,8 @@ class ImageVersionArgs:
             pulumi.set(__self__, "release_notes", release_notes)
         if vendor_guidance is not None:
             pulumi.set(__self__, "vendor_guidance", vendor_guidance)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="baseImage")
@@ -170,6 +174,18 @@ class ImageVersionArgs:
     def vendor_guidance(self, value: Optional[pulumi.Input['ImageVersionVendorGuidance']]):
         pulumi.set(self, "vendor_guidance", value)
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version of the image.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
+
 
 class ImageVersion(pulumi.CustomResource):
     @overload
@@ -187,6 +203,7 @@ class ImageVersion(pulumi.CustomResource):
                  programming_lang: Optional[pulumi.Input[str]] = None,
                  release_notes: Optional[pulumi.Input[str]] = None,
                  vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None,
+                 version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ImageVersion
@@ -199,6 +216,7 @@ class ImageVersion(pulumi.CustomResource):
                *Length Constraints* : Minimum length of 1. Maximum length of 63.
                
                *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
+        :param pulumi.Input[int] version: The version of the image.
         """
         ...
     @overload
@@ -235,6 +253,7 @@ class ImageVersion(pulumi.CustomResource):
                  programming_lang: Optional[pulumi.Input[str]] = None,
                  release_notes: Optional[pulumi.Input[str]] = None,
                  vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None,
+                 version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -259,10 +278,10 @@ class ImageVersion(pulumi.CustomResource):
             __props__.__dict__["programming_lang"] = programming_lang
             __props__.__dict__["release_notes"] = release_notes
             __props__.__dict__["vendor_guidance"] = vendor_guidance
+            __props__.__dict__["version"] = version
             __props__.__dict__["container_image"] = None
             __props__.__dict__["image_arn"] = None
             __props__.__dict__["image_version_arn"] = None
-            __props__.__dict__["version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["baseImage", "imageName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImageVersion, __self__).__init__(
@@ -401,7 +420,7 @@ class ImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[Optional[int]]:
         """
         The version of the image.
         """

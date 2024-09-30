@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The version of the image.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -185,6 +185,12 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("vendorGuidance")]
         public Input<Pulumi.AwsNative.SageMaker.ImageVersionVendorGuidance>? VendorGuidance { get; set; }
+
+        /// <summary>
+        /// The version of the image.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
 
         public ImageVersionArgs()
         {

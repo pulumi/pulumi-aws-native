@@ -82,6 +82,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("portalArn")]
         public Output<string?> PortalArn { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -197,6 +200,14 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         [Input("portalArn")]
         public Input<string>? PortalArn { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public IdentityProviderArgs()
         {
