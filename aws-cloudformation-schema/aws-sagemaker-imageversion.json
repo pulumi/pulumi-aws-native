@@ -147,7 +147,7 @@
   },
   "required" : [ "ImageName", "BaseImage" ],
   "primaryIdentifier" : [ "/properties/ImageVersionArn" ],
-  "readOnlyProperties" : [ "/properties/ImageVersionArn", "/properties/ImageArn", "/properties/Version", "/properties/ContainerImage" ],
+  "readOnlyProperties" : [ "/properties/ImageVersionArn", "/properties/ImageArn", "/properties/ContainerImage" ],
   "createOnlyProperties" : [ "/properties/ImageName", "/properties/BaseImage" ],
   "writeOnlyProperties" : [ "/properties/Aliases", "/properties/Alias" ],
   "handlers" : {

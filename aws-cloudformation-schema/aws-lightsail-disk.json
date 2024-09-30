@@ -150,7 +150,6 @@
   "additionalProperties" : false,
   "required" : [ "DiskName", "SizeInGb" ],
   "readOnlyProperties" : [ "/properties/AttachedTo", "/properties/Path", "/properties/IsAttached", "/properties/Iops", "/properties/AttachmentState", "/properties/State", "/properties/ResourceType", "/properties/Location/AvailabilityZone", "/properties/Location/RegionName", "/properties/SupportCode", "/properties/DiskArn" ],
-  "taggable" : true,
   "primaryIdentifier" : [ "/properties/DiskName" ],
   "createOnlyProperties" : [ "/properties/DiskName", "/properties/AvailabilityZone", "/properties/SizeInGb" ],
   "handlers" : {
@@ -170,5 +169,13 @@
       "permissions" : [ "lightsail:GetDisk", "lightsail:GetDisks", "lightsail:EnableAddOn", "lightsail:DisableAddOn", "lightsail:TagResource", "lightsail:UntagResource" ],
       "timeoutInMinutes" : 2160
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "lightsail:TagResource", "lightsail:UntagResource" ]
   }
 }

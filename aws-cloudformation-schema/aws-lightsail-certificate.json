@@ -62,7 +62,6 @@
   "additionalProperties" : false,
   "required" : [ "CertificateName", "DomainName" ],
   "readOnlyProperties" : [ "/properties/CertificateArn", "/properties/Status" ],
-  "taggable" : true,
   "primaryIdentifier" : [ "/properties/CertificateName" ],
   "createOnlyProperties" : [ "/properties/CertificateName", "/properties/DomainName", "/properties/SubjectAlternativeNames" ],
   "handlers" : {
@@ -81,5 +80,13 @@
     "list" : {
       "permissions" : [ "lightsail:GetCertificates" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "lightsail:TagResource", "lightsail:UntagResource" ]
   }
 }
