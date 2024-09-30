@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -162,9 +167,6 @@ def get_account(account_id: Optional[str] = None,
         parent_ids=pulumi.get(__ret__, 'parent_ids'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(account_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
@@ -173,4 +175,17 @@ def get_account_output(account_id: Optional[pulumi.Input[str]] = None,
 
     :param str account_id: If the account was created successfully, the unique identifier (ID) of the new account.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:organizations:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        account_name=pulumi.get(__response__, 'account_name'),
+        arn=pulumi.get(__response__, 'arn'),
+        email=pulumi.get(__response__, 'email'),
+        joined_method=pulumi.get(__response__, 'joined_method'),
+        joined_timestamp=pulumi.get(__response__, 'joined_timestamp'),
+        parent_ids=pulumi.get(__response__, 'parent_ids'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

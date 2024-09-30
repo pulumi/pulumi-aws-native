@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -113,9 +118,6 @@ def get_integration(domain_name: Optional[str] = None,
         object_type_name=pulumi.get(__ret__, 'object_type_name'),
         object_type_names=pulumi.get(__ret__, 'object_type_names'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_integration)
 def get_integration_output(domain_name: Optional[pulumi.Input[str]] = None,
                            uri: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
@@ -126,4 +128,14 @@ def get_integration_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: The unique name of the domain.
     :param str uri: The URI of the S3 bucket or any other type of data source.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['uri'] = uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getIntegration', __args__, opts=opts, typ=GetIntegrationResult)
+    return __ret__.apply(lambda __response__: GetIntegrationResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        object_type_name=pulumi.get(__response__, 'object_type_name'),
+        object_type_names=pulumi.get(__response__, 'object_type_names'),
+        tags=pulumi.get(__response__, 'tags')))

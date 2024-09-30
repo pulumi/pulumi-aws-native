@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -97,9 +102,6 @@ def get_configuration_aggregator(configuration_aggregator_name: Optional[str] = 
         configuration_aggregator_arn=pulumi.get(__ret__, 'configuration_aggregator_arn'),
         organization_aggregation_source=pulumi.get(__ret__, 'organization_aggregation_source'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_configuration_aggregator)
 def get_configuration_aggregator_output(configuration_aggregator_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAggregatorResult]:
     """
@@ -108,4 +110,12 @@ def get_configuration_aggregator_output(configuration_aggregator_name: Optional[
 
     :param str configuration_aggregator_name: The name of the aggregator.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationAggregatorName'] = configuration_aggregator_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getConfigurationAggregator', __args__, opts=opts, typ=GetConfigurationAggregatorResult)
+    return __ret__.apply(lambda __response__: GetConfigurationAggregatorResult(
+        account_aggregation_sources=pulumi.get(__response__, 'account_aggregation_sources'),
+        configuration_aggregator_arn=pulumi.get(__response__, 'configuration_aggregator_arn'),
+        organization_aggregation_source=pulumi.get(__response__, 'organization_aggregation_source'),
+        tags=pulumi.get(__response__, 'tags')))

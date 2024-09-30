@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -89,9 +94,6 @@ def get_server_certificate(server_certificate_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         path=pulumi.get(__ret__, 'path'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_server_certificate)
 def get_server_certificate_output(server_certificate_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCertificateResult]:
     """
@@ -102,4 +104,11 @@ def get_server_certificate_output(server_certificate_name: Optional[pulumi.Input
            
            This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
     """
-    ...
+    __args__ = dict()
+    __args__['serverCertificateName'] = server_certificate_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getServerCertificate', __args__, opts=opts, typ=GetServerCertificateResult)
+    return __ret__.apply(lambda __response__: GetServerCertificateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        path=pulumi.get(__response__, 'path'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -162,9 +167,6 @@ def get_service(service_arn: Optional[str] = None,
         service_url=pulumi.get(__ret__, 'service_url'),
         source_configuration=pulumi.get(__ret__, 'source_configuration'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(service_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
@@ -173,4 +175,17 @@ def get_service_output(service_arn: Optional[pulumi.Input[str]] = None,
 
     :param str service_arn: The Amazon Resource Name (ARN) of the AppRunner Service.
     """
-    ...
+    __args__ = dict()
+    __args__['serviceArn'] = service_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apprunner:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        health_check_configuration=pulumi.get(__response__, 'health_check_configuration'),
+        instance_configuration=pulumi.get(__response__, 'instance_configuration'),
+        network_configuration=pulumi.get(__response__, 'network_configuration'),
+        observability_configuration=pulumi.get(__response__, 'observability_configuration'),
+        service_arn=pulumi.get(__response__, 'service_arn'),
+        service_id=pulumi.get(__response__, 'service_id'),
+        service_url=pulumi.get(__response__, 'service_url'),
+        source_configuration=pulumi.get(__response__, 'source_configuration'),
+        status=pulumi.get(__response__, 'status')))

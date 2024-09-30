@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -125,9 +130,6 @@ def get_job_queue(job_queue_arn: Optional[str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         scheduling_policy_arn=pulumi.get(__ret__, 'scheduling_policy_arn'),
         state=pulumi.get(__ret__, 'state'))
-
-
-@_utilities.lift_output_func(get_job_queue)
 def get_job_queue_output(job_queue_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobQueueResult]:
     """
@@ -136,4 +138,14 @@ def get_job_queue_output(job_queue_arn: Optional[pulumi.Input[str]] = None,
 
     :param str job_queue_arn: Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
     """
-    ...
+    __args__ = dict()
+    __args__['jobQueueArn'] = job_queue_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getJobQueue', __args__, opts=opts, typ=GetJobQueueResult)
+    return __ret__.apply(lambda __response__: GetJobQueueResult(
+        compute_environment_order=pulumi.get(__response__, 'compute_environment_order'),
+        job_queue_arn=pulumi.get(__response__, 'job_queue_arn'),
+        job_state_time_limit_actions=pulumi.get(__response__, 'job_state_time_limit_actions'),
+        priority=pulumi.get(__response__, 'priority'),
+        scheduling_policy_arn=pulumi.get(__response__, 'scheduling_policy_arn'),
+        state=pulumi.get(__response__, 'state')))

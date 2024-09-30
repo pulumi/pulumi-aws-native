@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -138,9 +143,6 @@ def get_compute_environment(compute_environment_arn: Optional[str] = None,
         service_role=pulumi.get(__ret__, 'service_role'),
         state=pulumi.get(__ret__, 'state'),
         unmanagedv_cpus=pulumi.get(__ret__, 'unmanagedv_cpus'))
-
-
-@_utilities.lift_output_func(get_compute_environment)
 def get_compute_environment_output(compute_environment_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
     """
@@ -149,4 +151,14 @@ def get_compute_environment_output(compute_environment_arn: Optional[pulumi.Inpu
 
     :param str compute_environment_arn: Returns the compute environment ARN, such as `batch: *us-east-1* : *111122223333* :compute-environment/ *ComputeEnvironmentName*` .
     """
-    ...
+    __args__ = dict()
+    __args__['computeEnvironmentArn'] = compute_environment_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetComputeEnvironmentResult(
+        compute_environment_arn=pulumi.get(__response__, 'compute_environment_arn'),
+        compute_resources=pulumi.get(__response__, 'compute_resources'),
+        context=pulumi.get(__response__, 'context'),
+        service_role=pulumi.get(__response__, 'service_role'),
+        state=pulumi.get(__response__, 'state'),
+        unmanagedv_cpus=pulumi.get(__response__, 'unmanagedv_cpus')))

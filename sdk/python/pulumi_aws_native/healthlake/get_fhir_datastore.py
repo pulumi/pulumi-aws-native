@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -123,9 +128,6 @@ def get_fhir_datastore(datastore_id: Optional[str] = None,
         datastore_id=pulumi.get(__ret__, 'datastore_id'),
         datastore_status=pulumi.get(__ret__, 'datastore_status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_fhir_datastore)
 def get_fhir_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirDatastoreResult]:
     """
@@ -134,4 +136,14 @@ def get_fhir_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
 
     :param str datastore_id: The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
     """
-    ...
+    __args__ = dict()
+    __args__['datastoreId'] = datastore_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:healthlake:getFhirDatastore', __args__, opts=opts, typ=GetFhirDatastoreResult)
+    return __ret__.apply(lambda __response__: GetFhirDatastoreResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        datastore_arn=pulumi.get(__response__, 'datastore_arn'),
+        datastore_endpoint=pulumi.get(__response__, 'datastore_endpoint'),
+        datastore_id=pulumi.get(__response__, 'datastore_id'),
+        datastore_status=pulumi.get(__response__, 'datastore_status'),
+        tags=pulumi.get(__response__, 'tags')))

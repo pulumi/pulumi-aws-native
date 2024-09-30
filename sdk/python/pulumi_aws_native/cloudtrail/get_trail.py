@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -273,9 +278,6 @@ def get_trail(trail_name: Optional[str] = None,
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
         sns_topic_name=pulumi.get(__ret__, 'sns_topic_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_trail)
 def get_trail_output(trail_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrailResult]:
     """
@@ -290,4 +292,25 @@ def get_trail_output(trail_name: Optional[pulumi.Input[str]] = None,
            - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
            - Not be in IP address format (for example, 192.168.5.4)
     """
-    ...
+    __args__ = dict()
+    __args__['trailName'] = trail_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudtrail:getTrail', __args__, opts=opts, typ=GetTrailResult)
+    return __ret__.apply(lambda __response__: GetTrailResult(
+        advanced_event_selectors=pulumi.get(__response__, 'advanced_event_selectors'),
+        arn=pulumi.get(__response__, 'arn'),
+        cloud_watch_logs_log_group_arn=pulumi.get(__response__, 'cloud_watch_logs_log_group_arn'),
+        cloud_watch_logs_role_arn=pulumi.get(__response__, 'cloud_watch_logs_role_arn'),
+        enable_log_file_validation=pulumi.get(__response__, 'enable_log_file_validation'),
+        event_selectors=pulumi.get(__response__, 'event_selectors'),
+        include_global_service_events=pulumi.get(__response__, 'include_global_service_events'),
+        insight_selectors=pulumi.get(__response__, 'insight_selectors'),
+        is_logging=pulumi.get(__response__, 'is_logging'),
+        is_multi_region_trail=pulumi.get(__response__, 'is_multi_region_trail'),
+        is_organization_trail=pulumi.get(__response__, 'is_organization_trail'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        s3_bucket_name=pulumi.get(__response__, 's3_bucket_name'),
+        s3_key_prefix=pulumi.get(__response__, 's3_key_prefix'),
+        sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn'),
+        sns_topic_name=pulumi.get(__response__, 'sns_topic_name'),
+        tags=pulumi.get(__response__, 'tags')))

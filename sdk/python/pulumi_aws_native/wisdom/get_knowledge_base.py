@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -83,9 +88,6 @@ def get_knowledge_base(knowledge_base_id: Optional[str] = None,
         knowledge_base_arn=pulumi.get(__ret__, 'knowledge_base_arn'),
         knowledge_base_id=pulumi.get(__ret__, 'knowledge_base_id'),
         rendering_configuration=pulumi.get(__ret__, 'rendering_configuration'))
-
-
-@_utilities.lift_output_func(get_knowledge_base)
 def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
     """
@@ -94,4 +96,11 @@ def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = N
 
     :param str knowledge_base_id: The ID of the knowledge base.
     """
-    ...
+    __args__ = dict()
+    __args__['knowledgeBaseId'] = knowledge_base_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getKnowledgeBase', __args__, opts=opts, typ=GetKnowledgeBaseResult)
+    return __ret__.apply(lambda __response__: GetKnowledgeBaseResult(
+        knowledge_base_arn=pulumi.get(__response__, 'knowledge_base_arn'),
+        knowledge_base_id=pulumi.get(__response__, 'knowledge_base_id'),
+        rendering_configuration=pulumi.get(__response__, 'rendering_configuration')))

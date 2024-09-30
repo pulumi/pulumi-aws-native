@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -160,9 +165,6 @@ def get_domain_configuration(domain_configuration_name: Optional[str] = None,
         server_certificates=pulumi.get(__ret__, 'server_certificates'),
         tags=pulumi.get(__ret__, 'tags'),
         tls_config=pulumi.get(__ret__, 'tls_config'))
-
-
-@_utilities.lift_output_func(get_domain_configuration)
 def get_domain_configuration_output(domain_configuration_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainConfigurationResult]:
     """
@@ -171,4 +173,16 @@ def get_domain_configuration_output(domain_configuration_name: Optional[pulumi.I
 
     :param str domain_configuration_name: The name of the domain configuration. This value must be unique to a region.
     """
-    ...
+    __args__ = dict()
+    __args__['domainConfigurationName'] = domain_configuration_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getDomainConfiguration', __args__, opts=opts, typ=GetDomainConfigurationResult)
+    return __ret__.apply(lambda __response__: GetDomainConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        authorizer_config=pulumi.get(__response__, 'authorizer_config'),
+        domain_configuration_status=pulumi.get(__response__, 'domain_configuration_status'),
+        domain_type=pulumi.get(__response__, 'domain_type'),
+        server_certificate_config=pulumi.get(__response__, 'server_certificate_config'),
+        server_certificates=pulumi.get(__response__, 'server_certificates'),
+        tags=pulumi.get(__response__, 'tags'),
+        tls_config=pulumi.get(__response__, 'tls_config')))

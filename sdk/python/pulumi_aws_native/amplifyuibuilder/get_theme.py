@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -141,9 +146,6 @@ def get_theme(app_id: Optional[str] = None,
         overrides=pulumi.get(__ret__, 'overrides'),
         tags=pulumi.get(__ret__, 'tags'),
         values=pulumi.get(__ret__, 'values'))
-
-
-@_utilities.lift_output_func(get_theme)
 def get_theme_output(app_id: Optional[pulumi.Input[str]] = None,
                      environment_name: Optional[pulumi.Input[str]] = None,
                      id: Optional[pulumi.Input[str]] = None,
@@ -156,4 +158,17 @@ def get_theme_output(app_id: Optional[pulumi.Input[str]] = None,
     :param str environment_name: The name of the backend environment that is a part of the Amplify app.
     :param str id: The ID for the theme.
     """
-    ...
+    __args__ = dict()
+    __args__['appId'] = app_id
+    __args__['environmentName'] = environment_name
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:amplifyuibuilder:getTheme', __args__, opts=opts, typ=GetThemeResult)
+    return __ret__.apply(lambda __response__: GetThemeResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        name=pulumi.get(__response__, 'name'),
+        overrides=pulumi.get(__response__, 'overrides'),
+        tags=pulumi.get(__response__, 'tags'),
+        values=pulumi.get(__response__, 'values')))

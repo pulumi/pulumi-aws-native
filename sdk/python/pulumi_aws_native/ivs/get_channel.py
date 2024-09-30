@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -188,9 +193,6 @@ def get_channel(arn: Optional[str] = None,
         recording_configuration_arn=pulumi.get(__ret__, 'recording_configuration_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_channel)
 def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
@@ -199,4 +201,19 @@ def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Channel ARN is automatically generated on creation and assigned as the unique identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getChannel', __args__, opts=opts, typ=GetChannelResult)
+    return __ret__.apply(lambda __response__: GetChannelResult(
+        arn=pulumi.get(__response__, 'arn'),
+        authorized=pulumi.get(__response__, 'authorized'),
+        ingest_endpoint=pulumi.get(__response__, 'ingest_endpoint'),
+        insecure_ingest=pulumi.get(__response__, 'insecure_ingest'),
+        latency_mode=pulumi.get(__response__, 'latency_mode'),
+        name=pulumi.get(__response__, 'name'),
+        playback_url=pulumi.get(__response__, 'playback_url'),
+        preset=pulumi.get(__response__, 'preset'),
+        recording_configuration_arn=pulumi.get(__response__, 'recording_configuration_arn'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

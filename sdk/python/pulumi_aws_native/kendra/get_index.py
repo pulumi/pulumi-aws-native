@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -184,9 +189,6 @@ def get_index(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_context_policy=pulumi.get(__ret__, 'user_context_policy'),
         user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
-
-
-@_utilities.lift_output_func(get_index)
 def get_index_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
     """
@@ -195,4 +197,18 @@ def get_index_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:kendra:getIndex', __args__, opts=opts, typ=GetIndexResult)
+    return __ret__.apply(lambda __response__: GetIndexResult(
+        arn=pulumi.get(__response__, 'arn'),
+        capacity_units=pulumi.get(__response__, 'capacity_units'),
+        description=pulumi.get(__response__, 'description'),
+        document_metadata_configurations=pulumi.get(__response__, 'document_metadata_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_context_policy=pulumi.get(__response__, 'user_context_policy'),
+        user_token_configurations=pulumi.get(__response__, 'user_token_configurations')))

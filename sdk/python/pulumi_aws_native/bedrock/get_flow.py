@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -229,9 +234,6 @@ def get_flow(arn: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'),
         validations=pulumi.get(__ret__, 'validations'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_flow)
 def get_flow_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowResult]:
     """
@@ -240,4 +242,22 @@ def get_flow_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Arn representation of the Flow
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getFlow', __args__, opts=opts, typ=GetFlowResult)
+    return __ret__.apply(lambda __response__: GetFlowResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        customer_encryption_key_arn=pulumi.get(__response__, 'customer_encryption_key_arn'),
+        definition=pulumi.get(__response__, 'definition'),
+        description=pulumi.get(__response__, 'description'),
+        execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        test_alias_tags=pulumi.get(__response__, 'test_alias_tags'),
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        validations=pulumi.get(__response__, 'validations'),
+        version=pulumi.get(__response__, 'version')))

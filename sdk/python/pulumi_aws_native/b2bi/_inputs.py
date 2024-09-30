@@ -4,21 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CapabilityConfigurationPropertiesArgs',
+    'CapabilityConfigurationPropertiesArgsDict',
     'CapabilityEdiConfigurationArgs',
+    'CapabilityEdiConfigurationArgsDict',
     'CapabilityEdiTypePropertiesArgs',
+    'CapabilityEdiTypePropertiesArgsDict',
     'CapabilityS3LocationArgs',
+    'CapabilityS3LocationArgsDict',
     'CapabilityX12DetailsArgs',
+    'CapabilityX12DetailsArgsDict',
     'TransformerEdiTypePropertiesArgs',
+    'TransformerEdiTypePropertiesArgsDict',
     'TransformerX12DetailsArgs',
+    'TransformerX12DetailsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CapabilityConfigurationPropertiesArgsDict(TypedDict):
+        edi: pulumi.Input['CapabilityEdiConfigurationArgsDict']
+elif False:
+    CapabilityConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapabilityConfigurationPropertiesArgs:
@@ -35,6 +55,15 @@ class CapabilityConfigurationPropertiesArgs:
     def edi(self, value: pulumi.Input['CapabilityEdiConfigurationArgs']):
         pulumi.set(self, "edi", value)
 
+
+if not MYPY:
+    class CapabilityEdiConfigurationArgsDict(TypedDict):
+        input_location: pulumi.Input['CapabilityS3LocationArgsDict']
+        output_location: pulumi.Input['CapabilityS3LocationArgsDict']
+        transformer_id: pulumi.Input[str]
+        type: pulumi.Input['CapabilityEdiTypePropertiesArgsDict']
+elif False:
+    CapabilityEdiConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapabilityEdiConfigurationArgs:
@@ -85,6 +114,12 @@ class CapabilityEdiConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class CapabilityEdiTypePropertiesArgsDict(TypedDict):
+        x12_details: pulumi.Input['CapabilityX12DetailsArgsDict']
+elif False:
+    CapabilityEdiTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapabilityEdiTypePropertiesArgs:
     def __init__(__self__, *,
@@ -100,6 +135,13 @@ class CapabilityEdiTypePropertiesArgs:
     def x12_details(self, value: pulumi.Input['CapabilityX12DetailsArgs']):
         pulumi.set(self, "x12_details", value)
 
+
+if not MYPY:
+    class CapabilityS3LocationArgsDict(TypedDict):
+        bucket_name: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+elif False:
+    CapabilityS3LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapabilityS3LocationArgs:
@@ -130,6 +172,13 @@ class CapabilityS3LocationArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class CapabilityX12DetailsArgsDict(TypedDict):
+        transaction_set: NotRequired[pulumi.Input['CapabilityX12TransactionSet']]
+        version: NotRequired[pulumi.Input['CapabilityX12Version']]
+elif False:
+    CapabilityX12DetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapabilityX12DetailsArgs:
     def __init__(__self__, *,
@@ -159,6 +208,12 @@ class CapabilityX12DetailsArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class TransformerEdiTypePropertiesArgsDict(TypedDict):
+        x12_details: pulumi.Input['TransformerX12DetailsArgsDict']
+elif False:
+    TransformerEdiTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformerEdiTypePropertiesArgs:
     def __init__(__self__, *,
@@ -174,6 +229,13 @@ class TransformerEdiTypePropertiesArgs:
     def x12_details(self, value: pulumi.Input['TransformerX12DetailsArgs']):
         pulumi.set(self, "x12_details", value)
 
+
+if not MYPY:
+    class TransformerX12DetailsArgsDict(TypedDict):
+        transaction_set: NotRequired[pulumi.Input['TransformerX12TransactionSet']]
+        version: NotRequired[pulumi.Input['TransformerX12Version']]
+elif False:
+    TransformerX12DetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformerX12DetailsArgs:

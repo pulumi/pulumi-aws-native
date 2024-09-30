@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -214,9 +219,6 @@ def get_canary(name: Optional[str] = None,
         success_retention_period=pulumi.get(__ret__, 'success_retention_period'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
-
-
-@_utilities.lift_output_func(get_canary)
 def get_canary_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCanaryResult]:
     """
@@ -225,4 +227,21 @@ def get_canary_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the canary.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:synthetics:getCanary', __args__, opts=opts, typ=GetCanaryResult)
+    return __ret__.apply(lambda __response__: GetCanaryResult(
+        artifact_config=pulumi.get(__response__, 'artifact_config'),
+        artifact_s3_location=pulumi.get(__response__, 'artifact_s3_location'),
+        code=pulumi.get(__response__, 'code'),
+        execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
+        failure_retention_period=pulumi.get(__response__, 'failure_retention_period'),
+        id=pulumi.get(__response__, 'id'),
+        run_config=pulumi.get(__response__, 'run_config'),
+        runtime_version=pulumi.get(__response__, 'runtime_version'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        state=pulumi.get(__response__, 'state'),
+        success_retention_period=pulumi.get(__response__, 'success_retention_period'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_config=pulumi.get(__response__, 'vpc_config')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -83,9 +88,6 @@ def get_public_key(id: Optional[str] = None,
         created_time=pulumi.get(__ret__, 'created_time'),
         id=pulumi.get(__ret__, 'id'),
         public_key_config=pulumi.get(__ret__, 'public_key_config'))
-
-
-@_utilities.lift_output_func(get_public_key)
 def get_public_key_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
@@ -94,4 +96,11 @@ def get_public_key_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The identifier of the public key.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult)
+    return __ret__.apply(lambda __response__: GetPublicKeyResult(
+        created_time=pulumi.get(__response__, 'created_time'),
+        id=pulumi.get(__response__, 'id'),
+        public_key_config=pulumi.get(__response__, 'public_key_config')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -163,9 +168,6 @@ def get_routing_profile(routing_profile_arn: Optional[str] = None,
         queue_configs=pulumi.get(__ret__, 'queue_configs'),
         routing_profile_arn=pulumi.get(__ret__, 'routing_profile_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_routing_profile)
 def get_routing_profile_output(routing_profile_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingProfileResult]:
     """
@@ -174,4 +176,17 @@ def get_routing_profile_output(routing_profile_arn: Optional[pulumi.Input[str]] 
 
     :param str routing_profile_arn: The Amazon Resource Name (ARN) of the routing profile.
     """
-    ...
+    __args__ = dict()
+    __args__['routingProfileArn'] = routing_profile_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getRoutingProfile', __args__, opts=opts, typ=GetRoutingProfileResult)
+    return __ret__.apply(lambda __response__: GetRoutingProfileResult(
+        agent_availability_timer=pulumi.get(__response__, 'agent_availability_timer'),
+        default_outbound_queue_arn=pulumi.get(__response__, 'default_outbound_queue_arn'),
+        description=pulumi.get(__response__, 'description'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        media_concurrencies=pulumi.get(__response__, 'media_concurrencies'),
+        name=pulumi.get(__response__, 'name'),
+        queue_configs=pulumi.get(__response__, 'queue_configs'),
+        routing_profile_arn=pulumi.get(__response__, 'routing_profile_arn'),
+        tags=pulumi.get(__response__, 'tags')))

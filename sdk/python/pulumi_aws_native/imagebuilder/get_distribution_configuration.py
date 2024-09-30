@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -97,9 +102,6 @@ def get_distribution_configuration(arn: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         distributions=pulumi.get(__ret__, 'distributions'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_distribution_configuration)
 def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
     """
@@ -108,4 +110,12 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = Non
 
     :param str arn: The Amazon Resource Name (ARN) of the distribution configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getDistributionConfiguration', __args__, opts=opts, typ=GetDistributionConfigurationResult)
+    return __ret__.apply(lambda __response__: GetDistributionConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        distributions=pulumi.get(__response__, 'distributions'),
+        tags=pulumi.get(__response__, 'tags')))

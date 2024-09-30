@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -85,9 +90,6 @@ def get_input(input_name: Optional[str] = None,
         input_definition=pulumi.get(__ret__, 'input_definition'),
         input_description=pulumi.get(__ret__, 'input_description'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_input)
 def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInputResult]:
     """
@@ -96,4 +98,11 @@ def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
 
     :param str input_name: The name of the input.
     """
-    ...
+    __args__ = dict()
+    __args__['inputName'] = input_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iotevents:getInput', __args__, opts=opts, typ=GetInputResult)
+    return __ret__.apply(lambda __response__: GetInputResult(
+        input_definition=pulumi.get(__response__, 'input_definition'),
+        input_description=pulumi.get(__response__, 'input_description'),
+        tags=pulumi.get(__response__, 'tags')))

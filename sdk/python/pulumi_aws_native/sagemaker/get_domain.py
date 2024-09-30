@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -214,9 +219,6 @@ def get_domain(domain_id: Optional[str] = None,
         single_sign_on_managed_application_instance_id=pulumi.get(__ret__, 'single_sign_on_managed_application_instance_id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -225,4 +227,21 @@ def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
 
     :param str domain_id: The domain name.
     """
-    ...
+    __args__ = dict()
+    __args__['domainId'] = domain_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        app_network_access_type=pulumi.get(__response__, 'app_network_access_type'),
+        app_security_group_management=pulumi.get(__response__, 'app_security_group_management'),
+        default_space_settings=pulumi.get(__response__, 'default_space_settings'),
+        default_user_settings=pulumi.get(__response__, 'default_user_settings'),
+        domain_arn=pulumi.get(__response__, 'domain_arn'),
+        domain_id=pulumi.get(__response__, 'domain_id'),
+        domain_settings=pulumi.get(__response__, 'domain_settings'),
+        home_efs_file_system_id=pulumi.get(__response__, 'home_efs_file_system_id'),
+        security_group_id_for_domain_boundary=pulumi.get(__response__, 'security_group_id_for_domain_boundary'),
+        single_sign_on_application_arn=pulumi.get(__response__, 'single_sign_on_application_arn'),
+        single_sign_on_managed_application_instance_id=pulumi.get(__response__, 'single_sign_on_managed_application_instance_id'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        url=pulumi.get(__response__, 'url')))

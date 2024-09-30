@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -84,9 +89,6 @@ def get_contact_list(contact_list_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'),
         topics=pulumi.get(__ret__, 'topics'))
-
-
-@_utilities.lift_output_func(get_contact_list)
 def get_contact_list_output(contact_list_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactListResult]:
     """
@@ -95,4 +97,11 @@ def get_contact_list_output(contact_list_name: Optional[pulumi.Input[str]] = Non
 
     :param str contact_list_name: The name of the contact list.
     """
-    ...
+    __args__ = dict()
+    __args__['contactListName'] = contact_list_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getContactList', __args__, opts=opts, typ=GetContactListResult)
+    return __ret__.apply(lambda __response__: GetContactListResult(
+        description=pulumi.get(__response__, 'description'),
+        tags=pulumi.get(__response__, 'tags'),
+        topics=pulumi.get(__response__, 'topics')))

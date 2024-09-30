@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -215,9 +220,6 @@ def get_serverless_cache(serverless_cache_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         user_group_id=pulumi.get(__ret__, 'user_group_id'))
-
-
-@_utilities.lift_output_func(get_serverless_cache)
 def get_serverless_cache_output(serverless_cache_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessCacheResult]:
     """
@@ -226,4 +228,21 @@ def get_serverless_cache_output(serverless_cache_name: Optional[pulumi.Input[str
 
     :param str serverless_cache_name: The name of the Serverless Cache. This value must be unique.
     """
-    ...
+    __args__ = dict()
+    __args__['serverlessCacheName'] = serverless_cache_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getServerlessCache', __args__, opts=opts, typ=GetServerlessCacheResult)
+    return __ret__.apply(lambda __response__: GetServerlessCacheResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cache_usage_limits=pulumi.get(__response__, 'cache_usage_limits'),
+        create_time=pulumi.get(__response__, 'create_time'),
+        daily_snapshot_time=pulumi.get(__response__, 'daily_snapshot_time'),
+        description=pulumi.get(__response__, 'description'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        full_engine_version=pulumi.get(__response__, 'full_engine_version'),
+        reader_endpoint=pulumi.get(__response__, 'reader_endpoint'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_group_id=pulumi.get(__response__, 'user_group_id')))

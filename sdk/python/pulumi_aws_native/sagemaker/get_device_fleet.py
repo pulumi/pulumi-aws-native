@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -97,9 +102,6 @@ def get_device_fleet(device_fleet_name: Optional[str] = None,
         output_config=pulumi.get(__ret__, 'output_config'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_device_fleet)
 def get_device_fleet_output(device_fleet_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceFleetResult]:
     """
@@ -108,4 +110,12 @@ def get_device_fleet_output(device_fleet_name: Optional[pulumi.Input[str]] = Non
 
     :param str device_fleet_name: The name of the edge device fleet
     """
-    ...
+    __args__ = dict()
+    __args__['deviceFleetName'] = device_fleet_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getDeviceFleet', __args__, opts=opts, typ=GetDeviceFleetResult)
+    return __ret__.apply(lambda __response__: GetDeviceFleetResult(
+        description=pulumi.get(__response__, 'description'),
+        output_config=pulumi.get(__response__, 'output_config'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        tags=pulumi.get(__response__, 'tags')))

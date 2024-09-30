@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -128,9 +133,6 @@ def get_network_settings(network_settings_arn: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_network_settings)
 def get_network_settings_output(network_settings_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSettingsResult]:
     """
@@ -139,4 +141,14 @@ def get_network_settings_output(network_settings_arn: Optional[pulumi.Input[str]
 
     :param str network_settings_arn: The ARN of the network settings.
     """
-    ...
+    __args__ = dict()
+    __args__['networkSettingsArn'] = network_settings_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getNetworkSettings', __args__, opts=opts, typ=GetNetworkSettingsResult)
+    return __ret__.apply(lambda __response__: GetNetworkSettingsResult(
+        associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),
+        network_settings_arn=pulumi.get(__response__, 'network_settings_arn'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

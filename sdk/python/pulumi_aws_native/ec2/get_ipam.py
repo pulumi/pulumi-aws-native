@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -215,9 +220,6 @@ def get_ipam(ipam_id: Optional[str] = None,
         scope_count=pulumi.get(__ret__, 'scope_count'),
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'))
-
-
-@_utilities.lift_output_func(get_ipam)
 def get_ipam_output(ipam_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamResult]:
     """
@@ -226,4 +228,21 @@ def get_ipam_output(ipam_id: Optional[pulumi.Input[str]] = None,
 
     :param str ipam_id: Id of the IPAM.
     """
-    ...
+    __args__ = dict()
+    __args__['ipamId'] = ipam_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpam', __args__, opts=opts, typ=GetIpamResult)
+    return __ret__.apply(lambda __response__: GetIpamResult(
+        arn=pulumi.get(__response__, 'arn'),
+        default_resource_discovery_association_id=pulumi.get(__response__, 'default_resource_discovery_association_id'),
+        default_resource_discovery_id=pulumi.get(__response__, 'default_resource_discovery_id'),
+        description=pulumi.get(__response__, 'description'),
+        enable_private_gua=pulumi.get(__response__, 'enable_private_gua'),
+        ipam_id=pulumi.get(__response__, 'ipam_id'),
+        operating_regions=pulumi.get(__response__, 'operating_regions'),
+        private_default_scope_id=pulumi.get(__response__, 'private_default_scope_id'),
+        public_default_scope_id=pulumi.get(__response__, 'public_default_scope_id'),
+        resource_discovery_association_count=pulumi.get(__response__, 'resource_discovery_association_count'),
+        scope_count=pulumi.get(__response__, 'scope_count'),
+        tags=pulumi.get(__response__, 'tags'),
+        tier=pulumi.get(__response__, 'tier')))

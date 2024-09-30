@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_multi_region_access_point(name: Optional[str] = None,
     return AwaitableGetMultiRegionAccessPointResult(
         alias=pulumi.get(__ret__, 'alias'),
         created_at=pulumi.get(__ret__, 'created_at'))
-
-
-@_utilities.lift_output_func(get_multi_region_access_point)
 def get_multi_region_access_point_output(name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiRegionAccessPointResult]:
     """
@@ -80,4 +82,10 @@ def get_multi_region_access_point_output(name: Optional[pulumi.Input[str]] = Non
 
     :param str name: The name you want to assign to this Multi Region Access Point.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getMultiRegionAccessPoint', __args__, opts=opts, typ=GetMultiRegionAccessPointResult)
+    return __ret__.apply(lambda __response__: GetMultiRegionAccessPointResult(
+        alias=pulumi.get(__response__, 'alias'),
+        created_at=pulumi.get(__response__, 'created_at')))

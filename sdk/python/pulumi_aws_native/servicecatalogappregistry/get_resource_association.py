@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -76,9 +81,6 @@ def get_resource_association(application_arn: Optional[str] = None,
     return AwaitableGetResourceAssociationResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
-
-
-@_utilities.lift_output_func(get_resource_association)
 def get_resource_association_output(application_arn: Optional[pulumi.Input[str]] = None,
                                     resource_arn: Optional[pulumi.Input[str]] = None,
                                     resource_type: Optional[pulumi.Input['ResourceAssociationResourceType']] = None,
@@ -91,4 +93,12 @@ def get_resource_association_output(application_arn: Optional[pulumi.Input[str]]
     :param str resource_arn: The Amazon resource name (ARN) that specifies the resource.
     :param 'ResourceAssociationResourceType' resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationArn'] = application_arn
+    __args__['resourceArn'] = resource_arn
+    __args__['resourceType'] = resource_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalogappregistry:getResourceAssociation', __args__, opts=opts, typ=GetResourceAssociationResult)
+    return __ret__.apply(lambda __response__: GetResourceAssociationResult(
+        application_arn=pulumi.get(__response__, 'application_arn'),
+        resource_arn=pulumi.get(__response__, 'resource_arn')))

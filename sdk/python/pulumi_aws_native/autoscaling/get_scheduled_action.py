@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -150,9 +155,6 @@ def get_scheduled_action(auto_scaling_group_name: Optional[str] = None,
         scheduled_action_name=pulumi.get(__ret__, 'scheduled_action_name'),
         start_time=pulumi.get(__ret__, 'start_time'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
-
-
-@_utilities.lift_output_func(get_scheduled_action)
 def get_scheduled_action_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                                 scheduled_action_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionResult]:
@@ -163,4 +165,17 @@ def get_scheduled_action_output(auto_scaling_group_name: Optional[pulumi.Input[s
     :param str auto_scaling_group_name: The name of the Auto Scaling group.
     :param str scheduled_action_name: Auto-generated unique identifier
     """
-    ...
+    __args__ = dict()
+    __args__['autoScalingGroupName'] = auto_scaling_group_name
+    __args__['scheduledActionName'] = scheduled_action_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult)
+    return __ret__.apply(lambda __response__: GetScheduledActionResult(
+        desired_capacity=pulumi.get(__response__, 'desired_capacity'),
+        end_time=pulumi.get(__response__, 'end_time'),
+        max_size=pulumi.get(__response__, 'max_size'),
+        min_size=pulumi.get(__response__, 'min_size'),
+        recurrence=pulumi.get(__response__, 'recurrence'),
+        scheduled_action_name=pulumi.get(__response__, 'scheduled_action_name'),
+        start_time=pulumi.get(__response__, 'start_time'),
+        time_zone=pulumi.get(__response__, 'time_zone')))

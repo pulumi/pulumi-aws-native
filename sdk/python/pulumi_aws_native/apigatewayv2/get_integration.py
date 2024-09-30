@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -281,9 +286,6 @@ def get_integration(api_id: Optional[str] = None,
         template_selection_expression=pulumi.get(__ret__, 'template_selection_expression'),
         timeout_in_millis=pulumi.get(__ret__, 'timeout_in_millis'),
         tls_config=pulumi.get(__ret__, 'tls_config'))
-
-
-@_utilities.lift_output_func(get_integration)
 def get_integration_output(api_id: Optional[pulumi.Input[str]] = None,
                            integration_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
@@ -294,4 +296,27 @@ def get_integration_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str api_id: The API identifier.
     :param str integration_id: The integration ID.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['integrationId'] = integration_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getIntegration', __args__, opts=opts, typ=GetIntegrationResult)
+    return __ret__.apply(lambda __response__: GetIntegrationResult(
+        connection_id=pulumi.get(__response__, 'connection_id'),
+        connection_type=pulumi.get(__response__, 'connection_type'),
+        content_handling_strategy=pulumi.get(__response__, 'content_handling_strategy'),
+        credentials_arn=pulumi.get(__response__, 'credentials_arn'),
+        description=pulumi.get(__response__, 'description'),
+        integration_id=pulumi.get(__response__, 'integration_id'),
+        integration_method=pulumi.get(__response__, 'integration_method'),
+        integration_subtype=pulumi.get(__response__, 'integration_subtype'),
+        integration_type=pulumi.get(__response__, 'integration_type'),
+        integration_uri=pulumi.get(__response__, 'integration_uri'),
+        passthrough_behavior=pulumi.get(__response__, 'passthrough_behavior'),
+        payload_format_version=pulumi.get(__response__, 'payload_format_version'),
+        request_parameters=pulumi.get(__response__, 'request_parameters'),
+        request_templates=pulumi.get(__response__, 'request_templates'),
+        response_parameters=pulumi.get(__response__, 'response_parameters'),
+        template_selection_expression=pulumi.get(__response__, 'template_selection_expression'),
+        timeout_in_millis=pulumi.get(__response__, 'timeout_in_millis'),
+        tls_config=pulumi.get(__response__, 'tls_config')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -83,9 +88,6 @@ def get_event_integration(name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         event_integration_arn=pulumi.get(__ret__, 'event_integration_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_event_integration)
 def get_event_integration_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventIntegrationResult]:
     """
@@ -94,4 +96,11 @@ def get_event_integration_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the event integration.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:appintegrations:getEventIntegration', __args__, opts=opts, typ=GetEventIntegrationResult)
+    return __ret__.apply(lambda __response__: GetEventIntegrationResult(
+        description=pulumi.get(__response__, 'description'),
+        event_integration_arn=pulumi.get(__response__, 'event_integration_arn'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -89,9 +94,6 @@ def get_user_pool_group(group_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         precedence=pulumi.get(__ret__, 'precedence'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-
-
-@_utilities.lift_output_func(get_user_pool_group)
 def get_user_pool_group_output(group_name: Optional[pulumi.Input[str]] = None,
                                user_pool_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolGroupResult]:
@@ -102,4 +104,12 @@ def get_user_pool_group_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str group_name: The name of the group. Must be unique.
     :param str user_pool_id: The user pool ID for the user pool.
     """
-    ...
+    __args__ = dict()
+    __args__['groupName'] = group_name
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolGroup', __args__, opts=opts, typ=GetUserPoolGroupResult)
+    return __ret__.apply(lambda __response__: GetUserPoolGroupResult(
+        description=pulumi.get(__response__, 'description'),
+        precedence=pulumi.get(__response__, 'precedence'),
+        role_arn=pulumi.get(__response__, 'role_arn')))

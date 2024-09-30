@@ -4,23 +4,48 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AnnotationStoreReferenceItemArgs',
+    'AnnotationStoreReferenceItemArgsDict',
     'AnnotationStoreSseConfigArgs',
+    'AnnotationStoreSseConfigArgsDict',
     'AnnotationStoreStoreOptionsPropertiesArgs',
+    'AnnotationStoreStoreOptionsPropertiesArgsDict',
     'AnnotationStoreTsvStoreOptionsArgs',
+    'AnnotationStoreTsvStoreOptionsArgsDict',
     'ReferenceStoreSseConfigArgs',
+    'ReferenceStoreSseConfigArgsDict',
     'SequenceStoreSseConfigArgs',
+    'SequenceStoreSseConfigArgsDict',
     'VariantStoreReferenceItemArgs',
+    'VariantStoreReferenceItemArgsDict',
     'VariantStoreSseConfigArgs',
+    'VariantStoreSseConfigArgsDict',
     'WorkflowParameterArgs',
+    'WorkflowParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnnotationStoreReferenceItemArgsDict(TypedDict):
+        reference_arn: pulumi.Input[str]
+        """
+        The reference's ARN.
+        """
+elif False:
+    AnnotationStoreReferenceItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnnotationStoreReferenceItemArgs:
@@ -43,6 +68,19 @@ class AnnotationStoreReferenceItemArgs:
     def reference_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "reference_arn", value)
 
+
+if not MYPY:
+    class AnnotationStoreSseConfigArgsDict(TypedDict):
+        type: pulumi.Input['AnnotationStoreEncryptionType']
+        """
+        The encryption type.
+        """
+        key_arn: NotRequired[pulumi.Input[str]]
+        """
+        An encryption key ARN.
+        """
+elif False:
+    AnnotationStoreSseConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnnotationStoreSseConfigArgs:
@@ -82,6 +120,12 @@ class AnnotationStoreSseConfigArgs:
         pulumi.set(self, "key_arn", value)
 
 
+if not MYPY:
+    class AnnotationStoreStoreOptionsPropertiesArgsDict(TypedDict):
+        tsv_store_options: pulumi.Input['AnnotationStoreTsvStoreOptionsArgsDict']
+elif False:
+    AnnotationStoreStoreOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnnotationStoreStoreOptionsPropertiesArgs:
     def __init__(__self__, *,
@@ -97,6 +141,14 @@ class AnnotationStoreStoreOptionsPropertiesArgs:
     def tsv_store_options(self, value: pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']):
         pulumi.set(self, "tsv_store_options", value)
 
+
+if not MYPY:
+    class AnnotationStoreTsvStoreOptionsArgsDict(TypedDict):
+        annotation_type: NotRequired[pulumi.Input['AnnotationStoreAnnotationType']]
+        format_to_header: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        schema: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]
+elif False:
+    AnnotationStoreTsvStoreOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnnotationStoreTsvStoreOptionsArgs:
@@ -139,6 +191,22 @@ class AnnotationStoreTsvStoreOptionsArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class ReferenceStoreSseConfigArgsDict(TypedDict):
+        """
+        Server-side encryption (SSE) settings for a store.
+        """
+        type: pulumi.Input['ReferenceStoreEncryptionType']
+        """
+        The encryption type.
+        """
+        key_arn: NotRequired[pulumi.Input[str]]
+        """
+        An encryption key ARN.
+        """
+elif False:
+    ReferenceStoreSseConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReferenceStoreSseConfigArgs:
     def __init__(__self__, *,
@@ -177,6 +245,22 @@ class ReferenceStoreSseConfigArgs:
     def key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_arn", value)
 
+
+if not MYPY:
+    class SequenceStoreSseConfigArgsDict(TypedDict):
+        """
+        Server-side encryption (SSE) settings for a store.
+        """
+        type: pulumi.Input['SequenceStoreEncryptionType']
+        """
+        The encryption type.
+        """
+        key_arn: NotRequired[pulumi.Input[str]]
+        """
+        An encryption key ARN.
+        """
+elif False:
+    SequenceStoreSseConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SequenceStoreSseConfigArgs:
@@ -217,6 +301,15 @@ class SequenceStoreSseConfigArgs:
         pulumi.set(self, "key_arn", value)
 
 
+if not MYPY:
+    class VariantStoreReferenceItemArgsDict(TypedDict):
+        reference_arn: pulumi.Input[str]
+        """
+        The reference's ARN.
+        """
+elif False:
+    VariantStoreReferenceItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VariantStoreReferenceItemArgs:
     def __init__(__self__, *,
@@ -238,6 +331,19 @@ class VariantStoreReferenceItemArgs:
     def reference_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "reference_arn", value)
 
+
+if not MYPY:
+    class VariantStoreSseConfigArgsDict(TypedDict):
+        type: pulumi.Input['VariantStoreEncryptionType']
+        """
+        The encryption type.
+        """
+        key_arn: NotRequired[pulumi.Input[str]]
+        """
+        An encryption key ARN.
+        """
+elif False:
+    VariantStoreSseConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VariantStoreSseConfigArgs:
@@ -276,6 +382,19 @@ class VariantStoreSseConfigArgs:
     def key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_arn", value)
 
+
+if not MYPY:
+    class WorkflowParameterArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The parameter's description.
+        """
+        optional: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the parameter is optional.
+        """
+elif False:
+    WorkflowParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowParameterArgs:

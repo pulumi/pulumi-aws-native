@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -74,9 +79,6 @@ def get_identity_pool_principal_tag(identity_pool_id: Optional[str] = None,
     return AwaitableGetIdentityPoolPrincipalTagResult(
         principal_tags=pulumi.get(__ret__, 'principal_tags'),
         use_defaults=pulumi.get(__ret__, 'use_defaults'))
-
-
-@_utilities.lift_output_func(get_identity_pool_principal_tag)
 def get_identity_pool_principal_tag_output(identity_pool_id: Optional[pulumi.Input[str]] = None,
                                            identity_provider_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolPrincipalTagResult]:
@@ -87,4 +89,11 @@ def get_identity_pool_principal_tag_output(identity_pool_id: Optional[pulumi.Inp
     :param str identity_pool_id: The identity pool that you want to associate with this principal tag map.
     :param str identity_provider_name: The identity pool identity provider (IdP) that you want to associate with this principal tag map.
     """
-    ...
+    __args__ = dict()
+    __args__['identityPoolId'] = identity_pool_id
+    __args__['identityProviderName'] = identity_provider_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getIdentityPoolPrincipalTag', __args__, opts=opts, typ=GetIdentityPoolPrincipalTagResult)
+    return __ret__.apply(lambda __response__: GetIdentityPoolPrincipalTagResult(
+        principal_tags=pulumi.get(__response__, 'principal_tags'),
+        use_defaults=pulumi.get(__response__, 'use_defaults')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -191,9 +196,6 @@ def get_rest_api(rest_api_id: Optional[str] = None,
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_rest_api)
 def get_rest_api_output(rest_api_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
     """
@@ -203,4 +205,19 @@ def get_rest_api_output(rest_api_id: Optional[pulumi.Input[str]] = None,
 
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
-    ...
+    __args__ = dict()
+    __args__['restApiId'] = rest_api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getRestApi', __args__, opts=opts, typ=GetRestApiResult)
+    return __ret__.apply(lambda __response__: GetRestApiResult(
+        api_key_source_type=pulumi.get(__response__, 'api_key_source_type'),
+        binary_media_types=pulumi.get(__response__, 'binary_media_types'),
+        description=pulumi.get(__response__, 'description'),
+        disable_execute_api_endpoint=pulumi.get(__response__, 'disable_execute_api_endpoint'),
+        endpoint_configuration=pulumi.get(__response__, 'endpoint_configuration'),
+        minimum_compression_size=pulumi.get(__response__, 'minimum_compression_size'),
+        name=pulumi.get(__response__, 'name'),
+        policy=pulumi.get(__response__, 'policy'),
+        rest_api_id=pulumi.get(__response__, 'rest_api_id'),
+        root_resource_id=pulumi.get(__response__, 'root_resource_id'),
+        tags=pulumi.get(__response__, 'tags')))

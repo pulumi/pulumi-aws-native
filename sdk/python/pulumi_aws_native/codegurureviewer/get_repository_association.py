@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_repository_association(association_arn: Optional[str] = None,
 
     return AwaitableGetRepositoryAssociationResult(
         association_arn=pulumi.get(__ret__, 'association_arn'))
-
-
-@_utilities.lift_output_func(get_repository_association)
 def get_repository_association_output(association_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryAssociationResult]:
     """
@@ -67,4 +69,9 @@ def get_repository_association_output(association_arn: Optional[pulumi.Input[str
 
     :param str association_arn: The Amazon Resource Name (ARN) of the repository association.
     """
-    ...
+    __args__ = dict()
+    __args__['associationArn'] = association_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:codegurureviewer:getRepositoryAssociation', __args__, opts=opts, typ=GetRepositoryAssociationResult)
+    return __ret__.apply(lambda __response__: GetRepositoryAssociationResult(
+        association_arn=pulumi.get(__response__, 'association_arn')))

@@ -4,46 +4,97 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'LocationAzureBlobAzureBlobSasConfigurationArgs',
+    'LocationAzureBlobAzureBlobSasConfigurationArgsDict',
     'LocationEfsEc2ConfigArgs',
+    'LocationEfsEc2ConfigArgsDict',
     'LocationFSxOntapNfsMountOptionsArgs',
+    'LocationFSxOntapNfsMountOptionsArgsDict',
     'LocationFSxOntapNfsArgs',
+    'LocationFSxOntapNfsArgsDict',
     'LocationFSxOntapProtocolArgs',
+    'LocationFSxOntapProtocolArgsDict',
     'LocationFSxOntapSmbMountOptionsArgs',
+    'LocationFSxOntapSmbMountOptionsArgsDict',
     'LocationFSxOntapSmbArgs',
+    'LocationFSxOntapSmbArgsDict',
     'LocationFSxOpenZfsMountOptionsArgs',
+    'LocationFSxOpenZfsMountOptionsArgsDict',
     'LocationFSxOpenZfsNfsArgs',
+    'LocationFSxOpenZfsNfsArgsDict',
     'LocationFSxOpenZfsProtocolArgs',
+    'LocationFSxOpenZfsProtocolArgsDict',
     'LocationHdfsNameNodeArgs',
+    'LocationHdfsNameNodeArgsDict',
     'LocationHdfsQopConfigurationArgs',
+    'LocationHdfsQopConfigurationArgsDict',
     'LocationNfsMountOptionsArgs',
+    'LocationNfsMountOptionsArgsDict',
     'LocationNfsOnPremConfigArgs',
+    'LocationNfsOnPremConfigArgsDict',
     'LocationS3s3ConfigArgs',
+    'LocationS3s3ConfigArgsDict',
     'LocationSmbMountOptionsArgs',
+    'LocationSmbMountOptionsArgsDict',
     'StorageSystemServerConfigurationArgs',
+    'StorageSystemServerConfigurationArgsDict',
     'StorageSystemServerCredentialsArgs',
+    'StorageSystemServerCredentialsArgsDict',
     'TaskFilterRuleArgs',
+    'TaskFilterRuleArgsDict',
     'TaskManifestConfigSourcePropertiesArgs',
+    'TaskManifestConfigSourcePropertiesArgsDict',
     'TaskManifestConfigSourceS3Args',
+    'TaskManifestConfigSourceS3ArgsDict',
     'TaskManifestConfigArgs',
+    'TaskManifestConfigArgsDict',
     'TaskOptionsArgs',
+    'TaskOptionsArgsDict',
     'TaskReportConfigDestinationPropertiesArgs',
+    'TaskReportConfigDestinationPropertiesArgsDict',
     'TaskReportConfigDestinationS3Args',
+    'TaskReportConfigDestinationS3ArgsDict',
     'TaskReportConfigOverridesPropertiesDeletedPropertiesArgs',
+    'TaskReportConfigOverridesPropertiesDeletedPropertiesArgsDict',
     'TaskReportConfigOverridesPropertiesSkippedPropertiesArgs',
+    'TaskReportConfigOverridesPropertiesSkippedPropertiesArgsDict',
     'TaskReportConfigOverridesPropertiesTransferredPropertiesArgs',
+    'TaskReportConfigOverridesPropertiesTransferredPropertiesArgsDict',
     'TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs',
+    'TaskReportConfigOverridesPropertiesVerifiedPropertiesArgsDict',
     'TaskReportConfigOverridesPropertiesArgs',
+    'TaskReportConfigOverridesPropertiesArgsDict',
     'TaskReportConfigArgs',
+    'TaskReportConfigArgsDict',
     'TaskScheduleArgs',
+    'TaskScheduleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LocationAzureBlobAzureBlobSasConfigurationArgsDict(TypedDict):
+        """
+        Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
+        """
+        azure_blob_sas_token: pulumi.Input[str]
+        """
+        Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
+        """
+elif False:
+    LocationAzureBlobAzureBlobSasConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationAzureBlobAzureBlobSasConfigurationArgs:
@@ -67,6 +118,22 @@ class LocationAzureBlobAzureBlobSasConfigurationArgs:
     def azure_blob_sas_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "azure_blob_sas_token", value)
 
+
+if not MYPY:
+    class LocationEfsEc2ConfigArgsDict(TypedDict):
+        """
+        The subnet and security group that DataSync uses to access target EFS file system.
+        """
+        security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
+        """
+        subnet_arn: pulumi.Input[str]
+        """
+        The ARN of the subnet that DataSync uses to access the target EFS file system.
+        """
+elif False:
+    LocationEfsEc2ConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationEfsEc2ConfigArgs:
@@ -106,6 +173,18 @@ class LocationEfsEc2ConfigArgs:
         pulumi.set(self, "subnet_arn", value)
 
 
+if not MYPY:
+    class LocationFSxOntapNfsMountOptionsArgsDict(TypedDict):
+        """
+        The NFS mount options that DataSync can use to mount your NFS share.
+        """
+        version: NotRequired[pulumi.Input['LocationFSxOntapNfsMountOptionsVersion']]
+        """
+        The specific NFS version that you want DataSync to use to mount your NFS share.
+        """
+elif False:
+    LocationFSxOntapNfsMountOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocationFSxOntapNfsMountOptionsArgs:
     def __init__(__self__, *,
@@ -130,6 +209,18 @@ class LocationFSxOntapNfsMountOptionsArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class LocationFSxOntapNfsArgsDict(TypedDict):
+        """
+        NFS protocol configuration for FSx ONTAP file system.
+        """
+        mount_options: pulumi.Input['LocationFSxOntapNfsMountOptionsArgsDict']
+        """
+        Specifies how DataSync can access a location using the NFS protocol.
+        """
+elif False:
+    LocationFSxOntapNfsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocationFSxOntapNfsArgs:
     def __init__(__self__, *,
@@ -152,6 +243,22 @@ class LocationFSxOntapNfsArgs:
     def mount_options(self, value: pulumi.Input['LocationFSxOntapNfsMountOptionsArgs']):
         pulumi.set(self, "mount_options", value)
 
+
+if not MYPY:
+    class LocationFSxOntapProtocolArgsDict(TypedDict):
+        """
+        Configuration settings for NFS or SMB protocol.
+        """
+        nfs: NotRequired[pulumi.Input['LocationFSxOntapNfsArgsDict']]
+        """
+        Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
+        """
+        smb: NotRequired[pulumi.Input['LocationFSxOntapSmbArgsDict']]
+        """
+        Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
+        """
+elif False:
+    LocationFSxOntapProtocolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationFSxOntapProtocolArgs:
@@ -193,6 +300,18 @@ class LocationFSxOntapProtocolArgs:
         pulumi.set(self, "smb", value)
 
 
+if not MYPY:
+    class LocationFSxOntapSmbMountOptionsArgsDict(TypedDict):
+        """
+        The mount options used by DataSync to access the SMB server.
+        """
+        version: NotRequired[pulumi.Input['LocationFSxOntapSmbMountOptionsVersion']]
+        """
+        The specific SMB version that you want DataSync to use to mount your SMB share.
+        """
+elif False:
+    LocationFSxOntapSmbMountOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocationFSxOntapSmbMountOptionsArgs:
     def __init__(__self__, *,
@@ -216,6 +335,30 @@ class LocationFSxOntapSmbMountOptionsArgs:
     def version(self, value: Optional[pulumi.Input['LocationFSxOntapSmbMountOptionsVersion']]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class LocationFSxOntapSmbArgsDict(TypedDict):
+        """
+        SMB protocol configuration for FSx ONTAP file system.
+        """
+        mount_options: pulumi.Input['LocationFSxOntapSmbMountOptionsArgsDict']
+        """
+        Specifies how DataSync can access a location using the SMB protocol.
+        """
+        password: pulumi.Input[str]
+        """
+        The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+        """
+        user: pulumi.Input[str]
+        """
+        The user who can mount the share, has the permissions to access files and folders in the SMB share.
+        """
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Windows domain that the SMB server belongs to.
+        """
+elif False:
+    LocationFSxOntapSmbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationFSxOntapSmbArgs:
@@ -286,6 +429,18 @@ class LocationFSxOntapSmbArgs:
         pulumi.set(self, "domain", value)
 
 
+if not MYPY:
+    class LocationFSxOpenZfsMountOptionsArgsDict(TypedDict):
+        """
+        The NFS mount options that DataSync can use to mount your NFS share.
+        """
+        version: NotRequired[pulumi.Input['LocationFSxOpenZfsMountOptionsVersion']]
+        """
+        The specific NFS version that you want DataSync to use to mount your NFS share.
+        """
+elif False:
+    LocationFSxOpenZfsMountOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocationFSxOpenZfsMountOptionsArgs:
     def __init__(__self__, *,
@@ -310,6 +465,18 @@ class LocationFSxOpenZfsMountOptionsArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class LocationFSxOpenZfsNfsArgsDict(TypedDict):
+        """
+        FSx OpenZFS file system NFS protocol information
+        """
+        mount_options: pulumi.Input['LocationFSxOpenZfsMountOptionsArgsDict']
+        """
+        Represents the mount options that are available for DataSync to access an NFS location.
+        """
+elif False:
+    LocationFSxOpenZfsNfsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocationFSxOpenZfsNfsArgs:
     def __init__(__self__, *,
@@ -332,6 +499,18 @@ class LocationFSxOpenZfsNfsArgs:
     def mount_options(self, value: pulumi.Input['LocationFSxOpenZfsMountOptionsArgs']):
         pulumi.set(self, "mount_options", value)
 
+
+if not MYPY:
+    class LocationFSxOpenZfsProtocolArgsDict(TypedDict):
+        """
+        Configuration settings for an NFS or SMB protocol, currently only support NFS
+        """
+        nfs: NotRequired[pulumi.Input['LocationFSxOpenZfsNfsArgsDict']]
+        """
+        Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
+        """
+elif False:
+    LocationFSxOpenZfsProtocolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationFSxOpenZfsProtocolArgs:
@@ -356,6 +535,22 @@ class LocationFSxOpenZfsProtocolArgs:
     def nfs(self, value: Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']]):
         pulumi.set(self, "nfs", value)
 
+
+if not MYPY:
+    class LocationHdfsNameNodeArgsDict(TypedDict):
+        """
+        HDFS Name Node IP and port information.
+        """
+        hostname: pulumi.Input[str]
+        """
+        The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
+        """
+        port: pulumi.Input[int]
+        """
+        The port on which the Name Node is listening on for client requests.
+        """
+elif False:
+    LocationHdfsNameNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationHdfsNameNodeArgs:
@@ -394,6 +589,22 @@ class LocationHdfsNameNodeArgs:
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class LocationHdfsQopConfigurationArgsDict(TypedDict):
+        """
+        Configuration information for RPC Protection and Data Transfer Protection. These parameters can be set to AUTHENTICATION, INTEGRITY, or PRIVACY. The default value is PRIVACY.
+        """
+        data_transfer_protection: NotRequired[pulumi.Input['LocationHdfsQopConfigurationDataTransferProtection']]
+        """
+        Configuration for Data Transfer Protection.
+        """
+        rpc_protection: NotRequired[pulumi.Input['LocationHdfsQopConfigurationRpcProtection']]
+        """
+        Configuration for RPC Protection.
+        """
+elif False:
+    LocationHdfsQopConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationHdfsQopConfigurationArgs:
@@ -435,6 +646,18 @@ class LocationHdfsQopConfigurationArgs:
         pulumi.set(self, "rpc_protection", value)
 
 
+if not MYPY:
+    class LocationNfsMountOptionsArgsDict(TypedDict):
+        """
+        The NFS mount options that DataSync can use to mount your NFS share.
+        """
+        version: NotRequired[pulumi.Input['LocationNfsMountOptionsVersion']]
+        """
+        The specific NFS version that you want DataSync to use to mount your NFS share.
+        """
+elif False:
+    LocationNfsMountOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocationNfsMountOptionsArgs:
     def __init__(__self__, *,
@@ -459,6 +682,18 @@ class LocationNfsMountOptionsArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class LocationNfsOnPremConfigArgsDict(TypedDict):
+        """
+        Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
+        """
+        agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        ARN(s) of the agent(s) to use for an NFS location.
+        """
+elif False:
+    LocationNfsOnPremConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocationNfsOnPremConfigArgs:
     def __init__(__self__, *,
@@ -481,6 +716,18 @@ class LocationNfsOnPremConfigArgs:
     def agent_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "agent_arns", value)
 
+
+if not MYPY:
+    class LocationS3s3ConfigArgsDict(TypedDict):
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
+        """
+        bucket_access_role_arn: pulumi.Input[str]
+        """
+        The ARN of the IAM role of the Amazon S3 bucket.
+        """
+elif False:
+    LocationS3s3ConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocationS3s3ConfigArgs:
@@ -505,6 +752,18 @@ class LocationS3s3ConfigArgs:
         pulumi.set(self, "bucket_access_role_arn", value)
 
 
+if not MYPY:
+    class LocationSmbMountOptionsArgsDict(TypedDict):
+        """
+        The mount options used by DataSync to access the SMB server.
+        """
+        version: NotRequired[pulumi.Input['LocationSmbMountOptionsVersion']]
+        """
+        The specific SMB version that you want DataSync to use to mount your SMB share.
+        """
+elif False:
+    LocationSmbMountOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocationSmbMountOptionsArgs:
     def __init__(__self__, *,
@@ -528,6 +787,22 @@ class LocationSmbMountOptionsArgs:
     def version(self, value: Optional[pulumi.Input['LocationSmbMountOptionsVersion']]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class StorageSystemServerConfigurationArgsDict(TypedDict):
+        """
+        The server name and network port required to connect with the management interface of the on-premises storage system.
+        """
+        server_hostname: pulumi.Input[str]
+        """
+        The domain name or IP address of the storage system's management interface.
+        """
+        server_port: NotRequired[pulumi.Input[int]]
+        """
+        The network port needed to access the system's management interface
+        """
+elif False:
+    StorageSystemServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageSystemServerConfigurationArgs:
@@ -568,6 +843,22 @@ class StorageSystemServerConfigurationArgs:
         pulumi.set(self, "server_port", value)
 
 
+if not MYPY:
+    class StorageSystemServerCredentialsArgsDict(TypedDict):
+        """
+        The username and password for accessing your on-premises storage system's management interface.
+        """
+        password: pulumi.Input[str]
+        """
+        The password for your storage system's management interface
+        """
+        username: pulumi.Input[str]
+        """
+        The username for your storage system's management interface.
+        """
+elif False:
+    StorageSystemServerCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StorageSystemServerCredentialsArgs:
     def __init__(__self__, *,
@@ -605,6 +896,22 @@ class StorageSystemServerCredentialsArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class TaskFilterRuleArgsDict(TypedDict):
+        """
+        Specifies which files folders and objects to include or exclude when transferring files from source to destination.
+        """
+        filter_type: NotRequired[pulumi.Input['TaskFilterRuleFilterType']]
+        """
+        The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
+        """
+elif False:
+    TaskFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskFilterRuleArgs:
@@ -646,6 +953,15 @@ class TaskFilterRuleArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class TaskManifestConfigSourcePropertiesArgsDict(TypedDict):
+        """
+        Specifies the manifest that you want DataSync to use and where it's hosted.
+        """
+        s3: NotRequired[pulumi.Input['TaskManifestConfigSourceS3ArgsDict']]
+elif False:
+    TaskManifestConfigSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskManifestConfigSourcePropertiesArgs:
     def __init__(__self__, *,
@@ -665,6 +981,30 @@ class TaskManifestConfigSourcePropertiesArgs:
     def s3(self, value: Optional[pulumi.Input['TaskManifestConfigSourceS3Args']]):
         pulumi.set(self, "s3", value)
 
+
+if not MYPY:
+    class TaskManifestConfigSourceS3ArgsDict(TypedDict):
+        """
+        Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+        """
+        bucket_access_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+        """
+        manifest_object_path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Amazon S3 object key of your manifest.
+        """
+        manifest_object_version_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the object version ID of the manifest that you want DataSync to use.
+        """
+        s3_bucket_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+        """
+elif False:
+    TaskManifestConfigSourceS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskManifestConfigSourceS3Args:
@@ -738,6 +1078,26 @@ class TaskManifestConfigSourceS3Args:
         pulumi.set(self, "s3_bucket_arn", value)
 
 
+if not MYPY:
+    class TaskManifestConfigArgsDict(TypedDict):
+        """
+        Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+        """
+        source: pulumi.Input['TaskManifestConfigSourcePropertiesArgsDict']
+        """
+        Specifies the manifest that you want DataSync to use and where it's hosted.
+        """
+        action: NotRequired[pulumi.Input['TaskManifestConfigAction']]
+        """
+        Specifies what DataSync uses the manifest for.
+        """
+        format: NotRequired[pulumi.Input['TaskManifestConfigFormat']]
+        """
+        Specifies the file format of your manifest.
+        """
+elif False:
+    TaskManifestConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskManifestConfigArgs:
     def __init__(__self__, *,
@@ -792,6 +1152,74 @@ class TaskManifestConfigArgs:
     def format(self, value: Optional[pulumi.Input['TaskManifestConfigFormat']]):
         pulumi.set(self, "format", value)
 
+
+if not MYPY:
+    class TaskOptionsArgsDict(TypedDict):
+        """
+        Represents the options that are available to control the behavior of a StartTaskExecution operation.
+        """
+        atime: NotRequired[pulumi.Input['TaskOptionsAtime']]
+        """
+        A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
+        """
+        bytes_per_second: NotRequired[pulumi.Input[int]]
+        """
+        A value that limits the bandwidth used by AWS DataSync.
+        """
+        gid: NotRequired[pulumi.Input['TaskOptionsGid']]
+        """
+        The group ID (GID) of the file's owners.
+        """
+        log_level: NotRequired[pulumi.Input['TaskOptionsLogLevel']]
+        """
+        A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
+        """
+        mtime: NotRequired[pulumi.Input['TaskOptionsMtime']]
+        """
+        A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
+        """
+        object_tags: NotRequired[pulumi.Input['TaskOptionsObjectTags']]
+        """
+        A value that determines whether object tags should be read from the source object store and written to the destination object store.
+        """
+        overwrite_mode: NotRequired[pulumi.Input['TaskOptionsOverwriteMode']]
+        """
+        A value that determines whether files at the destination should be overwritten or preserved when copying files.
+        """
+        posix_permissions: NotRequired[pulumi.Input['TaskOptionsPosixPermissions']]
+        """
+        A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
+        """
+        preserve_deleted_files: NotRequired[pulumi.Input['TaskOptionsPreserveDeletedFiles']]
+        """
+        A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
+        """
+        preserve_devices: NotRequired[pulumi.Input['TaskOptionsPreserveDevices']]
+        """
+        A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
+        """
+        security_descriptor_copy_flags: NotRequired[pulumi.Input['TaskOptionsSecurityDescriptorCopyFlags']]
+        """
+        A value that determines which components of the SMB security descriptor are copied during transfer.
+        """
+        task_queueing: NotRequired[pulumi.Input['TaskOptionsTaskQueueing']]
+        """
+        A value that determines whether tasks should be queued before executing the tasks.
+        """
+        transfer_mode: NotRequired[pulumi.Input['TaskOptionsTransferMode']]
+        """
+        A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
+        """
+        uid: NotRequired[pulumi.Input['TaskOptionsUid']]
+        """
+        The user ID (UID) of the file's owner.
+        """
+        verify_mode: NotRequired[pulumi.Input['TaskOptionsVerifyMode']]
+        """
+        A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
+        """
+elif False:
+    TaskOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskOptionsArgs:
@@ -1041,6 +1469,15 @@ class TaskOptionsArgs:
         pulumi.set(self, "verify_mode", value)
 
 
+if not MYPY:
+    class TaskReportConfigDestinationPropertiesArgsDict(TypedDict):
+        """
+        Specifies where DataSync uploads your task report.
+        """
+        s3: NotRequired[pulumi.Input['TaskReportConfigDestinationS3ArgsDict']]
+elif False:
+    TaskReportConfigDestinationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskReportConfigDestinationPropertiesArgs:
     def __init__(__self__, *,
@@ -1060,6 +1497,26 @@ class TaskReportConfigDestinationPropertiesArgs:
     def s3(self, value: Optional[pulumi.Input['TaskReportConfigDestinationS3Args']]):
         pulumi.set(self, "s3", value)
 
+
+if not MYPY:
+    class TaskReportConfigDestinationS3ArgsDict(TypedDict):
+        """
+        Specifies the Amazon S3 bucket where DataSync uploads your task report.
+        """
+        bucket_access_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
+        """
+        s3_bucket_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the ARN of the S3 bucket where Datasync uploads your report.
+        """
+        subdirectory: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a bucket prefix for your report.
+        """
+elif False:
+    TaskReportConfigDestinationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskReportConfigDestinationS3Args:
@@ -1117,6 +1574,18 @@ class TaskReportConfigDestinationS3Args:
         pulumi.set(self, "subdirectory", value)
 
 
+if not MYPY:
+    class TaskReportConfigOverridesPropertiesDeletedPropertiesArgsDict(TypedDict):
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+        """
+        report_level: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel']]
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+elif False:
+    TaskReportConfigOverridesPropertiesDeletedPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskReportConfigOverridesPropertiesDeletedPropertiesArgs:
     def __init__(__self__, *,
@@ -1140,6 +1609,18 @@ class TaskReportConfigOverridesPropertiesDeletedPropertiesArgs:
     def report_level(self, value: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel']]):
         pulumi.set(self, "report_level", value)
 
+
+if not MYPY:
+    class TaskReportConfigOverridesPropertiesSkippedPropertiesArgsDict(TypedDict):
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+        """
+        report_level: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel']]
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+elif False:
+    TaskReportConfigOverridesPropertiesSkippedPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskReportConfigOverridesPropertiesSkippedPropertiesArgs:
@@ -1165,6 +1646,18 @@ class TaskReportConfigOverridesPropertiesSkippedPropertiesArgs:
         pulumi.set(self, "report_level", value)
 
 
+if not MYPY:
+    class TaskReportConfigOverridesPropertiesTransferredPropertiesArgsDict(TypedDict):
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+        """
+        report_level: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel']]
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+elif False:
+    TaskReportConfigOverridesPropertiesTransferredPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskReportConfigOverridesPropertiesTransferredPropertiesArgs:
     def __init__(__self__, *,
@@ -1189,6 +1682,18 @@ class TaskReportConfigOverridesPropertiesTransferredPropertiesArgs:
         pulumi.set(self, "report_level", value)
 
 
+if not MYPY:
+    class TaskReportConfigOverridesPropertiesVerifiedPropertiesArgsDict(TypedDict):
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+        """
+        report_level: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel']]
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+elif False:
+    TaskReportConfigOverridesPropertiesVerifiedPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs:
     def __init__(__self__, *,
@@ -1212,6 +1717,30 @@ class TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs:
     def report_level(self, value: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel']]):
         pulumi.set(self, "report_level", value)
 
+
+if not MYPY:
+    class TaskReportConfigOverridesPropertiesArgsDict(TypedDict):
+        """
+        Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+        """
+        deleted: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesDeletedPropertiesArgsDict']]
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
+        """
+        skipped: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesSkippedPropertiesArgsDict']]
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
+        """
+        transferred: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesTransferredPropertiesArgsDict']]
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
+        """
+        verified: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesArgsDict']]
+        """
+        Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
+        """
+elif False:
+    TaskReportConfigOverridesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskReportConfigOverridesPropertiesArgs:
@@ -1284,6 +1813,34 @@ class TaskReportConfigOverridesPropertiesArgs:
     def verified(self, value: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs']]):
         pulumi.set(self, "verified", value)
 
+
+if not MYPY:
+    class TaskReportConfigArgsDict(TypedDict):
+        """
+        Specifies how you want to configure a task report, which provides detailed information about for your Datasync transfer.
+        """
+        destination: pulumi.Input['TaskReportConfigDestinationPropertiesArgsDict']
+        """
+        Specifies where DataSync uploads your task report.
+        """
+        output_type: pulumi.Input['TaskReportConfigOutputType']
+        """
+        Specifies the type of task report that you want.
+        """
+        object_version_ids: NotRequired[pulumi.Input['TaskReportConfigObjectVersionIds']]
+        """
+        Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
+        """
+        overrides: NotRequired[pulumi.Input['TaskReportConfigOverridesPropertiesArgsDict']]
+        """
+        Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
+        """
+        report_level: NotRequired[pulumi.Input['TaskReportConfigReportLevel']]
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
+        """
+elif False:
+    TaskReportConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskReportConfigArgs:
@@ -1370,6 +1927,22 @@ class TaskReportConfigArgs:
     def report_level(self, value: Optional[pulumi.Input['TaskReportConfigReportLevel']]):
         pulumi.set(self, "report_level", value)
 
+
+if not MYPY:
+    class TaskScheduleArgsDict(TypedDict):
+        """
+        Specifies the schedule you want your task to use for repeated executions.
+        """
+        schedule_expression: NotRequired[pulumi.Input[str]]
+        """
+        A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+        """
+        status: NotRequired[pulumi.Input['TaskScheduleStatus']]
+        """
+        Specifies status of a schedule.
+        """
+elif False:
+    TaskScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskScheduleArgs:

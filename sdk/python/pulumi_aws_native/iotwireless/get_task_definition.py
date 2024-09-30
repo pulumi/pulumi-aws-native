@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -150,9 +155,6 @@ def get_task_definition(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_definition_type=pulumi.get(__ret__, 'task_definition_type'),
         update=pulumi.get(__ret__, 'update'))
-
-
-@_utilities.lift_output_func(get_task_definition)
 def get_task_definition_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
@@ -161,4 +163,16 @@ def get_task_definition_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the new wireless gateway task definition
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult)
+    return __ret__.apply(lambda __response__: GetTaskDefinitionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        auto_create_tasks=pulumi.get(__response__, 'auto_create_tasks'),
+        id=pulumi.get(__response__, 'id'),
+        lo_ra_wan_update_gateway_task_entry=pulumi.get(__response__, 'lo_ra_wan_update_gateway_task_entry'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        task_definition_type=pulumi.get(__response__, 'task_definition_type'),
+        update=pulumi.get(__response__, 'update')))
