@@ -1,6 +1,6 @@
 # AWS Resources Using AssumeRole
 
-This example demonstrates how to use the AssumeRole functionality of the AWS Native provider in order to create
+This example demonstrates how to use the AssumeRole functionality of the AWS Cloud Control provider in order to create
 resources in the security context of an IAM Role assumed by the IAM User running the Pulumi program.
 
 ### Part 1: Privileged Components

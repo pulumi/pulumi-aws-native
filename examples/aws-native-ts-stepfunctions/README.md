@@ -2,7 +2,7 @@
 
 # AWS Step Functions
 
-A basic example that demonstrates using AWS Step Functions with a Lambda function using the AWS Native provider.
+A basic example that demonstrates using AWS Step Functions with a Lambda function using the AWS Cloud Control provider.
 
 ```
 # Create and configure a new stack
