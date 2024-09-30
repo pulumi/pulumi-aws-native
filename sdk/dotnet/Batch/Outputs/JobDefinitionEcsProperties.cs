@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// An object that contains the properties for the Amazon ECS task definition of a job.
         /// 
-        /// &gt; This object is currently limited to one element.
+        /// &gt; This object is currently limited to one task element. However, the task element can run up to 10 containers.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEcsTaskProperties> TaskProperties;
 

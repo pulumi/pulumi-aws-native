@@ -2389,7 +2389,7 @@ func (o JobDefinitionDeviceArrayOutput) Index(i pulumi.IntInput) JobDefinitionDe
 type JobDefinitionEcsProperties struct {
 	// An object that contains the properties for the Amazon ECS task definition of a job.
 	//
-	// > This object is currently limited to one element.
+	// > This object is currently limited to one task element. However, the task element can run up to 10 containers.
 	TaskProperties []JobDefinitionEcsTaskProperties `pulumi:"taskProperties"`
 }
 
@@ -2407,7 +2407,7 @@ type JobDefinitionEcsPropertiesInput interface {
 type JobDefinitionEcsPropertiesArgs struct {
 	// An object that contains the properties for the Amazon ECS task definition of a job.
 	//
-	// > This object is currently limited to one element.
+	// > This object is currently limited to one task element. However, the task element can run up to 10 containers.
 	TaskProperties JobDefinitionEcsTaskPropertiesArrayInput `pulumi:"taskProperties"`
 }
 
@@ -2490,7 +2490,7 @@ func (o JobDefinitionEcsPropertiesOutput) ToJobDefinitionEcsPropertiesPtrOutputW
 
 // An object that contains the properties for the Amazon ECS task definition of a job.
 //
-// > This object is currently limited to one element.
+// > This object is currently limited to one task element. However, the task element can run up to 10 containers.
 func (o JobDefinitionEcsPropertiesOutput) TaskProperties() JobDefinitionEcsTaskPropertiesArrayOutput {
 	return o.ApplyT(func(v JobDefinitionEcsProperties) []JobDefinitionEcsTaskProperties { return v.TaskProperties }).(JobDefinitionEcsTaskPropertiesArrayOutput)
 }
@@ -2521,7 +2521,7 @@ func (o JobDefinitionEcsPropertiesPtrOutput) Elem() JobDefinitionEcsPropertiesOu
 
 // An object that contains the properties for the Amazon ECS task definition of a job.
 //
-// > This object is currently limited to one element.
+// > This object is currently limited to one task element. However, the task element can run up to 10 containers.
 func (o JobDefinitionEcsPropertiesPtrOutput) TaskProperties() JobDefinitionEcsTaskPropertiesArrayOutput {
 	return o.ApplyT(func(v *JobDefinitionEcsProperties) []JobDefinitionEcsTaskProperties {
 		if v == nil {

@@ -81,7 +81,7 @@
   "primaryIdentifier" : [ "/properties/BrowserSettingsArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "workspaces-web:CreateBrowserSettings", "workspaces-web:GetBrowserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "workspaces-web:CreateBrowserSettings", "workspaces-web:GetBrowserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptTo", "kms:ReEncryptFrom" ]
     },
     "read" : {
       "permissions" : [ "workspaces-web:GetBrowserSettings", "workspaces-web:ListBrowserSettings", "workspaces-web:ListTagsForResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
@@ -101,7 +101,8 @@
     "tagOnCreate" : true,
     "tagProperty" : "/properties/Tags",
     "tagUpdatable" : true,
-    "taggable" : true
+    "taggable" : true,
+    "permissions" : [ "workspaces-web:UntagResource", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource" ]
   },
   "additionalProperties" : false
 }

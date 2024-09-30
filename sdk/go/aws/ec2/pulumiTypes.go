@@ -20727,6 +20727,8 @@ type OptionsProperties struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 	Ipv6Support *string `pulumi:"ipv6Support"`
+	// Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 }
 
 // OptionsPropertiesInput is an input type that accepts OptionsPropertiesArgs and OptionsPropertiesOutput values.
@@ -20748,6 +20750,8 @@ type OptionsPropertiesArgs struct {
 	DnsSupport pulumi.StringPtrInput `pulumi:"dnsSupport"`
 	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 	Ipv6Support pulumi.StringPtrInput `pulumi:"ipv6Support"`
+	// Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+	SecurityGroupReferencingSupport pulumi.StringPtrInput `pulumi:"securityGroupReferencingSupport"`
 }
 
 func (OptionsPropertiesArgs) ElementType() reflect.Type {
@@ -20843,6 +20847,11 @@ func (o OptionsPropertiesOutput) Ipv6Support() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptionsProperties) *string { return v.Ipv6Support }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+func (o OptionsPropertiesOutput) SecurityGroupReferencingSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptionsProperties) *string { return v.SecurityGroupReferencingSupport }).(pulumi.StringPtrOutput)
+}
+
 type OptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (OptionsPropertiesPtrOutput) ElementType() reflect.Type {
@@ -20894,6 +20903,16 @@ func (o OptionsPropertiesPtrOutput) Ipv6Support() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Ipv6Support
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+func (o OptionsPropertiesPtrOutput) SecurityGroupReferencingSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptionsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupReferencingSupport
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -30702,7 +30721,7 @@ type VpcPeeringConnectionTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+// Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type VpcTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`

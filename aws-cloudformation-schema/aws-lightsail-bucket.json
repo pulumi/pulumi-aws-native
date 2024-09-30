@@ -100,7 +100,6 @@
   "additionalProperties" : false,
   "required" : [ "BucketName", "BundleId" ],
   "readOnlyProperties" : [ "/properties/BucketArn", "/properties/Url", "/properties/AbleToUpdateBundle" ],
-  "taggable" : true,
   "primaryIdentifier" : [ "/properties/BucketName" ],
   "createOnlyProperties" : [ "/properties/BucketName" ],
   "handlers" : {
@@ -120,5 +119,13 @@
       "permissions" : [ "lightsail:GetBuckets", "lightsail:GetInstance", "lightsail:UpdateBucket", "lightsail:UpdateBucketBundle", "lightsail:SetResourceAccessForBucket", "lightsail:TagResource", "lightsail:UntagResource" ],
       "timeoutInMinutes" : 2160
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "lightsail:TagResource", "lightsail:UntagResource" ]
   }
 }

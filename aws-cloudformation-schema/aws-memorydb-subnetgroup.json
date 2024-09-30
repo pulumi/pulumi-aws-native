@@ -68,7 +68,7 @@
   "readOnlyProperties" : [ "/properties/ARN" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "memorydb:CreateSubnetGroup", "memorydb:DescribeSubnetGroups", "memorydb:ListTags" ]
+      "permissions" : [ "memorydb:CreateSubnetGroup", "memorydb:DescribeSubnetGroups", "memorydb:TagResource", "memorydb:ListTags" ]
     },
     "read" : {
       "permissions" : [ "memorydb:DescribeSubnetGroups", "memorydb:ListTags" ]

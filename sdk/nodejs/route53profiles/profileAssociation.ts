@@ -38,7 +38,7 @@ export class ProfileAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the  profile association.
+     * The Amazon Resource Name (ARN) of the profile association.
      */
     public readonly arn!: pulumi.Output<string | undefined>;
     /**
@@ -105,7 +105,7 @@ export class ProfileAssociation extends pulumi.CustomResource {
  */
 export interface ProfileAssociationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the  profile association.
+     * The Amazon Resource Name (ARN) of the profile association.
      */
     arn?: pulumi.Input<string>;
     /**

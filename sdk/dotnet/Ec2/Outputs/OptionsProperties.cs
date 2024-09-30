@@ -28,6 +28,10 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         /// </summary>
         public readonly string? Ipv6Support;
+        /// <summary>
+        /// Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+        /// </summary>
+        public readonly string? SecurityGroupReferencingSupport;
 
         [OutputConstructor]
         private OptionsProperties(
@@ -35,11 +39,14 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             string? dnsSupport,
 
-            string? ipv6Support)
+            string? ipv6Support,
+
+            string? securityGroupReferencingSupport)
         {
             ApplianceModeSupport = applianceModeSupport;
             DnsSupport = dnsSupport;
             Ipv6Support = ipv6Support;
+            SecurityGroupReferencingSupport = securityGroupReferencingSupport;
         }
     }
 }

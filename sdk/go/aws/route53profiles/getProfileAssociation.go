@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,6 +31,8 @@ type LookupProfileAssociationArgs struct {
 type LookupProfileAssociationResult struct {
 	// Primary Identifier for  Profile Association
 	Id *string `pulumi:"id"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupProfileAssociationOutput(ctx *pulumi.Context, args LookupProfileAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupProfileAssociationResultOutput {
@@ -77,6 +80,11 @@ func (o LookupProfileAssociationResultOutput) ToLookupProfileAssociationResultOu
 // Primary Identifier for  Profile Association
 func (o LookupProfileAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupProfileAssociationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupProfileAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

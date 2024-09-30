@@ -25,6 +25,7 @@ __all__ = [
     'ClusterProvider',
     'ClusterResourcesVpcConfig',
     'ClusterUpgradePolicy',
+    'ClusterZonalShiftConfig',
     'FargateProfileLabel',
     'FargateProfileSelector',
     'IdentityProviderConfigOidcIdentityProviderConfig',
@@ -674,6 +675,29 @@ class ClusterUpgradePolicy(dict):
         Specify the support type for your cluster.
         """
         return pulumi.get(self, "support_type")
+
+
+@pulumi.output_type
+class ClusterZonalShiftConfig(dict):
+    """
+    The current zonal shift configuration to use for the cluster.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        The current zonal shift configuration to use for the cluster.
+        :param bool enabled: Set this value to true to enable zonal shift for the cluster.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Set this value to true to enable zonal shift for the cluster.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

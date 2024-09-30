@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -73,6 +74,7 @@ type LookupIdentityProviderResult struct {
 	IdentityProviderName *string `pulumi:"identityProviderName"`
 	// The identity provider type.
 	IdentityProviderType *IdentityProviderType `pulumi:"identityProviderType"`
+	Tags                 []aws.Tag             `pulumi:"tags"`
 }
 
 func LookupIdentityProviderOutput(ctx *pulumi.Context, args LookupIdentityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityProviderResultOutput {
@@ -172,6 +174,10 @@ func (o LookupIdentityProviderResultOutput) IdentityProviderName() pulumi.String
 // The identity provider type.
 func (o LookupIdentityProviderResultOutput) IdentityProviderType() IdentityProviderTypePtrOutput {
 	return o.ApplyT(func(v LookupIdentityProviderResult) *IdentityProviderType { return v.IdentityProviderType }).(IdentityProviderTypePtrOutput)
+}
+
+func (o LookupIdentityProviderResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

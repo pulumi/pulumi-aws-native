@@ -110,6 +110,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The identity provider type.
         /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.IdentityProviderType? IdentityProviderType;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetIdentityProviderResult(
@@ -119,12 +120,15 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? identityProviderName,
 
-            Pulumi.AwsNative.WorkSpacesWeb.IdentityProviderType? identityProviderType)
+            Pulumi.AwsNative.WorkSpacesWeb.IdentityProviderType? identityProviderType,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             IdentityProviderArn = identityProviderArn;
             IdentityProviderDetails = identityProviderDetails;
             IdentityProviderName = identityProviderName;
             IdentityProviderType = identityProviderType;
+            Tags = tags;
         }
     }
 }

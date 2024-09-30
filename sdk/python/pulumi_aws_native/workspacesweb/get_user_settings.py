@@ -21,7 +21,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserSettingsResult:
-    def __init__(__self__, associated_portal_arns=None, cookie_synchronization_configuration=None, copy_allowed=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, upload_allowed=None, user_settings_arn=None):
+    def __init__(__self__, additional_encryption_context=None, associated_portal_arns=None, cookie_synchronization_configuration=None, copy_allowed=None, customer_managed_key=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, upload_allowed=None, user_settings_arn=None):
+        if additional_encryption_context and not isinstance(additional_encryption_context, dict):
+            raise TypeError("Expected argument 'additional_encryption_context' to be a dict")
+        pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
         if associated_portal_arns and not isinstance(associated_portal_arns, list):
             raise TypeError("Expected argument 'associated_portal_arns' to be a list")
         pulumi.set(__self__, "associated_portal_arns", associated_portal_arns)
@@ -31,6 +34,9 @@ class GetUserSettingsResult:
         if copy_allowed and not isinstance(copy_allowed, str):
             raise TypeError("Expected argument 'copy_allowed' to be a str")
         pulumi.set(__self__, "copy_allowed", copy_allowed)
+        if customer_managed_key and not isinstance(customer_managed_key, str):
+            raise TypeError("Expected argument 'customer_managed_key' to be a str")
+        pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if deep_link_allowed and not isinstance(deep_link_allowed, str):
             raise TypeError("Expected argument 'deep_link_allowed' to be a str")
         pulumi.set(__self__, "deep_link_allowed", deep_link_allowed)
@@ -60,6 +66,14 @@ class GetUserSettingsResult:
         pulumi.set(__self__, "user_settings_arn", user_settings_arn)
 
     @property
+    @pulumi.getter(name="additionalEncryptionContext")
+    def additional_encryption_context(self) -> Optional[Mapping[str, str]]:
+        """
+        The additional encryption context of the user settings.
+        """
+        return pulumi.get(self, "additional_encryption_context")
+
+    @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
         """
@@ -82,6 +96,14 @@ class GetUserSettingsResult:
         Specifies whether the user can copy text from the streaming session to the local device.
         """
         return pulumi.get(self, "copy_allowed")
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[str]:
+        """
+        The customer managed key used to encrypt sensitive information in the user settings.
+        """
+        return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter(name="deepLinkAllowed")
@@ -162,9 +184,11 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
         if False:
             yield self
         return GetUserSettingsResult(
+            additional_encryption_context=self.additional_encryption_context,
             associated_portal_arns=self.associated_portal_arns,
             cookie_synchronization_configuration=self.cookie_synchronization_configuration,
             copy_allowed=self.copy_allowed,
+            customer_managed_key=self.customer_managed_key,
             deep_link_allowed=self.deep_link_allowed,
             disconnect_timeout_in_minutes=self.disconnect_timeout_in_minutes,
             download_allowed=self.download_allowed,
@@ -190,9 +214,11 @@ def get_user_settings(user_settings_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:workspacesweb:getUserSettings', __args__, opts=opts, typ=GetUserSettingsResult).value
 
     return AwaitableGetUserSettingsResult(
+        additional_encryption_context=pulumi.get(__ret__, 'additional_encryption_context'),
         associated_portal_arns=pulumi.get(__ret__, 'associated_portal_arns'),
         cookie_synchronization_configuration=pulumi.get(__ret__, 'cookie_synchronization_configuration'),
         copy_allowed=pulumi.get(__ret__, 'copy_allowed'),
+        customer_managed_key=pulumi.get(__ret__, 'customer_managed_key'),
         deep_link_allowed=pulumi.get(__ret__, 'deep_link_allowed'),
         disconnect_timeout_in_minutes=pulumi.get(__ret__, 'disconnect_timeout_in_minutes'),
         download_allowed=pulumi.get(__ret__, 'download_allowed'),

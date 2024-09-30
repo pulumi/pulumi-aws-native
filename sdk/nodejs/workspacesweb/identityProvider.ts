@@ -94,6 +94,7 @@ export class IdentityProvider extends pulumi.CustomResource {
      * The ARN of the identity provider.
      */
     public readonly portalArn!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -116,6 +117,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
             resourceInputs["identityProviderType"] = args ? args.identityProviderType : undefined;
             resourceInputs["portalArn"] = args ? args.portalArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["identityProviderArn"] = undefined /*out*/;
         } else {
             resourceInputs["identityProviderArn"] = undefined /*out*/;
@@ -123,6 +125,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["identityProviderName"] = undefined /*out*/;
             resourceInputs["identityProviderType"] = undefined /*out*/;
             resourceInputs["portalArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["portalArn"] };
@@ -188,4 +191,5 @@ export interface IdentityProviderArgs {
      * The ARN of the identity provider.
      */
     portalArn?: pulumi.Input<string>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

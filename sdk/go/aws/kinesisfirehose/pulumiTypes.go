@@ -8974,7 +8974,7 @@ func (o DeliveryStreamSerializerPtrOutput) ParquetSerDe() DeliveryStreamParquetS
 type DeliveryStreamSnowflakeBufferingHints struct {
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 128.
 	SizeInMbs *int `pulumi:"sizeInMbs"`
 }
 
@@ -8992,7 +8992,7 @@ type DeliveryStreamSnowflakeBufferingHintsInput interface {
 type DeliveryStreamSnowflakeBufferingHintsArgs struct {
 	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 128.
 	SizeInMbs pulumi.IntPtrInput `pulumi:"sizeInMbs"`
 }
 
@@ -9078,7 +9078,7 @@ func (o DeliveryStreamSnowflakeBufferingHintsOutput) IntervalInSeconds() pulumi.
 	return o.ApplyT(func(v DeliveryStreamSnowflakeBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 128.
 func (o DeliveryStreamSnowflakeBufferingHintsOutput) SizeInMbs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeBufferingHints) *int { return v.SizeInMbs }).(pulumi.IntPtrOutput)
 }
@@ -9117,7 +9117,7 @@ func (o DeliveryStreamSnowflakeBufferingHintsPtrOutput) IntervalInSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 128.
 func (o DeliveryStreamSnowflakeBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeBufferingHints) *int {
 		if v == nil {

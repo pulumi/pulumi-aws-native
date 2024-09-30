@@ -7516,12 +7516,14 @@ class OptionsPropertiesArgs:
     def __init__(__self__, *,
                  appliance_mode_support: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
-                 ipv6_support: Optional[pulumi.Input[str]] = None):
+                 ipv6_support: Optional[pulumi.Input[str]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[str]] = None):
         """
         The options for the transit gateway vpc attachment.
         :param pulumi.Input[str] appliance_mode_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         :param pulumi.Input[str] dns_support: Indicates whether to enable DNS Support for Vpc Attachment. Valid Values: enable | disable
         :param pulumi.Input[str] ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
+        :param pulumi.Input[str] security_group_referencing_support: Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
@@ -7529,6 +7531,8 @@ class OptionsPropertiesArgs:
             pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
 
     @property
     @pulumi.getter(name="applianceModeSupport")
@@ -7565,6 +7569,18 @@ class OptionsPropertiesArgs:
     @ipv6_support.setter
     def ipv6_support(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_support", value)
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @security_group_referencing_support.setter
+    def security_group_referencing_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_referencing_support", value)
 
 
 @pulumi.input_type

@@ -264,7 +264,6 @@
   "additionalProperties" : false,
   "required" : [ "ServiceName", "Power", "Scale" ],
   "readOnlyProperties" : [ "/properties/ContainerArn", "/properties/Url", "/properties/PrincipalArn", "/properties/PrivateRegistryAccess/EcrImagePullerRole/PrincipalArn" ],
-  "taggable" : true,
   "primaryIdentifier" : [ "/properties/ServiceName" ],
   "createOnlyProperties" : [ "/properties/ServiceName" ],
   "handlers" : {
@@ -284,5 +283,13 @@
       "permissions" : [ "lightsail:CreateContainerServiceDeployment", "lightsail:GetContainerServices", "lightsail:TagResource", "lightsail:UntagResource", "lightsail:UpdateContainerService" ],
       "timeoutInMinutes" : 2160
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "lightsail:TagResource", "lightsail:UntagResource" ]
   }
 }

@@ -10,17 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
+    /// <summary>
+    /// When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
+    /// </summary>
     [OutputType]
     public sealed class CrawlerRecrawlPolicy
     {
         /// <summary>
-        /// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
-        /// 
-        /// A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
-        /// 
-        /// A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
-        /// 
-        /// A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
+        /// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
         /// </summary>
         public readonly string? RecrawlBehavior;
 

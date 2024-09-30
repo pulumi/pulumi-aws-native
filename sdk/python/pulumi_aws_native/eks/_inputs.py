@@ -24,6 +24,7 @@ __all__ = [
     'ClusterProviderArgs',
     'ClusterResourcesVpcConfigArgs',
     'ClusterUpgradePolicyArgs',
+    'ClusterZonalShiftConfigArgs',
     'FargateProfileLabelArgs',
     'FargateProfileSelectorArgs',
     'IdentityProviderConfigOidcIdentityProviderConfigArgs',
@@ -549,6 +550,30 @@ class ClusterUpgradePolicyArgs:
     @support_type.setter
     def support_type(self, value: Optional[pulumi.Input['ClusterUpgradePolicySupportType']]):
         pulumi.set(self, "support_type", value)
+
+
+@pulumi.input_type
+class ClusterZonalShiftConfigArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The current zonal shift configuration to use for the cluster.
+        :param pulumi.Input[bool] enabled: Set this value to true to enable zonal shift for the cluster.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this value to true to enable zonal shift for the cluster.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type

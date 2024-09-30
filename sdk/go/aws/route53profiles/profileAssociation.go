@@ -17,7 +17,7 @@ import (
 type ProfileAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the  profile association.
+	// The Amazon Resource Name (ARN) of the profile association.
 	Arn pulumi.StringPtrOutput `pulumi:"arn"`
 	// Primary Identifier for  Profile Association
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
@@ -83,7 +83,7 @@ func (ProfileAssociationState) ElementType() reflect.Type {
 }
 
 type profileAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the  profile association.
+	// The Amazon Resource Name (ARN) of the profile association.
 	Arn *string `pulumi:"arn"`
 	// The name of an association between a  Profile and a VPC.
 	Name *string `pulumi:"name"`
@@ -97,7 +97,7 @@ type profileAssociationArgs struct {
 
 // The set of arguments for constructing a ProfileAssociation resource.
 type ProfileAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the  profile association.
+	// The Amazon Resource Name (ARN) of the profile association.
 	Arn pulumi.StringPtrInput
 	// The name of an association between a  Profile and a VPC.
 	Name pulumi.StringPtrInput
@@ -146,7 +146,7 @@ func (o ProfileAssociationOutput) ToProfileAssociationOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the  profile association.
+// The Amazon Resource Name (ARN) of the profile association.
 func (o ProfileAssociationOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileAssociation) pulumi.StringPtrOutput { return v.Arn }).(pulumi.StringPtrOutput)
 }

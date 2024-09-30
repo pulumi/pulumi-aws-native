@@ -3563,7 +3563,7 @@ class DeliveryStreamSnowflakeBufferingHints(dict):
                  size_in_mbs: Optional[int] = None):
         """
         :param int interval_in_seconds: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
-        :param int size_in_mbs: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+        :param int size_in_mbs: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 128.
         """
         if interval_in_seconds is not None:
             pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
@@ -3582,7 +3582,7 @@ class DeliveryStreamSnowflakeBufferingHints(dict):
     @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[int]:
         """
-        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 1.
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 128.
         """
         return pulumi.get(self, "size_in_mbs")
 

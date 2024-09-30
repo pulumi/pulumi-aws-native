@@ -78,6 +78,12 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     public readonly propagationDefaultRouteTableId!: pulumi.Output<string | undefined>;
     /**
+     * Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+     *
+     * For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+     */
+    public readonly securityGroupReferencingSupport!: pulumi.Output<string | undefined>;
+    /**
      * The tags for the transit gateway.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -111,6 +117,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             resourceInputs["multicastSupport"] = args ? args.multicastSupport : undefined;
             resourceInputs["propagationDefaultRouteTableId"] = args ? args.propagationDefaultRouteTableId : undefined;
+            resourceInputs["securityGroupReferencingSupport"] = args ? args.securityGroupReferencingSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
             resourceInputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
@@ -127,6 +134,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["dnsSupport"] = undefined /*out*/;
             resourceInputs["multicastSupport"] = undefined /*out*/;
             resourceInputs["propagationDefaultRouteTableId"] = undefined /*out*/;
+            resourceInputs["securityGroupReferencingSupport"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transitGatewayArn"] = undefined /*out*/;
             resourceInputs["transitGatewayCidrBlocks"] = undefined /*out*/;
@@ -179,6 +187,12 @@ export interface TransitGatewayArgs {
      * The ID of the default propagation route table.
      */
     propagationDefaultRouteTableId?: pulumi.Input<string>;
+    /**
+     * Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+     *
+     * For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+     */
+    securityGroupReferencingSupport?: pulumi.Input<string>;
     /**
      * The tags for the transit gateway.
      */

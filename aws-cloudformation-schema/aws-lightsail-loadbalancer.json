@@ -79,7 +79,6 @@
   "additionalProperties" : false,
   "required" : [ "LoadBalancerName", "InstancePort" ],
   "readOnlyProperties" : [ "/properties/LoadBalancerArn" ],
-  "taggable" : true,
   "primaryIdentifier" : [ "/properties/LoadBalancerName" ],
   "createOnlyProperties" : [ "/properties/LoadBalancerName", "/properties/InstancePort", "/properties/IpAddressType" ],
   "handlers" : {
@@ -98,5 +97,13 @@
     "list" : {
       "permissions" : [ "lightsail:GetLoadBalancers" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "lightsail:TagResource", "lightsail:UntagResource" ]
   }
 }

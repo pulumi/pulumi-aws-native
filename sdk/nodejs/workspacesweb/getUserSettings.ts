@@ -26,6 +26,10 @@ export interface GetUserSettingsArgs {
 
 export interface GetUserSettingsResult {
     /**
+     * The additional encryption context of the user settings.
+     */
+    readonly additionalEncryptionContext?: {[key: string]: string};
+    /**
      * A list of web portal ARNs that this user settings resource is associated with.
      */
     readonly associatedPortalArns?: string[];
@@ -37,6 +41,10 @@ export interface GetUserSettingsResult {
      * Specifies whether the user can copy text from the streaming session to the local device.
      */
     readonly copyAllowed?: enums.workspacesweb.UserSettingsEnabledType;
+    /**
+     * The customer managed key used to encrypt sensitive information in the user settings.
+     */
+    readonly customerManagedKey?: string;
     /**
      * Specifies whether the user can use deep links that open automatically when connecting to a session.
      */

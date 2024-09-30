@@ -25,6 +25,7 @@ class TransitGatewayArgs:
                  dns_support: Optional[pulumi.Input[str]] = None,
                  multicast_support: Optional[pulumi.Input[str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None):
@@ -39,6 +40,9 @@ class TransitGatewayArgs:
         :param pulumi.Input[str] dns_support: Enable or disable DNS support. Enabled by default.
         :param pulumi.Input[str] multicast_support: Indicates whether multicast is enabled on the transit gateway
         :param pulumi.Input[str] propagation_default_route_table_id: The ID of the default propagation route table.
+        :param pulumi.Input[str] security_group_referencing_support: Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+               
+               For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the transit gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: The transit gateway CIDR blocks.
         :param pulumi.Input[str] vpn_ecmp_support: Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
@@ -61,6 +65,8 @@ class TransitGatewayArgs:
             pulumi.set(__self__, "multicast_support", multicast_support)
         if propagation_default_route_table_id is not None:
             pulumi.set(__self__, "propagation_default_route_table_id", propagation_default_route_table_id)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transit_gateway_cidr_blocks is not None:
@@ -177,6 +183,20 @@ class TransitGatewayArgs:
         pulumi.set(self, "propagation_default_route_table_id", value)
 
     @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+
+        For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @security_group_referencing_support.setter
+    def security_group_referencing_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_referencing_support", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -227,6 +247,7 @@ class TransitGateway(pulumi.CustomResource):
                  dns_support: Optional[pulumi.Input[str]] = None,
                  multicast_support: Optional[pulumi.Input[str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
@@ -245,6 +266,9 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[str] dns_support: Enable or disable DNS support. Enabled by default.
         :param pulumi.Input[str] multicast_support: Indicates whether multicast is enabled on the transit gateway
         :param pulumi.Input[str] propagation_default_route_table_id: The ID of the default propagation route table.
+        :param pulumi.Input[str] security_group_referencing_support: Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+               
+               For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the transit gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: The transit gateway CIDR blocks.
         :param pulumi.Input[str] vpn_ecmp_support: Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
@@ -282,6 +306,7 @@ class TransitGateway(pulumi.CustomResource):
                  dns_support: Optional[pulumi.Input[str]] = None,
                  multicast_support: Optional[pulumi.Input[str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
@@ -303,6 +328,7 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["dns_support"] = dns_support
             __props__.__dict__["multicast_support"] = multicast_support
             __props__.__dict__["propagation_default_route_table_id"] = propagation_default_route_table_id
+            __props__.__dict__["security_group_referencing_support"] = security_group_referencing_support
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
@@ -342,6 +368,7 @@ class TransitGateway(pulumi.CustomResource):
         __props__.__dict__["dns_support"] = None
         __props__.__dict__["multicast_support"] = None
         __props__.__dict__["propagation_default_route_table_id"] = None
+        __props__.__dict__["security_group_referencing_support"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_gateway_arn"] = None
         __props__.__dict__["transit_gateway_cidr_blocks"] = None
@@ -427,6 +454,16 @@ class TransitGateway(pulumi.CustomResource):
         The ID of the default propagation route table.
         """
         return pulumi.get(self, "propagation_default_route_table_id")
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
+
+        For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
+        """
+        return pulumi.get(self, "security_group_referencing_support")
 
     @property
     @pulumi.getter

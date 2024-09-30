@@ -46,7 +46,7 @@ type ImageVersion struct {
 	ReleaseNotes    pulumi.StringPtrOutput              `pulumi:"releaseNotes"`
 	VendorGuidance  ImageVersionVendorGuidancePtrOutput `pulumi:"vendorGuidance"`
 	// The version of the image.
-	Version pulumi.IntOutput `pulumi:"version"`
+	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
 // NewImageVersion registers a new resource with the given unique name, arguments, and options.
@@ -117,6 +117,8 @@ type imageVersionArgs struct {
 	ProgrammingLang *string                     `pulumi:"programmingLang"`
 	ReleaseNotes    *string                     `pulumi:"releaseNotes"`
 	VendorGuidance  *ImageVersionVendorGuidance `pulumi:"vendorGuidance"`
+	// The version of the image.
+	Version *int `pulumi:"version"`
 }
 
 // The set of arguments for constructing a ImageVersion resource.
@@ -138,6 +140,8 @@ type ImageVersionArgs struct {
 	ProgrammingLang pulumi.StringPtrInput
 	ReleaseNotes    pulumi.StringPtrInput
 	VendorGuidance  ImageVersionVendorGuidancePtrInput
+	// The version of the image.
+	Version pulumi.IntPtrInput
 }
 
 func (ImageVersionArgs) ElementType() reflect.Type {
@@ -249,8 +253,8 @@ func (o ImageVersionOutput) VendorGuidance() ImageVersionVendorGuidancePtrOutput
 }
 
 // The version of the image.
-func (o ImageVersionOutput) Version() pulumi.IntOutput {
-	return o.ApplyT(func(v *ImageVersion) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+func (o ImageVersionOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 func init() {

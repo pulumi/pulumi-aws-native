@@ -20,6 +20,13 @@ type BrowserSettingsTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IdentityProviderTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag
+	Value string `pulumi:"value"`
+}
+
 type IpAccessSettingsIpRule struct {
 	// The description of the IP rule.
 	Description *string `pulumi:"description"`

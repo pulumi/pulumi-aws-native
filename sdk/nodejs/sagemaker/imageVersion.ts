@@ -79,7 +79,7 @@ export class ImageVersion extends pulumi.CustomResource {
     /**
      * The version of the image.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    public readonly version!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ImageVersion resource with the given unique name, arguments, and options.
@@ -109,10 +109,10 @@ export class ImageVersion extends pulumi.CustomResource {
             resourceInputs["programmingLang"] = args ? args.programmingLang : undefined;
             resourceInputs["releaseNotes"] = args ? args.releaseNotes : undefined;
             resourceInputs["vendorGuidance"] = args ? args.vendorGuidance : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["containerImage"] = undefined /*out*/;
             resourceInputs["imageArn"] = undefined /*out*/;
             resourceInputs["imageVersionArn"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["aliases"] = undefined /*out*/;
@@ -162,4 +162,8 @@ export interface ImageVersionArgs {
     programmingLang?: pulumi.Input<string>;
     releaseNotes?: pulumi.Input<string>;
     vendorGuidance?: pulumi.Input<enums.sagemaker.ImageVersionVendorGuidance>;
+    /**
+     * The version of the image.
+     */
+    version?: pulumi.Input<number>;
 }

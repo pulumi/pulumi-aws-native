@@ -5,8 +5,10 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "guardduty:TagResource", "guardduty:UntagResource", "guardduty:ListTagsForResource" ]
   },
   "properties" : {
     "Action" : {
@@ -35,6 +37,7 @@
     },
     "Tags" : {
       "type" : "array",
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/TagItem"
       }
@@ -144,13 +147,13 @@
       "permissions" : [ "guardduty:CreateFilter", "guardduty:GetFilter", "guardduty:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "guardduty:GetFilter" ]
+      "permissions" : [ "guardduty:GetFilter", "guardduty:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "guardduty:ListDetectors", "guardduty:ListFilters", "guardduty:GetFilter", "guardduty:DeleteFilter" ]
     },
     "update" : {
-      "permissions" : [ "guardduty:UpdateFilter", "guardduty:GetFilter", "guardduty:ListFilters" ]
+      "permissions" : [ "guardduty:UpdateFilter", "guardduty:GetFilter", "guardduty:ListFilters", "guardduty:TagResource", "guardduty:UntagResource" ]
     },
     "list" : {
       "handlerSchema" : {

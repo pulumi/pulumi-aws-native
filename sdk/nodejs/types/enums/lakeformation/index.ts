@@ -13,8 +13,9 @@ export const PrincipalPermissionsPermission = {
     CreateDatabase: "CREATE_DATABASE",
     CreateTable: "CREATE_TABLE",
     DataLocationAccess: "DATA_LOCATION_ACCESS",
-    CreateTag: "CREATE_TAG",
+    CreateLfTag: "CREATE_LF_TAG",
     Associate: "ASSOCIATE",
+    GrantWithLfTagExpression: "GRANT_WITH_LF_TAG_EXPRESSION",
 } as const;
 
 export type PrincipalPermissionsPermission = (typeof PrincipalPermissionsPermission)[keyof typeof PrincipalPermissionsPermission];

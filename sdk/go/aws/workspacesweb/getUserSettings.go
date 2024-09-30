@@ -29,12 +29,16 @@ type LookupUserSettingsArgs struct {
 }
 
 type LookupUserSettingsResult struct {
+	// The additional encryption context of the user settings.
+	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
 	// A list of web portal ARNs that this user settings resource is associated with.
 	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
 	// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 	CookieSynchronizationConfiguration *UserSettingsCookieSynchronizationConfiguration `pulumi:"cookieSynchronizationConfiguration"`
 	// Specifies whether the user can copy text from the streaming session to the local device.
 	CopyAllowed *UserSettingsEnabledType `pulumi:"copyAllowed"`
+	// The customer managed key used to encrypt sensitive information in the user settings.
+	CustomerManagedKey *string `pulumi:"customerManagedKey"`
 	// Specifies whether the user can use deep links that open automatically when connecting to a session.
 	DeepLinkAllowed *UserSettingsEnabledType `pulumi:"deepLinkAllowed"`
 	// The amount of time that a streaming session remains active after users disconnect.
@@ -97,6 +101,11 @@ func (o LookupUserSettingsResultOutput) ToLookupUserSettingsResultOutputWithCont
 	return o
 }
 
+// The additional encryption context of the user settings.
+func (o LookupUserSettingsResultOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) map[string]string { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
+}
+
 // A list of web portal ARNs that this user settings resource is associated with.
 func (o LookupUserSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
@@ -112,6 +121,11 @@ func (o LookupUserSettingsResultOutput) CookieSynchronizationConfiguration() Use
 // Specifies whether the user can copy text from the streaming session to the local device.
 func (o LookupUserSettingsResultOutput) CopyAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.CopyAllowed }).(UserSettingsEnabledTypePtrOutput)
+}
+
+// The customer managed key used to encrypt sensitive information in the user settings.
+func (o LookupUserSettingsResultOutput) CustomerManagedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) *string { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the user can use deep links that open automatically when connecting to a session.

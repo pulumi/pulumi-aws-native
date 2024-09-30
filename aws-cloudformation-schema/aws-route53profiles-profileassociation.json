@@ -30,7 +30,7 @@
     },
     "Arn" : {
       "type" : "string",
-      "description" : "The Amazon Resource Name (ARN) of the  profile association."
+      "description" : "The Amazon Resource Name (ARN) of the profile association."
     }
   },
   "definitions" : {
@@ -56,7 +56,7 @@
   },
   "required" : [ "ResourceId", "ProfileId", "Name" ],
   "readOnlyProperties" : [ "/properties/Id" ],
-  "writeOnlyProperties" : [ "/properties/Arn", "/properties/Tags" ],
+  "writeOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/ResourceId", "/properties/ProfileId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "tagging" : {
@@ -64,11 +64,12 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "route53profiles:TagResource", "route53profiles:UntagResource" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53profiles:AssociateProfile", "route53profiles:GetProfileAssociation", "ec2:DescribeVpcs", "route53profiles:TagResource" ]
+      "permissions" : [ "route53profiles:AssociateProfile", "route53profiles:GetProfileAssociation", "ec2:DescribeVpcs", "route53profiles:TagResource", "route53profiles:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "route53profiles:GetProfileAssociation", "route53profiles:TagResource", "route53profiles:UntagResource", "route53profiles:ListTagsForResource" ]
@@ -77,7 +78,7 @@
       "permissions" : [ "route53profiles:GetProfileAssociation", "route53profiles:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "route53profiles:DisassociateProfile", "route53profiles:GetProfileAssociation", "route53profiles:UntagResource" ]
+      "permissions" : [ "route53profiles:DisassociateProfile", "route53profiles:GetProfileAssociation", "route53profiles:UntagResource", "route53profiles:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "route53profiles:ListProfileAssociations", "route53profiles:ListTagsForResource" ]

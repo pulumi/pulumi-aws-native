@@ -69,11 +69,6 @@ func NewUserSettings(ctx *pulumi.Context,
 	if args.UploadAllowed == nil {
 		return nil, errors.New("invalid value for required argument 'UploadAllowed'")
 	}
-	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"additionalEncryptionContext.*",
-		"customerManagedKey",
-	})
-	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserSettings
 	err := ctx.RegisterResource("aws-native:workspacesweb:UserSettings", name, args, &resource, opts...)

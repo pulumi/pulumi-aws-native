@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = ['IdentityProviderArgs', 'IdentityProvider']
@@ -18,7 +20,8 @@ class IdentityProviderArgs:
                  identity_provider_details: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  identity_provider_type: pulumi.Input['IdentityProviderType'],
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
-                 portal_arn: Optional[pulumi.Input[str]] = None):
+                 portal_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] identity_provider_details: The identity provider details. The following list describes the provider detail keys for each identity provider type.
@@ -69,6 +72,8 @@ class IdentityProviderArgs:
             pulumi.set(__self__, "identity_provider_name", identity_provider_name)
         if portal_arn is not None:
             pulumi.set(__self__, "portal_arn", portal_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="identityProviderDetails")
@@ -155,6 +160,15 @@ class IdentityProviderArgs:
     def portal_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "portal_arn", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class IdentityProvider(pulumi.CustomResource):
     @overload
@@ -165,6 +179,7 @@ class IdentityProvider(pulumi.CustomResource):
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
                  identity_provider_type: Optional[pulumi.Input['IdentityProviderType']] = None,
                  portal_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
@@ -241,6 +256,7 @@ class IdentityProvider(pulumi.CustomResource):
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
                  identity_provider_type: Optional[pulumi.Input['IdentityProviderType']] = None,
                  portal_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -258,6 +274,7 @@ class IdentityProvider(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity_provider_type'")
             __props__.__dict__["identity_provider_type"] = identity_provider_type
             __props__.__dict__["portal_arn"] = portal_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["identity_provider_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portalArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -288,6 +305,7 @@ class IdentityProvider(pulumi.CustomResource):
         __props__.__dict__["identity_provider_name"] = None
         __props__.__dict__["identity_provider_type"] = None
         __props__.__dict__["portal_arn"] = None
+        __props__.__dict__["tags"] = None
         return IdentityProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -366,4 +384,9 @@ class IdentityProvider(pulumi.CustomResource):
         The ARN of the identity provider.
         """
         return pulumi.get(self, "portal_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 
