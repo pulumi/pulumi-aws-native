@@ -965,6 +965,7 @@ AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::ResourcePolicy
 AWS::SecretsManager::Secret
+AWS::SecretsManager::SecretTargetAttachment
 AWS::SecurityHub::AutomationRule
 AWS::SecurityHub::ConfigurationPolicy
 AWS::SecurityHub::DelegatedAdmin
