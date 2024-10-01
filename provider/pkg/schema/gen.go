@@ -528,7 +528,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 
 	p.Language["csharp"] = rawMessage(map[string]interface{}{
 		"respectSchemaVersion": true,
-		"namespaces":           csharpNamespaces,
+		"packageReferences": map[string]string{
+			"Pulumi": "3.*",
+		},
+		"namespaces": csharpNamespaces,
 	})
 
 	// Add CFN intrinsics.
