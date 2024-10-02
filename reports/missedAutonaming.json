@@ -11397,7 +11397,7 @@
       },
       "version": {
         "type": "integer",
-        "description": "The version of the image."
+        "description": "The version number."
       }
     }
   },
@@ -11420,6 +11420,23 @@
       "secretId": {
         "type": "string",
         "description": "The ARN or name of the secret to attach the resource-based policy."
+      }
+    }
+  },
+  "aws-native:secretsmanager:SecretTargetAttachment": {
+    "cfTypeName": "AWS::SecretsManager::SecretTargetAttachment",
+    "properties": {
+      "secretId": {
+        "type": "string",
+        "description": "The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition."
+      },
+      "targetId": {
+        "type": "string",
+        "description": "The ID of the database or cluster."
+      },
+      "targetType": {
+        "type": "string",
+        "description": "A string that defines the type of service or database associated with the secret. This value instructs Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:\n\n- AWS::RDS::DBInstance\n- AWS::RDS::DBCluster\n- AWS::Redshift::Cluster\n- AWS::RedshiftServerless::Namespace\n- AWS::DocDB::DBInstance\n- AWS::DocDB::DBCluster\n- AWS::DocDBElastic::Cluster"
       }
     }
   },
