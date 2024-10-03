@@ -301,6 +301,14 @@
       "$ref" : "#/definitions/AssessmentDescription"
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "auditmanager:TagResource", "auditmanager:ListTagsForResource", "auditmanager:UntagResource" ]
+  },
   "required" : [ ],
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/AssessmentId", "/properties/Arn", "/properties/CreationTime" ],
@@ -318,10 +326,10 @@
       "permissions" : [ "auditmanager:UpdateAssessment", "auditmanager:UpdateAssessmentStatus", "auditmanager:BatchCreateDelegationByAssessment", "auditmanager:BatchDeleteDelegationByAssessment" ]
     },
     "delete" : {
-      "permissions" : [ "auditmanager:DeleteAssessment" ]
+      "permissions" : [ "auditmanager:DeleteAssessment", "auditmanager:UntagResource" ]
     },
     "list" : {
-      "permissions" : [ "auditmanager:ListAssessments" ]
+      "permissions" : [ "auditmanager:ListAssessments", "auditmanager:ListTagsForResource" ]
     }
   }
 }

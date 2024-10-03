@@ -256,6 +256,10 @@
       "type" : "string",
       "enum" : [ "CREATION_IN_PROGRESS", "CREATION_SUCCESSFUL", "CREATION_FAILED", "UPDATE_IN_PROGRESS", "UPDATE_SUCCESSFUL", "UPDATE_FAILED", "DELETED" ]
     },
+    "CommitMode" : {
+      "type" : "string",
+      "enum" : [ "AUTO", "MANUAL" ]
+    },
     "RadarChartFieldWells" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -1000,6 +1004,9 @@
         "DisplayOptions" : {
           "$ref" : "#/definitions/DropDownControlDisplayOptions"
         },
+        "CommitMode" : {
+          "$ref" : "#/definitions/CommitMode"
+        },
         "SelectableValues" : {
           "$ref" : "#/definitions/FilterSelectableValues"
         }
@@ -1350,6 +1357,9 @@
           "type" : "string",
           "maxLength" : 2048
         },
+        "CommitMode" : {
+          "$ref" : "#/definitions/CommitMode"
+        },
         "SourceFilterId" : {
           "minLength" : 1,
           "pattern" : "^[\\w\\-]+$",
@@ -1460,6 +1470,9 @@
           "minLength" : 1,
           "type" : "string",
           "maxLength" : 2048
+        },
+        "CommitMode" : {
+          "$ref" : "#/definitions/CommitMode"
         },
         "SelectableValues" : {
           "$ref" : "#/definitions/ParameterSelectableValues"
@@ -2794,6 +2807,9 @@
           "minLength" : 1,
           "type" : "string",
           "maxLength" : 2048
+        },
+        "CommitMode" : {
+          "$ref" : "#/definitions/CommitMode"
         },
         "SourceFilterId" : {
           "minLength" : 1,
@@ -7215,6 +7231,9 @@
       "properties" : {
         "DisplayOptions" : {
           "$ref" : "#/definitions/RelativeDateTimeControlDisplayOptions"
+        },
+        "CommitMode" : {
+          "$ref" : "#/definitions/CommitMode"
         }
       }
     },
@@ -8043,6 +8062,9 @@
           "type" : "string",
           "maxLength" : 2048
         },
+        "CommitMode" : {
+          "$ref" : "#/definitions/CommitMode"
+        },
         "SourceFilterId" : {
           "minLength" : 1,
           "pattern" : "^[\\w\\-]+$",
@@ -8746,6 +8768,9 @@
         },
         "DisplayOptions" : {
           "$ref" : "#/definitions/DateTimePickerControlDisplayOptions"
+        },
+        "CommitMode" : {
+          "$ref" : "#/definitions/CommitMode"
         }
       }
     },
