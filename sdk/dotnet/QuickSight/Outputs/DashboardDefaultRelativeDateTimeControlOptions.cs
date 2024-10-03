@@ -13,14 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardDefaultRelativeDateTimeControlOptions
     {
+        public readonly Pulumi.AwsNative.QuickSight.DashboardCommitMode? CommitMode;
         /// <summary>
         /// The display options of a control.
         /// </summary>
         public readonly Outputs.DashboardRelativeDateTimeControlDisplayOptions? DisplayOptions;
 
         [OutputConstructor]
-        private DashboardDefaultRelativeDateTimeControlOptions(Outputs.DashboardRelativeDateTimeControlDisplayOptions? displayOptions)
+        private DashboardDefaultRelativeDateTimeControlOptions(
+            Pulumi.AwsNative.QuickSight.DashboardCommitMode? commitMode,
+
+            Outputs.DashboardRelativeDateTimeControlDisplayOptions? displayOptions)
         {
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
         }
     }

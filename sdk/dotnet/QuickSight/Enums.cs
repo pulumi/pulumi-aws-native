@@ -380,6 +380,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisCommitMode : IEquatable<AnalysisCommitMode>
+    {
+        private readonly string _value;
+
+        private AnalysisCommitMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisCommitMode Auto { get; } = new AnalysisCommitMode("AUTO");
+        public static AnalysisCommitMode Manual { get; } = new AnalysisCommitMode("MANUAL");
+
+        public static bool operator ==(AnalysisCommitMode left, AnalysisCommitMode right) => left.Equals(right);
+        public static bool operator !=(AnalysisCommitMode left, AnalysisCommitMode right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisCommitMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisCommitMode other && Equals(other);
+        public bool Equals(AnalysisCommitMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisComparisonMethod : IEquatable<AnalysisComparisonMethod>
     {
         private readonly string _value;
@@ -3842,6 +3870,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardColumnRole other && Equals(other);
         public bool Equals(DashboardColumnRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardCommitMode : IEquatable<DashboardCommitMode>
+    {
+        private readonly string _value;
+
+        private DashboardCommitMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardCommitMode Auto { get; } = new DashboardCommitMode("AUTO");
+        public static DashboardCommitMode Manual { get; } = new DashboardCommitMode("MANUAL");
+
+        public static bool operator ==(DashboardCommitMode left, DashboardCommitMode right) => left.Equals(right);
+        public static bool operator !=(DashboardCommitMode left, DashboardCommitMode right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardCommitMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardCommitMode other && Equals(other);
+        public bool Equals(DashboardCommitMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -7559,6 +7615,62 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct FolderSharingModel : IEquatable<FolderSharingModel>
+    {
+        private readonly string _value;
+
+        private FolderSharingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FolderSharingModel Account { get; } = new FolderSharingModel("ACCOUNT");
+        public static FolderSharingModel Namespace { get; } = new FolderSharingModel("NAMESPACE");
+
+        public static bool operator ==(FolderSharingModel left, FolderSharingModel right) => left.Equals(right);
+        public static bool operator !=(FolderSharingModel left, FolderSharingModel right) => !left.Equals(right);
+
+        public static explicit operator string(FolderSharingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FolderSharingModel other && Equals(other);
+        public bool Equals(FolderSharingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FolderType : IEquatable<FolderType>
+    {
+        private readonly string _value;
+
+        private FolderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FolderType Shared { get; } = new FolderType("SHARED");
+        public static FolderType Restricted { get; } = new FolderType("RESTRICTED");
+
+        public static bool operator ==(FolderType left, FolderType right) => left.Equals(right);
+        public static bool operator !=(FolderType left, FolderType right) => !left.Equals(right);
+
+        public static explicit operator string(FolderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FolderType other && Equals(other);
+        public bool Equals(FolderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of refresh that a dataset undergoes. Valid values are as follows:
     /// 
@@ -8025,6 +8137,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateColumnRole other && Equals(other);
         public bool Equals(TemplateColumnRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateCommitMode : IEquatable<TemplateCommitMode>
+    {
+        private readonly string _value;
+
+        private TemplateCommitMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateCommitMode Auto { get; } = new TemplateCommitMode("AUTO");
+        public static TemplateCommitMode Manual { get; } = new TemplateCommitMode("MANUAL");
+
+        public static bool operator ==(TemplateCommitMode left, TemplateCommitMode right) => left.Equals(right);
+        public static bool operator !=(TemplateCommitMode left, TemplateCommitMode right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateCommitMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateCommitMode other && Equals(other);
+        public bool Equals(TemplateCommitMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

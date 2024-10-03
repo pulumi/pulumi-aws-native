@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("cascadingControlConfiguration")]
         public Input<Inputs.DashboardCascadingControlConfigurationArgs>? CascadingControlConfiguration { get; set; }
 
+        [Input("commitMode")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardCommitMode>? CommitMode { get; set; }
+
         /// <summary>
         /// The display options of the `FilterDropDownControl` .
         /// </summary>

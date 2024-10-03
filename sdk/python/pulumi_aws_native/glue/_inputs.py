@@ -50,6 +50,14 @@ __all__ = [
     'DatabaseInputArgsDict',
     'DatabasePrincipalPrivilegesArgs',
     'DatabasePrincipalPrivilegesArgsDict',
+    'JobCommandArgs',
+    'JobCommandArgsDict',
+    'JobConnectionsListArgs',
+    'JobConnectionsListArgsDict',
+    'JobExecutionPropertyArgs',
+    'JobExecutionPropertyArgsDict',
+    'JobNotificationPropertyArgs',
+    'JobNotificationPropertyArgsDict',
     'SchemaRegistryArgs',
     'SchemaRegistryArgsDict',
     'SchemaVersionSchemaArgs',
@@ -66,6 +74,10 @@ __all__ = [
     'TriggerNotificationPropertyArgsDict',
     'TriggerPredicateArgs',
     'TriggerPredicateArgsDict',
+    'UsageProfileConfigurationObjectArgs',
+    'UsageProfileConfigurationObjectArgsDict',
+    'UsageProfileProfileConfigurationArgs',
+    'UsageProfileProfileConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -1429,6 +1441,194 @@ class DatabasePrincipalPrivilegesArgs:
 
 
 if not MYPY:
+    class JobCommandArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+        """
+        runtime: NotRequired[pulumi.Input[str]]
+        """
+        In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+        """
+        script_location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+        """
+elif False:
+    JobCommandArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobCommandArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 python_version: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[str]] = None,
+                 script_location: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+        :param pulumi.Input[str] python_version: The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+        :param pulumi.Input[str] runtime: In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+        :param pulumi.Input[str] script_location: Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if script_location is not None:
+            pulumi.set(__self__, "script_location", script_location)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "python_version", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input[str]]:
+        """
+        In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime", value)
+
+    @property
+    @pulumi.getter(name="scriptLocation")
+    def script_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+        """
+        return pulumi.get(self, "script_location")
+
+    @script_location.setter
+    def script_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_location", value)
+
+
+if not MYPY:
+    class JobConnectionsListArgsDict(TypedDict):
+        connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of connections used by the job.
+        """
+elif False:
+    JobConnectionsListArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobConnectionsListArgs:
+    def __init__(__self__, *,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: A list of connections used by the job.
+        """
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+
+    @property
+    @pulumi.getter
+    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of connections used by the job.
+        """
+        return pulumi.get(self, "connections")
+
+    @connections.setter
+    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connections", value)
+
+
+if not MYPY:
+    class JobExecutionPropertyArgsDict(TypedDict):
+        max_concurrent_runs: NotRequired[pulumi.Input[float]]
+        """
+        The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+        """
+elif False:
+    JobExecutionPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobExecutionPropertyArgs:
+    def __init__(__self__, *,
+                 max_concurrent_runs: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max_concurrent_runs: The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+        """
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+        """
+        return pulumi.get(self, "max_concurrent_runs")
+
+    @max_concurrent_runs.setter
+    def max_concurrent_runs(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_concurrent_runs", value)
+
+
+if not MYPY:
+    class JobNotificationPropertyArgsDict(TypedDict):
+        notify_delay_after: NotRequired[pulumi.Input[int]]
+        """
+        After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+elif False:
+    JobNotificationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobNotificationPropertyArgs:
+    def __init__(__self__, *,
+                 notify_delay_after: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+        if notify_delay_after is not None:
+            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+
+    @property
+    @pulumi.getter(name="notifyDelayAfter")
+    def notify_delay_after(self) -> Optional[pulumi.Input[int]]:
+        """
+        After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+        return pulumi.get(self, "notify_delay_after")
+
+    @notify_delay_after.setter
+    def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "notify_delay_after", value)
+
+
+if not MYPY:
     class SchemaRegistryArgsDict(TypedDict):
         """
         Identifier for the registry which the schema is part of.
@@ -2013,5 +2213,103 @@ class TriggerPredicateArgs:
     @logical.setter
     def logical(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "logical", value)
+
+
+if not MYPY:
+    class UsageProfileConfigurationObjectArgsDict(TypedDict):
+        allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        default_value: NotRequired[pulumi.Input[str]]
+        max_value: NotRequired[pulumi.Input[str]]
+        min_value: NotRequired[pulumi.Input[str]]
+elif False:
+    UsageProfileConfigurationObjectArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UsageProfileConfigurationObjectArgs:
+    def __init__(__self__, *,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 max_value: Optional[pulumi.Input[str]] = None,
+                 min_value: Optional[pulumi.Input[str]] = None):
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if max_value is not None:
+            pulumi.set(__self__, "max_value", max_value)
+        if min_value is not None:
+            pulumi.set(__self__, "min_value", min_value)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max_value")
+
+    @max_value.setter
+    def max_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_value", value)
+
+    @property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "min_value")
+
+    @min_value.setter
+    def min_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min_value", value)
+
+
+if not MYPY:
+    class UsageProfileProfileConfigurationArgsDict(TypedDict):
+        job_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgsDict']]]]
+        session_configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgsDict']]]]
+elif False:
+    UsageProfileProfileConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UsageProfileProfileConfigurationArgs:
+    def __init__(__self__, *,
+                 job_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgs']]]] = None,
+                 session_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgs']]]] = None):
+        if job_configuration is not None:
+            pulumi.set(__self__, "job_configuration", job_configuration)
+        if session_configuration is not None:
+            pulumi.set(__self__, "session_configuration", session_configuration)
+
+    @property
+    @pulumi.getter(name="jobConfiguration")
+    def job_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgs']]]]:
+        return pulumi.get(self, "job_configuration")
+
+    @job_configuration.setter
+    def job_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgs']]]]):
+        pulumi.set(self, "job_configuration", value)
+
+    @property
+    @pulumi.getter(name="sessionConfiguration")
+    def session_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgs']]]]:
+        return pulumi.get(self, "session_configuration")
+
+    @session_configuration.setter
+    def session_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgs']]]]):
+        pulumi.set(self, "session_configuration", value)
 
 

@@ -7,7 +7,9 @@ import typing
 # Export this package's modules as members:
 from .get_resource_policy import *
 from .get_secret import *
+from .get_secret_target_attachment import *
 from .resource_policy import *
 from .secret import *
+from .secret_target_attachment import *
 from ._inputs import *
 from . import outputs

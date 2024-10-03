@@ -34,6 +34,10 @@ __all__ = [
     'DatabaseIdentifier',
     'DatabaseInput',
     'DatabasePrincipalPrivileges',
+    'JobCommand',
+    'JobConnectionsList',
+    'JobExecutionProperty',
+    'JobNotificationProperty',
     'SchemaRegistry',
     'SchemaVersion',
     'SchemaVersionSchema',
@@ -42,6 +46,8 @@ __all__ = [
     'TriggerEventBatchingCondition',
     'TriggerNotificationProperty',
     'TriggerPredicate',
+    'UsageProfileConfigurationObject',
+    'UsageProfileProfileConfiguration',
 ]
 
 @pulumi.output_type
@@ -1185,6 +1191,171 @@ class DatabasePrincipalPrivileges(dict):
 
 
 @pulumi.output_type
+class JobCommand(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pythonVersion":
+            suggest = "python_version"
+        elif key == "scriptLocation":
+            suggest = "script_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobCommand. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobCommand.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobCommand.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 python_version: Optional[str] = None,
+                 runtime: Optional[str] = None,
+                 script_location: Optional[str] = None):
+        """
+        :param str name: The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+        :param str python_version: The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+        :param str runtime: In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+        :param str script_location: Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if script_location is not None:
+            pulumi.set(__self__, "script_location", script_location)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[str]:
+        """
+        The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+        """
+        return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[str]:
+        """
+        In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+        """
+        return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="scriptLocation")
+    def script_location(self) -> Optional[str]:
+        """
+        Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+        """
+        return pulumi.get(self, "script_location")
+
+
+@pulumi.output_type
+class JobConnectionsList(dict):
+    def __init__(__self__, *,
+                 connections: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] connections: A list of connections used by the job.
+        """
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+
+    @property
+    @pulumi.getter
+    def connections(self) -> Optional[Sequence[str]]:
+        """
+        A list of connections used by the job.
+        """
+        return pulumi.get(self, "connections")
+
+
+@pulumi.output_type
+class JobExecutionProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentRuns":
+            suggest = "max_concurrent_runs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobExecutionProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobExecutionProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobExecutionProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrent_runs: Optional[float] = None):
+        """
+        :param float max_concurrent_runs: The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+        """
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[float]:
+        """
+        The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+        """
+        return pulumi.get(self, "max_concurrent_runs")
+
+
+@pulumi.output_type
+class JobNotificationProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notifyDelayAfter":
+            suggest = "notify_delay_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobNotificationProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobNotificationProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobNotificationProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 notify_delay_after: Optional[int] = None):
+        """
+        :param int notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+        if notify_delay_after is not None:
+            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+
+    @property
+    @pulumi.getter(name="notifyDelayAfter")
+    def notify_delay_after(self) -> Optional[int]:
+        """
+        After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+        return pulumi.get(self, "notify_delay_after")
+
+
+@pulumi.output_type
 class SchemaRegistry(dict):
     """
     Identifier for the registry which the schema is part of.
@@ -1667,5 +1838,105 @@ class TriggerPredicate(dict):
         An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
         """
         return pulumi.get(self, "logical")
+
+
+@pulumi.output_type
+class UsageProfileConfigurationObject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "defaultValue":
+            suggest = "default_value"
+        elif key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UsageProfileConfigurationObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UsageProfileConfigurationObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UsageProfileConfigurationObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Optional[Sequence[str]] = None,
+                 default_value: Optional[str] = None,
+                 max_value: Optional[str] = None,
+                 min_value: Optional[str] = None):
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if max_value is not None:
+            pulumi.set(__self__, "max_value", max_value)
+        if min_value is not None:
+            pulumi.set(__self__, "min_value", min_value)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> Optional[str]:
+        return pulumi.get(self, "max_value")
+
+    @property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> Optional[str]:
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class UsageProfileProfileConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobConfiguration":
+            suggest = "job_configuration"
+        elif key == "sessionConfiguration":
+            suggest = "session_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UsageProfileProfileConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UsageProfileProfileConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UsageProfileProfileConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 job_configuration: Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']] = None,
+                 session_configuration: Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']] = None):
+        if job_configuration is not None:
+            pulumi.set(__self__, "job_configuration", job_configuration)
+        if session_configuration is not None:
+            pulumi.set(__self__, "session_configuration", session_configuration)
+
+    @property
+    @pulumi.getter(name="jobConfiguration")
+    def job_configuration(self) -> Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']]:
+        return pulumi.get(self, "job_configuration")
+
+    @property
+    @pulumi.getter(name="sessionConfiguration")
+    def session_configuration(self) -> Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']]:
+        return pulumi.get(self, "session_configuration")
 
 

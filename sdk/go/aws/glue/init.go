@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Crawler{}
 	case "aws-native:glue:Database":
 		r = &Database{}
+	case "aws-native:glue:Job":
+		r = &Job{}
 	case "aws-native:glue:Registry":
 		r = &Registry{}
 	case "aws-native:glue:Schema":
@@ -35,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SchemaVersionMetadata{}
 	case "aws-native:glue:Trigger":
 		r = &Trigger{}
+	case "aws-native:glue:UsageProfile":
+		r = &UsageProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

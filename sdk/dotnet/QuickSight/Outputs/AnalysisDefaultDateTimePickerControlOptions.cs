@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultDateTimePickerControlOptions
     {
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisCommitMode? CommitMode;
         /// <summary>
         /// The display options of a control.
         /// </summary>
@@ -27,10 +28,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private AnalysisDefaultDateTimePickerControlOptions(
+            Pulumi.AwsNative.QuickSight.AnalysisCommitMode? commitMode,
+
             Outputs.AnalysisDateTimePickerControlDisplayOptions? displayOptions,
 
             Pulumi.AwsNative.QuickSight.AnalysisSheetControlDateTimePickerType? type)
         {
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             Type = type;
         }

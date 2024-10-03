@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
         /// </summary>
         public readonly Outputs.TemplateCascadingControlConfiguration? CascadingControlConfiguration;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateCommitMode? CommitMode;
         /// <summary>
         /// The display options of the `FilterDropDownControl` .
         /// </summary>
@@ -49,6 +50,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private TemplateFilterDropDownControl(
             Outputs.TemplateCascadingControlConfiguration? cascadingControlConfiguration,
 
+            Pulumi.AwsNative.QuickSight.TemplateCommitMode? commitMode,
+
             Outputs.TemplateDropDownControlDisplayOptions? displayOptions,
 
             string filterControlId,
@@ -62,6 +65,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.TemplateSheetControlListType? type)
         {
             CascadingControlConfiguration = cascadingControlConfiguration;
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             FilterControlId = filterControlId;
             SelectableValues = selectableValues;

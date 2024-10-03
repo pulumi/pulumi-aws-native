@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDefaultDateTimePickerControlOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("commitMode")]
+        public Input<Pulumi.AwsNative.QuickSight.AnalysisCommitMode>? CommitMode { get; set; }
+
         /// <summary>
         /// The display options of a control.
         /// </summary>

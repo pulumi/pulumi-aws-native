@@ -16,6 +16,90 @@ namespace Pulumi.AwsNative.SecretsManager
     ///  To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see [Retrieve a secret in an resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).
     ///  For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
     ///  For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
+    /// 
+    /// ## Example Usage
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myRedshiftSecret = new AwsNative.SecretsManager.Secret("myRedshiftSecret", new()
+    ///     {
+    ///         Description = "This is a Secrets Manager secret for a Redshift cluster",
+    ///         GenerateSecretString = new AwsNative.SecretsManager.Inputs.SecretGenerateSecretStringArgs
+    ///         {
+    ///             SecretStringTemplate = "{\"username\": \"admin\"}",
+    ///             GenerateStringKey = "password",
+    ///             PasswordLength = 16,
+    ///             ExcludeCharacters = "\"'@/\\",
+    ///         },
+    ///     });
+    /// 
+    ///     var myRedshiftCluster = new AwsNative.Redshift.Cluster("myRedshiftCluster", new()
+    ///     {
+    ///         DbName = "myjsondb",
+    ///         MasterUsername = myRedshiftSecret.Id.Apply(id =&gt; $"{{{{resolve:secretsmanager:{id}::username}}}}"),
+    ///         MasterUserPassword = myRedshiftSecret.Id.Apply(id =&gt; $"{{{{resolve:secretsmanager:{id}::password}}}}"),
+    ///         NodeType = "ds2.xlarge",
+    ///         ClusterType = "single-node",
+    ///     });
+    /// 
+    ///     var secretRedshiftAttachment = new AwsNative.SecretsManager.SecretTargetAttachment("secretRedshiftAttachment", new()
+    ///     {
+    ///         SecretId = myRedshiftSecret.Id,
+    ///         TargetId = myRedshiftCluster.Id,
+    ///         TargetType = "AWS::Redshift::Cluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myRedshiftSecret = new AwsNative.SecretsManager.Secret("myRedshiftSecret", new()
+    ///     {
+    ///         Description = "This is a Secrets Manager secret for a Redshift cluster",
+    ///         GenerateSecretString = new AwsNative.SecretsManager.Inputs.SecretGenerateSecretStringArgs
+    ///         {
+    ///             SecretStringTemplate = "{\"username\": \"admin\"}",
+    ///             GenerateStringKey = "password",
+    ///             PasswordLength = 16,
+    ///             ExcludeCharacters = "\"'@/\\",
+    ///         },
+    ///     });
+    /// 
+    ///     var myRedshiftCluster = new AwsNative.Redshift.Cluster("myRedshiftCluster", new()
+    ///     {
+    ///         DbName = "myjsondb",
+    ///         MasterUsername = myRedshiftSecret.Id.Apply(id =&gt; $"{{{{resolve:secretsmanager:{id}::username}}}}"),
+    ///         MasterUserPassword = myRedshiftSecret.Id.Apply(id =&gt; $"{{{{resolve:secretsmanager:{id}::password}}}}"),
+    ///         NodeType = "ds2.xlarge",
+    ///         ClusterType = "single-node",
+    ///     });
+    /// 
+    ///     var secretRedshiftAttachment = new AwsNative.SecretsManager.SecretTargetAttachment("secretRedshiftAttachment", new()
+    ///     {
+    ///         SecretId = myRedshiftSecret.Id,
+    ///         TargetId = myRedshiftCluster.Id,
+    ///         TargetType = "AWS::Redshift::Cluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
     /// </summary>
     [AwsNativeResourceType("aws-native:secretsmanager:Secret")]
     public partial class Secret : global::Pulumi.CustomResource

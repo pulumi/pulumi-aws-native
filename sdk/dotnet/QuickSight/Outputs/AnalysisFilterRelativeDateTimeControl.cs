@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFilterRelativeDateTimeControl
     {
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisCommitMode? CommitMode;
         /// <summary>
         /// The display options of a control.
         /// </summary>
@@ -32,6 +33,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private AnalysisFilterRelativeDateTimeControl(
+            Pulumi.AwsNative.QuickSight.AnalysisCommitMode? commitMode,
+
             Outputs.AnalysisRelativeDateTimeControlDisplayOptions? displayOptions,
 
             string filterControlId,
@@ -40,6 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string title)
         {
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             FilterControlId = filterControlId;
             SourceFilterId = sourceFilterId;

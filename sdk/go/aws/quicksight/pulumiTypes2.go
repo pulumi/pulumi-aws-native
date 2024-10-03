@@ -12841,6 +12841,168 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Permission for the resource.</p>
+type FolderResourcePermission struct {
+	// <p>The IAM action to grant or revoke permissions on.</p>
+	Actions []string `pulumi:"actions"`
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//          <ul>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
+	Principal string `pulumi:"principal"`
+}
+
+// FolderResourcePermissionInput is an input type that accepts FolderResourcePermissionArgs and FolderResourcePermissionOutput values.
+// You can construct a concrete instance of `FolderResourcePermissionInput` via:
+//
+//	FolderResourcePermissionArgs{...}
+type FolderResourcePermissionInput interface {
+	pulumi.Input
+
+	ToFolderResourcePermissionOutput() FolderResourcePermissionOutput
+	ToFolderResourcePermissionOutputWithContext(context.Context) FolderResourcePermissionOutput
+}
+
+// <p>Permission for the resource.</p>
+type FolderResourcePermissionArgs struct {
+	// <p>The IAM action to grant or revoke permissions on.</p>
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//          <ul>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
+	Principal pulumi.StringInput `pulumi:"principal"`
+}
+
+func (FolderResourcePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FolderResourcePermission)(nil)).Elem()
+}
+
+func (i FolderResourcePermissionArgs) ToFolderResourcePermissionOutput() FolderResourcePermissionOutput {
+	return i.ToFolderResourcePermissionOutputWithContext(context.Background())
+}
+
+func (i FolderResourcePermissionArgs) ToFolderResourcePermissionOutputWithContext(ctx context.Context) FolderResourcePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FolderResourcePermissionOutput)
+}
+
+// FolderResourcePermissionArrayInput is an input type that accepts FolderResourcePermissionArray and FolderResourcePermissionArrayOutput values.
+// You can construct a concrete instance of `FolderResourcePermissionArrayInput` via:
+//
+//	FolderResourcePermissionArray{ FolderResourcePermissionArgs{...} }
+type FolderResourcePermissionArrayInput interface {
+	pulumi.Input
+
+	ToFolderResourcePermissionArrayOutput() FolderResourcePermissionArrayOutput
+	ToFolderResourcePermissionArrayOutputWithContext(context.Context) FolderResourcePermissionArrayOutput
+}
+
+type FolderResourcePermissionArray []FolderResourcePermissionInput
+
+func (FolderResourcePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FolderResourcePermission)(nil)).Elem()
+}
+
+func (i FolderResourcePermissionArray) ToFolderResourcePermissionArrayOutput() FolderResourcePermissionArrayOutput {
+	return i.ToFolderResourcePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i FolderResourcePermissionArray) ToFolderResourcePermissionArrayOutputWithContext(ctx context.Context) FolderResourcePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FolderResourcePermissionArrayOutput)
+}
+
+// <p>Permission for the resource.</p>
+type FolderResourcePermissionOutput struct{ *pulumi.OutputState }
+
+func (FolderResourcePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FolderResourcePermission)(nil)).Elem()
+}
+
+func (o FolderResourcePermissionOutput) ToFolderResourcePermissionOutput() FolderResourcePermissionOutput {
+	return o
+}
+
+func (o FolderResourcePermissionOutput) ToFolderResourcePermissionOutputWithContext(ctx context.Context) FolderResourcePermissionOutput {
+	return o
+}
+
+// <p>The IAM action to grant or revoke permissions on.</p>
+func (o FolderResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FolderResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//
+//	   following:</p>
+//	<ul>
+//	   <li>
+//	      <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//	   </li>
+//	   <li>
+//	      <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//	   </li>
+//	   <li>
+//	      <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+//	           ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+//	           (This is less common.) </p>
+//	   </li>
+//	</ul>
+func (o FolderResourcePermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v FolderResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type FolderResourcePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (FolderResourcePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FolderResourcePermission)(nil)).Elem()
+}
+
+func (o FolderResourcePermissionArrayOutput) ToFolderResourcePermissionArrayOutput() FolderResourcePermissionArrayOutput {
+	return o
+}
+
+func (o FolderResourcePermissionArrayOutput) ToFolderResourcePermissionArrayOutputWithContext(ctx context.Context) FolderResourcePermissionArrayOutput {
+	return o
+}
+
+func (o FolderResourcePermissionArrayOutput) Index(i pulumi.IntInput) FolderResourcePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FolderResourcePermission {
+		return vs[0].([]FolderResourcePermission)[vs[1].(int)]
+	}).(FolderResourcePermissionOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
+type FolderTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
 type RefreshScheduleMap struct {
 	// The type of refresh that a dataset undergoes. Valid values are as follows:
 	//
@@ -33325,6 +33487,7 @@ func (o TemplateDecimalValueWhenUnsetConfigurationPtrOutput) ValueWhenUnsetOptio
 }
 
 type TemplateDefaultDateTimePickerControlOptions struct {
+	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions *TemplateDateTimePickerControlDisplayOptions `pulumi:"displayOptions"`
 	// The date time picker type of the `DefaultDateTimePickerControlOptions` . Choose one of the following options:
@@ -33346,6 +33509,7 @@ type TemplateDefaultDateTimePickerControlOptionsInput interface {
 }
 
 type TemplateDefaultDateTimePickerControlOptionsArgs struct {
+	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions TemplateDateTimePickerControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
 	// The date time picker type of the `DefaultDateTimePickerControlOptions` . Choose one of the following options:
@@ -33432,6 +33596,10 @@ func (o TemplateDefaultDateTimePickerControlOptionsOutput) ToTemplateDefaultDate
 	}).(TemplateDefaultDateTimePickerControlOptionsPtrOutput)
 }
 
+func (o TemplateDefaultDateTimePickerControlOptionsOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v TemplateDefaultDateTimePickerControlOptions) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
+}
+
 // The display options of a control.
 func (o TemplateDefaultDateTimePickerControlOptionsOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDefaultDateTimePickerControlOptions) *TemplateDateTimePickerControlDisplayOptions {
@@ -33471,6 +33639,15 @@ func (o TemplateDefaultDateTimePickerControlOptionsPtrOutput) Elem() TemplateDef
 		var ret TemplateDefaultDateTimePickerControlOptions
 		return ret
 	}).(TemplateDefaultDateTimePickerControlOptionsOutput)
+}
+
+func (o TemplateDefaultDateTimePickerControlOptionsPtrOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v *TemplateDefaultDateTimePickerControlOptions) *TemplateCommitMode {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMode
+	}).(TemplateCommitModePtrOutput)
 }
 
 // The display options of a control.
@@ -33920,6 +34097,7 @@ func (o TemplateDefaultFilterControlOptionsPtrOutput) DefaultTextFieldOptions() 
 }
 
 type TemplateDefaultFilterDropDownControlOptions struct {
+	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions *TemplateDropDownControlDisplayOptions `pulumi:"displayOptions"`
 	// A list of selectable values that are used in a control.
@@ -33943,6 +34121,7 @@ type TemplateDefaultFilterDropDownControlOptionsInput interface {
 }
 
 type TemplateDefaultFilterDropDownControlOptionsArgs struct {
+	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions TemplateDropDownControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
 	// A list of selectable values that are used in a control.
@@ -34031,6 +34210,10 @@ func (o TemplateDefaultFilterDropDownControlOptionsOutput) ToTemplateDefaultFilt
 	}).(TemplateDefaultFilterDropDownControlOptionsPtrOutput)
 }
 
+func (o TemplateDefaultFilterDropDownControlOptionsOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v TemplateDefaultFilterDropDownControlOptions) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
+}
+
 // The display options of a control.
 func (o TemplateDefaultFilterDropDownControlOptionsOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDefaultFilterDropDownControlOptions) *TemplateDropDownControlDisplayOptions {
@@ -34075,6 +34258,15 @@ func (o TemplateDefaultFilterDropDownControlOptionsPtrOutput) Elem() TemplateDef
 		var ret TemplateDefaultFilterDropDownControlOptions
 		return ret
 	}).(TemplateDefaultFilterDropDownControlOptionsOutput)
+}
+
+func (o TemplateDefaultFilterDropDownControlOptionsPtrOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v *TemplateDefaultFilterDropDownControlOptions) *TemplateCommitMode {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMode
+	}).(TemplateCommitModePtrOutput)
 }
 
 // The display options of a control.
@@ -35058,6 +35250,7 @@ func (o TemplateDefaultPaginatedLayoutConfigurationPtrOutput) SectionBased() Tem
 }
 
 type TemplateDefaultRelativeDateTimeControlOptions struct {
+	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions *TemplateRelativeDateTimeControlDisplayOptions `pulumi:"displayOptions"`
 }
@@ -35074,6 +35267,7 @@ type TemplateDefaultRelativeDateTimeControlOptionsInput interface {
 }
 
 type TemplateDefaultRelativeDateTimeControlOptionsArgs struct {
+	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions TemplateRelativeDateTimeControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
 }
@@ -35155,6 +35349,10 @@ func (o TemplateDefaultRelativeDateTimeControlOptionsOutput) ToTemplateDefaultRe
 	}).(TemplateDefaultRelativeDateTimeControlOptionsPtrOutput)
 }
 
+func (o TemplateDefaultRelativeDateTimeControlOptionsOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v TemplateDefaultRelativeDateTimeControlOptions) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
+}
+
 // The display options of a control.
 func (o TemplateDefaultRelativeDateTimeControlOptionsOutput) DisplayOptions() TemplateRelativeDateTimeControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDefaultRelativeDateTimeControlOptions) *TemplateRelativeDateTimeControlDisplayOptions {
@@ -35184,6 +35382,15 @@ func (o TemplateDefaultRelativeDateTimeControlOptionsPtrOutput) Elem() TemplateD
 		var ret TemplateDefaultRelativeDateTimeControlOptions
 		return ret
 	}).(TemplateDefaultRelativeDateTimeControlOptionsOutput)
+}
+
+func (o TemplateDefaultRelativeDateTimeControlOptionsPtrOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v *TemplateDefaultRelativeDateTimeControlOptions) *TemplateCommitMode {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMode
+	}).(TemplateCommitModePtrOutput)
 }
 
 // The display options of a control.
@@ -40301,6 +40508,7 @@ func (o TemplateFilterCrossSheetControlPtrOutput) SourceFilterId() pulumi.String
 }
 
 type TemplateFilterDateTimePickerControl struct {
+	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions *TemplateDateTimePickerControlDisplayOptions `pulumi:"displayOptions"`
 	// The ID of the `FilterDateTimePickerControl` .
@@ -40328,6 +40536,7 @@ type TemplateFilterDateTimePickerControlInput interface {
 }
 
 type TemplateFilterDateTimePickerControlArgs struct {
+	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions TemplateDateTimePickerControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
 	// The ID of the `FilterDateTimePickerControl` .
@@ -40420,6 +40629,10 @@ func (o TemplateFilterDateTimePickerControlOutput) ToTemplateFilterDateTimePicke
 	}).(TemplateFilterDateTimePickerControlPtrOutput)
 }
 
+func (o TemplateFilterDateTimePickerControlOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v TemplateFilterDateTimePickerControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
+}
+
 // The display options of a control.
 func (o TemplateFilterDateTimePickerControlOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
@@ -40472,6 +40685,15 @@ func (o TemplateFilterDateTimePickerControlPtrOutput) Elem() TemplateFilterDateT
 		var ret TemplateFilterDateTimePickerControl
 		return ret
 	}).(TemplateFilterDateTimePickerControlOutput)
+}
+
+func (o TemplateFilterDateTimePickerControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v *TemplateFilterDateTimePickerControl) *TemplateCommitMode {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMode
+	}).(TemplateCommitModePtrOutput)
 }
 
 // The display options of a control.
@@ -40530,6 +40752,7 @@ func (o TemplateFilterDateTimePickerControlPtrOutput) Type() TemplateSheetContro
 type TemplateFilterDropDownControl struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
+	CommitMode                    *TemplateCommitMode                    `pulumi:"commitMode"`
 	// The display options of the `FilterDropDownControl` .
 	DisplayOptions *TemplateDropDownControlDisplayOptions `pulumi:"displayOptions"`
 	// The ID of the `FilterDropDownControl` .
@@ -40561,6 +40784,7 @@ type TemplateFilterDropDownControlInput interface {
 type TemplateFilterDropDownControlArgs struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration TemplateCascadingControlConfigurationPtrInput `pulumi:"cascadingControlConfiguration"`
+	CommitMode                    TemplateCommitModePtrInput                    `pulumi:"commitMode"`
 	// The display options of the `FilterDropDownControl` .
 	DisplayOptions TemplateDropDownControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
 	// The ID of the `FilterDropDownControl` .
@@ -40662,6 +40886,10 @@ func (o TemplateFilterDropDownControlOutput) CascadingControlConfiguration() Tem
 	}).(TemplateCascadingControlConfigurationPtrOutput)
 }
 
+func (o TemplateFilterDropDownControlOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v TemplateFilterDropDownControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
+}
+
 // The display options of the `FilterDropDownControl` .
 func (o TemplateFilterDropDownControlOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilterDropDownControl) *TemplateDropDownControlDisplayOptions { return v.DisplayOptions }).(TemplateDropDownControlDisplayOptionsPtrOutput)
@@ -40727,6 +40955,15 @@ func (o TemplateFilterDropDownControlPtrOutput) CascadingControlConfiguration() 
 		}
 		return v.CascadingControlConfiguration
 	}).(TemplateCascadingControlConfigurationPtrOutput)
+}
+
+func (o TemplateFilterDropDownControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v *TemplateFilterDropDownControl) *TemplateCommitMode {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMode
+	}).(TemplateCommitModePtrOutput)
 }
 
 // The display options of the `FilterDropDownControl` .
@@ -41760,6 +41997,7 @@ func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) SameSheetTar
 }
 
 type TemplateFilterRelativeDateTimeControl struct {
+	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions *TemplateRelativeDateTimeControlDisplayOptions `pulumi:"displayOptions"`
 	// The ID of the `FilterTextAreaControl` .
@@ -41782,6 +42020,7 @@ type TemplateFilterRelativeDateTimeControlInput interface {
 }
 
 type TemplateFilterRelativeDateTimeControlArgs struct {
+	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions TemplateRelativeDateTimeControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
 	// The ID of the `FilterTextAreaControl` .
@@ -41869,6 +42108,10 @@ func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDat
 	}).(TemplateFilterRelativeDateTimeControlPtrOutput)
 }
 
+func (o TemplateFilterRelativeDateTimeControlOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
+}
+
 // The display options of a control.
 func (o TemplateFilterRelativeDateTimeControlOutput) DisplayOptions() TemplateRelativeDateTimeControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) *TemplateRelativeDateTimeControlDisplayOptions {
@@ -41913,6 +42156,15 @@ func (o TemplateFilterRelativeDateTimeControlPtrOutput) Elem() TemplateFilterRel
 		var ret TemplateFilterRelativeDateTimeControl
 		return ret
 	}).(TemplateFilterRelativeDateTimeControlOutput)
+}
+
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *TemplateCommitMode {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMode
+	}).(TemplateCommitModePtrOutput)
 }
 
 // The display options of a control.
@@ -65415,6 +65667,7 @@ func (o TemplateParameterDeclarationArrayOutput) Index(i pulumi.IntInput) Templa
 type TemplateParameterDropDownControl struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
+	CommitMode                    *TemplateCommitMode                    `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions *TemplateDropDownControlDisplayOptions `pulumi:"displayOptions"`
 	// The ID of the `ParameterDropDownControl` .
@@ -65443,6 +65696,7 @@ type TemplateParameterDropDownControlInput interface {
 type TemplateParameterDropDownControlArgs struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration TemplateCascadingControlConfigurationPtrInput `pulumi:"cascadingControlConfiguration"`
+	CommitMode                    TemplateCommitModePtrInput                    `pulumi:"commitMode"`
 	// The display options of a control.
 	DisplayOptions TemplateDropDownControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
 	// The ID of the `ParameterDropDownControl` .
@@ -65541,6 +65795,10 @@ func (o TemplateParameterDropDownControlOutput) CascadingControlConfiguration() 
 	}).(TemplateCascadingControlConfigurationPtrOutput)
 }
 
+func (o TemplateParameterDropDownControlOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v TemplateParameterDropDownControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
+}
+
 // The display options of a control.
 func (o TemplateParameterDropDownControlOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateParameterDropDownControl) *TemplateDropDownControlDisplayOptions {
@@ -65605,6 +65863,15 @@ func (o TemplateParameterDropDownControlPtrOutput) CascadingControlConfiguration
 		}
 		return v.CascadingControlConfiguration
 	}).(TemplateCascadingControlConfigurationPtrOutput)
+}
+
+func (o TemplateParameterDropDownControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDropDownControl) *TemplateCommitMode {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMode
+	}).(TemplateCommitModePtrOutput)
 }
 
 // The display options of a control.
@@ -85469,398 +85736,6 @@ func (o TemplateTableConditionalFormattingOptionArrayOutput) Index(i pulumi.IntI
 	}).(TemplateTableConditionalFormattingOptionOutput)
 }
 
-type TemplateTableConfiguration struct {
-	// The field options for a table visual.
-	FieldOptions *TemplateTableFieldOptions `pulumi:"fieldOptions"`
-	// The field wells of the visual.
-	FieldWells *TemplateTableFieldWells `pulumi:"fieldWells"`
-	// The paginated report options for a table visual.
-	PaginatedReportOptions *TemplateTablePaginatedReportOptions `pulumi:"paginatedReportOptions"`
-	// The sort configuration for a `TableVisual` .
-	SortConfiguration *TemplateTableSortConfiguration `pulumi:"sortConfiguration"`
-	// A collection of inline visualizations to display within a chart.
-	TableInlineVisualizations []TemplateTableInlineVisualization `pulumi:"tableInlineVisualizations"`
-	// The table options for a table visual.
-	TableOptions *TemplateTableOptions `pulumi:"tableOptions"`
-	// The total options for a table visual.
-	TotalOptions *TemplateTotalOptions `pulumi:"totalOptions"`
-}
-
-// TemplateTableConfigurationInput is an input type that accepts TemplateTableConfigurationArgs and TemplateTableConfigurationOutput values.
-// You can construct a concrete instance of `TemplateTableConfigurationInput` via:
-//
-//	TemplateTableConfigurationArgs{...}
-type TemplateTableConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateTableConfigurationOutput() TemplateTableConfigurationOutput
-	ToTemplateTableConfigurationOutputWithContext(context.Context) TemplateTableConfigurationOutput
-}
-
-type TemplateTableConfigurationArgs struct {
-	// The field options for a table visual.
-	FieldOptions TemplateTableFieldOptionsPtrInput `pulumi:"fieldOptions"`
-	// The field wells of the visual.
-	FieldWells TemplateTableFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The paginated report options for a table visual.
-	PaginatedReportOptions TemplateTablePaginatedReportOptionsPtrInput `pulumi:"paginatedReportOptions"`
-	// The sort configuration for a `TableVisual` .
-	SortConfiguration TemplateTableSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// A collection of inline visualizations to display within a chart.
-	TableInlineVisualizations TemplateTableInlineVisualizationArrayInput `pulumi:"tableInlineVisualizations"`
-	// The table options for a table visual.
-	TableOptions TemplateTableOptionsPtrInput `pulumi:"tableOptions"`
-	// The total options for a table visual.
-	TotalOptions TemplateTotalOptionsPtrInput `pulumi:"totalOptions"`
-}
-
-func (TemplateTableConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableConfiguration)(nil)).Elem()
-}
-
-func (i TemplateTableConfigurationArgs) ToTemplateTableConfigurationOutput() TemplateTableConfigurationOutput {
-	return i.ToTemplateTableConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateTableConfigurationArgs) ToTemplateTableConfigurationOutputWithContext(ctx context.Context) TemplateTableConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConfigurationOutput)
-}
-
-func (i TemplateTableConfigurationArgs) ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput {
-	return i.ToTemplateTableConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTableConfigurationArgs) ToTemplateTableConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConfigurationOutput).ToTemplateTableConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateTableConfigurationPtrInput is an input type that accepts TemplateTableConfigurationArgs, TemplateTableConfigurationPtr and TemplateTableConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateTableConfigurationPtrInput` via:
-//
-//	        TemplateTableConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateTableConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput
-	ToTemplateTableConfigurationPtrOutputWithContext(context.Context) TemplateTableConfigurationPtrOutput
-}
-
-type templateTableConfigurationPtrType TemplateTableConfigurationArgs
-
-func TemplateTableConfigurationPtr(v *TemplateTableConfigurationArgs) TemplateTableConfigurationPtrInput {
-	return (*templateTableConfigurationPtrType)(v)
-}
-
-func (*templateTableConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableConfiguration)(nil)).Elem()
-}
-
-func (i *templateTableConfigurationPtrType) ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput {
-	return i.ToTemplateTableConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTableConfigurationPtrType) ToTemplateTableConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConfigurationPtrOutput)
-}
-
-type TemplateTableConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableConfiguration)(nil)).Elem()
-}
-
-func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationOutput() TemplateTableConfigurationOutput {
-	return o
-}
-
-func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationOutputWithContext(ctx context.Context) TemplateTableConfigurationOutput {
-	return o
-}
-
-func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput {
-	return o.ToTemplateTableConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableConfiguration) *TemplateTableConfiguration {
-		return &v
-	}).(TemplateTableConfigurationPtrOutput)
-}
-
-// The field options for a table visual.
-func (o TemplateTableConfigurationOutput) FieldOptions() TemplateTableFieldOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableFieldOptions { return v.FieldOptions }).(TemplateTableFieldOptionsPtrOutput)
-}
-
-// The field wells of the visual.
-func (o TemplateTableConfigurationOutput) FieldWells() TemplateTableFieldWellsPtrOutput {
-	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableFieldWells { return v.FieldWells }).(TemplateTableFieldWellsPtrOutput)
-}
-
-// The paginated report options for a table visual.
-func (o TemplateTableConfigurationOutput) PaginatedReportOptions() TemplateTablePaginatedReportOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTablePaginatedReportOptions {
-		return v.PaginatedReportOptions
-	}).(TemplateTablePaginatedReportOptionsPtrOutput)
-}
-
-// The sort configuration for a `TableVisual` .
-func (o TemplateTableConfigurationOutput) SortConfiguration() TemplateTableSortConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableSortConfiguration { return v.SortConfiguration }).(TemplateTableSortConfigurationPtrOutput)
-}
-
-// A collection of inline visualizations to display within a chart.
-func (o TemplateTableConfigurationOutput) TableInlineVisualizations() TemplateTableInlineVisualizationArrayOutput {
-	return o.ApplyT(func(v TemplateTableConfiguration) []TemplateTableInlineVisualization {
-		return v.TableInlineVisualizations
-	}).(TemplateTableInlineVisualizationArrayOutput)
-}
-
-// The table options for a table visual.
-func (o TemplateTableConfigurationOutput) TableOptions() TemplateTableOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableOptions { return v.TableOptions }).(TemplateTableOptionsPtrOutput)
-}
-
-// The total options for a table visual.
-func (o TemplateTableConfigurationOutput) TotalOptions() TemplateTotalOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTotalOptions { return v.TotalOptions }).(TemplateTotalOptionsPtrOutput)
-}
-
-type TemplateTableConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableConfiguration)(nil)).Elem()
-}
-
-func (o TemplateTableConfigurationPtrOutput) ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateTableConfigurationPtrOutput) ToTemplateTableConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateTableConfigurationPtrOutput) Elem() TemplateTableConfigurationOutput {
-	return o.ApplyT(func(v *TemplateTableConfiguration) TemplateTableConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTableConfiguration
-		return ret
-	}).(TemplateTableConfigurationOutput)
-}
-
-// The field options for a table visual.
-func (o TemplateTableConfigurationPtrOutput) FieldOptions() TemplateTableFieldOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableFieldOptions {
-		if v == nil {
-			return nil
-		}
-		return v.FieldOptions
-	}).(TemplateTableFieldOptionsPtrOutput)
-}
-
-// The field wells of the visual.
-func (o TemplateTableConfigurationPtrOutput) FieldWells() TemplateTableFieldWellsPtrOutput {
-	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableFieldWells {
-		if v == nil {
-			return nil
-		}
-		return v.FieldWells
-	}).(TemplateTableFieldWellsPtrOutput)
-}
-
-// The paginated report options for a table visual.
-func (o TemplateTableConfigurationPtrOutput) PaginatedReportOptions() TemplateTablePaginatedReportOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTablePaginatedReportOptions {
-		if v == nil {
-			return nil
-		}
-		return v.PaginatedReportOptions
-	}).(TemplateTablePaginatedReportOptionsPtrOutput)
-}
-
-// The sort configuration for a `TableVisual` .
-func (o TemplateTableConfigurationPtrOutput) SortConfiguration() TemplateTableSortConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableSortConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SortConfiguration
-	}).(TemplateTableSortConfigurationPtrOutput)
-}
-
-// A collection of inline visualizations to display within a chart.
-func (o TemplateTableConfigurationPtrOutput) TableInlineVisualizations() TemplateTableInlineVisualizationArrayOutput {
-	return o.ApplyT(func(v *TemplateTableConfiguration) []TemplateTableInlineVisualization {
-		if v == nil {
-			return nil
-		}
-		return v.TableInlineVisualizations
-	}).(TemplateTableInlineVisualizationArrayOutput)
-}
-
-// The table options for a table visual.
-func (o TemplateTableConfigurationPtrOutput) TableOptions() TemplateTableOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableOptions {
-		if v == nil {
-			return nil
-		}
-		return v.TableOptions
-	}).(TemplateTableOptionsPtrOutput)
-}
-
-// The total options for a table visual.
-func (o TemplateTableConfigurationPtrOutput) TotalOptions() TemplateTotalOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTotalOptions {
-		if v == nil {
-			return nil
-		}
-		return v.TotalOptions
-	}).(TemplateTotalOptionsPtrOutput)
-}
-
-type TemplateTableFieldCustomIconContent struct {
-	// The icon set type (link) of the custom icon content for table URL link content.
-	Icon *TemplateTableFieldIconSetType `pulumi:"icon"`
-}
-
-// TemplateTableFieldCustomIconContentInput is an input type that accepts TemplateTableFieldCustomIconContentArgs and TemplateTableFieldCustomIconContentOutput values.
-// You can construct a concrete instance of `TemplateTableFieldCustomIconContentInput` via:
-//
-//	TemplateTableFieldCustomIconContentArgs{...}
-type TemplateTableFieldCustomIconContentInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldCustomIconContentOutput() TemplateTableFieldCustomIconContentOutput
-	ToTemplateTableFieldCustomIconContentOutputWithContext(context.Context) TemplateTableFieldCustomIconContentOutput
-}
-
-type TemplateTableFieldCustomIconContentArgs struct {
-	// The icon set type (link) of the custom icon content for table URL link content.
-	Icon TemplateTableFieldIconSetTypePtrInput `pulumi:"icon"`
-}
-
-func (TemplateTableFieldCustomIconContentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldCustomIconContent)(nil)).Elem()
-}
-
-func (i TemplateTableFieldCustomIconContentArgs) ToTemplateTableFieldCustomIconContentOutput() TemplateTableFieldCustomIconContentOutput {
-	return i.ToTemplateTableFieldCustomIconContentOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldCustomIconContentArgs) ToTemplateTableFieldCustomIconContentOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomIconContentOutput)
-}
-
-func (i TemplateTableFieldCustomIconContentArgs) ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput {
-	return i.ToTemplateTableFieldCustomIconContentPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTableFieldCustomIconContentArgs) ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomIconContentOutput).ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx)
-}
-
-// TemplateTableFieldCustomIconContentPtrInput is an input type that accepts TemplateTableFieldCustomIconContentArgs, TemplateTableFieldCustomIconContentPtr and TemplateTableFieldCustomIconContentPtrOutput values.
-// You can construct a concrete instance of `TemplateTableFieldCustomIconContentPtrInput` via:
-//
-//	        TemplateTableFieldCustomIconContentArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateTableFieldCustomIconContentPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput
-	ToTemplateTableFieldCustomIconContentPtrOutputWithContext(context.Context) TemplateTableFieldCustomIconContentPtrOutput
-}
-
-type templateTableFieldCustomIconContentPtrType TemplateTableFieldCustomIconContentArgs
-
-func TemplateTableFieldCustomIconContentPtr(v *TemplateTableFieldCustomIconContentArgs) TemplateTableFieldCustomIconContentPtrInput {
-	return (*templateTableFieldCustomIconContentPtrType)(v)
-}
-
-func (*templateTableFieldCustomIconContentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldCustomIconContent)(nil)).Elem()
-}
-
-func (i *templateTableFieldCustomIconContentPtrType) ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput {
-	return i.ToTemplateTableFieldCustomIconContentPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTableFieldCustomIconContentPtrType) ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomIconContentPtrOutput)
-}
-
-type TemplateTableFieldCustomIconContentOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldCustomIconContentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableFieldCustomIconContent)(nil)).Elem()
-}
-
-func (o TemplateTableFieldCustomIconContentOutput) ToTemplateTableFieldCustomIconContentOutput() TemplateTableFieldCustomIconContentOutput {
-	return o
-}
-
-func (o TemplateTableFieldCustomIconContentOutput) ToTemplateTableFieldCustomIconContentOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentOutput {
-	return o
-}
-
-func (o TemplateTableFieldCustomIconContentOutput) ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput {
-	return o.ToTemplateTableFieldCustomIconContentPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTableFieldCustomIconContentOutput) ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldCustomIconContent) *TemplateTableFieldCustomIconContent {
-		return &v
-	}).(TemplateTableFieldCustomIconContentPtrOutput)
-}
-
-// The icon set type (link) of the custom icon content for table URL link content.
-func (o TemplateTableFieldCustomIconContentOutput) Icon() TemplateTableFieldIconSetTypePtrOutput {
-	return o.ApplyT(func(v TemplateTableFieldCustomIconContent) *TemplateTableFieldIconSetType { return v.Icon }).(TemplateTableFieldIconSetTypePtrOutput)
-}
-
-type TemplateTableFieldCustomIconContentPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableFieldCustomIconContentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTableFieldCustomIconContent)(nil)).Elem()
-}
-
-func (o TemplateTableFieldCustomIconContentPtrOutput) ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldCustomIconContentPtrOutput) ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentPtrOutput {
-	return o
-}
-
-func (o TemplateTableFieldCustomIconContentPtrOutput) Elem() TemplateTableFieldCustomIconContentOutput {
-	return o.ApplyT(func(v *TemplateTableFieldCustomIconContent) TemplateTableFieldCustomIconContent {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTableFieldCustomIconContent
-		return ret
-	}).(TemplateTableFieldCustomIconContentOutput)
-}
-
-// The icon set type (link) of the custom icon content for table URL link content.
-func (o TemplateTableFieldCustomIconContentPtrOutput) Icon() TemplateTableFieldIconSetTypePtrOutput {
-	return o.ApplyT(func(v *TemplateTableFieldCustomIconContent) *TemplateTableFieldIconSetType {
-		if v == nil {
-			return nil
-		}
-		return v.Icon
-	}).(TemplateTableFieldIconSetTypePtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDescriptionInput)(nil)).Elem(), DataSetColumnDescriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDescriptionPtrInput)(nil)).Elem(), DataSetColumnDescriptionArgs{})
@@ -86011,6 +85886,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTrinoParametersPtrInput)(nil)).Elem(), DataSourceTrinoParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesPtrInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FolderResourcePermissionInput)(nil)).Elem(), FolderResourcePermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FolderResourcePermissionArrayInput)(nil)).Elem(), FolderResourcePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapInput)(nil)).Elem(), RefreshScheduleMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapPtrInput)(nil)).Elem(), RefreshScheduleMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesArgs{})
@@ -86842,10 +86719,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingPtrInput)(nil)).Elem(), TemplateTableConditionalFormattingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingOptionInput)(nil)).Elem(), TemplateTableConditionalFormattingOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingOptionArrayInput)(nil)).Elem(), TemplateTableConditionalFormattingOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConfigurationInput)(nil)).Elem(), TemplateTableConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConfigurationPtrInput)(nil)).Elem(), TemplateTableConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomIconContentInput)(nil)).Elem(), TemplateTableFieldCustomIconContentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomIconContentPtrInput)(nil)).Elem(), TemplateTableFieldCustomIconContentArgs{})
 	pulumi.RegisterOutputType(DataSetColumnDescriptionOutput{})
 	pulumi.RegisterOutputType(DataSetColumnDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(DataSetColumnGroupOutput{})
@@ -86997,6 +86870,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceTrinoParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FolderResourcePermissionOutput{})
+	pulumi.RegisterOutputType(FolderResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapPtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesOutput{})
@@ -87834,8 +87709,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTableConditionalFormattingPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableConditionalFormattingOptionOutput{})
 	pulumi.RegisterOutputType(TemplateTableConditionalFormattingOptionArrayOutput{})
-	pulumi.RegisterOutputType(TemplateTableConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateTableConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldCustomIconContentOutput{})
-	pulumi.RegisterOutputType(TemplateTableFieldCustomIconContentPtrOutput{})
 }

@@ -2480,6 +2480,560 @@ func (o DatabasePrincipalPrivilegesArrayOutput) Index(i pulumi.IntInput) Databas
 	}).(DatabasePrincipalPrivilegesOutput)
 }
 
+type JobCommand struct {
+	// The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+	Name *string `pulumi:"name"`
+	// The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+	PythonVersion *string `pulumi:"pythonVersion"`
+	// In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+	Runtime *string `pulumi:"runtime"`
+	// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+	ScriptLocation *string `pulumi:"scriptLocation"`
+}
+
+// JobCommandInput is an input type that accepts JobCommandArgs and JobCommandOutput values.
+// You can construct a concrete instance of `JobCommandInput` via:
+//
+//	JobCommandArgs{...}
+type JobCommandInput interface {
+	pulumi.Input
+
+	ToJobCommandOutput() JobCommandOutput
+	ToJobCommandOutputWithContext(context.Context) JobCommandOutput
+}
+
+type JobCommandArgs struct {
+	// The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
+	// In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+	Runtime pulumi.StringPtrInput `pulumi:"runtime"`
+	// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+	ScriptLocation pulumi.StringPtrInput `pulumi:"scriptLocation"`
+}
+
+func (JobCommandArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCommand)(nil)).Elem()
+}
+
+func (i JobCommandArgs) ToJobCommandOutput() JobCommandOutput {
+	return i.ToJobCommandOutputWithContext(context.Background())
+}
+
+func (i JobCommandArgs) ToJobCommandOutputWithContext(ctx context.Context) JobCommandOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCommandOutput)
+}
+
+type JobCommandOutput struct{ *pulumi.OutputState }
+
+func (JobCommandOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCommand)(nil)).Elem()
+}
+
+func (o JobCommandOutput) ToJobCommandOutput() JobCommandOutput {
+	return o
+}
+
+func (o JobCommandOutput) ToJobCommandOutputWithContext(ctx context.Context) JobCommandOutput {
+	return o
+}
+
+// The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+}
+
+// In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+func (o JobCommandOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+func (o JobCommandOutput) ScriptLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.ScriptLocation }).(pulumi.StringPtrOutput)
+}
+
+type JobCommandPtrOutput struct{ *pulumi.OutputState }
+
+func (JobCommandPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobCommand)(nil)).Elem()
+}
+
+func (o JobCommandPtrOutput) ToJobCommandPtrOutput() JobCommandPtrOutput {
+	return o
+}
+
+func (o JobCommandPtrOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
+	return o
+}
+
+func (o JobCommandPtrOutput) Elem() JobCommandOutput {
+	return o.ApplyT(func(v *JobCommand) JobCommand {
+		if v != nil {
+			return *v
+		}
+		var ret JobCommand
+		return ret
+	}).(JobCommandOutput)
+}
+
+// The name of the job command. For an Apache Spark ETL job, this must be `glueetl` . For a Python shell job, it must be `pythonshell` . For an Apache Spark streaming ETL job, this must be `gluestreaming` . For a Ray job, this must be `glueray` .
+func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Python version being used to execute a Python shell job. Allowed values are 3 or 3.9. Version 2 is deprecated.
+func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PythonVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// In Ray jobs, Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html) in the AWS Glue Developer Guide.
+func (o JobCommandPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Runtime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job (required).
+func (o JobCommandPtrOutput) ScriptLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobConnectionsList struct {
+	// A list of connections used by the job.
+	Connections []string `pulumi:"connections"`
+}
+
+// JobConnectionsListInput is an input type that accepts JobConnectionsListArgs and JobConnectionsListOutput values.
+// You can construct a concrete instance of `JobConnectionsListInput` via:
+//
+//	JobConnectionsListArgs{...}
+type JobConnectionsListInput interface {
+	pulumi.Input
+
+	ToJobConnectionsListOutput() JobConnectionsListOutput
+	ToJobConnectionsListOutputWithContext(context.Context) JobConnectionsListOutput
+}
+
+type JobConnectionsListArgs struct {
+	// A list of connections used by the job.
+	Connections pulumi.StringArrayInput `pulumi:"connections"`
+}
+
+func (JobConnectionsListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobConnectionsList)(nil)).Elem()
+}
+
+func (i JobConnectionsListArgs) ToJobConnectionsListOutput() JobConnectionsListOutput {
+	return i.ToJobConnectionsListOutputWithContext(context.Background())
+}
+
+func (i JobConnectionsListArgs) ToJobConnectionsListOutputWithContext(ctx context.Context) JobConnectionsListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobConnectionsListOutput)
+}
+
+func (i JobConnectionsListArgs) ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput {
+	return i.ToJobConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (i JobConnectionsListArgs) ToJobConnectionsListPtrOutputWithContext(ctx context.Context) JobConnectionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobConnectionsListOutput).ToJobConnectionsListPtrOutputWithContext(ctx)
+}
+
+// JobConnectionsListPtrInput is an input type that accepts JobConnectionsListArgs, JobConnectionsListPtr and JobConnectionsListPtrOutput values.
+// You can construct a concrete instance of `JobConnectionsListPtrInput` via:
+//
+//	        JobConnectionsListArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobConnectionsListPtrInput interface {
+	pulumi.Input
+
+	ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput
+	ToJobConnectionsListPtrOutputWithContext(context.Context) JobConnectionsListPtrOutput
+}
+
+type jobConnectionsListPtrType JobConnectionsListArgs
+
+func JobConnectionsListPtr(v *JobConnectionsListArgs) JobConnectionsListPtrInput {
+	return (*jobConnectionsListPtrType)(v)
+}
+
+func (*jobConnectionsListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobConnectionsList)(nil)).Elem()
+}
+
+func (i *jobConnectionsListPtrType) ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput {
+	return i.ToJobConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (i *jobConnectionsListPtrType) ToJobConnectionsListPtrOutputWithContext(ctx context.Context) JobConnectionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobConnectionsListPtrOutput)
+}
+
+type JobConnectionsListOutput struct{ *pulumi.OutputState }
+
+func (JobConnectionsListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobConnectionsList)(nil)).Elem()
+}
+
+func (o JobConnectionsListOutput) ToJobConnectionsListOutput() JobConnectionsListOutput {
+	return o
+}
+
+func (o JobConnectionsListOutput) ToJobConnectionsListOutputWithContext(ctx context.Context) JobConnectionsListOutput {
+	return o
+}
+
+func (o JobConnectionsListOutput) ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput {
+	return o.ToJobConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (o JobConnectionsListOutput) ToJobConnectionsListPtrOutputWithContext(ctx context.Context) JobConnectionsListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobConnectionsList) *JobConnectionsList {
+		return &v
+	}).(JobConnectionsListPtrOutput)
+}
+
+// A list of connections used by the job.
+func (o JobConnectionsListOutput) Connections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobConnectionsList) []string { return v.Connections }).(pulumi.StringArrayOutput)
+}
+
+type JobConnectionsListPtrOutput struct{ *pulumi.OutputState }
+
+func (JobConnectionsListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobConnectionsList)(nil)).Elem()
+}
+
+func (o JobConnectionsListPtrOutput) ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput {
+	return o
+}
+
+func (o JobConnectionsListPtrOutput) ToJobConnectionsListPtrOutputWithContext(ctx context.Context) JobConnectionsListPtrOutput {
+	return o
+}
+
+func (o JobConnectionsListPtrOutput) Elem() JobConnectionsListOutput {
+	return o.ApplyT(func(v *JobConnectionsList) JobConnectionsList {
+		if v != nil {
+			return *v
+		}
+		var ret JobConnectionsList
+		return ret
+	}).(JobConnectionsListOutput)
+}
+
+// A list of connections used by the job.
+func (o JobConnectionsListPtrOutput) Connections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobConnectionsList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Connections
+	}).(pulumi.StringArrayOutput)
+}
+
+type JobExecutionProperty struct {
+	// The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+	MaxConcurrentRuns *float64 `pulumi:"maxConcurrentRuns"`
+}
+
+// JobExecutionPropertyInput is an input type that accepts JobExecutionPropertyArgs and JobExecutionPropertyOutput values.
+// You can construct a concrete instance of `JobExecutionPropertyInput` via:
+//
+//	JobExecutionPropertyArgs{...}
+type JobExecutionPropertyInput interface {
+	pulumi.Input
+
+	ToJobExecutionPropertyOutput() JobExecutionPropertyOutput
+	ToJobExecutionPropertyOutputWithContext(context.Context) JobExecutionPropertyOutput
+}
+
+type JobExecutionPropertyArgs struct {
+	// The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+	MaxConcurrentRuns pulumi.Float64PtrInput `pulumi:"maxConcurrentRuns"`
+}
+
+func (JobExecutionPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExecutionProperty)(nil)).Elem()
+}
+
+func (i JobExecutionPropertyArgs) ToJobExecutionPropertyOutput() JobExecutionPropertyOutput {
+	return i.ToJobExecutionPropertyOutputWithContext(context.Background())
+}
+
+func (i JobExecutionPropertyArgs) ToJobExecutionPropertyOutputWithContext(ctx context.Context) JobExecutionPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionPropertyOutput)
+}
+
+func (i JobExecutionPropertyArgs) ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput {
+	return i.ToJobExecutionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i JobExecutionPropertyArgs) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionPropertyOutput).ToJobExecutionPropertyPtrOutputWithContext(ctx)
+}
+
+// JobExecutionPropertyPtrInput is an input type that accepts JobExecutionPropertyArgs, JobExecutionPropertyPtr and JobExecutionPropertyPtrOutput values.
+// You can construct a concrete instance of `JobExecutionPropertyPtrInput` via:
+//
+//	        JobExecutionPropertyArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobExecutionPropertyPtrInput interface {
+	pulumi.Input
+
+	ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput
+	ToJobExecutionPropertyPtrOutputWithContext(context.Context) JobExecutionPropertyPtrOutput
+}
+
+type jobExecutionPropertyPtrType JobExecutionPropertyArgs
+
+func JobExecutionPropertyPtr(v *JobExecutionPropertyArgs) JobExecutionPropertyPtrInput {
+	return (*jobExecutionPropertyPtrType)(v)
+}
+
+func (*jobExecutionPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExecutionProperty)(nil)).Elem()
+}
+
+func (i *jobExecutionPropertyPtrType) ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput {
+	return i.ToJobExecutionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *jobExecutionPropertyPtrType) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionPropertyPtrOutput)
+}
+
+type JobExecutionPropertyOutput struct{ *pulumi.OutputState }
+
+func (JobExecutionPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExecutionProperty)(nil)).Elem()
+}
+
+func (o JobExecutionPropertyOutput) ToJobExecutionPropertyOutput() JobExecutionPropertyOutput {
+	return o
+}
+
+func (o JobExecutionPropertyOutput) ToJobExecutionPropertyOutputWithContext(ctx context.Context) JobExecutionPropertyOutput {
+	return o
+}
+
+func (o JobExecutionPropertyOutput) ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput {
+	return o.ToJobExecutionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o JobExecutionPropertyOutput) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobExecutionProperty) *JobExecutionProperty {
+		return &v
+	}).(JobExecutionPropertyPtrOutput)
+}
+
+// The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+func (o JobExecutionPropertyOutput) MaxConcurrentRuns() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JobExecutionProperty) *float64 { return v.MaxConcurrentRuns }).(pulumi.Float64PtrOutput)
+}
+
+type JobExecutionPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (JobExecutionPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExecutionProperty)(nil)).Elem()
+}
+
+func (o JobExecutionPropertyPtrOutput) ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput {
+	return o
+}
+
+func (o JobExecutionPropertyPtrOutput) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
+	return o
+}
+
+func (o JobExecutionPropertyPtrOutput) Elem() JobExecutionPropertyOutput {
+	return o.ApplyT(func(v *JobExecutionProperty) JobExecutionProperty {
+		if v != nil {
+			return *v
+		}
+		var ret JobExecutionProperty
+		return ret
+	}).(JobExecutionPropertyOutput)
+}
+
+// The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+func (o JobExecutionPropertyPtrOutput) MaxConcurrentRuns() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JobExecutionProperty) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentRuns
+	}).(pulumi.Float64PtrOutput)
+}
+
+type JobNotificationProperty struct {
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	NotifyDelayAfter *int `pulumi:"notifyDelayAfter"`
+}
+
+// JobNotificationPropertyInput is an input type that accepts JobNotificationPropertyArgs and JobNotificationPropertyOutput values.
+// You can construct a concrete instance of `JobNotificationPropertyInput` via:
+//
+//	JobNotificationPropertyArgs{...}
+type JobNotificationPropertyInput interface {
+	pulumi.Input
+
+	ToJobNotificationPropertyOutput() JobNotificationPropertyOutput
+	ToJobNotificationPropertyOutputWithContext(context.Context) JobNotificationPropertyOutput
+}
+
+type JobNotificationPropertyArgs struct {
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	NotifyDelayAfter pulumi.IntPtrInput `pulumi:"notifyDelayAfter"`
+}
+
+func (JobNotificationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNotificationProperty)(nil)).Elem()
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyOutput() JobNotificationPropertyOutput {
+	return i.ToJobNotificationPropertyOutputWithContext(context.Background())
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyOutputWithContext(ctx context.Context) JobNotificationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyOutput)
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return i.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyOutput).ToJobNotificationPropertyPtrOutputWithContext(ctx)
+}
+
+// JobNotificationPropertyPtrInput is an input type that accepts JobNotificationPropertyArgs, JobNotificationPropertyPtr and JobNotificationPropertyPtrOutput values.
+// You can construct a concrete instance of `JobNotificationPropertyPtrInput` via:
+//
+//	        JobNotificationPropertyArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobNotificationPropertyPtrInput interface {
+	pulumi.Input
+
+	ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput
+	ToJobNotificationPropertyPtrOutputWithContext(context.Context) JobNotificationPropertyPtrOutput
+}
+
+type jobNotificationPropertyPtrType JobNotificationPropertyArgs
+
+func JobNotificationPropertyPtr(v *JobNotificationPropertyArgs) JobNotificationPropertyPtrInput {
+	return (*jobNotificationPropertyPtrType)(v)
+}
+
+func (*jobNotificationPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNotificationProperty)(nil)).Elem()
+}
+
+func (i *jobNotificationPropertyPtrType) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return i.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNotificationPropertyPtrType) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyPtrOutput)
+}
+
+type JobNotificationPropertyOutput struct{ *pulumi.OutputState }
+
+func (JobNotificationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNotificationProperty)(nil)).Elem()
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyOutput() JobNotificationPropertyOutput {
+	return o
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyOutputWithContext(ctx context.Context) JobNotificationPropertyOutput {
+	return o
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return o.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobNotificationProperty) *JobNotificationProperty {
+		return &v
+	}).(JobNotificationPropertyPtrOutput)
+}
+
+// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+func (o JobNotificationPropertyOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
+}
+
+type JobNotificationPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (JobNotificationPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNotificationProperty)(nil)).Elem()
+}
+
+func (o JobNotificationPropertyPtrOutput) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o JobNotificationPropertyPtrOutput) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o JobNotificationPropertyPtrOutput) Elem() JobNotificationPropertyOutput {
+	return o.ApplyT(func(v *JobNotificationProperty) JobNotificationProperty {
+		if v != nil {
+			return *v
+		}
+		var ret JobNotificationProperty
+		return ret
+	}).(JobNotificationPropertyOutput)
+}
+
+// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNotificationProperty) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NotifyDelayAfter
+	}).(pulumi.IntPtrOutput)
+}
+
 type RegistryTag struct {
 	// A key to identify the tag.
 	Key string `pulumi:"key"`
@@ -3624,6 +4178,277 @@ func (o TriggerPredicatePtrOutput) Logical() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type UsageProfileConfigurationObject struct {
+	AllowedValues []string `pulumi:"allowedValues"`
+	DefaultValue  *string  `pulumi:"defaultValue"`
+	MaxValue      *string  `pulumi:"maxValue"`
+	MinValue      *string  `pulumi:"minValue"`
+}
+
+// UsageProfileConfigurationObjectInput is an input type that accepts UsageProfileConfigurationObjectArgs and UsageProfileConfigurationObjectOutput values.
+// You can construct a concrete instance of `UsageProfileConfigurationObjectInput` via:
+//
+//	UsageProfileConfigurationObjectArgs{...}
+type UsageProfileConfigurationObjectInput interface {
+	pulumi.Input
+
+	ToUsageProfileConfigurationObjectOutput() UsageProfileConfigurationObjectOutput
+	ToUsageProfileConfigurationObjectOutputWithContext(context.Context) UsageProfileConfigurationObjectOutput
+}
+
+type UsageProfileConfigurationObjectArgs struct {
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+	DefaultValue  pulumi.StringPtrInput   `pulumi:"defaultValue"`
+	MaxValue      pulumi.StringPtrInput   `pulumi:"maxValue"`
+	MinValue      pulumi.StringPtrInput   `pulumi:"minValue"`
+}
+
+func (UsageProfileConfigurationObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageProfileConfigurationObject)(nil)).Elem()
+}
+
+func (i UsageProfileConfigurationObjectArgs) ToUsageProfileConfigurationObjectOutput() UsageProfileConfigurationObjectOutput {
+	return i.ToUsageProfileConfigurationObjectOutputWithContext(context.Background())
+}
+
+func (i UsageProfileConfigurationObjectArgs) ToUsageProfileConfigurationObjectOutputWithContext(ctx context.Context) UsageProfileConfigurationObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsageProfileConfigurationObjectOutput)
+}
+
+// UsageProfileConfigurationObjectMapInput is an input type that accepts UsageProfileConfigurationObjectMap and UsageProfileConfigurationObjectMapOutput values.
+// You can construct a concrete instance of `UsageProfileConfigurationObjectMapInput` via:
+//
+//	UsageProfileConfigurationObjectMap{ "key": UsageProfileConfigurationObjectArgs{...} }
+type UsageProfileConfigurationObjectMapInput interface {
+	pulumi.Input
+
+	ToUsageProfileConfigurationObjectMapOutput() UsageProfileConfigurationObjectMapOutput
+	ToUsageProfileConfigurationObjectMapOutputWithContext(context.Context) UsageProfileConfigurationObjectMapOutput
+}
+
+type UsageProfileConfigurationObjectMap map[string]UsageProfileConfigurationObjectInput
+
+func (UsageProfileConfigurationObjectMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UsageProfileConfigurationObject)(nil)).Elem()
+}
+
+func (i UsageProfileConfigurationObjectMap) ToUsageProfileConfigurationObjectMapOutput() UsageProfileConfigurationObjectMapOutput {
+	return i.ToUsageProfileConfigurationObjectMapOutputWithContext(context.Background())
+}
+
+func (i UsageProfileConfigurationObjectMap) ToUsageProfileConfigurationObjectMapOutputWithContext(ctx context.Context) UsageProfileConfigurationObjectMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsageProfileConfigurationObjectMapOutput)
+}
+
+type UsageProfileConfigurationObjectOutput struct{ *pulumi.OutputState }
+
+func (UsageProfileConfigurationObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageProfileConfigurationObject)(nil)).Elem()
+}
+
+func (o UsageProfileConfigurationObjectOutput) ToUsageProfileConfigurationObjectOutput() UsageProfileConfigurationObjectOutput {
+	return o
+}
+
+func (o UsageProfileConfigurationObjectOutput) ToUsageProfileConfigurationObjectOutputWithContext(ctx context.Context) UsageProfileConfigurationObjectOutput {
+	return o
+}
+
+func (o UsageProfileConfigurationObjectOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UsageProfileConfigurationObject) []string { return v.AllowedValues }).(pulumi.StringArrayOutput)
+}
+
+func (o UsageProfileConfigurationObjectOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsageProfileConfigurationObject) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o UsageProfileConfigurationObjectOutput) MaxValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsageProfileConfigurationObject) *string { return v.MaxValue }).(pulumi.StringPtrOutput)
+}
+
+func (o UsageProfileConfigurationObjectOutput) MinValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsageProfileConfigurationObject) *string { return v.MinValue }).(pulumi.StringPtrOutput)
+}
+
+type UsageProfileConfigurationObjectMapOutput struct{ *pulumi.OutputState }
+
+func (UsageProfileConfigurationObjectMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UsageProfileConfigurationObject)(nil)).Elem()
+}
+
+func (o UsageProfileConfigurationObjectMapOutput) ToUsageProfileConfigurationObjectMapOutput() UsageProfileConfigurationObjectMapOutput {
+	return o
+}
+
+func (o UsageProfileConfigurationObjectMapOutput) ToUsageProfileConfigurationObjectMapOutputWithContext(ctx context.Context) UsageProfileConfigurationObjectMapOutput {
+	return o
+}
+
+func (o UsageProfileConfigurationObjectMapOutput) MapIndex(k pulumi.StringInput) UsageProfileConfigurationObjectOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UsageProfileConfigurationObject {
+		return vs[0].(map[string]UsageProfileConfigurationObject)[vs[1].(string)]
+	}).(UsageProfileConfigurationObjectOutput)
+}
+
+type UsageProfileProfileConfiguration struct {
+	JobConfiguration     map[string]UsageProfileConfigurationObject `pulumi:"jobConfiguration"`
+	SessionConfiguration map[string]UsageProfileConfigurationObject `pulumi:"sessionConfiguration"`
+}
+
+// UsageProfileProfileConfigurationInput is an input type that accepts UsageProfileProfileConfigurationArgs and UsageProfileProfileConfigurationOutput values.
+// You can construct a concrete instance of `UsageProfileProfileConfigurationInput` via:
+//
+//	UsageProfileProfileConfigurationArgs{...}
+type UsageProfileProfileConfigurationInput interface {
+	pulumi.Input
+
+	ToUsageProfileProfileConfigurationOutput() UsageProfileProfileConfigurationOutput
+	ToUsageProfileProfileConfigurationOutputWithContext(context.Context) UsageProfileProfileConfigurationOutput
+}
+
+type UsageProfileProfileConfigurationArgs struct {
+	JobConfiguration     UsageProfileConfigurationObjectMapInput `pulumi:"jobConfiguration"`
+	SessionConfiguration UsageProfileConfigurationObjectMapInput `pulumi:"sessionConfiguration"`
+}
+
+func (UsageProfileProfileConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageProfileProfileConfiguration)(nil)).Elem()
+}
+
+func (i UsageProfileProfileConfigurationArgs) ToUsageProfileProfileConfigurationOutput() UsageProfileProfileConfigurationOutput {
+	return i.ToUsageProfileProfileConfigurationOutputWithContext(context.Background())
+}
+
+func (i UsageProfileProfileConfigurationArgs) ToUsageProfileProfileConfigurationOutputWithContext(ctx context.Context) UsageProfileProfileConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsageProfileProfileConfigurationOutput)
+}
+
+func (i UsageProfileProfileConfigurationArgs) ToUsageProfileProfileConfigurationPtrOutput() UsageProfileProfileConfigurationPtrOutput {
+	return i.ToUsageProfileProfileConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UsageProfileProfileConfigurationArgs) ToUsageProfileProfileConfigurationPtrOutputWithContext(ctx context.Context) UsageProfileProfileConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsageProfileProfileConfigurationOutput).ToUsageProfileProfileConfigurationPtrOutputWithContext(ctx)
+}
+
+// UsageProfileProfileConfigurationPtrInput is an input type that accepts UsageProfileProfileConfigurationArgs, UsageProfileProfileConfigurationPtr and UsageProfileProfileConfigurationPtrOutput values.
+// You can construct a concrete instance of `UsageProfileProfileConfigurationPtrInput` via:
+//
+//	        UsageProfileProfileConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UsageProfileProfileConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUsageProfileProfileConfigurationPtrOutput() UsageProfileProfileConfigurationPtrOutput
+	ToUsageProfileProfileConfigurationPtrOutputWithContext(context.Context) UsageProfileProfileConfigurationPtrOutput
+}
+
+type usageProfileProfileConfigurationPtrType UsageProfileProfileConfigurationArgs
+
+func UsageProfileProfileConfigurationPtr(v *UsageProfileProfileConfigurationArgs) UsageProfileProfileConfigurationPtrInput {
+	return (*usageProfileProfileConfigurationPtrType)(v)
+}
+
+func (*usageProfileProfileConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsageProfileProfileConfiguration)(nil)).Elem()
+}
+
+func (i *usageProfileProfileConfigurationPtrType) ToUsageProfileProfileConfigurationPtrOutput() UsageProfileProfileConfigurationPtrOutput {
+	return i.ToUsageProfileProfileConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *usageProfileProfileConfigurationPtrType) ToUsageProfileProfileConfigurationPtrOutputWithContext(ctx context.Context) UsageProfileProfileConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsageProfileProfileConfigurationPtrOutput)
+}
+
+type UsageProfileProfileConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UsageProfileProfileConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageProfileProfileConfiguration)(nil)).Elem()
+}
+
+func (o UsageProfileProfileConfigurationOutput) ToUsageProfileProfileConfigurationOutput() UsageProfileProfileConfigurationOutput {
+	return o
+}
+
+func (o UsageProfileProfileConfigurationOutput) ToUsageProfileProfileConfigurationOutputWithContext(ctx context.Context) UsageProfileProfileConfigurationOutput {
+	return o
+}
+
+func (o UsageProfileProfileConfigurationOutput) ToUsageProfileProfileConfigurationPtrOutput() UsageProfileProfileConfigurationPtrOutput {
+	return o.ToUsageProfileProfileConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UsageProfileProfileConfigurationOutput) ToUsageProfileProfileConfigurationPtrOutputWithContext(ctx context.Context) UsageProfileProfileConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsageProfileProfileConfiguration) *UsageProfileProfileConfiguration {
+		return &v
+	}).(UsageProfileProfileConfigurationPtrOutput)
+}
+
+func (o UsageProfileProfileConfigurationOutput) JobConfiguration() UsageProfileConfigurationObjectMapOutput {
+	return o.ApplyT(func(v UsageProfileProfileConfiguration) map[string]UsageProfileConfigurationObject {
+		return v.JobConfiguration
+	}).(UsageProfileConfigurationObjectMapOutput)
+}
+
+func (o UsageProfileProfileConfigurationOutput) SessionConfiguration() UsageProfileConfigurationObjectMapOutput {
+	return o.ApplyT(func(v UsageProfileProfileConfiguration) map[string]UsageProfileConfigurationObject {
+		return v.SessionConfiguration
+	}).(UsageProfileConfigurationObjectMapOutput)
+}
+
+type UsageProfileProfileConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UsageProfileProfileConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsageProfileProfileConfiguration)(nil)).Elem()
+}
+
+func (o UsageProfileProfileConfigurationPtrOutput) ToUsageProfileProfileConfigurationPtrOutput() UsageProfileProfileConfigurationPtrOutput {
+	return o
+}
+
+func (o UsageProfileProfileConfigurationPtrOutput) ToUsageProfileProfileConfigurationPtrOutputWithContext(ctx context.Context) UsageProfileProfileConfigurationPtrOutput {
+	return o
+}
+
+func (o UsageProfileProfileConfigurationPtrOutput) Elem() UsageProfileProfileConfigurationOutput {
+	return o.ApplyT(func(v *UsageProfileProfileConfiguration) UsageProfileProfileConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UsageProfileProfileConfiguration
+		return ret
+	}).(UsageProfileProfileConfigurationOutput)
+}
+
+func (o UsageProfileProfileConfigurationPtrOutput) JobConfiguration() UsageProfileConfigurationObjectMapOutput {
+	return o.ApplyT(func(v *UsageProfileProfileConfiguration) map[string]UsageProfileConfigurationObject {
+		if v == nil {
+			return nil
+		}
+		return v.JobConfiguration
+	}).(UsageProfileConfigurationObjectMapOutput)
+}
+
+func (o UsageProfileProfileConfigurationPtrOutput) SessionConfiguration() UsageProfileConfigurationObjectMapOutput {
+	return o.ApplyT(func(v *UsageProfileProfileConfiguration) map[string]UsageProfileConfigurationObject {
+		if v == nil {
+			return nil
+		}
+		return v.SessionConfiguration
+	}).(UsageProfileConfigurationObjectMapOutput)
+}
+
+type UsageProfileTag struct {
+	// A key to identify the tag.
+	Key string `pulumi:"key"`
+	// Corresponding tag value for the key.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetInput)(nil)).Elem(), CrawlerCatalogTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetArrayInput)(nil)).Elem(), CrawlerCatalogTargetArray{})
@@ -3657,6 +4482,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseInputTypeInput)(nil)).Elem(), DatabaseInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalPrivilegesInput)(nil)).Elem(), DatabasePrincipalPrivilegesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalPrivilegesArrayInput)(nil)).Elem(), DatabasePrincipalPrivilegesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobCommandInput)(nil)).Elem(), JobCommandArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobConnectionsListInput)(nil)).Elem(), JobConnectionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobConnectionsListPtrInput)(nil)).Elem(), JobConnectionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyInput)(nil)).Elem(), JobExecutionPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyPtrInput)(nil)).Elem(), JobExecutionPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyInput)(nil)).Elem(), JobNotificationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyPtrInput)(nil)).Elem(), JobNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryPtrInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypeInput)(nil)).Elem(), SchemaVersionTypeArgs{})
@@ -3672,6 +4504,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerNotificationPropertyPtrInput)(nil)).Elem(), TriggerNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateInput)(nil)).Elem(), TriggerPredicateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicatePtrInput)(nil)).Elem(), TriggerPredicateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileConfigurationObjectInput)(nil)).Elem(), UsageProfileConfigurationObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileConfigurationObjectMapInput)(nil)).Elem(), UsageProfileConfigurationObjectMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileProfileConfigurationInput)(nil)).Elem(), UsageProfileProfileConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileProfileConfigurationPtrInput)(nil)).Elem(), UsageProfileProfileConfigurationArgs{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDeltaTargetOutput{})
@@ -3706,6 +4542,14 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseInputTypePtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesArrayOutput{})
+	pulumi.RegisterOutputType(JobCommandOutput{})
+	pulumi.RegisterOutputType(JobCommandPtrOutput{})
+	pulumi.RegisterOutputType(JobConnectionsListOutput{})
+	pulumi.RegisterOutputType(JobConnectionsListPtrOutput{})
+	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})
+	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
+	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
+	pulumi.RegisterOutputType(JobNotificationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryPtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionTypeOutput{})
@@ -3721,4 +4565,8 @@ func init() {
 	pulumi.RegisterOutputType(TriggerNotificationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(TriggerPredicateOutput{})
 	pulumi.RegisterOutputType(TriggerPredicatePtrOutput{})
+	pulumi.RegisterOutputType(UsageProfileConfigurationObjectOutput{})
+	pulumi.RegisterOutputType(UsageProfileConfigurationObjectMapOutput{})
+	pulumi.RegisterOutputType(UsageProfileProfileConfigurationOutput{})
+	pulumi.RegisterOutputType(UsageProfileProfileConfigurationPtrOutput{})
 }

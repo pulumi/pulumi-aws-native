@@ -181,6 +181,380 @@ namespace Pulumi.AwsNative.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var myJobRole = new AwsNative.Iam.Role("myJobRole", new()
+    ///     {
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["service"] = new[]
+    ///                         {
+    ///                             "glue.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Path = "/",
+    ///         Policies = new[]
+    ///         {
+    ///             new AwsNative.Iam.Inputs.RolePolicyArgs
+    ///             {
+    ///                 PolicyName = "root",
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = "*",
+    ///                             ["resource"] = "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var myJob = new AwsNative.Glue.Job("myJob", new()
+    ///     {
+    ///         Command = new AwsNative.Glue.Inputs.JobCommandArgs
+    ///         {
+    ///             Name = "glueetl",
+    ///             ScriptLocation = "s3://&lt;your-S3-script-uri&gt;",
+    ///         },
+    ///         DefaultArguments = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["--job-bookmark-option"] = "job-bookmark-enable",
+    ///         },
+    ///         ExecutionProperty = new AwsNative.Glue.Inputs.JobExecutionPropertyArgs
+    ///         {
+    ///             MaxConcurrentRuns = 2,
+    ///         },
+    ///         MaxRetries = 0,
+    ///         Name = "cf-job1",
+    ///         Role = myJobRole.Id,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myJobRole = new AwsNative.Iam.Role("myJobRole", new()
+    ///     {
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["service"] = new[]
+    ///                         {
+    ///                             "glue.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Path = "/",
+    ///         Policies = new[]
+    ///         {
+    ///             new AwsNative.Iam.Inputs.RolePolicyArgs
+    ///             {
+    ///                 PolicyName = "root",
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = "*",
+    ///                             ["resource"] = "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var myJob = new AwsNative.Glue.Job("myJob", new()
+    ///     {
+    ///         Command = new AwsNative.Glue.Inputs.JobCommandArgs
+    ///         {
+    ///             Name = "glueetl",
+    ///             ScriptLocation = "s3://&lt;your-S3-script-uri&gt;",
+    ///         },
+    ///         DefaultArguments = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["--job-bookmark-option"] = "job-bookmark-enable",
+    ///         },
+    ///         ExecutionProperty = new AwsNative.Glue.Inputs.JobExecutionPropertyArgs
+    ///         {
+    ///             MaxConcurrentRuns = 2,
+    ///         },
+    ///         MaxRetries = 0,
+    ///         Name = "cf-job1",
+    ///         Role = myJobRole.Id,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myJobTriggerRole = new AwsNative.Iam.Role("myJobTriggerRole", new()
+    ///     {
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["service"] = new[]
+    ///                         {
+    ///                             "glue.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Path = "/",
+    ///         Policies = new[]
+    ///         {
+    ///             new AwsNative.Iam.Inputs.RolePolicyArgs
+    ///             {
+    ///                 PolicyName = "root",
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = "*",
+    ///                             ["resource"] = "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var myJob = new AwsNative.Glue.Job("myJob", new()
+    ///     {
+    ///         Name = "MyJobTriggerJob",
+    ///         LogUri = "wikiData",
+    ///         Role = myJobTriggerRole.Id,
+    ///         Command = new AwsNative.Glue.Inputs.JobCommandArgs
+    ///         {
+    ///             Name = "glueetl",
+    ///             ScriptLocation = "s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py",
+    ///         },
+    ///         DefaultArguments = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["--job-bookmark-option"] = "job-bookmark-enable",
+    ///         },
+    ///         MaxRetries = 0,
+    ///     });
+    /// 
+    ///     var myJobTrigger = new AwsNative.Glue.Trigger("myJobTrigger", new()
+    ///     {
+    ///         Name = "MyJobTrigger",
+    ///         Type = "CONDITIONAL",
+    ///         Description = "Description for a conditional job trigger",
+    ///         Actions = new[]
+    ///         {
+    ///             new AwsNative.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = myJob.Id,
+    ///                 Arguments = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["--job-bookmark-option"] = "job-bookmark-enable",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Predicate = new AwsNative.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new AwsNative.Glue.Inputs.TriggerConditionArgs
+    ///                 {
+    ///                     LogicalOperator = "EQUALS",
+    ///                     JobName = myJob.Id,
+    ///                     State = "SUCCEEDED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myJobTriggerRole = new AwsNative.Iam.Role("myJobTriggerRole", new()
+    ///     {
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["service"] = new[]
+    ///                         {
+    ///                             "glue.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Path = "/",
+    ///         Policies = new[]
+    ///         {
+    ///             new AwsNative.Iam.Inputs.RolePolicyArgs
+    ///             {
+    ///                 PolicyName = "root",
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = "*",
+    ///                             ["resource"] = "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var myJob = new AwsNative.Glue.Job("myJob", new()
+    ///     {
+    ///         Name = "MyJobTriggerJob",
+    ///         LogUri = "wikiData",
+    ///         Role = myJobTriggerRole.Id,
+    ///         Command = new AwsNative.Glue.Inputs.JobCommandArgs
+    ///         {
+    ///             Name = "glueetl",
+    ///             ScriptLocation = "s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py",
+    ///         },
+    ///         DefaultArguments = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["--job-bookmark-option"] = "job-bookmark-enable",
+    ///         },
+    ///         MaxRetries = 0,
+    ///     });
+    /// 
+    ///     var myJobTrigger = new AwsNative.Glue.Trigger("myJobTrigger", new()
+    ///     {
+    ///         Name = "MyJobTrigger",
+    ///         Type = "CONDITIONAL",
+    ///         Description = "Description for a conditional job trigger",
+    ///         Actions = new[]
+    ///         {
+    ///             new AwsNative.Glue.Inputs.TriggerActionArgs
+    ///             {
+    ///                 JobName = myJob.Id,
+    ///                 Arguments = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["--job-bookmark-option"] = "job-bookmark-enable",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Predicate = new AwsNative.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new AwsNative.Glue.Inputs.TriggerConditionArgs
+    ///                 {
+    ///                     LogicalOperator = "EQUALS",
+    ///                     JobName = myJob.Id,
+    ///                     State = "SUCCEEDED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
     ///     var amazonGrafanaWorkspaceIAMRole = new AwsNative.Iam.Role("amazonGrafanaWorkspaceIAMRole", new()
     ///     {
     ///         ManagedPolicyArns = new[]

@@ -25,6 +25,11 @@ export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
 utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
+export { FolderArgs } from "./folder";
+export type Folder = import("./folder").Folder;
+export const Folder: typeof import("./folder").Folder = null as any;
+utilities.lazyLoad(exports, ["Folder"], () => require("./folder"));
+
 export { GetAnalysisArgs, GetAnalysisResult, GetAnalysisOutputArgs } from "./getAnalysis";
 export const getAnalysis: typeof import("./getAnalysis").getAnalysis = null as any;
 export const getAnalysisOutput: typeof import("./getAnalysis").getAnalysisOutput = null as any;
@@ -44,6 +49,11 @@ export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from 
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+
+export { GetFolderArgs, GetFolderResult, GetFolderOutputArgs } from "./getFolder";
+export const getFolder: typeof import("./getFolder").getFolder = null as any;
+export const getFolderOutput: typeof import("./getFolder").getFolderOutput = null as any;
+utilities.lazyLoad(exports, ["getFolder","getFolderOutput"], () => require("./getFolder"));
 
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
@@ -106,6 +116,8 @@ const _module = {
                 return new DataSet(name, <any>undefined, { urn })
             case "aws-native:quicksight:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws-native:quicksight:Folder":
+                return new Folder(name, <any>undefined, { urn })
             case "aws-native:quicksight:RefreshSchedule":
                 return new RefreshSchedule(name, <any>undefined, { urn })
             case "aws-native:quicksight:Template":

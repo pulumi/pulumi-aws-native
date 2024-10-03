@@ -40,7 +40,7 @@ class ImageVersionArgs:
                *Length Constraints* : Minimum length of 1. Maximum length of 63.
                
                *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
-        :param pulumi.Input[int] version: The version of the image.
+        :param pulumi.Input[int] version: The version number.
         """
         pulumi.set(__self__, "base_image", base_image)
         pulumi.set(__self__, "image_name", image_name)
@@ -178,7 +178,7 @@ class ImageVersionArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
         """
-        The version of the image.
+        The version number.
         """
         return pulumi.get(self, "version")
 
@@ -216,7 +216,7 @@ class ImageVersion(pulumi.CustomResource):
                *Length Constraints* : Minimum length of 1. Maximum length of 63.
                
                *Pattern* : `^[a-zA-Z0-9]([-.]?[a-zA-Z0-9]){0,62}$`
-        :param pulumi.Input[int] version: The version of the image.
+        :param pulumi.Input[int] version: The version number.
         """
         ...
     @overload
@@ -422,7 +422,7 @@ class ImageVersion(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[int]]:
         """
-        The version of the image.
+        The version number.
         """
         return pulumi.get(self, "version")
 

@@ -197,6 +197,60 @@ class Secret(pulumi.CustomResource):
          For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
          For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
 
+        ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_redshift_secret = aws_native.secretsmanager.Secret("myRedshiftSecret",
+            description="This is a Secrets Manager secret for a Redshift cluster",
+            generate_secret_string={
+                "secret_string_template": "{\\"username\\": \\"admin\\"}",
+                "generate_string_key": "password",
+                "password_length": 16,
+                "exclude_characters": "\\"'@/\\\\",
+            })
+        my_redshift_cluster = aws_native.redshift.Cluster("myRedshiftCluster",
+            db_name="myjsondb",
+            master_username=my_redshift_secret.id.apply(lambda id: f"{{{{resolve:secretsmanager:{id}::username}}}}"),
+            master_user_password=my_redshift_secret.id.apply(lambda id: f"{{{{resolve:secretsmanager:{id}::password}}}}"),
+            node_type="ds2.xlarge",
+            cluster_type="single-node")
+        secret_redshift_attachment = aws_native.secretsmanager.SecretTargetAttachment("secretRedshiftAttachment",
+            secret_id=my_redshift_secret.id,
+            target_id=my_redshift_cluster.id,
+            target_type="AWS::Redshift::Cluster")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_redshift_secret = aws_native.secretsmanager.Secret("myRedshiftSecret",
+            description="This is a Secrets Manager secret for a Redshift cluster",
+            generate_secret_string={
+                "secret_string_template": "{\\"username\\": \\"admin\\"}",
+                "generate_string_key": "password",
+                "password_length": 16,
+                "exclude_characters": "\\"'@/\\\\",
+            })
+        my_redshift_cluster = aws_native.redshift.Cluster("myRedshiftCluster",
+            db_name="myjsondb",
+            master_username=my_redshift_secret.id.apply(lambda id: f"{{{{resolve:secretsmanager:{id}::username}}}}"),
+            master_user_password=my_redshift_secret.id.apply(lambda id: f"{{{{resolve:secretsmanager:{id}::password}}}}"),
+            node_type="ds2.xlarge",
+            cluster_type="single-node")
+        secret_redshift_attachment = aws_native.secretsmanager.SecretTargetAttachment("secretRedshiftAttachment",
+            secret_id=my_redshift_secret.id,
+            target_id=my_redshift_cluster.id,
+            target_type="AWS::Redshift::Cluster")
+
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the secret.
@@ -238,6 +292,60 @@ class Secret(pulumi.CustomResource):
          To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see [Retrieve a secret in an resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).
          For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
          For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
+
+        ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_redshift_secret = aws_native.secretsmanager.Secret("myRedshiftSecret",
+            description="This is a Secrets Manager secret for a Redshift cluster",
+            generate_secret_string={
+                "secret_string_template": "{\\"username\\": \\"admin\\"}",
+                "generate_string_key": "password",
+                "password_length": 16,
+                "exclude_characters": "\\"'@/\\\\",
+            })
+        my_redshift_cluster = aws_native.redshift.Cluster("myRedshiftCluster",
+            db_name="myjsondb",
+            master_username=my_redshift_secret.id.apply(lambda id: f"{{{{resolve:secretsmanager:{id}::username}}}}"),
+            master_user_password=my_redshift_secret.id.apply(lambda id: f"{{{{resolve:secretsmanager:{id}::password}}}}"),
+            node_type="ds2.xlarge",
+            cluster_type="single-node")
+        secret_redshift_attachment = aws_native.secretsmanager.SecretTargetAttachment("secretRedshiftAttachment",
+            secret_id=my_redshift_secret.id,
+            target_id=my_redshift_cluster.id,
+            target_type="AWS::Redshift::Cluster")
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_redshift_secret = aws_native.secretsmanager.Secret("myRedshiftSecret",
+            description="This is a Secrets Manager secret for a Redshift cluster",
+            generate_secret_string={
+                "secret_string_template": "{\\"username\\": \\"admin\\"}",
+                "generate_string_key": "password",
+                "password_length": 16,
+                "exclude_characters": "\\"'@/\\\\",
+            })
+        my_redshift_cluster = aws_native.redshift.Cluster("myRedshiftCluster",
+            db_name="myjsondb",
+            master_username=my_redshift_secret.id.apply(lambda id: f"{{{{resolve:secretsmanager:{id}::username}}}}"),
+            master_user_password=my_redshift_secret.id.apply(lambda id: f"{{{{resolve:secretsmanager:{id}::password}}}}"),
+            node_type="ds2.xlarge",
+            cluster_type="single-node")
+        secret_redshift_attachment = aws_native.secretsmanager.SecretTargetAttachment("secretRedshiftAttachment",
+            secret_id=my_redshift_secret.id,
+            target_id=my_redshift_cluster.id,
+            target_type="AWS::Redshift::Cluster")
+
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

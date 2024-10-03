@@ -14,6 +14,66 @@ import * as utilities from "../utilities";
  *  To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see [Retrieve a secret in an resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).
  *  For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
  *  For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
+ *
+ * ## Example Usage
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const myRedshiftSecret = new aws_native.secretsmanager.Secret("myRedshiftSecret", {
+ *     description: "This is a Secrets Manager secret for a Redshift cluster",
+ *     generateSecretString: {
+ *         secretStringTemplate: "{\"username\": \"admin\"}",
+ *         generateStringKey: "password",
+ *         passwordLength: 16,
+ *         excludeCharacters: "\"'@/\\",
+ *     },
+ * });
+ * const myRedshiftCluster = new aws_native.redshift.Cluster("myRedshiftCluster", {
+ *     dbName: "myjsondb",
+ *     masterUsername: pulumi.interpolate`{{resolve:secretsmanager:${myRedshiftSecret.id}::username}}`,
+ *     masterUserPassword: pulumi.interpolate`{{resolve:secretsmanager:${myRedshiftSecret.id}::password}}`,
+ *     nodeType: "ds2.xlarge",
+ *     clusterType: "single-node",
+ * });
+ * const secretRedshiftAttachment = new aws_native.secretsmanager.SecretTargetAttachment("secretRedshiftAttachment", {
+ *     secretId: myRedshiftSecret.id,
+ *     targetId: myRedshiftCluster.id,
+ *     targetType: "AWS::Redshift::Cluster",
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const myRedshiftSecret = new aws_native.secretsmanager.Secret("myRedshiftSecret", {
+ *     description: "This is a Secrets Manager secret for a Redshift cluster",
+ *     generateSecretString: {
+ *         secretStringTemplate: "{\"username\": \"admin\"}",
+ *         generateStringKey: "password",
+ *         passwordLength: 16,
+ *         excludeCharacters: "\"'@/\\",
+ *     },
+ * });
+ * const myRedshiftCluster = new aws_native.redshift.Cluster("myRedshiftCluster", {
+ *     dbName: "myjsondb",
+ *     masterUsername: pulumi.interpolate`{{resolve:secretsmanager:${myRedshiftSecret.id}::username}}`,
+ *     masterUserPassword: pulumi.interpolate`{{resolve:secretsmanager:${myRedshiftSecret.id}::password}}`,
+ *     nodeType: "ds2.xlarge",
+ *     clusterType: "single-node",
+ * });
+ * const secretRedshiftAttachment = new aws_native.secretsmanager.SecretTargetAttachment("secretRedshiftAttachment", {
+ *     secretId: myRedshiftSecret.id,
+ *     targetId: myRedshiftCluster.id,
+ *     targetType: "AWS::Redshift::Cluster",
+ * });
+ *
+ * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

@@ -10,10 +10,12 @@ from .analysis import *
 from .dashboard import *
 from .data_set import *
 from .data_source import *
+from .folder import *
 from .get_analysis import *
 from .get_dashboard import *
 from .get_data_set import *
 from .get_data_source import *
+from .get_folder import *
 from .get_template import *
 from .get_theme import *
 from .get_topic import *

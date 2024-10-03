@@ -25,6 +25,11 @@ export const getDatabase: typeof import("./getDatabase").getDatabase = null as a
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+
 export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
 export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
@@ -44,6 +49,16 @@ export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTri
 export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
 export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
+
+export { GetUsageProfileArgs, GetUsageProfileResult, GetUsageProfileOutputArgs } from "./getUsageProfile";
+export const getUsageProfile: typeof import("./getUsageProfile").getUsageProfile = null as any;
+export const getUsageProfileOutput: typeof import("./getUsageProfile").getUsageProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getUsageProfile","getUsageProfileOutput"], () => require("./getUsageProfile"));
+
+export { JobArgs } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
 export { RegistryArgs } from "./registry";
 export type Registry = import("./registry").Registry;
@@ -70,6 +85,11 @@ export type Trigger = import("./trigger").Trigger;
 export const Trigger: typeof import("./trigger").Trigger = null as any;
 utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
 
+export { UsageProfileArgs } from "./usageProfile";
+export type UsageProfile = import("./usageProfile").UsageProfile;
+export const UsageProfile: typeof import("./usageProfile").UsageProfile = null as any;
+utilities.lazyLoad(exports, ["UsageProfile"], () => require("./usageProfile"));
+
 
 // Export enums:
 export * from "../types/enums/glue";
@@ -82,6 +102,8 @@ const _module = {
                 return new Crawler(name, <any>undefined, { urn })
             case "aws-native:glue:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "aws-native:glue:Job":
+                return new Job(name, <any>undefined, { urn })
             case "aws-native:glue:Registry":
                 return new Registry(name, <any>undefined, { urn })
             case "aws-native:glue:Schema":
@@ -92,6 +114,8 @@ const _module = {
                 return new SchemaVersionMetadata(name, <any>undefined, { urn })
             case "aws-native:glue:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
+            case "aws-native:glue:UsageProfile":
+                return new UsageProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

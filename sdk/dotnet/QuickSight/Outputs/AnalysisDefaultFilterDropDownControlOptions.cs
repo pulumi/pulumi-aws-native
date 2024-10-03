@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDefaultFilterDropDownControlOptions
     {
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisCommitMode? CommitMode;
         /// <summary>
         /// The display options of a control.
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private AnalysisDefaultFilterDropDownControlOptions(
+            Pulumi.AwsNative.QuickSight.AnalysisCommitMode? commitMode,
+
             Outputs.AnalysisDropDownControlDisplayOptions? displayOptions,
 
             Outputs.AnalysisFilterSelectableValues? selectableValues,
 
             Pulumi.AwsNative.QuickSight.AnalysisSheetControlListType? type)
         {
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             SelectableValues = selectableValues;
             Type = type;

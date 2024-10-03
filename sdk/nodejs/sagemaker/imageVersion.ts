@@ -77,7 +77,7 @@ export class ImageVersion extends pulumi.CustomResource {
     public readonly releaseNotes!: pulumi.Output<string | undefined>;
     public readonly vendorGuidance!: pulumi.Output<enums.sagemaker.ImageVersionVendorGuidance | undefined>;
     /**
-     * The version of the image.
+     * The version number.
      */
     public readonly version!: pulumi.Output<number | undefined>;
 
@@ -163,7 +163,7 @@ export interface ImageVersionArgs {
     releaseNotes?: pulumi.Input<string>;
     vendorGuidance?: pulumi.Input<enums.sagemaker.ImageVersionVendorGuidance>;
     /**
-     * The version of the image.
+     * The version number.
      */
     version?: pulumi.Input<number>;
 }

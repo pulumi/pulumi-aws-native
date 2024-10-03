@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
         /// </summary>
         public readonly Outputs.AnalysisCascadingControlConfiguration? CascadingControlConfiguration;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisCommitMode? CommitMode;
         /// <summary>
         /// The display options of a control.
         /// </summary>
@@ -46,6 +47,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisParameterDropDownControl(
             Outputs.AnalysisCascadingControlConfiguration? cascadingControlConfiguration,
 
+            Pulumi.AwsNative.QuickSight.AnalysisCommitMode? commitMode,
+
             Outputs.AnalysisDropDownControlDisplayOptions? displayOptions,
 
             string parameterControlId,
@@ -59,6 +62,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.AnalysisSheetControlListType? type)
         {
             CascadingControlConfiguration = cascadingControlConfiguration;
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             ParameterControlId = parameterControlId;
             SelectableValues = selectableValues;
