@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
  */
 export function getConformancePack(args: GetConformancePackArgs, opts?: pulumi.InvokeOptions): Promise<GetConformancePackResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getConformancePack", {
         "conformancePackName": args.conformancePackName,
@@ -42,10 +43,7 @@ export interface GetConformancePackResult {
  * A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
  */
 export function getConformancePackOutput(args: GetConformancePackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConformancePackResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:configuration:getConformancePack", {
-        "conformancePackName": args.conformancePackName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConformancePack(a, opts))
 }
 
 export interface GetConformancePackOutputArgs {

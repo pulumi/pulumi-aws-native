@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
  */
 export function getGlobalTable(args: GetGlobalTableArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalTableResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dynamodb:getGlobalTable", {
         "tableName": args.tableName,
@@ -95,10 +96,7 @@ export interface GetGlobalTableResult {
  * Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
  */
 export function getGlobalTableOutput(args: GetGlobalTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalTableResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:dynamodb:getGlobalTable", {
-        "tableName": args.tableName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGlobalTable(a, opts))
 }
 
 export interface GetGlobalTableOutputArgs {

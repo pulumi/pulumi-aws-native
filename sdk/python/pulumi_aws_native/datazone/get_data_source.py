@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -261,6 +256,9 @@ def get_data_source(domain_id: Optional[str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
+
+
+@_utilities.lift_output_func(get_data_source)
 def get_data_source_output(domain_id: Optional[pulumi.Input[str]] = None,
                            id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
@@ -271,25 +269,4 @@ def get_data_source_output(domain_id: Optional[pulumi.Input[str]] = None,
     :param str domain_id: The ID of the Amazon DataZone domain where the data source is created.
     :param str id: The unique identifier of the data source.
     """
-    __args__ = dict()
-    __args__['domainId'] = domain_id
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
-    return __ret__.apply(lambda __response__: GetDataSourceResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        domain_id=pulumi.get(__response__, 'domain_id'),
-        enable_setting=pulumi.get(__response__, 'enable_setting'),
-        environment_id=pulumi.get(__response__, 'environment_id'),
-        id=pulumi.get(__response__, 'id'),
-        last_run_asset_count=pulumi.get(__response__, 'last_run_asset_count'),
-        last_run_at=pulumi.get(__response__, 'last_run_at'),
-        last_run_status=pulumi.get(__response__, 'last_run_status'),
-        name=pulumi.get(__response__, 'name'),
-        project_id=pulumi.get(__response__, 'project_id'),
-        publish_on_import=pulumi.get(__response__, 'publish_on_import'),
-        recommendation=pulumi.get(__response__, 'recommendation'),
-        schedule=pulumi.get(__response__, 'schedule'),
-        status=pulumi.get(__response__, 'status'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+    ...

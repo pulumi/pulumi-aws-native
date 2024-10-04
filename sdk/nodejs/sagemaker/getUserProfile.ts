@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::UserProfile
  */
 export function getUserProfile(args: GetUserProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetUserProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getUserProfile", {
         "domainId": args.domainId,
@@ -43,11 +44,7 @@ export interface GetUserProfileResult {
  * Resource Type definition for AWS::SageMaker::UserProfile
  */
 export function getUserProfileOutput(args: GetUserProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getUserProfile", {
-        "domainId": args.domainId,
-        "userProfileName": args.userProfileName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUserProfile(a, opts))
 }
 
 export interface GetUserProfileOutputArgs {

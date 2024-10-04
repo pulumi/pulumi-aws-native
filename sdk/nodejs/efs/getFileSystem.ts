@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
  */
 export function getFileSystem(args: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:efs:getFileSystem", {
         "fileSystemId": args.fileSystemId,
@@ -80,10 +81,7 @@ export interface GetFileSystemResult {
  * The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
  */
 export function getFileSystemOutput(args: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:efs:getFileSystem", {
-        "fileSystemId": args.fileSystemId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFileSystem(a, opts))
 }
 
 export interface GetFileSystemOutputArgs {

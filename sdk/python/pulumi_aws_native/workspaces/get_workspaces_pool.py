@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -167,6 +162,9 @@ def get_workspaces_pool(pool_id: Optional[str] = None,
         pool_arn=pulumi.get(__ret__, 'pool_arn'),
         pool_id=pulumi.get(__ret__, 'pool_id'),
         timeout_settings=pulumi.get(__ret__, 'timeout_settings'))
+
+
+@_utilities.lift_output_func(get_workspaces_pool)
 def get_workspaces_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspacesPoolResult]:
     """
@@ -175,17 +173,4 @@ def get_workspaces_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
 
     :param str pool_id: The identifier of the pool.
     """
-    __args__ = dict()
-    __args__['poolId'] = pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:workspaces:getWorkspacesPool', __args__, opts=opts, typ=GetWorkspacesPoolResult)
-    return __ret__.apply(lambda __response__: GetWorkspacesPoolResult(
-        application_settings=pulumi.get(__response__, 'application_settings'),
-        bundle_id=pulumi.get(__response__, 'bundle_id'),
-        capacity=pulumi.get(__response__, 'capacity'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        directory_id=pulumi.get(__response__, 'directory_id'),
-        pool_arn=pulumi.get(__response__, 'pool_arn'),
-        pool_id=pulumi.get(__response__, 'pool_id'),
-        timeout_settings=pulumi.get(__response__, 'timeout_settings')))
+    ...

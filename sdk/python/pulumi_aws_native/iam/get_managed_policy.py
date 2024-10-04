@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -193,6 +188,9 @@ def get_managed_policy(policy_arn: Optional[str] = None,
         roles=pulumi.get(__ret__, 'roles'),
         update_date=pulumi.get(__ret__, 'update_date'),
         users=pulumi.get(__ret__, 'users'))
+
+
+@_utilities.lift_output_func(get_managed_policy)
 def get_managed_policy_output(policy_arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPolicyResult]:
     """
@@ -201,20 +199,4 @@ def get_managed_policy_output(policy_arn: Optional[pulumi.Input[str]] = None,
      As a best practice, you can validate your IAM policies. To learn more, see [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) in the *IAM User Guide*.
      For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
     """
-    __args__ = dict()
-    __args__['policyArn'] = policy_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getManagedPolicy', __args__, opts=opts, typ=GetManagedPolicyResult)
-    return __ret__.apply(lambda __response__: GetManagedPolicyResult(
-        attachment_count=pulumi.get(__response__, 'attachment_count'),
-        create_date=pulumi.get(__response__, 'create_date'),
-        default_version_id=pulumi.get(__response__, 'default_version_id'),
-        groups=pulumi.get(__response__, 'groups'),
-        is_attachable=pulumi.get(__response__, 'is_attachable'),
-        permissions_boundary_usage_count=pulumi.get(__response__, 'permissions_boundary_usage_count'),
-        policy_arn=pulumi.get(__response__, 'policy_arn'),
-        policy_document=pulumi.get(__response__, 'policy_document'),
-        policy_id=pulumi.get(__response__, 'policy_id'),
-        roles=pulumi.get(__response__, 'roles'),
-        update_date=pulumi.get(__response__, 'update_date'),
-        users=pulumi.get(__response__, 'users')))
+    ...

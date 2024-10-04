@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -144,6 +139,9 @@ def get_table(keyspace_name: Optional[str] = None,
         point_in_time_recovery_enabled=pulumi.get(__ret__, 'point_in_time_recovery_enabled'),
         regular_columns=pulumi.get(__ret__, 'regular_columns'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_table)
 def get_table_output(keyspace_name: Optional[pulumi.Input[str]] = None,
                      table_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
@@ -154,15 +152,4 @@ def get_table_output(keyspace_name: Optional[pulumi.Input[str]] = None,
     :param str keyspace_name: Name for Cassandra keyspace
     :param str table_name: Name for Cassandra table
     """
-    __args__ = dict()
-    __args__['keyspaceName'] = keyspace_name
-    __args__['tableName'] = table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cassandra:getTable', __args__, opts=opts, typ=GetTableResult)
-    return __ret__.apply(lambda __response__: GetTableResult(
-        billing_mode=pulumi.get(__response__, 'billing_mode'),
-        default_time_to_live=pulumi.get(__response__, 'default_time_to_live'),
-        encryption_specification=pulumi.get(__response__, 'encryption_specification'),
-        point_in_time_recovery_enabled=pulumi.get(__response__, 'point_in_time_recovery_enabled'),
-        regular_columns=pulumi.get(__response__, 'regular_columns'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Bedrock::DataSource Resource Type
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:bedrock:getDataSource", {
         "dataSourceId": args.dataSourceId,
@@ -82,11 +83,7 @@ export interface GetDataSourceResult {
  * Definition of AWS::Bedrock::DataSource Resource Type
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:bedrock:getDataSource", {
-        "dataSourceId": args.dataSourceId,
-        "knowledgeBaseId": args.knowledgeBaseId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
 }
 
 export interface GetDataSourceOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -155,6 +150,9 @@ def get_event_type(arn: Optional[str] = None,
         labels=pulumi.get(__ret__, 'labels'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_event_type)
 def get_event_type_output(arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventTypeResult]:
     """
@@ -163,16 +161,4 @@ def get_event_type_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the event type.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getEventType', __args__, opts=opts, typ=GetEventTypeResult)
-    return __ret__.apply(lambda __response__: GetEventTypeResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        description=pulumi.get(__response__, 'description'),
-        entity_types=pulumi.get(__response__, 'entity_types'),
-        event_variables=pulumi.get(__response__, 'event_variables'),
-        labels=pulumi.get(__response__, 'labels'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

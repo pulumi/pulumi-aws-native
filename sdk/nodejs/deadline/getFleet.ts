@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Deadline::Fleet Resource Type
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:deadline:getFleet", {
         "arn": args.arn,
@@ -77,10 +78,7 @@ export interface GetFleetResult {
  * Definition of AWS::Deadline::Fleet Resource Type
  */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:deadline:getFleet", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFleet(a, opts))
 }
 
 export interface GetFleetOutputArgs {

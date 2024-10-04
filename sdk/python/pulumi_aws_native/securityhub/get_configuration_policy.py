@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -167,6 +162,9 @@ def get_configuration_policy(arn: Optional[str] = None,
         service_enabled=pulumi.get(__ret__, 'service_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
+
+
+@_utilities.lift_output_func(get_configuration_policy)
 def get_configuration_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationPolicyResult]:
     """
@@ -175,17 +173,4 @@ def get_configuration_policy_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the configuration policy.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getConfigurationPolicy', __args__, opts=opts, typ=GetConfigurationPolicyResult)
-    return __ret__.apply(lambda __response__: GetConfigurationPolicyResult(
-        arn=pulumi.get(__response__, 'arn'),
-        configuration_policy=pulumi.get(__response__, 'configuration_policy'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        service_enabled=pulumi.get(__response__, 'service_enabled'),
-        tags=pulumi.get(__response__, 'tags'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+    ...

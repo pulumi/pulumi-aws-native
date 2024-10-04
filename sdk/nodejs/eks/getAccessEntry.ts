@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * An object representing an Amazon EKS AccessEntry.
  */
 export function getAccessEntry(args: GetAccessEntryArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessEntryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eks:getAccessEntry", {
         "clusterName": args.clusterName,
@@ -55,11 +56,7 @@ export interface GetAccessEntryResult {
  * An object representing an Amazon EKS AccessEntry.
  */
 export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessEntryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:eks:getAccessEntry", {
-        "clusterName": args.clusterName,
-        "principalArn": args.principalArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessEntry(a, opts))
 }
 
 export interface GetAccessEntryOutputArgs {

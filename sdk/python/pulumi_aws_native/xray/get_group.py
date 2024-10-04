@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -118,6 +113,9 @@ def get_group(group_arn: Optional[str] = None,
         group_name=pulumi.get(__ret__, 'group_name'),
         insights_configuration=pulumi.get(__ret__, 'insights_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_group)
 def get_group_output(group_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
@@ -126,13 +124,4 @@ def get_group_output(group_arn: Optional[pulumi.Input[str]] = None,
 
     :param str group_arn: The ARN of the group that was generated on creation.
     """
-    __args__ = dict()
-    __args__['groupArn'] = group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:xray:getGroup', __args__, opts=opts, typ=GetGroupResult)
-    return __ret__.apply(lambda __response__: GetGroupResult(
-        filter_expression=pulumi.get(__response__, 'filter_expression'),
-        group_arn=pulumi.get(__response__, 'group_arn'),
-        group_name=pulumi.get(__response__, 'group_name'),
-        insights_configuration=pulumi.get(__response__, 'insights_configuration'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

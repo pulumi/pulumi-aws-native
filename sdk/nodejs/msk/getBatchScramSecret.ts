@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MSK::BatchScramSecret
  */
 export function getBatchScramSecret(args: GetBatchScramSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchScramSecretResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:msk:getBatchScramSecret", {
         "clusterArn": args.clusterArn,
@@ -25,10 +26,7 @@ export interface GetBatchScramSecretResult {
  * Resource Type definition for AWS::MSK::BatchScramSecret
  */
 export function getBatchScramSecretOutput(args: GetBatchScramSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchScramSecretResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:msk:getBatchScramSecret", {
-        "clusterArn": args.clusterArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBatchScramSecret(a, opts))
 }
 
 export interface GetBatchScramSecretOutputArgs {

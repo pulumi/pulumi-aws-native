@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -139,6 +134,9 @@ def get_integration_response(api_id: Optional[str] = None,
         response_parameters=pulumi.get(__ret__, 'response_parameters'),
         response_templates=pulumi.get(__ret__, 'response_templates'),
         template_selection_expression=pulumi.get(__ret__, 'template_selection_expression'))
+
+
+@_utilities.lift_output_func(get_integration_response)
 def get_integration_response_output(api_id: Optional[pulumi.Input[str]] = None,
                                     integration_id: Optional[pulumi.Input[str]] = None,
                                     integration_response_id: Optional[pulumi.Input[str]] = None,
@@ -151,16 +149,4 @@ def get_integration_response_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str integration_id: The integration ID.
     :param str integration_response_id: The integration response ID.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['integrationId'] = integration_id
-    __args__['integrationResponseId'] = integration_response_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getIntegrationResponse', __args__, opts=opts, typ=GetIntegrationResponseResult)
-    return __ret__.apply(lambda __response__: GetIntegrationResponseResult(
-        content_handling_strategy=pulumi.get(__response__, 'content_handling_strategy'),
-        integration_response_id=pulumi.get(__response__, 'integration_response_id'),
-        integration_response_key=pulumi.get(__response__, 'integration_response_key'),
-        response_parameters=pulumi.get(__response__, 'response_parameters'),
-        response_templates=pulumi.get(__response__, 'response_templates'),
-        template_selection_expression=pulumi.get(__response__, 'template_selection_expression')))
+    ...

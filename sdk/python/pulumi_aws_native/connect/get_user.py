@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -194,6 +189,9 @@ def get_user(user_arn: Optional[str] = None,
         user_arn=pulumi.get(__ret__, 'user_arn'),
         user_proficiencies=pulumi.get(__ret__, 'user_proficiencies'),
         username=pulumi.get(__ret__, 'username'))
+
+
+@_utilities.lift_output_func(get_user)
 def get_user_output(user_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -202,19 +200,4 @@ def get_user_output(user_arn: Optional[pulumi.Input[str]] = None,
 
     :param str user_arn: The Amazon Resource Name (ARN) for the user.
     """
-    __args__ = dict()
-    __args__['userArn'] = user_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getUser', __args__, opts=opts, typ=GetUserResult)
-    return __ret__.apply(lambda __response__: GetUserResult(
-        directory_user_id=pulumi.get(__response__, 'directory_user_id'),
-        hierarchy_group_arn=pulumi.get(__response__, 'hierarchy_group_arn'),
-        identity_info=pulumi.get(__response__, 'identity_info'),
-        instance_arn=pulumi.get(__response__, 'instance_arn'),
-        phone_config=pulumi.get(__response__, 'phone_config'),
-        routing_profile_arn=pulumi.get(__response__, 'routing_profile_arn'),
-        security_profile_arns=pulumi.get(__response__, 'security_profile_arns'),
-        tags=pulumi.get(__response__, 'tags'),
-        user_arn=pulumi.get(__response__, 'user_arn'),
-        user_proficiencies=pulumi.get(__response__, 'user_proficiencies'),
-        username=pulumi.get(__response__, 'username')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -1055,6 +1050,9 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tde_credential_arn=pulumi.get(__ret__, 'tde_credential_arn'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
+
+
+@_utilities.lift_output_func(get_db_instance)
 def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbInstanceResult]:
     """
@@ -1085,63 +1083,4 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] =
             For information about constraints that apply to DB instance identifiers, see [Naming constraints in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon RDS User Guide*.
              If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
-    __args__ = dict()
-    __args__['dbInstanceIdentifier'] = db_instance_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbInstance', __args__, opts=opts, typ=GetDbInstanceResult)
-    return __ret__.apply(lambda __response__: GetDbInstanceResult(
-        allocated_storage=pulumi.get(__response__, 'allocated_storage'),
-        associated_roles=pulumi.get(__response__, 'associated_roles'),
-        auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
-        automatic_backup_replication_region=pulumi.get(__response__, 'automatic_backup_replication_region'),
-        availability_zone=pulumi.get(__response__, 'availability_zone'),
-        backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
-        ca_certificate_identifier=pulumi.get(__response__, 'ca_certificate_identifier'),
-        certificate_details=pulumi.get(__response__, 'certificate_details'),
-        copy_tags_to_snapshot=pulumi.get(__response__, 'copy_tags_to_snapshot'),
-        db_cluster_snapshot_identifier=pulumi.get(__response__, 'db_cluster_snapshot_identifier'),
-        db_instance_arn=pulumi.get(__response__, 'db_instance_arn'),
-        db_instance_class=pulumi.get(__response__, 'db_instance_class'),
-        db_parameter_group_name=pulumi.get(__response__, 'db_parameter_group_name'),
-        db_security_groups=pulumi.get(__response__, 'db_security_groups'),
-        db_system_id=pulumi.get(__response__, 'db_system_id'),
-        dbi_resource_id=pulumi.get(__response__, 'dbi_resource_id'),
-        dedicated_log_volume=pulumi.get(__response__, 'dedicated_log_volume'),
-        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
-        domain=pulumi.get(__response__, 'domain'),
-        domain_auth_secret_arn=pulumi.get(__response__, 'domain_auth_secret_arn'),
-        domain_dns_ips=pulumi.get(__response__, 'domain_dns_ips'),
-        domain_fqdn=pulumi.get(__response__, 'domain_fqdn'),
-        domain_iam_role_name=pulumi.get(__response__, 'domain_iam_role_name'),
-        domain_ou=pulumi.get(__response__, 'domain_ou'),
-        enable_cloudwatch_logs_exports=pulumi.get(__response__, 'enable_cloudwatch_logs_exports'),
-        enable_iam_database_authentication=pulumi.get(__response__, 'enable_iam_database_authentication'),
-        enable_performance_insights=pulumi.get(__response__, 'enable_performance_insights'),
-        endpoint=pulumi.get(__response__, 'endpoint'),
-        engine=pulumi.get(__response__, 'engine'),
-        engine_lifecycle_support=pulumi.get(__response__, 'engine_lifecycle_support'),
-        engine_version=pulumi.get(__response__, 'engine_version'),
-        iops=pulumi.get(__response__, 'iops'),
-        license_model=pulumi.get(__response__, 'license_model'),
-        manage_master_user_password=pulumi.get(__response__, 'manage_master_user_password'),
-        master_user_secret=pulumi.get(__response__, 'master_user_secret'),
-        max_allocated_storage=pulumi.get(__response__, 'max_allocated_storage'),
-        monitoring_interval=pulumi.get(__response__, 'monitoring_interval'),
-        monitoring_role_arn=pulumi.get(__response__, 'monitoring_role_arn'),
-        multi_az=pulumi.get(__response__, 'multi_az'),
-        network_type=pulumi.get(__response__, 'network_type'),
-        option_group_name=pulumi.get(__response__, 'option_group_name'),
-        performance_insights_kms_key_id=pulumi.get(__response__, 'performance_insights_kms_key_id'),
-        performance_insights_retention_period=pulumi.get(__response__, 'performance_insights_retention_period'),
-        preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
-        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
-        processor_features=pulumi.get(__response__, 'processor_features'),
-        promotion_tier=pulumi.get(__response__, 'promotion_tier'),
-        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
-        replica_mode=pulumi.get(__response__, 'replica_mode'),
-        source_db_cluster_identifier=pulumi.get(__response__, 'source_db_cluster_identifier'),
-        storage_throughput=pulumi.get(__response__, 'storage_throughput'),
-        storage_type=pulumi.get(__response__, 'storage_type'),
-        tags=pulumi.get(__response__, 'tags'),
-        tde_credential_arn=pulumi.get(__response__, 'tde_credential_arn'),
-        vpc_security_groups=pulumi.get(__response__, 'vpc_security_groups')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -195,6 +190,9 @@ def get_core_network(core_network_id: Optional[str] = None,
         segments=pulumi.get(__ret__, 'segments'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_core_network)
 def get_core_network_output(core_network_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoreNetworkResult]:
     """
@@ -203,19 +201,4 @@ def get_core_network_output(core_network_id: Optional[pulumi.Input[str]] = None,
 
     :param str core_network_id: The Id of core network
     """
-    __args__ = dict()
-    __args__['coreNetworkId'] = core_network_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getCoreNetwork', __args__, opts=opts, typ=GetCoreNetworkResult)
-    return __ret__.apply(lambda __response__: GetCoreNetworkResult(
-        core_network_arn=pulumi.get(__response__, 'core_network_arn'),
-        core_network_id=pulumi.get(__response__, 'core_network_id'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        edges=pulumi.get(__response__, 'edges'),
-        network_function_groups=pulumi.get(__response__, 'network_function_groups'),
-        owner_account=pulumi.get(__response__, 'owner_account'),
-        policy_document=pulumi.get(__response__, 'policy_document'),
-        segments=pulumi.get(__response__, 'segments'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

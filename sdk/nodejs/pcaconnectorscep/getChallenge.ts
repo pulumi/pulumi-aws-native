@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Represents a SCEP Challenge that is used for certificate enrollment
  */
 export function getChallenge(args: GetChallengeArgs, opts?: pulumi.InvokeOptions): Promise<GetChallengeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pcaconnectorscep:getChallenge", {
         "challengeArn": args.challengeArn,
@@ -32,10 +33,7 @@ export interface GetChallengeResult {
  * Represents a SCEP Challenge that is used for certificate enrollment
  */
 export function getChallengeOutput(args: GetChallengeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChallengeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:pcaconnectorscep:getChallenge", {
-        "challengeArn": args.challengeArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getChallenge(a, opts))
 }
 
 export interface GetChallengeOutputArgs {

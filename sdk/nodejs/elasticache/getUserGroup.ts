@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElastiCache::UserGroup
  */
 export function getUserGroup(args: GetUserGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticache:getUserGroup", {
         "userGroupId": args.userGroupId,
@@ -46,10 +47,7 @@ export interface GetUserGroupResult {
  * Resource Type definition for AWS::ElastiCache::UserGroup
  */
 export function getUserGroupOutput(args: GetUserGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:elasticache:getUserGroup", {
-        "userGroupId": args.userGroupId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUserGroup(a, opts))
 }
 
 export interface GetUserGroupOutputArgs {

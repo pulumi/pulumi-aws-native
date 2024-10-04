@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Omics::AnnotationStore Resource Type
  */
 export function getAnnotationStore(args: GetAnnotationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetAnnotationStoreResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:omics:getAnnotationStore", {
         "name": args.name,
@@ -62,10 +63,7 @@ export interface GetAnnotationStoreResult {
  * Definition of AWS::Omics::AnnotationStore Resource Type
  */
 export function getAnnotationStoreOutput(args: GetAnnotationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnnotationStoreResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:omics:getAnnotationStore", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAnnotationStore(a, opts))
 }
 
 export interface GetAnnotationStoreOutputArgs {

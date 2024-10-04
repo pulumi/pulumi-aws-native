@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -116,6 +111,9 @@ def get_domain(arn: Optional[str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         permissions_policy_document=pulumi.get(__ret__, 'permissions_policy_document'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_domain)
 def get_domain_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -124,13 +122,4 @@ def get_domain_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the domain.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:codeartifact:getDomain', __args__, opts=opts, typ=GetDomainResult)
-    return __ret__.apply(lambda __response__: GetDomainResult(
-        arn=pulumi.get(__response__, 'arn'),
-        name=pulumi.get(__response__, 'name'),
-        owner=pulumi.get(__response__, 'owner'),
-        permissions_policy_document=pulumi.get(__response__, 'permissions_policy_document'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

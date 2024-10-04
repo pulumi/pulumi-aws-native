@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
  */
 export function getJobTemplate(args: GetJobTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTemplateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getJobTemplate", {
         "jobTemplateId": args.jobTemplateId,
@@ -31,10 +32,7 @@ export interface GetJobTemplateResult {
  * Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
  */
 export function getJobTemplateOutput(args: GetJobTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTemplateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getJobTemplate", {
-        "jobTemplateId": args.jobTemplateId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJobTemplate(a, opts))
 }
 
 export interface GetJobTemplateOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *  For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
  */
 export function getListenerRule(args: GetListenerRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticloadbalancingv2:getListenerRule", {
         "ruleArn": args.ruleArn,
@@ -55,10 +56,7 @@ export interface GetListenerRuleResult {
  *  For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
  */
 export function getListenerRuleOutput(args: GetListenerRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:elasticloadbalancingv2:getListenerRule", {
-        "ruleArn": args.ruleArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getListenerRule(a, opts))
 }
 
 export interface GetListenerRuleOutputArgs {

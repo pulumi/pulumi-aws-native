@@ -4,53 +4,20 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'NotificationChannelConfigArgs',
-    'NotificationChannelConfigArgsDict',
     'NotificationChannelNotificationFilterConfigArgs',
-    'NotificationChannelNotificationFilterConfigArgsDict',
     'NotificationChannelSnsChannelConfigArgs',
-    'NotificationChannelSnsChannelConfigArgsDict',
     'ResourceCollectionCloudFormationCollectionFilterArgs',
-    'ResourceCollectionCloudFormationCollectionFilterArgsDict',
     'ResourceCollectionFilterArgs',
-    'ResourceCollectionFilterArgsDict',
     'ResourceCollectionTagCollectionArgs',
-    'ResourceCollectionTagCollectionArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class NotificationChannelConfigArgsDict(TypedDict):
-        """
-        Information about notification channels you have configured with DevOps Guru.
-        """
-        filters: NotRequired[pulumi.Input['NotificationChannelNotificationFilterConfigArgsDict']]
-        """
-        The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. If you do not provide filter configurations, the default configurations are to receive notifications for all message types of `High` or `Medium` severity.
-        """
-        sns: NotRequired[pulumi.Input['NotificationChannelSnsChannelConfigArgsDict']]
-        """
-        Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
-
-        If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
-
-        If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions to the CMK. For more information, see [Permissions for AWS KMS–encrypted Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html) .
-        """
-elif False:
-    NotificationChannelConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationChannelConfigArgs:
@@ -100,22 +67,6 @@ class NotificationChannelConfigArgs:
         pulumi.set(self, "sns", value)
 
 
-if not MYPY:
-    class NotificationChannelNotificationFilterConfigArgsDict(TypedDict):
-        """
-        Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
-        """
-        message_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]
-        """
-        The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
-        """
-        severities: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]
-        """
-        The severity levels that you want to receive notifications for. For example, you can choose to receive notifications only for insights with `HIGH` and `MEDIUM` severity levels. For more information, see [Understanding insight severities](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities) .
-        """
-elif False:
-    NotificationChannelNotificationFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class NotificationChannelNotificationFilterConfigArgs:
     def __init__(__self__, *,
@@ -156,18 +107,6 @@ class NotificationChannelNotificationFilterConfigArgs:
         pulumi.set(self, "severities", value)
 
 
-if not MYPY:
-    class NotificationChannelSnsChannelConfigArgsDict(TypedDict):
-        """
-        Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
-        """
-        topic_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
-elif False:
-    NotificationChannelSnsChannelConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class NotificationChannelSnsChannelConfigArgs:
     def __init__(__self__, *,
@@ -192,18 +131,6 @@ class NotificationChannelSnsChannelConfigArgs:
         pulumi.set(self, "topic_arn", value)
 
 
-if not MYPY:
-    class ResourceCollectionCloudFormationCollectionFilterArgsDict(TypedDict):
-        """
-        CloudFormation resource for DevOps Guru to monitor
-        """
-        stack_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        An array of CloudFormation stack names.
-        """
-elif False:
-    ResourceCollectionCloudFormationCollectionFilterArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResourceCollectionCloudFormationCollectionFilterArgs:
     def __init__(__self__, *,
@@ -227,33 +154,6 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
     def stack_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "stack_names", value)
 
-
-if not MYPY:
-    class ResourceCollectionFilterArgsDict(TypedDict):
-        """
-        Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
-        """
-        cloud_formation: NotRequired[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgsDict']]
-        """
-        Information about AWS CloudFormation stacks. You can use up to 1000 stacks to specify which AWS resources in your account to analyze. For more information, see [Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *AWS CloudFormation User Guide* .
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgsDict']]]]
-        """
-        The AWS tags used to filter the resources in the resource collection.
-
-        Tags help you identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources from different services to indicate that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB table resource that you assign to an AWS Lambda function. For more information about using tags, see the [Tagging best practices](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html) whitepaper.
-
-        Each AWS tag has two parts.
-
-        - A tag *key* (for example, `CostCenter` , `Environment` , `Project` , or `Secret` ). Tag *keys* are case-sensitive.
-        - A field known as a tag *value* (for example, `111122223333` , `Production` , or a team name). Omitting the tag *value* is the same as using an empty string. Like tag *keys* , tag *values* are case-sensitive. The tag value is a required property when AppBoundaryKey is specified.
-
-        Together these are known as *key* - *value* pairs.
-
-        > The string used for a *key* in a tag that you use to define your resource coverage must begin with the prefix `Devops-guru-` . The tag *key* might be `DevOps-Guru-deployment-application` or `devops-guru-rds-application` . When you create a *key* , the case of characters in the *key* can be whatever you choose. After you create a *key* , it is case-sensitive. For example, DevOps Guru works with a *key* named `devops-guru-rds` and a *key* named `DevOps-Guru-RDS` , and these act as two different *keys* . Possible *key* / *value* pairs in your application might be `Devops-Guru-production-application/RDS` or `Devops-Guru-production-application/containers` .
-        """
-elif False:
-    ResourceCollectionFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceCollectionFilterArgs:
@@ -316,22 +216,6 @@ class ResourceCollectionFilterArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]]):
         pulumi.set(self, "tags", value)
 
-
-if not MYPY:
-    class ResourceCollectionTagCollectionArgsDict(TypedDict):
-        """
-        Tagged resource for DevOps Guru to monitor
-        """
-        app_boundary_key: NotRequired[pulumi.Input[str]]
-        """
-        A Tag key for DevOps Guru app boundary.
-        """
-        tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Tag values of DevOps Guru app boundary.
-        """
-elif False:
-    ResourceCollectionTagCollectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceCollectionTagCollectionArgs:

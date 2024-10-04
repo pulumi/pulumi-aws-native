@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataBrew::Project.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:databrew:getProject", {
         "name": args.name,
@@ -46,10 +47,7 @@ export interface GetProjectResult {
  * Resource schema for AWS::DataBrew::Project.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:databrew:getProject", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {

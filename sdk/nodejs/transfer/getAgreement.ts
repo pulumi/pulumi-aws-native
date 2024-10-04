@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Transfer::Agreement
  */
 export function getAgreement(args: GetAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetAgreementResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:transfer:getAgreement", {
         "agreementId": args.agreementId,
@@ -71,11 +72,7 @@ export interface GetAgreementResult {
  * Resource Type definition for AWS::Transfer::Agreement
  */
 export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgreementResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:transfer:getAgreement", {
-        "agreementId": args.agreementId,
-        "serverId": args.serverId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAgreement(a, opts))
 }
 
 export interface GetAgreementOutputArgs {

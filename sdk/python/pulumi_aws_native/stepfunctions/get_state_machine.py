@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -184,6 +179,9 @@ def get_state_machine(arn: Optional[str] = None,
         state_machine_revision_id=pulumi.get(__ret__, 'state_machine_revision_id'),
         tags=pulumi.get(__ret__, 'tags'),
         tracing_configuration=pulumi.get(__ret__, 'tracing_configuration'))
+
+
+@_utilities.lift_output_func(get_state_machine)
 def get_state_machine_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStateMachineResult]:
     """
@@ -192,17 +190,4 @@ def get_state_machine_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Returns the ARN of the resource.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:stepfunctions:getStateMachine', __args__, opts=opts, typ=GetStateMachineResult)
-    return __ret__.apply(lambda __response__: GetStateMachineResult(
-        arn=pulumi.get(__response__, 'arn'),
-        definition_string=pulumi.get(__response__, 'definition_string'),
-        encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
-        logging_configuration=pulumi.get(__response__, 'logging_configuration'),
-        name=pulumi.get(__response__, 'name'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        state_machine_revision_id=pulumi.get(__response__, 'state_machine_revision_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        tracing_configuration=pulumi.get(__response__, 'tracing_configuration')))
+    ...

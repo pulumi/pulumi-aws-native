@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Amazon OpenSearchServerless access policy resource
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opensearchserverless:getAccessPolicy", {
         "name": args.name,
@@ -43,11 +44,7 @@ export interface GetAccessPolicyResult {
  * Amazon OpenSearchServerless access policy resource
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getAccessPolicy", {
-        "name": args.name,
-        "type": args.type,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
 }
 
 export interface GetAccessPolicyOutputArgs {

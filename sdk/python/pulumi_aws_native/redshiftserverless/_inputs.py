@@ -4,42 +4,16 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'NamespaceSnapshotCopyConfigurationArgs',
-    'NamespaceSnapshotCopyConfigurationArgsDict',
     'WorkgroupConfigParameterArgs',
-    'WorkgroupConfigParameterArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class NamespaceSnapshotCopyConfigurationArgsDict(TypedDict):
-        destination_region: pulumi.Input[str]
-        """
-        The destination AWS Region to copy snapshots to.
-        """
-        destination_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the KMS key to use to encrypt your snapshots in the destination AWS Region .
-        """
-        snapshot_retention_period: NotRequired[pulumi.Input[int]]
-        """
-        The retention period of snapshots that are copied to the destination AWS Region .
-        """
-elif False:
-    NamespaceSnapshotCopyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NamespaceSnapshotCopyConfigurationArgs:
@@ -94,19 +68,6 @@ class NamespaceSnapshotCopyConfigurationArgs:
     def snapshot_retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "snapshot_retention_period", value)
 
-
-if not MYPY:
-    class WorkgroupConfigParameterArgsDict(TypedDict):
-        parameter_key: NotRequired[pulumi.Input[str]]
-        """
-        The key of the parameter. The options are `datestyle` , `enable_user_activity_logging` , `query_group` , `search_path` , `max_query_execution_time` , and `require_ssl` .
-        """
-        parameter_value: NotRequired[pulumi.Input[str]]
-        """
-        The value of the parameter to set.
-        """
-elif False:
-    WorkgroupConfigParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkgroupConfigParameterArgs:

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -264,30 +259,12 @@ def get_cloud_watch_alarm_template(identifier: Optional[str] = None,
         target_resource_type=pulumi.get(__ret__, 'target_resource_type'),
         threshold=pulumi.get(__ret__, 'threshold'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'))
+
+
+@_utilities.lift_output_func(get_cloud_watch_alarm_template)
 def get_cloud_watch_alarm_template_output(identifier: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudWatchAlarmTemplateResult]:
     """
     Definition of AWS::MediaLive::CloudWatchAlarmTemplate Resource Type
     """
-    __args__ = dict()
-    __args__['identifier'] = identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getCloudWatchAlarmTemplate', __args__, opts=opts, typ=GetCloudWatchAlarmTemplateResult)
-    return __ret__.apply(lambda __response__: GetCloudWatchAlarmTemplateResult(
-        arn=pulumi.get(__response__, 'arn'),
-        comparison_operator=pulumi.get(__response__, 'comparison_operator'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        datapoints_to_alarm=pulumi.get(__response__, 'datapoints_to_alarm'),
-        description=pulumi.get(__response__, 'description'),
-        evaluation_periods=pulumi.get(__response__, 'evaluation_periods'),
-        group_id=pulumi.get(__response__, 'group_id'),
-        id=pulumi.get(__response__, 'id'),
-        identifier=pulumi.get(__response__, 'identifier'),
-        metric_name=pulumi.get(__response__, 'metric_name'),
-        modified_at=pulumi.get(__response__, 'modified_at'),
-        name=pulumi.get(__response__, 'name'),
-        period=pulumi.get(__response__, 'period'),
-        statistic=pulumi.get(__response__, 'statistic'),
-        target_resource_type=pulumi.get(__response__, 'target_resource_type'),
-        threshold=pulumi.get(__response__, 'threshold'),
-        treat_missing_data=pulumi.get(__response__, 'treat_missing_data')))
+    ...

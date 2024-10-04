@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -193,6 +188,9 @@ def get_agent_status(agent_status_arn: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_agent_status)
 def get_agent_status_output(agent_status_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentStatusResult]:
     """
@@ -201,19 +199,4 @@ def get_agent_status_output(agent_status_arn: Optional[pulumi.Input[str]] = None
 
     :param str agent_status_arn: The Amazon Resource Name (ARN) of the agent status.
     """
-    __args__ = dict()
-    __args__['agentStatusArn'] = agent_status_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getAgentStatus', __args__, opts=opts, typ=GetAgentStatusResult)
-    return __ret__.apply(lambda __response__: GetAgentStatusResult(
-        agent_status_arn=pulumi.get(__response__, 'agent_status_arn'),
-        description=pulumi.get(__response__, 'description'),
-        display_order=pulumi.get(__response__, 'display_order'),
-        instance_arn=pulumi.get(__response__, 'instance_arn'),
-        last_modified_region=pulumi.get(__response__, 'last_modified_region'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        name=pulumi.get(__response__, 'name'),
-        reset_order_number=pulumi.get(__response__, 'reset_order_number'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -108,6 +103,9 @@ def get_certificate_provider(certificate_provider_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         lambda_function_arn=pulumi.get(__ret__, 'lambda_function_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_certificate_provider)
 def get_certificate_provider_output(certificate_provider_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateProviderResult]:
     """
@@ -116,12 +114,4 @@ def get_certificate_provider_output(certificate_provider_name: Optional[pulumi.I
 
     :param str certificate_provider_name: The name of the certificate provider.
     """
-    __args__ = dict()
-    __args__['certificateProviderName'] = certificate_provider_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getCertificateProvider', __args__, opts=opts, typ=GetCertificateProviderResult)
-    return __ret__.apply(lambda __response__: GetCertificateProviderResult(
-        account_default_for_operations=pulumi.get(__response__, 'account_default_for_operations'),
-        arn=pulumi.get(__response__, 'arn'),
-        lambda_function_arn=pulumi.get(__response__, 'lambda_function_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

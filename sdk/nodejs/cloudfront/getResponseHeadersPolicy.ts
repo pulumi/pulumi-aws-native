@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
  */
 export function getResponseHeadersPolicy(args: GetResponseHeadersPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResponseHeadersPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getResponseHeadersPolicy", {
         "id": args.id,
@@ -42,10 +43,7 @@ export interface GetResponseHeadersPolicyResult {
  * Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
  */
 export function getResponseHeadersPolicyOutput(args: GetResponseHeadersPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponseHeadersPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getResponseHeadersPolicy", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getResponseHeadersPolicy(a, opts))
 }
 
 export interface GetResponseHeadersPolicyOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -210,6 +205,9 @@ def get_vpc_connection(aws_account_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
+
+
+@_utilities.lift_output_func(get_vpc_connection)
 def get_vpc_connection_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                               vpc_connection_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcConnectionResult]:
@@ -220,21 +218,4 @@ def get_vpc_connection_output(aws_account_id: Optional[pulumi.Input[str]] = None
     :param str aws_account_id: The AWS account ID of the account where you want to create a new VPC connection.
     :param str vpc_connection_id: The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
     """
-    __args__ = dict()
-    __args__['awsAccountId'] = aws_account_id
-    __args__['vpcConnectionId'] = vpc_connection_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getVpcConnection', __args__, opts=opts, typ=GetVpcConnectionResult)
-    return __ret__.apply(lambda __response__: GetVpcConnectionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        availability_status=pulumi.get(__response__, 'availability_status'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        dns_resolvers=pulumi.get(__response__, 'dns_resolvers'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        name=pulumi.get(__response__, 'name'),
-        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        vpc_id=pulumi.get(__response__, 'vpc_id')))
+    ...

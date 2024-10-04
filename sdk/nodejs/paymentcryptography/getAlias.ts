@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::PaymentCryptography::Alias Resource Type
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:paymentcryptography:getAlias", {
         "aliasName": args.aliasName,
@@ -33,10 +34,7 @@ export interface GetAliasResult {
  * Definition of AWS::PaymentCryptography::Alias Resource Type
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:paymentcryptography:getAlias", {
-        "aliasName": args.aliasName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAlias(a, opts))
 }
 
 export interface GetAliasOutputArgs {

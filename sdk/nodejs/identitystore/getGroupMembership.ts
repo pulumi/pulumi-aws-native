@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS:IdentityStore::GroupMembership
  */
 export function getGroupMembership(args: GetGroupMembershipArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupMembershipResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:identitystore:getGroupMembership", {
         "identityStoreId": args.identityStoreId,
@@ -36,11 +37,7 @@ export interface GetGroupMembershipResult {
  * Resource Type Definition for AWS:IdentityStore::GroupMembership
  */
 export function getGroupMembershipOutput(args: GetGroupMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupMembershipResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:identitystore:getGroupMembership", {
-        "identityStoreId": args.identityStoreId,
-        "membershipId": args.membershipId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGroupMembership(a, opts))
 }
 
 export interface GetGroupMembershipOutputArgs {

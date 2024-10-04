@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GuardDuty::IPSet
  */
 export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:guardduty:getIpSet", {
         "detectorId": args.detectorId,
@@ -52,11 +53,7 @@ export interface GetIpSetResult {
  * Resource Type definition for AWS::GuardDuty::IPSet
  */
 export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:guardduty:getIpSet", {
-        "detectorId": args.detectorId,
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpSet(a, opts))
 }
 
 export interface GetIpSetOutputArgs {

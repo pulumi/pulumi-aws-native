@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -222,6 +217,9 @@ def get_device(device_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vendor=pulumi.get(__ret__, 'vendor'))
+
+
+@_utilities.lift_output_func(get_device)
 def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
                       global_network_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
@@ -232,22 +230,4 @@ def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
     :param str device_id: The ID of the device.
     :param str global_network_id: The ID of the global network.
     """
-    __args__ = dict()
-    __args__['deviceId'] = device_id
-    __args__['globalNetworkId'] = global_network_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getDevice', __args__, opts=opts, typ=GetDeviceResult)
-    return __ret__.apply(lambda __response__: GetDeviceResult(
-        aws_location=pulumi.get(__response__, 'aws_location'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        device_arn=pulumi.get(__response__, 'device_arn'),
-        device_id=pulumi.get(__response__, 'device_id'),
-        location=pulumi.get(__response__, 'location'),
-        model=pulumi.get(__response__, 'model'),
-        serial_number=pulumi.get(__response__, 'serial_number'),
-        site_id=pulumi.get(__response__, 'site_id'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        vendor=pulumi.get(__response__, 'vendor')))
+    ...

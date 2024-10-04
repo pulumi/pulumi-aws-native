@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -115,6 +110,9 @@ def get_traffic_distribution_group(traffic_distribution_group_arn: Optional[str]
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         traffic_distribution_group_arn=pulumi.get(__ret__, 'traffic_distribution_group_arn'))
+
+
+@_utilities.lift_output_func(get_traffic_distribution_group)
 def get_traffic_distribution_group_output(traffic_distribution_group_arn: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficDistributionGroupResult]:
     """
@@ -123,13 +121,4 @@ def get_traffic_distribution_group_output(traffic_distribution_group_arn: Option
 
     :param str traffic_distribution_group_arn: The identifier of the traffic distribution group.
     """
-    __args__ = dict()
-    __args__['trafficDistributionGroupArn'] = traffic_distribution_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getTrafficDistributionGroup', __args__, opts=opts, typ=GetTrafficDistributionGroupResult)
-    return __ret__.apply(lambda __response__: GetTrafficDistributionGroupResult(
-        instance_arn=pulumi.get(__response__, 'instance_arn'),
-        is_default=pulumi.get(__response__, 'is_default'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        traffic_distribution_group_arn=pulumi.get(__response__, 'traffic_distribution_group_arn')))
+    ...

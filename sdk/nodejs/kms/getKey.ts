@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *   KMS CloudFormation resources are available in all Regions in which KMS and CFN are supported. You can use the ``AWS::KMS::Key`` resource to create and manage all KMS key types that are supported in a Region.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kms:getKey", {
         "keyId": args.keyId,
@@ -165,10 +166,7 @@ export interface GetKeyResult {
  *   KMS CloudFormation resources are available in all Regions in which KMS and CFN are supported. You can use the ``AWS::KMS::Key`` resource to create and manage all KMS key types that are supported in a Region.
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:kms:getKey", {
-        "keyId": args.keyId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKey(a, opts))
 }
 
 export interface GetKeyOutputArgs {

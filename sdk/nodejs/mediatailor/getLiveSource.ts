@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaTailor::LiveSource Resource Type
  */
 export function getLiveSource(args: GetLiveSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediatailor:getLiveSource", {
         "liveSourceName": args.liveSourceName,
@@ -47,11 +48,7 @@ export interface GetLiveSourceResult {
  * Definition of AWS::MediaTailor::LiveSource Resource Type
  */
 export function getLiveSourceOutput(args: GetLiveSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:mediatailor:getLiveSource", {
-        "liveSourceName": args.liveSourceName,
-        "sourceLocationName": args.sourceLocationName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLiveSource(a, opts))
 }
 
 export interface GetLiveSourceOutputArgs {

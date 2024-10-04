@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::DataZone::EnvironmentActions Resource Type
  */
 export function getEnvironmentActions(args: GetEnvironmentActionsArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentActionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getEnvironmentActions", {
         "domainId": args.domainId,
@@ -64,12 +65,7 @@ export interface GetEnvironmentActionsResult {
  * Definition of AWS::DataZone::EnvironmentActions Resource Type
  */
 export function getEnvironmentActionsOutput(args: GetEnvironmentActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentActionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datazone:getEnvironmentActions", {
-        "domainId": args.domainId,
-        "environmentId": args.environmentId,
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironmentActions(a, opts))
 }
 
 export interface GetEnvironmentActionsOutputArgs {

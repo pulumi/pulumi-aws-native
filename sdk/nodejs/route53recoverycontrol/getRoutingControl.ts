@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * AWS Route53 Recovery Control Routing Control resource schema .
  */
 export function getRoutingControl(args: GetRoutingControlArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingControlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53recoverycontrol:getRoutingControl", {
         "routingControlArn": args.routingControlArn,
@@ -42,10 +43,7 @@ export interface GetRoutingControlResult {
  * AWS Route53 Recovery Control Routing Control resource schema .
  */
 export function getRoutingControlOutput(args: GetRoutingControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingControlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53recoverycontrol:getRoutingControl", {
-        "routingControlArn": args.routingControlArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRoutingControl(a, opts))
 }
 
 export interface GetRoutingControlOutputArgs {

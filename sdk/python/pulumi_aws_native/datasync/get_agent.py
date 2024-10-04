@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -102,6 +97,9 @@ def get_agent(agent_arn: Optional[str] = None,
         agent_name=pulumi.get(__ret__, 'agent_name'),
         endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_agent)
 def get_agent_output(agent_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentResult]:
     """
@@ -110,12 +108,4 @@ def get_agent_output(agent_arn: Optional[pulumi.Input[str]] = None,
 
     :param str agent_arn: The DataSync Agent ARN.
     """
-    __args__ = dict()
-    __args__['agentArn'] = agent_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getAgent', __args__, opts=opts, typ=GetAgentResult)
-    return __ret__.apply(lambda __response__: GetAgentResult(
-        agent_arn=pulumi.get(__response__, 'agent_arn'),
-        agent_name=pulumi.get(__response__, 'agent_name'),
-        endpoint_type=pulumi.get(__response__, 'endpoint_type'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

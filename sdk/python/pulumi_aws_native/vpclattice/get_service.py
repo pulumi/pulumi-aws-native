@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -171,6 +166,9 @@ def get_service(arn: Optional[str] = None,
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_service)
 def get_service_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
@@ -179,17 +177,4 @@ def get_service_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the service.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getService', __args__, opts=opts, typ=GetServiceResult)
-    return __ret__.apply(lambda __response__: GetServiceResult(
-        arn=pulumi.get(__response__, 'arn'),
-        auth_type=pulumi.get(__response__, 'auth_type'),
-        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        dns_entry=pulumi.get(__response__, 'dns_entry'),
-        id=pulumi.get(__response__, 'id'),
-        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

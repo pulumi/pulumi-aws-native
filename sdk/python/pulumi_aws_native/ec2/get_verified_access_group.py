@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -193,6 +188,9 @@ def get_verified_access_group(verified_access_group_id: Optional[str] = None,
         verified_access_group_arn=pulumi.get(__ret__, 'verified_access_group_arn'),
         verified_access_group_id=pulumi.get(__ret__, 'verified_access_group_id'),
         verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'))
+
+
+@_utilities.lift_output_func(get_verified_access_group)
 def get_verified_access_group_output(verified_access_group_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVerifiedAccessGroupResult]:
     """
@@ -201,19 +199,4 @@ def get_verified_access_group_output(verified_access_group_id: Optional[pulumi.I
 
     :param str verified_access_group_id: The ID of the AWS Verified Access group.
     """
-    __args__ = dict()
-    __args__['verifiedAccessGroupId'] = verified_access_group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVerifiedAccessGroup', __args__, opts=opts, typ=GetVerifiedAccessGroupResult)
-    return __ret__.apply(lambda __response__: GetVerifiedAccessGroupResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        owner=pulumi.get(__response__, 'owner'),
-        policy_document=pulumi.get(__response__, 'policy_document'),
-        policy_enabled=pulumi.get(__response__, 'policy_enabled'),
-        sse_specification=pulumi.get(__response__, 'sse_specification'),
-        tags=pulumi.get(__response__, 'tags'),
-        verified_access_group_arn=pulumi.get(__response__, 'verified_access_group_arn'),
-        verified_access_group_id=pulumi.get(__response__, 'verified_access_group_id'),
-        verified_access_instance_id=pulumi.get(__response__, 'verified_access_instance_id')))
+    ...

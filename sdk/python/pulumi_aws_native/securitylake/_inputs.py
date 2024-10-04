@@ -4,57 +4,26 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DataLakeEncryptionConfigurationArgs',
-    'DataLakeEncryptionConfigurationArgsDict',
     'DataLakeExpirationArgs',
-    'DataLakeExpirationArgsDict',
     'DataLakeLifecycleConfigurationArgs',
-    'DataLakeLifecycleConfigurationArgsDict',
     'DataLakeReplicationConfigurationArgs',
-    'DataLakeReplicationConfigurationArgsDict',
     'DataLakeTransitionsArgs',
-    'DataLakeTransitionsArgsDict',
     'SubscriberAwsLogSourceArgs',
-    'SubscriberAwsLogSourceArgsDict',
     'SubscriberCustomLogSourceArgs',
-    'SubscriberCustomLogSourceArgsDict',
     'SubscriberIdentityPropertiesArgs',
-    'SubscriberIdentityPropertiesArgsDict',
     'SubscriberNotificationHttpsNotificationConfigurationArgs',
-    'SubscriberNotificationHttpsNotificationConfigurationArgsDict',
     'SubscriberNotificationNotificationConfigurationArgs',
-    'SubscriberNotificationNotificationConfigurationArgsDict',
     'SubscriberNotificationSqsNotificationConfigurationArgs',
-    'SubscriberNotificationSqsNotificationConfigurationArgsDict',
     'SubscriberSourceArgs',
-    'SubscriberSourceArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class DataLakeEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Provides encryption details of Amazon Security Lake object.
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
-        """
-elif False:
-    DataLakeEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataLakeEncryptionConfigurationArgs:
@@ -80,18 +49,6 @@ class DataLakeEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class DataLakeExpirationArgsDict(TypedDict):
-        """
-        Provides data expiration details of Amazon Security Lake object.
-        """
-        days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days before data expires in the Amazon Security Lake object.
-        """
-elif False:
-    DataLakeExpirationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataLakeExpirationArgs:
     def __init__(__self__, *,
@@ -115,22 +72,6 @@ class DataLakeExpirationArgs:
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
 
-
-if not MYPY:
-    class DataLakeLifecycleConfigurationArgsDict(TypedDict):
-        """
-        Provides lifecycle details of Amazon Security Lake object.
-        """
-        expiration: NotRequired[pulumi.Input['DataLakeExpirationArgsDict']]
-        """
-        Provides data expiration details of the Amazon Security Lake object.
-        """
-        transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataLakeTransitionsArgsDict']]]]
-        """
-        Provides data storage transition details of Amazon Security Lake object.
-        """
-elif False:
-    DataLakeLifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataLakeLifecycleConfigurationArgs:
@@ -171,24 +112,6 @@ class DataLakeLifecycleConfigurationArgs:
     def transitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeTransitionsArgs']]]]):
         pulumi.set(self, "transitions", value)
 
-
-if not MYPY:
-    class DataLakeReplicationConfigurationArgsDict(TypedDict):
-        """
-        Provides replication details of Amazon Security Lake object.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Specifies one or more centralized rollup Regions. The AWS Region specified in the region parameter of the `CreateDataLake` or `UpdateDataLake` operations contributes data to the rollup Region or Regions specified in this parameter.
-
-        Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.
-        """
-        role_arn: NotRequired[pulumi.Input[str]]
-        """
-        Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
-        """
-elif False:
-    DataLakeReplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataLakeReplicationConfigurationArgs:
@@ -234,19 +157,6 @@ class DataLakeReplicationConfigurationArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class DataLakeTransitionsArgsDict(TypedDict):
-        days: NotRequired[pulumi.Input[int]]
-        """
-        Number of days before data transitions to a different S3 Storage Class in the Amazon Security Lake object.
-        """
-        storage_class: NotRequired[pulumi.Input[str]]
-        """
-        The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
-        """
-elif False:
-    DataLakeTransitionsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataLakeTransitionsArgs:
     def __init__(__self__, *,
@@ -285,22 +195,6 @@ class DataLakeTransitionsArgs:
     def storage_class(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_class", value)
 
-
-if not MYPY:
-    class SubscriberAwsLogSourceArgsDict(TypedDict):
-        """
-        Amazon Security Lake supports log and event collection for natively supported AWS services.
-        """
-        source_name: NotRequired[pulumi.Input[str]]
-        """
-        The name for a AWS source. This must be a Regionally unique value.
-        """
-        source_version: NotRequired[pulumi.Input[str]]
-        """
-        The version for a AWS source. This must be a Regionally unique value.
-        """
-elif False:
-    SubscriberAwsLogSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriberAwsLogSourceArgs:
@@ -342,19 +236,6 @@ class SubscriberAwsLogSourceArgs:
         pulumi.set(self, "source_version", value)
 
 
-if not MYPY:
-    class SubscriberCustomLogSourceArgsDict(TypedDict):
-        source_name: NotRequired[pulumi.Input[str]]
-        """
-        The name for a third-party custom source. This must be a Regionally unique value.
-        """
-        source_version: NotRequired[pulumi.Input[str]]
-        """
-        The version for a third-party custom source. This must be a Regionally unique value.
-        """
-elif False:
-    SubscriberCustomLogSourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SubscriberCustomLogSourceArgs:
     def __init__(__self__, *,
@@ -394,22 +275,6 @@ class SubscriberCustomLogSourceArgs:
         pulumi.set(self, "source_version", value)
 
 
-if not MYPY:
-    class SubscriberIdentityPropertiesArgsDict(TypedDict):
-        """
-        The AWS identity used to access your data.
-        """
-        external_id: pulumi.Input[str]
-        """
-        The external ID used to establish trust relationship with the AWS identity.
-        """
-        principal: pulumi.Input[str]
-        """
-        The AWS identity principal.
-        """
-elif False:
-    SubscriberIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SubscriberIdentityPropertiesArgs:
     def __init__(__self__, *,
@@ -447,34 +312,6 @@ class SubscriberIdentityPropertiesArgs:
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
 
-
-if not MYPY:
-    class SubscriberNotificationHttpsNotificationConfigurationArgsDict(TypedDict):
-        """
-        The configuration for HTTPS subscriber notification.
-        """
-        endpoint: pulumi.Input[str]
-        """
-        The subscription endpoint in Security Lake.
-        """
-        target_role_arn: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
-        """
-        authorization_api_key_name: NotRequired[pulumi.Input[str]]
-        """
-        The key name for the notification subscription.
-        """
-        authorization_api_key_value: NotRequired[pulumi.Input[str]]
-        """
-        The key value for the notification subscription.
-        """
-        http_method: NotRequired[pulumi.Input['SubscriberNotificationHttpsNotificationConfigurationHttpMethod']]
-        """
-        The HTTPS method used for the notification subscription.
-        """
-elif False:
-    SubscriberNotificationHttpsNotificationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriberNotificationHttpsNotificationConfigurationArgs:
@@ -562,19 +399,6 @@ class SubscriberNotificationHttpsNotificationConfigurationArgs:
         pulumi.set(self, "http_method", value)
 
 
-if not MYPY:
-    class SubscriberNotificationNotificationConfigurationArgsDict(TypedDict):
-        https_notification_configuration: NotRequired[pulumi.Input['SubscriberNotificationHttpsNotificationConfigurationArgsDict']]
-        """
-        The configurations used for HTTPS subscriber notification.
-        """
-        sqs_notification_configuration: NotRequired[pulumi.Input['SubscriberNotificationSqsNotificationConfigurationArgsDict']]
-        """
-        The configurations for SQS subscriber notification. The members of this structure are context-dependent.
-        """
-elif False:
-    SubscriberNotificationNotificationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SubscriberNotificationNotificationConfigurationArgs:
     def __init__(__self__, *,
@@ -614,15 +438,6 @@ class SubscriberNotificationNotificationConfigurationArgs:
         pulumi.set(self, "sqs_notification_configuration", value)
 
 
-if not MYPY:
-    class SubscriberNotificationSqsNotificationConfigurationArgsDict(TypedDict):
-        """
-        The configurations for SQS subscriber notification. The members of this structure are context-dependent.
-        """
-        pass
-elif False:
-    SubscriberNotificationSqsNotificationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SubscriberNotificationSqsNotificationConfigurationArgs:
     def __init__(__self__):
@@ -631,13 +446,6 @@ class SubscriberNotificationSqsNotificationConfigurationArgs:
         """
         pass
 
-
-if not MYPY:
-    class SubscriberSourceArgsDict(TypedDict):
-        aws_log_source: NotRequired[pulumi.Input['SubscriberAwsLogSourceArgsDict']]
-        custom_log_source: NotRequired[pulumi.Input['SubscriberCustomLogSourceArgsDict']]
-elif False:
-    SubscriberSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriberSourceArgs:

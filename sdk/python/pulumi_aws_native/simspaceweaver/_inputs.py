@@ -4,35 +4,14 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'SimulationS3LocationArgs',
-    'SimulationS3LocationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class SimulationS3LocationArgsDict(TypedDict):
-        bucket_name: pulumi.Input[str]
-        """
-        The Schema S3 bucket name.
-        """
-        object_key: pulumi.Input[str]
-        """
-        This is the schema S3 object key, which includes the full path of "folders" from the bucket root to the schema.
-        """
-elif False:
-    SimulationS3LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimulationS3LocationArgs:

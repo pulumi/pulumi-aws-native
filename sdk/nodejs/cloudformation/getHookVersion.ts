@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Publishes new or first hook version to AWS CloudFormation Registry.
  */
 export function getHookVersion(args: GetHookVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetHookVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getHookVersion", {
         "arn": args.arn,
@@ -56,10 +57,7 @@ export interface GetHookVersionResult {
  * Publishes new or first hook version to AWS CloudFormation Registry.
  */
 export function getHookVersionOutput(args: GetHookVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHookVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudformation:getHookVersion", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHookVersion(a, opts))
 }
 
 export interface GetHookVersionOutputArgs {

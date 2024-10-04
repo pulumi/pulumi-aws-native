@@ -4,44 +4,19 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'TrainingDatasetColumnSchemaArgs',
-    'TrainingDatasetColumnSchemaArgsDict',
     'TrainingDatasetDataSourceArgs',
-    'TrainingDatasetDataSourceArgsDict',
     'TrainingDatasetDatasetInputConfigArgs',
-    'TrainingDatasetDatasetInputConfigArgsDict',
     'TrainingDatasetDatasetArgs',
-    'TrainingDatasetDatasetArgsDict',
     'TrainingDatasetGlueDataSourceArgs',
-    'TrainingDatasetGlueDataSourceArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class TrainingDatasetColumnSchemaArgsDict(TypedDict):
-        column_name: pulumi.Input[str]
-        """
-        The name of a column.
-        """
-        column_types: pulumi.Input[Sequence[pulumi.Input['TrainingDatasetColumnType']]]
-        """
-        The data type of column.
-        """
-elif False:
-    TrainingDatasetColumnSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrainingDatasetColumnSchemaArgs:
@@ -80,15 +55,6 @@ class TrainingDatasetColumnSchemaArgs:
         pulumi.set(self, "column_types", value)
 
 
-if not MYPY:
-    class TrainingDatasetDataSourceArgsDict(TypedDict):
-        glue_data_source: pulumi.Input['TrainingDatasetGlueDataSourceArgsDict']
-        """
-        A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
-        """
-elif False:
-    TrainingDatasetDataSourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class TrainingDatasetDataSourceArgs:
     def __init__(__self__, *,
@@ -110,19 +76,6 @@ class TrainingDatasetDataSourceArgs:
     def glue_data_source(self, value: pulumi.Input['TrainingDatasetGlueDataSourceArgs']):
         pulumi.set(self, "glue_data_source", value)
 
-
-if not MYPY:
-    class TrainingDatasetDatasetInputConfigArgsDict(TypedDict):
-        data_source: pulumi.Input['TrainingDatasetDataSourceArgsDict']
-        """
-        A DataSource object that specifies the Glue data source for the training data.
-        """
-        schema: pulumi.Input[Sequence[pulumi.Input['TrainingDatasetColumnSchemaArgsDict']]]
-        """
-        The schema information for the training data.
-        """
-elif False:
-    TrainingDatasetDatasetInputConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrainingDatasetDatasetInputConfigArgs:
@@ -161,19 +114,6 @@ class TrainingDatasetDatasetInputConfigArgs:
         pulumi.set(self, "schema", value)
 
 
-if not MYPY:
-    class TrainingDatasetDatasetArgsDict(TypedDict):
-        input_config: pulumi.Input['TrainingDatasetDatasetInputConfigArgsDict']
-        """
-        A DatasetInputConfig object that defines the data source and schema mapping.
-        """
-        type: pulumi.Input['TrainingDatasetDatasetType']
-        """
-        What type of information is found in the dataset.
-        """
-elif False:
-    TrainingDatasetDatasetArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class TrainingDatasetDatasetArgs:
     def __init__(__self__, *,
@@ -210,23 +150,6 @@ class TrainingDatasetDatasetArgs:
     def type(self, value: pulumi.Input['TrainingDatasetDatasetType']):
         pulumi.set(self, "type", value)
 
-
-if not MYPY:
-    class TrainingDatasetGlueDataSourceArgsDict(TypedDict):
-        database_name: pulumi.Input[str]
-        """
-        The Glue database that contains the training data.
-        """
-        table_name: pulumi.Input[str]
-        """
-        The Glue table that contains the training data.
-        """
-        catalog_id: NotRequired[pulumi.Input[str]]
-        """
-        The Glue catalog that contains the training data.
-        """
-elif False:
-    TrainingDatasetGlueDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrainingDatasetGlueDataSourceArgs:

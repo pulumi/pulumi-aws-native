@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Engagement Plan for a SSM Incident Manager Contact.
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssmcontacts:getPlan", {
         "arn": args.arn,
@@ -38,10 +39,7 @@ export interface GetPlanResult {
  * Engagement Plan for a SSM Incident Manager Contact.
  */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ssmcontacts:getPlan", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPlan(a, opts))
 }
 
 export interface GetPlanOutputArgs {

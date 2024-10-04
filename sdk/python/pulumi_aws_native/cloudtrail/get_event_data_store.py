@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -284,6 +279,9 @@ def get_event_data_store(event_data_store_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         termination_protection_enabled=pulumi.get(__ret__, 'termination_protection_enabled'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
+
+
+@_utilities.lift_output_func(get_event_data_store)
 def get_event_data_store_output(event_data_store_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventDataStoreResult]:
     """
@@ -292,26 +290,4 @@ def get_event_data_store_output(event_data_store_arn: Optional[pulumi.Input[str]
 
     :param str event_data_store_arn: The ARN of the event data store.
     """
-    __args__ = dict()
-    __args__['eventDataStoreArn'] = event_data_store_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudtrail:getEventDataStore', __args__, opts=opts, typ=GetEventDataStoreResult)
-    return __ret__.apply(lambda __response__: GetEventDataStoreResult(
-        advanced_event_selectors=pulumi.get(__response__, 'advanced_event_selectors'),
-        billing_mode=pulumi.get(__response__, 'billing_mode'),
-        created_timestamp=pulumi.get(__response__, 'created_timestamp'),
-        event_data_store_arn=pulumi.get(__response__, 'event_data_store_arn'),
-        federation_enabled=pulumi.get(__response__, 'federation_enabled'),
-        federation_role_arn=pulumi.get(__response__, 'federation_role_arn'),
-        ingestion_enabled=pulumi.get(__response__, 'ingestion_enabled'),
-        insight_selectors=pulumi.get(__response__, 'insight_selectors'),
-        insights_destination=pulumi.get(__response__, 'insights_destination'),
-        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
-        multi_region_enabled=pulumi.get(__response__, 'multi_region_enabled'),
-        name=pulumi.get(__response__, 'name'),
-        organization_enabled=pulumi.get(__response__, 'organization_enabled'),
-        retention_period=pulumi.get(__response__, 'retention_period'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        termination_protection_enabled=pulumi.get(__response__, 'termination_protection_enabled'),
-        updated_timestamp=pulumi.get(__response__, 'updated_timestamp')))
+    ...

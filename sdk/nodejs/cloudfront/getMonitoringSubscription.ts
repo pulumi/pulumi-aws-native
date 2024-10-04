@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::MonitoringSubscription
  */
 export function getMonitoringSubscription(args: GetMonitoringSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getMonitoringSubscription", {
         "distributionId": args.distributionId,
@@ -34,10 +35,7 @@ export interface GetMonitoringSubscriptionResult {
  * Resource Type definition for AWS::CloudFront::MonitoringSubscription
  */
 export function getMonitoringSubscriptionOutput(args: GetMonitoringSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getMonitoringSubscription", {
-        "distributionId": args.distributionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMonitoringSubscription(a, opts))
 }
 
 export interface GetMonitoringSubscriptionOutputArgs {

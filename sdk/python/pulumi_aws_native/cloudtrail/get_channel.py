@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -89,6 +84,9 @@ def get_channel(channel_arn: Optional[str] = None,
         channel_arn=pulumi.get(__ret__, 'channel_arn'),
         destinations=pulumi.get(__ret__, 'destinations'),
         name=pulumi.get(__ret__, 'name'))
+
+
+@_utilities.lift_output_func(get_channel)
 def get_channel_output(channel_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
@@ -97,11 +95,4 @@ def get_channel_output(channel_arn: Optional[pulumi.Input[str]] = None,
 
     :param str channel_arn: `Ref` returns the ARN of the CloudTrail channel, such as `arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890` .
     """
-    __args__ = dict()
-    __args__['channelArn'] = channel_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudtrail:getChannel', __args__, opts=opts, typ=GetChannelResult)
-    return __ret__.apply(lambda __response__: GetChannelResult(
-        channel_arn=pulumi.get(__response__, 'channel_arn'),
-        destinations=pulumi.get(__response__, 'destinations'),
-        name=pulumi.get(__response__, 'name')))
+    ...

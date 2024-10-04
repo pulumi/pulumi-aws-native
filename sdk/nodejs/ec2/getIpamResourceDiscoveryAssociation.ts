@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
  */
 export function getIpamResourceDiscoveryAssociation(args: GetIpamResourceDiscoveryAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamResourceDiscoveryAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getIpamResourceDiscoveryAssociation", {
         "ipamResourceDiscoveryAssociationId": args.ipamResourceDiscoveryAssociationId,
@@ -66,10 +67,7 @@ export interface GetIpamResourceDiscoveryAssociationResult {
  * Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
  */
 export function getIpamResourceDiscoveryAssociationOutput(args: GetIpamResourceDiscoveryAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamResourceDiscoveryAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getIpamResourceDiscoveryAssociation", {
-        "ipamResourceDiscoveryAssociationId": args.ipamResourceDiscoveryAssociationId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpamResourceDiscoveryAssociation(a, opts))
 }
 
 export interface GetIpamResourceDiscoveryAssociationOutputArgs {

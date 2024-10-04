@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Represents a template that defines certificate configurations, both for issuance and client handling
  */
 export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pcaconnectorad:getTemplate", {
         "templateArn": args.templateArn,
@@ -31,10 +32,7 @@ export interface GetTemplateResult {
  * Represents a template that defines certificate configurations, both for issuance and client handling
  */
 export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:pcaconnectorad:getTemplate", {
-        "templateArn": args.templateArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTemplate(a, opts))
 }
 
 export interface GetTemplateOutputArgs {

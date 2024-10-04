@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
  */
 export function getFirewallRuleGroup(args: GetFirewallRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getFirewallRuleGroup", {
         "id": args.id,
@@ -78,10 +79,7 @@ export interface GetFirewallRuleGroupResult {
  * Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
  */
 export function getFirewallRuleGroupOutput(args: GetFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53resolver:getFirewallRuleGroup", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallRuleGroup(a, opts))
 }
 
 export interface GetFirewallRuleGroupOutputArgs {

@@ -4,44 +4,19 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CampaignAgentlessDialerConfigArgs',
-    'CampaignAgentlessDialerConfigArgsDict',
     'CampaignAnswerMachineDetectionConfigArgs',
-    'CampaignAnswerMachineDetectionConfigArgsDict',
     'CampaignDialerConfigArgs',
-    'CampaignDialerConfigArgsDict',
     'CampaignOutboundCallConfigArgs',
-    'CampaignOutboundCallConfigArgsDict',
     'CampaignPredictiveDialerConfigArgs',
-    'CampaignPredictiveDialerConfigArgsDict',
     'CampaignProgressiveDialerConfigArgs',
-    'CampaignProgressiveDialerConfigArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class CampaignAgentlessDialerConfigArgsDict(TypedDict):
-        """
-        Agentless Dialer config
-        """
-        dialing_capacity: NotRequired[pulumi.Input[float]]
-        """
-        Allocates dialing capacity for this campaign between multiple active campaigns.
-        """
-elif False:
-    CampaignAgentlessDialerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CampaignAgentlessDialerConfigArgs:
@@ -66,22 +41,6 @@ class CampaignAgentlessDialerConfigArgs:
     def dialing_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "dialing_capacity", value)
 
-
-if not MYPY:
-    class CampaignAnswerMachineDetectionConfigArgsDict(TypedDict):
-        """
-        The configuration used for answering machine detection during outbound calls
-        """
-        enable_answer_machine_detection: pulumi.Input[bool]
-        """
-        Flag to decided whether outbound calls should have answering machine detection enabled or not
-        """
-        await_answer_machine_prompt: NotRequired[pulumi.Input[bool]]
-        """
-        Enables detection of prompts (e.g., beep after after a voicemail greeting)
-        """
-elif False:
-    CampaignAnswerMachineDetectionConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CampaignAnswerMachineDetectionConfigArgs:
@@ -121,26 +80,6 @@ class CampaignAnswerMachineDetectionConfigArgs:
     def await_answer_machine_prompt(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "await_answer_machine_prompt", value)
 
-
-if not MYPY:
-    class CampaignDialerConfigArgsDict(TypedDict):
-        """
-        The possible types of dialer config parameters
-        """
-        agentless_dialer_config: NotRequired[pulumi.Input['CampaignAgentlessDialerConfigArgsDict']]
-        """
-        The configuration of the agentless dialer.
-        """
-        predictive_dialer_config: NotRequired[pulumi.Input['CampaignPredictiveDialerConfigArgsDict']]
-        """
-        The configuration of the predictive dialer.
-        """
-        progressive_dialer_config: NotRequired[pulumi.Input['CampaignProgressiveDialerConfigArgsDict']]
-        """
-        The configuration of the progressive dialer.
-        """
-elif False:
-    CampaignDialerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CampaignDialerConfigArgs:
@@ -197,30 +136,6 @@ class CampaignDialerConfigArgs:
     def progressive_dialer_config(self, value: Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']]):
         pulumi.set(self, "progressive_dialer_config", value)
 
-
-if not MYPY:
-    class CampaignOutboundCallConfigArgsDict(TypedDict):
-        """
-        The configuration used for outbound calls.
-        """
-        connect_contact_flow_arn: pulumi.Input[str]
-        """
-        The identifier of the contact flow for the outbound call.
-        """
-        answer_machine_detection_config: NotRequired[pulumi.Input['CampaignAnswerMachineDetectionConfigArgsDict']]
-        """
-        Whether answering machine detection has been enabled.
-        """
-        connect_queue_arn: NotRequired[pulumi.Input[str]]
-        """
-        The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
-        """
-        connect_source_phone_number: NotRequired[pulumi.Input[str]]
-        """
-        The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
-        """
-elif False:
-    CampaignOutboundCallConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CampaignOutboundCallConfigArgs:
@@ -293,22 +208,6 @@ class CampaignOutboundCallConfigArgs:
         pulumi.set(self, "connect_source_phone_number", value)
 
 
-if not MYPY:
-    class CampaignPredictiveDialerConfigArgsDict(TypedDict):
-        """
-        Predictive Dialer config
-        """
-        bandwidth_allocation: pulumi.Input[float]
-        """
-        The bandwidth allocation of a queue resource.
-        """
-        dialing_capacity: NotRequired[pulumi.Input[float]]
-        """
-        Allocates dialing capacity for this campaign between multiple active campaigns.
-        """
-elif False:
-    CampaignPredictiveDialerConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CampaignPredictiveDialerConfigArgs:
     def __init__(__self__, *,
@@ -347,22 +246,6 @@ class CampaignPredictiveDialerConfigArgs:
     def dialing_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "dialing_capacity", value)
 
-
-if not MYPY:
-    class CampaignProgressiveDialerConfigArgsDict(TypedDict):
-        """
-        Progressive Dialer config
-        """
-        bandwidth_allocation: pulumi.Input[float]
-        """
-        The bandwidth allocation of a queue resource.
-        """
-        dialing_capacity: NotRequired[pulumi.Input[float]]
-        """
-        Allocates dialing capacity for this campaign between multiple active campaigns.
-        """
-elif False:
-    CampaignProgressiveDialerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CampaignProgressiveDialerConfigArgs:

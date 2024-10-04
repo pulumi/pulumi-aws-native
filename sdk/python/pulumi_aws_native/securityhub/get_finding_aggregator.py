@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -111,6 +106,9 @@ def get_finding_aggregator(finding_aggregator_arn: Optional[str] = None,
         finding_aggregator_arn=pulumi.get(__ret__, 'finding_aggregator_arn'),
         region_linking_mode=pulumi.get(__ret__, 'region_linking_mode'),
         regions=pulumi.get(__ret__, 'regions'))
+
+
+@_utilities.lift_output_func(get_finding_aggregator)
 def get_finding_aggregator_output(finding_aggregator_arn: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFindingAggregatorResult]:
     """
@@ -121,12 +119,4 @@ def get_finding_aggregator_output(finding_aggregator_arn: Optional[pulumi.Input[
 
     :param str finding_aggregator_arn: The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.
     """
-    __args__ = dict()
-    __args__['findingAggregatorArn'] = finding_aggregator_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getFindingAggregator', __args__, opts=opts, typ=GetFindingAggregatorResult)
-    return __ret__.apply(lambda __response__: GetFindingAggregatorResult(
-        finding_aggregation_region=pulumi.get(__response__, 'finding_aggregation_region'),
-        finding_aggregator_arn=pulumi.get(__response__, 'finding_aggregator_arn'),
-        region_linking_mode=pulumi.get(__response__, 'region_linking_mode'),
-        regions=pulumi.get(__response__, 'regions')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -78,6 +73,9 @@ def get_integration_association(instance_id: Optional[str] = None,
 
     return AwaitableGetIntegrationAssociationResult(
         integration_association_id=pulumi.get(__ret__, 'integration_association_id'))
+
+
+@_utilities.lift_output_func(get_integration_association)
 def get_integration_association_output(instance_id: Optional[pulumi.Input[str]] = None,
                                        integration_arn: Optional[pulumi.Input[str]] = None,
                                        integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
@@ -100,11 +98,4 @@ def get_integration_association_output(instance_id: Optional[pulumi.Input[str]] 
            
            *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
     """
-    __args__ = dict()
-    __args__['instanceId'] = instance_id
-    __args__['integrationArn'] = integration_arn
-    __args__['integrationType'] = integration_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getIntegrationAssociation', __args__, opts=opts, typ=GetIntegrationAssociationResult)
-    return __ret__.apply(lambda __response__: GetIntegrationAssociationResult(
-        integration_association_id=pulumi.get(__response__, 'integration_association_id')))
+    ...

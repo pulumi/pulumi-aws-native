@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:vpclattice:getRule", {
         "arn": args.arn,
@@ -54,10 +55,7 @@ export interface GetRuleResult {
  * Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:vpclattice:getRule", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRule(a, opts))
 }
 
 export interface GetRuleOutputArgs {

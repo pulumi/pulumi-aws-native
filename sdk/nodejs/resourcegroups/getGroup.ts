@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Schema for ResourceGroups::Group
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:resourcegroups:getGroup", {
         "name": args.name,
@@ -62,10 +63,7 @@ export interface GetGroupResult {
  * Schema for ResourceGroups::Group
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:resourcegroups:getGroup", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
 }
 
 export interface GetGroupOutputArgs {

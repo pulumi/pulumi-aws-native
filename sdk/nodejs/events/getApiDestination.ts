@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Events::ApiDestination.
  */
 export function getApiDestination(args: GetApiDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDestinationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:events:getApiDestination", {
         "name": args.name,
@@ -54,10 +55,7 @@ export interface GetApiDestinationResult {
  * Resource Type definition for AWS::Events::ApiDestination.
  */
 export function getApiDestinationOutput(args: GetApiDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDestinationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:events:getApiDestination", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApiDestination(a, opts))
 }
 
 export interface GetApiDestinationOutputArgs {

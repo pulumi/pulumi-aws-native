@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -114,6 +109,9 @@ def get_stored_query(query_name: Optional[str] = None,
         query_expression=pulumi.get(__ret__, 'query_expression'),
         query_id=pulumi.get(__ret__, 'query_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_stored_query)
 def get_stored_query_output(query_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStoredQueryResult]:
     """
@@ -122,13 +120,4 @@ def get_stored_query_output(query_name: Optional[pulumi.Input[str]] = None,
 
     :param str query_name: The name of the query.
     """
-    __args__ = dict()
-    __args__['queryName'] = query_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getStoredQuery', __args__, opts=opts, typ=GetStoredQueryResult)
-    return __ret__.apply(lambda __response__: GetStoredQueryResult(
-        query_arn=pulumi.get(__response__, 'query_arn'),
-        query_description=pulumi.get(__response__, 'query_description'),
-        query_expression=pulumi.get(__response__, 'query_expression'),
-        query_id=pulumi.get(__response__, 'query_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

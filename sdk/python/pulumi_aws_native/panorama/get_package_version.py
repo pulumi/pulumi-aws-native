@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -146,6 +141,9 @@ def get_package_version(package_id: Optional[str] = None,
         registered_time=pulumi.get(__ret__, 'registered_time'),
         status=pulumi.get(__ret__, 'status'),
         status_description=pulumi.get(__ret__, 'status_description'))
+
+
+@_utilities.lift_output_func(get_package_version)
 def get_package_version_output(package_id: Optional[pulumi.Input[str]] = None,
                                package_version: Optional[pulumi.Input[str]] = None,
                                patch_version: Optional[pulumi.Input[str]] = None,
@@ -158,17 +156,4 @@ def get_package_version_output(package_id: Optional[pulumi.Input[str]] = None,
     :param str package_version: A package version.
     :param str patch_version: A patch version.
     """
-    __args__ = dict()
-    __args__['packageId'] = package_id
-    __args__['packageVersion'] = package_version
-    __args__['patchVersion'] = patch_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:panorama:getPackageVersion', __args__, opts=opts, typ=GetPackageVersionResult)
-    return __ret__.apply(lambda __response__: GetPackageVersionResult(
-        is_latest_patch=pulumi.get(__response__, 'is_latest_patch'),
-        mark_latest=pulumi.get(__response__, 'mark_latest'),
-        package_arn=pulumi.get(__response__, 'package_arn'),
-        package_name=pulumi.get(__response__, 'package_name'),
-        registered_time=pulumi.get(__response__, 'registered_time'),
-        status=pulumi.get(__response__, 'status'),
-        status_description=pulumi.get(__response__, 'status_description')))
+    ...

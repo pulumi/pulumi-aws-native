@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -386,6 +381,9 @@ def get_function(function_name: Optional[str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         tracing_config=pulumi.get(__ret__, 'tracing_config'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
+
+
+@_utilities.lift_output_func(get_function)
 def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
@@ -400,33 +398,4 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
     :param str function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
             If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
-    __args__ = dict()
-    __args__['functionName'] = function_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getFunction', __args__, opts=opts, typ=GetFunctionResult)
-    return __ret__.apply(lambda __response__: GetFunctionResult(
-        architectures=pulumi.get(__response__, 'architectures'),
-        arn=pulumi.get(__response__, 'arn'),
-        code_signing_config_arn=pulumi.get(__response__, 'code_signing_config_arn'),
-        dead_letter_config=pulumi.get(__response__, 'dead_letter_config'),
-        description=pulumi.get(__response__, 'description'),
-        environment=pulumi.get(__response__, 'environment'),
-        ephemeral_storage=pulumi.get(__response__, 'ephemeral_storage'),
-        file_system_configs=pulumi.get(__response__, 'file_system_configs'),
-        handler=pulumi.get(__response__, 'handler'),
-        image_config=pulumi.get(__response__, 'image_config'),
-        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
-        layers=pulumi.get(__response__, 'layers'),
-        logging_config=pulumi.get(__response__, 'logging_config'),
-        memory_size=pulumi.get(__response__, 'memory_size'),
-        package_type=pulumi.get(__response__, 'package_type'),
-        recursive_loop=pulumi.get(__response__, 'recursive_loop'),
-        reserved_concurrent_executions=pulumi.get(__response__, 'reserved_concurrent_executions'),
-        role=pulumi.get(__response__, 'role'),
-        runtime=pulumi.get(__response__, 'runtime'),
-        runtime_management_config=pulumi.get(__response__, 'runtime_management_config'),
-        snap_start_response=pulumi.get(__response__, 'snap_start_response'),
-        tags=pulumi.get(__response__, 'tags'),
-        timeout=pulumi.get(__response__, 'timeout'),
-        tracing_config=pulumi.get(__response__, 'tracing_config'),
-        vpc_config=pulumi.get(__response__, 'vpc_config')))
+    ...

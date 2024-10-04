@@ -4,63 +4,27 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ContactChannelTargetInfoArgs',
-    'ContactChannelTargetInfoArgsDict',
     'ContactStageArgs',
-    'ContactStageArgsDict',
     'ContactTargetInfoArgs',
-    'ContactTargetInfoArgsDict',
     'ContactTargetsArgs',
-    'ContactTargetsArgsDict',
     'PlanChannelTargetInfoArgs',
-    'PlanChannelTargetInfoArgsDict',
     'PlanContactTargetInfoArgs',
-    'PlanContactTargetInfoArgsDict',
     'PlanStageArgs',
-    'PlanStageArgsDict',
     'PlanTargetsArgs',
-    'PlanTargetsArgsDict',
     'RotationCoverageTimeArgs',
-    'RotationCoverageTimeArgsDict',
     'RotationMonthlySettingArgs',
-    'RotationMonthlySettingArgsDict',
     'RotationRecurrenceSettingsArgs',
-    'RotationRecurrenceSettingsArgsDict',
     'RotationShiftCoverageArgs',
-    'RotationShiftCoverageArgsDict',
     'RotationWeeklySettingArgs',
-    'RotationWeeklySettingArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ContactChannelTargetInfoArgsDict(TypedDict):
-        """
-        Information about the contact channel that SSM Incident Manager uses to engage the contact.
-        """
-        channel_id: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the contact channel.
-        """
-        retry_interval_in_minutes: pulumi.Input[int]
-        """
-        The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
-        """
-elif False:
-    ContactChannelTargetInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactChannelTargetInfoArgs:
@@ -99,26 +63,6 @@ class ContactChannelTargetInfoArgs:
     def retry_interval_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "retry_interval_in_minutes", value)
 
-
-if not MYPY:
-    class ContactStageArgsDict(TypedDict):
-        """
-        A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
-        """
-        duration_in_minutes: NotRequired[pulumi.Input[int]]
-        """
-        The time to wait until beginning the next stage.
-        """
-        rotation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        List of Rotation Ids to associate with Contact
-        """
-        targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgsDict']]]]
-        """
-        The contacts or contact methods that the escalation plan or engagement plan is engaging.
-        """
-elif False:
-    ContactStageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactStageArgs:
@@ -176,22 +120,6 @@ class ContactStageArgs:
         pulumi.set(self, "targets", value)
 
 
-if not MYPY:
-    class ContactTargetInfoArgsDict(TypedDict):
-        """
-        The contact that SSM Incident Manager is engaging during an incident.
-        """
-        contact_id: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the contact.
-        """
-        is_essential: pulumi.Input[bool]
-        """
-        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        """
-elif False:
-    ContactTargetInfoArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ContactTargetInfoArgs:
     def __init__(__self__, *,
@@ -229,22 +157,6 @@ class ContactTargetInfoArgs:
     def is_essential(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_essential", value)
 
-
-if not MYPY:
-    class ContactTargetsArgsDict(TypedDict):
-        """
-        The contacts or contact methods that the escalation plan or engagement plan is engaging.
-        """
-        channel_target_info: NotRequired[pulumi.Input['ContactChannelTargetInfoArgsDict']]
-        """
-        Information about the contact channel that Incident Manager engages.
-        """
-        contact_target_info: NotRequired[pulumi.Input['ContactTargetInfoArgsDict']]
-        """
-        The contact that Incident Manager is engaging during an incident.
-        """
-elif False:
-    ContactTargetsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactTargetsArgs:
@@ -286,22 +198,6 @@ class ContactTargetsArgs:
         pulumi.set(self, "contact_target_info", value)
 
 
-if not MYPY:
-    class PlanChannelTargetInfoArgsDict(TypedDict):
-        """
-        Information about the contact channel that SSM Incident Manager uses to engage the contact.
-        """
-        channel_id: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the contact channel.
-        """
-        retry_interval_in_minutes: pulumi.Input[int]
-        """
-        The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
-        """
-elif False:
-    PlanChannelTargetInfoArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PlanChannelTargetInfoArgs:
     def __init__(__self__, *,
@@ -339,22 +235,6 @@ class PlanChannelTargetInfoArgs:
     def retry_interval_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "retry_interval_in_minutes", value)
 
-
-if not MYPY:
-    class PlanContactTargetInfoArgsDict(TypedDict):
-        """
-        The contact that SSM Incident Manager is engaging during an incident.
-        """
-        contact_id: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the contact.
-        """
-        is_essential: pulumi.Input[bool]
-        """
-        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        """
-elif False:
-    PlanContactTargetInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlanContactTargetInfoArgs:
@@ -394,22 +274,6 @@ class PlanContactTargetInfoArgs:
         pulumi.set(self, "is_essential", value)
 
 
-if not MYPY:
-    class PlanStageArgsDict(TypedDict):
-        """
-        A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
-        """
-        duration_in_minutes: pulumi.Input[int]
-        """
-        The time to wait until beginning the next stage.
-        """
-        targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgsDict']]]]
-        """
-        The contacts or contact methods that the escalation plan or engagement plan is engaging.
-        """
-elif False:
-    PlanStageArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PlanStageArgs:
     def __init__(__self__, *,
@@ -448,22 +312,6 @@ class PlanStageArgs:
     def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]]]):
         pulumi.set(self, "targets", value)
 
-
-if not MYPY:
-    class PlanTargetsArgsDict(TypedDict):
-        """
-        The contacts or contact methods that the escalation plan or engagement plan is engaging.
-        """
-        channel_target_info: NotRequired[pulumi.Input['PlanChannelTargetInfoArgsDict']]
-        """
-        Information about the contact channel that Incident Manager engages.
-        """
-        contact_target_info: NotRequired[pulumi.Input['PlanContactTargetInfoArgsDict']]
-        """
-        Information about the contact that Incident Manager engages.
-        """
-elif False:
-    PlanTargetsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PlanTargetsArgs:
@@ -505,22 +353,6 @@ class PlanTargetsArgs:
         pulumi.set(self, "contact_target_info", value)
 
 
-if not MYPY:
-    class RotationCoverageTimeArgsDict(TypedDict):
-        """
-        StartTime and EndTime for the Shift
-        """
-        end_time: pulumi.Input[str]
-        """
-        Information about when an on-call rotation shift ends.
-        """
-        start_time: pulumi.Input[str]
-        """
-        Information about when an on-call rotation shift begins.
-        """
-elif False:
-    RotationCoverageTimeArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class RotationCoverageTimeArgs:
     def __init__(__self__, *,
@@ -559,22 +391,6 @@ class RotationCoverageTimeArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class RotationMonthlySettingArgsDict(TypedDict):
-        """
-        DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
-        """
-        day_of_month: pulumi.Input[int]
-        """
-        The day of the month when monthly recurring on-call rotations begin.
-        """
-        hand_off_time: pulumi.Input[str]
-        """
-        The time of day when a monthly recurring on-call shift rotation begins.
-        """
-elif False:
-    RotationMonthlySettingArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class RotationMonthlySettingArgs:
     def __init__(__self__, *,
@@ -612,38 +428,6 @@ class RotationMonthlySettingArgs:
     def hand_off_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "hand_off_time", value)
 
-
-if not MYPY:
-    class RotationRecurrenceSettingsArgsDict(TypedDict):
-        """
-        Information about when an on-call rotation is in effect and how long the rotation period lasts.
-        """
-        daily_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Information about on-call rotations that recur daily.
-        """
-        monthly_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['RotationMonthlySettingArgsDict']]]]
-        """
-        Information about on-call rotations that recur monthly.
-        """
-        number_of_on_calls: NotRequired[pulumi.Input[int]]
-        """
-        Number of Oncalls per shift.
-        """
-        recurrence_multiplier: NotRequired[pulumi.Input[int]]
-        """
-        The number of days, weeks, or months a single rotation lasts.
-        """
-        shift_coverages: NotRequired[pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgsDict']]]]
-        """
-        Information about the days of the week included in on-call rotation coverage.
-        """
-        weekly_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgsDict']]]]
-        """
-        Information about on-call rotations that recur weekly.
-        """
-elif False:
-    RotationRecurrenceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RotationRecurrenceSettingsArgs:
@@ -749,22 +533,6 @@ class RotationRecurrenceSettingsArgs:
         pulumi.set(self, "weekly_settings", value)
 
 
-if not MYPY:
-    class RotationShiftCoverageArgsDict(TypedDict):
-        """
-        Information about the days of the week included in on-call rotation coverage.
-        """
-        coverage_times: pulumi.Input[Sequence[pulumi.Input['RotationCoverageTimeArgsDict']]]
-        """
-        Information about when an on-call shift begins and ends.
-        """
-        day_of_week: pulumi.Input['RotationDayOfWeek']
-        """
-        A list of days on which the schedule is active.
-        """
-elif False:
-    RotationShiftCoverageArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class RotationShiftCoverageArgs:
     def __init__(__self__, *,
@@ -802,22 +570,6 @@ class RotationShiftCoverageArgs:
     def day_of_week(self, value: pulumi.Input['RotationDayOfWeek']):
         pulumi.set(self, "day_of_week", value)
 
-
-if not MYPY:
-    class RotationWeeklySettingArgsDict(TypedDict):
-        """
-        DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
-        """
-        day_of_week: pulumi.Input['RotationDayOfWeek']
-        """
-        The day of the week when weekly recurring on-call shift rotations begins.
-        """
-        hand_off_time: pulumi.Input[str]
-        """
-        The time of day when a weekly recurring on-call shift rotation begins.
-        """
-elif False:
-    RotationWeeklySettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RotationWeeklySettingArgs:

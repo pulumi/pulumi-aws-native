@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -59,6 +54,9 @@ def cidr(cidr_bits: Optional[int] = None,
 
     return AwaitableCidrResult(
         subnets=pulumi.get(__ret__, 'subnets'))
+
+
+@_utilities.lift_output_func(cidr)
 def cidr_output(cidr_bits: Optional[pulumi.Input[int]] = None,
                 count: Optional[pulumi.Input[int]] = None,
                 ip_block: Optional[pulumi.Input[str]] = None,
@@ -66,11 +64,4 @@ def cidr_output(cidr_bits: Optional[pulumi.Input[int]] = None,
     """
     Use this data source to access information about an existing resource.
     """
-    __args__ = dict()
-    __args__['cidrBits'] = cidr_bits
-    __args__['count'] = count
-    __args__['ipBlock'] = ip_block
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:index:cidr', __args__, opts=opts, typ=CidrResult)
-    return __ret__.apply(lambda __response__: CidrResult(
-        subnets=pulumi.get(__response__, 'subnets')))
+    ...

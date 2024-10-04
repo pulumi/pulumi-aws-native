@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Bedrock::Agent Resource Type
  */
 export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:bedrock:getAgent", {
         "agentId": args.agentId,
@@ -132,10 +133,7 @@ export interface GetAgentResult {
  * Definition of AWS::Bedrock::Agent Resource Type
  */
 export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:bedrock:getAgent", {
-        "agentId": args.agentId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAgent(a, opts))
 }
 
 export interface GetAgentOutputArgs {

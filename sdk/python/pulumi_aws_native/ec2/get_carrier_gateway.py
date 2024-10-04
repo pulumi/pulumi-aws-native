@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -101,6 +96,9 @@ def get_carrier_gateway(carrier_gateway_id: Optional[str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_carrier_gateway)
 def get_carrier_gateway_output(carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCarrierGatewayResult]:
     """
@@ -109,12 +107,4 @@ def get_carrier_gateway_output(carrier_gateway_id: Optional[pulumi.Input[str]] =
 
     :param str carrier_gateway_id: The ID of the carrier gateway.
     """
-    __args__ = dict()
-    __args__['carrierGatewayId'] = carrier_gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getCarrierGateway', __args__, opts=opts, typ=GetCarrierGatewayResult)
-    return __ret__.apply(lambda __response__: GetCarrierGatewayResult(
-        carrier_gateway_id=pulumi.get(__response__, 'carrier_gateway_id'),
-        owner_id=pulumi.get(__response__, 'owner_id'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

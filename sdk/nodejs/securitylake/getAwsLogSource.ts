@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SecurityLake::AwsLogSource
  */
 export function getAwsLogSource(args: GetAwsLogSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsLogSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securitylake:getAwsLogSource", {
         "sourceName": args.sourceName,
@@ -36,11 +37,7 @@ export interface GetAwsLogSourceResult {
  * Resource Type definition for AWS::SecurityLake::AwsLogSource
  */
 export function getAwsLogSourceOutput(args: GetAwsLogSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsLogSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:securitylake:getAwsLogSource", {
-        "sourceName": args.sourceName,
-        "sourceVersion": args.sourceVersion,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAwsLogSource(a, opts))
 }
 
 export interface GetAwsLogSourceOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -78,6 +73,9 @@ def get_mount_target(id: Optional[str] = None,
     return AwaitableGetMountTargetResult(
         id=pulumi.get(__ret__, 'id'),
         security_groups=pulumi.get(__ret__, 'security_groups'))
+
+
+@_utilities.lift_output_func(get_mount_target)
 def get_mount_target_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMountTargetResult]:
     """
@@ -88,10 +86,4 @@ def get_mount_target_output(id: Optional[pulumi.Input[str]] = None,
            
            Example: `fs-0123456789111222a`
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:efs:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult)
-    return __ret__.apply(lambda __response__: GetMountTargetResult(
-        id=pulumi.get(__response__, 'id'),
-        security_groups=pulumi.get(__response__, 'security_groups')))
+    ...

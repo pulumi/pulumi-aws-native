@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource type definition for AWS::Events::EventBus
  */
 export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions): Promise<GetEventBusResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:events:getEventBus", {
         "name": args.name,
@@ -56,10 +57,7 @@ export interface GetEventBusResult {
  * Resource type definition for AWS::Events::EventBus
  */
 export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:events:getEventBus", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEventBus(a, opts))
 }
 
 export interface GetEventBusOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCEndpointService
  */
 export function getVpcEndpointService(args: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpcEndpointService", {
         "serviceId": args.serviceId,
@@ -47,10 +48,7 @@ export interface GetVpcEndpointServiceResult {
  * Resource Type definition for AWS::EC2::VPCEndpointService
  */
 export function getVpcEndpointServiceOutput(args: GetVpcEndpointServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcEndpointService", {
-        "serviceId": args.serviceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVpcEndpointService(a, opts))
 }
 
 export interface GetVpcEndpointServiceOutputArgs {

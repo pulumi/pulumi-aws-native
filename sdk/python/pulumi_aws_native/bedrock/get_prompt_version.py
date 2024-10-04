@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -177,6 +172,9 @@ def get_prompt_version(arn: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'),
         variants=pulumi.get(__ret__, 'variants'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_prompt_version)
 def get_prompt_version_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptVersionResult]:
     """
@@ -185,18 +183,4 @@ def get_prompt_version_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN of a prompt version resource
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getPromptVersion', __args__, opts=opts, typ=GetPromptVersionResult)
-    return __ret__.apply(lambda __response__: GetPromptVersionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        customer_encryption_key_arn=pulumi.get(__response__, 'customer_encryption_key_arn'),
-        default_variant=pulumi.get(__response__, 'default_variant'),
-        name=pulumi.get(__response__, 'name'),
-        prompt_id=pulumi.get(__response__, 'prompt_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        updated_at=pulumi.get(__response__, 'updated_at'),
-        variants=pulumi.get(__response__, 'variants'),
-        version=pulumi.get(__response__, 'version')))
+    ...

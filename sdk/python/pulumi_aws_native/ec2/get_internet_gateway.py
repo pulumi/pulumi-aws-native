@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -75,6 +70,9 @@ def get_internet_gateway(internet_gateway_id: Optional[str] = None,
     return AwaitableGetInternetGatewayResult(
         internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_internet_gateway)
 def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
@@ -83,10 +81,4 @@ def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[str]]
 
     :param str internet_gateway_id: The ID of the internet gateway.
     """
-    __args__ = dict()
-    __args__['internetGatewayId'] = internet_gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult)
-    return __ret__.apply(lambda __response__: GetInternetGatewayResult(
-        internet_gateway_id=pulumi.get(__response__, 'internet_gateway_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

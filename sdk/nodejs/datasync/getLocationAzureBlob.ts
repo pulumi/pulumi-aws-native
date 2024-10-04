@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationAzureBlob.
  */
 export function getLocationAzureBlob(args: GetLocationAzureBlobArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationAzureBlobResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationAzureBlob", {
         "locationArn": args.locationArn,
@@ -58,10 +59,7 @@ export interface GetLocationAzureBlobResult {
  * Resource schema for AWS::DataSync::LocationAzureBlob.
  */
 export function getLocationAzureBlobOutput(args: GetLocationAzureBlobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationAzureBlobResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationAzureBlob", {
-        "locationArn": args.locationArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLocationAzureBlob(a, opts))
 }
 
 export interface GetLocationAzureBlobOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS:Connect::Rule
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getRule", {
         "ruleArn": args.ruleArn,
@@ -54,10 +55,7 @@ export interface GetRuleResult {
  * Resource Type definition for AWS:Connect::Rule
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:connect:getRule", {
-        "ruleArn": args.ruleArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRule(a, opts))
 }
 
 export interface GetRuleOutputArgs {

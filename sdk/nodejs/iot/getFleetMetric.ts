@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * An aggregated metric of certain devices in your fleet
  */
 export function getFleetMetric(args: GetFleetMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetMetricResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getFleetMetric", {
         "metricName": args.metricName,
@@ -82,10 +83,7 @@ export interface GetFleetMetricResult {
  * An aggregated metric of certain devices in your fleet
  */
 export function getFleetMetricOutput(args: GetFleetMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetMetricResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getFleetMetric", {
-        "metricName": args.metricName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFleetMetric(a, opts))
 }
 
 export interface GetFleetMetricOutputArgs {

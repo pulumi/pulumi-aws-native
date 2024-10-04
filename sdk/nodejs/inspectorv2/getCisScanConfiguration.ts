@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * CIS Scan Configuration resource schema
  */
 export function getCisScanConfiguration(args: GetCisScanConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetCisScanConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:inspectorv2:getCisScanConfiguration", {
         "arn": args.arn,
@@ -54,10 +55,7 @@ export interface GetCisScanConfigurationResult {
  * CIS Scan Configuration resource schema
  */
 export function getCisScanConfigurationOutput(args: GetCisScanConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCisScanConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:inspectorv2:getCisScanConfiguration", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCisScanConfiguration(a, opts))
 }
 
 export interface GetCisScanConfigurationOutputArgs {

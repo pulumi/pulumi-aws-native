@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -130,6 +125,9 @@ def get_slack_channel_configuration(channel_id: Optional[str] = None,
         notify_on_case_severity=pulumi.get(__ret__, 'notify_on_case_severity'),
         notify_on_create_or_reopen_case=pulumi.get(__ret__, 'notify_on_create_or_reopen_case'),
         notify_on_resolve_case=pulumi.get(__ret__, 'notify_on_resolve_case'))
+
+
+@_utilities.lift_output_func(get_slack_channel_configuration)
 def get_slack_channel_configuration_output(channel_id: Optional[pulumi.Input[str]] = None,
                                            team_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlackChannelConfigurationResult]:
@@ -140,15 +138,4 @@ def get_slack_channel_configuration_output(channel_id: Optional[pulumi.Input[str
     :param str channel_id: The channel ID in Slack, which identifies a channel within a workspace.
     :param str team_id: The team ID in Slack, which uniquely identifies a workspace.
     """
-    __args__ = dict()
-    __args__['channelId'] = channel_id
-    __args__['teamId'] = team_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:supportapp:getSlackChannelConfiguration', __args__, opts=opts, typ=GetSlackChannelConfigurationResult)
-    return __ret__.apply(lambda __response__: GetSlackChannelConfigurationResult(
-        channel_name=pulumi.get(__response__, 'channel_name'),
-        channel_role_arn=pulumi.get(__response__, 'channel_role_arn'),
-        notify_on_add_correspondence_to_case=pulumi.get(__response__, 'notify_on_add_correspondence_to_case'),
-        notify_on_case_severity=pulumi.get(__response__, 'notify_on_case_severity'),
-        notify_on_create_or_reopen_case=pulumi.get(__response__, 'notify_on_create_or_reopen_case'),
-        notify_on_resolve_case=pulumi.get(__response__, 'notify_on_resolve_case')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -105,6 +100,9 @@ def get_multiplexprogram(multiplex_id: Optional[str] = None,
         multiplex_program_settings=pulumi.get(__ret__, 'multiplex_program_settings'),
         packet_identifiers_map=pulumi.get(__ret__, 'packet_identifiers_map'),
         pipeline_details=pulumi.get(__ret__, 'pipeline_details'))
+
+
+@_utilities.lift_output_func(get_multiplexprogram)
 def get_multiplexprogram_output(multiplex_id: Optional[pulumi.Input[str]] = None,
                                 program_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiplexprogramResult]:
@@ -115,13 +113,4 @@ def get_multiplexprogram_output(multiplex_id: Optional[pulumi.Input[str]] = None
     :param str multiplex_id: The ID of the multiplex that the program belongs to.
     :param str program_name: The name of the multiplex program.
     """
-    __args__ = dict()
-    __args__['multiplexId'] = multiplex_id
-    __args__['programName'] = program_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getMultiplexprogram', __args__, opts=opts, typ=GetMultiplexprogramResult)
-    return __ret__.apply(lambda __response__: GetMultiplexprogramResult(
-        channel_id=pulumi.get(__response__, 'channel_id'),
-        multiplex_program_settings=pulumi.get(__response__, 'multiplex_program_settings'),
-        packet_identifiers_map=pulumi.get(__response__, 'packet_identifiers_map'),
-        pipeline_details=pulumi.get(__response__, 'pipeline_details')))
+    ...

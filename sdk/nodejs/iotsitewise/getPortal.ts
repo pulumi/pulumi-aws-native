@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTSiteWise::Portal
  */
 export function getPortal(args: GetPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetPortalResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotsitewise:getPortal", {
         "portalId": args.portalId,
@@ -74,10 +75,7 @@ export interface GetPortalResult {
  * Resource schema for AWS::IoTSiteWise::Portal
  */
 export function getPortalOutput(args: GetPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortalResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iotsitewise:getPortal", {
-        "portalId": args.portalId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPortal(a, opts))
 }
 
 export interface GetPortalOutputArgs {

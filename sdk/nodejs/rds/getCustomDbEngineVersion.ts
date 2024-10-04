@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
  */
 export function getCustomDbEngineVersion(args: GetCustomDbEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDbEngineVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getCustomDbEngineVersion", {
         "engine": args.engine,
@@ -51,11 +52,7 @@ export interface GetCustomDbEngineVersionResult {
  * The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
  */
 export function getCustomDbEngineVersionOutput(args: GetCustomDbEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDbEngineVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:rds:getCustomDbEngineVersion", {
-        "engine": args.engine,
-        "engineVersion": args.engineVersion,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomDbEngineVersion(a, opts))
 }
 
 export interface GetCustomDbEngineVersionOutputArgs {

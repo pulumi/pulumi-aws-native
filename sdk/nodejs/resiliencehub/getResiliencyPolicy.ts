@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type Definition for Resiliency Policy.
  */
 export function getResiliencyPolicy(args: GetResiliencyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResiliencyPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:resiliencehub:getResiliencyPolicy", {
         "policyArn": args.policyArn,
@@ -58,10 +59,7 @@ export interface GetResiliencyPolicyResult {
  * Resource Type Definition for Resiliency Policy.
  */
 export function getResiliencyPolicyOutput(args: GetResiliencyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResiliencyPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:resiliencehub:getResiliencyPolicy", {
-        "policyArn": args.policyArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getResiliencyPolicy(a, opts))
 }
 
 export interface GetResiliencyPolicyOutputArgs {

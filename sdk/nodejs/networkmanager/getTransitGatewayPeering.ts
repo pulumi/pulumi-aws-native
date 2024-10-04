@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
  */
 export function getTransitGatewayPeering(args: GetTransitGatewayPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayPeeringResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getTransitGatewayPeering", {
         "peeringId": args.peeringId,
@@ -70,10 +71,7 @@ export interface GetTransitGatewayPeeringResult {
  * AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
  */
 export function getTransitGatewayPeeringOutput(args: GetTransitGatewayPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayPeeringResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:networkmanager:getTransitGatewayPeering", {
-        "peeringId": args.peeringId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTransitGatewayPeering(a, opts))
 }
 
 export interface GetTransitGatewayPeeringOutputArgs {

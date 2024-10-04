@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -101,6 +96,9 @@ def get_pod_identity_association(association_arn: Optional[str] = None,
         association_id=pulumi.get(__ret__, 'association_id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_pod_identity_association)
 def get_pod_identity_association_output(association_arn: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPodIdentityAssociationResult]:
     """
@@ -109,12 +107,4 @@ def get_pod_identity_association_output(association_arn: Optional[pulumi.Input[s
 
     :param str association_arn: The ARN of the pod identity association.
     """
-    __args__ = dict()
-    __args__['associationArn'] = association_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getPodIdentityAssociation', __args__, opts=opts, typ=GetPodIdentityAssociationResult)
-    return __ret__.apply(lambda __response__: GetPodIdentityAssociationResult(
-        association_arn=pulumi.get(__response__, 'association_arn'),
-        association_id=pulumi.get(__response__, 'association_id'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

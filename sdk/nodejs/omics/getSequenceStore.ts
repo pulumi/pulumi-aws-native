@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Omics::SequenceStore Resource Type
  */
 export function getSequenceStore(args: GetSequenceStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetSequenceStoreResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:omics:getSequenceStore", {
         "sequenceStoreId": args.sequenceStoreId,
@@ -39,10 +40,7 @@ export interface GetSequenceStoreResult {
  * Definition of AWS::Omics::SequenceStore Resource Type
  */
 export function getSequenceStoreOutput(args: GetSequenceStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSequenceStoreResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:omics:getSequenceStore", {
-        "sequenceStoreId": args.sequenceStoreId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSequenceStore(a, opts))
 }
 
 export interface GetSequenceStoreOutputArgs {

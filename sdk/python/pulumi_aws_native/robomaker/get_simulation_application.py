@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -128,6 +123,9 @@ def get_simulation_application(arn: Optional[str] = None,
         robot_software_suite=pulumi.get(__ret__, 'robot_software_suite'),
         simulation_software_suite=pulumi.get(__ret__, 'simulation_software_suite'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_simulation_application)
 def get_simulation_application_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationApplicationResult]:
     """
@@ -136,14 +134,4 @@ def get_simulation_application_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the simulation application.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:robomaker:getSimulationApplication', __args__, opts=opts, typ=GetSimulationApplicationResult)
-    return __ret__.apply(lambda __response__: GetSimulationApplicationResult(
-        arn=pulumi.get(__response__, 'arn'),
-        current_revision_id=pulumi.get(__response__, 'current_revision_id'),
-        environment=pulumi.get(__response__, 'environment'),
-        robot_software_suite=pulumi.get(__response__, 'robot_software_suite'),
-        simulation_software_suite=pulumi.get(__response__, 'simulation_software_suite'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

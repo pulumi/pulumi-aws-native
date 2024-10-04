@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Proton::ServiceTemplate Resource Type
  */
 export function getServiceTemplate(args: GetServiceTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTemplateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:proton:getServiceTemplate", {
         "arn": args.arn,
@@ -48,10 +49,7 @@ export interface GetServiceTemplateResult {
  * Definition of AWS::Proton::ServiceTemplate Resource Type
  */
 export function getServiceTemplateOutput(args: GetServiceTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTemplateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:proton:getServiceTemplate", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServiceTemplate(a, opts))
 }
 
 export interface GetServiceTemplateOutputArgs {

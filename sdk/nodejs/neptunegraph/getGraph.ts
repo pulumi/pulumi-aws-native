@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
  */
 export function getGraph(args: GetGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:neptunegraph:getGraph", {
         "graphId": args.graphId,
@@ -66,10 +67,7 @@ export interface GetGraphResult {
  * The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
  */
 export function getGraphOutput(args: GetGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:neptunegraph:getGraph", {
-        "graphId": args.graphId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGraph(a, opts))
 }
 
 export interface GetGraphOutputArgs {

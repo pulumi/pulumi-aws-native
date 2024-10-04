@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -142,6 +137,9 @@ def get_quick_connect(quick_connect_arn: Optional[str] = None,
         quick_connect_config=pulumi.get(__ret__, 'quick_connect_config'),
         quick_connect_type=pulumi.get(__ret__, 'quick_connect_type'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_quick_connect)
 def get_quick_connect_output(quick_connect_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQuickConnectResult]:
     """
@@ -150,15 +148,4 @@ def get_quick_connect_output(quick_connect_arn: Optional[pulumi.Input[str]] = No
 
     :param str quick_connect_arn: The Amazon Resource Name (ARN) for the quick connect.
     """
-    __args__ = dict()
-    __args__['quickConnectArn'] = quick_connect_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getQuickConnect', __args__, opts=opts, typ=GetQuickConnectResult)
-    return __ret__.apply(lambda __response__: GetQuickConnectResult(
-        description=pulumi.get(__response__, 'description'),
-        instance_arn=pulumi.get(__response__, 'instance_arn'),
-        name=pulumi.get(__response__, 'name'),
-        quick_connect_arn=pulumi.get(__response__, 'quick_connect_arn'),
-        quick_connect_config=pulumi.get(__response__, 'quick_connect_config'),
-        quick_connect_type=pulumi.get(__response__, 'quick_connect_type'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -63,6 +58,9 @@ def get_bucket_policy(bucket: Optional[str] = None,
 
     return AwaitableGetBucketPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
+
+
+@_utilities.lift_output_func(get_bucket_policy)
 def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
@@ -71,9 +69,4 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
 
     :param str bucket: The name of the S3 directory bucket to which the policy applies.
     """
-    __args__ = dict()
-    __args__['bucket'] = bucket
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:s3express:getBucketPolicy', __args__, opts=opts, typ=GetBucketPolicyResult)
-    return __ret__.apply(lambda __response__: GetBucketPolicyResult(
-        policy_document=pulumi.get(__response__, 'policy_document')))
+    ...

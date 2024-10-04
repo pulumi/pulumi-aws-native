@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -157,6 +152,9 @@ def get_configuration_profile(application_id: Optional[str] = None,
         retrieval_role_arn=pulumi.get(__ret__, 'retrieval_role_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         validators=pulumi.get(__ret__, 'validators'))
+
+
+@_utilities.lift_output_func(get_configuration_profile)
 def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]] = None,
                                      configuration_profile_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileResult]:
@@ -167,17 +165,4 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
     :param str application_id: The application ID.
     :param str configuration_profile_id: The configuration profile ID
     """
-    __args__ = dict()
-    __args__['applicationId'] = application_id
-    __args__['configurationProfileId'] = configuration_profile_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult)
-    return __ret__.apply(lambda __response__: GetConfigurationProfileResult(
-        configuration_profile_id=pulumi.get(__response__, 'configuration_profile_id'),
-        description=pulumi.get(__response__, 'description'),
-        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
-        kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
-        name=pulumi.get(__response__, 'name'),
-        retrieval_role_arn=pulumi.get(__response__, 'retrieval_role_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        validators=pulumi.get(__response__, 'validators')))
+    ...

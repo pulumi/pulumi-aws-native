@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -143,6 +138,9 @@ def get_safety_rule(safety_rule_arn: Optional[str] = None,
         rule_config=pulumi.get(__ret__, 'rule_config'),
         safety_rule_arn=pulumi.get(__ret__, 'safety_rule_arn'),
         status=pulumi.get(__ret__, 'status'))
+
+
+@_utilities.lift_output_func(get_safety_rule)
 def get_safety_rule_output(safety_rule_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSafetyRuleResult]:
     """
@@ -151,15 +149,4 @@ def get_safety_rule_output(safety_rule_arn: Optional[pulumi.Input[str]] = None,
 
     :param str safety_rule_arn: The Amazon Resource Name (ARN) of the safety rule.
     """
-    __args__ = dict()
-    __args__['safetyRuleArn'] = safety_rule_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoverycontrol:getSafetyRule', __args__, opts=opts, typ=GetSafetyRuleResult)
-    return __ret__.apply(lambda __response__: GetSafetyRuleResult(
-        assertion_rule=pulumi.get(__response__, 'assertion_rule'),
-        control_panel_arn=pulumi.get(__response__, 'control_panel_arn'),
-        gating_rule=pulumi.get(__response__, 'gating_rule'),
-        name=pulumi.get(__response__, 'name'),
-        rule_config=pulumi.get(__response__, 'rule_config'),
-        safety_rule_arn=pulumi.get(__response__, 'safety_rule_arn'),
-        status=pulumi.get(__response__, 'status')))
+    ...

@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *  For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:secretsmanager:getSecret", {
         "id": args.id,
@@ -75,10 +76,7 @@ export interface GetSecretResult {
  *  For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:secretsmanager:getSecret", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }
 
 export interface GetSecretOutputArgs {

@@ -4,73 +4,15 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'SecretGenerateSecretStringArgs',
-    'SecretGenerateSecretStringArgsDict',
     'SecretReplicaRegionArgs',
-    'SecretReplicaRegionArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class SecretGenerateSecretStringArgsDict(TypedDict):
-        """
-        Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
-          *Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
-        """
-        exclude_characters: NotRequired[pulumi.Input[str]]
-        """
-        A string of the characters that you don't want in the password.
-        """
-        exclude_lowercase: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
-        """
-        exclude_numbers: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.
-        """
-        exclude_punctuation: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~``. If you don't include this switch, the password can contain punctuation.
-        """
-        exclude_uppercase: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to exclude uppercase letters from the password. If you don't include this switch, the password can contain uppercase letters.
-        """
-        generate_string_key: NotRequired[pulumi.Input[str]]
-        """
-        The JSON key name for the key/value pair, where the value is the generated password. This pair is added to the JSON structure specified by the ``SecretStringTemplate`` parameter. If you specify this parameter, then you must also specify ``SecretStringTemplate``.
-        """
-        include_space: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to include the space character. If you include this switch, the password can contain space characters.
-        """
-        password_length: NotRequired[pulumi.Input[int]]
-        """
-        The length of the password. If you don't include this parameter, the default length is 32 characters.
-        """
-        require_each_included_type: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation. If you don't include this switch, the password contains at least one of every character type.
-        """
-        secret_string_template: NotRequired[pulumi.Input[str]]
-        """
-        A template that the generated string must match. When you make a change to this property, a new secret version is created.
-        """
-elif False:
-    SecretGenerateSecretStringArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecretGenerateSecretStringArgs:
@@ -240,22 +182,6 @@ class SecretGenerateSecretStringArgs:
     def secret_string_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_string_template", value)
 
-
-if not MYPY:
-    class SecretReplicaRegionArgsDict(TypedDict):
-        """
-        Specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
-        """
-        region: pulumi.Input[str]
-        """
-        A string that represents a ``Region``, for example "us-east-1".
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses ``aws/secretsmanager``.
-        """
-elif False:
-    SecretReplicaRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecretReplicaRegionArgs:

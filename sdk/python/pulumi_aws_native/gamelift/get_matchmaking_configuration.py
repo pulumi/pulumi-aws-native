@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -272,6 +267,9 @@ def get_matchmaking_configuration(name: Optional[str] = None,
         rule_set_arn=pulumi.get(__ret__, 'rule_set_arn'),
         rule_set_name=pulumi.get(__ret__, 'rule_set_name'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_matchmaking_configuration)
 def get_matchmaking_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMatchmakingConfigurationResult]:
     """
@@ -280,25 +278,4 @@ def get_matchmaking_configuration_output(name: Optional[pulumi.Input[str]] = Non
 
     :param str name: A unique identifier for the matchmaking configuration.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getMatchmakingConfiguration', __args__, opts=opts, typ=GetMatchmakingConfigurationResult)
-    return __ret__.apply(lambda __response__: GetMatchmakingConfigurationResult(
-        acceptance_required=pulumi.get(__response__, 'acceptance_required'),
-        acceptance_timeout_seconds=pulumi.get(__response__, 'acceptance_timeout_seconds'),
-        additional_player_count=pulumi.get(__response__, 'additional_player_count'),
-        arn=pulumi.get(__response__, 'arn'),
-        backfill_mode=pulumi.get(__response__, 'backfill_mode'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        custom_event_data=pulumi.get(__response__, 'custom_event_data'),
-        description=pulumi.get(__response__, 'description'),
-        flex_match_mode=pulumi.get(__response__, 'flex_match_mode'),
-        game_properties=pulumi.get(__response__, 'game_properties'),
-        game_session_data=pulumi.get(__response__, 'game_session_data'),
-        game_session_queue_arns=pulumi.get(__response__, 'game_session_queue_arns'),
-        notification_target=pulumi.get(__response__, 'notification_target'),
-        request_timeout_seconds=pulumi.get(__response__, 'request_timeout_seconds'),
-        rule_set_arn=pulumi.get(__response__, 'rule_set_arn'),
-        rule_set_name=pulumi.get(__response__, 'rule_set_name'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

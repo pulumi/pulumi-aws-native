@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppStream::Entitlement
  */
 export function getEntitlement(args: GetEntitlementArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitlementResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appstream:getEntitlement", {
         "name": args.name,
@@ -55,11 +56,7 @@ export interface GetEntitlementResult {
  * Resource Type definition for AWS::AppStream::Entitlement
  */
 export function getEntitlementOutput(args: GetEntitlementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitlementResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:appstream:getEntitlement", {
-        "name": args.name,
-        "stackName": args.stackName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEntitlement(a, opts))
 }
 
 export interface GetEntitlementOutputArgs {

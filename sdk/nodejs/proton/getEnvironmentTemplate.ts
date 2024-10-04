@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Proton::EnvironmentTemplate Resource Type
  */
 export function getEnvironmentTemplate(args: GetEnvironmentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentTemplateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:proton:getEnvironmentTemplate", {
         "arn": args.arn,
@@ -48,10 +49,7 @@ export interface GetEnvironmentTemplateResult {
  * Definition of AWS::Proton::EnvironmentTemplate Resource Type
  */
 export function getEnvironmentTemplateOutput(args: GetEnvironmentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentTemplateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:proton:getEnvironmentTemplate", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironmentTemplate(a, opts))
 }
 
 export interface GetEnvironmentTemplateOutputArgs {

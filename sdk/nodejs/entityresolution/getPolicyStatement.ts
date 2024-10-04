@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Policy Statement defined in AWS Entity Resolution Service
  */
 export function getPolicyStatement(args: GetPolicyStatementArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyStatementResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:entityresolution:getPolicyStatement", {
         "arn": args.arn,
@@ -55,11 +56,7 @@ export interface GetPolicyStatementResult {
  * Policy Statement defined in AWS Entity Resolution Service
  */
 export function getPolicyStatementOutput(args: GetPolicyStatementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyStatementResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:entityresolution:getPolicyStatement", {
-        "arn": args.arn,
-        "statementId": args.statementId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPolicyStatement(a, opts))
 }
 
 export interface GetPolicyStatementOutputArgs {

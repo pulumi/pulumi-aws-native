@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -101,6 +96,9 @@ def get_app_image_config(app_image_config_name: Optional[str] = None,
         code_editor_app_image_config=pulumi.get(__ret__, 'code_editor_app_image_config'),
         jupyter_lab_app_image_config=pulumi.get(__ret__, 'jupyter_lab_app_image_config'),
         kernel_gateway_image_config=pulumi.get(__ret__, 'kernel_gateway_image_config'))
+
+
+@_utilities.lift_output_func(get_app_image_config)
 def get_app_image_config_output(app_image_config_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppImageConfigResult]:
     """
@@ -109,12 +107,4 @@ def get_app_image_config_output(app_image_config_name: Optional[pulumi.Input[str
 
     :param str app_image_config_name: The Name of the AppImageConfig.
     """
-    __args__ = dict()
-    __args__['appImageConfigName'] = app_image_config_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getAppImageConfig', __args__, opts=opts, typ=GetAppImageConfigResult)
-    return __ret__.apply(lambda __response__: GetAppImageConfigResult(
-        app_image_config_arn=pulumi.get(__response__, 'app_image_config_arn'),
-        code_editor_app_image_config=pulumi.get(__response__, 'code_editor_app_image_config'),
-        jupyter_lab_app_image_config=pulumi.get(__response__, 'jupyter_lab_app_image_config'),
-        kernel_gateway_image_config=pulumi.get(__response__, 'kernel_gateway_image_config')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SecurityLake::DataLake
  */
 export function getDataLake(args: GetDataLakeArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securitylake:getDataLake", {
         "arn": args.arn,
@@ -54,10 +55,7 @@ export interface GetDataLakeResult {
  * Resource Type definition for AWS::SecurityLake::DataLake
  */
 export function getDataLakeOutput(args: GetDataLakeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:securitylake:getDataLake", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataLake(a, opts))
 }
 
 export interface GetDataLakeOutputArgs {

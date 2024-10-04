@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -105,6 +100,9 @@ def get_delivery(delivery_id: Optional[str] = None,
         delivery_destination_type=pulumi.get(__ret__, 'delivery_destination_type'),
         delivery_id=pulumi.get(__ret__, 'delivery_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_delivery)
 def get_delivery_output(delivery_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryResult]:
     """
@@ -117,12 +115,4 @@ def get_delivery_output(delivery_id: Optional[pulumi.Input[str]] = None,
 
     :param str delivery_id: The unique ID that identifies this delivery in your account.
     """
-    __args__ = dict()
-    __args__['deliveryId'] = delivery_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getDelivery', __args__, opts=opts, typ=GetDeliveryResult)
-    return __ret__.apply(lambda __response__: GetDeliveryResult(
-        arn=pulumi.get(__response__, 'arn'),
-        delivery_destination_type=pulumi.get(__response__, 'delivery_destination_type'),
-        delivery_id=pulumi.get(__response__, 'delivery_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

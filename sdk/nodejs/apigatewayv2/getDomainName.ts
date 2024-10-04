@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getDomainName", {
         "domainName": args.domainName,
@@ -52,10 +53,7 @@ export interface GetDomainNameResult {
  *  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
  */
 export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:apigatewayv2:getDomainName", {
-        "domainName": args.domainName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDomainName(a, opts))
 }
 
 export interface GetDomainNameOutputArgs {

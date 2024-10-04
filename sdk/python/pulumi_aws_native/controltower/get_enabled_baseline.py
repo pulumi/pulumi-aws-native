@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -102,6 +97,9 @@ def get_enabled_baseline(enabled_baseline_identifier: Optional[str] = None,
         enabled_baseline_identifier=pulumi.get(__ret__, 'enabled_baseline_identifier'),
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_enabled_baseline)
 def get_enabled_baseline_output(enabled_baseline_identifier: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnabledBaselineResult]:
     """
@@ -110,12 +108,4 @@ def get_enabled_baseline_output(enabled_baseline_identifier: Optional[pulumi.Inp
 
     :param str enabled_baseline_identifier: The ARN of the `EnabledBaseline` resource.
     """
-    __args__ = dict()
-    __args__['enabledBaselineIdentifier'] = enabled_baseline_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:controltower:getEnabledBaseline', __args__, opts=opts, typ=GetEnabledBaselineResult)
-    return __ret__.apply(lambda __response__: GetEnabledBaselineResult(
-        baseline_version=pulumi.get(__response__, 'baseline_version'),
-        enabled_baseline_identifier=pulumi.get(__response__, 'enabled_baseline_identifier'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

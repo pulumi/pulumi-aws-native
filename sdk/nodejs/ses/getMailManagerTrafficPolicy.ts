@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::SES::MailManagerTrafficPolicy Resource Type
  */
 export function getMailManagerTrafficPolicy(args: GetMailManagerTrafficPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetMailManagerTrafficPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getMailManagerTrafficPolicy", {
         "trafficPolicyId": args.trafficPolicyId,
@@ -60,10 +61,7 @@ export interface GetMailManagerTrafficPolicyResult {
  * Definition of AWS::SES::MailManagerTrafficPolicy Resource Type
  */
 export function getMailManagerTrafficPolicyOutput(args: GetMailManagerTrafficPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerTrafficPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerTrafficPolicy", {
-        "trafficPolicyId": args.trafficPolicyId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMailManagerTrafficPolicy(a, opts))
 }
 
 export interface GetMailManagerTrafficPolicyOutputArgs {

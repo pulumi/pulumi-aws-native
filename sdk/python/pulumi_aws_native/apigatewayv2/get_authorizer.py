@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -197,6 +192,9 @@ def get_authorizer(api_id: Optional[str] = None,
         identity_validation_expression=pulumi.get(__ret__, 'identity_validation_expression'),
         jwt_configuration=pulumi.get(__ret__, 'jwt_configuration'),
         name=pulumi.get(__ret__, 'name'))
+
+
+@_utilities.lift_output_func(get_authorizer)
 def get_authorizer_output(api_id: Optional[pulumi.Input[str]] = None,
                           authorizer_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
@@ -207,20 +205,4 @@ def get_authorizer_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str api_id: The API identifier.
     :param str authorizer_id: The authorizer ID.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['authorizerId'] = authorizer_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult)
-    return __ret__.apply(lambda __response__: GetAuthorizerResult(
-        authorizer_credentials_arn=pulumi.get(__response__, 'authorizer_credentials_arn'),
-        authorizer_id=pulumi.get(__response__, 'authorizer_id'),
-        authorizer_payload_format_version=pulumi.get(__response__, 'authorizer_payload_format_version'),
-        authorizer_result_ttl_in_seconds=pulumi.get(__response__, 'authorizer_result_ttl_in_seconds'),
-        authorizer_type=pulumi.get(__response__, 'authorizer_type'),
-        authorizer_uri=pulumi.get(__response__, 'authorizer_uri'),
-        enable_simple_responses=pulumi.get(__response__, 'enable_simple_responses'),
-        identity_source=pulumi.get(__response__, 'identity_source'),
-        identity_validation_expression=pulumi.get(__response__, 'identity_validation_expression'),
-        jwt_configuration=pulumi.get(__response__, 'jwt_configuration'),
-        name=pulumi.get(__response__, 'name')))
+    ...

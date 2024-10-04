@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MSK::ServerlessCluster
  */
 export function getServerlessCluster(args: GetServerlessClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:msk:getServerlessCluster", {
         "arn": args.arn,
@@ -25,10 +26,7 @@ export interface GetServerlessClusterResult {
  * Resource Type definition for AWS::MSK::ServerlessCluster
  */
 export function getServerlessClusterOutput(args: GetServerlessClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:msk:getServerlessCluster", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServerlessCluster(a, opts))
 }
 
 export interface GetServerlessClusterOutputArgs {

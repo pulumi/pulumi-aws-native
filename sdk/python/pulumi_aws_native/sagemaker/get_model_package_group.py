@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -117,6 +112,9 @@ def get_model_package_group(model_package_group_arn: Optional[str] = None,
         model_package_group_policy=pulumi.get(__ret__, 'model_package_group_policy'),
         model_package_group_status=pulumi.get(__ret__, 'model_package_group_status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_model_package_group)
 def get_model_package_group_output(model_package_group_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelPackageGroupResult]:
     """
@@ -125,13 +123,4 @@ def get_model_package_group_output(model_package_group_arn: Optional[pulumi.Inpu
 
     :param str model_package_group_arn: The Amazon Resource Name (ARN) of the model group.
     """
-    __args__ = dict()
-    __args__['modelPackageGroupArn'] = model_package_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getModelPackageGroup', __args__, opts=opts, typ=GetModelPackageGroupResult)
-    return __ret__.apply(lambda __response__: GetModelPackageGroupResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        model_package_group_arn=pulumi.get(__response__, 'model_package_group_arn'),
-        model_package_group_policy=pulumi.get(__response__, 'model_package_group_policy'),
-        model_package_group_status=pulumi.get(__response__, 'model_package_group_status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

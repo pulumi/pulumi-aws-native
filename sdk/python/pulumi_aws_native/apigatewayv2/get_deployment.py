@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -77,6 +72,9 @@ def get_deployment(api_id: Optional[str] = None,
     return AwaitableGetDeploymentResult(
         deployment_id=pulumi.get(__ret__, 'deployment_id'),
         description=pulumi.get(__ret__, 'description'))
+
+
+@_utilities.lift_output_func(get_deployment)
 def get_deployment_output(api_id: Optional[pulumi.Input[str]] = None,
                           deployment_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
@@ -87,11 +85,4 @@ def get_deployment_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str api_id: The API identifier.
     :param str deployment_id: The deployment ID.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['deploymentId'] = deployment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
-    return __ret__.apply(lambda __response__: GetDeploymentResult(
-        deployment_id=pulumi.get(__response__, 'deployment_id'),
-        description=pulumi.get(__response__, 'description')))
+    ...

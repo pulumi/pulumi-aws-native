@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -127,6 +122,9 @@ def get_local_gateway_route_table(local_gateway_route_table_id: Optional[str] = 
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_local_gateway_route_table)
 def get_local_gateway_route_table_output(local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
     """
@@ -135,14 +133,4 @@ def get_local_gateway_route_table_output(local_gateway_route_table_id: Optional[
 
     :param str local_gateway_route_table_id: The ID of the local gateway route table.
     """
-    __args__ = dict()
-    __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getLocalGatewayRouteTable', __args__, opts=opts, typ=GetLocalGatewayRouteTableResult)
-    return __ret__.apply(lambda __response__: GetLocalGatewayRouteTableResult(
-        local_gateway_route_table_arn=pulumi.get(__response__, 'local_gateway_route_table_arn'),
-        local_gateway_route_table_id=pulumi.get(__response__, 'local_gateway_route_table_id'),
-        outpost_arn=pulumi.get(__response__, 'outpost_arn'),
-        owner_id=pulumi.get(__response__, 'owner_id'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -76,6 +71,9 @@ def get_resource_collection(resource_collection_type: Optional['ResourceCollecti
     return AwaitableGetResourceCollectionResult(
         resource_collection_filter=pulumi.get(__ret__, 'resource_collection_filter'),
         resource_collection_type=pulumi.get(__ret__, 'resource_collection_type'))
+
+
+@_utilities.lift_output_func(get_resource_collection)
 def get_resource_collection_output(resource_collection_type: Optional[pulumi.Input['ResourceCollectionType']] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
@@ -84,10 +82,4 @@ def get_resource_collection_output(resource_collection_type: Optional[pulumi.Inp
 
     :param 'ResourceCollectionType' resource_collection_type: The type of ResourceCollection
     """
-    __args__ = dict()
-    __args__['resourceCollectionType'] = resource_collection_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:devopsguru:getResourceCollection', __args__, opts=opts, typ=GetResourceCollectionResult)
-    return __ret__.apply(lambda __response__: GetResourceCollectionResult(
-        resource_collection_filter=pulumi.get(__response__, 'resource_collection_filter'),
-        resource_collection_type=pulumi.get(__response__, 'resource_collection_type')))
+    ...

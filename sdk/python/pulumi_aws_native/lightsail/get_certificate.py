@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -88,6 +83,9 @@ def get_certificate(certificate_name: Optional[str] = None,
         certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
@@ -96,11 +94,4 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
 
     :param str certificate_name: The name for the certificate.
     """
-    __args__ = dict()
-    __args__['certificateName'] = certificate_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
-    return __ret__.apply(lambda __response__: GetCertificateResult(
-        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

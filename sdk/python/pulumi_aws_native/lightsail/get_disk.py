@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -207,6 +202,9 @@ def get_disk(disk_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         support_code=pulumi.get(__ret__, 'support_code'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_disk)
 def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
     """
@@ -215,20 +213,4 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
 
     :param str disk_name: The names to use for your new Lightsail disk.
     """
-    __args__ = dict()
-    __args__['diskName'] = disk_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getDisk', __args__, opts=opts, typ=GetDiskResult)
-    return __ret__.apply(lambda __response__: GetDiskResult(
-        add_ons=pulumi.get(__response__, 'add_ons'),
-        attached_to=pulumi.get(__response__, 'attached_to'),
-        attachment_state=pulumi.get(__response__, 'attachment_state'),
-        disk_arn=pulumi.get(__response__, 'disk_arn'),
-        iops=pulumi.get(__response__, 'iops'),
-        is_attached=pulumi.get(__response__, 'is_attached'),
-        location=pulumi.get(__response__, 'location'),
-        path=pulumi.get(__response__, 'path'),
-        resource_type=pulumi.get(__response__, 'resource_type'),
-        state=pulumi.get(__response__, 'state'),
-        support_code=pulumi.get(__response__, 'support_code'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

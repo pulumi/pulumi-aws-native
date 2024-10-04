@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Backup::BackupPlan
  */
 export function getBackupPlan(args: GetBackupPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPlanResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:backup:getBackupPlan", {
         "backupPlanId": args.backupPlanId,
@@ -50,10 +51,7 @@ export interface GetBackupPlanResult {
  * Resource Type definition for AWS::Backup::BackupPlan
  */
 export function getBackupPlanOutput(args: GetBackupPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPlanResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:backup:getBackupPlan", {
-        "backupPlanId": args.backupPlanId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBackupPlan(a, opts))
 }
 
 export interface GetBackupPlanOutputArgs {

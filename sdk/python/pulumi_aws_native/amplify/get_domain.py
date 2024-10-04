@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -185,6 +180,9 @@ def get_domain(arn: Optional[str] = None,
         status_reason=pulumi.get(__ret__, 'status_reason'),
         sub_domain_settings=pulumi.get(__ret__, 'sub_domain_settings'),
         update_status=pulumi.get(__ret__, 'update_status'))
+
+
+@_utilities.lift_output_func(get_domain)
 def get_domain_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -193,18 +191,4 @@ def get_domain_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN for the Domain Association.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:amplify:getDomain', __args__, opts=opts, typ=GetDomainResult)
-    return __ret__.apply(lambda __response__: GetDomainResult(
-        arn=pulumi.get(__response__, 'arn'),
-        auto_sub_domain_creation_patterns=pulumi.get(__response__, 'auto_sub_domain_creation_patterns'),
-        auto_sub_domain_iam_role=pulumi.get(__response__, 'auto_sub_domain_iam_role'),
-        certificate=pulumi.get(__response__, 'certificate'),
-        certificate_record=pulumi.get(__response__, 'certificate_record'),
-        domain_status=pulumi.get(__response__, 'domain_status'),
-        enable_auto_sub_domain=pulumi.get(__response__, 'enable_auto_sub_domain'),
-        status_reason=pulumi.get(__response__, 'status_reason'),
-        sub_domain_settings=pulumi.get(__response__, 'sub_domain_settings'),
-        update_status=pulumi.get(__response__, 'update_status')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Schema of AWS::EC2::IPAM Type
  */
 export function getIpam(args: GetIpamArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getIpam", {
         "ipamId": args.ipamId,
@@ -82,10 +83,7 @@ export interface GetIpamResult {
  * Resource Schema of AWS::EC2::IPAM Type
  */
 export function getIpamOutput(args: GetIpamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getIpam", {
-        "ipamId": args.ipamId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpam(a, opts))
 }
 
 export interface GetIpamOutputArgs {

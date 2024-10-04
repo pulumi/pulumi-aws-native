@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -77,6 +72,9 @@ def get_target_account_configuration(account_id: Optional[str] = None,
     return AwaitableGetTargetAccountConfigurationResult(
         description=pulumi.get(__ret__, 'description'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
+
+
+@_utilities.lift_output_func(get_target_account_configuration)
 def get_target_account_configuration_output(account_id: Optional[pulumi.Input[str]] = None,
                                             experiment_template_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetAccountConfigurationResult]:
@@ -87,11 +85,4 @@ def get_target_account_configuration_output(account_id: Optional[pulumi.Input[st
     :param str account_id: The AWS account ID of the target account.
     :param str experiment_template_id: The ID of the experiment template.
     """
-    __args__ = dict()
-    __args__['accountId'] = account_id
-    __args__['experimentTemplateId'] = experiment_template_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:fis:getTargetAccountConfiguration', __args__, opts=opts, typ=GetTargetAccountConfigurationResult)
-    return __ret__.apply(lambda __response__: GetTargetAccountConfigurationResult(
-        description=pulumi.get(__response__, 'description'),
-        role_arn=pulumi.get(__response__, 'role_arn')))
+    ...

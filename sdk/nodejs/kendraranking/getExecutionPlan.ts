@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A KendraRanking Rescore execution plan
  */
 export function getExecutionPlan(args: GetExecutionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetExecutionPlanResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kendraranking:getExecutionPlan", {
         "id": args.id,
@@ -54,10 +55,7 @@ export interface GetExecutionPlanResult {
  * A KendraRanking Rescore execution plan
  */
 export function getExecutionPlanOutput(args: GetExecutionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExecutionPlanResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:kendraranking:getExecutionPlan", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExecutionPlan(a, opts))
 }
 
 export interface GetExecutionPlanOutputArgs {

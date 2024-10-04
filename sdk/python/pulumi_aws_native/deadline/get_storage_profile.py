@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -107,6 +102,9 @@ def get_storage_profile(farm_id: Optional[str] = None,
         file_system_locations=pulumi.get(__ret__, 'file_system_locations'),
         os_family=pulumi.get(__ret__, 'os_family'),
         storage_profile_id=pulumi.get(__ret__, 'storage_profile_id'))
+
+
+@_utilities.lift_output_func(get_storage_profile)
 def get_storage_profile_output(farm_id: Optional[pulumi.Input[str]] = None,
                                storage_profile_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageProfileResult]:
@@ -117,13 +115,4 @@ def get_storage_profile_output(farm_id: Optional[pulumi.Input[str]] = None,
     :param str farm_id: The unique identifier of the farm that contains the storage profile.
     :param str storage_profile_id: The storage profile ID.
     """
-    __args__ = dict()
-    __args__['farmId'] = farm_id
-    __args__['storageProfileId'] = storage_profile_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getStorageProfile', __args__, opts=opts, typ=GetStorageProfileResult)
-    return __ret__.apply(lambda __response__: GetStorageProfileResult(
-        display_name=pulumi.get(__response__, 'display_name'),
-        file_system_locations=pulumi.get(__response__, 'file_system_locations'),
-        os_family=pulumi.get(__response__, 'os_family'),
-        storage_profile_id=pulumi.get(__response__, 'storage_profile_id')))
+    ...

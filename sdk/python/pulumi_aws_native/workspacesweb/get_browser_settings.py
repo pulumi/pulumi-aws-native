@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -101,6 +96,9 @@ def get_browser_settings(browser_settings_arn: Optional[str] = None,
         browser_policy=pulumi.get(__ret__, 'browser_policy'),
         browser_settings_arn=pulumi.get(__ret__, 'browser_settings_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_browser_settings)
 def get_browser_settings_output(browser_settings_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrowserSettingsResult]:
     """
@@ -109,12 +107,4 @@ def get_browser_settings_output(browser_settings_arn: Optional[pulumi.Input[str]
 
     :param str browser_settings_arn: The ARN of the browser settings.
     """
-    __args__ = dict()
-    __args__['browserSettingsArn'] = browser_settings_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getBrowserSettings', __args__, opts=opts, typ=GetBrowserSettingsResult)
-    return __ret__.apply(lambda __response__: GetBrowserSettingsResult(
-        associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),
-        browser_policy=pulumi.get(__response__, 'browser_policy'),
-        browser_settings_arn=pulumi.get(__response__, 'browser_settings_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

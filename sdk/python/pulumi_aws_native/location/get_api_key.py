@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -160,6 +155,9 @@ def get_api_key(key_name: Optional[str] = None,
         restrictions=pulumi.get(__ret__, 'restrictions'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
+
+
+@_utilities.lift_output_func(get_api_key)
 def get_api_key_output(key_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
@@ -174,16 +172,4 @@ def get_api_key_output(key_name: Optional[pulumi.Input[str]] = None,
            - Must be a unique API key name.
            - No spaces allowed. For example, `ExampleAPIKey` .
     """
-    __args__ = dict()
-    __args__['keyName'] = key_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:location:getApiKey', __args__, opts=opts, typ=GetApiKeyResult)
-    return __ret__.apply(lambda __response__: GetApiKeyResult(
-        arn=pulumi.get(__response__, 'arn'),
-        create_time=pulumi.get(__response__, 'create_time'),
-        description=pulumi.get(__response__, 'description'),
-        expire_time=pulumi.get(__response__, 'expire_time'),
-        key_arn=pulumi.get(__response__, 'key_arn'),
-        restrictions=pulumi.get(__response__, 'restrictions'),
-        tags=pulumi.get(__response__, 'tags'),
-        update_time=pulumi.get(__response__, 'update_time')))
+    ...

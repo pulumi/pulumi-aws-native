@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -114,6 +109,9 @@ def get_transit_gateway_connect(transit_gateway_attachment_id: Optional[str] = N
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
+
+
+@_utilities.lift_output_func(get_transit_gateway_connect)
 def get_transit_gateway_connect_output(transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayConnectResult]:
     """
@@ -122,13 +120,4 @@ def get_transit_gateway_connect_output(transit_gateway_attachment_id: Optional[p
 
     :param str transit_gateway_attachment_id: The ID of the Connect attachment.
     """
-    __args__ = dict()
-    __args__['transitGatewayAttachmentId'] = transit_gateway_attachment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayConnect', __args__, opts=opts, typ=GetTransitGatewayConnectResult)
-    return __ret__.apply(lambda __response__: GetTransitGatewayConnectResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags'),
-        transit_gateway_attachment_id=pulumi.get(__response__, 'transit_gateway_attachment_id'),
-        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id')))
+    ...

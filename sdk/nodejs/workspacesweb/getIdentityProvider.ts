@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
  */
 export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesweb:getIdentityProvider", {
         "identityProviderArn": args.identityProviderArn,
@@ -84,10 +85,7 @@ export interface GetIdentityProviderResult {
  * Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
  */
 export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getIdentityProvider", {
-        "identityProviderArn": args.identityProviderArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIdentityProvider(a, opts))
 }
 
 export interface GetIdentityProviderOutputArgs {

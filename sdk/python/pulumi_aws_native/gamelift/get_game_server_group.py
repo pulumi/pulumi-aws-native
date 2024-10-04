@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -141,6 +136,9 @@ def get_game_server_group(game_server_group_arn: Optional[str] = None,
         game_server_protection_policy=pulumi.get(__ret__, 'game_server_protection_policy'),
         instance_definitions=pulumi.get(__ret__, 'instance_definitions'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
+
+
+@_utilities.lift_output_func(get_game_server_group)
 def get_game_server_group_output(game_server_group_arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGameServerGroupResult]:
     """
@@ -149,15 +147,4 @@ def get_game_server_group_output(game_server_group_arn: Optional[pulumi.Input[st
 
     :param str game_server_group_arn: A generated unique ID for the game server group.
     """
-    __args__ = dict()
-    __args__['gameServerGroupArn'] = game_server_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getGameServerGroup', __args__, opts=opts, typ=GetGameServerGroupResult)
-    return __ret__.apply(lambda __response__: GetGameServerGroupResult(
-        auto_scaling_group_arn=pulumi.get(__response__, 'auto_scaling_group_arn'),
-        balancing_strategy=pulumi.get(__response__, 'balancing_strategy'),
-        game_server_group_arn=pulumi.get(__response__, 'game_server_group_arn'),
-        game_server_group_name=pulumi.get(__response__, 'game_server_group_name'),
-        game_server_protection_policy=pulumi.get(__response__, 'game_server_protection_policy'),
-        instance_definitions=pulumi.get(__response__, 'instance_definitions'),
-        role_arn=pulumi.get(__response__, 'role_arn')))
+    ...

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
  */
 export function getEipAssociation(args: GetEipAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetEipAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getEipAssociation", {
         "id": args.id,
@@ -33,10 +34,7 @@ export interface GetEipAssociationResult {
  *  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
  */
 export function getEipAssociationOutput(args: GetEipAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getEipAssociation", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEipAssociation(a, opts))
 }
 
 export interface GetEipAssociationOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -206,6 +201,9 @@ def get_firewall_rule_group_association(id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_firewall_rule_group_association)
 def get_firewall_rule_group_association_output(id: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleGroupAssociationResult]:
     """
@@ -214,20 +212,4 @@ def get_firewall_rule_group_association_output(id: Optional[pulumi.Input[str]] =
 
     :param str id: Id
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getFirewallRuleGroupAssociation', __args__, opts=opts, typ=GetFirewallRuleGroupAssociationResult)
-    return __ret__.apply(lambda __response__: GetFirewallRuleGroupAssociationResult(
-        arn=pulumi.get(__response__, 'arn'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        creator_request_id=pulumi.get(__response__, 'creator_request_id'),
-        id=pulumi.get(__response__, 'id'),
-        managed_owner_name=pulumi.get(__response__, 'managed_owner_name'),
-        modification_time=pulumi.get(__response__, 'modification_time'),
-        mutation_protection=pulumi.get(__response__, 'mutation_protection'),
-        name=pulumi.get(__response__, 'name'),
-        priority=pulumi.get(__response__, 'priority'),
-        status=pulumi.get(__response__, 'status'),
-        status_message=pulumi.get(__response__, 'status_message'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

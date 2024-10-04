@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -222,6 +217,9 @@ def get_task(task_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_arn=pulumi.get(__ret__, 'task_arn'),
         task_report_config=pulumi.get(__ret__, 'task_report_config'))
+
+
+@_utilities.lift_output_func(get_task)
 def get_task_output(task_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskResult]:
     """
@@ -230,21 +228,4 @@ def get_task_output(task_arn: Optional[pulumi.Input[str]] = None,
 
     :param str task_arn: The ARN of the task.
     """
-    __args__ = dict()
-    __args__['taskArn'] = task_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getTask', __args__, opts=opts, typ=GetTaskResult)
-    return __ret__.apply(lambda __response__: GetTaskResult(
-        cloud_watch_log_group_arn=pulumi.get(__response__, 'cloud_watch_log_group_arn'),
-        destination_network_interface_arns=pulumi.get(__response__, 'destination_network_interface_arns'),
-        excludes=pulumi.get(__response__, 'excludes'),
-        includes=pulumi.get(__response__, 'includes'),
-        manifest_config=pulumi.get(__response__, 'manifest_config'),
-        name=pulumi.get(__response__, 'name'),
-        options=pulumi.get(__response__, 'options'),
-        schedule=pulumi.get(__response__, 'schedule'),
-        source_network_interface_arns=pulumi.get(__response__, 'source_network_interface_arns'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        task_arn=pulumi.get(__response__, 'task_arn'),
-        task_report_config=pulumi.get(__response__, 'task_report_config')))
+    ...

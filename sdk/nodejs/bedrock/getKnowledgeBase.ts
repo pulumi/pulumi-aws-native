@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Bedrock::KnowledgeBase Resource Type
  */
 export function getKnowledgeBase(args: GetKnowledgeBaseArgs, opts?: pulumi.InvokeOptions): Promise<GetKnowledgeBaseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:bedrock:getKnowledgeBase", {
         "knowledgeBaseId": args.knowledgeBaseId,
@@ -73,10 +74,7 @@ export interface GetKnowledgeBaseResult {
  * Definition of AWS::Bedrock::KnowledgeBase Resource Type
  */
 export function getKnowledgeBaseOutput(args: GetKnowledgeBaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKnowledgeBaseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:bedrock:getKnowledgeBase", {
-        "knowledgeBaseId": args.knowledgeBaseId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKnowledgeBase(a, opts))
 }
 
 export interface GetKnowledgeBaseOutputArgs {

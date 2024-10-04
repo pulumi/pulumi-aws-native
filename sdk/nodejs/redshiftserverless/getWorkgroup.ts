@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::RedshiftServerless::Workgroup Resource Type
  */
 export function getWorkgroup(args: GetWorkgroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkgroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshiftserverless:getWorkgroup", {
         "workgroupName": args.workgroupName,
@@ -46,10 +47,7 @@ export interface GetWorkgroupResult {
  * Definition of AWS::RedshiftServerless::Workgroup Resource Type
  */
 export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkgroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:redshiftserverless:getWorkgroup", {
-        "workgroupName": args.workgroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkgroup(a, opts))
 }
 
 export interface GetWorkgroupOutputArgs {

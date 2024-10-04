@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -148,6 +143,9 @@ def get_feature(arn: Optional[str] = None,
         evaluation_strategy=pulumi.get(__ret__, 'evaluation_strategy'),
         tags=pulumi.get(__ret__, 'tags'),
         variations=pulumi.get(__ret__, 'variations'))
+
+
+@_utilities.lift_output_func(get_feature)
 def get_feature_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeatureResult]:
     """
@@ -156,15 +154,4 @@ def get_feature_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:evidently:getFeature', __args__, opts=opts, typ=GetFeatureResult)
-    return __ret__.apply(lambda __response__: GetFeatureResult(
-        arn=pulumi.get(__response__, 'arn'),
-        default_variation=pulumi.get(__response__, 'default_variation'),
-        description=pulumi.get(__response__, 'description'),
-        entity_overrides=pulumi.get(__response__, 'entity_overrides'),
-        evaluation_strategy=pulumi.get(__response__, 'evaluation_strategy'),
-        tags=pulumi.get(__response__, 'tags'),
-        variations=pulumi.get(__response__, 'variations')))
+    ...

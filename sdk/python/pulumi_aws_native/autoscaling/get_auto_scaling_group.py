@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -437,6 +432,9 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[str] = None,
         target_group_arns=pulumi.get(__ret__, 'target_group_arns'),
         termination_policies=pulumi.get(__ret__, 'termination_policies'),
         vpc_zone_identifier=pulumi.get(__ret__, 'vpc_zone_identifier'))
+
+
+@_utilities.lift_output_func(get_auto_scaling_group)
 def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScalingGroupResult]:
     """
@@ -450,36 +448,4 @@ def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input
             The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
              You cannot use a colon (:) in the name.
     """
-    __args__ = dict()
-    __args__['autoScalingGroupName'] = auto_scaling_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getAutoScalingGroup', __args__, opts=opts, typ=GetAutoScalingGroupResult)
-    return __ret__.apply(lambda __response__: GetAutoScalingGroupResult(
-        availability_zones=pulumi.get(__response__, 'availability_zones'),
-        capacity_rebalance=pulumi.get(__response__, 'capacity_rebalance'),
-        context=pulumi.get(__response__, 'context'),
-        cooldown=pulumi.get(__response__, 'cooldown'),
-        default_instance_warmup=pulumi.get(__response__, 'default_instance_warmup'),
-        desired_capacity=pulumi.get(__response__, 'desired_capacity'),
-        desired_capacity_type=pulumi.get(__response__, 'desired_capacity_type'),
-        health_check_grace_period=pulumi.get(__response__, 'health_check_grace_period'),
-        health_check_type=pulumi.get(__response__, 'health_check_type'),
-        instance_maintenance_policy=pulumi.get(__response__, 'instance_maintenance_policy'),
-        launch_configuration_name=pulumi.get(__response__, 'launch_configuration_name'),
-        launch_template=pulumi.get(__response__, 'launch_template'),
-        lifecycle_hook_specification_list=pulumi.get(__response__, 'lifecycle_hook_specification_list'),
-        load_balancer_names=pulumi.get(__response__, 'load_balancer_names'),
-        max_instance_lifetime=pulumi.get(__response__, 'max_instance_lifetime'),
-        max_size=pulumi.get(__response__, 'max_size'),
-        metrics_collection=pulumi.get(__response__, 'metrics_collection'),
-        min_size=pulumi.get(__response__, 'min_size'),
-        mixed_instances_policy=pulumi.get(__response__, 'mixed_instances_policy'),
-        new_instances_protected_from_scale_in=pulumi.get(__response__, 'new_instances_protected_from_scale_in'),
-        notification_configuration=pulumi.get(__response__, 'notification_configuration'),
-        notification_configurations=pulumi.get(__response__, 'notification_configurations'),
-        placement_group=pulumi.get(__response__, 'placement_group'),
-        service_linked_role_arn=pulumi.get(__response__, 'service_linked_role_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_group_arns=pulumi.get(__response__, 'target_group_arns'),
-        termination_policies=pulumi.get(__response__, 'termination_policies'),
-        vpc_zone_identifier=pulumi.get(__response__, 'vpc_zone_identifier')))
+    ...

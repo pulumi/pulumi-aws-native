@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Represents a streaming session machine image that can be used to launch a streaming session
  */
 export function getStreamingImage(args: GetStreamingImageArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingImageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:nimblestudio:getStreamingImage", {
         "streamingImageId": args.streamingImageId,
@@ -60,11 +61,7 @@ export interface GetStreamingImageResult {
  * Represents a streaming session machine image that can be used to launch a streaming session
  */
 export function getStreamingImageOutput(args: GetStreamingImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingImageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:nimblestudio:getStreamingImage", {
-        "streamingImageId": args.streamingImageId,
-        "studioId": args.studioId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStreamingImage(a, opts))
 }
 
 export interface GetStreamingImageOutputArgs {

@@ -4,40 +4,17 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DeliveryDestinationDestinationPolicyArgs',
-    'DeliveryDestinationDestinationPolicyArgsDict',
     'MetricFilterDimensionArgs',
-    'MetricFilterDimensionArgsDict',
     'MetricFilterMetricTransformationArgs',
-    'MetricFilterMetricTransformationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class DeliveryDestinationDestinationPolicyArgsDict(TypedDict):
-        delivery_destination_name: pulumi.Input[str]
-        """
-        The name of the delivery destination to assign this policy to
-        """
-        delivery_destination_policy: pulumi.Input[str]
-        """
-        The contents of the policy attached to the delivery destination
-        """
-elif False:
-    DeliveryDestinationDestinationPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryDestinationDestinationPolicyArgs:
@@ -75,28 +52,6 @@ class DeliveryDestinationDestinationPolicyArgs:
     def delivery_destination_policy(self, value: pulumi.Input[str]):
         pulumi.set(self, "delivery_destination_policy", value)
 
-
-if not MYPY:
-    class MetricFilterDimensionArgsDict(TypedDict):
-        """
-        Specifies the CW metric dimensions to publish with this metric.
-          Because dimensions are part of the unique identifier for a metric, whenever a unique dimension name/value pair is extracted from your logs, you are creating a new variation of that metric.
-         For more information about publishing dimensions with metrics created by metric filters, see [Publishing dimensions with metrics from values in JSON or space-delimited log events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html#logs-metric-filters-dimensions).
-          Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
-         To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.
-         You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
-        """
-        key: pulumi.Input[str]
-        """
-        The name for the CW metric dimension that the metric filter creates.
-         Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
-        """
-        value: pulumi.Input[str]
-        """
-        The log event field that will contain the value for this dimension. This dimension will only be published for a metric if the value is found in the log event. For example, ``$.eventType`` for JSON log events, or ``$server`` for space-delimited log events.
-        """
-elif False:
-    MetricFilterDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricFilterDimensionArgs:
@@ -142,41 +97,6 @@ class MetricFilterDimensionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class MetricFilterMetricTransformationArgsDict(TypedDict):
-        """
-        ``MetricTransformation`` is a property of the ``AWS::Logs::MetricFilter`` resource that describes how to transform log streams into a CloudWatch metric.
-        """
-        metric_name: pulumi.Input[str]
-        """
-        The name of the CloudWatch metric.
-        """
-        metric_namespace: pulumi.Input[str]
-        """
-        A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace).
-        """
-        metric_value: pulumi.Input[str]
-        """
-        The value that is published to the CloudWatch metric. For example, if you're counting the occurrences of a particular term like ``Error``, specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $. followed by the name of the field that you specified in the filter pattern, such as ``$.size``.
-        """
-        default_value: NotRequired[pulumi.Input[float]]
-        """
-        (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
-        """
-        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgsDict']]]]
-        """
-        The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.
-          Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
-         CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges.
-         You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
-        """
-        unit: NotRequired[pulumi.Input['MetricFilterMetricTransformationUnit']]
-        """
-        The unit to assign to the metric. If you omit this, the unit is set as ``None``.
-        """
-elif False:
-    MetricFilterMetricTransformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricFilterMetricTransformationArgs:

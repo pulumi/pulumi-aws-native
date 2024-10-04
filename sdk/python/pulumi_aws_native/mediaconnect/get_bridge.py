@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -167,6 +162,9 @@ def get_bridge(bridge_arn: Optional[str] = None,
         placement_arn=pulumi.get(__ret__, 'placement_arn'),
         source_failover_config=pulumi.get(__ret__, 'source_failover_config'),
         sources=pulumi.get(__ret__, 'sources'))
+
+
+@_utilities.lift_output_func(get_bridge)
 def get_bridge_output(bridge_arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBridgeResult]:
     """
@@ -175,17 +173,4 @@ def get_bridge_output(bridge_arn: Optional[pulumi.Input[str]] = None,
 
     :param str bridge_arn: The Amazon Resource Number (ARN) of the bridge.
     """
-    __args__ = dict()
-    __args__['bridgeArn'] = bridge_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getBridge', __args__, opts=opts, typ=GetBridgeResult)
-    return __ret__.apply(lambda __response__: GetBridgeResult(
-        bridge_arn=pulumi.get(__response__, 'bridge_arn'),
-        bridge_state=pulumi.get(__response__, 'bridge_state'),
-        egress_gateway_bridge=pulumi.get(__response__, 'egress_gateway_bridge'),
-        ingress_gateway_bridge=pulumi.get(__response__, 'ingress_gateway_bridge'),
-        name=pulumi.get(__response__, 'name'),
-        outputs=pulumi.get(__response__, 'outputs'),
-        placement_arn=pulumi.get(__response__, 'placement_arn'),
-        source_failover_config=pulumi.get(__response__, 'source_failover_config'),
-        sources=pulumi.get(__response__, 'sources')))
+    ...

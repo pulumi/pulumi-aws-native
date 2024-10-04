@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -365,6 +360,9 @@ def get_workspace(id: Optional[str] = None,
         stack_set_name=pulumi.get(__ret__, 'stack_set_name'),
         status=pulumi.get(__ret__, 'status'),
         vpc_configuration=pulumi.get(__ret__, 'vpc_configuration'))
+
+
+@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
@@ -373,31 +371,4 @@ def get_workspace_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The id that uniquely identifies a Grafana workspace.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:grafana:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
-    return __ret__.apply(lambda __response__: GetWorkspaceResult(
-        account_access_type=pulumi.get(__response__, 'account_access_type'),
-        authentication_providers=pulumi.get(__response__, 'authentication_providers'),
-        creation_timestamp=pulumi.get(__response__, 'creation_timestamp'),
-        data_sources=pulumi.get(__response__, 'data_sources'),
-        description=pulumi.get(__response__, 'description'),
-        endpoint=pulumi.get(__response__, 'endpoint'),
-        grafana_version=pulumi.get(__response__, 'grafana_version'),
-        id=pulumi.get(__response__, 'id'),
-        modification_timestamp=pulumi.get(__response__, 'modification_timestamp'),
-        name=pulumi.get(__response__, 'name'),
-        network_access_control=pulumi.get(__response__, 'network_access_control'),
-        notification_destinations=pulumi.get(__response__, 'notification_destinations'),
-        organization_role_name=pulumi.get(__response__, 'organization_role_name'),
-        organizational_units=pulumi.get(__response__, 'organizational_units'),
-        permission_type=pulumi.get(__response__, 'permission_type'),
-        plugin_admin_enabled=pulumi.get(__response__, 'plugin_admin_enabled'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        saml_configuration=pulumi.get(__response__, 'saml_configuration'),
-        saml_configuration_status=pulumi.get(__response__, 'saml_configuration_status'),
-        sso_client_id=pulumi.get(__response__, 'sso_client_id'),
-        stack_set_name=pulumi.get(__response__, 'stack_set_name'),
-        status=pulumi.get(__response__, 'status'),
-        vpc_configuration=pulumi.get(__response__, 'vpc_configuration')))
+    ...

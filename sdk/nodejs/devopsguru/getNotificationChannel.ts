@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
  */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:devopsguru:getNotificationChannel", {
         "id": args.id,
@@ -31,10 +32,7 @@ export interface GetNotificationChannelResult {
  * This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
  */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:devopsguru:getNotificationChannel", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))
 }
 
 export interface GetNotificationChannelOutputArgs {

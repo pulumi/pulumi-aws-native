@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -220,6 +215,9 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[str] = 
         status_message=pulumi.get(__ret__, 'status_message'),
         suggested_accounts=pulumi.get(__ret__, 'suggested_accounts'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_network_insights_analysis)
 def get_network_insights_analysis_output(network_insights_analysis_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
@@ -228,21 +226,4 @@ def get_network_insights_analysis_output(network_insights_analysis_id: Optional[
 
     :param str network_insights_analysis_id: The ID of the network insights analysis.
     """
-    __args__ = dict()
-    __args__['networkInsightsAnalysisId'] = network_insights_analysis_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInsightsAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAnalysisResult)
-    return __ret__.apply(lambda __response__: GetNetworkInsightsAnalysisResult(
-        additional_accounts=pulumi.get(__response__, 'additional_accounts'),
-        alternate_path_hints=pulumi.get(__response__, 'alternate_path_hints'),
-        explanations=pulumi.get(__response__, 'explanations'),
-        forward_path_components=pulumi.get(__response__, 'forward_path_components'),
-        network_insights_analysis_arn=pulumi.get(__response__, 'network_insights_analysis_arn'),
-        network_insights_analysis_id=pulumi.get(__response__, 'network_insights_analysis_id'),
-        network_path_found=pulumi.get(__response__, 'network_path_found'),
-        return_path_components=pulumi.get(__response__, 'return_path_components'),
-        start_date=pulumi.get(__response__, 'start_date'),
-        status=pulumi.get(__response__, 'status'),
-        status_message=pulumi.get(__response__, 'status_message'),
-        suggested_accounts=pulumi.get(__response__, 'suggested_accounts'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::Prompt
  */
 export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Promise<GetPromptResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getPrompt", {
         "promptArn": args.promptArn,
@@ -50,10 +51,7 @@ export interface GetPromptResult {
  * Resource Type definition for AWS::Connect::Prompt
  */
 export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:connect:getPrompt", {
-        "promptArn": args.promptArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrompt(a, opts))
 }
 
 export interface GetPromptOutputArgs {

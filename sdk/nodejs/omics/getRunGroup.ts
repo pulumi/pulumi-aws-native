@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Omics::RunGroup Resource Type
  */
 export function getRunGroup(args: GetRunGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRunGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:omics:getRunGroup", {
         "id": args.id,
@@ -63,10 +64,7 @@ export interface GetRunGroupResult {
  * Definition of AWS::Omics::RunGroup Resource Type
  */
 export function getRunGroupOutput(args: GetRunGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:omics:getRunGroup", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRunGroup(a, opts))
 }
 
 export interface GetRunGroupOutputArgs {

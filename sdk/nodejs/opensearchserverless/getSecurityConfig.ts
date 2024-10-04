@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Amazon OpenSearchServerless security config resource
  */
 export function getSecurityConfig(args: GetSecurityConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opensearchserverless:getSecurityConfig", {
         "id": args.id,
@@ -42,10 +43,7 @@ export interface GetSecurityConfigResult {
  * Amazon OpenSearchServerless security config resource
  */
 export function getSecurityConfigOutput(args: GetSecurityConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getSecurityConfig", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityConfig(a, opts))
 }
 
 export interface GetSecurityConfigOutputArgs {

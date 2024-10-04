@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Subscription targets enables one to access the data to which you have subscribed in your projects.
  */
 export function getSubscriptionTarget(args: GetSubscriptionTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionTargetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getSubscriptionTarget", {
         "domainId": args.domainId,
@@ -96,12 +97,7 @@ export interface GetSubscriptionTargetResult {
  * Subscription targets enables one to access the data to which you have subscribed in your projects.
  */
 export function getSubscriptionTargetOutput(args: GetSubscriptionTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionTargetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datazone:getSubscriptionTarget", {
-        "domainId": args.domainId,
-        "environmentId": args.environmentId,
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubscriptionTarget(a, opts))
 }
 
 export interface GetSubscriptionTargetOutputArgs {

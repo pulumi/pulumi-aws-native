@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -55,14 +50,12 @@ def import_value(name: Optional[str] = None,
 
     return AwaitableImportValueResult(
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(import_value)
 def import_value_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ImportValueResult]:
     """
     Use this data source to access information about an existing resource.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:index:importValue', __args__, opts=opts, typ=ImportValueResult)
-    return __ret__.apply(lambda __response__: ImportValueResult(
-        value=pulumi.get(__response__, 'value')))
+    ...

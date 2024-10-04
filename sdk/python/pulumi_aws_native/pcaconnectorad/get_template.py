@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -61,6 +56,9 @@ def get_template(template_arn: Optional[str] = None,
 
     return AwaitableGetTemplateResult(
         template_arn=pulumi.get(__ret__, 'template_arn'))
+
+
+@_utilities.lift_output_func(get_template)
 def get_template_output(template_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
     """
@@ -69,9 +67,4 @@ def get_template_output(template_arn: Optional[pulumi.Input[str]] = None,
 
     :param str template_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
     """
-    __args__ = dict()
-    __args__['templateArn'] = template_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:pcaconnectorad:getTemplate', __args__, opts=opts, typ=GetTemplateResult)
-    return __ret__.apply(lambda __response__: GetTemplateResult(
-        template_arn=pulumi.get(__response__, 'template_arn')))
+    ...

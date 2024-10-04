@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -118,6 +113,9 @@ def get_environment(application_id: Optional[str] = None,
         monitors=pulumi.get(__ret__, 'monitors'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_environment)
 def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
                            environment_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
@@ -128,14 +126,4 @@ def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
     :param str application_id: The application ID.
     :param str environment_id: The environment ID.
     """
-    __args__ = dict()
-    __args__['applicationId'] = application_id
-    __args__['environmentId'] = environment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
-    return __ret__.apply(lambda __response__: GetEnvironmentResult(
-        description=pulumi.get(__response__, 'description'),
-        environment_id=pulumi.get(__response__, 'environment_id'),
-        monitors=pulumi.get(__response__, 'monitors'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

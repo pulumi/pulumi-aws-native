@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
  */
 export function getTransitGatewayRouteTableAttachment(args: GetTransitGatewayRouteTableAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTableAttachmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getTransitGatewayRouteTableAttachment", {
         "attachmentId": args.attachmentId,
@@ -94,10 +95,7 @@ export interface GetTransitGatewayRouteTableAttachmentResult {
  * AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
  */
 export function getTransitGatewayRouteTableAttachmentOutput(args: GetTransitGatewayRouteTableAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTableAttachmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:networkmanager:getTransitGatewayRouteTableAttachment", {
-        "attachmentId": args.attachmentId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTransitGatewayRouteTableAttachment(a, opts))
 }
 
 export interface GetTransitGatewayRouteTableAttachmentOutputArgs {

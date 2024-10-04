@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -145,6 +140,9 @@ def get_transit_gateway_multicast_group_member(group_ip_address: Optional[str] =
         resource_type=pulumi.get(__ret__, 'resource_type'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'))
+
+
+@_utilities.lift_output_func(get_transit_gateway_multicast_group_member)
 def get_transit_gateway_multicast_group_member_output(group_ip_address: Optional[pulumi.Input[str]] = None,
                                                       network_interface_id: Optional[pulumi.Input[str]] = None,
                                                       transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
@@ -157,17 +155,4 @@ def get_transit_gateway_multicast_group_member_output(group_ip_address: Optional
     :param str network_interface_id: The ID of the transit gateway attachment.
     :param str transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
     """
-    __args__ = dict()
-    __args__['groupIpAddress'] = group_ip_address
-    __args__['networkInterfaceId'] = network_interface_id
-    __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayMulticastGroupMember', __args__, opts=opts, typ=GetTransitGatewayMulticastGroupMemberResult)
-    return __ret__.apply(lambda __response__: GetTransitGatewayMulticastGroupMemberResult(
-        group_member=pulumi.get(__response__, 'group_member'),
-        group_source=pulumi.get(__response__, 'group_source'),
-        member_type=pulumi.get(__response__, 'member_type'),
-        resource_id=pulumi.get(__response__, 'resource_id'),
-        resource_type=pulumi.get(__response__, 'resource_type'),
-        subnet_id=pulumi.get(__response__, 'subnet_id'),
-        transit_gateway_attachment_id=pulumi.get(__response__, 'transit_gateway_attachment_id')))
+    ...

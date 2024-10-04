@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lex:getBot", {
         "id": args.id,
@@ -62,10 +63,7 @@ export interface GetBotResult {
  * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:lex:getBot", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBot(a, opts))
 }
 
 export interface GetBotOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -161,6 +156,9 @@ def get_id_mapping_table(id_mapping_table_identifier: Optional[str] = None,
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         membership_arn=pulumi.get(__ret__, 'membership_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_id_mapping_table)
 def get_id_mapping_table_output(id_mapping_table_identifier: Optional[pulumi.Input[str]] = None,
                                 membership_identifier: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdMappingTableResult]:
@@ -170,18 +168,4 @@ def get_id_mapping_table_output(id_mapping_table_identifier: Optional[pulumi.Inp
 
     :param str membership_identifier: The unique identifier of the membership resource for the ID mapping table.
     """
-    __args__ = dict()
-    __args__['idMappingTableIdentifier'] = id_mapping_table_identifier
-    __args__['membershipIdentifier'] = membership_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getIdMappingTable', __args__, opts=opts, typ=GetIdMappingTableResult)
-    return __ret__.apply(lambda __response__: GetIdMappingTableResult(
-        arn=pulumi.get(__response__, 'arn'),
-        collaboration_arn=pulumi.get(__response__, 'collaboration_arn'),
-        collaboration_identifier=pulumi.get(__response__, 'collaboration_identifier'),
-        description=pulumi.get(__response__, 'description'),
-        id_mapping_table_identifier=pulumi.get(__response__, 'id_mapping_table_identifier'),
-        input_reference_properties=pulumi.get(__response__, 'input_reference_properties'),
-        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
-        membership_arn=pulumi.get(__response__, 'membership_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

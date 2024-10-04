@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MSK::Replicator
  */
 export function getReplicator(args: GetReplicatorArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicatorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:msk:getReplicator", {
         "replicatorArn": args.replicatorArn,
@@ -46,10 +47,7 @@ export interface GetReplicatorResult {
  * Resource Type definition for AWS::MSK::Replicator
  */
 export function getReplicatorOutput(args: GetReplicatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicatorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:msk:getReplicator", {
-        "replicatorArn": args.replicatorArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicator(a, opts))
 }
 
 export interface GetReplicatorOutputArgs {

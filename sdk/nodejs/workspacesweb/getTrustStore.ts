@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
  */
 export function getTrustStore(args: GetTrustStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustStoreResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesweb:getTrustStore", {
         "trustStoreArn": args.trustStoreArn,
@@ -46,10 +47,7 @@ export interface GetTrustStoreResult {
  * Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
  */
 export function getTrustStoreOutput(args: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustStoreResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getTrustStore", {
-        "trustStoreArn": args.trustStoreArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTrustStore(a, opts))
 }
 
 export interface GetTrustStoreOutputArgs {

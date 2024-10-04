@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::SecurityGroupIngress
  */
 export function getSecurityGroupIngress(args: GetSecurityGroupIngressArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupIngressResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSecurityGroupIngress", {
         "id": args.id,
@@ -35,10 +36,7 @@ export interface GetSecurityGroupIngressResult {
  * Resource Type definition for AWS::EC2::SecurityGroupIngress
  */
 export function getSecurityGroupIngressOutput(args: GetSecurityGroupIngressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupIngressResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getSecurityGroupIngress", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityGroupIngress(a, opts))
 }
 
 export interface GetSecurityGroupIngressOutputArgs {

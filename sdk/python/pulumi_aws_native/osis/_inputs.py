@@ -4,45 +4,20 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'PipelineBufferOptionsArgs',
-    'PipelineBufferOptionsArgsDict',
     'PipelineEncryptionAtRestOptionsArgs',
-    'PipelineEncryptionAtRestOptionsArgsDict',
     'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs',
-    'PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict',
     'PipelineLogPublishingOptionsArgs',
-    'PipelineLogPublishingOptionsArgsDict',
     'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs',
-    'PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict',
     'PipelineVpcOptionsArgs',
-    'PipelineVpcOptionsArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class PipelineBufferOptionsArgsDict(TypedDict):
-        """
-        Key-value pairs to configure buffering.
-        """
-        persistent_buffer_enabled: pulumi.Input[bool]
-        """
-        Whether persistent buffering should be enabled.
-        """
-elif False:
-    PipelineBufferOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineBufferOptionsArgs:
@@ -67,18 +42,6 @@ class PipelineBufferOptionsArgs:
         pulumi.set(self, "persistent_buffer_enabled", value)
 
 
-if not MYPY:
-    class PipelineEncryptionAtRestOptionsArgsDict(TypedDict):
-        """
-        Key-value pairs to configure encryption at rest.
-        """
-        kms_key_arn: pulumi.Input[str]
-        """
-        The KMS key to use for encrypting data. By default an AWS owned key is used
-        """
-elif False:
-    PipelineEncryptionAtRestOptionsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PipelineEncryptionAtRestOptionsArgs:
     def __init__(__self__, *,
@@ -102,15 +65,6 @@ class PipelineEncryptionAtRestOptionsArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict(TypedDict):
-        """
-        The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
-        """
-        log_group: pulumi.Input[str]
-elif False:
-    PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs:
     def __init__(__self__, *,
@@ -129,22 +83,6 @@ class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs:
     def log_group(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_group", value)
 
-
-if not MYPY:
-    class PipelineLogPublishingOptionsArgsDict(TypedDict):
-        """
-        Key-value pairs to configure log publishing.
-        """
-        cloud_watch_log_destination: NotRequired[pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgsDict']]
-        """
-        The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
-        """
-        is_logging_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Whether logs should be published.
-        """
-elif False:
-    PipelineLogPublishingOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineLogPublishingOptionsArgs:
@@ -186,22 +124,6 @@ class PipelineLogPublishingOptionsArgs:
         pulumi.set(self, "is_logging_enabled", value)
 
 
-if not MYPY:
-    class PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict(TypedDict):
-        """
-        Options for attaching a VPC to the pipeline.
-        """
-        attach_to_vpc: pulumi.Input[bool]
-        """
-        Whether the pipeline should be attached to the provided VPC
-        """
-        cidr_block: pulumi.Input[str]
-        """
-        The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
-        """
-elif False:
-    PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs:
     def __init__(__self__, *,
@@ -239,30 +161,6 @@ class PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgs:
     def cidr_block(self, value: pulumi.Input[str]):
         pulumi.set(self, "cidr_block", value)
 
-
-if not MYPY:
-    class PipelineVpcOptionsArgsDict(TypedDict):
-        """
-        Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of subnet IDs associated with the VPC endpoint.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of security groups associated with the VPC endpoint.
-        """
-        vpc_attachment_options: NotRequired[pulumi.Input['PipelineVpcOptionsVpcAttachmentOptionsPropertiesArgsDict']]
-        """
-        Options for attaching a VPC to the pipeline.
-        """
-        vpc_endpoint_management: NotRequired[pulumi.Input['PipelineVpcOptionsVpcEndpointManagement']]
-        """
-        Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
-        """
-elif False:
-    PipelineVpcOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineVpcOptionsArgs:

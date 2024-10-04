@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A module that has been registered in the CloudFormation registry.
  */
 export function getModuleVersion(args: GetModuleVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getModuleVersion", {
         "arn": args.arn,
@@ -66,10 +67,7 @@ export interface GetModuleVersionResult {
  * A module that has been registered in the CloudFormation registry.
  */
 export function getModuleVersionOutput(args: GetModuleVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudformation:getModuleVersion", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getModuleVersion(a, opts))
 }
 
 export interface GetModuleVersionOutputArgs {

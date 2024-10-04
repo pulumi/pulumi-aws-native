@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -104,6 +99,9 @@ def get_ec2_fleet(fleet_id: Optional[str] = None,
         excess_capacity_termination_policy=pulumi.get(__ret__, 'excess_capacity_termination_policy'),
         fleet_id=pulumi.get(__ret__, 'fleet_id'),
         target_capacity_specification=pulumi.get(__ret__, 'target_capacity_specification'))
+
+
+@_utilities.lift_output_func(get_ec2_fleet)
 def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEc2FleetResult]:
     """
@@ -112,12 +110,4 @@ def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
 
     :param str fleet_id: The ID of the EC2 Fleet.
     """
-    __args__ = dict()
-    __args__['fleetId'] = fleet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEc2Fleet', __args__, opts=opts, typ=GetEc2FleetResult)
-    return __ret__.apply(lambda __response__: GetEc2FleetResult(
-        context=pulumi.get(__response__, 'context'),
-        excess_capacity_termination_policy=pulumi.get(__response__, 'excess_capacity_termination_policy'),
-        fleet_id=pulumi.get(__response__, 'fleet_id'),
-        target_capacity_specification=pulumi.get(__response__, 'target_capacity_specification')))
+    ...

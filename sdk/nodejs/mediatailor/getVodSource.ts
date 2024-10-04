@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaTailor::VodSource Resource Type
  */
 export function getVodSource(args: GetVodSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetVodSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediatailor:getVodSource", {
         "sourceLocationName": args.sourceLocationName,
@@ -47,11 +48,7 @@ export interface GetVodSourceResult {
  * Definition of AWS::MediaTailor::VodSource Resource Type
  */
 export function getVodSourceOutput(args: GetVodSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVodSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:mediatailor:getVodSource", {
-        "sourceLocationName": args.sourceLocationName,
-        "vodSourceName": args.vodSourceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVodSource(a, opts))
 }
 
 export interface GetVodSourceOutputArgs {

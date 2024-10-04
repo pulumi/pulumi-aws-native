@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -88,6 +83,9 @@ def get_client_certificate(client_certificate_id: Optional[str] = None,
         client_certificate_id=pulumi.get(__ret__, 'client_certificate_id'),
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_client_certificate)
 def get_client_certificate_output(client_certificate_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientCertificateResult]:
     """
@@ -96,11 +94,4 @@ def get_client_certificate_output(client_certificate_id: Optional[pulumi.Input[s
 
     :param str client_certificate_id: The ID for the client certificate. For example: `abc123` .
     """
-    __args__ = dict()
-    __args__['clientCertificateId'] = client_certificate_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getClientCertificate', __args__, opts=opts, typ=GetClientCertificateResult)
-    return __ret__.apply(lambda __response__: GetClientCertificateResult(
-        client_certificate_id=pulumi.get(__response__, 'client_certificate_id'),
-        description=pulumi.get(__response__, 'description'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

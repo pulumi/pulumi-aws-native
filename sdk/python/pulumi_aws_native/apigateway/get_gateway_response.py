@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -100,6 +95,9 @@ def get_gateway_response(id: Optional[str] = None,
         response_parameters=pulumi.get(__ret__, 'response_parameters'),
         response_templates=pulumi.get(__ret__, 'response_templates'),
         status_code=pulumi.get(__ret__, 'status_code'))
+
+
+@_utilities.lift_output_func(get_gateway_response)
 def get_gateway_response_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResponseResult]:
     """
@@ -108,12 +106,4 @@ def get_gateway_response_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID for the gateway response. For example: `abc123` .
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getGatewayResponse', __args__, opts=opts, typ=GetGatewayResponseResult)
-    return __ret__.apply(lambda __response__: GetGatewayResponseResult(
-        id=pulumi.get(__response__, 'id'),
-        response_parameters=pulumi.get(__response__, 'response_parameters'),
-        response_templates=pulumi.get(__response__, 'response_templates'),
-        status_code=pulumi.get(__response__, 'status_code')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
  */
 export function getTopicPolicy(args: GetTopicPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sns:getTopicPolicy", {
         "id": args.id,
@@ -41,10 +42,7 @@ export interface GetTopicPolicyResult {
  * The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
  */
 export function getTopicPolicyOutput(args: GetTopicPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sns:getTopicPolicy", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTopicPolicy(a, opts))
 }
 
 export interface GetTopicPolicyOutputArgs {

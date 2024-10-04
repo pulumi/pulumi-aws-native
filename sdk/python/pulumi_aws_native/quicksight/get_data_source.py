@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -218,6 +213,9 @@ def get_data_source(aws_account_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_connection_properties=pulumi.get(__ret__, 'vpc_connection_properties'))
+
+
+@_utilities.lift_output_func(get_data_source)
 def get_data_source_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                            data_source_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
@@ -228,21 +226,4 @@ def get_data_source_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     :param str aws_account_id: The AWS account ID.
     :param str data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.
     """
-    __args__ = dict()
-    __args__['awsAccountId'] = aws_account_id
-    __args__['dataSourceId'] = data_source_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
-    return __ret__.apply(lambda __response__: GetDataSourceResult(
-        alternate_data_source_parameters=pulumi.get(__response__, 'alternate_data_source_parameters'),
-        arn=pulumi.get(__response__, 'arn'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        data_source_parameters=pulumi.get(__response__, 'data_source_parameters'),
-        error_info=pulumi.get(__response__, 'error_info'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        name=pulumi.get(__response__, 'name'),
-        permissions=pulumi.get(__response__, 'permissions'),
-        ssl_properties=pulumi.get(__response__, 'ssl_properties'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        vpc_connection_properties=pulumi.get(__response__, 'vpc_connection_properties')))
+    ...

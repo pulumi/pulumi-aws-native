@@ -4,64 +4,23 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApiBodyS3LocationArgs',
-    'ApiBodyS3LocationArgsDict',
     'ApiCorsArgs',
-    'ApiCorsArgsDict',
     'AuthorizerJwtConfigurationArgs',
-    'AuthorizerJwtConfigurationArgsDict',
     'DomainNameConfigurationArgs',
-    'DomainNameConfigurationArgsDict',
     'DomainNameMutualTlsAuthenticationArgs',
-    'DomainNameMutualTlsAuthenticationArgsDict',
     'IntegrationResponseParameterMapArgs',
-    'IntegrationResponseParameterMapArgsDict',
     'IntegrationResponseParameterArgs',
-    'IntegrationResponseParameterArgsDict',
     'IntegrationTlsConfigArgs',
-    'IntegrationTlsConfigArgsDict',
     'RouteParameterConstraintsArgs',
-    'RouteParameterConstraintsArgsDict',
     'RouteResponseParameterConstraintsArgs',
-    'RouteResponseParameterConstraintsArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ApiBodyS3LocationArgsDict(TypedDict):
-        """
-        The ``BodyS3Location`` property specifies an S3 location from which to import an OpenAPI definition. Supported only for HTTP APIs.
-        """
-        bucket: NotRequired[pulumi.Input[str]]
-        """
-        The S3 bucket that contains the OpenAPI definition to import. Required if you specify a ``BodyS3Location`` for an API.
-        """
-        etag: NotRequired[pulumi.Input[str]]
-        """
-        The Etag of the S3 object.
-        """
-        key: NotRequired[pulumi.Input[str]]
-        """
-        The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
-        """
-        version: NotRequired[pulumi.Input[str]]
-        """
-        The version of the S3 object.
-        """
-elif False:
-    ApiBodyS3LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiBodyS3LocationArgs:
@@ -134,38 +93,6 @@ class ApiBodyS3LocationArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
-
-if not MYPY:
-    class ApiCorsArgsDict(TypedDict):
-        """
-        The ``Cors`` property specifies a CORS configuration for an API. Supported only for HTTP APIs. See [Configuring CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html) for more information.
-        """
-        allow_credentials: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.
-        """
-        allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Represents a collection of allowed headers. Supported only for HTTP APIs.
-        """
-        allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.
-        """
-        allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Represents a collection of allowed origins. Supported only for HTTP APIs.
-        """
-        expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Represents a collection of exposed headers. Supported only for HTTP APIs.
-        """
-        max_age: NotRequired[pulumi.Input[int]]
-        """
-        The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
-        """
-elif False:
-    ApiCorsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiCorsArgs:
@@ -271,22 +198,6 @@ class ApiCorsArgs:
         pulumi.set(self, "max_age", value)
 
 
-if not MYPY:
-    class AuthorizerJwtConfigurationArgsDict(TypedDict):
-        """
-        The ``JWTConfiguration`` property specifies the configuration of a JWT authorizer. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
-        """
-        audience: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
-        """
-        issuer: NotRequired[pulumi.Input[str]]
-        """
-        The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
-        """
-elif False:
-    AuthorizerJwtConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AuthorizerJwtConfigurationArgs:
     def __init__(__self__, *,
@@ -326,35 +237,6 @@ class AuthorizerJwtConfigurationArgs:
     def issuer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "issuer", value)
 
-
-if not MYPY:
-    class DomainNameConfigurationArgsDict(TypedDict):
-        """
-        The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
-         ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
-        """
-        certificate_arn: NotRequired[pulumi.Input[str]]
-        """
-        An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
-        """
-        certificate_name: NotRequired[pulumi.Input[str]]
-        """
-        The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
-        """
-        endpoint_type: NotRequired[pulumi.Input[str]]
-        """
-        The endpoint type.
-        """
-        ownership_verification_certificate_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
-        """
-        security_policy: NotRequired[pulumi.Input[str]]
-        """
-        The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
-        """
-elif False:
-    DomainNameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainNameConfigurationArgs:
@@ -445,22 +327,6 @@ class DomainNameConfigurationArgs:
         pulumi.set(self, "security_policy", value)
 
 
-if not MYPY:
-    class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
-        """
-        If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
-        """
-        truststore_uri: NotRequired[pulumi.Input[str]]
-        """
-        An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
-        """
-        truststore_version: NotRequired[pulumi.Input[str]]
-        """
-        The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
-        """
-elif False:
-    DomainNameMutualTlsAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainNameMutualTlsAuthenticationArgs:
     def __init__(__self__, *,
@@ -501,15 +367,6 @@ class DomainNameMutualTlsAuthenticationArgs:
         pulumi.set(self, "truststore_version", value)
 
 
-if not MYPY:
-    class IntegrationResponseParameterMapArgsDict(TypedDict):
-        """
-        map of response parameter lists
-        """
-        response_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgsDict']]]]
-elif False:
-    IntegrationResponseParameterMapArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class IntegrationResponseParameterMapArgs:
     def __init__(__self__, *,
@@ -529,16 +386,6 @@ class IntegrationResponseParameterMapArgs:
     def response_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]]):
         pulumi.set(self, "response_parameters", value)
 
-
-if not MYPY:
-    class IntegrationResponseParameterArgsDict(TypedDict):
-        """
-        response parameter
-        """
-        destination: NotRequired[pulumi.Input[str]]
-        source: NotRequired[pulumi.Input[str]]
-elif False:
-    IntegrationResponseParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationResponseParameterArgs:
@@ -572,18 +419,6 @@ class IntegrationResponseParameterArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class IntegrationTlsConfigArgsDict(TypedDict):
-        """
-        The TlsConfig property specifies the TLS configuration for a private integration. Supported only for HTTP APIs.
-        """
-        server_name_to_verify: NotRequired[pulumi.Input[str]]
-        """
-        If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-        """
-elif False:
-    IntegrationTlsConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class IntegrationTlsConfigArgs:
     def __init__(__self__, *,
@@ -608,12 +443,6 @@ class IntegrationTlsConfigArgs:
         pulumi.set(self, "server_name_to_verify", value)
 
 
-if not MYPY:
-    class RouteParameterConstraintsArgsDict(TypedDict):
-        required: pulumi.Input[bool]
-elif False:
-    RouteParameterConstraintsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class RouteParameterConstraintsArgs:
     def __init__(__self__, *,
@@ -629,18 +458,6 @@ class RouteParameterConstraintsArgs:
     def required(self, value: pulumi.Input[bool]):
         pulumi.set(self, "required", value)
 
-
-if not MYPY:
-    class RouteResponseParameterConstraintsArgsDict(TypedDict):
-        """
-        Specifies whether the parameter is required.
-        """
-        required: pulumi.Input[bool]
-        """
-        Specifies whether the parameter is required.
-        """
-elif False:
-    RouteResponseParameterConstraintsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RouteResponseParameterConstraintsArgs:

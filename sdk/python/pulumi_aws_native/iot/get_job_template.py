@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -61,6 +56,9 @@ def get_job_template(job_template_id: Optional[str] = None,
 
     return AwaitableGetJobTemplateResult(
         arn=pulumi.get(__ret__, 'arn'))
+
+
+@_utilities.lift_output_func(get_job_template)
 def get_job_template_output(job_template_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobTemplateResult]:
     """
@@ -69,9 +67,4 @@ def get_job_template_output(job_template_id: Optional[pulumi.Input[str]] = None,
 
     :param str job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
     """
-    __args__ = dict()
-    __args__['jobTemplateId'] = job_template_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getJobTemplate', __args__, opts=opts, typ=GetJobTemplateResult)
-    return __ret__.apply(lambda __response__: GetJobTemplateResult(
-        arn=pulumi.get(__response__, 'arn')))
+    ...

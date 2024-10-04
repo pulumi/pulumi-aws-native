@@ -4,44 +4,19 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ScraperDestinationAmpConfigurationPropertiesArgs',
-    'ScraperDestinationAmpConfigurationPropertiesArgsDict',
     'ScraperDestinationArgs',
-    'ScraperDestinationArgsDict',
     'ScraperScrapeConfigurationArgs',
-    'ScraperScrapeConfigurationArgsDict',
     'ScraperSourceEksConfigurationPropertiesArgs',
-    'ScraperSourceEksConfigurationPropertiesArgsDict',
     'ScraperSourceArgs',
-    'ScraperSourceArgsDict',
     'WorkspaceLoggingConfigurationArgs',
-    'WorkspaceLoggingConfigurationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ScraperDestinationAmpConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Configuration for Amazon Managed Prometheus metrics destination
-        """
-        workspace_arn: pulumi.Input[str]
-        """
-        ARN of an Amazon Managed Prometheus workspace
-        """
-elif False:
-    ScraperDestinationAmpConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScraperDestinationAmpConfigurationPropertiesArgs:
@@ -65,18 +40,6 @@ class ScraperDestinationAmpConfigurationPropertiesArgs:
     def workspace_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_arn", value)
 
-
-if not MYPY:
-    class ScraperDestinationArgsDict(TypedDict):
-        """
-        Scraper metrics destination
-        """
-        amp_configuration: NotRequired[pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgsDict']]
-        """
-        Configuration for Amazon Managed Prometheus metrics destination
-        """
-elif False:
-    ScraperDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScraperDestinationArgs:
@@ -102,18 +65,6 @@ class ScraperDestinationArgs:
         pulumi.set(self, "amp_configuration", value)
 
 
-if not MYPY:
-    class ScraperScrapeConfigurationArgsDict(TypedDict):
-        """
-        Scraper configuration
-        """
-        configuration_blob: NotRequired[pulumi.Input[str]]
-        """
-        Prometheus compatible scrape configuration in base64 encoded blob format
-        """
-elif False:
-    ScraperScrapeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ScraperScrapeConfigurationArgs:
     def __init__(__self__, *,
@@ -137,26 +88,6 @@ class ScraperScrapeConfigurationArgs:
     def configuration_blob(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration_blob", value)
 
-
-if not MYPY:
-    class ScraperSourceEksConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Configuration for EKS metrics source
-        """
-        cluster_arn: pulumi.Input[str]
-        """
-        ARN of an EKS cluster
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        List of subnet IDs
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        List of security group IDs
-        """
-elif False:
-    ScraperSourceEksConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScraperSourceEksConfigurationPropertiesArgs:
@@ -212,18 +143,6 @@ class ScraperSourceEksConfigurationPropertiesArgs:
         pulumi.set(self, "security_group_ids", value)
 
 
-if not MYPY:
-    class ScraperSourceArgsDict(TypedDict):
-        """
-        Scraper metrics source
-        """
-        eks_configuration: NotRequired[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgsDict']]
-        """
-        Configuration for EKS metrics source
-        """
-elif False:
-    ScraperSourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ScraperSourceArgs:
     def __init__(__self__, *,
@@ -247,18 +166,6 @@ class ScraperSourceArgs:
     def eks_configuration(self, value: Optional[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs']]):
         pulumi.set(self, "eks_configuration", value)
 
-
-if not MYPY:
-    class WorkspaceLoggingConfigurationArgsDict(TypedDict):
-        """
-        Logging configuration
-        """
-        log_group_arn: NotRequired[pulumi.Input[str]]
-        """
-        CloudWatch log group ARN
-        """
-elif False:
-    WorkspaceLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceLoggingConfigurationArgs:

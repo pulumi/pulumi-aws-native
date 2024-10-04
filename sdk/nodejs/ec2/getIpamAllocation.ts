@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Schema of AWS::EC2::IPAMAllocation Type
  */
 export function getIpamAllocation(args: GetIpamAllocationArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamAllocationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getIpamAllocation", {
         "cidr": args.cidr,
@@ -46,12 +47,7 @@ export interface GetIpamAllocationResult {
  * Resource Schema of AWS::EC2::IPAMAllocation Type
  */
 export function getIpamAllocationOutput(args: GetIpamAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamAllocationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getIpamAllocation", {
-        "cidr": args.cidr,
-        "ipamPoolAllocationId": args.ipamPoolAllocationId,
-        "ipamPoolId": args.ipamPoolId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpamAllocation(a, opts))
 }
 
 export interface GetIpamAllocationOutputArgs {

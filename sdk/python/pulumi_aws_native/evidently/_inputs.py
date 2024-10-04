@@ -4,84 +4,30 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ExperimentMetricGoalObjectArgs',
-    'ExperimentMetricGoalObjectArgsDict',
     'ExperimentOnlineAbConfigObjectArgs',
-    'ExperimentOnlineAbConfigObjectArgsDict',
     'ExperimentRunningStatusObjectArgs',
-    'ExperimentRunningStatusObjectArgsDict',
     'ExperimentTreatmentObjectArgs',
-    'ExperimentTreatmentObjectArgsDict',
     'ExperimentTreatmentToWeightArgs',
-    'ExperimentTreatmentToWeightArgsDict',
     'FeatureEntityOverrideArgs',
-    'FeatureEntityOverrideArgsDict',
     'FeatureVariationObjectArgs',
-    'FeatureVariationObjectArgsDict',
     'LaunchExecutionStatusObjectArgs',
-    'LaunchExecutionStatusObjectArgsDict',
     'LaunchGroupObjectArgs',
-    'LaunchGroupObjectArgsDict',
     'LaunchGroupToWeightArgs',
-    'LaunchGroupToWeightArgsDict',
     'LaunchMetricDefinitionObjectArgs',
-    'LaunchMetricDefinitionObjectArgsDict',
     'LaunchSegmentOverrideArgs',
-    'LaunchSegmentOverrideArgsDict',
     'LaunchStepConfigArgs',
-    'LaunchStepConfigArgsDict',
     'ProjectAppConfigResourceObjectArgs',
-    'ProjectAppConfigResourceObjectArgsDict',
     'ProjectDataDeliveryObjectArgs',
-    'ProjectDataDeliveryObjectArgsDict',
     'ProjectS3DestinationArgs',
-    'ProjectS3DestinationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ExperimentMetricGoalObjectArgsDict(TypedDict):
-        desired_change: pulumi.Input['ExperimentMetricGoalObjectDesiredChange']
-        """
-        `INCREASE` means that a variation with a higher number for this metric is performing better.
-
-        `DECREASE` means that a variation with a lower number for this metric is performing better.
-        """
-        entity_id_key: pulumi.Input[str]
-        """
-        The JSON path to reference the entity id in the event.
-        """
-        metric_name: pulumi.Input[str]
-        """
-        A name for the metric. It can include up to 255 characters.
-        """
-        value_key: pulumi.Input[str]
-        """
-        The JSON path to reference the numerical metric value in the event.
-        """
-        event_pattern: NotRequired[pulumi.Input[str]]
-        """
-        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-        """
-        unit_label: NotRequired[pulumi.Input[str]]
-        """
-        A label for the units that the metric is measuring.
-        """
-elif False:
-    ExperimentMetricGoalObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExperimentMetricGoalObjectArgs:
@@ -186,19 +132,6 @@ class ExperimentMetricGoalObjectArgs:
         pulumi.set(self, "unit_label", value)
 
 
-if not MYPY:
-    class ExperimentOnlineAbConfigObjectArgsDict(TypedDict):
-        control_treatment_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the variation that is to be the default variation that the other variations are compared to.
-        """
-        treatment_weights: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgsDict']]]]
-        """
-        A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
-        """
-elif False:
-    ExperimentOnlineAbConfigObjectArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ExperimentOnlineAbConfigObjectArgs:
     def __init__(__self__, *,
@@ -237,27 +170,6 @@ class ExperimentOnlineAbConfigObjectArgs:
     def treatment_weights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]]):
         pulumi.set(self, "treatment_weights", value)
 
-
-if not MYPY:
-    class ExperimentRunningStatusObjectArgsDict(TypedDict):
-        analysis_complete_time: NotRequired[pulumi.Input[str]]
-        """
-        Provide the analysis Completion time for an experiment
-        """
-        desired_state: NotRequired[pulumi.Input[str]]
-        """
-        Provide CANCELLED or COMPLETED desired state when stopping an experiment
-        """
-        reason: NotRequired[pulumi.Input[str]]
-        """
-        Reason is a required input for stopping the experiment
-        """
-        status: NotRequired[pulumi.Input[str]]
-        """
-        Provide START or STOP action to apply on an experiment
-        """
-elif False:
-    ExperimentRunningStatusObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExperimentRunningStatusObjectArgs:
@@ -330,27 +242,6 @@ class ExperimentRunningStatusObjectArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ExperimentTreatmentObjectArgsDict(TypedDict):
-        feature: pulumi.Input[str]
-        """
-        The name of the feature for this experiment.
-        """
-        treatment_name: pulumi.Input[str]
-        """
-        A name for this treatment. It can include up to 127 characters.
-        """
-        variation: pulumi.Input[str]
-        """
-        The name of the variation to use for this treatment.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        The description of the treatment.
-        """
-elif False:
-    ExperimentTreatmentObjectArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ExperimentTreatmentObjectArgs:
     def __init__(__self__, *,
@@ -419,19 +310,6 @@ class ExperimentTreatmentObjectArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class ExperimentTreatmentToWeightArgsDict(TypedDict):
-        split_weight: pulumi.Input[int]
-        """
-        The portion of experiment traffic to allocate to this treatment. Specify the traffic portion in thousandths of a percent, so 20,000 allocated to a treatment would allocate 20% of the experiment traffic to that treatment.
-        """
-        treatment: pulumi.Input[str]
-        """
-        The name of the treatment.
-        """
-elif False:
-    ExperimentTreatmentToWeightArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ExperimentTreatmentToWeightArgs:
     def __init__(__self__, *,
@@ -468,19 +346,6 @@ class ExperimentTreatmentToWeightArgs:
     def treatment(self, value: pulumi.Input[str]):
         pulumi.set(self, "treatment", value)
 
-
-if not MYPY:
-    class FeatureEntityOverrideArgsDict(TypedDict):
-        entity_id: NotRequired[pulumi.Input[str]]
-        """
-        The entity ID to be served the variation specified in `Variation` .
-        """
-        variation: NotRequired[pulumi.Input[str]]
-        """
-        The name of the variation to serve to the user session that matches the `EntityId` .
-        """
-elif False:
-    FeatureEntityOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FeatureEntityOverrideArgs:
@@ -520,31 +385,6 @@ class FeatureEntityOverrideArgs:
     def variation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "variation", value)
 
-
-if not MYPY:
-    class FeatureVariationObjectArgsDict(TypedDict):
-        boolean_value: NotRequired[pulumi.Input[bool]]
-        """
-        The value assigned to this variation, if the variation type is boolean.
-        """
-        double_value: NotRequired[pulumi.Input[float]]
-        """
-        The value assigned to this variation, if the variation type is a double.
-        """
-        long_value: NotRequired[pulumi.Input[float]]
-        """
-        The value assigned to this variation, if the variation type is a long.
-        """
-        string_value: NotRequired[pulumi.Input[str]]
-        """
-        The value assigned to this variation, if the variation type is a string.
-        """
-        variation_name: NotRequired[pulumi.Input[str]]
-        """
-        A name for the variation. It can include up to 127 characters.
-        """
-elif False:
-    FeatureVariationObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FeatureVariationObjectArgs:
@@ -633,23 +473,6 @@ class FeatureVariationObjectArgs:
         pulumi.set(self, "variation_name", value)
 
 
-if not MYPY:
-    class LaunchExecutionStatusObjectArgsDict(TypedDict):
-        status: pulumi.Input[str]
-        """
-        Provide START or STOP action to apply on a launch
-        """
-        desired_state: NotRequired[pulumi.Input[str]]
-        """
-        Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
-        """
-        reason: NotRequired[pulumi.Input[str]]
-        """
-        Provide a reason for stopping the launch. Defaults to empty if not provided.
-        """
-elif False:
-    LaunchExecutionStatusObjectArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class LaunchExecutionStatusObjectArgs:
     def __init__(__self__, *,
@@ -703,27 +526,6 @@ class LaunchExecutionStatusObjectArgs:
     def reason(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "reason", value)
 
-
-if not MYPY:
-    class LaunchGroupObjectArgsDict(TypedDict):
-        feature: pulumi.Input[str]
-        """
-        The feature that this launch is using.
-        """
-        group_name: pulumi.Input[str]
-        """
-        A name for this launch group. It can include up to 127 characters.
-        """
-        variation: pulumi.Input[str]
-        """
-        The feature variation to use for this launch group.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        A description of the launch group.
-        """
-elif False:
-    LaunchGroupObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchGroupObjectArgs:
@@ -793,21 +595,6 @@ class LaunchGroupObjectArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class LaunchGroupToWeightArgsDict(TypedDict):
-        group_name: pulumi.Input[str]
-        """
-        The name of the launch group. It can include up to 127 characters.
-        """
-        split_weight: pulumi.Input[int]
-        """
-        The portion of launch traffic to allocate to this launch group.
-
-        This is represented in thousandths of a percent. For example, specify 20,000 to allocate 20% of the launch audience to this launch group.
-        """
-elif False:
-    LaunchGroupToWeightArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class LaunchGroupToWeightArgs:
     def __init__(__self__, *,
@@ -848,31 +635,6 @@ class LaunchGroupToWeightArgs:
     def split_weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "split_weight", value)
 
-
-if not MYPY:
-    class LaunchMetricDefinitionObjectArgsDict(TypedDict):
-        entity_id_key: pulumi.Input[str]
-        """
-        The JSON path to reference the entity id in the event.
-        """
-        metric_name: pulumi.Input[str]
-        """
-        A name for the metric. It can include up to 255 characters.
-        """
-        value_key: pulumi.Input[str]
-        """
-        The JSON path to reference the numerical metric value in the event.
-        """
-        event_pattern: NotRequired[pulumi.Input[str]]
-        """
-        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-        """
-        unit_label: NotRequired[pulumi.Input[str]]
-        """
-        A label for the units that the metric is measuring.
-        """
-elif False:
-    LaunchMetricDefinitionObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchMetricDefinitionObjectArgs:
@@ -958,23 +720,6 @@ class LaunchMetricDefinitionObjectArgs:
         pulumi.set(self, "unit_label", value)
 
 
-if not MYPY:
-    class LaunchSegmentOverrideArgsDict(TypedDict):
-        evaluation_order: pulumi.Input[int]
-        """
-        A number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
-        """
-        segment: pulumi.Input[str]
-        """
-        The ARN of the segment to use for this override.
-        """
-        weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgsDict']]]
-        """
-        The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
-        """
-elif False:
-    LaunchSegmentOverrideArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class LaunchSegmentOverrideArgs:
     def __init__(__self__, *,
@@ -1026,25 +771,6 @@ class LaunchSegmentOverrideArgs:
     def weights(self, value: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]):
         pulumi.set(self, "weights", value)
 
-
-if not MYPY:
-    class LaunchStepConfigArgsDict(TypedDict):
-        group_weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgsDict']]]
-        """
-        An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
-        """
-        start_time: pulumi.Input[str]
-        """
-        The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
-        """
-        segment_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgsDict']]]]
-        """
-        An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
-
-        For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
-        """
-elif False:
-    LaunchStepConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchStepConfigArgs:
@@ -1103,19 +829,6 @@ class LaunchStepConfigArgs:
         pulumi.set(self, "segment_overrides", value)
 
 
-if not MYPY:
-    class ProjectAppConfigResourceObjectArgsDict(TypedDict):
-        application_id: pulumi.Input[str]
-        """
-        The ID of the AWS AppConfig application to use for client-side evaluation.
-        """
-        environment_id: pulumi.Input[str]
-        """
-        The ID of the AWS AppConfig environment to use for client-side evaluation.
-        """
-elif False:
-    ProjectAppConfigResourceObjectArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ProjectAppConfigResourceObjectArgs:
     def __init__(__self__, *,
@@ -1152,22 +865,6 @@ class ProjectAppConfigResourceObjectArgs:
     def environment_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "environment_id", value)
 
-
-if not MYPY:
-    class ProjectDataDeliveryObjectArgsDict(TypedDict):
-        """
-        Destinations for data.
-        """
-        log_group: NotRequired[pulumi.Input[str]]
-        """
-        If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
-        """
-        s3: NotRequired[pulumi.Input['ProjectS3DestinationArgsDict']]
-        """
-        If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
-        """
-elif False:
-    ProjectDataDeliveryObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProjectDataDeliveryObjectArgs:
@@ -1208,19 +905,6 @@ class ProjectDataDeliveryObjectArgs:
     def s3(self, value: Optional[pulumi.Input['ProjectS3DestinationArgs']]):
         pulumi.set(self, "s3", value)
 
-
-if not MYPY:
-    class ProjectS3DestinationArgsDict(TypedDict):
-        bucket_name: pulumi.Input[str]
-        """
-        The name of the bucket in which Evidently stores evaluation events.
-        """
-        prefix: NotRequired[pulumi.Input[str]]
-        """
-        The bucket prefix in which Evidently stores evaluation events.
-        """
-elif False:
-    ProjectS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProjectS3DestinationArgs:

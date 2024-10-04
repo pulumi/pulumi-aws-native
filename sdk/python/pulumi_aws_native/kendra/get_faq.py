@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -108,6 +103,9 @@ def get_faq(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         language_code=pulumi.get(__ret__, 'language_code'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_faq)
 def get_faq_output(id: Optional[pulumi.Input[str]] = None,
                    index_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFaqResult]:
@@ -120,13 +118,4 @@ def get_faq_output(id: Optional[pulumi.Input[str]] = None,
            `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
     :param str index_id: Index ID
     """
-    __args__ = dict()
-    __args__['id'] = id
-    __args__['indexId'] = index_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:kendra:getFaq', __args__, opts=opts, typ=GetFaqResult)
-    return __ret__.apply(lambda __response__: GetFaqResult(
-        arn=pulumi.get(__response__, 'arn'),
-        id=pulumi.get(__response__, 'id'),
-        language_code=pulumi.get(__response__, 'language_code'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

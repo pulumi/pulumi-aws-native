@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -141,6 +136,9 @@ def get_mail_manager_relay(relay_id: Optional[str] = None,
         server_name=pulumi.get(__ret__, 'server_name'),
         server_port=pulumi.get(__ret__, 'server_port'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_mail_manager_relay)
 def get_mail_manager_relay_output(relay_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerRelayResult]:
     """
@@ -149,15 +147,4 @@ def get_mail_manager_relay_output(relay_id: Optional[pulumi.Input[str]] = None,
 
     :param str relay_id: The unique relay identifier.
     """
-    __args__ = dict()
-    __args__['relayId'] = relay_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerRelay', __args__, opts=opts, typ=GetMailManagerRelayResult)
-    return __ret__.apply(lambda __response__: GetMailManagerRelayResult(
-        authentication=pulumi.get(__response__, 'authentication'),
-        relay_arn=pulumi.get(__response__, 'relay_arn'),
-        relay_id=pulumi.get(__response__, 'relay_id'),
-        relay_name=pulumi.get(__response__, 'relay_name'),
-        server_name=pulumi.get(__response__, 'server_name'),
-        server_port=pulumi.get(__response__, 'server_port'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

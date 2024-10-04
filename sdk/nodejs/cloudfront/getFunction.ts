@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::Function
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getFunction", {
         "functionArn": args.functionArn,
@@ -63,10 +64,7 @@ export interface GetFunctionResult {
  * Resource Type definition for AWS::CloudFront::Function
  */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getFunction", {
-        "functionArn": args.functionArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFunction(a, opts))
 }
 
 export interface GetFunctionOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -88,6 +83,9 @@ def get_connector_profile(connector_profile_name: Optional[str] = None,
         connection_mode=pulumi.get(__ret__, 'connection_mode'),
         connector_profile_arn=pulumi.get(__ret__, 'connector_profile_arn'),
         credentials_arn=pulumi.get(__ret__, 'credentials_arn'))
+
+
+@_utilities.lift_output_func(get_connector_profile)
 def get_connector_profile_output(connector_profile_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorProfileResult]:
     """
@@ -96,11 +94,4 @@ def get_connector_profile_output(connector_profile_name: Optional[pulumi.Input[s
 
     :param str connector_profile_name: The maximum number of items to retrieve in a single batch.
     """
-    __args__ = dict()
-    __args__['connectorProfileName'] = connector_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appflow:getConnectorProfile', __args__, opts=opts, typ=GetConnectorProfileResult)
-    return __ret__.apply(lambda __response__: GetConnectorProfileResult(
-        connection_mode=pulumi.get(__response__, 'connection_mode'),
-        connector_profile_arn=pulumi.get(__response__, 'connector_profile_arn'),
-        credentials_arn=pulumi.get(__response__, 'credentials_arn')))
+    ...

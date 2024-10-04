@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -167,6 +162,9 @@ def get_mail_manager_ingress_point(ingress_point_id: Optional[str] = None,
         status_to_update=pulumi.get(__ret__, 'status_to_update'),
         tags=pulumi.get(__ret__, 'tags'),
         traffic_policy_id=pulumi.get(__ret__, 'traffic_policy_id'))
+
+
+@_utilities.lift_output_func(get_mail_manager_ingress_point)
 def get_mail_manager_ingress_point_output(ingress_point_id: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerIngressPointResult]:
     """
@@ -175,17 +173,4 @@ def get_mail_manager_ingress_point_output(ingress_point_id: Optional[pulumi.Inpu
 
     :param str ingress_point_id: The identifier of the ingress endpoint resource.
     """
-    __args__ = dict()
-    __args__['ingressPointId'] = ingress_point_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerIngressPoint', __args__, opts=opts, typ=GetMailManagerIngressPointResult)
-    return __ret__.apply(lambda __response__: GetMailManagerIngressPointResult(
-        a_record=pulumi.get(__response__, 'a_record'),
-        ingress_point_arn=pulumi.get(__response__, 'ingress_point_arn'),
-        ingress_point_id=pulumi.get(__response__, 'ingress_point_id'),
-        ingress_point_name=pulumi.get(__response__, 'ingress_point_name'),
-        rule_set_id=pulumi.get(__response__, 'rule_set_id'),
-        status=pulumi.get(__response__, 'status'),
-        status_to_update=pulumi.get(__response__, 'status_to_update'),
-        tags=pulumi.get(__response__, 'tags'),
-        traffic_policy_id=pulumi.get(__response__, 'traffic_policy_id')))
+    ...

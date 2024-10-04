@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -142,6 +137,9 @@ def get_allow_list(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_allow_list)
 def get_allow_list_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAllowListResult]:
     """
@@ -150,15 +148,4 @@ def get_allow_list_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: AllowList ID.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:macie:getAllowList', __args__, opts=opts, typ=GetAllowListResult)
-    return __ret__.apply(lambda __response__: GetAllowListResult(
-        arn=pulumi.get(__response__, 'arn'),
-        criteria=pulumi.get(__response__, 'criteria'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

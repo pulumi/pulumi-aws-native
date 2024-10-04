@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -77,6 +72,9 @@ def get_attribute_group_association(application_arn: Optional[str] = None,
     return AwaitableGetAttributeGroupAssociationResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
         attribute_group_arn=pulumi.get(__ret__, 'attribute_group_arn'))
+
+
+@_utilities.lift_output_func(get_attribute_group_association)
 def get_attribute_group_association_output(application_arn: Optional[pulumi.Input[str]] = None,
                                            attribute_group_arn: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttributeGroupAssociationResult]:
@@ -87,11 +85,4 @@ def get_attribute_group_association_output(application_arn: Optional[pulumi.Inpu
     :param str application_arn: The Amazon resource name (ARN) of the application that was augmented with attributes.
     :param str attribute_group_arn: The Amazon resource name (ARN) of the attribute group which contains the application's new attributes.
     """
-    __args__ = dict()
-    __args__['applicationArn'] = application_arn
-    __args__['attributeGroupArn'] = attribute_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalogappregistry:getAttributeGroupAssociation', __args__, opts=opts, typ=GetAttributeGroupAssociationResult)
-    return __ret__.apply(lambda __response__: GetAttributeGroupAssociationResult(
-        application_arn=pulumi.get(__response__, 'application_arn'),
-        attribute_group_arn=pulumi.get(__response__, 'attribute_group_arn')))
+    ...

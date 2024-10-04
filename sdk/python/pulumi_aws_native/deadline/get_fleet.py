@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -206,6 +201,9 @@ def get_fleet(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         worker_count=pulumi.get(__ret__, 'worker_count'))
+
+
+@_utilities.lift_output_func(get_fleet)
 def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
@@ -214,20 +212,4 @@ def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) assigned to the fleet.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getFleet', __args__, opts=opts, typ=GetFleetResult)
-    return __ret__.apply(lambda __response__: GetFleetResult(
-        arn=pulumi.get(__response__, 'arn'),
-        capabilities=pulumi.get(__response__, 'capabilities'),
-        configuration=pulumi.get(__response__, 'configuration'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        fleet_id=pulumi.get(__response__, 'fleet_id'),
-        max_worker_count=pulumi.get(__response__, 'max_worker_count'),
-        min_worker_count=pulumi.get(__response__, 'min_worker_count'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        worker_count=pulumi.get(__response__, 'worker_count')))
+    ...

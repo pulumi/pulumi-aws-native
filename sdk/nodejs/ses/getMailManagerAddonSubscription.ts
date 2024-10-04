@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::SES::MailManagerAddonSubscription Resource Type
  */
 export function getMailManagerAddonSubscription(args: GetMailManagerAddonSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetMailManagerAddonSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getMailManagerAddonSubscription", {
         "addonSubscriptionId": args.addonSubscriptionId,
@@ -42,10 +43,7 @@ export interface GetMailManagerAddonSubscriptionResult {
  * Definition of AWS::SES::MailManagerAddonSubscription Resource Type
  */
 export function getMailManagerAddonSubscriptionOutput(args: GetMailManagerAddonSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerAddonSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerAddonSubscription", {
-        "addonSubscriptionId": args.addonSubscriptionId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMailManagerAddonSubscription(a, opts))
 }
 
 export interface GetMailManagerAddonSubscriptionOutputArgs {

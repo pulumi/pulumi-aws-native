@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -140,6 +135,9 @@ def get_list(arn: Optional[str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'),
         variable_type=pulumi.get(__ret__, 'variable_type'))
+
+
+@_utilities.lift_output_func(get_list)
 def get_list_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListResult]:
     """
@@ -148,15 +146,4 @@ def get_list_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The list ARN.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getList', __args__, opts=opts, typ=GetListResult)
-    return __ret__.apply(lambda __response__: GetListResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        description=pulumi.get(__response__, 'description'),
-        elements=pulumi.get(__response__, 'elements'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        tags=pulumi.get(__response__, 'tags'),
-        variable_type=pulumi.get(__response__, 'variable_type')))
+    ...

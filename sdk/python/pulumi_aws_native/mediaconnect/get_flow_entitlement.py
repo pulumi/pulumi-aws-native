@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -128,6 +123,9 @@ def get_flow_entitlement(entitlement_arn: Optional[str] = None,
         entitlement_status=pulumi.get(__ret__, 'entitlement_status'),
         flow_arn=pulumi.get(__ret__, 'flow_arn'),
         subscribers=pulumi.get(__ret__, 'subscribers'))
+
+
+@_utilities.lift_output_func(get_flow_entitlement)
 def get_flow_entitlement_output(entitlement_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowEntitlementResult]:
     """
@@ -136,14 +134,4 @@ def get_flow_entitlement_output(entitlement_arn: Optional[pulumi.Input[str]] = N
 
     :param str entitlement_arn: The ARN of the entitlement.
     """
-    __args__ = dict()
-    __args__['entitlementArn'] = entitlement_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlowEntitlement', __args__, opts=opts, typ=GetFlowEntitlementResult)
-    return __ret__.apply(lambda __response__: GetFlowEntitlementResult(
-        description=pulumi.get(__response__, 'description'),
-        encryption=pulumi.get(__response__, 'encryption'),
-        entitlement_arn=pulumi.get(__response__, 'entitlement_arn'),
-        entitlement_status=pulumi.get(__response__, 'entitlement_status'),
-        flow_arn=pulumi.get(__response__, 'flow_arn'),
-        subscribers=pulumi.get(__response__, 'subscribers')))
+    ...

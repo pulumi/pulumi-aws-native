@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -74,6 +69,9 @@ def get_view_version(view_version_arn: Optional[str] = None,
     return AwaitableGetViewVersionResult(
         version=pulumi.get(__ret__, 'version'),
         view_version_arn=pulumi.get(__ret__, 'view_version_arn'))
+
+
+@_utilities.lift_output_func(get_view_version)
 def get_view_version_output(view_version_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewVersionResult]:
     """
@@ -82,10 +80,4 @@ def get_view_version_output(view_version_arn: Optional[pulumi.Input[str]] = None
 
     :param str view_version_arn: The Amazon Resource Name (ARN) of the created view version.
     """
-    __args__ = dict()
-    __args__['viewVersionArn'] = view_version_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getViewVersion', __args__, opts=opts, typ=GetViewVersionResult)
-    return __ret__.apply(lambda __response__: GetViewVersionResult(
-        version=pulumi.get(__response__, 'version'),
-        view_version_arn=pulumi.get(__response__, 'view_version_arn')))
+    ...

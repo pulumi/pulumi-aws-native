@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -127,6 +122,9 @@ def get_local_gateway_route_table_virtual_interface_group_association(local_gate
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_local_gateway_route_table_virtual_interface_group_association)
 def get_local_gateway_route_table_virtual_interface_group_association_output(local_gateway_route_table_virtual_interface_group_association_id: Optional[pulumi.Input[str]] = None,
                                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult]:
     """
@@ -135,14 +133,4 @@ def get_local_gateway_route_table_virtual_interface_group_association_output(loc
 
     :param str local_gateway_route_table_virtual_interface_group_association_id: The ID of the local gateway route table virtual interface group association.
     """
-    __args__ = dict()
-    __args__['localGatewayRouteTableVirtualInterfaceGroupAssociationId'] = local_gateway_route_table_virtual_interface_group_association_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation', __args__, opts=opts, typ=GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult)
-    return __ret__.apply(lambda __response__: GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult(
-        local_gateway_id=pulumi.get(__response__, 'local_gateway_id'),
-        local_gateway_route_table_arn=pulumi.get(__response__, 'local_gateway_route_table_arn'),
-        local_gateway_route_table_virtual_interface_group_association_id=pulumi.get(__response__, 'local_gateway_route_table_virtual_interface_group_association_id'),
-        owner_id=pulumi.get(__response__, 'owner_id'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

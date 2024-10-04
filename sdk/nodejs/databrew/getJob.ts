@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataBrew::Job.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:databrew:getJob", {
         "name": args.name,
@@ -98,10 +99,7 @@ export interface GetJobResult {
  * Resource schema for AWS::DataBrew::Job.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:databrew:getJob", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getJob(a, opts))
 }
 
 export interface GetJobOutputArgs {

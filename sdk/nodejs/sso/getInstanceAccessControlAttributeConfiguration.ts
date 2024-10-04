@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
  */
 export function getInstanceAccessControlAttributeConfiguration(args: GetInstanceAccessControlAttributeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceAccessControlAttributeConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sso:getInstanceAccessControlAttributeConfiguration", {
         "instanceArn": args.instanceArn,
@@ -38,10 +39,7 @@ export interface GetInstanceAccessControlAttributeConfigurationResult {
  * Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
  */
 export function getInstanceAccessControlAttributeConfigurationOutput(args: GetInstanceAccessControlAttributeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceAccessControlAttributeConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sso:getInstanceAccessControlAttributeConfiguration", {
-        "instanceArn": args.instanceArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInstanceAccessControlAttributeConfiguration(a, opts))
 }
 
 export interface GetInstanceAccessControlAttributeConfigurationOutputArgs {

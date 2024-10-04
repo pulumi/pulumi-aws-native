@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -78,6 +73,9 @@ def get_delegated_admin(delegated_admin_identifier: Optional[str] = None,
     return AwaitableGetDelegatedAdminResult(
         delegated_admin_identifier=pulumi.get(__ret__, 'delegated_admin_identifier'),
         status=pulumi.get(__ret__, 'status'))
+
+
+@_utilities.lift_output_func(get_delegated_admin)
 def get_delegated_admin_output(delegated_admin_identifier: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedAdminResult]:
     """
@@ -89,10 +87,4 @@ def get_delegated_admin_output(delegated_admin_identifier: Optional[pulumi.Input
 
     :param str delegated_admin_identifier: The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
     """
-    __args__ = dict()
-    __args__['delegatedAdminIdentifier'] = delegated_admin_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getDelegatedAdmin', __args__, opts=opts, typ=GetDelegatedAdminResult)
-    return __ret__.apply(lambda __response__: GetDelegatedAdminResult(
-        delegated_admin_identifier=pulumi.get(__response__, 'delegated_admin_identifier'),
-        status=pulumi.get(__response__, 'status')))
+    ...

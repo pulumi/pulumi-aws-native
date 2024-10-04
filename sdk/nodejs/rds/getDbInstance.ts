@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *   For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
  */
 export function getDbInstance(args: GetDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetDbInstanceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDbInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
@@ -559,10 +560,7 @@ export interface GetDbInstanceResult {
  *   For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
  */
 export function getDbInstanceOutput(args: GetDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbInstanceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:rds:getDbInstance", {
-        "dbInstanceIdentifier": args.dbInstanceIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDbInstance(a, opts))
 }
 
 export interface GetDbInstanceOutputArgs {

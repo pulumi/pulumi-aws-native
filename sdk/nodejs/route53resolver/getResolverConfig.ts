@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53Resolver::ResolverConfig.
  */
 export function getResolverConfig(args: GetResolverConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getResolverConfig", {
         "resourceId": args.resourceId,
@@ -42,10 +43,7 @@ export interface GetResolverConfigResult {
  * Resource schema for AWS::Route53Resolver::ResolverConfig.
  */
 export function getResolverConfigOutput(args: GetResolverConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53resolver:getResolverConfig", {
-        "resourceId": args.resourceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getResolverConfig(a, opts))
 }
 
 export interface GetResolverConfigOutputArgs {

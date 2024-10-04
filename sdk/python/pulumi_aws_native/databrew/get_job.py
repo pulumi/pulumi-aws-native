@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -271,6 +266,9 @@ def get_job(name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         timeout=pulumi.get(__ret__, 'timeout'),
         validation_configurations=pulumi.get(__ret__, 'validation_configurations'))
+
+
+@_utilities.lift_output_func(get_job)
 def get_job_output(name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
@@ -279,25 +277,4 @@ def get_job_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Job name
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getJob', __args__, opts=opts, typ=GetJobResult)
-    return __ret__.apply(lambda __response__: GetJobResult(
-        data_catalog_outputs=pulumi.get(__response__, 'data_catalog_outputs'),
-        database_outputs=pulumi.get(__response__, 'database_outputs'),
-        dataset_name=pulumi.get(__response__, 'dataset_name'),
-        encryption_key_arn=pulumi.get(__response__, 'encryption_key_arn'),
-        encryption_mode=pulumi.get(__response__, 'encryption_mode'),
-        job_sample=pulumi.get(__response__, 'job_sample'),
-        log_subscription=pulumi.get(__response__, 'log_subscription'),
-        max_capacity=pulumi.get(__response__, 'max_capacity'),
-        max_retries=pulumi.get(__response__, 'max_retries'),
-        output_location=pulumi.get(__response__, 'output_location'),
-        outputs=pulumi.get(__response__, 'outputs'),
-        profile_configuration=pulumi.get(__response__, 'profile_configuration'),
-        project_name=pulumi.get(__response__, 'project_name'),
-        recipe=pulumi.get(__response__, 'recipe'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        timeout=pulumi.get(__response__, 'timeout'),
-        validation_configurations=pulumi.get(__response__, 'validation_configurations')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -78,6 +73,9 @@ def get_private_graph_endpoint(private_graph_endpoint_identifier: Optional[str] 
     return AwaitableGetPrivateGraphEndpointResult(
         private_graph_endpoint_identifier=pulumi.get(__ret__, 'private_graph_endpoint_identifier'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'))
+
+
+@_utilities.lift_output_func(get_private_graph_endpoint)
 def get_private_graph_endpoint_output(private_graph_endpoint_identifier: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateGraphEndpointResult]:
     """
@@ -88,10 +86,4 @@ def get_private_graph_endpoint_output(private_graph_endpoint_identifier: Optiona
            
             For example, if GraphIdentifier is `g-12a3bcdef4` and VpcId is `vpc-0a12bc34567de8f90`, the generated PrivateGraphEndpointIdentifier will be `g-12a3bcdef4_vpc-0a12bc34567de8f90`
     """
-    __args__ = dict()
-    __args__['privateGraphEndpointIdentifier'] = private_graph_endpoint_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:neptunegraph:getPrivateGraphEndpoint', __args__, opts=opts, typ=GetPrivateGraphEndpointResult)
-    return __ret__.apply(lambda __response__: GetPrivateGraphEndpointResult(
-        private_graph_endpoint_identifier=pulumi.get(__response__, 'private_graph_endpoint_identifier'),
-        vpc_endpoint_id=pulumi.get(__response__, 'vpc_endpoint_id')))
+    ...

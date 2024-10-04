@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of the AWS::QuickSight::Topic Resource Type.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:quicksight:getTopic", {
         "awsAccountId": args.awsAccountId,
@@ -55,11 +56,7 @@ export interface GetTopicResult {
  * Definition of the AWS::QuickSight::Topic Resource Type.
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:quicksight:getTopic", {
-        "awsAccountId": args.awsAccountId,
-        "topicId": args.topicId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }
 
 export interface GetTopicOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -141,6 +136,9 @@ def get_provisioning_template(template_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_arn=pulumi.get(__ret__, 'template_arn'),
         template_body=pulumi.get(__ret__, 'template_body'))
+
+
+@_utilities.lift_output_func(get_provisioning_template)
 def get_provisioning_template_output(template_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisioningTemplateResult]:
     """
@@ -149,15 +147,4 @@ def get_provisioning_template_output(template_name: Optional[pulumi.Input[str]] 
 
     :param str template_name: The name of the fleet provisioning template.
     """
-    __args__ = dict()
-    __args__['templateName'] = template_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getProvisioningTemplate', __args__, opts=opts, typ=GetProvisioningTemplateResult)
-    return __ret__.apply(lambda __response__: GetProvisioningTemplateResult(
-        description=pulumi.get(__response__, 'description'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        pre_provisioning_hook=pulumi.get(__response__, 'pre_provisioning_hook'),
-        provisioning_role_arn=pulumi.get(__response__, 'provisioning_role_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        template_arn=pulumi.get(__response__, 'template_arn'),
-        template_body=pulumi.get(__response__, 'template_body')))
+    ...

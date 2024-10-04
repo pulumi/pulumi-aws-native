@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -88,6 +83,9 @@ def get_group(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_arns=pulumi.get(__ret__, 'resource_arns'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_group)
 def get_group_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
@@ -96,11 +94,4 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the group.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:synthetics:getGroup', __args__, opts=opts, typ=GetGroupResult)
-    return __ret__.apply(lambda __response__: GetGroupResult(
-        id=pulumi.get(__response__, 'id'),
-        resource_arns=pulumi.get(__response__, 'resource_arns'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

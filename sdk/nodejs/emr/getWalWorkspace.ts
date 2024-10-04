@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::EMR::WALWorkspace Type
  */
 export function getWalWorkspace(args: GetWalWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWalWorkspaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:emr:getWalWorkspace", {
         "walWorkspaceName": args.walWorkspaceName,
@@ -34,10 +35,7 @@ export interface GetWalWorkspaceResult {
  * Resource schema for AWS::EMR::WALWorkspace Type
  */
 export function getWalWorkspaceOutput(args: GetWalWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWalWorkspaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:emr:getWalWorkspace", {
-        "walWorkspaceName": args.walWorkspaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWalWorkspace(a, opts))
 }
 
 export interface GetWalWorkspaceOutputArgs {

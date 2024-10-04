@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -187,6 +182,9 @@ def get_replication_config(replication_config_arn: Optional[str] = None,
         table_mappings=pulumi.get(__ret__, 'table_mappings'),
         tags=pulumi.get(__ret__, 'tags'),
         target_endpoint_arn=pulumi.get(__ret__, 'target_endpoint_arn'))
+
+
+@_utilities.lift_output_func(get_replication_config)
 def get_replication_config_output(replication_config_arn: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationConfigResult]:
     """
@@ -195,18 +193,4 @@ def get_replication_config_output(replication_config_arn: Optional[pulumi.Input[
 
     :param str replication_config_arn: The Amazon Resource Name (ARN) of the Replication Config
     """
-    __args__ = dict()
-    __args__['replicationConfigArn'] = replication_config_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:dms:getReplicationConfig', __args__, opts=opts, typ=GetReplicationConfigResult)
-    return __ret__.apply(lambda __response__: GetReplicationConfigResult(
-        compute_config=pulumi.get(__response__, 'compute_config'),
-        replication_config_arn=pulumi.get(__response__, 'replication_config_arn'),
-        replication_config_identifier=pulumi.get(__response__, 'replication_config_identifier'),
-        replication_settings=pulumi.get(__response__, 'replication_settings'),
-        replication_type=pulumi.get(__response__, 'replication_type'),
-        source_endpoint_arn=pulumi.get(__response__, 'source_endpoint_arn'),
-        supplemental_settings=pulumi.get(__response__, 'supplemental_settings'),
-        table_mappings=pulumi.get(__response__, 'table_mappings'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_endpoint_arn=pulumi.get(__response__, 'target_endpoint_arn')))
+    ...

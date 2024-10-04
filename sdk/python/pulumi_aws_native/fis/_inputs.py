@@ -4,65 +4,22 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ExperimentTemplateActionArgs',
-    'ExperimentTemplateActionArgsDict',
     'ExperimentTemplateExperimentOptionsArgs',
-    'ExperimentTemplateExperimentOptionsArgsDict',
     'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs',
-    'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict',
     'ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs',
-    'ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict',
     'ExperimentTemplateLogConfigurationArgs',
-    'ExperimentTemplateLogConfigurationArgsDict',
     'ExperimentTemplateStopConditionArgs',
-    'ExperimentTemplateStopConditionArgsDict',
     'ExperimentTemplateTargetFilterArgs',
-    'ExperimentTemplateTargetFilterArgsDict',
     'ExperimentTemplateTargetArgs',
-    'ExperimentTemplateTargetArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ExperimentTemplateActionArgsDict(TypedDict):
-        """
-        Specifies an action for the experiment template.
-        """
-        action_id: pulumi.Input[str]
-        """
-        The ID of the action.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        A description for the action.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        The parameters for the action, if applicable.
-        """
-        start_after: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The name of the action that must be completed before the current action starts.
-        """
-        targets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        One or more targets for the action.
-        """
-elif False:
-    ExperimentTemplateActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExperimentTemplateActionArgs:
@@ -151,19 +108,6 @@ class ExperimentTemplateActionArgs:
         pulumi.set(self, "targets", value)
 
 
-if not MYPY:
-    class ExperimentTemplateExperimentOptionsArgsDict(TypedDict):
-        account_targeting: NotRequired[pulumi.Input['ExperimentTemplateExperimentOptionsAccountTargeting']]
-        """
-        The account targeting setting for the experiment template.
-        """
-        empty_target_resolution_mode: NotRequired[pulumi.Input['ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode']]
-        """
-        The target resolution failure mode for the experiment template.
-        """
-elif False:
-    ExperimentTemplateExperimentOptionsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ExperimentTemplateExperimentOptionsArgs:
     def __init__(__self__, *,
@@ -203,15 +147,6 @@ class ExperimentTemplateExperimentOptionsArgs:
         pulumi.set(self, "empty_target_resolution_mode", value)
 
 
-if not MYPY:
-    class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration for experiment logging to CloudWatch Logs .
-        """
-        log_group_arn: pulumi.Input[str]
-elif False:
-    ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs:
     def __init__(__self__, *,
@@ -230,16 +165,6 @@ class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArg
     def log_group_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_group_arn", value)
 
-
-if not MYPY:
-    class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration for experiment logging to Amazon S3 .
-        """
-        bucket_name: pulumi.Input[str]
-        prefix: NotRequired[pulumi.Input[str]]
-elif False:
-    ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs:
@@ -271,23 +196,6 @@ class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs:
     def prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix", value)
 
-
-if not MYPY:
-    class ExperimentTemplateLogConfigurationArgsDict(TypedDict):
-        log_schema_version: pulumi.Input[int]
-        """
-        The schema version.
-        """
-        cloud_watch_logs_configuration: NotRequired[pulumi.Input['ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict']]
-        """
-        The configuration for experiment logging to CloudWatch Logs .
-        """
-        s3_configuration: NotRequired[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgsDict']]
-        """
-        The configuration for experiment logging to Amazon S3 .
-        """
-elif False:
-    ExperimentTemplateLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExperimentTemplateLogConfigurationArgs:
@@ -343,13 +251,6 @@ class ExperimentTemplateLogConfigurationArgs:
         pulumi.set(self, "s3_configuration", value)
 
 
-if not MYPY:
-    class ExperimentTemplateStopConditionArgsDict(TypedDict):
-        source: pulumi.Input[str]
-        value: NotRequired[pulumi.Input[str]]
-elif False:
-    ExperimentTemplateStopConditionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ExperimentTemplateStopConditionArgs:
     def __init__(__self__, *,
@@ -377,16 +278,6 @@ class ExperimentTemplateStopConditionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class ExperimentTemplateTargetFilterArgsDict(TypedDict):
-        """
-        Describes a filter used for the target resource input in an experiment template.
-        """
-        path: pulumi.Input[str]
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-elif False:
-    ExperimentTemplateTargetFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExperimentTemplateTargetFilterArgs:
@@ -417,38 +308,6 @@ class ExperimentTemplateTargetFilterArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
-
-if not MYPY:
-    class ExperimentTemplateTargetArgsDict(TypedDict):
-        """
-        Specifies a target for an experiment.
-        """
-        resource_type: pulumi.Input[str]
-        """
-        The resource type.
-        """
-        selection_mode: pulumi.Input[str]
-        """
-        Scopes the identified resources to a specific count or percentage.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgsDict']]]]
-        """
-        The filters to apply to identify target resources using specific attributes.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        The parameters for the resource type.
-        """
-        resource_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The Amazon Resource Names (ARNs) of the targets.
-        """
-        resource_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        The tags for the target resources.
-        """
-elif False:
-    ExperimentTemplateTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExperimentTemplateTargetArgs:

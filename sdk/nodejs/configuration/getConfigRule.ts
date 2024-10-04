@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *  For more information about developing and using CC rules, see [Evaluating Resources with Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) in the *Developer Guide*.
  */
 export function getConfigRule(args: GetConfigRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getConfigRule", {
         "configRuleName": args.configRuleName,
@@ -89,10 +90,7 @@ export interface GetConfigRuleResult {
  *  For more information about developing and using CC rules, see [Evaluating Resources with Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) in the *Developer Guide*.
  */
 export function getConfigRuleOutput(args: GetConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:configuration:getConfigRule", {
-        "configRuleName": args.configRuleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigRule(a, opts))
 }
 
 export interface GetConfigRuleOutputArgs {

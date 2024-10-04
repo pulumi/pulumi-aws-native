@@ -4,35 +4,16 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'VirtualClusterContainerInfoArgs',
-    'VirtualClusterContainerInfoArgsDict',
     'VirtualClusterContainerProviderArgs',
-    'VirtualClusterContainerProviderArgsDict',
     'VirtualClusterEksInfoArgs',
-    'VirtualClusterEksInfoArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class VirtualClusterContainerInfoArgsDict(TypedDict):
-        eks_info: pulumi.Input['VirtualClusterEksInfoArgsDict']
-        """
-        The information about the Amazon EKS cluster.
-        """
-elif False:
-    VirtualClusterContainerInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualClusterContainerInfoArgs:
@@ -55,23 +36,6 @@ class VirtualClusterContainerInfoArgs:
     def eks_info(self, value: pulumi.Input['VirtualClusterEksInfoArgs']):
         pulumi.set(self, "eks_info", value)
 
-
-if not MYPY:
-    class VirtualClusterContainerProviderArgsDict(TypedDict):
-        id: pulumi.Input[str]
-        """
-        The ID of the container cluster
-        """
-        info: pulumi.Input['VirtualClusterContainerInfoArgsDict']
-        """
-        The information about the container cluster.
-        """
-        type: pulumi.Input[str]
-        """
-        The type of the container provider
-        """
-elif False:
-    VirtualClusterContainerProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualClusterContainerProviderArgs:
@@ -124,21 +88,6 @@ class VirtualClusterContainerProviderArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
-
-if not MYPY:
-    class VirtualClusterEksInfoArgsDict(TypedDict):
-        namespace: pulumi.Input[str]
-        """
-        The namespaces of the EKS cluster.
-
-        *Minimum* : 1
-
-        *Maximum* : 63
-
-        *Pattern* : `[a-z0-9]([-a-z0-9]*[a-z0-9])?`
-        """
-elif False:
-    VirtualClusterEksInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualClusterEksInfoArgs:

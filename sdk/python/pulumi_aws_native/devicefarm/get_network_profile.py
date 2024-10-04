@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -207,6 +202,9 @@ def get_network_profile(arn: Optional[str] = None,
         uplink_delay_ms=pulumi.get(__ret__, 'uplink_delay_ms'),
         uplink_jitter_ms=pulumi.get(__ret__, 'uplink_jitter_ms'),
         uplink_loss_percent=pulumi.get(__ret__, 'uplink_loss_percent'))
+
+
+@_utilities.lift_output_func(get_network_profile)
 def get_network_profile_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
@@ -215,20 +213,4 @@ def get_network_profile_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the network profile. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:devicefarm:getNetworkProfile', __args__, opts=opts, typ=GetNetworkProfileResult)
-    return __ret__.apply(lambda __response__: GetNetworkProfileResult(
-        arn=pulumi.get(__response__, 'arn'),
-        description=pulumi.get(__response__, 'description'),
-        downlink_bandwidth_bits=pulumi.get(__response__, 'downlink_bandwidth_bits'),
-        downlink_delay_ms=pulumi.get(__response__, 'downlink_delay_ms'),
-        downlink_jitter_ms=pulumi.get(__response__, 'downlink_jitter_ms'),
-        downlink_loss_percent=pulumi.get(__response__, 'downlink_loss_percent'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags'),
-        uplink_bandwidth_bits=pulumi.get(__response__, 'uplink_bandwidth_bits'),
-        uplink_delay_ms=pulumi.get(__response__, 'uplink_delay_ms'),
-        uplink_jitter_ms=pulumi.get(__response__, 'uplink_jitter_ms'),
-        uplink_loss_percent=pulumi.get(__response__, 'uplink_loss_percent')))
+    ...

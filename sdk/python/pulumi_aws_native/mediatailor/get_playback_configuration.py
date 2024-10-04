@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -272,6 +267,9 @@ def get_playback_configuration(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transcode_profile_name=pulumi.get(__ret__, 'transcode_profile_name'),
         video_content_source_url=pulumi.get(__ret__, 'video_content_source_url'))
+
+
+@_utilities.lift_output_func(get_playback_configuration)
 def get_playback_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaybackConfigurationResult]:
     """
@@ -280,25 +278,4 @@ def get_playback_configuration_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The identifier for the playback configuration.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getPlaybackConfiguration', __args__, opts=opts, typ=GetPlaybackConfigurationResult)
-    return __ret__.apply(lambda __response__: GetPlaybackConfigurationResult(
-        ad_decision_server_url=pulumi.get(__response__, 'ad_decision_server_url'),
-        avail_suppression=pulumi.get(__response__, 'avail_suppression'),
-        bumper=pulumi.get(__response__, 'bumper'),
-        cdn_configuration=pulumi.get(__response__, 'cdn_configuration'),
-        configuration_aliases=pulumi.get(__response__, 'configuration_aliases'),
-        dash_configuration=pulumi.get(__response__, 'dash_configuration'),
-        hls_configuration=pulumi.get(__response__, 'hls_configuration'),
-        live_pre_roll_configuration=pulumi.get(__response__, 'live_pre_roll_configuration'),
-        manifest_processing_rules=pulumi.get(__response__, 'manifest_processing_rules'),
-        personalization_threshold_seconds=pulumi.get(__response__, 'personalization_threshold_seconds'),
-        playback_configuration_arn=pulumi.get(__response__, 'playback_configuration_arn'),
-        playback_endpoint_prefix=pulumi.get(__response__, 'playback_endpoint_prefix'),
-        session_initialization_endpoint_prefix=pulumi.get(__response__, 'session_initialization_endpoint_prefix'),
-        slate_ad_url=pulumi.get(__response__, 'slate_ad_url'),
-        tags=pulumi.get(__response__, 'tags'),
-        transcode_profile_name=pulumi.get(__response__, 'transcode_profile_name'),
-        video_content_source_url=pulumi.get(__response__, 'video_content_source_url')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Amazon OpenSearchServerless security policy resource
  */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opensearchserverless:getSecurityPolicy", {
         "name": args.name,
@@ -43,11 +44,7 @@ export interface GetSecurityPolicyResult {
  * Amazon OpenSearchServerless security policy resource
  */
 export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getSecurityPolicy", {
-        "name": args.name,
-        "type": args.type,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityPolicy(a, opts))
 }
 
 export interface GetSecurityPolicyOutputArgs {

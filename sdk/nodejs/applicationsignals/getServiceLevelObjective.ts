@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective
  */
 export function getServiceLevelObjective(args: GetServiceLevelObjectiveArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectiveResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:applicationsignals:getServiceLevelObjective", {
         "arn": args.arn,
@@ -68,10 +69,7 @@ export interface GetServiceLevelObjectiveResult {
  * Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective
  */
 export function getServiceLevelObjectiveOutput(args: GetServiceLevelObjectiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectiveResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:applicationsignals:getServiceLevelObjective", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServiceLevelObjective(a, opts))
 }
 
 export interface GetServiceLevelObjectiveOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -118,6 +113,9 @@ def get_topic(aws_account_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
         user_experience_version=pulumi.get(__ret__, 'user_experience_version'))
+
+
+@_utilities.lift_output_func(get_topic)
 def get_topic_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                      topic_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
@@ -128,14 +126,4 @@ def get_topic_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     :param str aws_account_id: The ID of the AWS account that you want to create a topic in.
     :param str topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
     """
-    __args__ = dict()
-    __args__['awsAccountId'] = aws_account_id
-    __args__['topicId'] = topic_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getTopic', __args__, opts=opts, typ=GetTopicResult)
-    return __ret__.apply(lambda __response__: GetTopicResult(
-        arn=pulumi.get(__response__, 'arn'),
-        data_sets=pulumi.get(__response__, 'data_sets'),
-        description=pulumi.get(__response__, 'description'),
-        name=pulumi.get(__response__, 'name'),
-        user_experience_version=pulumi.get(__response__, 'user_experience_version')))
+    ...

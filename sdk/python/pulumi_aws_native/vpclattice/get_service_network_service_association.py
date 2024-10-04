@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -207,6 +202,9 @@ def get_service_network_service_association(arn: Optional[str] = None,
         service_network_name=pulumi.get(__ret__, 'service_network_name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_service_network_service_association)
 def get_service_network_service_association_output(arn: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkServiceAssociationResult]:
     """
@@ -215,20 +213,4 @@ def get_service_network_service_association_output(arn: Optional[pulumi.Input[st
 
     :param str arn: The Amazon Resource Name (ARN) of the association between the service network and the service.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getServiceNetworkServiceAssociation', __args__, opts=opts, typ=GetServiceNetworkServiceAssociationResult)
-    return __ret__.apply(lambda __response__: GetServiceNetworkServiceAssociationResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        dns_entry=pulumi.get(__response__, 'dns_entry'),
-        id=pulumi.get(__response__, 'id'),
-        service_arn=pulumi.get(__response__, 'service_arn'),
-        service_id=pulumi.get(__response__, 'service_id'),
-        service_name=pulumi.get(__response__, 'service_name'),
-        service_network_arn=pulumi.get(__response__, 'service_network_arn'),
-        service_network_id=pulumi.get(__response__, 'service_network_id'),
-        service_network_name=pulumi.get(__response__, 'service_network_name'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

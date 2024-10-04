@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -129,6 +124,9 @@ def get_stream(name: Optional[str] = None,
         stream_encryption=pulumi.get(__ret__, 'stream_encryption'),
         stream_mode_details=pulumi.get(__ret__, 'stream_mode_details'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_stream)
 def get_stream_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
     """
@@ -137,14 +135,4 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the Kinesis stream.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:kinesis:getStream', __args__, opts=opts, typ=GetStreamResult)
-    return __ret__.apply(lambda __response__: GetStreamResult(
-        arn=pulumi.get(__response__, 'arn'),
-        retention_period_hours=pulumi.get(__response__, 'retention_period_hours'),
-        shard_count=pulumi.get(__response__, 'shard_count'),
-        stream_encryption=pulumi.get(__response__, 'stream_encryption'),
-        stream_mode_details=pulumi.get(__response__, 'stream_mode_details'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

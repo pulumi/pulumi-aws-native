@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -237,6 +232,9 @@ def get_subscription_target(domain_id: Optional[str] = None,
         subscription_target_config=pulumi.get(__ret__, 'subscription_target_config'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         updated_by=pulumi.get(__ret__, 'updated_by'))
+
+
+@_utilities.lift_output_func(get_subscription_target)
 def get_subscription_target_output(domain_id: Optional[pulumi.Input[str]] = None,
                                    environment_id: Optional[pulumi.Input[str]] = None,
                                    id: Optional[pulumi.Input[str]] = None,
@@ -249,24 +247,4 @@ def get_subscription_target_output(domain_id: Optional[pulumi.Input[str]] = None
     :param str environment_id: The ID of the environment in which subscription target is created.
     :param str id: The ID of the subscription target.
     """
-    __args__ = dict()
-    __args__['domainId'] = domain_id
-    __args__['environmentId'] = environment_id
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getSubscriptionTarget', __args__, opts=opts, typ=GetSubscriptionTargetResult)
-    return __ret__.apply(lambda __response__: GetSubscriptionTargetResult(
-        applicable_asset_types=pulumi.get(__response__, 'applicable_asset_types'),
-        authorized_principals=pulumi.get(__response__, 'authorized_principals'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        created_by=pulumi.get(__response__, 'created_by'),
-        domain_id=pulumi.get(__response__, 'domain_id'),
-        environment_id=pulumi.get(__response__, 'environment_id'),
-        id=pulumi.get(__response__, 'id'),
-        manage_access_role=pulumi.get(__response__, 'manage_access_role'),
-        name=pulumi.get(__response__, 'name'),
-        project_id=pulumi.get(__response__, 'project_id'),
-        provider=pulumi.get(__response__, 'provider'),
-        subscription_target_config=pulumi.get(__response__, 'subscription_target_config'),
-        updated_at=pulumi.get(__response__, 'updated_at'),
-        updated_by=pulumi.get(__response__, 'updated_by')))
+    ...

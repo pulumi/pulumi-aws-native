@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -131,6 +126,9 @@ def get_document(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_type=pulumi.get(__ret__, 'target_type'),
         version_name=pulumi.get(__ret__, 'version_name'))
+
+
+@_utilities.lift_output_func(get_document)
 def get_document_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentResult]:
     """
@@ -139,14 +137,4 @@ def get_document_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: A name for the Systems Manager document.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getDocument', __args__, opts=opts, typ=GetDocumentResult)
-    return __ret__.apply(lambda __response__: GetDocumentResult(
-        content=pulumi.get(__response__, 'content'),
-        document_format=pulumi.get(__response__, 'document_format'),
-        requires=pulumi.get(__response__, 'requires'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_type=pulumi.get(__response__, 'target_type'),
-        version_name=pulumi.get(__response__, 'version_name')))
+    ...

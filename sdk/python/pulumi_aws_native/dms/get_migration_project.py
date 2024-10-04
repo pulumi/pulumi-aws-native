@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -193,6 +188,9 @@ def get_migration_project(migration_project_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_data_provider_descriptors=pulumi.get(__ret__, 'target_data_provider_descriptors'),
         transformation_rules=pulumi.get(__ret__, 'transformation_rules'))
+
+
+@_utilities.lift_output_func(get_migration_project)
 def get_migration_project_output(migration_project_arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationProjectResult]:
     """
@@ -201,19 +199,4 @@ def get_migration_project_output(migration_project_arn: Optional[pulumi.Input[st
 
     :param str migration_project_arn: The property describes an ARN of the migration project.
     """
-    __args__ = dict()
-    __args__['migrationProjectArn'] = migration_project_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:dms:getMigrationProject', __args__, opts=opts, typ=GetMigrationProjectResult)
-    return __ret__.apply(lambda __response__: GetMigrationProjectResult(
-        description=pulumi.get(__response__, 'description'),
-        instance_profile_arn=pulumi.get(__response__, 'instance_profile_arn'),
-        instance_profile_name=pulumi.get(__response__, 'instance_profile_name'),
-        migration_project_arn=pulumi.get(__response__, 'migration_project_arn'),
-        migration_project_creation_time=pulumi.get(__response__, 'migration_project_creation_time'),
-        migration_project_name=pulumi.get(__response__, 'migration_project_name'),
-        schema_conversion_application_attributes=pulumi.get(__response__, 'schema_conversion_application_attributes'),
-        source_data_provider_descriptors=pulumi.get(__response__, 'source_data_provider_descriptors'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_data_provider_descriptors=pulumi.get(__response__, 'target_data_provider_descriptors'),
-        transformation_rules=pulumi.get(__response__, 'transformation_rules')))
+    ...

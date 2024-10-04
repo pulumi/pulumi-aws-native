@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A Kendra FAQ resource
  */
 export function getFaq(args: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<GetFaqResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kendra:getFaq", {
         "id": args.id,
@@ -55,11 +56,7 @@ export interface GetFaqResult {
  * A Kendra FAQ resource
  */
 export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFaqResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:kendra:getFaq", {
-        "id": args.id,
-        "indexId": args.indexId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFaq(a, opts))
 }
 
 export interface GetFaqOutputArgs {

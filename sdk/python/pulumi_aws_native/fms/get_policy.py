@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -362,6 +357,9 @@ def get_policy(id: Optional[str] = None,
         resources_clean_up=pulumi.get(__ret__, 'resources_clean_up'),
         security_service_policy_data=pulumi.get(__ret__, 'security_service_policy_data'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_policy)
 def get_policy_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
@@ -370,23 +368,4 @@ def get_policy_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the policy.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:fms:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
-    return __ret__.apply(lambda __response__: GetPolicyResult(
-        arn=pulumi.get(__response__, 'arn'),
-        exclude_map=pulumi.get(__response__, 'exclude_map'),
-        exclude_resource_tags=pulumi.get(__response__, 'exclude_resource_tags'),
-        id=pulumi.get(__response__, 'id'),
-        include_map=pulumi.get(__response__, 'include_map'),
-        policy_description=pulumi.get(__response__, 'policy_description'),
-        policy_name=pulumi.get(__response__, 'policy_name'),
-        remediation_enabled=pulumi.get(__response__, 'remediation_enabled'),
-        resource_set_ids=pulumi.get(__response__, 'resource_set_ids'),
-        resource_tags=pulumi.get(__response__, 'resource_tags'),
-        resource_type=pulumi.get(__response__, 'resource_type'),
-        resource_type_list=pulumi.get(__response__, 'resource_type_list'),
-        resources_clean_up=pulumi.get(__response__, 'resources_clean_up'),
-        security_service_policy_data=pulumi.get(__response__, 'security_service_policy_data'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

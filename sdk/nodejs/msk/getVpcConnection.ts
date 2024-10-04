@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MSK::VpcConnection
  */
 export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:msk:getVpcConnection", {
         "arn": args.arn,
@@ -32,10 +33,7 @@ export interface GetVpcConnectionResult {
  * Resource Type definition for AWS::MSK::VpcConnection
  */
 export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:msk:getVpcConnection", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVpcConnection(a, opts))
 }
 
 export interface GetVpcConnectionOutputArgs {

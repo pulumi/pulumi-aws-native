@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *  See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.
  */
 export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getResolver", {
         "resolverArn": args.resolverArn,
@@ -85,10 +86,7 @@ export interface GetResolverResult {
  *  See [Update Behaviors of Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html) in the *User Guide*.
  */
 export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:appsync:getResolver", {
-        "resolverArn": args.resolverArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getResolver(a, opts))
 }
 
 export interface GetResolverOutputArgs {

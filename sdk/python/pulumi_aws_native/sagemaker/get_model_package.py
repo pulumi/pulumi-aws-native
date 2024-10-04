@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -269,6 +264,9 @@ def get_model_package(model_package_arn: Optional[str] = None,
         skip_model_validation=pulumi.get(__ret__, 'skip_model_validation'),
         source_uri=pulumi.get(__ret__, 'source_uri'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_model_package)
 def get_model_package_output(model_package_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelPackageResult]:
     """
@@ -277,24 +275,4 @@ def get_model_package_output(model_package_arn: Optional[pulumi.Input[str]] = No
 
     :param str model_package_arn: The Amazon Resource Name (ARN) of the model package.
     """
-    __args__ = dict()
-    __args__['modelPackageArn'] = model_package_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getModelPackage', __args__, opts=opts, typ=GetModelPackageResult)
-    return __ret__.apply(lambda __response__: GetModelPackageResult(
-        additional_inference_specifications=pulumi.get(__response__, 'additional_inference_specifications'),
-        approval_description=pulumi.get(__response__, 'approval_description'),
-        certify_for_marketplace=pulumi.get(__response__, 'certify_for_marketplace'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        customer_metadata_properties=pulumi.get(__response__, 'customer_metadata_properties'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        model_approval_status=pulumi.get(__response__, 'model_approval_status'),
-        model_card=pulumi.get(__response__, 'model_card'),
-        model_package_arn=pulumi.get(__response__, 'model_package_arn'),
-        model_package_name=pulumi.get(__response__, 'model_package_name'),
-        model_package_status=pulumi.get(__response__, 'model_package_status'),
-        model_package_status_details=pulumi.get(__response__, 'model_package_status_details'),
-        model_package_version=pulumi.get(__response__, 'model_package_version'),
-        skip_model_validation=pulumi.get(__response__, 'skip_model_validation'),
-        source_uri=pulumi.get(__response__, 'source_uri'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

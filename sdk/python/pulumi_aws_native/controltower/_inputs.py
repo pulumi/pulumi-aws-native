@@ -4,38 +4,16 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'EnabledBaselineParameterArgs',
-    'EnabledBaselineParameterArgsDict',
     'EnabledControlParameterArgs',
-    'EnabledControlParameterArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class EnabledBaselineParameterArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[str]]
-        """
-        A string denoting the parameter key.
-        """
-        value: NotRequired[pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]]]
-        """
-        A low-level `Document` object of any type (for example, a Java Object).
-        """
-elif False:
-    EnabledBaselineParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnabledBaselineParameterArgs:
@@ -75,19 +53,6 @@ class EnabledBaselineParameterArgs:
     def value(self, value: Optional[pulumi.Input[Union[str, Any, float, Sequence[pulumi.Input[Union[bool, float, Any, str]]], bool]]]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class EnabledControlParameterArgsDict(TypedDict):
-        key: pulumi.Input[str]
-        """
-        The key of a key/value pair. It is of type `string` .
-        """
-        value: pulumi.Input[Union[Sequence[pulumi.Input[Union[str, float, Any, bool]]], str, float, Any, bool]]
-        """
-        The value of a key/value pair. It can be of type `array` , `string` , `number` , `object` , or `boolean` . [Note: The *Type* field that follows may show a single type such as Number, which is only one possible type.]
-        """
-elif False:
-    EnabledControlParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnabledControlParameterArgs:

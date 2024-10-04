@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,6 +64,9 @@ def get_permission(function_name: Optional[str] = None,
 
     return AwaitableGetPermissionResult(
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_permission)
 def get_permission_output(function_name: Optional[pulumi.Input[str]] = None,
                           id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionResult]:
@@ -87,10 +85,4 @@ def get_permission_output(function_name: Optional[pulumi.Input[str]] = None,
              
             You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     """
-    __args__ = dict()
-    __args__['functionName'] = function_name
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getPermission', __args__, opts=opts, typ=GetPermissionResult)
-    return __ret__.apply(lambda __response__: GetPermissionResult(
-        id=pulumi.get(__response__, 'id')))
+    ...

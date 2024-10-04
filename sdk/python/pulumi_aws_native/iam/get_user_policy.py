@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -75,6 +70,9 @@ def get_user_policy(policy_name: Optional[str] = None,
 
     return AwaitableGetUserPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
+
+
+@_utilities.lift_output_func(get_user_policy)
 def get_user_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                            user_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPolicyResult]:
@@ -89,10 +87,4 @@ def get_user_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     :param str user_name: The name of the user to associate the policy with.
             This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
     """
-    __args__ = dict()
-    __args__['policyName'] = policy_name
-    __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getUserPolicy', __args__, opts=opts, typ=GetUserPolicyResult)
-    return __ret__.apply(lambda __response__: GetUserPolicyResult(
-        policy_document=pulumi.get(__response__, 'policy_document')))
+    ...

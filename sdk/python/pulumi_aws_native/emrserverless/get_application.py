@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -246,6 +241,9 @@ def get_application(application_id: Optional[str] = None,
         runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         worker_type_specifications=pulumi.get(__ret__, 'worker_type_specifications'))
+
+
+@_utilities.lift_output_func(get_application)
 def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -254,23 +252,4 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
 
     :param str application_id: The ID of the EMR Serverless Application.
     """
-    __args__ = dict()
-    __args__['applicationId'] = application_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:emrserverless:getApplication', __args__, opts=opts, typ=GetApplicationResult)
-    return __ret__.apply(lambda __response__: GetApplicationResult(
-        application_id=pulumi.get(__response__, 'application_id'),
-        architecture=pulumi.get(__response__, 'architecture'),
-        arn=pulumi.get(__response__, 'arn'),
-        auto_start_configuration=pulumi.get(__response__, 'auto_start_configuration'),
-        auto_stop_configuration=pulumi.get(__response__, 'auto_stop_configuration'),
-        image_configuration=pulumi.get(__response__, 'image_configuration'),
-        initial_capacity=pulumi.get(__response__, 'initial_capacity'),
-        interactive_configuration=pulumi.get(__response__, 'interactive_configuration'),
-        maximum_capacity=pulumi.get(__response__, 'maximum_capacity'),
-        monitoring_configuration=pulumi.get(__response__, 'monitoring_configuration'),
-        network_configuration=pulumi.get(__response__, 'network_configuration'),
-        release_label=pulumi.get(__response__, 'release_label'),
-        runtime_configuration=pulumi.get(__response__, 'runtime_configuration'),
-        tags=pulumi.get(__response__, 'tags'),
-        worker_type_specifications=pulumi.get(__response__, 'worker_type_specifications')))
+    ...

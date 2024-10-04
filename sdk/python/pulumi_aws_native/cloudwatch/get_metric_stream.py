@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -192,6 +187,9 @@ def get_metric_stream(name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         state=pulumi.get(__ret__, 'state'),
         statistics_configurations=pulumi.get(__ret__, 'statistics_configurations'))
+
+
+@_utilities.lift_output_func(get_metric_stream)
 def get_metric_stream_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricStreamResult]:
     """
@@ -200,19 +198,4 @@ def get_metric_stream_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the metric stream.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getMetricStream', __args__, opts=opts, typ=GetMetricStreamResult)
-    return __ret__.apply(lambda __response__: GetMetricStreamResult(
-        arn=pulumi.get(__response__, 'arn'),
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        exclude_filters=pulumi.get(__response__, 'exclude_filters'),
-        firehose_arn=pulumi.get(__response__, 'firehose_arn'),
-        include_filters=pulumi.get(__response__, 'include_filters'),
-        include_linked_accounts_metrics=pulumi.get(__response__, 'include_linked_accounts_metrics'),
-        last_update_date=pulumi.get(__response__, 'last_update_date'),
-        output_format=pulumi.get(__response__, 'output_format'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        state=pulumi.get(__response__, 'state'),
-        statistics_configurations=pulumi.get(__response__, 'statistics_configurations')))
+    ...

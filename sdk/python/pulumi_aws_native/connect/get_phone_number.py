@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -114,6 +109,9 @@ def get_phone_number(phone_number_arn: Optional[str] = None,
         phone_number_arn=pulumi.get(__ret__, 'phone_number_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         target_arn=pulumi.get(__ret__, 'target_arn'))
+
+
+@_utilities.lift_output_func(get_phone_number)
 def get_phone_number_output(phone_number_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPhoneNumberResult]:
     """
@@ -122,13 +120,4 @@ def get_phone_number_output(phone_number_arn: Optional[pulumi.Input[str]] = None
 
     :param str phone_number_arn: The phone number ARN
     """
-    __args__ = dict()
-    __args__['phoneNumberArn'] = phone_number_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getPhoneNumber', __args__, opts=opts, typ=GetPhoneNumberResult)
-    return __ret__.apply(lambda __response__: GetPhoneNumberResult(
-        address=pulumi.get(__response__, 'address'),
-        description=pulumi.get(__response__, 'description'),
-        phone_number_arn=pulumi.get(__response__, 'phone_number_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_arn=pulumi.get(__response__, 'target_arn')))
+    ...

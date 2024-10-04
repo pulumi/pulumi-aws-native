@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationEFS.
  */
 export function getLocationEfs(args: GetLocationEfsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationEfsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationEfs", {
         "locationArn": args.locationArn,
@@ -42,10 +43,7 @@ export interface GetLocationEfsResult {
  * Resource schema for AWS::DataSync::LocationEFS.
  */
 export function getLocationEfsOutput(args: GetLocationEfsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationEfsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationEfs", {
-        "locationArn": args.locationArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLocationEfs(a, opts))
 }
 
 export interface GetLocationEfsOutputArgs {

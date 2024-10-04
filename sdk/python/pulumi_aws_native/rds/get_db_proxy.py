@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -181,6 +176,9 @@ def get_db_proxy(db_proxy_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
+
+
+@_utilities.lift_output_func(get_db_proxy)
 def get_db_proxy_output(db_proxy_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbProxyResult]:
     """
@@ -189,18 +187,4 @@ def get_db_proxy_output(db_proxy_name: Optional[pulumi.Input[str]] = None,
 
     :param str db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
     """
-    __args__ = dict()
-    __args__['dbProxyName'] = db_proxy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbProxy', __args__, opts=opts, typ=GetDbProxyResult)
-    return __ret__.apply(lambda __response__: GetDbProxyResult(
-        auth=pulumi.get(__response__, 'auth'),
-        db_proxy_arn=pulumi.get(__response__, 'db_proxy_arn'),
-        debug_logging=pulumi.get(__response__, 'debug_logging'),
-        endpoint=pulumi.get(__response__, 'endpoint'),
-        idle_client_timeout=pulumi.get(__response__, 'idle_client_timeout'),
-        require_tls=pulumi.get(__response__, 'require_tls'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        vpc_id=pulumi.get(__response__, 'vpc_id'),
-        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))
+    ...

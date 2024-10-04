@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::RDS::DBProxy
  */
 export function getDbProxy(args: GetDbProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetDbProxyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDbProxy", {
         "dbProxyName": args.dbProxyName,
@@ -70,10 +71,7 @@ export interface GetDbProxyResult {
  * Resource schema for AWS::RDS::DBProxy
  */
 export function getDbProxyOutput(args: GetDbProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbProxyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:rds:getDbProxy", {
-        "dbProxyName": args.dbProxyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDbProxy(a, opts))
 }
 
 export interface GetDbProxyOutputArgs {

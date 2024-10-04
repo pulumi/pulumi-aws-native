@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -133,6 +128,9 @@ def get_resource_version(arn: Optional[str] = None,
         type_arn=pulumi.get(__ret__, 'type_arn'),
         version_id=pulumi.get(__ret__, 'version_id'),
         visibility=pulumi.get(__ret__, 'visibility'))
+
+
+@_utilities.lift_output_func(get_resource_version)
 def get_resource_version_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceVersionResult]:
     """
@@ -141,14 +139,4 @@ def get_resource_version_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getResourceVersion', __args__, opts=opts, typ=GetResourceVersionResult)
-    return __ret__.apply(lambda __response__: GetResourceVersionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        is_default_version=pulumi.get(__response__, 'is_default_version'),
-        provisioning_type=pulumi.get(__response__, 'provisioning_type'),
-        type_arn=pulumi.get(__response__, 'type_arn'),
-        version_id=pulumi.get(__response__, 'version_id'),
-        visibility=pulumi.get(__response__, 'visibility')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -88,6 +83,9 @@ def get_workflow(workflow_id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'),
         workflow_id=pulumi.get(__ret__, 'workflow_id'))
+
+
+@_utilities.lift_output_func(get_workflow)
 def get_workflow_output(workflow_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
     """
@@ -96,11 +94,4 @@ def get_workflow_output(workflow_id: Optional[pulumi.Input[str]] = None,
 
     :param str workflow_id: A unique identifier for the workflow.
     """
-    __args__ = dict()
-    __args__['workflowId'] = workflow_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:transfer:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
-    return __ret__.apply(lambda __response__: GetWorkflowResult(
-        arn=pulumi.get(__response__, 'arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        workflow_id=pulumi.get(__response__, 'workflow_id')))
+    ...

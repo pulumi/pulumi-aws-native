@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaLive::Network.
  */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:medialive:getNetwork", {
         "id": args.id,
@@ -59,10 +60,7 @@ export interface GetNetworkResult {
  * Resource schema for AWS::MediaLive::Network.
  */
 export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:medialive:getNetwork", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetwork(a, opts))
 }
 
 export interface GetNetworkOutputArgs {

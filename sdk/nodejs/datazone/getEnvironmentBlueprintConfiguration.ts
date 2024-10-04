@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
  */
 export function getEnvironmentBlueprintConfiguration(args: GetEnvironmentBlueprintConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentBlueprintConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getEnvironmentBlueprintConfiguration", {
         "domainId": args.domainId,
@@ -67,11 +68,7 @@ export interface GetEnvironmentBlueprintConfigurationResult {
  * Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
  */
 export function getEnvironmentBlueprintConfigurationOutput(args: GetEnvironmentBlueprintConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentBlueprintConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datazone:getEnvironmentBlueprintConfiguration", {
-        "domainId": args.domainId,
-        "environmentBlueprintId": args.environmentBlueprintId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironmentBlueprintConfiguration(a, opts))
 }
 
 export interface GetEnvironmentBlueprintConfigurationOutputArgs {

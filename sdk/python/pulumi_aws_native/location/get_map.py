@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -153,6 +148,9 @@ def get_map(map_name: Optional[str] = None,
         pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
+
+
+@_utilities.lift_output_func(get_map)
 def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
     """
@@ -167,15 +165,4 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
            - Must be a unique map resource name.
            - No spaces allowed. For example, `ExampleMap` .
     """
-    __args__ = dict()
-    __args__['mapName'] = map_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:location:getMap', __args__, opts=opts, typ=GetMapResult)
-    return __ret__.apply(lambda __response__: GetMapResult(
-        arn=pulumi.get(__response__, 'arn'),
-        create_time=pulumi.get(__response__, 'create_time'),
-        description=pulumi.get(__response__, 'description'),
-        map_arn=pulumi.get(__response__, 'map_arn'),
-        pricing_plan=pulumi.get(__response__, 'pricing_plan'),
-        tags=pulumi.get(__response__, 'tags'),
-        update_time=pulumi.get(__response__, 'update_time')))
+    ...

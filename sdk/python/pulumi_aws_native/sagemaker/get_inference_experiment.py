@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -219,6 +214,9 @@ def get_inference_experiment(name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_inference_experiment)
 def get_inference_experiment_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceExperimentResult]:
     """
@@ -227,21 +225,4 @@ def get_inference_experiment_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name for the inference experiment.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getInferenceExperiment', __args__, opts=opts, typ=GetInferenceExperimentResult)
-    return __ret__.apply(lambda __response__: GetInferenceExperimentResult(
-        arn=pulumi.get(__response__, 'arn'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        data_storage_config=pulumi.get(__response__, 'data_storage_config'),
-        description=pulumi.get(__response__, 'description'),
-        desired_state=pulumi.get(__response__, 'desired_state'),
-        endpoint_metadata=pulumi.get(__response__, 'endpoint_metadata'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        model_variants=pulumi.get(__response__, 'model_variants'),
-        schedule=pulumi.get(__response__, 'schedule'),
-        shadow_mode_config=pulumi.get(__response__, 'shadow_mode_config'),
-        status=pulumi.get(__response__, 'status'),
-        status_reason=pulumi.get(__response__, 'status_reason'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

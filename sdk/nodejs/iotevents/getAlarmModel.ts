@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
  */
 export function getAlarmModel(args: GetAlarmModelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmModelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotevents:getAlarmModel", {
         "alarmModelName": args.alarmModelName,
@@ -59,10 +60,7 @@ export interface GetAlarmModelResult {
  * Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
  */
 export function getAlarmModelOutput(args: GetAlarmModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmModelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iotevents:getAlarmModel", {
-        "alarmModelName": args.alarmModelName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAlarmModel(a, opts))
 }
 
 export interface GetAlarmModelOutputArgs {

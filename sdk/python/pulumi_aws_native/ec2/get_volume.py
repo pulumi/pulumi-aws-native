@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -266,6 +261,9 @@ def get_volume(volume_id: Optional[str] = None,
         throughput=pulumi.get(__ret__, 'throughput'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
+
+
+@_utilities.lift_output_func(get_volume)
 def get_volume_output(volume_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
@@ -291,21 +289,4 @@ def get_volume_output(volume_id: Optional[pulumi.Input[str]] = None,
 
     :param str volume_id: The ID of the volume.
     """
-    __args__ = dict()
-    __args__['volumeId'] = volume_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVolume', __args__, opts=opts, typ=GetVolumeResult)
-    return __ret__.apply(lambda __response__: GetVolumeResult(
-        auto_enable_io=pulumi.get(__response__, 'auto_enable_io'),
-        availability_zone=pulumi.get(__response__, 'availability_zone'),
-        encrypted=pulumi.get(__response__, 'encrypted'),
-        iops=pulumi.get(__response__, 'iops'),
-        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
-        multi_attach_enabled=pulumi.get(__response__, 'multi_attach_enabled'),
-        outpost_arn=pulumi.get(__response__, 'outpost_arn'),
-        size=pulumi.get(__response__, 'size'),
-        snapshot_id=pulumi.get(__response__, 'snapshot_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        throughput=pulumi.get(__response__, 'throughput'),
-        volume_id=pulumi.get(__response__, 'volume_id'),
-        volume_type=pulumi.get(__response__, 'volume_type')))
+    ...

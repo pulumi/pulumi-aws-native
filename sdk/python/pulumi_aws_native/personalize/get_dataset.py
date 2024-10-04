@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -75,6 +70,9 @@ def get_dataset(dataset_arn: Optional[str] = None,
     return AwaitableGetDatasetResult(
         dataset_arn=pulumi.get(__ret__, 'dataset_arn'),
         dataset_import_job=pulumi.get(__ret__, 'dataset_import_job'))
+
+
+@_utilities.lift_output_func(get_dataset)
 def get_dataset_output(dataset_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
@@ -83,10 +81,4 @@ def get_dataset_output(dataset_arn: Optional[pulumi.Input[str]] = None,
 
     :param str dataset_arn: The ARN of the dataset
     """
-    __args__ = dict()
-    __args__['datasetArn'] = dataset_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:personalize:getDataset', __args__, opts=opts, typ=GetDatasetResult)
-    return __ret__.apply(lambda __response__: GetDatasetResult(
-        dataset_arn=pulumi.get(__response__, 'dataset_arn'),
-        dataset_import_job=pulumi.get(__response__, 'dataset_import_job')))
+    ...

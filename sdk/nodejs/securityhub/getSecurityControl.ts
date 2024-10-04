@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A security control in Security Hub describes a security best practice related to a specific resource.
  */
 export function getSecurityControl(args: GetSecurityControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityControlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securityhub:getSecurityControl", {
         "securityControlId": args.securityControlId,
@@ -42,10 +43,7 @@ export interface GetSecurityControlResult {
  * A security control in Security Hub describes a security best practice related to a specific resource.
  */
 export function getSecurityControlOutput(args: GetSecurityControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityControlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:securityhub:getSecurityControl", {
-        "securityControlId": args.securityControlId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityControl(a, opts))
 }
 
 export interface GetSecurityControlOutputArgs {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *  This operation requires permissions for the ``elasticfilesystem:CreateAccessPoint`` action.
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:efs:getAccessPoint", {
         "accessPointId": args.accessPointId,
@@ -45,10 +46,7 @@ export interface GetAccessPointResult {
  *  This operation requires permissions for the ``elasticfilesystem:CreateAccessPoint`` action.
  */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:efs:getAccessPoint", {
-        "accessPointId": args.accessPointId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))
 }
 
 export interface GetAccessPointOutputArgs {

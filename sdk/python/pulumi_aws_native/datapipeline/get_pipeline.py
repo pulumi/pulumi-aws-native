@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -128,6 +123,9 @@ def get_pipeline(pipeline_id: Optional[str] = None,
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
         pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'),
         pipeline_tags=pulumi.get(__ret__, 'pipeline_tags'))
+
+
+@_utilities.lift_output_func(get_pipeline)
 def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
     """
@@ -136,14 +134,4 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
 
     :param str pipeline_id: The ID of the pipeline.
     """
-    __args__ = dict()
-    __args__['pipelineId'] = pipeline_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datapipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
-    return __ret__.apply(lambda __response__: GetPipelineResult(
-        activate=pulumi.get(__response__, 'activate'),
-        parameter_objects=pulumi.get(__response__, 'parameter_objects'),
-        parameter_values=pulumi.get(__response__, 'parameter_values'),
-        pipeline_id=pulumi.get(__response__, 'pipeline_id'),
-        pipeline_objects=pulumi.get(__response__, 'pipeline_objects'),
-        pipeline_tags=pulumi.get(__response__, 'pipeline_tags')))
+    ...

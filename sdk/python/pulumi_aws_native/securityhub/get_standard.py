@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -78,6 +73,9 @@ def get_standard(standards_subscription_arn: Optional[str] = None,
     return AwaitableGetStandardResult(
         disabled_standards_controls=pulumi.get(__ret__, 'disabled_standards_controls'),
         standards_subscription_arn=pulumi.get(__ret__, 'standards_subscription_arn'))
+
+
+@_utilities.lift_output_func(get_standard)
 def get_standard_output(standards_subscription_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardResult]:
     """
@@ -88,10 +86,4 @@ def get_standard_output(standards_subscription_arn: Optional[pulumi.Input[str]] 
 
     :param str standards_subscription_arn: The ARN of a resource that represents your subscription to a supported standard.
     """
-    __args__ = dict()
-    __args__['standardsSubscriptionArn'] = standards_subscription_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getStandard', __args__, opts=opts, typ=GetStandardResult)
-    return __ret__.apply(lambda __response__: GetStandardResult(
-        disabled_standards_controls=pulumi.get(__response__, 'disabled_standards_controls'),
-        standards_subscription_arn=pulumi.get(__response__, 'standards_subscription_arn')))
+    ...

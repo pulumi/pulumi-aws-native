@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -98,6 +93,9 @@ def get_certificate(id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
+
+
+@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
@@ -106,11 +104,4 @@ def get_certificate_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The certificate ID.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
-    return __ret__.apply(lambda __response__: GetCertificateResult(
-        arn=pulumi.get(__response__, 'arn'),
-        id=pulumi.get(__response__, 'id'),
-        status=pulumi.get(__response__, 'status')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCGatewayAttachment
  */
 export function getVpcGatewayAttachment(args: GetVpcGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcGatewayAttachmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpcGatewayAttachment", {
         "attachmentType": args.attachmentType,
@@ -44,11 +45,7 @@ export interface GetVpcGatewayAttachmentResult {
  * Resource Type definition for AWS::EC2::VPCGatewayAttachment
  */
 export function getVpcGatewayAttachmentOutput(args: GetVpcGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcGatewayAttachmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcGatewayAttachment", {
-        "attachmentType": args.attachmentType,
-        "vpcId": args.vpcId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVpcGatewayAttachment(a, opts))
 }
 
 export interface GetVpcGatewayAttachmentOutputArgs {

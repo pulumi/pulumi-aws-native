@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -128,6 +123,9 @@ def get_scheduled_audit(scheduled_audit_name: Optional[str] = None,
         scheduled_audit_arn=pulumi.get(__ret__, 'scheduled_audit_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         target_check_names=pulumi.get(__ret__, 'target_check_names'))
+
+
+@_utilities.lift_output_func(get_scheduled_audit)
 def get_scheduled_audit_output(scheduled_audit_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledAuditResult]:
     """
@@ -136,14 +134,4 @@ def get_scheduled_audit_output(scheduled_audit_name: Optional[pulumi.Input[str]]
 
     :param str scheduled_audit_name: The name you want to give to the scheduled audit.
     """
-    __args__ = dict()
-    __args__['scheduledAuditName'] = scheduled_audit_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getScheduledAudit', __args__, opts=opts, typ=GetScheduledAuditResult)
-    return __ret__.apply(lambda __response__: GetScheduledAuditResult(
-        day_of_month=pulumi.get(__response__, 'day_of_month'),
-        day_of_week=pulumi.get(__response__, 'day_of_week'),
-        frequency=pulumi.get(__response__, 'frequency'),
-        scheduled_audit_arn=pulumi.get(__response__, 'scheduled_audit_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_check_names=pulumi.get(__response__, 'target_check_names')))
+    ...

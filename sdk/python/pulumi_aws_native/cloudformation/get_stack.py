@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -368,6 +363,9 @@ def get_stack(stack_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'),
         timeout_in_minutes=pulumi.get(__ret__, 'timeout_in_minutes'))
+
+
+@_utilities.lift_output_func(get_stack)
 def get_stack_output(stack_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackResult]:
     """
@@ -376,28 +374,4 @@ def get_stack_output(stack_id: Optional[pulumi.Input[str]] = None,
 
     :param str stack_id: Unique identifier of the stack.
     """
-    __args__ = dict()
-    __args__['stackId'] = stack_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getStack', __args__, opts=opts, typ=GetStackResult)
-    return __ret__.apply(lambda __response__: GetStackResult(
-        capabilities=pulumi.get(__response__, 'capabilities'),
-        change_set_id=pulumi.get(__response__, 'change_set_id'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        disable_rollback=pulumi.get(__response__, 'disable_rollback'),
-        enable_termination_protection=pulumi.get(__response__, 'enable_termination_protection'),
-        last_update_time=pulumi.get(__response__, 'last_update_time'),
-        notification_arns=pulumi.get(__response__, 'notification_arns'),
-        outputs=pulumi.get(__response__, 'outputs'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        parent_id=pulumi.get(__response__, 'parent_id'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        root_id=pulumi.get(__response__, 'root_id'),
-        stack_id=pulumi.get(__response__, 'stack_id'),
-        stack_policy_body=pulumi.get(__response__, 'stack_policy_body'),
-        stack_status=pulumi.get(__response__, 'stack_status'),
-        stack_status_reason=pulumi.get(__response__, 'stack_status_reason'),
-        tags=pulumi.get(__response__, 'tags'),
-        template_body=pulumi.get(__response__, 'template_body'),
-        timeout_in_minutes=pulumi.get(__response__, 'timeout_in_minutes')))
+    ...

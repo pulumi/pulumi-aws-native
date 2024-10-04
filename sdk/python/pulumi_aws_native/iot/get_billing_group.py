@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -102,6 +97,9 @@ def get_billing_group(billing_group_name: Optional[str] = None,
         billing_group_properties=pulumi.get(__ret__, 'billing_group_properties'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_billing_group)
 def get_billing_group_output(billing_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingGroupResult]:
     """
@@ -110,12 +108,4 @@ def get_billing_group_output(billing_group_name: Optional[pulumi.Input[str]] = N
 
     :param str billing_group_name: The name of the billing group.
     """
-    __args__ = dict()
-    __args__['billingGroupName'] = billing_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getBillingGroup', __args__, opts=opts, typ=GetBillingGroupResult)
-    return __ret__.apply(lambda __response__: GetBillingGroupResult(
-        arn=pulumi.get(__response__, 'arn'),
-        billing_group_properties=pulumi.get(__response__, 'billing_group_properties'),
-        id=pulumi.get(__response__, 'id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:vpclattice:getService", {
         "arn": args.arn,
@@ -69,10 +70,7 @@ export interface GetServiceResult {
  * A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:vpclattice:getService", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 export interface GetServiceOutputArgs {

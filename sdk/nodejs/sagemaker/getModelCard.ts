@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::ModelCard.
  */
 export function getModelCard(args: GetModelCardArgs, opts?: pulumi.InvokeOptions): Promise<GetModelCardResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getModelCard", {
         "modelCardName": args.modelCardName,
@@ -70,10 +71,7 @@ export interface GetModelCardResult {
  * Resource Type definition for AWS::SageMaker::ModelCard.
  */
 export function getModelCardOutput(args: GetModelCardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelCardResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getModelCard", {
-        "modelCardName": args.modelCardName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getModelCard(a, opts))
 }
 
 export interface GetModelCardOutputArgs {

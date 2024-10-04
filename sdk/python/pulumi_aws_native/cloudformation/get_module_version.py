@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -157,6 +152,9 @@ def get_module_version(arn: Optional[str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         version_id=pulumi.get(__ret__, 'version_id'),
         visibility=pulumi.get(__ret__, 'visibility'))
+
+
+@_utilities.lift_output_func(get_module_version)
 def get_module_version_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModuleVersionResult]:
     """
@@ -165,16 +163,4 @@ def get_module_version_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the module.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getModuleVersion', __args__, opts=opts, typ=GetModuleVersionResult)
-    return __ret__.apply(lambda __response__: GetModuleVersionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        description=pulumi.get(__response__, 'description'),
-        documentation_url=pulumi.get(__response__, 'documentation_url'),
-        is_default_version=pulumi.get(__response__, 'is_default_version'),
-        schema=pulumi.get(__response__, 'schema'),
-        time_created=pulumi.get(__response__, 'time_created'),
-        version_id=pulumi.get(__response__, 'version_id'),
-        visibility=pulumi.get(__response__, 'visibility')))
+    ...

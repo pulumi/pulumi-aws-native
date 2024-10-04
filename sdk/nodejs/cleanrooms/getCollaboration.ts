@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Represents a collaboration between AWS accounts that allows for secure data collaboration
  */
 export function getCollaboration(args: GetCollaborationArgs, opts?: pulumi.InvokeOptions): Promise<GetCollaborationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cleanrooms:getCollaboration", {
         "collaborationIdentifier": args.collaborationIdentifier,
@@ -56,10 +57,7 @@ export interface GetCollaborationResult {
  * Represents a collaboration between AWS accounts that allows for secure data collaboration
  */
 export function getCollaborationOutput(args: GetCollaborationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollaborationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getCollaboration", {
-        "collaborationIdentifier": args.collaborationIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCollaboration(a, opts))
 }
 
 export interface GetCollaborationOutputArgs {

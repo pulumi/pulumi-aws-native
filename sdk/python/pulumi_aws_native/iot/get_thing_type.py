@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -103,6 +98,9 @@ def get_thing_type(thing_type_name: Optional[str] = None,
         deprecate_thing_type=pulumi.get(__ret__, 'deprecate_thing_type'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_thing_type)
 def get_thing_type_output(thing_type_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingTypeResult]:
     """
@@ -111,12 +109,4 @@ def get_thing_type_output(thing_type_name: Optional[pulumi.Input[str]] = None,
 
     :param str thing_type_name: The name of the thing type.
     """
-    __args__ = dict()
-    __args__['thingTypeName'] = thing_type_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getThingType', __args__, opts=opts, typ=GetThingTypeResult)
-    return __ret__.apply(lambda __response__: GetThingTypeResult(
-        arn=pulumi.get(__response__, 'arn'),
-        deprecate_thing_type=pulumi.get(__response__, 'deprecate_thing_type'),
-        id=pulumi.get(__response__, 'id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

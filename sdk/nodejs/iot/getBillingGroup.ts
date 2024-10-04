@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT::BillingGroup
  */
 export function getBillingGroup(args: GetBillingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getBillingGroup", {
         "billingGroupName": args.billingGroupName,
@@ -46,10 +47,7 @@ export interface GetBillingGroupResult {
  * Resource Type definition for AWS::IoT::BillingGroup
  */
 export function getBillingGroupOutput(args: GetBillingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getBillingGroup", {
-        "billingGroupName": args.billingGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBillingGroup(a, opts))
 }
 
 export interface GetBillingGroupOutputArgs {

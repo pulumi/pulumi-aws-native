@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
  */
 export function getInfrastructureConfiguration(args: GetInfrastructureConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:imagebuilder:getInfrastructureConfiguration", {
         "arn": args.arn,
@@ -82,10 +83,7 @@ export interface GetInfrastructureConfigurationResult {
  * Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
  */
 export function getInfrastructureConfigurationOutput(args: GetInfrastructureConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getInfrastructureConfiguration", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInfrastructureConfiguration(a, opts))
 }
 
 export interface GetInfrastructureConfigurationOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IVS::StorageConfiguration
  */
 export function getStorageConfiguration(args: GetStorageConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ivs:getStorageConfiguration", {
         "arn": args.arn,
@@ -38,10 +39,7 @@ export interface GetStorageConfigurationResult {
  * Resource Type definition for AWS::IVS::StorageConfiguration
  */
 export function getStorageConfigurationOutput(args: GetStorageConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ivs:getStorageConfiguration", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageConfiguration(a, opts))
 }
 
 export interface GetStorageConfigurationOutputArgs {

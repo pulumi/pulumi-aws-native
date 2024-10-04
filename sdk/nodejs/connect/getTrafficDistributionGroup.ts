@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::TrafficDistributionGroup
  */
 export function getTrafficDistributionGroup(args: GetTrafficDistributionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficDistributionGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getTrafficDistributionGroup", {
         "trafficDistributionGroupArn": args.trafficDistributionGroupArn,
@@ -50,10 +51,7 @@ export interface GetTrafficDistributionGroupResult {
  * Resource Type definition for AWS::Connect::TrafficDistributionGroup
  */
 export function getTrafficDistributionGroupOutput(args: GetTrafficDistributionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficDistributionGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:connect:getTrafficDistributionGroup", {
-        "trafficDistributionGroupArn": args.trafficDistributionGroupArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTrafficDistributionGroup(a, opts))
 }
 
 export interface GetTrafficDistributionGroupOutputArgs {

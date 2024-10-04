@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
  */
 export function getStreamProcessor(args: GetStreamProcessorArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamProcessorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rekognition:getStreamProcessor", {
         "name": args.name,
@@ -46,10 +47,7 @@ export interface GetStreamProcessorResult {
  * The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
  */
 export function getStreamProcessorOutput(args: GetStreamProcessorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamProcessorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:rekognition:getStreamProcessor", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStreamProcessor(a, opts))
 }
 
 export interface GetStreamProcessorOutputArgs {

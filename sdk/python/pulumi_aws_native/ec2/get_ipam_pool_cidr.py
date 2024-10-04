@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -77,6 +72,9 @@ def get_ipam_pool_cidr(ipam_pool_cidr_id: Optional[str] = None,
     return AwaitableGetIpamPoolCidrResult(
         ipam_pool_cidr_id=pulumi.get(__ret__, 'ipam_pool_cidr_id'),
         state=pulumi.get(__ret__, 'state'))
+
+
+@_utilities.lift_output_func(get_ipam_pool_cidr)
 def get_ipam_pool_cidr_output(ipam_pool_cidr_id: Optional[pulumi.Input[str]] = None,
                               ipam_pool_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPoolCidrResult]:
@@ -87,11 +85,4 @@ def get_ipam_pool_cidr_output(ipam_pool_cidr_id: Optional[pulumi.Input[str]] = N
     :param str ipam_pool_cidr_id: Id of the IPAM Pool Cidr.
     :param str ipam_pool_id: Id of the IPAM Pool.
     """
-    __args__ = dict()
-    __args__['ipamPoolCidrId'] = ipam_pool_cidr_id
-    __args__['ipamPoolId'] = ipam_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpamPoolCidr', __args__, opts=opts, typ=GetIpamPoolCidrResult)
-    return __ret__.apply(lambda __response__: GetIpamPoolCidrResult(
-        ipam_pool_cidr_id=pulumi.get(__response__, 'ipam_pool_cidr_id'),
-        state=pulumi.get(__response__, 'state')))
+    ...

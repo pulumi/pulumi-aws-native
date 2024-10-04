@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Represents an AWS account that is a part of a collaboration
  */
 export function getMembership(args: GetMembershipArgs, opts?: pulumi.InvokeOptions): Promise<GetMembershipResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cleanrooms:getMembership", {
         "membershipIdentifier": args.membershipIdentifier,
@@ -72,10 +73,7 @@ export interface GetMembershipResult {
  * Represents an AWS account that is a part of a collaboration
  */
 export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMembershipResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getMembership", {
-        "membershipIdentifier": args.membershipIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMembership(a, opts))
 }
 
 export interface GetMembershipOutputArgs {

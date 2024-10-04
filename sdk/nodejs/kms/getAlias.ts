@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *   KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kms:getAlias", {
         "aliasName": args.aliasName,
@@ -61,10 +62,7 @@ export interface GetAliasResult {
  *   KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:kms:getAlias", {
-        "aliasName": args.aliasName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAlias(a, opts))
 }
 
 export interface GetAliasOutputArgs {

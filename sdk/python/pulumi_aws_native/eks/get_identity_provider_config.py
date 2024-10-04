@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -82,6 +77,9 @@ def get_identity_provider_config(cluster_name: Optional[str] = None,
     return AwaitableGetIdentityProviderConfigResult(
         identity_provider_config_arn=pulumi.get(__ret__, 'identity_provider_config_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_identity_provider_config)
 def get_identity_provider_config_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                         identity_provider_config_name: Optional[pulumi.Input[str]] = None,
                                         type: Optional[pulumi.Input['IdentityProviderConfigType']] = None,
@@ -94,12 +92,4 @@ def get_identity_provider_config_output(cluster_name: Optional[pulumi.Input[str]
     :param str identity_provider_config_name: The name of the OIDC provider configuration.
     :param 'IdentityProviderConfigType' type: The type of the identity provider configuration.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['identityProviderConfigName'] = identity_provider_config_name
-    __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getIdentityProviderConfig', __args__, opts=opts, typ=GetIdentityProviderConfigResult)
-    return __ret__.apply(lambda __response__: GetIdentityProviderConfigResult(
-        identity_provider_config_arn=pulumi.get(__response__, 'identity_provider_config_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

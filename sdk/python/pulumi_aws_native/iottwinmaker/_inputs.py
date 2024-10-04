@@ -4,75 +4,35 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ComponentTypeCompositeComponentTypeArgs',
-    'ComponentTypeCompositeComponentTypeArgsDict',
     'ComponentTypeDataConnectorArgs',
-    'ComponentTypeDataConnectorArgsDict',
     'ComponentTypeDataTypeArgs',
-    'ComponentTypeDataTypeArgsDict',
     'ComponentTypeDataValueRelationshipValuePropertiesArgs',
-    'ComponentTypeDataValueRelationshipValuePropertiesArgsDict',
     'ComponentTypeDataValueArgs',
-    'ComponentTypeDataValueArgsDict',
     'ComponentTypeFunctionArgs',
-    'ComponentTypeFunctionArgsDict',
     'ComponentTypeLambdaFunctionArgs',
-    'ComponentTypeLambdaFunctionArgsDict',
     'ComponentTypePropertyDefinitionArgs',
-    'ComponentTypePropertyDefinitionArgsDict',
     'ComponentTypePropertyGroupArgs',
-    'ComponentTypePropertyGroupArgsDict',
     'ComponentTypeRelationshipArgs',
-    'ComponentTypeRelationshipArgsDict',
     'EntityComponentArgs',
-    'EntityComponentArgsDict',
     'EntityCompositeComponentArgs',
-    'EntityCompositeComponentArgsDict',
     'EntityDataTypeArgs',
-    'EntityDataTypeArgsDict',
     'EntityDataValueRelationshipValuePropertiesArgs',
-    'EntityDataValueRelationshipValuePropertiesArgsDict',
     'EntityDataValueArgs',
-    'EntityDataValueArgsDict',
     'EntityDefinitionArgs',
-    'EntityDefinitionArgsDict',
     'EntityPropertyGroupArgs',
-    'EntityPropertyGroupArgsDict',
     'EntityPropertyArgs',
-    'EntityPropertyArgsDict',
     'EntityRelationshipArgs',
-    'EntityRelationshipArgsDict',
     'EntityStatusErrorPropertiesArgs',
-    'EntityStatusErrorPropertiesArgsDict',
     'EntityStatusArgs',
-    'EntityStatusArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ComponentTypeCompositeComponentTypeArgsDict(TypedDict):
-        """
-        An object that sets information about a composite component type.
-        """
-        component_type_id: NotRequired[pulumi.Input[str]]
-        """
-        The id of the composite component type.
-        """
-elif False:
-    ComponentTypeCompositeComponentTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComponentTypeCompositeComponentTypeArgs:
@@ -97,22 +57,6 @@ class ComponentTypeCompositeComponentTypeArgs:
     def component_type_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "component_type_id", value)
 
-
-if not MYPY:
-    class ComponentTypeDataConnectorArgsDict(TypedDict):
-        """
-        The data connector.
-        """
-        is_native: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
-        """
-        lambda_: NotRequired[pulumi.Input['ComponentTypeLambdaFunctionArgsDict']]
-        """
-        The Lambda function associated with this data connector.
-        """
-elif False:
-    ComponentTypeDataConnectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComponentTypeDataConnectorArgs:
@@ -153,34 +97,6 @@ class ComponentTypeDataConnectorArgs:
     def lambda_(self, value: Optional[pulumi.Input['ComponentTypeLambdaFunctionArgs']]):
         pulumi.set(self, "lambda_", value)
 
-
-if not MYPY:
-    class ComponentTypeDataTypeArgsDict(TypedDict):
-        """
-        An object that specifies the data type of a property.
-        """
-        type: pulumi.Input['ComponentTypeDataTypeType']
-        """
-        The underlying type of the data type.
-        """
-        allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgsDict']]]]
-        """
-        The allowed values for this data type.
-        """
-        nested_type: NotRequired[pulumi.Input['ComponentTypeDataTypeArgsDict']]
-        """
-        The nested type in the data type.
-        """
-        relationship: NotRequired[pulumi.Input['ComponentTypeRelationshipArgsDict']]
-        """
-        A relationship that associates a component with another component.
-        """
-        unit_of_measure: NotRequired[pulumi.Input[str]]
-        """
-        The unit of measure used in this data type.
-        """
-elif False:
-    ComponentTypeDataTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComponentTypeDataTypeArgs:
@@ -269,16 +185,6 @@ class ComponentTypeDataTypeArgs:
         pulumi.set(self, "unit_of_measure", value)
 
 
-if not MYPY:
-    class ComponentTypeDataValueRelationshipValuePropertiesArgsDict(TypedDict):
-        """
-        A value that relates a component to another component.
-        """
-        target_component_name: NotRequired[pulumi.Input[str]]
-        target_entity_id: NotRequired[pulumi.Input[str]]
-elif False:
-    ComponentTypeDataValueRelationshipValuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ComponentTypeDataValueRelationshipValuePropertiesArgs:
     def __init__(__self__, *,
@@ -310,50 +216,6 @@ class ComponentTypeDataValueRelationshipValuePropertiesArgs:
     def target_entity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_entity_id", value)
 
-
-if not MYPY:
-    class ComponentTypeDataValueArgsDict(TypedDict):
-        """
-        An object that specifies a value for a property.
-        """
-        boolean_value: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value.
-        """
-        double_value: NotRequired[pulumi.Input[float]]
-        """
-        A double value.
-        """
-        expression: NotRequired[pulumi.Input[str]]
-        """
-        An expression that produces the value.
-        """
-        integer_value: NotRequired[pulumi.Input[int]]
-        """
-        An integer value.
-        """
-        list_value: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComponentTypeDataValueArgsDict']]]]
-        """
-        A list of multiple values.
-        """
-        long_value: NotRequired[pulumi.Input[float]]
-        """
-        A long value.
-        """
-        map_value: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeDataValueArgsDict']]]]
-        """
-        An object that maps strings to multiple DataValue objects. 
-        """
-        relationship_value: NotRequired[pulumi.Input['ComponentTypeDataValueRelationshipValuePropertiesArgsDict']]
-        """
-        A value that relates a component to another component.
-        """
-        string_value: NotRequired[pulumi.Input[str]]
-        """
-        A string value.
-        """
-elif False:
-    ComponentTypeDataValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComponentTypeDataValueArgs:
@@ -507,26 +369,6 @@ class ComponentTypeDataValueArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class ComponentTypeFunctionArgsDict(TypedDict):
-        """
-        The function of component type.
-        """
-        implemented_by: NotRequired[pulumi.Input['ComponentTypeDataConnectorArgsDict']]
-        """
-        The data connector.
-        """
-        required_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The required properties of the function.
-        """
-        scope: NotRequired[pulumi.Input['ComponentTypeFunctionScope']]
-        """
-        The scope of the function.
-        """
-elif False:
-    ComponentTypeFunctionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ComponentTypeFunctionArgs:
     def __init__(__self__, *,
@@ -583,12 +425,6 @@ class ComponentTypeFunctionArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class ComponentTypeLambdaFunctionArgsDict(TypedDict):
-        arn: pulumi.Input[str]
-elif False:
-    ComponentTypeLambdaFunctionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ComponentTypeLambdaFunctionArgs:
     def __init__(__self__, *,
@@ -604,42 +440,6 @@ class ComponentTypeLambdaFunctionArgs:
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
 
-
-if not MYPY:
-    class ComponentTypePropertyDefinitionArgsDict(TypedDict):
-        """
-        An object that sets information about a property.
-        """
-        configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        An object that specifies information about a property.
-        """
-        data_type: NotRequired[pulumi.Input['ComponentTypeDataTypeArgsDict']]
-        """
-        An object that contains information about the data type.
-        """
-        default_value: NotRequired[pulumi.Input['ComponentTypeDataValueArgsDict']]
-        """
-        An object that contains the default value.
-        """
-        is_external_id: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property ID comes from an external data store.
-        """
-        is_required_in_entity: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property is required.
-        """
-        is_stored_externally: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property is stored externally.
-        """
-        is_time_series: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property consists of time series data.
-        """
-elif False:
-    ComponentTypePropertyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComponentTypePropertyDefinitionArgs:
@@ -761,22 +561,6 @@ class ComponentTypePropertyDefinitionArgs:
         pulumi.set(self, "is_time_series", value)
 
 
-if not MYPY:
-    class ComponentTypePropertyGroupArgsDict(TypedDict):
-        """
-        An object that sets information about a property group.
-        """
-        group_type: NotRequired[pulumi.Input['ComponentTypePropertyGroupGroupType']]
-        """
-        The type of property group.
-        """
-        property_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The list of property names in the property group.
-        """
-elif False:
-    ComponentTypePropertyGroupArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ComponentTypePropertyGroupArgs:
     def __init__(__self__, *,
@@ -817,22 +601,6 @@ class ComponentTypePropertyGroupArgs:
         pulumi.set(self, "property_names", value)
 
 
-if not MYPY:
-    class ComponentTypeRelationshipArgsDict(TypedDict):
-        """
-        The type of the relationship.
-        """
-        relationship_type: NotRequired[pulumi.Input[str]]
-        """
-        The type of the relationship.
-        """
-        target_component_type_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the target component type associated with this relationship.
-        """
-elif False:
-    ComponentTypeRelationshipArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ComponentTypeRelationshipArgs:
     def __init__(__self__, *,
@@ -872,39 +640,6 @@ class ComponentTypeRelationshipArgs:
     def target_component_type_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_component_type_id", value)
 
-
-if not MYPY:
-    class EntityComponentArgsDict(TypedDict):
-        component_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the component.
-        """
-        component_type_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the component type.
-        """
-        defined_in: NotRequired[pulumi.Input[str]]
-        """
-        The name of the property definition set in the component.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        The description of the component.
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgsDict']]]]
-        """
-        An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
-        """
-        property_groups: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgsDict']]]]
-        """
-        An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
-        """
-        status: NotRequired[pulumi.Input['EntityStatusArgsDict']]
-        """
-        The current status of the entity.
-        """
-elif False:
-    EntityComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityComponentArgs:
@@ -1025,39 +760,6 @@ class EntityComponentArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class EntityCompositeComponentArgsDict(TypedDict):
-        component_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the component.
-        """
-        component_path: NotRequired[pulumi.Input[str]]
-        """
-        The path of the component.
-        """
-        component_type_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the component type.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        The description of the component.
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyArgsDict']]]]
-        """
-        An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
-        """
-        property_groups: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityPropertyGroupArgsDict']]]]
-        """
-        An object that maps strings to the property groups to set in the component type. Each string in the mapping must be unique to this object.
-        """
-        status: NotRequired[pulumi.Input['EntityStatusArgsDict']]
-        """
-        The current status of the component.
-        """
-elif False:
-    EntityCompositeComponentArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EntityCompositeComponentArgs:
     def __init__(__self__, *,
@@ -1177,34 +879,6 @@ class EntityCompositeComponentArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class EntityDataTypeArgsDict(TypedDict):
-        """
-        An object that specifies the data type of a property.
-        """
-        allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgsDict']]]]
-        """
-        The allowed values for this data type.
-        """
-        nested_type: NotRequired[pulumi.Input['EntityDataTypeArgsDict']]
-        """
-        The nested type in the data type.
-        """
-        relationship: NotRequired[pulumi.Input['EntityRelationshipArgsDict']]
-        """
-        A relationship that associates a component with another component.
-        """
-        type: NotRequired[pulumi.Input['EntityDataTypeType']]
-        """
-        The underlying type of the data type.
-        """
-        unit_of_measure: NotRequired[pulumi.Input[str]]
-        """
-        The unit of measure used in this data type.
-        """
-elif False:
-    EntityDataTypeArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EntityDataTypeArgs:
     def __init__(__self__, *,
@@ -1293,16 +967,6 @@ class EntityDataTypeArgs:
         pulumi.set(self, "unit_of_measure", value)
 
 
-if not MYPY:
-    class EntityDataValueRelationshipValuePropertiesArgsDict(TypedDict):
-        """
-        A value that relates a component to another component.
-        """
-        target_component_name: NotRequired[pulumi.Input[str]]
-        target_entity_id: NotRequired[pulumi.Input[str]]
-elif False:
-    EntityDataValueRelationshipValuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EntityDataValueRelationshipValuePropertiesArgs:
     def __init__(__self__, *,
@@ -1334,50 +998,6 @@ class EntityDataValueRelationshipValuePropertiesArgs:
     def target_entity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_entity_id", value)
 
-
-if not MYPY:
-    class EntityDataValueArgsDict(TypedDict):
-        """
-        An object that specifies a value for a property.
-        """
-        boolean_value: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value.
-        """
-        double_value: NotRequired[pulumi.Input[float]]
-        """
-        A double value.
-        """
-        expression: NotRequired[pulumi.Input[str]]
-        """
-        An expression that produces the value.
-        """
-        integer_value: NotRequired[pulumi.Input[int]]
-        """
-        An integer value.
-        """
-        list_value: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntityDataValueArgsDict']]]]
-        """
-        A list of multiple values.
-        """
-        long_value: NotRequired[pulumi.Input[float]]
-        """
-        A long value.
-        """
-        map_value: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['EntityDataValueArgsDict']]]]
-        """
-        An object that maps strings to multiple DataValue objects.
-        """
-        relationship_value: NotRequired[pulumi.Input['EntityDataValueRelationshipValuePropertiesArgsDict']]
-        """
-        A value that relates a component to another component.
-        """
-        string_value: NotRequired[pulumi.Input[str]]
-        """
-        A string value.
-        """
-elif False:
-    EntityDataValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityDataValueArgs:
@@ -1530,54 +1150,6 @@ class EntityDataValueArgs:
     def string_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "string_value", value)
 
-
-if not MYPY:
-    class EntityDefinitionArgsDict(TypedDict):
-        """
-        An object that specifies information about a property definition.
-        """
-        configuration: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        An object that specifies information about a property configuration.
-        """
-        data_type: NotRequired[pulumi.Input['EntityDataTypeArgsDict']]
-        """
-        An object that contains information about the data type.
-        """
-        default_value: NotRequired[pulumi.Input['EntityDataValueArgsDict']]
-        """
-        An object that contains the default value.
-        """
-        is_external_id: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property ID comes from an external data store.
-        """
-        is_final: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property definition can be updated.
-        """
-        is_imported: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property definition is imported from an external data store.
-        """
-        is_inherited: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property definition is inherited from a parent entity.
-        """
-        is_required_in_entity: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property is required.
-        """
-        is_stored_externally: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property is stored externally.
-        """
-        is_time_series: NotRequired[pulumi.Input[bool]]
-        """
-        A Boolean value that specifies whether the property consists of time series data.
-        """
-elif False:
-    EntityDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityDefinitionArgs:
@@ -1747,22 +1319,6 @@ class EntityDefinitionArgs:
         pulumi.set(self, "is_time_series", value)
 
 
-if not MYPY:
-    class EntityPropertyGroupArgsDict(TypedDict):
-        """
-        An object that specifies information about a property group.
-        """
-        group_type: NotRequired[pulumi.Input['EntityPropertyGroupGroupType']]
-        """
-        The type of property group.
-        """
-        property_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The list of property names in the property group.
-        """
-elif False:
-    EntityPropertyGroupArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EntityPropertyGroupArgs:
     def __init__(__self__, *,
@@ -1802,22 +1358,6 @@ class EntityPropertyGroupArgs:
     def property_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "property_names", value)
 
-
-if not MYPY:
-    class EntityPropertyArgsDict(TypedDict):
-        """
-        An object that specifies information about a property.
-        """
-        definition: NotRequired[pulumi.Input['EntityDefinitionArgsDict']]
-        """
-        The definition of the property.
-        """
-        value: NotRequired[pulumi.Input['EntityDataValueArgsDict']]
-        """
-        The value of the property.
-        """
-elif False:
-    EntityPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityPropertyArgs:
@@ -1859,22 +1399,6 @@ class EntityPropertyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EntityRelationshipArgsDict(TypedDict):
-        """
-        The type of the relationship.
-        """
-        relationship_type: NotRequired[pulumi.Input[str]]
-        """
-        The type of the relationship.
-        """
-        target_component_type_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the target component type associated with this relationship.
-        """
-elif False:
-    EntityRelationshipArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EntityRelationshipArgs:
     def __init__(__self__, *,
@@ -1915,16 +1439,6 @@ class EntityRelationshipArgs:
         pulumi.set(self, "target_component_type_id", value)
 
 
-if not MYPY:
-    class EntityStatusErrorPropertiesArgsDict(TypedDict):
-        """
-        Error object with Message and Code.
-        """
-        code: NotRequired[pulumi.Input['EntityStatusErrorPropertiesCode']]
-        message: NotRequired[pulumi.Input[str]]
-elif False:
-    EntityStatusErrorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EntityStatusErrorPropertiesArgs:
     def __init__(__self__, *,
@@ -1956,13 +1470,6 @@ class EntityStatusErrorPropertiesArgs:
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
 
-
-if not MYPY:
-    class EntityStatusArgsDict(TypedDict):
-        error: NotRequired[pulumi.Input[Union[Any, 'EntityStatusErrorPropertiesArgsDict']]]
-        state: NotRequired[pulumi.Input['EntityStatusState']]
-elif False:
-    EntityStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityStatusArgs:

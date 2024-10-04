@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -67,6 +62,9 @@ def get_hosted_configuration_version(application_id: Optional[str] = None,
 
     return AwaitableGetHostedConfigurationVersionResult(
         version_number=pulumi.get(__ret__, 'version_number'))
+
+
+@_utilities.lift_output_func(get_hosted_configuration_version)
 def get_hosted_configuration_version_output(application_id: Optional[pulumi.Input[str]] = None,
                                             configuration_profile_id: Optional[pulumi.Input[str]] = None,
                                             version_number: Optional[pulumi.Input[str]] = None,
@@ -79,11 +77,4 @@ def get_hosted_configuration_version_output(application_id: Optional[pulumi.Inpu
     :param str configuration_profile_id: The configuration profile ID.
     :param str version_number: Current version number of hosted configuration version.
     """
-    __args__ = dict()
-    __args__['applicationId'] = application_id
-    __args__['configurationProfileId'] = configuration_profile_id
-    __args__['versionNumber'] = version_number
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getHostedConfigurationVersion', __args__, opts=opts, typ=GetHostedConfigurationVersionResult)
-    return __ret__.apply(lambda __response__: GetHostedConfigurationVersionResult(
-        version_number=pulumi.get(__response__, 'version_number')))
+    ...

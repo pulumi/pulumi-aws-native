@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
  */
 export function getRecoveryGroup(args: GetRecoveryGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRecoveryGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53recoveryreadiness:getRecoveryGroup", {
         "recoveryGroupName": args.recoveryGroupName,
@@ -42,10 +43,7 @@ export interface GetRecoveryGroupResult {
  * AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
  */
 export function getRecoveryGroupOutput(args: GetRecoveryGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53recoveryreadiness:getRecoveryGroup", {
-        "recoveryGroupName": args.recoveryGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRecoveryGroup(a, opts))
 }
 
 export interface GetRecoveryGroupOutputArgs {

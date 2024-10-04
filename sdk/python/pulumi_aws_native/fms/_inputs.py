@@ -4,59 +4,25 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'PolicyIeMapArgs',
-    'PolicyIeMapArgsDict',
     'PolicyNetworkAclCommonPolicyArgs',
-    'PolicyNetworkAclCommonPolicyArgsDict',
     'PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs',
-    'PolicyNetworkAclEntryIcmpTypeCodePropertiesArgsDict',
     'PolicyNetworkAclEntryPortRangePropertiesArgs',
-    'PolicyNetworkAclEntryPortRangePropertiesArgsDict',
     'PolicyNetworkAclEntrySetArgs',
-    'PolicyNetworkAclEntrySetArgsDict',
     'PolicyNetworkAclEntryArgs',
-    'PolicyNetworkAclEntryArgsDict',
     'PolicyNetworkFirewallPolicyArgs',
-    'PolicyNetworkFirewallPolicyArgsDict',
     'PolicyOptionArgs',
-    'PolicyOptionArgsDict',
     'PolicyResourceTagArgs',
-    'PolicyResourceTagArgsDict',
     'PolicySecurityServicePolicyDataArgs',
-    'PolicySecurityServicePolicyDataArgsDict',
     'PolicyThirdPartyFirewallPolicyArgs',
-    'PolicyThirdPartyFirewallPolicyArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class PolicyIeMapArgsDict(TypedDict):
-        """
-        An FMS includeMap or excludeMap.
-        """
-        account: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The account list for the map.
-        """
-        orgunit: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The organizational unit list for the map.
-        """
-elif False:
-    PolicyIeMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyIeMapArgs:
@@ -98,18 +64,6 @@ class PolicyIeMapArgs:
         pulumi.set(self, "orgunit", value)
 
 
-if not MYPY:
-    class PolicyNetworkAclCommonPolicyArgsDict(TypedDict):
-        """
-        Network ACL common policy.
-        """
-        network_acl_entry_set: pulumi.Input['PolicyNetworkAclEntrySetArgsDict']
-        """
-        The definition of the first and last rules for the network ACL policy.
-        """
-elif False:
-    PolicyNetworkAclCommonPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PolicyNetworkAclCommonPolicyArgs:
     def __init__(__self__, *,
@@ -132,22 +86,6 @@ class PolicyNetworkAclCommonPolicyArgs:
     def network_acl_entry_set(self, value: pulumi.Input['PolicyNetworkAclEntrySetArgs']):
         pulumi.set(self, "network_acl_entry_set", value)
 
-
-if not MYPY:
-    class PolicyNetworkAclEntryIcmpTypeCodePropertiesArgsDict(TypedDict):
-        """
-        ICMP type and code.
-        """
-        code: pulumi.Input[int]
-        """
-        Code.
-        """
-        type: pulumi.Input[int]
-        """
-        Type.
-        """
-elif False:
-    PolicyNetworkAclEntryIcmpTypeCodePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs:
@@ -187,22 +125,6 @@ class PolicyNetworkAclEntryIcmpTypeCodePropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PolicyNetworkAclEntryPortRangePropertiesArgsDict(TypedDict):
-        """
-        Port range.
-        """
-        from_: pulumi.Input[int]
-        """
-        From Port.
-        """
-        to: pulumi.Input[int]
-        """
-        To Port.
-        """
-elif False:
-    PolicyNetworkAclEntryPortRangePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PolicyNetworkAclEntryPortRangePropertiesArgs:
     def __init__(__self__, *,
@@ -240,42 +162,6 @@ class PolicyNetworkAclEntryPortRangePropertiesArgs:
     def to(self, value: pulumi.Input[int]):
         pulumi.set(self, "to", value)
 
-
-if not MYPY:
-    class PolicyNetworkAclEntrySetArgsDict(TypedDict):
-        """
-        Network ACL entry set.
-        """
-        force_remediate_for_first_entries: pulumi.Input[bool]
-        """
-        Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries.
-
-        If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to remediate. For more information about the remediation behavior, see [Remediation for managed network ACLs](https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html#network-acls-remediation) in the *AWS Firewall Manager Developer Guide* .
-        """
-        force_remediate_for_last_entries: pulumi.Input[bool]
-        """
-        Applies only when remediation is enabled for the policy as a whole. Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries.
-
-        If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to remediate. For more information about the remediation behavior, see [Remediation for managed network ACLs](https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html#network-acls-remediation) in the *AWS Firewall Manager Developer Guide* .
-        """
-        first_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgsDict']]]]
-        """
-        The rules that you want to run first in the Firewall Manager managed network ACLs.
-
-        > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
-
-        You must specify at least one first entry or one last entry in any network ACL policy.
-        """
-        last_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgsDict']]]]
-        """
-        The rules that you want to run last in the Firewall Manager managed network ACLs.
-
-        > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
-
-        You must specify at least one first entry or one last entry in any network ACL policy.
-        """
-elif False:
-    PolicyNetworkAclEntrySetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyNetworkAclEntrySetArgs:
@@ -370,42 +256,6 @@ class PolicyNetworkAclEntrySetArgs:
     def last_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyNetworkAclEntryArgs']]]]):
         pulumi.set(self, "last_entries", value)
 
-
-if not MYPY:
-    class PolicyNetworkAclEntryArgsDict(TypedDict):
-        """
-        Network ACL entry.
-        """
-        egress: pulumi.Input[bool]
-        """
-        Whether the entry is an egress entry.
-        """
-        protocol: pulumi.Input[str]
-        """
-        Protocol.
-        """
-        rule_action: pulumi.Input['PolicyNetworkAclEntryRuleAction']
-        """
-        Rule Action.
-        """
-        cidr_block: NotRequired[pulumi.Input[str]]
-        """
-        CIDR block.
-        """
-        icmp_type_code: NotRequired[pulumi.Input['PolicyNetworkAclEntryIcmpTypeCodePropertiesArgsDict']]
-        """
-        ICMP type and code.
-        """
-        ipv6_cidr_block: NotRequired[pulumi.Input[str]]
-        """
-        IPv6 CIDR block.
-        """
-        port_range: NotRequired[pulumi.Input['PolicyNetworkAclEntryPortRangePropertiesArgsDict']]
-        """
-        Port range.
-        """
-elif False:
-    PolicyNetworkAclEntryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyNetworkAclEntryArgs:
@@ -524,18 +374,6 @@ class PolicyNetworkAclEntryArgs:
         pulumi.set(self, "port_range", value)
 
 
-if not MYPY:
-    class PolicyNetworkFirewallPolicyArgsDict(TypedDict):
-        """
-        Network firewall policy.
-        """
-        firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel']
-        """
-        Defines the deployment model to use for the firewall policy. To use a distributed model, set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html) to `DISTRIBUTED` .
-        """
-elif False:
-    PolicyNetworkFirewallPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PolicyNetworkFirewallPolicyArgs:
     def __init__(__self__, *,
@@ -558,26 +396,6 @@ class PolicyNetworkFirewallPolicyArgs:
     def firewall_deployment_model(self, value: pulumi.Input['PolicyFirewallDeploymentModel']):
         pulumi.set(self, "firewall_deployment_model", value)
 
-
-if not MYPY:
-    class PolicyOptionArgsDict(TypedDict):
-        """
-        Firewall policy option.
-        """
-        network_acl_common_policy: NotRequired[pulumi.Input['PolicyNetworkAclCommonPolicyArgsDict']]
-        """
-        Defines a Firewall Manager network ACL policy.
-        """
-        network_firewall_policy: NotRequired[pulumi.Input['PolicyNetworkFirewallPolicyArgsDict']]
-        """
-        Defines the deployment model to use for the firewall policy.
-        """
-        third_party_firewall_policy: NotRequired[pulumi.Input['PolicyThirdPartyFirewallPolicyArgsDict']]
-        """
-        Defines the policy options for a third-party firewall policy.
-        """
-elif False:
-    PolicyOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyOptionArgs:
@@ -635,22 +453,6 @@ class PolicyOptionArgs:
         pulumi.set(self, "third_party_firewall_policy", value)
 
 
-if not MYPY:
-    class PolicyResourceTagArgsDict(TypedDict):
-        """
-        A resource tag.
-        """
-        key: pulumi.Input[str]
-        """
-        The resource tag key.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The resource tag value.
-        """
-elif False:
-    PolicyResourceTagArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PolicyResourceTagArgs:
     def __init__(__self__, *,
@@ -689,105 +491,6 @@ class PolicyResourceTagArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class PolicySecurityServicePolicyDataArgsDict(TypedDict):
-        """
-        Firewall security service policy data.
-        """
-        type: pulumi.Input['PolicyType']
-        """
-        The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support .
-        """
-        managed_service_data: NotRequired[pulumi.Input[str]]
-        """
-        Details about the service that are specific to the service type, in JSON format.
-
-        - Example: `DNS_FIREWALL`
-
-        `"{\\"type\\":\\"DNS_FIREWALL\\",\\"preProcessRuleGroups\\":[{\\"ruleGroupId\\":\\"rslvr-frg-1\\",\\"priority\\":10}],\\"postProcessRuleGroups\\":[{\\"ruleGroupId\\":\\"rslvr-frg-2\\",\\"priority\\":9911}]}"`
-
-        > Valid values for `preProcessRuleGroups` are between 1 and 99. Valid values for `postProcessRuleGroups` are between 9901 and 10000.
-        - Example: `NETWORK_FIREWALL` - Centralized deployment model
-
-        `"{\\"type\\":\\"NETWORK_FIREWALL\\",\\"awsNetworkFirewallConfig\\":{\\"networkFirewallStatelessRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateless-rulegroup/test\\",\\"priority\\":1}],\\"networkFirewallStatelessDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"customActionName\\"],\\"networkFirewallStatelessFragmentDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"customActionName\\"],\\"networkFirewallStatelessCustomActions\\":[{\\"actionName\\":\\"customActionName\\",\\"actionDefinition\\":{\\"publishMetricAction\\":{\\"dimensions\\":[{\\"value\\":\\"metricdimensionvalue\\"}]}}}],\\"networkFirewallStatefulRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateful-rulegroup/test\\"}],\\"networkFirewallLoggingConfiguration\\":{\\"logDestinationConfigs\\":[{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"ALERT\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}},{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"FLOW\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}}],\\"overrideExistingConfig\\":true}},\\"firewallDeploymentModel\\":{\\"centralizedFirewallDeploymentModel\\":{\\"centralizedFirewallOrchestrationConfig\\":{\\"inspectionVpcIds\\":[{\\"resourceId\\":\\"vpc-1234\\",\\"accountId\\":\\"123456789011\\"}],\\"firewallCreationConfig\\":{\\"endpointLocation\\":{\\"availabilityZoneConfigList\\":[{\\"availabilityZoneId\\":null,\\"availabilityZoneName\\":\\"us-east-1a\\",\\"allowedIPV4CidrList\\":[\\"10.0.0.0/28\\"]}]}},\\"allowedIPV4CidrList\\":[]}}}}"`
-
-        To use the distributed deployment model, you must set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html) to `DISTRIBUTED` .
-        - Example: `NETWORK_FIREWALL` - Distributed deployment model with automatic Availability Zone configuration
-
-        `"{\\"type\\":\\"NETWORK_FIREWALL\\",\\"networkFirewallStatelessRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateless-rulegroup/test\\",\\"priority\\":1}],\\"networkFirewallStatelessDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"customActionName\\"],\\"networkFirewallStatelessFragmentDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"customActionName\\"],\\"networkFirewallStatelessCustomActions\\":[{\\"actionName\\":\\"customActionName\\",\\"actionDefinition\\":{\\"publishMetricAction\\":{\\"dimensions\\":[{\\"value\\":\\"metricdimensionvalue\\"}]}}}],\\"networkFirewallStatefulRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateful-rulegroup/test\\"}],\\"networkFirewallOrchestrationConfig\\":{\\"singleFirewallEndpointPerVPC\\":false,\\"allowedIPV4CidrList\\":[\\"10.0.0.0/28\\",\\"192.168.0.0/28\\"],\\"routeManagementAction\\":\\"OFF\\"},\\"networkFirewallLoggingConfiguration\\":{\\"logDestinationConfigs\\":[{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"ALERT\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}},{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"FLOW\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}}],\\"overrideExistingConfig\\":true}}"`
-
-        With automatic Availbility Zone configuration, Firewall Manager chooses which Availability Zones to create the endpoints in. To use the distributed deployment model, you must set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html) to `DISTRIBUTED` .
-        - Example: `NETWORK_FIREWALL` - Distributed deployment model with automatic Availability Zone configuration and route management
-
-        `"{\\"type\\":\\"NETWORK_FIREWALL\\",\\"networkFirewallStatelessRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateless-rulegroup/test\\",\\"priority\\":1}],\\"networkFirewallStatelessDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"customActionName\\"],\\"networkFirewallStatelessFragmentDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"customActionName\\"],\\"networkFirewallStatelessCustomActions\\":[{\\"actionName\\":\\"customActionName\\",\\"actionDefinition\\":{\\"publishMetricAction\\":{\\"dimensions\\":[{\\"value\\":\\"metricdimensionvalue\\"}]}}}],\\"networkFirewallStatefulRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateful-rulegroup/test\\"}],\\"networkFirewallOrchestrationConfig\\":{\\"singleFirewallEndpointPerVPC\\":false,\\"allowedIPV4CidrList\\":[\\"10.0.0.0/28\\",\\"192.168.0.0/28\\"],\\"routeManagementAction\\":\\"MONITOR\\",\\"routeManagementTargetTypes\\":[\\"InternetGateway\\"]},\\"networkFirewallLoggingConfiguration\\":{\\"logDestinationConfigs\\":[{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"ALERT\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}},{\\"logDestinationType\\":\\"S3\\",\\"logType\\": \\"FLOW\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}}],\\"overrideExistingConfig\\":true}}"`
-
-        To use the distributed deployment model, you must set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html) to `DISTRIBUTED` .
-        - Example: `NETWORK_FIREWALL` - Distributed deployment model with custom Availability Zone configuration
-
-        `"{\\"type\\":\\"NETWORK_FIREWALL\\",\\"networkFirewallStatelessRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateless-rulegroup/test\\",\\"priority\\":1}],\\"networkFirewallStatelessDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"customActionName\\"],\\"networkFirewallStatelessFragmentDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"fragmentcustomactionname\\"],\\"networkFirewallStatelessCustomActions\\":[{\\"actionName\\":\\"customActionName\\", \\"actionDefinition\\":{\\"publishMetricAction\\":{\\"dimensions\\":[{\\"value\\":\\"metricdimensionvalue\\"}]}}},{\\"actionName\\":\\"fragmentcustomactionname\\",\\"actionDefinition\\":{\\"publishMetricAction\\":{\\"dimensions\\":[{\\"value\\":\\"fragmentmetricdimensionvalue\\"}]}}}],\\"networkFirewallStatefulRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateful-rulegroup/test\\"}],\\"networkFirewallOrchestrationConfig\\":{\\"firewallCreationConfig\\":{ \\"endpointLocation\\":{\\"availabilityZoneConfigList\\":[{\\"availabilityZoneName\\":\\"us-east-1a\\",\\"allowedIPV4CidrList\\":[\\"10.0.0.0/28\\"]},{\\"availabilityZoneName\\":\\"us-east-1b\\",\\"allowedIPV4CidrList\\":[ \\"10.0.0.0/28\\"]}]} },\\"singleFirewallEndpointPerVPC\\":false,\\"allowedIPV4CidrList\\":null,\\"routeManagementAction\\":\\"OFF\\",\\"networkFirewallLoggingConfiguration\\":{\\"logDestinationConfigs\\":[{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"ALERT\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}},{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"FLOW\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}}],\\"overrideExistingConfig\\":boolean}}"`
-
-        With custom Availability Zone configuration, you define which specific Availability Zones to create endpoints in by configuring `firewallCreationConfig` . To configure the Availability Zones in `firewallCreationConfig` , specify either the `availabilityZoneName` or `availabilityZoneId` parameter, not both parameters.
-
-        To use the distributed deployment model, you must set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html) to `DISTRIBUTED` .
-        - Example: `NETWORK_FIREWALL` - Distributed deployment model with custom Availability Zone configuration and route management
-
-        `"{\\"type\\":\\"NETWORK_FIREWALL\\",\\"networkFirewallStatelessRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateless-rulegroup/test\\",\\"priority\\":1}],\\"networkFirewallStatelessDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"customActionName\\"],\\"networkFirewallStatelessFragmentDefaultActions\\":[\\"aws:forward_to_sfe\\",\\"fragmentcustomactionname\\"],\\"networkFirewallStatelessCustomActions\\":[{\\"actionName\\":\\"customActionName\\",\\"actionDefinition\\":{\\"publishMetricAction\\":{\\"dimensions\\":[{\\"value\\":\\"metricdimensionvalue\\"}]}}},{\\"actionName\\":\\"fragmentcustomactionname\\",\\"actionDefinition\\":{\\"publishMetricAction\\":{\\"dimensions\\":[{\\"value\\":\\"fragmentmetricdimensionvalue\\"}]}}}],\\"networkFirewallStatefulRuleGroupReferences\\":[{\\"resourceARN\\":\\"arn:aws:network-firewall:us-east-1:123456789011:stateful-rulegroup/test\\"}],\\"networkFirewallOrchestrationConfig\\":{\\"firewallCreationConfig\\":{\\"endpointLocation\\":{\\"availabilityZoneConfigList\\":[{\\"availabilityZoneName\\":\\"us-east-1a\\",\\"allowedIPV4CidrList\\":[\\"10.0.0.0/28\\"]},{\\"availabilityZoneName\\":\\"us-east-1b\\",\\"allowedIPV4CidrList\\":[\\"10.0.0.0/28\\"]}]}},\\"singleFirewallEndpointPerVPC\\":false,\\"allowedIPV4CidrList\\":null,\\"routeManagementAction\\":\\"MONITOR\\",\\"routeManagementTargetTypes\\":[\\"InternetGateway\\"],\\"routeManagementConfig\\":{\\"allowCrossAZTrafficIfNoEndpoint\\":true}},\\"networkFirewallLoggingConfiguration\\":{\\"logDestinationConfigs\\":[{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"ALERT\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}},{\\"logDestinationType\\":\\"S3\\",\\"logType\\":\\"FLOW\\",\\"logDestination\\":{\\"bucketName\\":\\"s3-bucket-name\\"}}],\\"overrideExistingConfig\\":boolean}}"`
-
-        To use the distributed deployment model, you must set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html) to `DISTRIBUTED` .
-        - Example: `THIRD_PARTY_FIREWALL` - Palo Alto Networks Cloud Next-Generation Firewall centralized deployment model
-
-        `"{ \\"type\\":\\"THIRD_PARTY_FIREWALL\\", \\"thirdPartyFirewall\\":\\"PALO_ALTO_NETWORKS_CLOUD_NGFW\\", \\"thirdPartyFirewallConfig\\":{ \\"thirdPartyFirewallPolicyList\\":[\\"global-1\\"] },\\"firewallDeploymentModel\\":{\\"centralizedFirewallDeploymentModel\\":{\\"centralizedFirewallOrchestrationConfig\\":{\\"inspectionVpcIds\\":[{\\"resourceId\\":\\"vpc-1234\\",\\"accountId\\":\\"123456789011\\"}],\\"firewallCreationConfig\\":{\\"endpointLocation\\":{\\"availabilityZoneConfigList\\":[{\\"availabilityZoneId\\":null,\\"availabilityZoneName\\":\\"us-east-1a\\",\\"allowedIPV4CidrList\\":[\\"10.0.0.0/28\\"]}]}},\\"allowedIPV4CidrList\\":[]}}}}"`
-
-        To use the distributed deployment model, you must set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html) to `CENTRALIZED` .
-        - Example: `THIRD_PARTY_FIREWALL` - Palo Alto Networks Cloud Next-Generation Firewall distributed deployment model
-
-        `"{\\"type\\":\\"THIRD_PARTY_FIREWALL\\",\\"thirdPartyFirewall\\":\\"PALO_ALTO_NETWORKS_CLOUD_NGFW\\",\\"thirdPartyFirewallConfig\\":{\\"thirdPartyFirewallPolicyList\\":[\\"global-1\\"] },\\"firewallDeploymentModel\\":{ \\"distributedFirewallDeploymentModel\\":{ \\"distributedFirewallOrchestrationConfig\\":{\\"firewallCreationConfig\\":{\\"endpointLocation\\":{ \\"availabilityZoneConfigList\\":[ {\\"availabilityZoneName\\":\\"${AvailabilityZone}\\" } ] } }, \\"allowedIPV4CidrList\\":[ ] } } } }"`
-
-        To use the distributed deployment model, you must set [FirewallDeploymentModel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html) to `DISTRIBUTED` .
-        - Specification for `SHIELD_ADVANCED` for Amazon CloudFront distributions
-
-        `"{\\"type\\":\\"SHIELD_ADVANCED\\",\\"automaticResponseConfiguration\\": {\\"automaticResponseStatus\\":\\"ENABLED|IGNORED|DISABLED\\", \\"automaticResponseAction\\":\\"BLOCK|COUNT\\"}, \\"overrideCustomerWebaclClassic\\":true|false}"`
-
-        For example: `"{\\"type\\":\\"SHIELD_ADVANCED\\",\\"automaticResponseConfiguration\\": {\\"automaticResponseStatus\\":\\"ENABLED\\", \\"automaticResponseAction\\":\\"COUNT\\"}}"`
-
-        The default value for `automaticResponseStatus` is `IGNORED` . The value for `automaticResponseAction` is only required when `automaticResponseStatus` is set to `ENABLED` . The default value for `overrideCustomerWebaclClassic` is `false` .
-
-        For other resource types that you can protect with a Shield Advanced policy, this `ManagedServiceData` configuration is an empty string.
-        - Example: `WAFV2`
-
-        `"{\\"type\\":\\"WAFV2\\",\\"preProcessRuleGroups\\":[{\\"ruleGroupArn\\":null,\\"overrideAction\\":{\\"type\\":\\"NONE\\"},\\"managedRuleGroupIdentifier\\":{\\"version\\":null,\\"vendorName\\":\\"AWS\\",\\"managedRuleGroupName\\":\\"AWSManagedRulesAmazonIpReputationList\\"},\\"ruleGroupType\\":\\"ManagedRuleGroup\\",\\"excludeRules\\":[{\\"name\\":\\"NoUserAgent_HEADER\\"}]}],\\"postProcessRuleGroups\\":[],\\"defaultAction\\":{\\"type\\":\\"ALLOW\\"},\\"overrideCustomerWebACLAssociation\\":false,\\"loggingConfiguration\\":{\\"logDestinationConfigs\\":[\\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\\"],\\"redactedFields\\":[{\\"redactedFieldType\\":\\"SingleHeader\\",\\"redactedFieldValue\\":\\"Cookies\\"},{\\"redactedFieldType\\":\\"Method\\"}]}}"`
-
-        In the `loggingConfiguration` , you can specify one `logDestinationConfigs` , you can optionally provide up to 20 `redactedFields` , and the `RedactedFieldType` must be one of `URI` , `QUERY_STRING` , `HEADER` , or `METHOD` .
-        - Example: `AWS WAF Classic`
-
-        `"{\\"type\\": \\"WAF\\", \\"ruleGroups\\": [{\\"id\\":\\"12345678-1bcd-9012-efga-0987654321ab\\", \\"overrideAction\\" : {\\"type\\": \\"COUNT\\"}}], \\"defaultAction\\": {\\"type\\": \\"BLOCK\\"}}"`
-        - Example: `WAFV2` - AWS Firewall Manager support for AWS WAF managed rule group versioning
-
-        `"{\\"type\\":\\"WAFV2\\",\\"preProcessRuleGroups\\":[{\\"ruleGroupArn\\":null,\\"overrideAction\\":{\\"type\\":\\"NONE\\"},\\"managedRuleGroupIdentifier\\":{\\"versionEnabled\\":true,\\"version\\":\\"Version_2.0\\",\\"vendorName\\":\\"AWS\\",\\"managedRuleGroupName\\":\\"AWSManagedRulesCommonRuleSet\\"},\\"ruleGroupType\\":\\"ManagedRuleGroup\\",\\"excludeRules\\":[{\\"name\\":\\"NoUserAgent_HEADER\\"}]}],\\"postProcessRuleGroups\\":[],\\"defaultAction\\":{\\"type\\":\\"ALLOW\\"},\\"overrideCustomerWebACLAssociation\\":false,\\"loggingConfiguration\\":{\\"logDestinationConfigs\\":[\\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\\"],\\"redactedFields\\":[{\\"redactedFieldType\\":\\"SingleHeader\\",\\"redactedFieldValue\\":\\"Cookies\\"},{\\"redactedFieldType\\":\\"Method\\"}]}}"`
-
-        To use a specific version of a AWS WAF managed rule group in your Firewall Manager policy, you must set `versionEnabled` to `true` , and set `version` to the version you'd like to use. If you don't set `versionEnabled` to `true` , or if you omit `versionEnabled` , then Firewall Manager uses the default version of the AWS WAF managed rule group.
-        - Example: `SECURITY_GROUPS_COMMON`
-
-        `"{\\"type\\":\\"SECURITY_GROUPS_COMMON\\",\\"revertManualSecurityGroupChanges\\":false,\\"exclusiveResourceSecurityGroupManagement\\":false, \\"applyToAllEC2InstanceENIs\\":false,\\"securityGroups\\":[{\\"id\\":\\" sg-000e55995d61a06bd\\"}]}"`
-        - Example: Shared VPCs. Apply the preceding policy to resources in shared VPCs as well as to those in VPCs that the account owns
-
-        `"{\\"type\\":\\"SECURITY_GROUPS_COMMON\\",\\"revertManualSecurityGroupChanges\\":false,\\"exclusiveResourceSecurityGroupManagement\\":false, \\"applyToAllEC2InstanceENIs\\":false,\\"includeSharedVPC\\":true,\\"securityGroups\\":[{\\"id\\":\\" sg-000e55995d61a06bd\\"}]}"`
-        - Example: `SECURITY_GROUPS_CONTENT_AUDIT`
-
-        `"{\\"type\\":\\"SECURITY_GROUPS_CONTENT_AUDIT\\",\\"securityGroups\\":[{\\"id\\":\\"sg-000e55995d61a06bd\\"}],\\"securityGroupAction\\":{\\"type\\":\\"ALLOW\\"}}"`
-
-        The security group action for content audit can be `ALLOW` or `DENY` . For `ALLOW` , all in-scope security group rules must be within the allowed range of the policy's security group rules. For `DENY` , all in-scope security group rules must not contain a value or a range that matches a rule value or range in the policy security group.
-        - Example: `SECURITY_GROUPS_USAGE_AUDIT`
-
-        `"{\\"type\\":\\"SECURITY_GROUPS_USAGE_AUDIT\\",\\"deleteUnusedSecurityGroups\\":true,\\"coalesceRedundantSecurityGroups\\":true}"`
-        """
-        policy_option: NotRequired[pulumi.Input['PolicyOptionArgsDict']]
-        """
-        Contains the settings to configure a network ACL policy, a AWS Network Firewall firewall policy deployment model, or a third-party firewall policy.
-        """
-elif False:
-    PolicySecurityServicePolicyDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataArgs:
@@ -1001,18 +704,6 @@ class PolicySecurityServicePolicyDataArgs:
     def policy_option(self, value: Optional[pulumi.Input['PolicyOptionArgs']]):
         pulumi.set(self, "policy_option", value)
 
-
-if not MYPY:
-    class PolicyThirdPartyFirewallPolicyArgsDict(TypedDict):
-        """
-        Third party firewall policy.
-        """
-        firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel']
-        """
-        Defines the deployment model to use for the third-party firewall policy.
-        """
-elif False:
-    PolicyThirdPartyFirewallPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyThirdPartyFirewallPolicyArgs:

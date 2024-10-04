@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Personalize::Schema.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:personalize:getSchema", {
         "schemaArn": args.schemaArn,
@@ -31,10 +32,7 @@ export interface GetSchemaResult {
  * Resource schema for AWS::Personalize::Schema.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:personalize:getSchema", {
-        "schemaArn": args.schemaArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSchema(a, opts))
 }
 
 export interface GetSchemaOutputArgs {

@@ -4,65 +4,28 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DbClusterDbClusterRoleArgs',
-    'DbClusterDbClusterRoleArgsDict',
     'DbClusterMasterUserSecretArgs',
-    'DbClusterMasterUserSecretArgsDict',
     'DbClusterReadEndpointArgs',
-    'DbClusterReadEndpointArgsDict',
     'DbClusterScalingConfigurationArgs',
-    'DbClusterScalingConfigurationArgsDict',
     'DbClusterServerlessV2ScalingConfigurationArgs',
-    'DbClusterServerlessV2ScalingConfigurationArgsDict',
     'DbInstanceCertificateDetailsArgs',
-    'DbInstanceCertificateDetailsArgsDict',
     'DbInstanceDbInstanceRoleArgs',
-    'DbInstanceDbInstanceRoleArgsDict',
     'DbInstanceEndpointArgs',
-    'DbInstanceEndpointArgsDict',
     'DbInstanceMasterUserSecretArgs',
-    'DbInstanceMasterUserSecretArgsDict',
     'DbInstanceProcessorFeatureArgs',
-    'DbInstanceProcessorFeatureArgsDict',
     'DbProxyAuthFormatArgs',
-    'DbProxyAuthFormatArgsDict',
     'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs',
-    'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict',
     'OptionGroupOptionConfigurationArgs',
-    'OptionGroupOptionConfigurationArgsDict',
     'OptionGroupOptionSettingArgs',
-    'OptionGroupOptionSettingArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class DbClusterDbClusterRoleArgsDict(TypedDict):
-        """
-        Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-        """
-        feature_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
-        """
-elif False:
-    DbClusterDbClusterRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DbClusterDbClusterRoleArgs:
@@ -102,23 +65,6 @@ class DbClusterDbClusterRoleArgs:
     def feature_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "feature_name", value)
 
-
-if not MYPY:
-    class DbClusterMasterUserSecretArgsDict(TypedDict):
-        """
-        The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
-         For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS KMS key identifier that is used to encrypt the secret.
-        """
-        secret_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#aws-resource-rds-dbcluster-return-values).
-        """
-elif False:
-    DbClusterMasterUserSecretArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DbClusterMasterUserSecretArgs:
@@ -161,21 +107,6 @@ class DbClusterMasterUserSecretArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class DbClusterReadEndpointArgsDict(TypedDict):
-        """
-        The ``ReadEndpoint`` return value specifies the reader endpoint for the DB cluster.
-         The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
-         If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-         For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide*.
-        """
-        address: NotRequired[pulumi.Input[str]]
-        """
-        The host address of the reader endpoint.
-        """
-elif False:
-    DbClusterReadEndpointArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DbClusterReadEndpointArgs:
     def __init__(__self__, *,
@@ -202,54 +133,6 @@ class DbClusterReadEndpointArgs:
     def address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address", value)
 
-
-if not MYPY:
-    class DbClusterScalingConfigurationArgsDict(TypedDict):
-        """
-        The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster. 
-         For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
-         This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
-         Valid for: Aurora Serverless v1 DB clusters only
-        """
-        auto_pause: NotRequired[pulumi.Input[bool]]
-        """
-        Indicates whether to allow or disallow automatic pause for an Aurora DB cluster in ``serverless`` DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
-          If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it.
-        """
-        max_capacity: NotRequired[pulumi.Input[int]]
-        """
-        The maximum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
-         For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
-         For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
-         The maximum capacity must be greater than or equal to the minimum capacity.
-        """
-        min_capacity: NotRequired[pulumi.Input[int]]
-        """
-        The minimum capacity for an Aurora DB cluster in ``serverless`` DB engine mode.
-         For Aurora MySQL, valid capacity values are ``1``, ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``128``, and ``256``.
-         For Aurora PostgreSQL, valid capacity values are ``2``, ``4``, ``8``, ``16``, ``32``, ``64``, ``192``, and ``384``.
-         The minimum capacity must be less than or equal to the maximum capacity.
-        """
-        seconds_before_timeout: NotRequired[pulumi.Input[int]]
-        """
-        The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. The default is 300.
-         Specify a value between 60 and 600 seconds.
-        """
-        seconds_until_auto_pause: NotRequired[pulumi.Input[int]]
-        """
-        The time, in seconds, before an Aurora DB cluster in ``serverless`` mode is paused.
-         Specify a value between 300 and 86,400 seconds.
-        """
-        timeout_action: NotRequired[pulumi.Input[str]]
-        """
-        The action to take when the timeout is reached, either ``ForceApplyCapacityChange`` or ``RollbackCapacityChange``.
-          ``ForceApplyCapacityChange`` sets the capacity to the specified value as soon as possible.
-          ``RollbackCapacityChange``, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
-          If you specify ``ForceApplyCapacityChange``, connections that prevent Aurora Serverless v1 from finding a scaling point might be dropped.
-          For more information, see [Autoscaling for Aurora Serverless v1](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling) in the *Amazon Aurora User Guide*.
-        """
-elif False:
-    DbClusterScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DbClusterScalingConfigurationArgs:
@@ -384,27 +267,6 @@ class DbClusterScalingConfigurationArgs:
         pulumi.set(self, "timeout_action", value)
 
 
-if not MYPY:
-    class DbClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
-        """
-        The ``ServerlessV2ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless V2 DB cluster. For more information, see [Using Amazon Aurora Serverless v2](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html) in the *Amazon Aurora User Guide*.
-         If you have an Aurora cluster, you must set this attribute before you add a DB instance that uses the ``db.serverless`` DB instance class. For more information, see [Clusters that use Aurora Serverless v2 must have a capacity range specified](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html#aurora-serverless-v2.requirements.capacity-range) in the *Amazon Aurora User Guide*.
-         This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, use the ``ScalingConfiguration`` property.
-         Valid for: Aurora Serverless v2 DB clusters
-        """
-        max_capacity: NotRequired[pulumi.Input[float]]
-        """
-        The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
-         The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
-         Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
-        """
-        min_capacity: NotRequired[pulumi.Input[float]]
-        """
-        The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
-        """
-elif False:
-    DbClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DbClusterServerlessV2ScalingConfigurationArgs:
     def __init__(__self__, *,
@@ -452,23 +314,6 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
         pulumi.set(self, "min_capacity", value)
 
 
-if not MYPY:
-    class DbInstanceCertificateDetailsArgsDict(TypedDict):
-        """
-        The details of the DB instance’s server certificate.
-         For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
-        """
-        ca_identifier: NotRequired[pulumi.Input[str]]
-        """
-        The CA identifier of the CA certificate used for the DB instance's server certificate.
-        """
-        valid_till: NotRequired[pulumi.Input[str]]
-        """
-        The expiration date of the DB instance’s server certificate.
-        """
-elif False:
-    DbInstanceCertificateDetailsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DbInstanceCertificateDetailsArgs:
     def __init__(__self__, *,
@@ -510,22 +355,6 @@ class DbInstanceCertificateDetailsArgs:
         pulumi.set(self, "valid_till", value)
 
 
-if not MYPY:
-    class DbInstanceDbInstanceRoleArgsDict(TypedDict):
-        """
-        Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
-        """
-        feature_name: pulumi.Input[str]
-        """
-        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
-        """
-elif False:
-    DbInstanceDbInstanceRoleArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DbInstanceDbInstanceRoleArgs:
     def __init__(__self__, *,
@@ -563,31 +392,6 @@ class DbInstanceDbInstanceRoleArgs:
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
 
-
-if not MYPY:
-    class DbInstanceEndpointArgsDict(TypedDict):
-        """
-        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-          +   ``CreateDBInstance`` 
-          +   ``DescribeDBInstances`` 
-          +   ``DeleteDBInstance`` 
-          
-         For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
-        """
-        address: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the DNS address of the DB instance.
-        """
-        hosted_zone_id: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-        """
-        port: NotRequired[pulumi.Input[str]]
-        """
-        Specifies the port that the database engine is listening on.
-        """
-elif False:
-    DbInstanceEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DbInstanceEndpointArgs:
@@ -650,23 +454,6 @@ class DbInstanceEndpointArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class DbInstanceMasterUserSecretArgsDict(TypedDict):
-        """
-        The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
-         For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS KMS key identifier that is used to encrypt the secret.
-        """
-        secret_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
-        """
-elif False:
-    DbInstanceMasterUserSecretArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DbInstanceMasterUserSecretArgs:
     def __init__(__self__, *,
@@ -708,22 +495,6 @@ class DbInstanceMasterUserSecretArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class DbInstanceProcessorFeatureArgsDict(TypedDict):
-        """
-        The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
-        """
-        name: NotRequired[pulumi.Input['DbInstanceProcessorFeatureName']]
-        """
-        The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The value of a processor feature.
-        """
-elif False:
-    DbInstanceProcessorFeatureArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DbInstanceProcessorFeatureArgs:
     def __init__(__self__, *,
@@ -763,31 +534,6 @@ class DbInstanceProcessorFeatureArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class DbProxyAuthFormatArgsDict(TypedDict):
-        auth_scheme: NotRequired[pulumi.Input['DbProxyAuthFormatAuthScheme']]
-        """
-        The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
-        """
-        client_password_auth_type: NotRequired[pulumi.Input['DbProxyAuthFormatClientPasswordAuthType']]
-        """
-        The type of authentication the proxy uses for connections from clients.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        A user-specified description about the authentication used by a proxy to log in as a specific database user. 
-        """
-        iam_auth: NotRequired[pulumi.Input['DbProxyAuthFormatIamAuth']]
-        """
-        Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-        """
-        secret_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
-        """
-elif False:
-    DbProxyAuthFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DbProxyAuthFormatArgs:
@@ -876,31 +622,6 @@ class DbProxyAuthFormatArgs:
         pulumi.set(self, "secret_arn", value)
 
 
-if not MYPY:
-    class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict(TypedDict):
-        connection_borrow_timeout: NotRequired[pulumi.Input[int]]
-        """
-        The number of seconds for a proxy to wait for a connection to become available in the connection pool.
-        """
-        init_query: NotRequired[pulumi.Input[str]]
-        """
-        One or more SQL statements for the proxy to run when opening each new database connection.
-        """
-        max_connections_percent: NotRequired[pulumi.Input[int]]
-        """
-        The maximum size of the connection pool for each target in a target group.
-        """
-        max_idle_connections_percent: NotRequired[pulumi.Input[int]]
-        """
-        Controls how actively the proxy closes idle database connections in the connection pool.
-        """
-        session_pinning_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
-        """
-elif False:
-    DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
     def __init__(__self__, *,
@@ -987,38 +708,6 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
     def session_pinning_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "session_pinning_filters", value)
 
-
-if not MYPY:
-    class OptionGroupOptionConfigurationArgsDict(TypedDict):
-        """
-        The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.
-        """
-        option_name: pulumi.Input[str]
-        """
-        The configuration of options to include in a group.
-        """
-        db_security_group_memberships: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of DB security groups used for this option.
-        """
-        option_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgsDict']]]]
-        """
-        The option settings to include in an option group.
-        """
-        option_version: NotRequired[pulumi.Input[str]]
-        """
-        The version for the option.
-        """
-        port: NotRequired[pulumi.Input[int]]
-        """
-        The optional port for the option.
-        """
-        vpc_security_group_memberships: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of VPC security group names used for this option.
-        """
-elif False:
-    OptionGroupOptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OptionGroupOptionConfigurationArgs:
@@ -1122,22 +811,6 @@ class OptionGroupOptionConfigurationArgs:
     def vpc_security_group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vpc_security_group_memberships", value)
 
-
-if not MYPY:
-    class OptionGroupOptionSettingArgsDict(TypedDict):
-        """
-        The ``OptionSetting`` property type specifies the value for an option within an ``OptionSetting`` property.
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the option that has settings that you can set.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The current value of the option setting.
-        """
-elif False:
-    OptionGroupOptionSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OptionGroupOptionSettingArgs:

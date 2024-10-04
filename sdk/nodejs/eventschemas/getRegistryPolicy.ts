@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EventSchemas::RegistryPolicy
  */
 export function getRegistryPolicy(args: GetRegistryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eventschemas:getRegistryPolicy", {
         "id": args.id,
@@ -45,10 +46,7 @@ export interface GetRegistryPolicyResult {
  * Resource Type definition for AWS::EventSchemas::RegistryPolicy
  */
 export function getRegistryPolicyOutput(args: GetRegistryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:eventschemas:getRegistryPolicy", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRegistryPolicy(a, opts))
 }
 
 export interface GetRegistryPolicyOutputArgs {

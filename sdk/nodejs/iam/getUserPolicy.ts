@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *  For information about the maximum number of inline policies that you can embed in a user, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
  */
 export function getUserPolicy(args: GetUserPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getUserPolicy", {
         "policyName": args.policyName,
@@ -49,11 +50,7 @@ export interface GetUserPolicyResult {
  *  For information about the maximum number of inline policies that you can embed in a user, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
  */
 export function getUserPolicyOutput(args: GetUserPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iam:getUserPolicy", {
-        "policyName": args.policyName,
-        "userName": args.userName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUserPolicy(a, opts))
 }
 
 export interface GetUserPolicyOutputArgs {

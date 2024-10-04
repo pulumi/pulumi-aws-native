@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::IntegrationAssociation
  */
 export function getIntegrationAssociation(args: GetIntegrationAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getIntegrationAssociation", {
         "instanceId": args.instanceId,
@@ -54,12 +55,7 @@ export interface GetIntegrationAssociationResult {
  * Resource Type definition for AWS::Connect::IntegrationAssociation
  */
 export function getIntegrationAssociationOutput(args: GetIntegrationAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:connect:getIntegrationAssociation", {
-        "instanceId": args.instanceId,
-        "integrationArn": args.integrationArn,
-        "integrationType": args.integrationType,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationAssociation(a, opts))
 }
 
 export interface GetIntegrationAssociationOutputArgs {

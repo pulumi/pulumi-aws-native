@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -61,6 +56,9 @@ def get_subnet_route_table_association(id: Optional[str] = None,
 
     return AwaitableGetSubnetRouteTableAssociationResult(
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_subnet_route_table_association)
 def get_subnet_route_table_association_output(id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetRouteTableAssociationResult]:
     """
@@ -69,9 +67,4 @@ def get_subnet_route_table_association_output(id: Optional[pulumi.Input[str]] = 
 
     :param str id: The ID of the subnet route table association.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSubnetRouteTableAssociation', __args__, opts=opts, typ=GetSubnetRouteTableAssociationResult)
-    return __ret__.apply(lambda __response__: GetSubnetRouteTableAssociationResult(
-        id=pulumi.get(__response__, 'id')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -75,6 +70,9 @@ def get_network_acl(id: Optional[str] = None,
     return AwaitableGetNetworkAclResult(
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_network_acl)
 def get_network_acl_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAclResult]:
     """
@@ -83,10 +81,4 @@ def get_network_acl_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the network ACL.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkAcl', __args__, opts=opts, typ=GetNetworkAclResult)
-    return __ret__.apply(lambda __response__: GetNetworkAclResult(
-        id=pulumi.get(__response__, 'id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::ControlTower::LandingZone Resource Type
  */
 export function getLandingZone(args: GetLandingZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetLandingZoneResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:controltower:getLandingZone", {
         "landingZoneIdentifier": args.landingZoneIdentifier,
@@ -64,10 +65,7 @@ export interface GetLandingZoneResult {
  * Definition of AWS::ControlTower::LandingZone Resource Type
  */
 export function getLandingZoneOutput(args: GetLandingZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLandingZoneResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:controltower:getLandingZone", {
-        "landingZoneIdentifier": args.landingZoneIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLandingZone(a, opts))
 }
 
 export interface GetLandingZoneOutputArgs {

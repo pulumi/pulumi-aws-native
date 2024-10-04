@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Config::AggregationAuthorization
  */
 export function getAggregationAuthorization(args: GetAggregationAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetAggregationAuthorizationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getAggregationAuthorization", {
         "authorizedAccountId": args.authorizedAccountId,
@@ -43,11 +44,7 @@ export interface GetAggregationAuthorizationResult {
  * Resource Type definition for AWS::Config::AggregationAuthorization
  */
 export function getAggregationAuthorizationOutput(args: GetAggregationAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAggregationAuthorizationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:configuration:getAggregationAuthorization", {
-        "authorizedAccountId": args.authorizedAccountId,
-        "authorizedAwsRegion": args.authorizedAwsRegion,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAggregationAuthorization(a, opts))
 }
 
 export interface GetAggregationAuthorizationOutputArgs {

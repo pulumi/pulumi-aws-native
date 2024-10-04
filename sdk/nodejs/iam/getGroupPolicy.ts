@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *  For information about the maximum number of inline policies that you can embed in a group, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
  */
 export function getGroupPolicy(args: GetGroupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getGroupPolicy", {
         "groupName": args.groupName,
@@ -49,11 +50,7 @@ export interface GetGroupPolicyResult {
  *  For information about the maximum number of inline policies that you can embed in a group, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
  */
 export function getGroupPolicyOutput(args: GetGroupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iam:getGroupPolicy", {
-        "groupName": args.groupName,
-        "policyName": args.policyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGroupPolicy(a, opts))
 }
 
 export interface GetGroupPolicyOutputArgs {

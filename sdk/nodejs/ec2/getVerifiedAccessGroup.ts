@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
  */
 export function getVerifiedAccessGroup(args: GetVerifiedAccessGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVerifiedAccessGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVerifiedAccessGroup", {
         "verifiedAccessGroupId": args.verifiedAccessGroupId,
@@ -74,10 +75,7 @@ export interface GetVerifiedAccessGroupResult {
  * The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
  */
 export function getVerifiedAccessGroupOutput(args: GetVerifiedAccessGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifiedAccessGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getVerifiedAccessGroup", {
-        "verifiedAccessGroupId": args.verifiedAccessGroupId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVerifiedAccessGroup(a, opts))
 }
 
 export interface GetVerifiedAccessGroupOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -89,6 +84,9 @@ def get_storage_lens_group(name: Optional[str] = None,
         filter=pulumi.get(__ret__, 'filter'),
         storage_lens_group_arn=pulumi.get(__ret__, 'storage_lens_group_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_storage_lens_group)
 def get_storage_lens_group_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageLensGroupResult]:
     """
@@ -97,11 +95,4 @@ def get_storage_lens_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: This property contains the Storage Lens group name.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getStorageLensGroup', __args__, opts=opts, typ=GetStorageLensGroupResult)
-    return __ret__.apply(lambda __response__: GetStorageLensGroupResult(
-        filter=pulumi.get(__response__, 'filter'),
-        storage_lens_group_arn=pulumi.get(__response__, 'storage_lens_group_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -186,6 +181,9 @@ def get_analysis(analysis_id: Optional[str] = None,
         sheets=pulumi.get(__ret__, 'sheets'),
         tags=pulumi.get(__ret__, 'tags'),
         theme_arn=pulumi.get(__ret__, 'theme_arn'))
+
+
+@_utilities.lift_output_func(get_analysis)
 def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
                         aws_account_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalysisResult]:
@@ -196,19 +194,4 @@ def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
     :param str analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
     :param str aws_account_id: The ID of the AWS account where you are creating an analysis.
     """
-    __args__ = dict()
-    __args__['analysisId'] = analysis_id
-    __args__['awsAccountId'] = aws_account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getAnalysis', __args__, opts=opts, typ=GetAnalysisResult)
-    return __ret__.apply(lambda __response__: GetAnalysisResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        data_set_arns=pulumi.get(__response__, 'data_set_arns'),
-        errors=pulumi.get(__response__, 'errors'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        name=pulumi.get(__response__, 'name'),
-        permissions=pulumi.get(__response__, 'permissions'),
-        sheets=pulumi.get(__response__, 'sheets'),
-        tags=pulumi.get(__response__, 'tags'),
-        theme_arn=pulumi.get(__response__, 'theme_arn')))
+    ...

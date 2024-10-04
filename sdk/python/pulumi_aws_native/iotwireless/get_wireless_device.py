@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -194,6 +189,9 @@ def get_wireless_device(id: Optional[str] = None,
         thing_arn=pulumi.get(__ret__, 'thing_arn'),
         thing_name=pulumi.get(__ret__, 'thing_name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_wireless_device)
 def get_wireless_device_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWirelessDeviceResult]:
     """
@@ -202,19 +200,4 @@ def get_wireless_device_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Wireless device Id. Returned after successful create.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getWirelessDevice', __args__, opts=opts, typ=GetWirelessDeviceResult)
-    return __ret__.apply(lambda __response__: GetWirelessDeviceResult(
-        arn=pulumi.get(__response__, 'arn'),
-        description=pulumi.get(__response__, 'description'),
-        destination_name=pulumi.get(__response__, 'destination_name'),
-        id=pulumi.get(__response__, 'id'),
-        last_uplink_received_at=pulumi.get(__response__, 'last_uplink_received_at'),
-        lo_ra_wan=pulumi.get(__response__, 'lo_ra_wan'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags'),
-        thing_arn=pulumi.get(__response__, 'thing_arn'),
-        thing_name=pulumi.get(__response__, 'thing_name'),
-        type=pulumi.get(__response__, 'type')))
+    ...

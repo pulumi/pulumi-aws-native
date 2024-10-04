@@ -4,63 +4,27 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ClusterInterfaceMappingArgs',
-    'ClusterInterfaceMappingArgsDict',
     'ClusterNetworkSettingsArgs',
-    'ClusterNetworkSettingsArgsDict',
     'EventBridgeRuleTemplateTargetArgs',
-    'EventBridgeRuleTemplateTargetArgsDict',
     'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs',
-    'MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict',
     'MultiplexOutputDestinationArgs',
-    'MultiplexOutputDestinationArgsDict',
     'MultiplexSettingsArgs',
-    'MultiplexSettingsArgsDict',
     'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs',
-    'MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict',
     'MultiplexprogramMultiplexProgramPipelineDetailArgs',
-    'MultiplexprogramMultiplexProgramPipelineDetailArgsDict',
     'MultiplexprogramMultiplexProgramServiceDescriptorArgs',
-    'MultiplexprogramMultiplexProgramServiceDescriptorArgsDict',
     'MultiplexprogramMultiplexProgramSettingsArgs',
-    'MultiplexprogramMultiplexProgramSettingsArgsDict',
     'MultiplexprogramMultiplexVideoSettingsArgs',
-    'MultiplexprogramMultiplexVideoSettingsArgsDict',
     'NetworkIpPoolArgs',
-    'NetworkIpPoolArgsDict',
     'NetworkRouteArgs',
-    'NetworkRouteArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ClusterInterfaceMappingArgsDict(TypedDict):
-        """
-        Network mappings for the cluster
-        """
-        logical_interface_name: NotRequired[pulumi.Input[str]]
-        """
-        logical interface name, unique in the list
-        """
-        network_id: NotRequired[pulumi.Input[str]]
-        """
-        Network Id to be associated with the logical interface name, can be duplicated in list
-        """
-elif False:
-    ClusterInterfaceMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterInterfaceMappingArgs:
@@ -102,22 +66,6 @@ class ClusterInterfaceMappingArgs:
         pulumi.set(self, "network_id", value)
 
 
-if not MYPY:
-    class ClusterNetworkSettingsArgsDict(TypedDict):
-        """
-        On premises settings which will have the interface network mappings and default Output logical interface
-        """
-        default_route: NotRequired[pulumi.Input[str]]
-        """
-        Default value if the customer does not define it in channel Output API
-        """
-        interface_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInterfaceMappingArgsDict']]]]
-        """
-        Network mappings for the cluster
-        """
-elif False:
-    ClusterNetworkSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ClusterNetworkSettingsArgs:
     def __init__(__self__, *,
@@ -158,18 +106,6 @@ class ClusterNetworkSettingsArgs:
         pulumi.set(self, "interface_mappings", value)
 
 
-if not MYPY:
-    class EventBridgeRuleTemplateTargetArgsDict(TypedDict):
-        """
-        The target to which to send matching events.
-        """
-        arn: pulumi.Input[str]
-        """
-        Target ARNs must be either an SNS topic or CloudWatch log group.
-        """
-elif False:
-    EventBridgeRuleTemplateTargetArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EventBridgeRuleTemplateTargetArgs:
     def __init__(__self__, *,
@@ -192,18 +128,6 @@ class EventBridgeRuleTemplateTargetArgs:
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
 
-
-if not MYPY:
-    class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict(TypedDict):
-        """
-        Multiplex MediaConnect output destination settings.
-        """
-        entitlement_arn: NotRequired[pulumi.Input[str]]
-        """
-        The MediaConnect entitlement ARN available as a Flow source.
-        """
-elif False:
-    MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs:
@@ -229,18 +153,6 @@ class MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPr
         pulumi.set(self, "entitlement_arn", value)
 
 
-if not MYPY:
-    class MultiplexOutputDestinationArgsDict(TypedDict):
-        """
-        Multiplex MediaConnect output destination settings.
-        """
-        multiplex_media_connect_output_destination_settings: NotRequired[pulumi.Input['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgsDict']]
-        """
-        Multiplex MediaConnect output destination settings.
-        """
-elif False:
-    MultiplexOutputDestinationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MultiplexOutputDestinationArgs:
     def __init__(__self__, *,
@@ -264,30 +176,6 @@ class MultiplexOutputDestinationArgs:
     def multiplex_media_connect_output_destination_settings(self, value: Optional[pulumi.Input['MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs']]):
         pulumi.set(self, "multiplex_media_connect_output_destination_settings", value)
 
-
-if not MYPY:
-    class MultiplexSettingsArgsDict(TypedDict):
-        """
-        A key-value pair to associate with a resource.
-        """
-        transport_stream_bitrate: pulumi.Input[int]
-        """
-        Transport stream bit rate.
-        """
-        transport_stream_id: pulumi.Input[int]
-        """
-        Transport stream ID.
-        """
-        maximum_video_buffer_delay_milliseconds: NotRequired[pulumi.Input[int]]
-        """
-        Maximum video buffer delay in milliseconds.
-        """
-        transport_stream_reserved_bitrate: NotRequired[pulumi.Input[int]]
-        """
-        Transport stream reserved bit rate.
-        """
-elif False:
-    MultiplexSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MultiplexSettingsArgs:
@@ -358,27 +246,6 @@ class MultiplexSettingsArgs:
     def transport_stream_reserved_bitrate(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "transport_stream_reserved_bitrate", value)
 
-
-if not MYPY:
-    class MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict(TypedDict):
-        """
-        Packet identifiers map for a given Multiplex program.
-        """
-        audio_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
-        dvb_sub_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
-        dvb_teletext_pid: NotRequired[pulumi.Input[int]]
-        etv_platform_pid: NotRequired[pulumi.Input[int]]
-        etv_signal_pid: NotRequired[pulumi.Input[int]]
-        klv_data_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
-        pcr_pid: NotRequired[pulumi.Input[int]]
-        pmt_pid: NotRequired[pulumi.Input[int]]
-        private_metadata_pid: NotRequired[pulumi.Input[int]]
-        scte27_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
-        scte35_pid: NotRequired[pulumi.Input[int]]
-        timed_metadata_pid: NotRequired[pulumi.Input[int]]
-        video_pid: NotRequired[pulumi.Input[int]]
-elif False:
-    MultiplexprogramMultiplexProgramPacketIdentifiersMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs:
@@ -544,22 +411,6 @@ class MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs:
         pulumi.set(self, "video_pid", value)
 
 
-if not MYPY:
-    class MultiplexprogramMultiplexProgramPipelineDetailArgsDict(TypedDict):
-        """
-        The current source for one of the pipelines in the multiplex.
-        """
-        active_channel_pipeline: NotRequired[pulumi.Input[str]]
-        """
-        Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
-        """
-        pipeline_id: NotRequired[pulumi.Input[str]]
-        """
-        Identifies a specific pipeline in the multiplex.
-        """
-elif False:
-    MultiplexprogramMultiplexProgramPipelineDetailArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MultiplexprogramMultiplexProgramPipelineDetailArgs:
     def __init__(__self__, *,
@@ -600,22 +451,6 @@ class MultiplexprogramMultiplexProgramPipelineDetailArgs:
         pulumi.set(self, "pipeline_id", value)
 
 
-if not MYPY:
-    class MultiplexprogramMultiplexProgramServiceDescriptorArgsDict(TypedDict):
-        """
-        Transport stream service descriptor configuration for the Multiplex program.
-        """
-        provider_name: pulumi.Input[str]
-        """
-        Name of the provider.
-        """
-        service_name: pulumi.Input[str]
-        """
-        Name of the service.
-        """
-elif False:
-    MultiplexprogramMultiplexProgramServiceDescriptorArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MultiplexprogramMultiplexProgramServiceDescriptorArgs:
     def __init__(__self__, *,
@@ -653,30 +488,6 @@ class MultiplexprogramMultiplexProgramServiceDescriptorArgs:
     def service_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_name", value)
 
-
-if not MYPY:
-    class MultiplexprogramMultiplexProgramSettingsArgsDict(TypedDict):
-        """
-        Multiplex Program settings configuration.
-        """
-        program_number: pulumi.Input[int]
-        """
-        Unique program number.
-        """
-        preferred_channel_pipeline: NotRequired[pulumi.Input['MultiplexprogramPreferredChannelPipeline']]
-        """
-        Indicates which pipeline is preferred by the multiplex for program ingest.
-        """
-        service_descriptor: NotRequired[pulumi.Input['MultiplexprogramMultiplexProgramServiceDescriptorArgsDict']]
-        """
-        Transport stream service descriptor configuration for the Multiplex program.
-        """
-        video_settings: NotRequired[pulumi.Input['MultiplexprogramMultiplexVideoSettingsArgsDict']]
-        """
-        Program video settings configuration.
-        """
-elif False:
-    MultiplexprogramMultiplexProgramSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MultiplexprogramMultiplexProgramSettingsArgs:
@@ -749,15 +560,6 @@ class MultiplexprogramMultiplexProgramSettingsArgs:
         pulumi.set(self, "video_settings", value)
 
 
-if not MYPY:
-    class MultiplexprogramMultiplexVideoSettingsArgsDict(TypedDict):
-        """
-        The video configuration for each program in a multiplex.
-        """
-        pass
-elif False:
-    MultiplexprogramMultiplexVideoSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MultiplexprogramMultiplexVideoSettingsArgs:
     def __init__(__self__):
@@ -766,18 +568,6 @@ class MultiplexprogramMultiplexVideoSettingsArgs:
         """
         pass
 
-
-if not MYPY:
-    class NetworkIpPoolArgsDict(TypedDict):
-        """
-        IP address cidr pool
-        """
-        cidr: NotRequired[pulumi.Input[str]]
-        """
-        IP address cidr pool
-        """
-elif False:
-    NetworkIpPoolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkIpPoolArgs:
@@ -802,19 +592,6 @@ class NetworkIpPoolArgs:
     def cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cidr", value)
 
-
-if not MYPY:
-    class NetworkRouteArgsDict(TypedDict):
-        cidr: NotRequired[pulumi.Input[str]]
-        """
-        Ip address cidr
-        """
-        gateway: NotRequired[pulumi.Input[str]]
-        """
-        IP address for the route packet paths
-        """
-elif False:
-    NetworkRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkRouteArgs:

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -100,6 +95,9 @@ def get_capacity_reservation_fleet(capacity_reservation_fleet_id: Optional[str] 
         no_remove_end_date=pulumi.get(__ret__, 'no_remove_end_date'),
         remove_end_date=pulumi.get(__ret__, 'remove_end_date'),
         total_target_capacity=pulumi.get(__ret__, 'total_target_capacity'))
+
+
+@_utilities.lift_output_func(get_capacity_reservation_fleet)
 def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationFleetResult]:
     """
@@ -108,12 +106,4 @@ def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: Optiona
 
     :param str capacity_reservation_fleet_id: The ID of the Capacity Reservation Fleet.
     """
-    __args__ = dict()
-    __args__['capacityReservationFleetId'] = capacity_reservation_fleet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getCapacityReservationFleet', __args__, opts=opts, typ=GetCapacityReservationFleetResult)
-    return __ret__.apply(lambda __response__: GetCapacityReservationFleetResult(
-        capacity_reservation_fleet_id=pulumi.get(__response__, 'capacity_reservation_fleet_id'),
-        no_remove_end_date=pulumi.get(__response__, 'no_remove_end_date'),
-        remove_end_date=pulumi.get(__response__, 'remove_end_date'),
-        total_target_capacity=pulumi.get(__response__, 'total_target_capacity')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -129,6 +124,9 @@ def get_schema(arn: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         initial_schema_version_id=pulumi.get(__ret__, 'initial_schema_version_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_schema)
 def get_schema_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
     """
@@ -137,14 +135,4 @@ def get_schema_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Amazon Resource Name for the Schema.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getSchema', __args__, opts=opts, typ=GetSchemaResult)
-    return __ret__.apply(lambda __response__: GetSchemaResult(
-        arn=pulumi.get(__response__, 'arn'),
-        checkpoint_version=pulumi.get(__response__, 'checkpoint_version'),
-        compatibility=pulumi.get(__response__, 'compatibility'),
-        description=pulumi.get(__response__, 'description'),
-        initial_schema_version_id=pulumi.get(__response__, 'initial_schema_version_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

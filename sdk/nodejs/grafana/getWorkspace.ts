@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Grafana::Workspace Resource Type
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:grafana:getWorkspace", {
         "id": args.id,
@@ -138,10 +139,7 @@ export interface GetWorkspaceResult {
  * Definition of AWS::Grafana::Workspace Resource Type
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:grafana:getWorkspace", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }
 
 export interface GetWorkspaceOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -101,6 +96,9 @@ def get_user_group(user_group_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         user_ids=pulumi.get(__ret__, 'user_ids'))
+
+
+@_utilities.lift_output_func(get_user_group)
 def get_user_group_output(user_group_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserGroupResult]:
     """
@@ -109,12 +107,4 @@ def get_user_group_output(user_group_id: Optional[pulumi.Input[str]] = None,
 
     :param str user_group_id: The ID of the user group.
     """
-    __args__ = dict()
-    __args__['userGroupId'] = user_group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getUserGroup', __args__, opts=opts, typ=GetUserGroupResult)
-    return __ret__.apply(lambda __response__: GetUserGroupResult(
-        arn=pulumi.get(__response__, 'arn'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        user_ids=pulumi.get(__response__, 'user_ids')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -89,6 +84,9 @@ def get_topic_policy(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
         topics=pulumi.get(__ret__, 'topics'))
+
+
+@_utilities.lift_output_func(get_topic_policy)
 def get_topic_policy_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicPolicyResult]:
     """
@@ -97,11 +95,4 @@ def get_topic_policy_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The provider-assigned unique ID for this managed resource.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sns:getTopicPolicy', __args__, opts=opts, typ=GetTopicPolicyResult)
-    return __ret__.apply(lambda __response__: GetTopicPolicyResult(
-        id=pulumi.get(__response__, 'id'),
-        policy_document=pulumi.get(__response__, 'policy_document'),
-        topics=pulumi.get(__response__, 'topics')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -87,6 +82,9 @@ def get_task_definition(task_definition_arn: Optional[str] = None,
     return AwaitableGetTaskDefinitionResult(
         tags=pulumi.get(__ret__, 'tags'),
         task_definition_arn=pulumi.get(__ret__, 'task_definition_arn'))
+
+
+@_utilities.lift_output_func(get_task_definition)
 def get_task_definition_output(task_definition_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
@@ -99,10 +97,4 @@ def get_task_definition_output(task_definition_arn: Optional[pulumi.Input[str]] 
 
     :param str task_definition_arn: The ARN of the task definition.
     """
-    __args__ = dict()
-    __args__['taskDefinitionArn'] = task_definition_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult)
-    return __ret__.apply(lambda __response__: GetTaskDefinitionResult(
-        tags=pulumi.get(__response__, 'tags'),
-        task_definition_arn=pulumi.get(__response__, 'task_definition_arn')))
+    ...

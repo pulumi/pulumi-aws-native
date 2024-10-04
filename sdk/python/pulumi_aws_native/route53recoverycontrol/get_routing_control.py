@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -88,6 +83,9 @@ def get_routing_control(routing_control_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         routing_control_arn=pulumi.get(__ret__, 'routing_control_arn'),
         status=pulumi.get(__ret__, 'status'))
+
+
+@_utilities.lift_output_func(get_routing_control)
 def get_routing_control_output(routing_control_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingControlResult]:
     """
@@ -96,11 +94,4 @@ def get_routing_control_output(routing_control_arn: Optional[pulumi.Input[str]] 
 
     :param str routing_control_arn: The Amazon Resource Name (ARN) of the routing control.
     """
-    __args__ = dict()
-    __args__['routingControlArn'] = routing_control_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoverycontrol:getRoutingControl', __args__, opts=opts, typ=GetRoutingControlResult)
-    return __ret__.apply(lambda __response__: GetRoutingControlResult(
-        name=pulumi.get(__response__, 'name'),
-        routing_control_arn=pulumi.get(__response__, 'routing_control_arn'),
-        status=pulumi.get(__response__, 'status')))
+    ...

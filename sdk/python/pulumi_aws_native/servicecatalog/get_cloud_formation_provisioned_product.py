@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -249,6 +244,9 @@ def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[str
         provisioning_preferences=pulumi.get(__ret__, 'provisioning_preferences'),
         record_id=pulumi.get(__ret__, 'record_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_cloud_formation_provisioned_product)
 def get_cloud_formation_provisioned_product_output(provisioned_product_id: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFormationProvisionedProductResult]:
     """
@@ -257,22 +255,4 @@ def get_cloud_formation_provisioned_product_output(provisioned_product_id: Optio
 
     :param str provisioned_product_id: The ID of the provisioned product.
     """
-    __args__ = dict()
-    __args__['provisionedProductId'] = provisioned_product_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalog:getCloudFormationProvisionedProduct', __args__, opts=opts, typ=GetCloudFormationProvisionedProductResult)
-    return __ret__.apply(lambda __response__: GetCloudFormationProvisionedProductResult(
-        accept_language=pulumi.get(__response__, 'accept_language'),
-        cloudformation_stack_arn=pulumi.get(__response__, 'cloudformation_stack_arn'),
-        outputs=pulumi.get(__response__, 'outputs'),
-        path_id=pulumi.get(__response__, 'path_id'),
-        path_name=pulumi.get(__response__, 'path_name'),
-        product_id=pulumi.get(__response__, 'product_id'),
-        product_name=pulumi.get(__response__, 'product_name'),
-        provisioned_product_id=pulumi.get(__response__, 'provisioned_product_id'),
-        provisioning_artifact_id=pulumi.get(__response__, 'provisioning_artifact_id'),
-        provisioning_artifact_name=pulumi.get(__response__, 'provisioning_artifact_name'),
-        provisioning_parameters=pulumi.get(__response__, 'provisioning_parameters'),
-        provisioning_preferences=pulumi.get(__response__, 'provisioning_preferences'),
-        record_id=pulumi.get(__response__, 'record_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

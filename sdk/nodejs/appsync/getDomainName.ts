@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::DomainName
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getDomainName", {
         "domainName": args.domainName,
@@ -39,10 +40,7 @@ export interface GetDomainNameResult {
  * Resource Type definition for AWS::AppSync::DomainName
  */
 export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:appsync:getDomainName", {
-        "domainName": args.domainName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDomainName(a, opts))
 }
 
 export interface GetDomainNameOutputArgs {

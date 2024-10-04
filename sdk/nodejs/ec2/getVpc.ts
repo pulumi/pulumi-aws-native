@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *  For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
  */
 export function getVpc(args: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpc", {
         "vpcId": args.vpcId,
@@ -75,10 +76,7 @@ export interface GetVpcResult {
  *  For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
  */
 export function getVpcOutput(args: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getVpc", {
-        "vpcId": args.vpcId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVpc(a, opts))
 }
 
 export interface GetVpcOutputArgs {

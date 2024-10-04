@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * MatchingWorkflow defined in AWS Entity Resolution service
  */
 export function getMatchingWorkflow(args: GetMatchingWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetMatchingWorkflowResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:entityresolution:getMatchingWorkflow", {
         "workflowName": args.workflowName,
@@ -61,10 +62,7 @@ export interface GetMatchingWorkflowResult {
  * MatchingWorkflow defined in AWS Entity Resolution service
  */
 export function getMatchingWorkflowOutput(args: GetMatchingWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchingWorkflowResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:entityresolution:getMatchingWorkflow", {
-        "workflowName": args.workflowName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMatchingWorkflow(a, opts))
 }
 
 export interface GetMatchingWorkflowOutputArgs {

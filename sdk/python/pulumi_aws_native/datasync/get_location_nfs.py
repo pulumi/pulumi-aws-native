@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -118,6 +113,9 @@ def get_location_nfs(location_arn: Optional[str] = None,
         mount_options=pulumi.get(__ret__, 'mount_options'),
         on_prem_config=pulumi.get(__ret__, 'on_prem_config'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_location_nfs)
 def get_location_nfs_output(location_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationNfsResult]:
     """
@@ -126,13 +124,4 @@ def get_location_nfs_output(location_arn: Optional[pulumi.Input[str]] = None,
 
     :param str location_arn: The Amazon Resource Name (ARN) of the NFS location.
     """
-    __args__ = dict()
-    __args__['locationArn'] = location_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationNfs', __args__, opts=opts, typ=GetLocationNfsResult)
-    return __ret__.apply(lambda __response__: GetLocationNfsResult(
-        location_arn=pulumi.get(__response__, 'location_arn'),
-        location_uri=pulumi.get(__response__, 'location_uri'),
-        mount_options=pulumi.get(__response__, 'mount_options'),
-        on_prem_config=pulumi.get(__response__, 'on_prem_config'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

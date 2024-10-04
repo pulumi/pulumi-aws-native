@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A Kendra index
  */
 export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetIndexResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kendra:getIndex", {
         "id": args.id,
@@ -78,10 +79,7 @@ export interface GetIndexResult {
  * A Kendra index
  */
 export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIndexResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:kendra:getIndex", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIndex(a, opts))
 }
 
 export interface GetIndexOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -102,6 +97,9 @@ def get_alias(alias_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
         routing_strategy=pulumi.get(__ret__, 'routing_strategy'))
+
+
+@_utilities.lift_output_func(get_alias)
 def get_alias_output(alias_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
@@ -110,12 +108,4 @@ def get_alias_output(alias_id: Optional[pulumi.Input[str]] = None,
 
     :param str alias_id: Unique alias ID
     """
-    __args__ = dict()
-    __args__['aliasId'] = alias_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getAlias', __args__, opts=opts, typ=GetAliasResult)
-    return __ret__.apply(lambda __response__: GetAliasResult(
-        alias_id=pulumi.get(__response__, 'alias_id'),
-        description=pulumi.get(__response__, 'description'),
-        name=pulumi.get(__response__, 'name'),
-        routing_strategy=pulumi.get(__response__, 'routing_strategy')))
+    ...

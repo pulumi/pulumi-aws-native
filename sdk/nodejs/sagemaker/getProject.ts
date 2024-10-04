@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::Project
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getProject", {
         "projectArn": args.projectArn,
@@ -50,10 +51,7 @@ export interface GetProjectResult {
  * Resource Type definition for AWS::SageMaker::Project
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getProject", {
-        "projectArn": args.projectArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {

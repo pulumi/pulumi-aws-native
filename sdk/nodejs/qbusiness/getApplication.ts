@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::QBusiness::Application Resource Type
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:qbusiness:getApplication", {
         "applicationId": args.applicationId,
@@ -86,10 +87,7 @@ export interface GetApplicationResult {
  * Definition of AWS::QBusiness::Application Resource Type
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:qbusiness:getApplication", {
-        "applicationId": args.applicationId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

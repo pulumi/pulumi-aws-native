@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -225,6 +220,9 @@ def get_web_experience(application_id: Optional[str] = None,
         web_experience_arn=pulumi.get(__ret__, 'web_experience_arn'),
         web_experience_id=pulumi.get(__ret__, 'web_experience_id'),
         welcome_message=pulumi.get(__ret__, 'welcome_message'))
+
+
+@_utilities.lift_output_func(get_web_experience)
 def get_web_experience_output(application_id: Optional[pulumi.Input[str]] = None,
                               web_experience_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebExperienceResult]:
@@ -235,22 +233,4 @@ def get_web_experience_output(application_id: Optional[pulumi.Input[str]] = None
     :param str application_id: The identifier of the Amazon Q Business web experience.
     :param str web_experience_id: The identifier of your Amazon Q Business web experience.
     """
-    __args__ = dict()
-    __args__['applicationId'] = application_id
-    __args__['webExperienceId'] = web_experience_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getWebExperience', __args__, opts=opts, typ=GetWebExperienceResult)
-    return __ret__.apply(lambda __response__: GetWebExperienceResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        default_endpoint=pulumi.get(__response__, 'default_endpoint'),
-        identity_provider_configuration=pulumi.get(__response__, 'identity_provider_configuration'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        sample_prompts_control_mode=pulumi.get(__response__, 'sample_prompts_control_mode'),
-        status=pulumi.get(__response__, 'status'),
-        subtitle=pulumi.get(__response__, 'subtitle'),
-        tags=pulumi.get(__response__, 'tags'),
-        title=pulumi.get(__response__, 'title'),
-        updated_at=pulumi.get(__response__, 'updated_at'),
-        web_experience_arn=pulumi.get(__response__, 'web_experience_arn'),
-        web_experience_id=pulumi.get(__response__, 'web_experience_id'),
-        welcome_message=pulumi.get(__response__, 'welcome_message')))
+    ...

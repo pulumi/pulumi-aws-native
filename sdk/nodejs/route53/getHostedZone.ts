@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *  For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
  */
 export function getHostedZone(args: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53:getHostedZone", {
         "id": args.id,
@@ -96,10 +97,7 @@ export interface GetHostedZoneResult {
  *  For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
  */
 export function getHostedZoneOutput(args: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53:getHostedZone", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHostedZone(a, opts))
 }
 
 export interface GetHostedZoneOutputArgs {

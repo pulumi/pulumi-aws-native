@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -88,6 +83,9 @@ def get_cloud_front_origin_access_identity(id: Optional[str] = None,
         cloud_front_origin_access_identity_config=pulumi.get(__ret__, 'cloud_front_origin_access_identity_config'),
         id=pulumi.get(__ret__, 'id'),
         s3_canonical_user_id=pulumi.get(__ret__, 's3_canonical_user_id'))
+
+
+@_utilities.lift_output_func(get_cloud_front_origin_access_identity)
 def get_cloud_front_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFrontOriginAccessIdentityResult]:
     """
@@ -96,11 +94,4 @@ def get_cloud_front_origin_access_identity_output(id: Optional[pulumi.Input[str]
 
     :param str id: The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getCloudFrontOriginAccessIdentity', __args__, opts=opts, typ=GetCloudFrontOriginAccessIdentityResult)
-    return __ret__.apply(lambda __response__: GetCloudFrontOriginAccessIdentityResult(
-        cloud_front_origin_access_identity_config=pulumi.get(__response__, 'cloud_front_origin_access_identity_config'),
-        id=pulumi.get(__response__, 'id'),
-        s3_canonical_user_id=pulumi.get(__response__, 's3_canonical_user_id')))
+    ...

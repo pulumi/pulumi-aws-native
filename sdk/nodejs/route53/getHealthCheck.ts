@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53::HealthCheck.
  */
 export function getHealthCheck(args: GetHealthCheckArgs, opts?: pulumi.InvokeOptions): Promise<GetHealthCheckResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53:getHealthCheck", {
         "healthCheckId": args.healthCheckId,
@@ -42,10 +43,7 @@ export interface GetHealthCheckResult {
  * Resource schema for AWS::Route53::HealthCheck.
  */
 export function getHealthCheckOutput(args: GetHealthCheckOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHealthCheckResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53:getHealthCheck", {
-        "healthCheckId": args.healthCheckId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getHealthCheck(a, opts))
 }
 
 export interface GetHealthCheckOutputArgs {

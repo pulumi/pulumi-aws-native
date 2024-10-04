@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -90,6 +85,9 @@ def get_bucket(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_bucket)
 def get_bucket_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
     """
@@ -98,11 +96,4 @@ def get_bucket_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the specified bucket.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:s3outposts:getBucket', __args__, opts=opts, typ=GetBucketResult)
-    return __ret__.apply(lambda __response__: GetBucketResult(
-        arn=pulumi.get(__response__, 'arn'),
-        lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

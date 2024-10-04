@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IVS::Channel
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ivs:getChannel", {
         "arn": args.arn,
@@ -74,10 +75,7 @@ export interface GetChannelResult {
  * Resource Type definition for AWS::IVS::Channel
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ivs:getChannel", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {

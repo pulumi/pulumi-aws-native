@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -88,6 +83,9 @@ def get_directory_config(directory_name: Optional[str] = None,
         certificate_based_auth_properties=pulumi.get(__ret__, 'certificate_based_auth_properties'),
         organizational_unit_distinguished_names=pulumi.get(__ret__, 'organizational_unit_distinguished_names'),
         service_account_credentials=pulumi.get(__ret__, 'service_account_credentials'))
+
+
+@_utilities.lift_output_func(get_directory_config)
 def get_directory_config_output(directory_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryConfigResult]:
     """
@@ -96,11 +94,4 @@ def get_directory_config_output(directory_name: Optional[pulumi.Input[str]] = No
 
     :param str directory_name: The fully qualified name of the directory (for example, corp.example.com).
     """
-    __args__ = dict()
-    __args__['directoryName'] = directory_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appstream:getDirectoryConfig', __args__, opts=opts, typ=GetDirectoryConfigResult)
-    return __ret__.apply(lambda __response__: GetDirectoryConfigResult(
-        certificate_based_auth_properties=pulumi.get(__response__, 'certificate_based_auth_properties'),
-        organizational_unit_distinguished_names=pulumi.get(__response__, 'organizational_unit_distinguished_names'),
-        service_account_credentials=pulumi.get(__response__, 'service_account_credentials')))
+    ...

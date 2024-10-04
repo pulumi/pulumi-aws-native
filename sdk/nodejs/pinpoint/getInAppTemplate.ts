@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::InAppTemplate
  */
 export function getInAppTemplate(args: GetInAppTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetInAppTemplateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getInAppTemplate", {
         "templateName": args.templateName,
@@ -67,10 +68,7 @@ export interface GetInAppTemplateResult {
  * Resource Type definition for AWS::Pinpoint::InAppTemplate
  */
 export function getInAppTemplateOutput(args: GetInAppTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInAppTemplateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:pinpoint:getInAppTemplate", {
-        "templateName": args.templateName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInAppTemplate(a, opts))
 }
 
 export interface GetInAppTemplateOutputArgs {

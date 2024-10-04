@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -168,6 +163,9 @@ def get_multiplex(id: Optional[str] = None,
         program_count=pulumi.get(__ret__, 'program_count'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_multiplex)
 def get_multiplex_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiplexResult]:
     """
@@ -176,17 +174,4 @@ def get_multiplex_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The unique id of the multiplex.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getMultiplex', __args__, opts=opts, typ=GetMultiplexResult)
-    return __ret__.apply(lambda __response__: GetMultiplexResult(
-        arn=pulumi.get(__response__, 'arn'),
-        destinations=pulumi.get(__response__, 'destinations'),
-        id=pulumi.get(__response__, 'id'),
-        multiplex_settings=pulumi.get(__response__, 'multiplex_settings'),
-        name=pulumi.get(__response__, 'name'),
-        pipelines_running_count=pulumi.get(__response__, 'pipelines_running_count'),
-        program_count=pulumi.get(__response__, 'program_count'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

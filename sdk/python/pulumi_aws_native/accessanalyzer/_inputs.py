@@ -4,44 +4,17 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AnalyzerArchiveRuleArgs',
-    'AnalyzerArchiveRuleArgsDict',
     'AnalyzerConfigurationPropertiesArgs',
-    'AnalyzerConfigurationPropertiesArgsDict',
     'AnalyzerFilterArgs',
-    'AnalyzerFilterArgsDict',
     'AnalyzerUnusedAccessConfigurationArgs',
-    'AnalyzerUnusedAccessConfigurationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AnalyzerArchiveRuleArgsDict(TypedDict):
-        """
-        An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
-        """
-        filter: pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgsDict']]]
-        """
-        The criteria for the rule.
-        """
-        rule_name: pulumi.Input[str]
-        """
-        The archive rule name
-        """
-elif False:
-    AnalyzerArchiveRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyzerArchiveRuleArgs:
@@ -81,18 +54,6 @@ class AnalyzerArchiveRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
-if not MYPY:
-    class AnalyzerConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration for the analyzer
-        """
-        unused_access_configuration: NotRequired[pulumi.Input['AnalyzerUnusedAccessConfigurationArgsDict']]
-        """
-        Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
-        """
-elif False:
-    AnalyzerConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnalyzerConfigurationPropertiesArgs:
     def __init__(__self__, *,
@@ -116,31 +77,6 @@ class AnalyzerConfigurationPropertiesArgs:
     def unused_access_configuration(self, value: Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']]):
         pulumi.set(self, "unused_access_configuration", value)
 
-
-if not MYPY:
-    class AnalyzerFilterArgsDict(TypedDict):
-        property: pulumi.Input[str]
-        """
-        The property used to define the criteria in the filter for the rule.
-        """
-        contains: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A "contains" condition to match for the rule.
-        """
-        eq: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        An "equals" condition to match for the rule.
-        """
-        exists: NotRequired[pulumi.Input[bool]]
-        """
-        An "exists" condition to match for the rule.
-        """
-        neq: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A "not equal" condition to match for the rule.
-        """
-elif False:
-    AnalyzerFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyzerFilterArgs:
@@ -227,18 +163,6 @@ class AnalyzerFilterArgs:
     def property(self, value: pulumi.Input[str]):
         pulumi.set(self, "property", value)
 
-
-if not MYPY:
-    class AnalyzerUnusedAccessConfigurationArgsDict(TypedDict):
-        """
-        The Configuration for Unused Access Analyzer
-        """
-        unused_access_age: NotRequired[pulumi.Input[int]]
-        """
-        The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
-        """
-elif False:
-    AnalyzerUnusedAccessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyzerUnusedAccessConfigurationArgs:

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -117,6 +112,9 @@ def get_cross_account_attachment(attachment_arn: Optional[str] = None,
         principals=pulumi.get(__ret__, 'principals'),
         resources=pulumi.get(__ret__, 'resources'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_cross_account_attachment)
 def get_cross_account_attachment_output(attachment_arn: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrossAccountAttachmentResult]:
     """
@@ -125,13 +123,4 @@ def get_cross_account_attachment_output(attachment_arn: Optional[pulumi.Input[st
 
     :param str attachment_arn: The Amazon Resource Name (ARN) of the attachment.
     """
-    __args__ = dict()
-    __args__['attachmentArn'] = attachment_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:globalaccelerator:getCrossAccountAttachment', __args__, opts=opts, typ=GetCrossAccountAttachmentResult)
-    return __ret__.apply(lambda __response__: GetCrossAccountAttachmentResult(
-        attachment_arn=pulumi.get(__response__, 'attachment_arn'),
-        name=pulumi.get(__response__, 'name'),
-        principals=pulumi.get(__response__, 'principals'),
-        resources=pulumi.get(__response__, 'resources'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

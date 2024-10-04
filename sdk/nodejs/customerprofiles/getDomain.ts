@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A domain defined for 3rd party data source in Profile Service
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:customerprofiles:getDomain", {
         "domainName": args.domainName,
@@ -63,10 +64,7 @@ export interface GetDomainResult {
  * A domain defined for 3rd party data source in Profile Service
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:customerprofiles:getDomain", {
-        "domainName": args.domainName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

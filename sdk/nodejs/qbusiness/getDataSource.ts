@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::QBusiness::DataSource Resource Type
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:qbusiness:getDataSource", {
         "applicationId": args.applicationId,
@@ -107,12 +108,7 @@ export interface GetDataSourceResult {
  * Definition of AWS::QBusiness::DataSource Resource Type
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:qbusiness:getDataSource", {
-        "applicationId": args.applicationId,
-        "dataSourceId": args.dataSourceId,
-        "indexId": args.indexId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
 }
 
 export interface GetDataSourceOutputArgs {

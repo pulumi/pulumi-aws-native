@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -155,6 +150,9 @@ def get_security_profile(security_profile_name: Optional[str] = None,
         security_profile_description=pulumi.get(__ret__, 'security_profile_description'),
         tags=pulumi.get(__ret__, 'tags'),
         target_arns=pulumi.get(__ret__, 'target_arns'))
+
+
+@_utilities.lift_output_func(get_security_profile)
 def get_security_profile_output(security_profile_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
@@ -163,16 +161,4 @@ def get_security_profile_output(security_profile_name: Optional[pulumi.Input[str
 
     :param str security_profile_name: A unique identifier for the security profile.
     """
-    __args__ = dict()
-    __args__['securityProfileName'] = security_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getSecurityProfile', __args__, opts=opts, typ=GetSecurityProfileResult)
-    return __ret__.apply(lambda __response__: GetSecurityProfileResult(
-        additional_metrics_to_retain_v2=pulumi.get(__response__, 'additional_metrics_to_retain_v2'),
-        alert_targets=pulumi.get(__response__, 'alert_targets'),
-        behaviors=pulumi.get(__response__, 'behaviors'),
-        metrics_export_config=pulumi.get(__response__, 'metrics_export_config'),
-        security_profile_arn=pulumi.get(__response__, 'security_profile_arn'),
-        security_profile_description=pulumi.get(__response__, 'security_profile_description'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_arns=pulumi.get(__response__, 'target_arns')))
+    ...

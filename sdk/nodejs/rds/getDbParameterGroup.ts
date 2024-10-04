@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *   Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
  */
 export function getDbParameterGroup(args: GetDbParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDbParameterGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDbParameterGroup", {
         "dbParameterGroupName": args.dbParameterGroupName,
@@ -57,10 +58,7 @@ export interface GetDbParameterGroupResult {
  *   Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
  */
 export function getDbParameterGroupOutput(args: GetDbParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbParameterGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:rds:getDbParameterGroup", {
-        "dbParameterGroupName": args.dbParameterGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDbParameterGroup(a, opts))
 }
 
 export interface GetDbParameterGroupOutputArgs {

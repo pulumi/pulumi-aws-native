@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -132,6 +127,9 @@ def get_mail_manager_archive(archive_id: Optional[str] = None,
         archive_state=pulumi.get(__ret__, 'archive_state'),
         retention=pulumi.get(__ret__, 'retention'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_mail_manager_archive)
 def get_mail_manager_archive_output(archive_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerArchiveResult]:
     """
@@ -140,14 +138,4 @@ def get_mail_manager_archive_output(archive_id: Optional[pulumi.Input[str]] = No
 
     :param str archive_id: The unique identifier of the archive.
     """
-    __args__ = dict()
-    __args__['archiveId'] = archive_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerArchive', __args__, opts=opts, typ=GetMailManagerArchiveResult)
-    return __ret__.apply(lambda __response__: GetMailManagerArchiveResult(
-        archive_arn=pulumi.get(__response__, 'archive_arn'),
-        archive_id=pulumi.get(__response__, 'archive_id'),
-        archive_name=pulumi.get(__response__, 'archive_name'),
-        archive_state=pulumi.get(__response__, 'archive_state'),
-        retention=pulumi.get(__response__, 'retention'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

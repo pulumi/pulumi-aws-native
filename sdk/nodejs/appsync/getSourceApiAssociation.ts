@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::SourceApiAssociation
  */
 export function getSourceApiAssociation(args: GetSourceApiAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceApiAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getSourceApiAssociation", {
         "associationArn": args.associationArn,
@@ -74,10 +75,7 @@ export interface GetSourceApiAssociationResult {
  * Resource Type definition for AWS::AppSync::SourceApiAssociation
  */
 export function getSourceApiAssociationOutput(args: GetSourceApiAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceApiAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:appsync:getSourceApiAssociation", {
-        "associationArn": args.associationArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSourceApiAssociation(a, opts))
 }
 
 export interface GetSourceApiAssociationOutputArgs {

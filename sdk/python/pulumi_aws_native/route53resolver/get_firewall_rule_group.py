@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -207,6 +202,9 @@ def get_firewall_rule_group(id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_firewall_rule_group)
 def get_firewall_rule_group_output(id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleGroupResult]:
     """
@@ -215,20 +213,4 @@ def get_firewall_rule_group_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: ResourceId
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getFirewallRuleGroup', __args__, opts=opts, typ=GetFirewallRuleGroupResult)
-    return __ret__.apply(lambda __response__: GetFirewallRuleGroupResult(
-        arn=pulumi.get(__response__, 'arn'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        creator_request_id=pulumi.get(__response__, 'creator_request_id'),
-        firewall_rules=pulumi.get(__response__, 'firewall_rules'),
-        id=pulumi.get(__response__, 'id'),
-        modification_time=pulumi.get(__response__, 'modification_time'),
-        owner_id=pulumi.get(__response__, 'owner_id'),
-        rule_count=pulumi.get(__response__, 'rule_count'),
-        share_status=pulumi.get(__response__, 'share_status'),
-        status=pulumi.get(__response__, 'status'),
-        status_message=pulumi.get(__response__, 'status_message'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

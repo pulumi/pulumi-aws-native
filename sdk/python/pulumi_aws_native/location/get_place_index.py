@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -167,6 +162,9 @@ def get_place_index(index_name: Optional[str] = None,
         pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
+
+
+@_utilities.lift_output_func(get_place_index)
 def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
@@ -181,16 +179,4 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
            - Must be a unique place index resource name.
            - No spaces allowed. For example, `ExamplePlaceIndex` .
     """
-    __args__ = dict()
-    __args__['indexName'] = index_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:location:getPlaceIndex', __args__, opts=opts, typ=GetPlaceIndexResult)
-    return __ret__.apply(lambda __response__: GetPlaceIndexResult(
-        arn=pulumi.get(__response__, 'arn'),
-        create_time=pulumi.get(__response__, 'create_time'),
-        data_source_configuration=pulumi.get(__response__, 'data_source_configuration'),
-        description=pulumi.get(__response__, 'description'),
-        index_arn=pulumi.get(__response__, 'index_arn'),
-        pricing_plan=pulumi.get(__response__, 'pricing_plan'),
-        tags=pulumi.get(__response__, 'tags'),
-        update_time=pulumi.get(__response__, 'update_time')))
+    ...

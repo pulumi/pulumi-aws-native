@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Detective::OrganizationAdmin
  */
 export function getOrganizationAdmin(args: GetOrganizationAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationAdminResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:detective:getOrganizationAdmin", {
         "accountId": args.accountId,
@@ -31,10 +32,7 @@ export interface GetOrganizationAdminResult {
  * Resource schema for AWS::Detective::OrganizationAdmin
  */
 export function getOrganizationAdminOutput(args: GetOrganizationAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationAdminResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:detective:getOrganizationAdmin", {
-        "accountId": args.accountId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOrganizationAdmin(a, opts))
 }
 
 export interface GetOrganizationAdminOutputArgs {

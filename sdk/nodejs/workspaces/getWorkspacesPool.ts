@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WorkSpaces::WorkspacesPool
  */
 export function getWorkspacesPool(args: GetWorkspacesPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacesPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspaces:getWorkspacesPool", {
         "poolId": args.poolId,
@@ -66,10 +67,7 @@ export interface GetWorkspacesPoolResult {
  * Resource Type definition for AWS::WorkSpaces::WorkspacesPool
  */
 export function getWorkspacesPoolOutput(args: GetWorkspacesPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacesPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:workspaces:getWorkspacesPool", {
-        "poolId": args.poolId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkspacesPool(a, opts))
 }
 
 export interface GetWorkspacesPoolOutputArgs {

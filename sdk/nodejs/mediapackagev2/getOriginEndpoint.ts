@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
  */
 export function getOriginEndpoint(args: GetOriginEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackagev2:getOriginEndpoint", {
         "arn": args.arn,
@@ -78,10 +79,7 @@ export interface GetOriginEndpointResult {
  * <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
  */
 export function getOriginEndpointOutput(args: GetOriginEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:mediapackagev2:getOriginEndpoint", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOriginEndpoint(a, opts))
 }
 
 export interface GetOriginEndpointOutputArgs {

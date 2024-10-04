@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Pipes::Pipe Resource Type
  */
 export function getPipe(args: GetPipeArgs, opts?: pulumi.InvokeOptions): Promise<GetPipeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pipes:getPipe", {
         "name": args.name,
@@ -92,10 +93,7 @@ export interface GetPipeResult {
  * Definition of AWS::Pipes::Pipe Resource Type
  */
 export function getPipeOutput(args: GetPipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:pipes:getPipe", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPipe(a, opts))
 }
 
 export interface GetPipeOutputArgs {

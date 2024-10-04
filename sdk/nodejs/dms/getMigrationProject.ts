@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DMS::MigrationProject
  */
 export function getMigrationProject(args: GetMigrationProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationProjectResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dms:getMigrationProject", {
         "migrationProjectArn": args.migrationProjectArn,
@@ -74,10 +75,7 @@ export interface GetMigrationProjectResult {
  * Resource schema for AWS::DMS::MigrationProject
  */
 export function getMigrationProjectOutput(args: GetMigrationProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationProjectResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:dms:getMigrationProject", {
-        "migrationProjectArn": args.migrationProjectArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMigrationProject(a, opts))
 }
 
 export interface GetMigrationProjectOutputArgs {

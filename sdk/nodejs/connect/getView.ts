@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::View
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getView", {
         "viewArn": args.viewArn,
@@ -68,10 +69,7 @@ export interface GetViewResult {
  * Resource Type definition for AWS::Connect::View
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:connect:getView", {
-        "viewArn": args.viewArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getView(a, opts))
 }
 
 export interface GetViewOutputArgs {

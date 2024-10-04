@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -114,6 +109,9 @@ def get_backup_plan(backup_plan_id: Optional[str] = None,
         backup_plan_id=pulumi.get(__ret__, 'backup_plan_id'),
         backup_plan_tags=pulumi.get(__ret__, 'backup_plan_tags'),
         version_id=pulumi.get(__ret__, 'version_id'))
+
+
+@_utilities.lift_output_func(get_backup_plan)
 def get_backup_plan_output(backup_plan_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPlanResult]:
     """
@@ -122,13 +120,4 @@ def get_backup_plan_output(backup_plan_id: Optional[pulumi.Input[str]] = None,
 
     :param str backup_plan_id: Uniquely identifies a backup plan.
     """
-    __args__ = dict()
-    __args__['backupPlanId'] = backup_plan_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getBackupPlan', __args__, opts=opts, typ=GetBackupPlanResult)
-    return __ret__.apply(lambda __response__: GetBackupPlanResult(
-        backup_plan=pulumi.get(__response__, 'backup_plan'),
-        backup_plan_arn=pulumi.get(__response__, 'backup_plan_arn'),
-        backup_plan_id=pulumi.get(__response__, 'backup_plan_id'),
-        backup_plan_tags=pulumi.get(__response__, 'backup_plan_tags'),
-        version_id=pulumi.get(__response__, 'version_id')))
+    ...

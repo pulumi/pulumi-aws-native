@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Scheduler::ScheduleGroup Resource Type
  */
 export function getScheduleGroup(args: GetScheduleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:scheduler:getScheduleGroup", {
         "name": args.name,
@@ -52,10 +53,7 @@ export interface GetScheduleGroupResult {
  * Definition of AWS::Scheduler::ScheduleGroup Resource Type
  */
 export function getScheduleGroupOutput(args: GetScheduleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:scheduler:getScheduleGroup", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScheduleGroup(a, opts))
 }
 
 export interface GetScheduleGroupOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -89,6 +84,9 @@ def get_training_dataset(training_dataset_arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         training_dataset_arn=pulumi.get(__ret__, 'training_dataset_arn'))
+
+
+@_utilities.lift_output_func(get_training_dataset)
 def get_training_dataset_output(training_dataset_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrainingDatasetResult]:
     """
@@ -97,11 +95,4 @@ def get_training_dataset_output(training_dataset_arn: Optional[pulumi.Input[str]
 
     :param str training_dataset_arn: The Amazon Resource Name (ARN) of the training dataset.
     """
-    __args__ = dict()
-    __args__['trainingDatasetArn'] = training_dataset_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cleanroomsml:getTrainingDataset', __args__, opts=opts, typ=GetTrainingDatasetResult)
-    return __ret__.apply(lambda __response__: GetTrainingDatasetResult(
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        training_dataset_arn=pulumi.get(__response__, 'training_dataset_arn')))
+    ...

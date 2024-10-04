@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
  */
 export function getUserPoolIdentityProvider(args: GetUserPoolIdentityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolIdentityProviderResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolIdentityProvider", {
         "id": args.id,
@@ -75,10 +76,7 @@ export interface GetUserPoolIdentityProviderResult {
  * Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
  */
 export function getUserPoolIdentityProviderOutput(args: GetUserPoolIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolIdentityProviderResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolIdentityProvider", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUserPoolIdentityProvider(a, opts))
 }
 
 export interface GetUserPoolIdentityProviderOutputArgs {

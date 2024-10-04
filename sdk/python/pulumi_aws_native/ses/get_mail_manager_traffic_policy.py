@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -144,6 +139,9 @@ def get_mail_manager_traffic_policy(traffic_policy_id: Optional[str] = None,
         traffic_policy_arn=pulumi.get(__ret__, 'traffic_policy_arn'),
         traffic_policy_id=pulumi.get(__ret__, 'traffic_policy_id'),
         traffic_policy_name=pulumi.get(__ret__, 'traffic_policy_name'))
+
+
+@_utilities.lift_output_func(get_mail_manager_traffic_policy)
 def get_mail_manager_traffic_policy_output(traffic_policy_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerTrafficPolicyResult]:
     """
@@ -152,15 +150,4 @@ def get_mail_manager_traffic_policy_output(traffic_policy_id: Optional[pulumi.In
 
     :param str traffic_policy_id: The identifier of the traffic policy resource.
     """
-    __args__ = dict()
-    __args__['trafficPolicyId'] = traffic_policy_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerTrafficPolicy', __args__, opts=opts, typ=GetMailManagerTrafficPolicyResult)
-    return __ret__.apply(lambda __response__: GetMailManagerTrafficPolicyResult(
-        default_action=pulumi.get(__response__, 'default_action'),
-        max_message_size_bytes=pulumi.get(__response__, 'max_message_size_bytes'),
-        policy_statements=pulumi.get(__response__, 'policy_statements'),
-        tags=pulumi.get(__response__, 'tags'),
-        traffic_policy_arn=pulumi.get(__response__, 'traffic_policy_arn'),
-        traffic_policy_id=pulumi.get(__response__, 'traffic_policy_id'),
-        traffic_policy_name=pulumi.get(__response__, 'traffic_policy_name')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -107,6 +102,9 @@ def get_warm_pool(auto_scaling_group_name: Optional[str] = None,
         max_group_prepared_capacity=pulumi.get(__ret__, 'max_group_prepared_capacity'),
         min_size=pulumi.get(__ret__, 'min_size'),
         pool_state=pulumi.get(__ret__, 'pool_state'))
+
+
+@_utilities.lift_output_func(get_warm_pool)
 def get_warm_pool_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWarmPoolResult]:
     """
@@ -115,12 +113,4 @@ def get_warm_pool_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = 
 
     :param str auto_scaling_group_name: The name of the Auto Scaling group.
     """
-    __args__ = dict()
-    __args__['autoScalingGroupName'] = auto_scaling_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getWarmPool', __args__, opts=opts, typ=GetWarmPoolResult)
-    return __ret__.apply(lambda __response__: GetWarmPoolResult(
-        instance_reuse_policy=pulumi.get(__response__, 'instance_reuse_policy'),
-        max_group_prepared_capacity=pulumi.get(__response__, 'max_group_prepared_capacity'),
-        min_size=pulumi.get(__response__, 'min_size'),
-        pool_state=pulumi.get(__response__, 'pool_state')))
+    ...

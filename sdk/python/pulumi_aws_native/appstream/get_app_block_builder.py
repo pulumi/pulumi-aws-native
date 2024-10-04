@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -181,6 +176,9 @@ def get_app_block_builder(name: Optional[str] = None,
         instance_type=pulumi.get(__ret__, 'instance_type'),
         platform=pulumi.get(__ret__, 'platform'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
+
+
+@_utilities.lift_output_func(get_app_block_builder)
 def get_app_block_builder_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppBlockBuilderResult]:
     """
@@ -189,18 +187,4 @@ def get_app_block_builder_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the app block builder.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appstream:getAppBlockBuilder', __args__, opts=opts, typ=GetAppBlockBuilderResult)
-    return __ret__.apply(lambda __response__: GetAppBlockBuilderResult(
-        access_endpoints=pulumi.get(__response__, 'access_endpoints'),
-        arn=pulumi.get(__response__, 'arn'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        enable_default_internet_access=pulumi.get(__response__, 'enable_default_internet_access'),
-        iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
-        instance_type=pulumi.get(__response__, 'instance_type'),
-        platform=pulumi.get(__response__, 'platform'),
-        vpc_config=pulumi.get(__response__, 'vpc_config')))
+    ...

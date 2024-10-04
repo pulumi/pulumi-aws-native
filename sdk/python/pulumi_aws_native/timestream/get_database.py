@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -88,6 +83,9 @@ def get_database(database_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_database)
 def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
@@ -96,11 +94,4 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
 
     :param str database_name: The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
     """
-    __args__ = dict()
-    __args__['databaseName'] = database_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:timestream:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
-    return __ret__.apply(lambda __response__: GetDatabaseResult(
-        arn=pulumi.get(__response__, 'arn'),
-        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -170,6 +165,9 @@ def get_bot_alias(bot_alias_id: Optional[str] = None,
         conversation_log_settings=pulumi.get(__ret__, 'conversation_log_settings'),
         description=pulumi.get(__ret__, 'description'),
         sentiment_analysis_settings=pulumi.get(__ret__, 'sentiment_analysis_settings'))
+
+
+@_utilities.lift_output_func(get_bot_alias)
 def get_bot_alias_output(bot_alias_id: Optional[pulumi.Input[str]] = None,
                          bot_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotAliasResult]:
@@ -180,18 +178,4 @@ def get_bot_alias_output(bot_alias_id: Optional[pulumi.Input[str]] = None,
     :param str bot_alias_id: The unique identifier of the bot alias.
     :param str bot_id: The unique identifier of the bot.
     """
-    __args__ = dict()
-    __args__['botAliasId'] = bot_alias_id
-    __args__['botId'] = bot_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lex:getBotAlias', __args__, opts=opts, typ=GetBotAliasResult)
-    return __ret__.apply(lambda __response__: GetBotAliasResult(
-        arn=pulumi.get(__response__, 'arn'),
-        bot_alias_id=pulumi.get(__response__, 'bot_alias_id'),
-        bot_alias_locale_settings=pulumi.get(__response__, 'bot_alias_locale_settings'),
-        bot_alias_name=pulumi.get(__response__, 'bot_alias_name'),
-        bot_alias_status=pulumi.get(__response__, 'bot_alias_status'),
-        bot_version=pulumi.get(__response__, 'bot_version'),
-        conversation_log_settings=pulumi.get(__response__, 'conversation_log_settings'),
-        description=pulumi.get(__response__, 'description'),
-        sentiment_analysis_settings=pulumi.get(__response__, 'sentiment_analysis_settings')))
+    ...

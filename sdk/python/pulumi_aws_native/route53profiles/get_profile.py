@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -101,6 +96,9 @@ def get_profile(id: Optional[str] = None,
         client_token=pulumi.get(__ret__, 'client_token'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_profile)
 def get_profile_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
@@ -109,12 +107,4 @@ def get_profile_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the profile.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53profiles:getProfile', __args__, opts=opts, typ=GetProfileResult)
-    return __ret__.apply(lambda __response__: GetProfileResult(
-        arn=pulumi.get(__response__, 'arn'),
-        client_token=pulumi.get(__response__, 'client_token'),
-        id=pulumi.get(__response__, 'id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

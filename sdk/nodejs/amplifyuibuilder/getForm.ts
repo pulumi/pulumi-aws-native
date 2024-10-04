@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::AmplifyUIBuilder::Form Resource Type
  */
 export function getForm(args: GetFormArgs, opts?: pulumi.InvokeOptions): Promise<GetFormResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amplifyuibuilder:getForm", {
         "appId": args.appId,
@@ -84,12 +85,7 @@ export interface GetFormResult {
  * Definition of AWS::AmplifyUIBuilder::Form Resource Type
  */
 export function getFormOutput(args: GetFormOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:amplifyuibuilder:getForm", {
-        "appId": args.appId,
-        "environmentName": args.environmentName,
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getForm(a, opts))
 }
 
 export interface GetFormOutputArgs {

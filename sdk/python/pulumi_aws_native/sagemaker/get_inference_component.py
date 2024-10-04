@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -195,6 +190,9 @@ def get_inference_component(inference_component_arn: Optional[str] = None,
         specification=pulumi.get(__ret__, 'specification'),
         tags=pulumi.get(__ret__, 'tags'),
         variant_name=pulumi.get(__ret__, 'variant_name'))
+
+
+@_utilities.lift_output_func(get_inference_component)
 def get_inference_component_output(inference_component_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceComponentResult]:
     """
@@ -203,20 +201,4 @@ def get_inference_component_output(inference_component_arn: Optional[pulumi.Inpu
 
     :param str inference_component_arn: The Amazon Resource Name (ARN) of the inference component.
     """
-    __args__ = dict()
-    __args__['inferenceComponentArn'] = inference_component_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getInferenceComponent', __args__, opts=opts, typ=GetInferenceComponentResult)
-    return __ret__.apply(lambda __response__: GetInferenceComponentResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        endpoint_arn=pulumi.get(__response__, 'endpoint_arn'),
-        endpoint_name=pulumi.get(__response__, 'endpoint_name'),
-        failure_reason=pulumi.get(__response__, 'failure_reason'),
-        inference_component_arn=pulumi.get(__response__, 'inference_component_arn'),
-        inference_component_name=pulumi.get(__response__, 'inference_component_name'),
-        inference_component_status=pulumi.get(__response__, 'inference_component_status'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        runtime_config=pulumi.get(__response__, 'runtime_config'),
-        specification=pulumi.get(__response__, 'specification'),
-        tags=pulumi.get(__response__, 'tags'),
-        variant_name=pulumi.get(__response__, 'variant_name')))
+    ...

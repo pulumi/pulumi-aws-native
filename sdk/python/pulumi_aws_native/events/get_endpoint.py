@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -182,6 +177,9 @@ def get_endpoint(name: Optional[str] = None,
         routing_config=pulumi.get(__ret__, 'routing_config'),
         state=pulumi.get(__ret__, 'state'),
         state_reason=pulumi.get(__ret__, 'state_reason'))
+
+
+@_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
@@ -190,18 +188,4 @@ def get_endpoint_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the endpoint.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:events:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
-    return __ret__.apply(lambda __response__: GetEndpointResult(
-        arn=pulumi.get(__response__, 'arn'),
-        description=pulumi.get(__response__, 'description'),
-        endpoint_id=pulumi.get(__response__, 'endpoint_id'),
-        endpoint_url=pulumi.get(__response__, 'endpoint_url'),
-        event_buses=pulumi.get(__response__, 'event_buses'),
-        replication_config=pulumi.get(__response__, 'replication_config'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        routing_config=pulumi.get(__response__, 'routing_config'),
-        state=pulumi.get(__response__, 'state'),
-        state_reason=pulumi.get(__response__, 'state_reason')))
+    ...

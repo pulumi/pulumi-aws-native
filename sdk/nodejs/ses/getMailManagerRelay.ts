@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::SES::MailManagerRelay Resource Type
  */
 export function getMailManagerRelay(args: GetMailManagerRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetMailManagerRelayResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getMailManagerRelay", {
         "relayId": args.relayId,
@@ -58,10 +59,7 @@ export interface GetMailManagerRelayResult {
  * Definition of AWS::SES::MailManagerRelay Resource Type
  */
 export function getMailManagerRelayOutput(args: GetMailManagerRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerRelayResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerRelay", {
-        "relayId": args.relayId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMailManagerRelay(a, opts))
 }
 
 export interface GetMailManagerRelayOutputArgs {

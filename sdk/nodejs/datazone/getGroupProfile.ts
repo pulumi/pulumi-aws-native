@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Group profiles represent groups of Amazon DataZone users. Groups can be manually created, or mapped to Active Directory groups of enterprise customers. In Amazon DataZone, groups serve two purposes. First, a group can map to a team of users in the organizational chart, and thus reduce the administrative work of a Amazon DataZone project owner when there are new employees joining or leaving a team. Second, corporate administrators use Active Directory groups to manage and update user statuses and so Amazon DataZone domain administrators can use these group memberships to implement Amazon DataZone domain policies.
  */
 export function getGroupProfile(args: GetGroupProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getGroupProfile", {
         "domainId": args.domainId,
@@ -51,11 +52,7 @@ export interface GetGroupProfileResult {
  * Group profiles represent groups of Amazon DataZone users. Groups can be manually created, or mapped to Active Directory groups of enterprise customers. In Amazon DataZone, groups serve two purposes. First, a group can map to a team of users in the organizational chart, and thus reduce the administrative work of a Amazon DataZone project owner when there are new employees joining or leaving a team. Second, corporate administrators use Active Directory groups to manage and update user statuses and so Amazon DataZone domain administrators can use these group memberships to implement Amazon DataZone domain policies.
  */
 export function getGroupProfileOutput(args: GetGroupProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datazone:getGroupProfile", {
-        "domainId": args.domainId,
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGroupProfile(a, opts))
 }
 
 export interface GetGroupProfileOutputArgs {

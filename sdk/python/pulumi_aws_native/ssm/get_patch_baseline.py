@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -233,6 +228,9 @@ def get_patch_baseline(id: Optional[str] = None,
         rejected_patches_action=pulumi.get(__ret__, 'rejected_patches_action'),
         sources=pulumi.get(__ret__, 'sources'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_patch_baseline)
 def get_patch_baseline_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
@@ -241,22 +239,4 @@ def get_patch_baseline_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the patch baseline.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getPatchBaseline', __args__, opts=opts, typ=GetPatchBaselineResult)
-    return __ret__.apply(lambda __response__: GetPatchBaselineResult(
-        approval_rules=pulumi.get(__response__, 'approval_rules'),
-        approved_patches=pulumi.get(__response__, 'approved_patches'),
-        approved_patches_compliance_level=pulumi.get(__response__, 'approved_patches_compliance_level'),
-        approved_patches_enable_non_security=pulumi.get(__response__, 'approved_patches_enable_non_security'),
-        default_baseline=pulumi.get(__response__, 'default_baseline'),
-        description=pulumi.get(__response__, 'description'),
-        global_filters=pulumi.get(__response__, 'global_filters'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        patch_groups=pulumi.get(__response__, 'patch_groups'),
-        rejected_patches=pulumi.get(__response__, 'rejected_patches'),
-        rejected_patches_action=pulumi.get(__response__, 'rejected_patches_action'),
-        sources=pulumi.get(__response__, 'sources'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

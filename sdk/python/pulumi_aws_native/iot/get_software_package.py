@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -82,16 +77,12 @@ def get_software_package(package_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         package_arn=pulumi.get(__ret__, 'package_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_software_package)
 def get_software_package_output(package_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoftwarePackageResult]:
     """
     resource definition
     """
-    __args__ = dict()
-    __args__['packageName'] = package_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getSoftwarePackage', __args__, opts=opts, typ=GetSoftwarePackageResult)
-    return __ret__.apply(lambda __response__: GetSoftwarePackageResult(
-        description=pulumi.get(__response__, 'description'),
-        package_arn=pulumi.get(__response__, 'package_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

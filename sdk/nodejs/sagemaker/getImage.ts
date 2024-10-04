@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::Image
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getImage", {
         "imageArn": args.imageArn,
@@ -70,10 +71,7 @@ export interface GetImageResult {
  * Resource Type definition for AWS::SageMaker::Image
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getImage", {
-        "imageArn": args.imageArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }
 
 export interface GetImageOutputArgs {

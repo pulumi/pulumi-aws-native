@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Creates an AWS Firewall Manager resource set.
  */
 export function getResourceSet(args: GetResourceSetArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:fms:getResourceSet", {
         "id": args.id,
@@ -48,10 +49,7 @@ export interface GetResourceSetResult {
  * Creates an AWS Firewall Manager resource set.
  */
 export function getResourceSetOutput(args: GetResourceSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:fms:getResourceSet", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getResourceSet(a, opts))
 }
 
 export interface GetResourceSetOutputArgs {

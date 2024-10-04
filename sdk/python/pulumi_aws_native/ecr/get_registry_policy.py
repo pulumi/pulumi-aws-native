@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -77,6 +72,9 @@ def get_registry_policy(registry_id: Optional[str] = None,
     return AwaitableGetRegistryPolicyResult(
         policy_text=pulumi.get(__ret__, 'policy_text'),
         registry_id=pulumi.get(__ret__, 'registry_id'))
+
+
+@_utilities.lift_output_func(get_registry_policy)
 def get_registry_policy_output(registry_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryPolicyResult]:
     """
@@ -86,10 +84,4 @@ def get_registry_policy_output(registry_id: Optional[pulumi.Input[str]] = None,
 
     :param str registry_id: The account ID of the private registry the policy is associated with.
     """
-    __args__ = dict()
-    __args__['registryId'] = registry_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ecr:getRegistryPolicy', __args__, opts=opts, typ=GetRegistryPolicyResult)
-    return __ret__.apply(lambda __response__: GetRegistryPolicyResult(
-        policy_text=pulumi.get(__response__, 'policy_text'),
-        registry_id=pulumi.get(__response__, 'registry_id')))
+    ...

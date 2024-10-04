@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A calculated attribute definition for Customer Profiles
  */
 export function getCalculatedAttributeDefinition(args: GetCalculatedAttributeDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetCalculatedAttributeDefinitionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:customerprofiles:getCalculatedAttributeDefinition", {
         "calculatedAttributeName": args.calculatedAttributeName,
@@ -67,11 +68,7 @@ export interface GetCalculatedAttributeDefinitionResult {
  * A calculated attribute definition for Customer Profiles
  */
 export function getCalculatedAttributeDefinitionOutput(args: GetCalculatedAttributeDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCalculatedAttributeDefinitionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:customerprofiles:getCalculatedAttributeDefinition", {
-        "calculatedAttributeName": args.calculatedAttributeName,
-        "domainName": args.domainName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCalculatedAttributeDefinition(a, opts))
 }
 
 export interface GetCalculatedAttributeDefinitionOutputArgs {

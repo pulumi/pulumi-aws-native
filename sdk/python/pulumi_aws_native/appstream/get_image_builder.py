@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -268,6 +263,9 @@ def get_image_builder(name: Optional[str] = None,
         streaming_url=pulumi.get(__ret__, 'streaming_url'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
+
+
+@_utilities.lift_output_func(get_image_builder)
 def get_image_builder_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageBuilderResult]:
     """
@@ -276,22 +274,4 @@ def get_image_builder_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: A unique name for the image builder.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appstream:getImageBuilder', __args__, opts=opts, typ=GetImageBuilderResult)
-    return __ret__.apply(lambda __response__: GetImageBuilderResult(
-        access_endpoints=pulumi.get(__response__, 'access_endpoints'),
-        appstream_agent_version=pulumi.get(__response__, 'appstream_agent_version'),
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        domain_join_info=pulumi.get(__response__, 'domain_join_info'),
-        enable_default_internet_access=pulumi.get(__response__, 'enable_default_internet_access'),
-        iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
-        image_arn=pulumi.get(__response__, 'image_arn'),
-        image_name=pulumi.get(__response__, 'image_name'),
-        instance_type=pulumi.get(__response__, 'instance_type'),
-        name=pulumi.get(__response__, 'name'),
-        streaming_url=pulumi.get(__response__, 'streaming_url'),
-        tags=pulumi.get(__response__, 'tags'),
-        vpc_config=pulumi.get(__response__, 'vpc_config')))
+    ...

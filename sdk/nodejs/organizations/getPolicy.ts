@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization.  You can use policies when all features are enabled in your organization.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:organizations:getPolicy", {
         "id": args.id,
@@ -64,10 +65,7 @@ export interface GetPolicyResult {
  * Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization.  You can use policies when all features are enabled in your organization.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:organizations:getPolicy", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }
 
 export interface GetPolicyOutputArgs {

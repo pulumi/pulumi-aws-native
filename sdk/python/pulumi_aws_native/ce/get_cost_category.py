@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -127,6 +122,9 @@ def get_cost_category(arn: Optional[str] = None,
         rule_version=pulumi.get(__ret__, 'rule_version'),
         rules=pulumi.get(__ret__, 'rules'),
         split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'))
+
+
+@_utilities.lift_output_func(get_cost_category)
 def get_cost_category_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
@@ -135,14 +133,4 @@ def get_cost_category_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Cost category ARN
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ce:getCostCategory', __args__, opts=opts, typ=GetCostCategoryResult)
-    return __ret__.apply(lambda __response__: GetCostCategoryResult(
-        arn=pulumi.get(__response__, 'arn'),
-        default_value=pulumi.get(__response__, 'default_value'),
-        effective_start=pulumi.get(__response__, 'effective_start'),
-        rule_version=pulumi.get(__response__, 'rule_version'),
-        rules=pulumi.get(__response__, 'rules'),
-        split_charge_rules=pulumi.get(__response__, 'split_charge_rules')))
+    ...

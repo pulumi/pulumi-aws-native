@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Cassandra::Table
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cassandra:getTable", {
         "keyspaceName": args.keyspaceName,
@@ -71,11 +72,7 @@ export interface GetTableResult {
  * Resource schema for AWS::Cassandra::Table
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cassandra:getTable", {
-        "keyspaceName": args.keyspaceName,
-        "tableName": args.tableName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }
 
 export interface GetTableOutputArgs {

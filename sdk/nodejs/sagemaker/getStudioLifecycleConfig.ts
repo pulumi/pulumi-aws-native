@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
  */
 export function getStudioLifecycleConfig(args: GetStudioLifecycleConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioLifecycleConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getStudioLifecycleConfig", {
         "studioLifecycleConfigName": args.studioLifecycleConfigName,
@@ -31,10 +32,7 @@ export interface GetStudioLifecycleConfigResult {
  * Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
  */
 export function getStudioLifecycleConfigOutput(args: GetStudioLifecycleConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioLifecycleConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getStudioLifecycleConfig", {
-        "studioLifecycleConfigName": args.studioLifecycleConfigName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStudioLifecycleConfig(a, opts))
 }
 
 export interface GetStudioLifecycleConfigOutputArgs {

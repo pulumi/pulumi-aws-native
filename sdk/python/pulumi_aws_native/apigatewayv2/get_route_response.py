@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -122,6 +117,9 @@ def get_route_response(api_id: Optional[str] = None,
         response_parameters=pulumi.get(__ret__, 'response_parameters'),
         route_response_id=pulumi.get(__ret__, 'route_response_id'),
         route_response_key=pulumi.get(__ret__, 'route_response_key'))
+
+
+@_utilities.lift_output_func(get_route_response)
 def get_route_response_output(api_id: Optional[pulumi.Input[str]] = None,
                               route_id: Optional[pulumi.Input[str]] = None,
                               route_response_id: Optional[pulumi.Input[str]] = None,
@@ -134,15 +132,4 @@ def get_route_response_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str route_id: The route ID.
     :param str route_response_id: The route response ID.
     """
-    __args__ = dict()
-    __args__['apiId'] = api_id
-    __args__['routeId'] = route_id
-    __args__['routeResponseId'] = route_response_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getRouteResponse', __args__, opts=opts, typ=GetRouteResponseResult)
-    return __ret__.apply(lambda __response__: GetRouteResponseResult(
-        model_selection_expression=pulumi.get(__response__, 'model_selection_expression'),
-        response_models=pulumi.get(__response__, 'response_models'),
-        response_parameters=pulumi.get(__response__, 'response_parameters'),
-        route_response_id=pulumi.get(__response__, 'route_response_id'),
-        route_response_key=pulumi.get(__response__, 'route_response_key')))
+    ...

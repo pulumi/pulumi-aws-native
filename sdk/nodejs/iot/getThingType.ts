@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT::ThingType
  */
 export function getThingType(args: GetThingTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetThingTypeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getThingType", {
         "thingTypeName": args.thingTypeName,
@@ -48,10 +49,7 @@ export interface GetThingTypeResult {
  * Resource Type definition for AWS::IoT::ThingType
  */
 export function getThingTypeOutput(args: GetThingTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThingTypeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getThingType", {
-        "thingTypeName": args.thingTypeName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getThingType(a, opts))
 }
 
 export interface GetThingTypeOutputArgs {

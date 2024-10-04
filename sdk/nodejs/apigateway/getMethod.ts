@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
  */
 export function getMethod(args: GetMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetMethodResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getMethod", {
         "httpMethod": args.httpMethod,
@@ -81,12 +82,7 @@ export interface GetMethodResult {
  * The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
  */
 export function getMethodOutput(args: GetMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMethodResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:apigateway:getMethod", {
-        "httpMethod": args.httpMethod,
-        "resourceId": args.resourceId,
-        "restApiId": args.restApiId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMethod(a, opts))
 }
 
 export interface GetMethodOutputArgs {

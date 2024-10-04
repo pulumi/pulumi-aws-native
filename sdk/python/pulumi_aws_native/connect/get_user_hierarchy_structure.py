@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -75,6 +70,9 @@ def get_user_hierarchy_structure(user_hierarchy_structure_arn: Optional[str] = N
     return AwaitableGetUserHierarchyStructureResult(
         user_hierarchy_structure=pulumi.get(__ret__, 'user_hierarchy_structure'),
         user_hierarchy_structure_arn=pulumi.get(__ret__, 'user_hierarchy_structure_arn'))
+
+
+@_utilities.lift_output_func(get_user_hierarchy_structure)
 def get_user_hierarchy_structure_output(user_hierarchy_structure_arn: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
     """
@@ -83,10 +81,4 @@ def get_user_hierarchy_structure_output(user_hierarchy_structure_arn: Optional[p
 
     :param str user_hierarchy_structure_arn: The identifier of the User Hierarchy Structure.
     """
-    __args__ = dict()
-    __args__['userHierarchyStructureArn'] = user_hierarchy_structure_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getUserHierarchyStructure', __args__, opts=opts, typ=GetUserHierarchyStructureResult)
-    return __ret__.apply(lambda __response__: GetUserHierarchyStructureResult(
-        user_hierarchy_structure=pulumi.get(__response__, 'user_hierarchy_structure'),
-        user_hierarchy_structure_arn=pulumi.get(__response__, 'user_hierarchy_structure_arn')))
+    ...

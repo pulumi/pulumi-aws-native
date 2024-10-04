@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for a Redshift-managed VPC endpoint.
  */
 export function getEndpointAccess(args: GetEndpointAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAccessResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshift:getEndpointAccess", {
         "endpointName": args.endpointName,
@@ -58,10 +59,7 @@ export interface GetEndpointAccessResult {
  * Resource schema for a Redshift-managed VPC endpoint.
  */
 export function getEndpointAccessOutput(args: GetEndpointAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointAccessResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:redshift:getEndpointAccess", {
-        "endpointName": args.endpointName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEndpointAccess(a, opts))
 }
 
 export interface GetEndpointAccessOutputArgs {

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * An endpoint of type `GatewayLoadBalancer` provides private connectivity between your VPC and virtual appliances from a service provider.
  */
 export function getVpcEndpoint(args: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpcEndpoint", {
         "id": args.id,
@@ -87,10 +88,7 @@ export interface GetVpcEndpointResult {
  * An endpoint of type `GatewayLoadBalancer` provides private connectivity between your VPC and virtual appliances from a service provider.
  */
 export function getVpcEndpointOutput(args: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcEndpoint", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getVpcEndpoint(a, opts))
 }
 
 export interface GetVpcEndpointOutputArgs {

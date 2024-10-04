@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -115,6 +110,9 @@ def get_user_profile(domain_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_user_profile)
 def get_user_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
                             id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserProfileResult]:
@@ -125,14 +123,4 @@ def get_user_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
     :param str domain_id: The identifier of the Amazon DataZone domain in which the user profile is created.
     :param str id: The ID of the Amazon DataZone user profile.
     """
-    __args__ = dict()
-    __args__['domainId'] = domain_id
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getUserProfile', __args__, opts=opts, typ=GetUserProfileResult)
-    return __ret__.apply(lambda __response__: GetUserProfileResult(
-        details=pulumi.get(__response__, 'details'),
-        domain_id=pulumi.get(__response__, 'domain_id'),
-        id=pulumi.get(__response__, 'id'),
-        status=pulumi.get(__response__, 'status'),
-        type=pulumi.get(__response__, 'type')))
+    ...

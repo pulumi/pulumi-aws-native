@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -115,6 +110,9 @@ def get_link(arn: Optional[str] = None,
         link_configuration=pulumi.get(__ret__, 'link_configuration'),
         resource_types=pulumi.get(__ret__, 'resource_types'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_link)
 def get_link_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkResult]:
     """
@@ -123,13 +121,4 @@ def get_link_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the link. For example, `arn:aws:oam:us-west-1:111111111111:link:abcd1234-a123-456a-a12b-a123b456c789`
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:oam:getLink', __args__, opts=opts, typ=GetLinkResult)
-    return __ret__.apply(lambda __response__: GetLinkResult(
-        arn=pulumi.get(__response__, 'arn'),
-        label=pulumi.get(__response__, 'label'),
-        link_configuration=pulumi.get(__response__, 'link_configuration'),
-        resource_types=pulumi.get(__response__, 'resource_types'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

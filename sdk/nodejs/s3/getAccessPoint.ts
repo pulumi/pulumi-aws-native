@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3:getAccessPoint", {
         "name": args.name,
@@ -52,10 +53,7 @@ export interface GetAccessPointResult {
  * The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
  */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:s3:getAccessPoint", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))
 }
 
 export interface GetAccessPointOutputArgs {

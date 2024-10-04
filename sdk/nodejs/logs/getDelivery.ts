@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
  */
 export function getDelivery(args: GetDeliveryArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getDelivery", {
         "deliveryId": args.deliveryId,
@@ -54,10 +55,7 @@ export interface GetDeliveryResult {
  * For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
  */
 export function getDeliveryOutput(args: GetDeliveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:logs:getDelivery", {
-        "deliveryId": args.deliveryId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDelivery(a, opts))
 }
 
 export interface GetDeliveryOutputArgs {

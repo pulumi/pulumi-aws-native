@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -206,6 +201,9 @@ def get_certificate(certificate_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         usage=pulumi.get(__ret__, 'usage'))
+
+
+@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
@@ -214,20 +212,4 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
 
     :param str certificate_id: A unique identifier for the certificate.
     """
-    __args__ = dict()
-    __args__['certificateId'] = certificate_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:transfer:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
-    return __ret__.apply(lambda __response__: GetCertificateResult(
-        active_date=pulumi.get(__response__, 'active_date'),
-        arn=pulumi.get(__response__, 'arn'),
-        certificate_id=pulumi.get(__response__, 'certificate_id'),
-        description=pulumi.get(__response__, 'description'),
-        inactive_date=pulumi.get(__response__, 'inactive_date'),
-        not_after_date=pulumi.get(__response__, 'not_after_date'),
-        not_before_date=pulumi.get(__response__, 'not_before_date'),
-        serial=pulumi.get(__response__, 'serial'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        usage=pulumi.get(__response__, 'usage')))
+    ...

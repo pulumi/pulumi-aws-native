@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::QBusiness::Index Resource Type
  */
 export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetIndexResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:qbusiness:getIndex", {
         "applicationId": args.applicationId,
@@ -78,11 +79,7 @@ export interface GetIndexResult {
  * Definition of AWS::QBusiness::Index Resource Type
  */
 export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIndexResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:qbusiness:getIndex", {
-        "applicationId": args.applicationId,
-        "indexId": args.indexId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIndex(a, opts))
 }
 
 export interface GetIndexOutputArgs {

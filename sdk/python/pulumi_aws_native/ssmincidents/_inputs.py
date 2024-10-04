@@ -4,58 +4,28 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ReplicationSetRegionConfigurationArgs',
-    'ReplicationSetRegionConfigurationArgsDict',
     'ReplicationSetReplicationRegionArgs',
-    'ReplicationSetReplicationRegionArgsDict',
     'ResponsePlanActionArgs',
-    'ResponsePlanActionArgsDict',
     'ResponsePlanChatChannelArgs',
-    'ResponsePlanChatChannelArgsDict',
     'ResponsePlanDynamicSsmParameterValueArgs',
-    'ResponsePlanDynamicSsmParameterValueArgsDict',
     'ResponsePlanDynamicSsmParameterArgs',
-    'ResponsePlanDynamicSsmParameterArgsDict',
     'ResponsePlanIncidentTemplateArgs',
-    'ResponsePlanIncidentTemplateArgsDict',
     'ResponsePlanIntegrationArgs',
-    'ResponsePlanIntegrationArgsDict',
     'ResponsePlanNotificationTargetItemArgs',
-    'ResponsePlanNotificationTargetItemArgsDict',
     'ResponsePlanPagerDutyConfigurationArgs',
-    'ResponsePlanPagerDutyConfigurationArgsDict',
     'ResponsePlanPagerDutyIncidentConfigurationArgs',
-    'ResponsePlanPagerDutyIncidentConfigurationArgsDict',
     'ResponsePlanSsmAutomationArgs',
-    'ResponsePlanSsmAutomationArgsDict',
     'ResponsePlanSsmParameterArgs',
-    'ResponsePlanSsmParameterArgsDict',
     'ResponsePlanTagArgs',
-    'ResponsePlanTagArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ReplicationSetRegionConfigurationArgsDict(TypedDict):
-        """
-        The ReplicationSet regional configuration.
-        """
-        sse_kms_key_id: pulumi.Input[str]
-elif False:
-    ReplicationSetRegionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReplicationSetRegionConfigurationArgs:
@@ -75,16 +45,6 @@ class ReplicationSetRegionConfigurationArgs:
     def sse_kms_key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "sse_kms_key_id", value)
 
-
-if not MYPY:
-    class ReplicationSetReplicationRegionArgsDict(TypedDict):
-        """
-        The ReplicationSet regional configuration.
-        """
-        region_configuration: NotRequired[pulumi.Input['ReplicationSetRegionConfigurationArgsDict']]
-        region_name: NotRequired[pulumi.Input[str]]
-elif False:
-    ReplicationSetReplicationRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReplicationSetReplicationRegionArgs:
@@ -118,18 +78,6 @@ class ReplicationSetReplicationRegionArgs:
         pulumi.set(self, "region_name", value)
 
 
-if not MYPY:
-    class ResponsePlanActionArgsDict(TypedDict):
-        """
-        The automation configuration to launch.
-        """
-        ssm_automation: NotRequired[pulumi.Input['ResponsePlanSsmAutomationArgsDict']]
-        """
-        Details about the Systems Manager automation document that will be used as a runbook during an incident.
-        """
-elif False:
-    ResponsePlanActionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResponsePlanActionArgs:
     def __init__(__self__, *,
@@ -153,18 +101,6 @@ class ResponsePlanActionArgs:
     def ssm_automation(self, value: Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']]):
         pulumi.set(self, "ssm_automation", value)
 
-
-if not MYPY:
-    class ResponsePlanChatChannelArgsDict(TypedDict):
-        """
-        The chat channel configuration.
-        """
-        chatbot_sns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The Amazon SNS targets that AWS Chatbot uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
-        """
-elif False:
-    ResponsePlanChatChannelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanChatChannelArgs:
@@ -190,18 +126,6 @@ class ResponsePlanChatChannelArgs:
         pulumi.set(self, "chatbot_sns", value)
 
 
-if not MYPY:
-    class ResponsePlanDynamicSsmParameterValueArgsDict(TypedDict):
-        """
-        Value of the dynamic parameter to set when starting the SSM automation document.
-        """
-        variable: NotRequired[pulumi.Input['ResponsePlanVariableType']]
-        """
-        Variable dynamic parameters. A parameter value is determined when an incident is created.
-        """
-elif False:
-    ResponsePlanDynamicSsmParameterValueArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResponsePlanDynamicSsmParameterValueArgs:
     def __init__(__self__, *,
@@ -225,22 +149,6 @@ class ResponsePlanDynamicSsmParameterValueArgs:
     def variable(self, value: Optional[pulumi.Input['ResponsePlanVariableType']]):
         pulumi.set(self, "variable", value)
 
-
-if not MYPY:
-    class ResponsePlanDynamicSsmParameterArgsDict(TypedDict):
-        """
-        A parameter with a dynamic value to set when starting the SSM automation document.
-        """
-        key: pulumi.Input[str]
-        """
-        The key parameter to use when running the Systems Manager Automation runbook.
-        """
-        value: pulumi.Input['ResponsePlanDynamicSsmParameterValueArgsDict']
-        """
-        The dynamic parameter value.
-        """
-elif False:
-    ResponsePlanDynamicSsmParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanDynamicSsmParameterArgs:
@@ -279,38 +187,6 @@ class ResponsePlanDynamicSsmParameterArgs:
     def value(self, value: pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs']):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class ResponsePlanIncidentTemplateArgsDict(TypedDict):
-        """
-        The incident template configuration.
-        """
-        impact: pulumi.Input[int]
-        """
-        The impact value.
-        """
-        title: pulumi.Input[str]
-        """
-        The title string.
-        """
-        dedupe_string: NotRequired[pulumi.Input[str]]
-        """
-        The deduplication string.
-        """
-        incident_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgsDict']]]]
-        """
-        Tags that get applied to incidents created by the StartIncident API action.
-        """
-        notification_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgsDict']]]]
-        """
-        The list of notification targets.
-        """
-        summary: NotRequired[pulumi.Input[str]]
-        """
-        The summary string.
-        """
-elif False:
-    ResponsePlanIncidentTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanIncidentTemplateArgs:
@@ -414,15 +290,6 @@ class ResponsePlanIncidentTemplateArgs:
         pulumi.set(self, "summary", value)
 
 
-if not MYPY:
-    class ResponsePlanIntegrationArgsDict(TypedDict):
-        pager_duty_configuration: NotRequired[pulumi.Input['ResponsePlanPagerDutyConfigurationArgsDict']]
-        """
-        Information about the PagerDuty service where the response plan creates an incident.
-        """
-elif False:
-    ResponsePlanIntegrationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResponsePlanIntegrationArgs:
     def __init__(__self__, *,
@@ -445,18 +312,6 @@ class ResponsePlanIntegrationArgs:
     def pager_duty_configuration(self, value: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']]):
         pulumi.set(self, "pager_duty_configuration", value)
 
-
-if not MYPY:
-    class ResponsePlanNotificationTargetItemArgsDict(TypedDict):
-        """
-        A notification target.
-        """
-        sns_topic_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic.
-        """
-elif False:
-    ResponsePlanNotificationTargetItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanNotificationTargetItemArgs:
@@ -481,26 +336,6 @@ class ResponsePlanNotificationTargetItemArgs:
     def sns_topic_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
-
-if not MYPY:
-    class ResponsePlanPagerDutyConfigurationArgsDict(TypedDict):
-        """
-        The pagerDuty configuration to use when starting the incident.
-        """
-        name: pulumi.Input[str]
-        """
-        The name of the pagerDuty configuration.
-        """
-        pager_duty_incident_configuration: pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgsDict']
-        """
-        Details about the PagerDuty service associated with the configuration.
-        """
-        secret_id: pulumi.Input[str]
-        """
-        The AWS secrets manager secretId storing the pagerDuty token.
-        """
-elif False:
-    ResponsePlanPagerDutyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanPagerDutyConfigurationArgs:
@@ -555,18 +390,6 @@ class ResponsePlanPagerDutyConfigurationArgs:
         pulumi.set(self, "secret_id", value)
 
 
-if not MYPY:
-    class ResponsePlanPagerDutyIncidentConfigurationArgsDict(TypedDict):
-        """
-        The pagerDuty incident configuration.
-        """
-        service_id: pulumi.Input[str]
-        """
-        The pagerDuty serviceId.
-        """
-elif False:
-    ResponsePlanPagerDutyIncidentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResponsePlanPagerDutyIncidentConfigurationArgs:
     def __init__(__self__, *,
@@ -589,38 +412,6 @@ class ResponsePlanPagerDutyIncidentConfigurationArgs:
     def service_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_id", value)
 
-
-if not MYPY:
-    class ResponsePlanSsmAutomationArgsDict(TypedDict):
-        """
-        The configuration to use when starting the SSM automation document.
-        """
-        document_name: pulumi.Input[str]
-        """
-        The document name to use when starting the SSM automation document.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        The role ARN to use when starting the SSM automation document.
-        """
-        document_version: NotRequired[pulumi.Input[str]]
-        """
-        The version of the document to use when starting the SSM automation document.
-        """
-        dynamic_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgsDict']]]]
-        """
-        The parameters with dynamic values to set when starting the SSM automation document.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgsDict']]]]
-        """
-        The parameters to set when starting the SSM automation document.
-        """
-        target_account: NotRequired[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']]
-        """
-        The account type to use when starting the SSM automation document.
-        """
-elif False:
-    ResponsePlanSsmAutomationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanSsmAutomationArgs:
@@ -724,22 +515,6 @@ class ResponsePlanSsmAutomationArgs:
         pulumi.set(self, "target_account", value)
 
 
-if not MYPY:
-    class ResponsePlanSsmParameterArgsDict(TypedDict):
-        """
-        A parameter to set when starting the SSM automation document.
-        """
-        key: pulumi.Input[str]
-        """
-        The key parameter to use when running the Automation runbook.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The value parameter to use when running the Automation runbook.
-        """
-elif False:
-    ResponsePlanSsmParameterArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResponsePlanSsmParameterArgs:
     def __init__(__self__, *,
@@ -777,22 +552,6 @@ class ResponsePlanSsmParameterArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
-
-if not MYPY:
-    class ResponsePlanTagArgsDict(TypedDict):
-        """
-        A key-value pair to tag a resource.
-        """
-        key: pulumi.Input[str]
-        """
-        The tag key.
-        """
-        value: pulumi.Input[str]
-        """
-        The tag value.
-        """
-elif False:
-    ResponsePlanTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanTagArgs:

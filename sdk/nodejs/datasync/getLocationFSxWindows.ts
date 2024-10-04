@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationFSxWindows.
  */
 export function getLocationFSxWindows(args: GetLocationFSxWindowsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationFSxWindowsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationFSxWindows", {
         "locationArn": args.locationArn,
@@ -42,10 +43,7 @@ export interface GetLocationFSxWindowsResult {
  * Resource schema for AWS::DataSync::LocationFSxWindows.
  */
 export function getLocationFSxWindowsOutput(args: GetLocationFSxWindowsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationFSxWindowsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationFSxWindows", {
-        "locationArn": args.locationArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLocationFSxWindows(a, opts))
 }
 
 export interface GetLocationFSxWindowsOutputArgs {

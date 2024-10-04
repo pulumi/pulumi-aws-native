@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -220,6 +215,9 @@ def get_load_balancer(load_balancer_arn: Optional[str] = None,
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
@@ -228,20 +226,4 @@ def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = No
 
     :param str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
     """
-    __args__ = dict()
-    __args__['loadBalancerArn'] = load_balancer_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancingv2:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
-    return __ret__.apply(lambda __response__: GetLoadBalancerResult(
-        canonical_hosted_zone_id=pulumi.get(__response__, 'canonical_hosted_zone_id'),
-        dns_name=pulumi.get(__response__, 'dns_name'),
-        enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__response__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
-        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
-        load_balancer_arn=pulumi.get(__response__, 'load_balancer_arn'),
-        load_balancer_attributes=pulumi.get(__response__, 'load_balancer_attributes'),
-        load_balancer_full_name=pulumi.get(__response__, 'load_balancer_full_name'),
-        load_balancer_name=pulumi.get(__response__, 'load_balancer_name'),
-        security_groups=pulumi.get(__response__, 'security_groups'),
-        subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
-        subnets=pulumi.get(__response__, 'subnets'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

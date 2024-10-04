@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
  */
 export function getModelExplainabilityJobDefinition(args: GetModelExplainabilityJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelExplainabilityJobDefinitionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getModelExplainabilityJobDefinition", {
         "jobDefinitionArn": args.jobDefinitionArn,
@@ -35,10 +36,7 @@ export interface GetModelExplainabilityJobDefinitionResult {
  * Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
  */
 export function getModelExplainabilityJobDefinitionOutput(args: GetModelExplainabilityJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelExplainabilityJobDefinitionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getModelExplainabilityJobDefinition", {
-        "jobDefinitionArn": args.jobDefinitionArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getModelExplainabilityJobDefinition(a, opts))
 }
 
 export interface GetModelExplainabilityJobDefinitionOutputArgs {

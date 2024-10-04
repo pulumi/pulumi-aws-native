@@ -4,36 +4,17 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'PackageGroupOriginConfigurationArgs',
-    'PackageGroupOriginConfigurationArgsDict',
     'PackageGroupRestrictionTypeArgs',
-    'PackageGroupRestrictionTypeArgsDict',
     'PackageGroupRestrictionsArgs',
-    'PackageGroupRestrictionsArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class PackageGroupOriginConfigurationArgsDict(TypedDict):
-        restrictions: pulumi.Input['PackageGroupRestrictionsArgsDict']
-        """
-        The origin configuration that is applied to the package group.
-        """
-elif False:
-    PackageGroupOriginConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PackageGroupOriginConfigurationArgs:
@@ -56,19 +37,6 @@ class PackageGroupOriginConfigurationArgs:
     def restrictions(self, value: pulumi.Input['PackageGroupRestrictionsArgs']):
         pulumi.set(self, "restrictions", value)
 
-
-if not MYPY:
-    class PackageGroupRestrictionTypeArgsDict(TypedDict):
-        restriction_mode: pulumi.Input['PackageGroupRestrictionTypeRestrictionMode']
-        """
-        The package group origin restriction setting. When the value is `INHERIT` , the value is set to the value of the first parent package group which does not have a value of `INHERIT` .
-        """
-        repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The repositories to add to the allowed repositories list. The allowed repositories list is used when the `RestrictionMode` is set to `ALLOW_SPECIFIC_REPOSITORIES` .
-        """
-elif False:
-    PackageGroupRestrictionTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PackageGroupRestrictionTypeArgs:
@@ -107,23 +75,6 @@ class PackageGroupRestrictionTypeArgs:
     def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "repositories", value)
 
-
-if not MYPY:
-    class PackageGroupRestrictionsArgsDict(TypedDict):
-        external_upstream: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
-        """
-        The external upstream restriction determines if new package versions can be ingested or retained from external connections.
-        """
-        internal_upstream: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
-        """
-        The internal upstream restriction determines if new package versions can be ingested or retained from upstream repositories.
-        """
-        publish: NotRequired[pulumi.Input['PackageGroupRestrictionTypeArgsDict']]
-        """
-        The publish restriction determines if new package versions can be published.
-        """
-elif False:
-    PackageGroupRestrictionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PackageGroupRestrictionsArgs:
