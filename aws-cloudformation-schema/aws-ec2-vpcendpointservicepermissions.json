@@ -1,11 +1,36 @@
 {
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
+    },
+    "create" : {
+      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
+    },
+    "update" : {
+      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
+    },
+    "list" : {
+      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
+    },
+    "delete" : {
+      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
+    }
+  },
   "typeName" : "AWS::EC2::VPCEndpointServicePermissions",
   "description" : "Resource Type definition for AWS::EC2::VPCEndpointServicePermissions",
+  "createOnlyProperties" : [ "/properties/ServiceId" ],
   "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/ServiceId" ],
   "properties" : {
     "AllowedPrincipals" : {
-      "type" : "array",
       "uniqueItems" : false,
+      "type" : "array",
       "items" : {
         "type" : "string"
       }
@@ -14,30 +39,5 @@
       "type" : "string"
     }
   },
-  "required" : [ "ServiceId" ],
-  "createOnlyProperties" : [ "/properties/ServiceId" ],
-  "primaryIdentifier" : [ "/properties/ServiceId" ],
-  "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
-  },
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
-    },
-    "update" : {
-      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
-    },
-    "read" : {
-      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
-    },
-    "delete" : {
-      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
-    },
-    "list" : {
-      "permissions" : [ "ec2:CreateVpcEndpointServicePermissions", "ec2:ModifyVpcEndpointServicePermissions", "ec2:DeleteVpcEndpointServicePermissions", "ec2:DescribeVpcEndpointServicePermissions" ]
-    }
-  }
+  "required" : [ "ServiceId" ]
 }

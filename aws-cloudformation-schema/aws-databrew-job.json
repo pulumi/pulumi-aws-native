@@ -2,7 +2,6 @@
   "typeName" : "AWS::DataBrew::Job",
   "description" : "Resource schema for AWS::DataBrew::Job.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-databrew.git",
-  "taggable" : true,
   "properties" : {
     "DatasetName" : {
       "description" : "Dataset name",
@@ -515,6 +514,14 @@
   "required" : [ "Name", "RoleArn", "Type" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/Tags" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "databrew:TagResource", "databrew:UntagResource", "databrew:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "databrew:CreateProfileJob", "databrew:CreateRecipeJob", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]

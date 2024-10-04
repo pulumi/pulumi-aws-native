@@ -134,7 +134,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "datasync:TagResource", "datasync:UntagResource", "datasync:ListTagsForResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "ServerConfiguration", "SystemType", "AgentArns" ],

@@ -18,6 +18,9 @@
     "LaunchSpecifications" : {
       "$ref" : "#/definitions/InstanceFleetProvisioningSpecifications"
     },
+    "ResizeSpecifications" : {
+      "$ref" : "#/definitions/InstanceFleetResizingSpecifications"
+    },
     "Id" : {
       "type" : "string"
     },
@@ -92,6 +95,33 @@
         }
       }
     },
+    "OnDemandCapacityReservationOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "UsageStrategy" : {
+          "type" : "string"
+        },
+        "CapacityReservationResourceGroupArn" : {
+          "type" : "string"
+        },
+        "CapacityReservationPreference" : {
+          "type" : "string"
+        }
+      }
+    },
+    "InstanceFleetResizingSpecifications" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OnDemandResizeSpecification" : {
+          "$ref" : "#/definitions/OnDemandResizingSpecification"
+        },
+        "SpotResizeSpecification" : {
+          "$ref" : "#/definitions/SpotResizingSpecification"
+        }
+      }
+    },
     "InstanceFleetProvisioningSpecifications" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -104,10 +134,28 @@
         }
       }
     },
+    "OnDemandResizingSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CapacityReservationOptions" : {
+          "$ref" : "#/definitions/OnDemandCapacityReservationOptions"
+        },
+        "AllocationStrategy" : {
+          "type" : "string"
+        },
+        "TimeoutDurationMinutes" : {
+          "type" : "integer"
+        }
+      }
+    },
     "OnDemandProvisioningSpecification" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "CapacityReservationOptions" : {
+          "$ref" : "#/definitions/OnDemandCapacityReservationOptions"
+        },
         "AllocationStrategy" : {
           "type" : "string"
         }
@@ -140,6 +188,9 @@
         "EbsConfiguration" : {
           "$ref" : "#/definitions/EbsConfiguration"
         },
+        "Priority" : {
+          "type" : "number"
+        },
         "BidPriceAsPercentageOfOnDemandPrice" : {
           "type" : "number"
         },
@@ -158,6 +209,18 @@
         }
       },
       "required" : [ "InstanceType" ]
+    },
+    "SpotResizingSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AllocationStrategy" : {
+          "type" : "string"
+        },
+        "TimeoutDurationMinutes" : {
+          "type" : "integer"
+        }
+      }
     },
     "SpotProvisioningSpecification" : {
       "type" : "object",
@@ -180,7 +243,7 @@
     }
   },
   "required" : [ "InstanceFleetType", "ClusterId" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/InstanceTypeConfigs", "/properties/LaunchSpecifications", "/properties/ClusterId", "/properties/InstanceFleetType" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/LaunchSpecifications", "/properties/ClusterId", "/properties/InstanceFleetType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }
