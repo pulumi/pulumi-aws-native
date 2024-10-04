@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,6 +149,9 @@ def get_flow_version(flow_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_flow_version)
 def get_flow_version_output(flow_arn: Optional[pulumi.Input[str]] = None,
                             version: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowVersionResult]:
@@ -164,17 +162,4 @@ def get_flow_version_output(flow_arn: Optional[pulumi.Input[str]] = None,
     :param str flow_arn: Arn representation of the Flow
     :param str version: Numerical Version.
     """
-    __args__ = dict()
-    __args__['flowArn'] = flow_arn
-    __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getFlowVersion', __args__, opts=opts, typ=GetFlowVersionResult)
-    return __ret__.apply(lambda __response__: GetFlowVersionResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        customer_encryption_key_arn=pulumi.get(__response__, 'customer_encryption_key_arn'),
-        definition=pulumi.get(__response__, 'definition'),
-        execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
-        flow_id=pulumi.get(__response__, 'flow_id'),
-        name=pulumi.get(__response__, 'name'),
-        status=pulumi.get(__response__, 'status'),
-        version=pulumi.get(__response__, 'version')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -199,6 +194,9 @@ def get_form(app_id: Optional[str] = None,
         sectional_elements=pulumi.get(__ret__, 'sectional_elements'),
         style=pulumi.get(__ret__, 'style'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_form)
 def get_form_output(app_id: Optional[pulumi.Input[str]] = None,
                     environment_name: Optional[pulumi.Input[str]] = None,
                     id: Optional[pulumi.Input[str]] = None,
@@ -211,21 +209,4 @@ def get_form_output(app_id: Optional[pulumi.Input[str]] = None,
     :param str environment_name: The name of the backend environment that is a part of the Amplify app.
     :param str id: The ID for the form.
     """
-    __args__ = dict()
-    __args__['appId'] = app_id
-    __args__['environmentName'] = environment_name
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:amplifyuibuilder:getForm', __args__, opts=opts, typ=GetFormResult)
-    return __ret__.apply(lambda __response__: GetFormResult(
-        cta=pulumi.get(__response__, 'cta'),
-        data_type=pulumi.get(__response__, 'data_type'),
-        fields=pulumi.get(__response__, 'fields'),
-        form_action_type=pulumi.get(__response__, 'form_action_type'),
-        id=pulumi.get(__response__, 'id'),
-        label_decorator=pulumi.get(__response__, 'label_decorator'),
-        name=pulumi.get(__response__, 'name'),
-        schema_version=pulumi.get(__response__, 'schema_version'),
-        sectional_elements=pulumi.get(__response__, 'sectional_elements'),
-        style=pulumi.get(__response__, 'style'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

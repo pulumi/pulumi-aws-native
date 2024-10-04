@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -156,6 +151,9 @@ def get_environment_blueprint_configuration(domain_id: Optional[str] = None,
         provisioning_role_arn=pulumi.get(__ret__, 'provisioning_role_arn'),
         regional_parameters=pulumi.get(__ret__, 'regional_parameters'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
+
+
+@_utilities.lift_output_func(get_environment_blueprint_configuration)
 def get_environment_blueprint_configuration_output(domain_id: Optional[pulumi.Input[str]] = None,
                                                    environment_blueprint_id: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentBlueprintConfigurationResult]:
@@ -166,17 +164,4 @@ def get_environment_blueprint_configuration_output(domain_id: Optional[pulumi.In
     :param str domain_id: The identifier of the Amazon DataZone domain in which an environment blueprint exists.
     :param str environment_blueprint_id: The identifier of the environment blueprint. This identifier should be used when creating environment profiles.
     """
-    __args__ = dict()
-    __args__['domainId'] = domain_id
-    __args__['environmentBlueprintId'] = environment_blueprint_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getEnvironmentBlueprintConfiguration', __args__, opts=opts, typ=GetEnvironmentBlueprintConfigurationResult)
-    return __ret__.apply(lambda __response__: GetEnvironmentBlueprintConfigurationResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        domain_id=pulumi.get(__response__, 'domain_id'),
-        enabled_regions=pulumi.get(__response__, 'enabled_regions'),
-        environment_blueprint_id=pulumi.get(__response__, 'environment_blueprint_id'),
-        manage_access_role_arn=pulumi.get(__response__, 'manage_access_role_arn'),
-        provisioning_role_arn=pulumi.get(__response__, 'provisioning_role_arn'),
-        regional_parameters=pulumi.get(__response__, 'regional_parameters'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+    ...

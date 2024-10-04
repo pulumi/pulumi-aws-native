@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
  */
 export function getEventInvokeConfig(args: GetEventInvokeConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetEventInvokeConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getEventInvokeConfig", {
         "functionName": args.functionName,
@@ -52,11 +53,7 @@ export interface GetEventInvokeConfigResult {
  * The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
  */
 export function getEventInvokeConfigOutput(args: GetEventInvokeConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventInvokeConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:lambda:getEventInvokeConfig", {
-        "functionName": args.functionName,
-        "qualifier": args.qualifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEventInvokeConfig(a, opts))
 }
 
 export interface GetEventInvokeConfigOutputArgs {

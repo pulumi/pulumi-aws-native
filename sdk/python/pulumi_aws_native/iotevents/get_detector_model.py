@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -121,6 +116,9 @@ def get_detector_model(detector_model_name: Optional[str] = None,
         evaluation_method=pulumi.get(__ret__, 'evaluation_method'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_detector_model)
 def get_detector_model_output(detector_model_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorModelResult]:
     """
@@ -133,13 +131,4 @@ def get_detector_model_output(detector_model_name: Optional[pulumi.Input[str]] =
 
     :param str detector_model_name: The name of the detector model.
     """
-    __args__ = dict()
-    __args__['detectorModelName'] = detector_model_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iotevents:getDetectorModel', __args__, opts=opts, typ=GetDetectorModelResult)
-    return __ret__.apply(lambda __response__: GetDetectorModelResult(
-        detector_model_definition=pulumi.get(__response__, 'detector_model_definition'),
-        detector_model_description=pulumi.get(__response__, 'detector_model_description'),
-        evaluation_method=pulumi.get(__response__, 'evaluation_method'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

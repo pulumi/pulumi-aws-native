@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -79,6 +74,9 @@ def get_bridge_source(bridge_arn: Optional[str] = None,
     return AwaitableGetBridgeSourceResult(
         flow_source=pulumi.get(__ret__, 'flow_source'),
         network_source=pulumi.get(__ret__, 'network_source'))
+
+
+@_utilities.lift_output_func(get_bridge_source)
 def get_bridge_source_output(bridge_arn: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBridgeSourceResult]:
@@ -89,11 +87,4 @@ def get_bridge_source_output(bridge_arn: Optional[pulumi.Input[str]] = None,
     :param str bridge_arn: The Amazon Resource Number (ARN) of the bridge.
     :param str name: The name of the source.
     """
-    __args__ = dict()
-    __args__['bridgeArn'] = bridge_arn
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getBridgeSource', __args__, opts=opts, typ=GetBridgeSourceResult)
-    return __ret__.apply(lambda __response__: GetBridgeSourceResult(
-        flow_source=pulumi.get(__response__, 'flow_source'),
-        network_source=pulumi.get(__response__, 'network_source')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataBrew::Schedule.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:databrew:getSchedule", {
         "name": args.name,
@@ -35,10 +36,7 @@ export interface GetScheduleResult {
  * Resource schema for AWS::DataBrew::Schedule.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:databrew:getSchedule", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
 }
 
 export interface GetScheduleOutputArgs {

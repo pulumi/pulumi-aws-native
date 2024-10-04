@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,6 +149,9 @@ def get_notification_rule(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
+
+
+@_utilities.lift_output_func(get_notification_rule)
 def get_notification_rule_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationRuleResult]:
     """
@@ -162,16 +160,4 @@ def get_notification_rule_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the notification rule.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:codestarnotifications:getNotificationRule', __args__, opts=opts, typ=GetNotificationRuleResult)
-    return __ret__.apply(lambda __response__: GetNotificationRuleResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_by=pulumi.get(__response__, 'created_by'),
-        detail_type=pulumi.get(__response__, 'detail_type'),
-        event_type_ids=pulumi.get(__response__, 'event_type_ids'),
-        name=pulumi.get(__response__, 'name'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        targets=pulumi.get(__response__, 'targets')))
+    ...

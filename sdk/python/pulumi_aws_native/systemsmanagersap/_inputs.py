@@ -4,40 +4,15 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationCredentialArgs',
-    'ApplicationCredentialArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ApplicationCredentialArgsDict(TypedDict):
-        credential_type: NotRequired[pulumi.Input['ApplicationCredentialCredentialType']]
-        """
-        The type of the application credentials.
-        """
-        database_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the SAP HANA database.
-        """
-        secret_id: NotRequired[pulumi.Input[str]]
-        """
-        The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
-        """
-elif False:
-    ApplicationCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationCredentialArgs:

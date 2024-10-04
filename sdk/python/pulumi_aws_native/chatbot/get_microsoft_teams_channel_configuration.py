@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -153,6 +148,9 @@ def get_microsoft_teams_channel_configuration(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         teams_channel_id=pulumi.get(__ret__, 'teams_channel_id'),
         user_role_required=pulumi.get(__ret__, 'user_role_required'))
+
+
+@_utilities.lift_output_func(get_microsoft_teams_channel_configuration)
 def get_microsoft_teams_channel_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftTeamsChannelConfigurationResult]:
     """
@@ -161,16 +159,4 @@ def get_microsoft_teams_channel_configuration_output(arn: Optional[pulumi.Input[
 
     :param str arn: Amazon Resource Name (ARN) of the configuration
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:chatbot:getMicrosoftTeamsChannelConfiguration', __args__, opts=opts, typ=GetMicrosoftTeamsChannelConfigurationResult)
-    return __ret__.apply(lambda __response__: GetMicrosoftTeamsChannelConfigurationResult(
-        arn=pulumi.get(__response__, 'arn'),
-        guardrail_policies=pulumi.get(__response__, 'guardrail_policies'),
-        iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
-        logging_level=pulumi.get(__response__, 'logging_level'),
-        sns_topic_arns=pulumi.get(__response__, 'sns_topic_arns'),
-        tags=pulumi.get(__response__, 'tags'),
-        teams_channel_id=pulumi.get(__response__, 'teams_channel_id'),
-        user_role_required=pulumi.get(__response__, 'user_role_required')))
+    ...

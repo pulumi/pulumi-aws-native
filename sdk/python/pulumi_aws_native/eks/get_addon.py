@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -117,6 +112,9 @@ def get_addon(addon_name: Optional[str] = None,
         configuration_values=pulumi.get(__ret__, 'configuration_values'),
         service_account_role_arn=pulumi.get(__ret__, 'service_account_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_addon)
 def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      cluster_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
@@ -127,14 +125,4 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     :param str addon_name: Name of Addon
     :param str cluster_name: Name of Cluster
     """
-    __args__ = dict()
-    __args__['addonName'] = addon_name
-    __args__['clusterName'] = cluster_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getAddon', __args__, opts=opts, typ=GetAddonResult)
-    return __ret__.apply(lambda __response__: GetAddonResult(
-        addon_version=pulumi.get(__response__, 'addon_version'),
-        arn=pulumi.get(__response__, 'arn'),
-        configuration_values=pulumi.get(__response__, 'configuration_values'),
-        service_account_role_arn=pulumi.get(__response__, 'service_account_role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

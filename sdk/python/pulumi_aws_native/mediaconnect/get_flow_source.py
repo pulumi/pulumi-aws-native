@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -310,6 +305,9 @@ def get_flow_source(source_arn: Optional[str] = None,
         stream_id=pulumi.get(__ret__, 'stream_id'),
         vpc_interface_name=pulumi.get(__ret__, 'vpc_interface_name'),
         whitelist_cidr=pulumi.get(__ret__, 'whitelist_cidr'))
+
+
+@_utilities.lift_output_func(get_flow_source)
 def get_flow_source_output(source_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowSourceResult]:
     """
@@ -318,28 +316,4 @@ def get_flow_source_output(source_arn: Optional[pulumi.Input[str]] = None,
 
     :param str source_arn: The ARN of the source.
     """
-    __args__ = dict()
-    __args__['sourceArn'] = source_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlowSource', __args__, opts=opts, typ=GetFlowSourceResult)
-    return __ret__.apply(lambda __response__: GetFlowSourceResult(
-        decryption=pulumi.get(__response__, 'decryption'),
-        description=pulumi.get(__response__, 'description'),
-        entitlement_arn=pulumi.get(__response__, 'entitlement_arn'),
-        flow_arn=pulumi.get(__response__, 'flow_arn'),
-        gateway_bridge_source=pulumi.get(__response__, 'gateway_bridge_source'),
-        ingest_ip=pulumi.get(__response__, 'ingest_ip'),
-        ingest_port=pulumi.get(__response__, 'ingest_port'),
-        max_bitrate=pulumi.get(__response__, 'max_bitrate'),
-        max_latency=pulumi.get(__response__, 'max_latency'),
-        min_latency=pulumi.get(__response__, 'min_latency'),
-        protocol=pulumi.get(__response__, 'protocol'),
-        sender_control_port=pulumi.get(__response__, 'sender_control_port'),
-        sender_ip_address=pulumi.get(__response__, 'sender_ip_address'),
-        source_arn=pulumi.get(__response__, 'source_arn'),
-        source_ingest_port=pulumi.get(__response__, 'source_ingest_port'),
-        source_listener_address=pulumi.get(__response__, 'source_listener_address'),
-        source_listener_port=pulumi.get(__response__, 'source_listener_port'),
-        stream_id=pulumi.get(__response__, 'stream_id'),
-        vpc_interface_name=pulumi.get(__response__, 'vpc_interface_name'),
-        whitelist_cidr=pulumi.get(__response__, 'whitelist_cidr')))
+    ...

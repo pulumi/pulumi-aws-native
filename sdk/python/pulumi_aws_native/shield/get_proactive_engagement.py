@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -91,6 +86,9 @@ def get_proactive_engagement(account_id: Optional[str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         emergency_contact_list=pulumi.get(__ret__, 'emergency_contact_list'),
         proactive_engagement_status=pulumi.get(__ret__, 'proactive_engagement_status'))
+
+
+@_utilities.lift_output_func(get_proactive_engagement)
 def get_proactive_engagement_output(account_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProactiveEngagementResult]:
     """
@@ -99,11 +97,4 @@ def get_proactive_engagement_output(account_id: Optional[pulumi.Input[str]] = No
 
     :param str account_id: The ID of the account that submitted the template.
     """
-    __args__ = dict()
-    __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:shield:getProactiveEngagement', __args__, opts=opts, typ=GetProactiveEngagementResult)
-    return __ret__.apply(lambda __response__: GetProactiveEngagementResult(
-        account_id=pulumi.get(__response__, 'account_id'),
-        emergency_contact_list=pulumi.get(__response__, 'emergency_contact_list'),
-        proactive_engagement_status=pulumi.get(__response__, 'proactive_engagement_status')))
+    ...

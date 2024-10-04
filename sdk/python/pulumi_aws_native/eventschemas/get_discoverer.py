@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -127,6 +122,9 @@ def get_discoverer(discoverer_arn: Optional[str] = None,
         discoverer_id=pulumi.get(__ret__, 'discoverer_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_discoverer)
 def get_discoverer_output(discoverer_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiscovererResult]:
     """
@@ -135,14 +133,4 @@ def get_discoverer_output(discoverer_arn: Optional[pulumi.Input[str]] = None,
 
     :param str discoverer_arn: The ARN of the discoverer.
     """
-    __args__ = dict()
-    __args__['discovererArn'] = discoverer_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:eventschemas:getDiscoverer', __args__, opts=opts, typ=GetDiscovererResult)
-    return __ret__.apply(lambda __response__: GetDiscovererResult(
-        cross_account=pulumi.get(__response__, 'cross_account'),
-        description=pulumi.get(__response__, 'description'),
-        discoverer_arn=pulumi.get(__response__, 'discoverer_arn'),
-        discoverer_id=pulumi.get(__response__, 'discoverer_id'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

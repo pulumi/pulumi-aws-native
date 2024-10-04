@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -181,6 +176,9 @@ def get_model_card(model_card_name: Optional[str] = None,
         model_card_status=pulumi.get(__ret__, 'model_card_status'),
         model_card_version=pulumi.get(__ret__, 'model_card_version'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_model_card)
 def get_model_card_output(model_card_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelCardResult]:
     """
@@ -189,18 +187,4 @@ def get_model_card_output(model_card_name: Optional[pulumi.Input[str]] = None,
 
     :param str model_card_name: The unique name of the model card.
     """
-    __args__ = dict()
-    __args__['modelCardName'] = model_card_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getModelCard', __args__, opts=opts, typ=GetModelCardResult)
-    return __ret__.apply(lambda __response__: GetModelCardResult(
-        content=pulumi.get(__response__, 'content'),
-        created_by=pulumi.get(__response__, 'created_by'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        model_card_arn=pulumi.get(__response__, 'model_card_arn'),
-        model_card_processing_status=pulumi.get(__response__, 'model_card_processing_status'),
-        model_card_status=pulumi.get(__response__, 'model_card_status'),
-        model_card_version=pulumi.get(__response__, 'model_card_version'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

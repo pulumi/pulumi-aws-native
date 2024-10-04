@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *  There can be as many as two subscription filters associated with a log group.
  */
 export function getSubscriptionFilter(args: GetSubscriptionFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionFilterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getSubscriptionFilter", {
         "filterName": args.filterName,
@@ -63,11 +64,7 @@ export interface GetSubscriptionFilterResult {
  *  There can be as many as two subscription filters associated with a log group.
  */
 export function getSubscriptionFilterOutput(args: GetSubscriptionFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFilterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:logs:getSubscriptionFilter", {
-        "filterName": args.filterName,
-        "logGroupName": args.logGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubscriptionFilter(a, opts))
 }
 
 export interface GetSubscriptionFilterOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -163,6 +158,9 @@ def get_scalable_target(resource_id: Optional[str] = None,
         min_capacity=pulumi.get(__ret__, 'min_capacity'),
         scheduled_actions=pulumi.get(__ret__, 'scheduled_actions'),
         suspended_state=pulumi.get(__ret__, 'suspended_state'))
+
+
+@_utilities.lift_output_func(get_scalable_target)
 def get_scalable_target_output(resource_id: Optional[pulumi.Input[str]] = None,
                                scalable_dimension: Optional[pulumi.Input[str]] = None,
                                service_namespace: Optional[pulumi.Input[str]] = None,
@@ -217,15 +215,4 @@ def get_scalable_target_output(resource_id: Optional[pulumi.Input[str]] = None,
              +   ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
     :param str service_namespace: The namespace of the AWS service that provides the resource, or a ``custom-resource``.
     """
-    __args__ = dict()
-    __args__['resourceId'] = resource_id
-    __args__['scalableDimension'] = scalable_dimension
-    __args__['serviceNamespace'] = service_namespace
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:applicationautoscaling:getScalableTarget', __args__, opts=opts, typ=GetScalableTargetResult)
-    return __ret__.apply(lambda __response__: GetScalableTargetResult(
-        id=pulumi.get(__response__, 'id'),
-        max_capacity=pulumi.get(__response__, 'max_capacity'),
-        min_capacity=pulumi.get(__response__, 'min_capacity'),
-        scheduled_actions=pulumi.get(__response__, 'scheduled_actions'),
-        suspended_state=pulumi.get(__response__, 'suspended_state')))
+    ...

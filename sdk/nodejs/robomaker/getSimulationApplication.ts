@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * This schema is for testing purpose only.
  */
 export function getSimulationApplication(args: GetSimulationApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:robomaker:getSimulationApplication", {
         "arn": args.arn,
@@ -54,10 +55,7 @@ export interface GetSimulationApplicationResult {
  * This schema is for testing purpose only.
  */
 export function getSimulationApplicationOutput(args: GetSimulationApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:robomaker:getSimulationApplication", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSimulationApplication(a, opts))
 }
 
 export interface GetSimulationApplicationOutputArgs {

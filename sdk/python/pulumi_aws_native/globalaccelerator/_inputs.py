@@ -4,53 +4,18 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CrossAccountAttachmentResourceArgs',
-    'CrossAccountAttachmentResourceArgsDict',
     'EndpointGroupEndpointConfigurationArgs',
-    'EndpointGroupEndpointConfigurationArgsDict',
     'EndpointGroupPortOverrideArgs',
-    'EndpointGroupPortOverrideArgsDict',
     'ListenerPortRangeArgs',
-    'ListenerPortRangeArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class CrossAccountAttachmentResourceArgsDict(TypedDict):
-        """
-        ARN of resource to share.
-        """
-        cidr: NotRequired[pulumi.Input[str]]
-        """
-        An IP address range, in CIDR format, that is specified as resource. The address must be provisioned and advertised in AWS Global Accelerator by following the bring your own IP address (BYOIP) process for Global Accelerator
-
-        For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the AWS Global Accelerator Developer Guide.
-        """
-        endpoint_id: NotRequired[pulumi.Input[str]]
-        """
-        The endpoint ID for the endpoint that is specified as a AWS resource.
-
-        An endpoint ID for the cross-account feature is the ARN of an AWS resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.
-        """
-        region: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Region where a shared endpoint resource is located.
-        """
-elif False:
-    CrossAccountAttachmentResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrossAccountAttachmentResourceArgs:
@@ -115,30 +80,6 @@ class CrossAccountAttachmentResourceArgs:
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
 
-
-if not MYPY:
-    class EndpointGroupEndpointConfigurationArgsDict(TypedDict):
-        """
-        The configuration for a given endpoint
-        """
-        endpoint_id: pulumi.Input[str]
-        """
-        Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
-        """
-        attachment_arn: NotRequired[pulumi.Input[str]]
-        """
-        Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
-        """
-        client_ip_preservation_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        true if client ip should be preserved
-        """
-        weight: NotRequired[pulumi.Input[int]]
-        """
-        The weight for the endpoint.
-        """
-elif False:
-    EndpointGroupEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointGroupEndpointConfigurationArgs:
@@ -211,22 +152,6 @@ class EndpointGroupEndpointConfigurationArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class EndpointGroupPortOverrideArgsDict(TypedDict):
-        """
-        listener to endpoint port mapping.
-        """
-        endpoint_port: pulumi.Input[int]
-        """
-        The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-        """
-        listener_port: pulumi.Input[int]
-        """
-        The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-        """
-elif False:
-    EndpointGroupPortOverrideArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EndpointGroupPortOverrideArgs:
     def __init__(__self__, *,
@@ -264,22 +189,6 @@ class EndpointGroupPortOverrideArgs:
     def listener_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "listener_port", value)
 
-
-if not MYPY:
-    class ListenerPortRangeArgsDict(TypedDict):
-        """
-        A port range to support for connections from  clients to your accelerator.
-        """
-        from_port: pulumi.Input[int]
-        """
-        The first port in the range of ports, inclusive.
-        """
-        to_port: pulumi.Input[int]
-        """
-        The last port in the range of ports, inclusive.
-        """
-elif False:
-    ListenerPortRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ListenerPortRangeArgs:

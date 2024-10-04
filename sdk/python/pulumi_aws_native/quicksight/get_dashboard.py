@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -170,6 +165,9 @@ def get_dashboard(aws_account_id: Optional[str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_dashboard)
 def get_dashboard_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                          dashboard_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
@@ -180,18 +178,4 @@ def get_dashboard_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     :param str aws_account_id: The ID of the AWS account where you want to create the dashboard.
     :param str dashboard_id: The ID for the dashboard, also added to the IAM policy.
     """
-    __args__ = dict()
-    __args__['awsAccountId'] = aws_account_id
-    __args__['dashboardId'] = dashboard_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getDashboard', __args__, opts=opts, typ=GetDashboardResult)
-    return __ret__.apply(lambda __response__: GetDashboardResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        last_published_time=pulumi.get(__response__, 'last_published_time'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        link_entities=pulumi.get(__response__, 'link_entities'),
-        name=pulumi.get(__response__, 'name'),
-        permissions=pulumi.get(__response__, 'permissions'),
-        tags=pulumi.get(__response__, 'tags'),
-        version=pulumi.get(__response__, 'version')))
+    ...

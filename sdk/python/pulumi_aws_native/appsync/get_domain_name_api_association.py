@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -68,15 +63,12 @@ def get_domain_name_api_association(api_association_identifier: Optional[str] = 
     return AwaitableGetDomainNameApiAssociationResult(
         api_association_identifier=pulumi.get(__ret__, 'api_association_identifier'),
         api_id=pulumi.get(__ret__, 'api_id'))
+
+
+@_utilities.lift_output_func(get_domain_name_api_association)
 def get_domain_name_api_association_output(api_association_identifier: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameApiAssociationResult]:
     """
     Resource Type definition for AWS::AppSync::DomainNameApiAssociation
     """
-    __args__ = dict()
-    __args__['apiAssociationIdentifier'] = api_association_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getDomainNameApiAssociation', __args__, opts=opts, typ=GetDomainNameApiAssociationResult)
-    return __ret__.apply(lambda __response__: GetDomainNameApiAssociationResult(
-        api_association_identifier=pulumi.get(__response__, 'api_association_identifier'),
-        api_id=pulumi.get(__response__, 'api_id')))
+    ...

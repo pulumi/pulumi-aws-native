@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,6 +149,9 @@ def get_anomaly_subscription(subscription_arn: Optional[str] = None,
         subscription_name=pulumi.get(__ret__, 'subscription_name'),
         threshold=pulumi.get(__ret__, 'threshold'),
         threshold_expression=pulumi.get(__ret__, 'threshold_expression'))
+
+
+@_utilities.lift_output_func(get_anomaly_subscription)
 def get_anomaly_subscription_output(subscription_arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalySubscriptionResult]:
     """
@@ -162,16 +160,4 @@ def get_anomaly_subscription_output(subscription_arn: Optional[pulumi.Input[str]
 
     :param str subscription_arn: The `AnomalySubscription` Amazon Resource Name (ARN).
     """
-    __args__ = dict()
-    __args__['subscriptionArn'] = subscription_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ce:getAnomalySubscription', __args__, opts=opts, typ=GetAnomalySubscriptionResult)
-    return __ret__.apply(lambda __response__: GetAnomalySubscriptionResult(
-        account_id=pulumi.get(__response__, 'account_id'),
-        frequency=pulumi.get(__response__, 'frequency'),
-        monitor_arn_list=pulumi.get(__response__, 'monitor_arn_list'),
-        subscribers=pulumi.get(__response__, 'subscribers'),
-        subscription_arn=pulumi.get(__response__, 'subscription_arn'),
-        subscription_name=pulumi.get(__response__, 'subscription_name'),
-        threshold=pulumi.get(__response__, 'threshold'),
-        threshold_expression=pulumi.get(__response__, 'threshold_expression')))
+    ...

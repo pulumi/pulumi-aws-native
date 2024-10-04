@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -119,6 +114,9 @@ def get_policy_store(policy_store_id: Optional[str] = None,
         policy_store_id=pulumi.get(__ret__, 'policy_store_id'),
         schema=pulumi.get(__ret__, 'schema'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
+
+
+@_utilities.lift_output_func(get_policy_store)
 def get_policy_store_output(policy_store_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
@@ -127,13 +125,4 @@ def get_policy_store_output(policy_store_id: Optional[pulumi.Input[str]] = None,
 
     :param str policy_store_id: The unique ID of the new or updated policy store.
     """
-    __args__ = dict()
-    __args__['policyStoreId'] = policy_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getPolicyStore', __args__, opts=opts, typ=GetPolicyStoreResult)
-    return __ret__.apply(lambda __response__: GetPolicyStoreResult(
-        arn=pulumi.get(__response__, 'arn'),
-        description=pulumi.get(__response__, 'description'),
-        policy_store_id=pulumi.get(__response__, 'policy_store_id'),
-        schema=pulumi.get(__response__, 'schema'),
-        validation_settings=pulumi.get(__response__, 'validation_settings')))
+    ...

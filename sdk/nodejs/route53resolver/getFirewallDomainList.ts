@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53Resolver::FirewallDomainList.
  */
 export function getFirewallDomainList(args: GetFirewallDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallDomainListResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getFirewallDomainList", {
         "id": args.id,
@@ -70,10 +71,7 @@ export interface GetFirewallDomainListResult {
  * Resource schema for AWS::Route53Resolver::FirewallDomainList.
  */
 export function getFirewallDomainListOutput(args: GetFirewallDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallDomainListResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53resolver:getFirewallDomainList", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFirewallDomainList(a, opts))
 }
 
 export interface GetFirewallDomainListOutputArgs {

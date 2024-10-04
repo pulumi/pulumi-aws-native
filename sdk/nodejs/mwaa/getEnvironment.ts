@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MWAA::Environment
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mwaa:getEnvironment", {
         "name": args.name,
@@ -171,10 +172,7 @@ export interface GetEnvironmentResult {
  * Resource schema for AWS::MWAA::Environment
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:mwaa:getEnvironment", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {

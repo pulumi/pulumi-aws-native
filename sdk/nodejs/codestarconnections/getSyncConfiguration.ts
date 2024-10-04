@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
  */
 export function getSyncConfiguration(args: GetSyncConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codestarconnections:getSyncConfiguration", {
         "resourceName": args.resourceName,
@@ -71,11 +72,7 @@ export interface GetSyncConfigurationResult {
  * Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
  */
 export function getSyncConfigurationOutput(args: GetSyncConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:codestarconnections:getSyncConfiguration", {
-        "resourceName": args.resourceName,
-        "syncType": args.syncType,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSyncConfiguration(a, opts))
 }
 
 export interface GetSyncConfigurationOutputArgs {

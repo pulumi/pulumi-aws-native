@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -193,6 +188,9 @@ def get_source_api_association(association_arn: Optional[str] = None,
         source_api_association_status=pulumi.get(__ret__, 'source_api_association_status'),
         source_api_association_status_detail=pulumi.get(__ret__, 'source_api_association_status_detail'),
         source_api_id=pulumi.get(__ret__, 'source_api_id'))
+
+
+@_utilities.lift_output_func(get_source_api_association)
 def get_source_api_association_output(association_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceApiAssociationResult]:
     """
@@ -201,19 +199,4 @@ def get_source_api_association_output(association_arn: Optional[pulumi.Input[str
 
     :param str association_arn: ARN of the SourceApiAssociation.
     """
-    __args__ = dict()
-    __args__['associationArn'] = association_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getSourceApiAssociation', __args__, opts=opts, typ=GetSourceApiAssociationResult)
-    return __ret__.apply(lambda __response__: GetSourceApiAssociationResult(
-        association_arn=pulumi.get(__response__, 'association_arn'),
-        association_id=pulumi.get(__response__, 'association_id'),
-        description=pulumi.get(__response__, 'description'),
-        last_successful_merge_date=pulumi.get(__response__, 'last_successful_merge_date'),
-        merged_api_arn=pulumi.get(__response__, 'merged_api_arn'),
-        merged_api_id=pulumi.get(__response__, 'merged_api_id'),
-        source_api_arn=pulumi.get(__response__, 'source_api_arn'),
-        source_api_association_config=pulumi.get(__response__, 'source_api_association_config'),
-        source_api_association_status=pulumi.get(__response__, 'source_api_association_status'),
-        source_api_association_status_detail=pulumi.get(__response__, 'source_api_association_status_detail'),
-        source_api_id=pulumi.get(__response__, 'source_api_id')))
+    ...

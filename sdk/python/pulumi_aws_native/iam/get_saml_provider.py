@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -92,6 +87,9 @@ def get_saml_provider(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         saml_metadata_document=pulumi.get(__ret__, 'saml_metadata_document'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_saml_provider)
 def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlProviderResult]:
     """
@@ -100,11 +98,4 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Amazon Resource Name (ARN) of the SAML provider
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getSamlProvider', __args__, opts=opts, typ=GetSamlProviderResult)
-    return __ret__.apply(lambda __response__: GetSamlProviderResult(
-        arn=pulumi.get(__response__, 'arn'),
-        saml_metadata_document=pulumi.get(__response__, 'saml_metadata_document'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

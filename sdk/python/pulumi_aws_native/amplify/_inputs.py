@@ -4,102 +4,24 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AppAutoBranchCreationConfigArgs',
-    'AppAutoBranchCreationConfigArgsDict',
     'AppBasicAuthConfigArgs',
-    'AppBasicAuthConfigArgsDict',
     'AppCacheConfigArgs',
-    'AppCacheConfigArgsDict',
     'AppCustomRuleArgs',
-    'AppCustomRuleArgsDict',
     'AppEnvironmentVariableArgs',
-    'AppEnvironmentVariableArgsDict',
     'BranchBackendArgs',
-    'BranchBackendArgsDict',
     'BranchBasicAuthConfigArgs',
-    'BranchBasicAuthConfigArgsDict',
     'BranchEnvironmentVariableArgs',
-    'BranchEnvironmentVariableArgsDict',
     'DomainCertificateSettingsArgs',
-    'DomainCertificateSettingsArgsDict',
     'DomainSubDomainSettingArgs',
-    'DomainSubDomainSettingArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AppAutoBranchCreationConfigArgsDict(TypedDict):
-        auto_branch_creation_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Automated branch creation glob patterns for the Amplify app.
-        """
-        basic_auth_config: NotRequired[pulumi.Input['AppBasicAuthConfigArgsDict']]
-        """
-        Sets password protection for your auto created branch.
-        """
-        build_spec: NotRequired[pulumi.Input[str]]
-        """
-        The build specification (build spec) for the autocreated branch.
-        """
-        enable_auto_branch_creation: NotRequired[pulumi.Input[bool]]
-        """
-        Enables automated branch creation for the Amplify app.
-        """
-        enable_auto_build: NotRequired[pulumi.Input[bool]]
-        """
-        Enables auto building for the auto created branch.
-        """
-        enable_performance_mode: NotRequired[pulumi.Input[bool]]
-        """
-        Enables performance mode for the branch.
-
-        Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
-        """
-        enable_pull_request_preview: NotRequired[pulumi.Input[bool]]
-        """
-        Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
-
-        To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
-
-        For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
-        """
-        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgsDict']]]]
-        """
-        The environment variables for the autocreated branch.
-        """
-        framework: NotRequired[pulumi.Input[str]]
-        """
-        The framework for the autocreated branch.
-        """
-        pull_request_environment_name: NotRequired[pulumi.Input[str]]
-        """
-        If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
-
-        To enable pull request previews, set the `EnablePullRequestPreview` property to `true` .
-
-        If you don't specify an environment, Amplify Hosting provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify deletes this environment when the pull request is closed.
-
-        For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
-        """
-        stage: NotRequired[pulumi.Input['AppAutoBranchCreationConfigStage']]
-        """
-        Stage for the auto created branch.
-        """
-elif False:
-    AppAutoBranchCreationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppAutoBranchCreationConfigArgs:
@@ -308,23 +230,6 @@ class AppAutoBranchCreationConfigArgs:
         pulumi.set(self, "stage", value)
 
 
-if not MYPY:
-    class AppBasicAuthConfigArgsDict(TypedDict):
-        enable_basic_auth: NotRequired[pulumi.Input[bool]]
-        """
-        Enables basic authorization for the Amplify app's branches.
-        """
-        password: NotRequired[pulumi.Input[str]]
-        """
-        The password for basic authorization.
-        """
-        username: NotRequired[pulumi.Input[str]]
-        """
-        The user name for basic authorization.
-        """
-elif False:
-    AppBasicAuthConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppBasicAuthConfigArgs:
     def __init__(__self__, *,
@@ -380,19 +285,6 @@ class AppBasicAuthConfigArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class AppCacheConfigArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input['AppCacheConfigType']]
-        """
-        The type of cache configuration to use for an Amplify app.
-
-        The `AMPLIFY_MANAGED` cache configuration automatically applies an optimized cache configuration for your app based on its platform, routing rules, and rewrite rules. This is the default setting.
-
-        The `AMPLIFY_MANAGED_NO_COOKIES` cache configuration type is the same as `AMPLIFY_MANAGED` , except that it excludes all cookies from the cache key.
-        """
-elif False:
-    AppCacheConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppCacheConfigArgs:
     def __init__(__self__, *,
@@ -423,33 +315,6 @@ class AppCacheConfigArgs:
     def type(self, value: Optional[pulumi.Input['AppCacheConfigType']]):
         pulumi.set(self, "type", value)
 
-
-if not MYPY:
-    class AppCustomRuleArgsDict(TypedDict):
-        source: pulumi.Input[str]
-        """
-        The source pattern for a URL rewrite or redirect rule.
-        """
-        target: pulumi.Input[str]
-        """
-        The target pattern for a URL rewrite or redirect rule.
-        """
-        condition: NotRequired[pulumi.Input[str]]
-        """
-        The condition for a URL rewrite or redirect rule, such as a country code.
-        """
-        status: NotRequired[pulumi.Input[str]]
-        """
-        The status code for a URL rewrite or redirect rule.
-
-        - **200** - Represents a 200 rewrite rule.
-        - **301** - Represents a 301 (moved pemanently) redirect rule. This and all future requests should be directed to the target URL.
-        - **302** - Represents a 302 temporary redirect rule.
-        - **404** - Represents a 404 redirect rule.
-        - **404-200** - Represents a 404 rewrite rule.
-        """
-elif False:
-    AppCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppCustomRuleArgs:
@@ -532,19 +397,6 @@ class AppCustomRuleArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class AppEnvironmentVariableArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The environment variable name.
-        """
-        value: pulumi.Input[str]
-        """
-        The environment variable value.
-        """
-elif False:
-    AppEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppEnvironmentVariableArgs:
     def __init__(__self__, *,
@@ -582,15 +434,6 @@ class AppEnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BranchBackendArgsDict(TypedDict):
-        stack_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
-        """
-elif False:
-    BranchBackendArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class BranchBackendArgs:
     def __init__(__self__, *,
@@ -613,20 +456,6 @@ class BranchBackendArgs:
     def stack_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stack_arn", value)
 
-
-if not MYPY:
-    class BranchBasicAuthConfigArgsDict(TypedDict):
-        password: pulumi.Input[str]
-        """
-        The password for basic authorization.
-        """
-        username: pulumi.Input[str]
-        enable_basic_auth: NotRequired[pulumi.Input[bool]]
-        """
-        Enables basic authorization for the branch.
-        """
-elif False:
-    BranchBasicAuthConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BranchBasicAuthConfigArgs:
@@ -677,19 +506,6 @@ class BranchBasicAuthConfigArgs:
         pulumi.set(self, "enable_basic_auth", value)
 
 
-if not MYPY:
-    class BranchEnvironmentVariableArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The environment variable name.
-        """
-        value: pulumi.Input[str]
-        """
-        The environment variable value.
-        """
-elif False:
-    BranchEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class BranchEnvironmentVariableArgs:
     def __init__(__self__, *,
@@ -726,25 +542,6 @@ class BranchEnvironmentVariableArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class DomainCertificateSettingsArgsDict(TypedDict):
-        certificate_type: NotRequired[pulumi.Input['DomainCertificateSettingsCertificateType']]
-        """
-        The certificate type.
-
-        Specify `AMPLIFY_MANAGED` to use the default certificate that Amplify provisions for you.
-
-        Specify `CUSTOM` to use your own certificate that you have already added to AWS Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
-        """
-        custom_certificate_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon resource name (ARN) for the custom certificate that you have already added to AWS Certificate Manager in your AWS account .
-
-        This field is required only when the certificate type is `CUSTOM` .
-        """
-elif False:
-    DomainCertificateSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainCertificateSettingsArgs:
@@ -796,23 +593,6 @@ class DomainCertificateSettingsArgs:
     def custom_certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_certificate_arn", value)
 
-
-if not MYPY:
-    class DomainSubDomainSettingArgsDict(TypedDict):
-        branch_name: pulumi.Input[str]
-        """
-        The branch name setting for the subdomain.
-
-        *Length Constraints:* Minimum length of 1. Maximum length of 255.
-
-        *Pattern:* (?s).+
-        """
-        prefix: pulumi.Input[str]
-        """
-        The prefix setting for the subdomain.
-        """
-elif False:
-    DomainSubDomainSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainSubDomainSettingArgs:

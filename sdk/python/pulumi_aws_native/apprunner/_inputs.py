@@ -4,69 +4,32 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ObservabilityConfigurationTraceConfigurationArgs',
-    'ObservabilityConfigurationTraceConfigurationArgsDict',
     'ServiceAuthenticationConfigurationArgs',
-    'ServiceAuthenticationConfigurationArgsDict',
     'ServiceCodeConfigurationValuesArgs',
-    'ServiceCodeConfigurationValuesArgsDict',
     'ServiceCodeConfigurationArgs',
-    'ServiceCodeConfigurationArgsDict',
     'ServiceCodeRepositoryArgs',
-    'ServiceCodeRepositoryArgsDict',
     'ServiceEgressConfigurationArgs',
-    'ServiceEgressConfigurationArgsDict',
     'ServiceEncryptionConfigurationArgs',
-    'ServiceEncryptionConfigurationArgsDict',
     'ServiceHealthCheckConfigurationArgs',
-    'ServiceHealthCheckConfigurationArgsDict',
     'ServiceImageConfigurationArgs',
-    'ServiceImageConfigurationArgsDict',
     'ServiceImageRepositoryArgs',
-    'ServiceImageRepositoryArgsDict',
     'ServiceIngressConfigurationArgs',
-    'ServiceIngressConfigurationArgsDict',
     'ServiceInstanceConfigurationArgs',
-    'ServiceInstanceConfigurationArgsDict',
     'ServiceKeyValuePairArgs',
-    'ServiceKeyValuePairArgsDict',
     'ServiceNetworkConfigurationArgs',
-    'ServiceNetworkConfigurationArgsDict',
     'ServiceObservabilityConfigurationArgs',
-    'ServiceObservabilityConfigurationArgsDict',
     'ServiceSourceCodeVersionArgs',
-    'ServiceSourceCodeVersionArgsDict',
     'ServiceSourceConfigurationArgs',
-    'ServiceSourceConfigurationArgsDict',
     'VpcIngressConnectionIngressVpcConfigurationArgs',
-    'VpcIngressConnectionIngressVpcConfigurationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ObservabilityConfigurationTraceConfigurationArgsDict(TypedDict):
-        """
-        Describes the configuration of the tracing feature within an AWS App Runner observability configuration.
-        """
-        vendor: pulumi.Input['ObservabilityConfigurationTraceConfigurationVendor']
-        """
-        The implementation provider chosen for tracing App Runner services.
-        """
-elif False:
-    ObservabilityConfigurationTraceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ObservabilityConfigurationTraceConfigurationArgs:
@@ -90,22 +53,6 @@ class ObservabilityConfigurationTraceConfigurationArgs:
     def vendor(self, value: pulumi.Input['ObservabilityConfigurationTraceConfigurationVendor']):
         pulumi.set(self, "vendor", value)
 
-
-if not MYPY:
-    class ServiceAuthenticationConfigurationArgsDict(TypedDict):
-        """
-        Authentication Configuration
-        """
-        access_role_arn: NotRequired[pulumi.Input[str]]
-        """
-        Access Role Arn
-        """
-        connection_arn: NotRequired[pulumi.Input[str]]
-        """
-        Connection Arn
-        """
-elif False:
-    ServiceAuthenticationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceAuthenticationConfigurationArgs:
@@ -146,38 +93,6 @@ class ServiceAuthenticationConfigurationArgs:
     def connection_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_arn", value)
 
-
-if not MYPY:
-    class ServiceCodeConfigurationValuesArgsDict(TypedDict):
-        """
-        Code Configuration Values
-        """
-        runtime: pulumi.Input['ServiceCodeConfigurationValuesRuntime']
-        """
-        Runtime
-        """
-        build_command: NotRequired[pulumi.Input[str]]
-        """
-        Build Command
-        """
-        port: NotRequired[pulumi.Input[str]]
-        """
-        Port
-        """
-        runtime_environment_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]
-        """
-        The secrets and parameters that get referenced by your service as environment variables
-        """
-        runtime_environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]
-        """
-        The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
-        """
-        start_command: NotRequired[pulumi.Input[str]]
-        """
-        Start Command
-        """
-elif False:
-    ServiceCodeConfigurationValuesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceCodeConfigurationValuesArgs:
@@ -282,22 +197,6 @@ class ServiceCodeConfigurationValuesArgs:
         pulumi.set(self, "start_command", value)
 
 
-if not MYPY:
-    class ServiceCodeConfigurationArgsDict(TypedDict):
-        """
-        Code Configuration
-        """
-        configuration_source: pulumi.Input['ServiceCodeConfigurationConfigurationSource']
-        """
-        Configuration Source
-        """
-        code_configuration_values: NotRequired[pulumi.Input['ServiceCodeConfigurationValuesArgsDict']]
-        """
-        The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
-        """
-elif False:
-    ServiceCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceCodeConfigurationArgs:
     def __init__(__self__, *,
@@ -336,32 +235,6 @@ class ServiceCodeConfigurationArgs:
     def code_configuration_values(self, value: Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']]):
         pulumi.set(self, "code_configuration_values", value)
 
-
-if not MYPY:
-    class ServiceCodeRepositoryArgsDict(TypedDict):
-        """
-        Source Code Repository
-        """
-        repository_url: pulumi.Input[str]
-        """
-        Repository Url
-        """
-        source_code_version: pulumi.Input['ServiceSourceCodeVersionArgsDict']
-        """
-        The version that should be used within the source code repository.
-        """
-        code_configuration: NotRequired[pulumi.Input['ServiceCodeConfigurationArgsDict']]
-        """
-        Configuration for building and running the service from a source code repository.
-
-        > `CodeConfiguration` is required only for `CreateService` request.
-        """
-        source_directory: NotRequired[pulumi.Input[str]]
-        """
-        Source Directory
-        """
-elif False:
-    ServiceCodeRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceCodeRepositoryArgs:
@@ -437,22 +310,6 @@ class ServiceCodeRepositoryArgs:
         pulumi.set(self, "source_directory", value)
 
 
-if not MYPY:
-    class ServiceEgressConfigurationArgsDict(TypedDict):
-        """
-        Network egress configuration
-        """
-        egress_type: pulumi.Input['ServiceEgressConfigurationEgressType']
-        """
-        Network egress type.
-        """
-        vpc_connector_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the App Runner VpcConnector.
-        """
-elif False:
-    ServiceEgressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceEgressConfigurationArgs:
     def __init__(__self__, *,
@@ -492,18 +349,6 @@ class ServiceEgressConfigurationArgs:
         pulumi.set(self, "vpc_connector_arn", value)
 
 
-if not MYPY:
-    class ServiceEncryptionConfigurationArgsDict(TypedDict):
-        """
-        Encryption configuration (KMS key)
-        """
-        kms_key: pulumi.Input[str]
-        """
-        The KMS Key
-        """
-elif False:
-    ServiceEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceEncryptionConfigurationArgs:
     def __init__(__self__, *,
@@ -526,38 +371,6 @@ class ServiceEncryptionConfigurationArgs:
     def kms_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "kms_key", value)
 
-
-if not MYPY:
-    class ServiceHealthCheckConfigurationArgsDict(TypedDict):
-        """
-        Health check configuration
-        """
-        healthy_threshold: NotRequired[pulumi.Input[int]]
-        """
-        Health check Healthy Threshold
-        """
-        interval: NotRequired[pulumi.Input[int]]
-        """
-        Health check Interval
-        """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        Health check Path
-        """
-        protocol: NotRequired[pulumi.Input['ServiceHealthCheckConfigurationProtocol']]
-        """
-        Health Check Protocol
-        """
-        timeout: NotRequired[pulumi.Input[int]]
-        """
-        Health check Timeout
-        """
-        unhealthy_threshold: NotRequired[pulumi.Input[int]]
-        """
-        Health check Unhealthy Threshold
-        """
-elif False:
-    ServiceHealthCheckConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceHealthCheckConfigurationArgs:
@@ -663,30 +476,6 @@ class ServiceHealthCheckConfigurationArgs:
         pulumi.set(self, "unhealthy_threshold", value)
 
 
-if not MYPY:
-    class ServiceImageConfigurationArgsDict(TypedDict):
-        """
-        Image Configuration
-        """
-        port: NotRequired[pulumi.Input[str]]
-        """
-        Port
-        """
-        runtime_environment_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]
-        """
-        The secrets and parameters that get referenced by your service as environment variables
-        """
-        runtime_environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]
-        """
-        Environment variables that are available to your running App Runner service. An array of key-value pairs.
-        """
-        start_command: NotRequired[pulumi.Input[str]]
-        """
-        Start Command
-        """
-elif False:
-    ServiceImageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceImageConfigurationArgs:
     def __init__(__self__, *,
@@ -759,26 +548,6 @@ class ServiceImageConfigurationArgs:
         pulumi.set(self, "start_command", value)
 
 
-if not MYPY:
-    class ServiceImageRepositoryArgsDict(TypedDict):
-        """
-        Image Repository
-        """
-        image_identifier: pulumi.Input[str]
-        """
-        Image Identifier
-        """
-        image_repository_type: pulumi.Input['ServiceImageRepositoryImageRepositoryType']
-        """
-        Image Repository Type
-        """
-        image_configuration: NotRequired[pulumi.Input['ServiceImageConfigurationArgsDict']]
-        """
-        Configuration for running the identified image.
-        """
-elif False:
-    ServiceImageRepositoryArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceImageRepositoryArgs:
     def __init__(__self__, *,
@@ -833,18 +602,6 @@ class ServiceImageRepositoryArgs:
         pulumi.set(self, "image_configuration", value)
 
 
-if not MYPY:
-    class ServiceIngressConfigurationArgsDict(TypedDict):
-        """
-        Network ingress configuration
-        """
-        is_publicly_accessible: pulumi.Input[bool]
-        """
-        It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.
-        """
-elif False:
-    ServiceIngressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceIngressConfigurationArgs:
     def __init__(__self__, *,
@@ -867,26 +624,6 @@ class ServiceIngressConfigurationArgs:
     def is_publicly_accessible(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_publicly_accessible", value)
 
-
-if not MYPY:
-    class ServiceInstanceConfigurationArgsDict(TypedDict):
-        """
-        Instance Configuration
-        """
-        cpu: NotRequired[pulumi.Input[str]]
-        """
-        CPU
-        """
-        instance_role_arn: NotRequired[pulumi.Input[str]]
-        """
-        Instance Role Arn
-        """
-        memory: NotRequired[pulumi.Input[str]]
-        """
-        Memory
-        """
-elif False:
-    ServiceInstanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceInstanceConfigurationArgs:
@@ -944,19 +681,6 @@ class ServiceInstanceConfigurationArgs:
         pulumi.set(self, "memory", value)
 
 
-if not MYPY:
-    class ServiceKeyValuePairArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[str]]
-        """
-        The key name string to map to a value.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The value string to which the key name is mapped.
-        """
-elif False:
-    ServiceKeyValuePairArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceKeyValuePairArgs:
     def __init__(__self__, *,
@@ -995,26 +719,6 @@ class ServiceKeyValuePairArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class ServiceNetworkConfigurationArgsDict(TypedDict):
-        """
-        Network configuration
-        """
-        egress_configuration: NotRequired[pulumi.Input['ServiceEgressConfigurationArgsDict']]
-        """
-        Network configuration settings for outbound message traffic.
-        """
-        ingress_configuration: NotRequired[pulumi.Input['ServiceIngressConfigurationArgsDict']]
-        """
-        Network configuration settings for inbound message traffic.
-        """
-        ip_address_type: NotRequired[pulumi.Input['ServiceNetworkConfigurationIpAddressType']]
-        """
-        App Runner service endpoint IP address type
-        """
-elif False:
-    ServiceNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceNetworkConfigurationArgs:
@@ -1072,22 +776,6 @@ class ServiceNetworkConfigurationArgs:
         pulumi.set(self, "ip_address_type", value)
 
 
-if not MYPY:
-    class ServiceObservabilityConfigurationArgsDict(TypedDict):
-        """
-        Service observability configuration
-        """
-        observability_enabled: pulumi.Input[bool]
-        """
-        Observability enabled
-        """
-        observability_configuration_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
-        """
-elif False:
-    ServiceObservabilityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceObservabilityConfigurationArgs:
     def __init__(__self__, *,
@@ -1127,22 +815,6 @@ class ServiceObservabilityConfigurationArgs:
         pulumi.set(self, "observability_configuration_arn", value)
 
 
-if not MYPY:
-    class ServiceSourceCodeVersionArgsDict(TypedDict):
-        """
-        Source Code Version
-        """
-        type: pulumi.Input['ServiceSourceCodeVersionType']
-        """
-        Source Code Version Type
-        """
-        value: pulumi.Input[str]
-        """
-        Source Code Version Value
-        """
-elif False:
-    ServiceSourceCodeVersionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ServiceSourceCodeVersionArgs:
     def __init__(__self__, *,
@@ -1180,34 +852,6 @@ class ServiceSourceCodeVersionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class ServiceSourceConfigurationArgsDict(TypedDict):
-        """
-        Source Code configuration
-        """
-        authentication_configuration: NotRequired[pulumi.Input['ServiceAuthenticationConfigurationArgsDict']]
-        """
-        Describes the resources that are needed to authenticate access to some source repositories.
-        """
-        auto_deployments_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Auto Deployment enabled
-        """
-        code_repository: NotRequired[pulumi.Input['ServiceCodeRepositoryArgsDict']]
-        """
-        The description of a source code repository.
-
-        You must provide either this member or `ImageRepository` (but not both).
-        """
-        image_repository: NotRequired[pulumi.Input['ServiceImageRepositoryArgsDict']]
-        """
-        The description of a source image repository.
-
-        You must provide either this member or `CodeRepository` (but not both).
-        """
-elif False:
-    ServiceSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceSourceConfigurationArgs:
@@ -1288,22 +932,6 @@ class ServiceSourceConfigurationArgs:
     def image_repository(self, value: Optional[pulumi.Input['ServiceImageRepositoryArgs']]):
         pulumi.set(self, "image_repository", value)
 
-
-if not MYPY:
-    class VpcIngressConnectionIngressVpcConfigurationArgsDict(TypedDict):
-        """
-        The configuration of customer’s VPC and related VPC endpoint
-        """
-        vpc_endpoint_id: pulumi.Input[str]
-        """
-        The ID of the VPC endpoint that your App Runner service connects to.
-        """
-        vpc_id: pulumi.Input[str]
-        """
-        The ID of the VPC that the VPC endpoint is used in.
-        """
-elif False:
-    VpcIngressConnectionIngressVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpcIngressConnectionIngressVpcConfigurationArgs:

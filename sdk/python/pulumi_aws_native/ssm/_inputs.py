@@ -4,56 +4,27 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AssociationInstanceAssociationOutputLocationArgs',
-    'AssociationInstanceAssociationOutputLocationArgsDict',
     'AssociationS3OutputLocationArgs',
-    'AssociationS3OutputLocationArgsDict',
     'AssociationTargetArgs',
-    'AssociationTargetArgsDict',
     'DocumentAttachmentsSourceArgs',
-    'DocumentAttachmentsSourceArgsDict',
     'DocumentRequiresArgs',
-    'DocumentRequiresArgsDict',
     'PatchBaselinePatchFilterGroupArgs',
-    'PatchBaselinePatchFilterGroupArgsDict',
     'PatchBaselinePatchFilterArgs',
-    'PatchBaselinePatchFilterArgsDict',
     'PatchBaselinePatchSourceArgs',
-    'PatchBaselinePatchSourceArgsDict',
     'PatchBaselineRuleGroupArgs',
-    'PatchBaselineRuleGroupArgsDict',
     'PatchBaselineRuleArgs',
-    'PatchBaselineRuleArgsDict',
     'ResourceDataSyncAwsOrganizationsSourceArgs',
-    'ResourceDataSyncAwsOrganizationsSourceArgsDict',
     'ResourceDataSyncS3DestinationArgs',
-    'ResourceDataSyncS3DestinationArgsDict',
     'ResourceDataSyncSyncSourceArgs',
-    'ResourceDataSyncSyncSourceArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AssociationInstanceAssociationOutputLocationArgsDict(TypedDict):
-        s3_location: NotRequired[pulumi.Input['AssociationS3OutputLocationArgsDict']]
-        """
-        `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
-        """
-elif False:
-    AssociationInstanceAssociationOutputLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssociationInstanceAssociationOutputLocationArgs:
@@ -77,23 +48,6 @@ class AssociationInstanceAssociationOutputLocationArgs:
     def s3_location(self, value: Optional[pulumi.Input['AssociationS3OutputLocationArgs']]):
         pulumi.set(self, "s3_location", value)
 
-
-if not MYPY:
-    class AssociationS3OutputLocationArgsDict(TypedDict):
-        output_s3_bucket_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the S3 bucket.
-        """
-        output_s3_key_prefix: NotRequired[pulumi.Input[str]]
-        """
-        The S3 bucket subfolder.
-        """
-        output_s3_region: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Region of the S3 bucket.
-        """
-elif False:
-    AssociationS3OutputLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssociationS3OutputLocationArgs:
@@ -150,21 +104,6 @@ class AssociationS3OutputLocationArgs:
         pulumi.set(self, "output_s3_region", value)
 
 
-if not MYPY:
-    class AssociationTargetArgsDict(TypedDict):
-        key: pulumi.Input[str]
-        """
-        User-defined criteria for sending commands that target managed nodes that meet the criteria.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        User-defined criteria that maps to `Key` . For example, if you specified `tag:ServerRole` , you could specify `value:WebServer` to run a command on instances that include EC2 tags of `ServerRole,WebServer` .
-
-        Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
-        """
-elif False:
-    AssociationTargetArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AssociationTargetArgs:
     def __init__(__self__, *,
@@ -205,23 +144,6 @@ class AssociationTargetArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
-
-if not MYPY:
-    class DocumentAttachmentsSourceArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input['DocumentAttachmentsSourceKey']]
-        """
-        The key of a key-value pair that identifies the location of an attachment to a document.
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the document attachment file.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
-        """
-elif False:
-    DocumentAttachmentsSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DocumentAttachmentsSourceArgs:
@@ -278,19 +200,6 @@ class DocumentAttachmentsSourceArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class DocumentRequiresArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
-        """
-        version: NotRequired[pulumi.Input[str]]
-        """
-        The document version required by the current document.
-        """
-elif False:
-    DocumentRequiresArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DocumentRequiresArgs:
     def __init__(__self__, *,
@@ -330,18 +239,6 @@ class DocumentRequiresArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class PatchBaselinePatchFilterGroupArgsDict(TypedDict):
-        """
-        The patch filter group that defines the criteria for the rule.
-        """
-        patch_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgsDict']]]]
-        """
-        The set of patch filters that make up the group.
-        """
-elif False:
-    PatchBaselinePatchFilterGroupArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PatchBaselinePatchFilterGroupArgs:
     def __init__(__self__, *,
@@ -365,26 +262,6 @@ class PatchBaselinePatchFilterGroupArgs:
     def patch_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchFilterArgs']]]]):
         pulumi.set(self, "patch_filters", value)
 
-
-if not MYPY:
-    class PatchBaselinePatchFilterArgsDict(TypedDict):
-        """
-        Defines which patches should be included in a patch baseline.
-        """
-        key: NotRequired[pulumi.Input['PatchBaselinePatchFilterKey']]
-        """
-        The key for the filter.
-
-        For information about valid keys, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The value for the filter key.
-
-        For information about valid values for each key based on operating system type, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-        """
-elif False:
-    PatchBaselinePatchFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PatchBaselinePatchFilterArgs:
@@ -433,36 +310,6 @@ class PatchBaselinePatchFilterArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
-
-if not MYPY:
-    class PatchBaselinePatchSourceArgsDict(TypedDict):
-        """
-        Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
-        """
-        configuration: NotRequired[pulumi.Input[str]]
-        """
-        The value of the yum repo configuration. For example:
-
-        `[main]`
-
-        `name=MyCustomRepository`
-
-        `baseurl=https://my-custom-repository`
-
-        `enabled=1`
-
-        > For information about other options available for your yum repository configuration, see [dnf.conf(5)](https://docs.aws.amazon.com/https://man7.org/linux/man-pages/man5/dnf.conf.5.html) .
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        The name specified to identify the patch source.
-        """
-        products: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html) in the *AWS Systems Manager API Reference* .
-        """
-elif False:
-    PatchBaselinePatchSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PatchBaselinePatchSourceArgs:
@@ -540,18 +387,6 @@ class PatchBaselinePatchSourceArgs:
         pulumi.set(self, "products", value)
 
 
-if not MYPY:
-    class PatchBaselineRuleGroupArgsDict(TypedDict):
-        """
-        A set of rules defining the approval rules for a patch baseline.
-        """
-        patch_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgsDict']]]]
-        """
-        The rules that make up the rule group.
-        """
-elif False:
-    PatchBaselineRuleGroupArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PatchBaselineRuleGroupArgs:
     def __init__(__self__, *,
@@ -575,48 +410,6 @@ class PatchBaselineRuleGroupArgs:
     def patch_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineRuleArgs']]]]):
         pulumi.set(self, "patch_rules", value)
 
-
-if not MYPY:
-    class PatchBaselineRuleArgsDict(TypedDict):
-        """
-        Defines an approval rule for a patch baseline.
-        """
-        approve_after_days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of `7` means that patches are approved seven days after they are released.
-
-        This parameter is marked as `Required: No` , but your request must include a value for either `ApproveAfterDays` or `ApproveUntilDate` .
-
-        Not supported for Debian Server or Ubuntu Server.
-
-        > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
-        """
-        approve_until_date: NotRequired[pulumi.Input[str]]
-        """
-        The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically.
-
-        Enter dates in the format `YYYY-MM-DD` . For example, `2024-12-31` .
-
-        This parameter is marked as `Required: No` , but your request must include a value for either `ApproveUntilDate` or `ApproveAfterDays` .
-
-        Not supported for Debian Server or Ubuntu Server.
-
-        > Use caution when setting this value for Windows Server patch baselines. Because patch updates that are replaced by later updates are removed, setting too broad a value for this parameter can result in crucial patches not being installed. For more information, see the *Windows Server* tab in the topic [How security patches are selected](https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-selecting-patches.html) in the *AWS Systems Manager User Guide* .
-        """
-        compliance_level: NotRequired[pulumi.Input['PatchBaselineRuleComplianceLevel']]
-        """
-        A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: `UNSPECIFIED` , `CRITICAL` , `HIGH` , `MEDIUM` , `LOW` , and `INFORMATIONAL` .
-        """
-        enable_non_security: NotRequired[pulumi.Input[bool]]
-        """
-        For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
-        """
-        patch_filter_group: NotRequired[pulumi.Input['PatchBaselinePatchFilterGroupArgsDict']]
-        """
-        The patch filter group that defines the criteria for the rule.
-        """
-elif False:
-    PatchBaselineRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PatchBaselineRuleArgs:
@@ -734,19 +527,6 @@ class PatchBaselineRuleArgs:
         pulumi.set(self, "patch_filter_group", value)
 
 
-if not MYPY:
-    class ResourceDataSyncAwsOrganizationsSourceArgsDict(TypedDict):
-        organization_source_type: pulumi.Input[str]
-        """
-        If an AWS organization is present, this is either `OrganizationalUnits` or `EntireOrganization` . For `OrganizationalUnits` , the data is aggregated from a set of organization units. For `EntireOrganization` , the data is aggregated from the entire AWS organization.
-        """
-        organizational_units: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The AWS Organizations organization units included in the sync.
-        """
-elif False:
-    ResourceDataSyncAwsOrganizationsSourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResourceDataSyncAwsOrganizationsSourceArgs:
     def __init__(__self__, *,
@@ -784,31 +564,6 @@ class ResourceDataSyncAwsOrganizationsSourceArgs:
     def organizational_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "organizational_units", value)
 
-
-if not MYPY:
-    class ResourceDataSyncS3DestinationArgsDict(TypedDict):
-        bucket_name: pulumi.Input[str]
-        """
-        The name of the S3 bucket where the aggregated data is stored.
-        """
-        bucket_region: pulumi.Input[str]
-        """
-        The AWS Region with the S3 bucket targeted by the resource data sync.
-        """
-        sync_format: pulumi.Input[str]
-        """
-        A supported sync format. The following format is currently supported: JsonSerDe
-        """
-        bucket_prefix: NotRequired[pulumi.Input[str]]
-        """
-        An Amazon S3 prefix for the bucket.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
-        """
-elif False:
-    ResourceDataSyncS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceDataSyncS3DestinationArgs:
@@ -893,27 +648,6 @@ class ResourceDataSyncS3DestinationArgs:
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
 
-
-if not MYPY:
-    class ResourceDataSyncSyncSourceArgsDict(TypedDict):
-        source_regions: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The `SyncSource` AWS Regions included in the resource data sync.
-        """
-        source_type: pulumi.Input[str]
-        """
-        The type of data source for the resource data sync. `SourceType` is either `AwsOrganizations` (if an organization is present in AWS Organizations ) or `SingleAccountMultiRegions` .
-        """
-        aws_organizations_source: NotRequired[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgsDict']]
-        """
-        Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
-        """
-        include_future_regions: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
-        """
-elif False:
-    ResourceDataSyncSyncSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceDataSyncSyncSourceArgs:

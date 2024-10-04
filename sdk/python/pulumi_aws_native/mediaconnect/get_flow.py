@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -167,6 +162,9 @@ def get_flow(flow_arn: Optional[str] = None,
         source_failover_config=pulumi.get(__ret__, 'source_failover_config'),
         source_monitoring_config=pulumi.get(__ret__, 'source_monitoring_config'),
         vpc_interfaces=pulumi.get(__ret__, 'vpc_interfaces'))
+
+
+@_utilities.lift_output_func(get_flow)
 def get_flow_output(flow_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowResult]:
     """
@@ -175,17 +173,4 @@ def get_flow_output(flow_arn: Optional[pulumi.Input[str]] = None,
 
     :param str flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
     """
-    __args__ = dict()
-    __args__['flowArn'] = flow_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlow', __args__, opts=opts, typ=GetFlowResult)
-    return __ret__.apply(lambda __response__: GetFlowResult(
-        egress_ip=pulumi.get(__response__, 'egress_ip'),
-        flow_arn=pulumi.get(__response__, 'flow_arn'),
-        flow_availability_zone=pulumi.get(__response__, 'flow_availability_zone'),
-        maintenance=pulumi.get(__response__, 'maintenance'),
-        media_streams=pulumi.get(__response__, 'media_streams'),
-        source=pulumi.get(__response__, 'source'),
-        source_failover_config=pulumi.get(__response__, 'source_failover_config'),
-        source_monitoring_config=pulumi.get(__response__, 'source_monitoring_config'),
-        vpc_interfaces=pulumi.get(__response__, 'vpc_interfaces')))
+    ...

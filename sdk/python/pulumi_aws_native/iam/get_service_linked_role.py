@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -74,6 +69,9 @@ def get_service_linked_role(role_name: Optional[str] = None,
     return AwaitableGetServiceLinkedRoleResult(
         description=pulumi.get(__ret__, 'description'),
         role_name=pulumi.get(__ret__, 'role_name'))
+
+
+@_utilities.lift_output_func(get_service_linked_role)
 def get_service_linked_role_output(role_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLinkedRoleResult]:
     """
@@ -82,10 +80,4 @@ def get_service_linked_role_output(role_name: Optional[pulumi.Input[str]] = None
 
     :param str role_name: The name of the role.
     """
-    __args__ = dict()
-    __args__['roleName'] = role_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getServiceLinkedRole', __args__, opts=opts, typ=GetServiceLinkedRoleResult)
-    return __ret__.apply(lambda __response__: GetServiceLinkedRoleResult(
-        description=pulumi.get(__response__, 'description'),
-        role_name=pulumi.get(__response__, 'role_name')))
+    ...

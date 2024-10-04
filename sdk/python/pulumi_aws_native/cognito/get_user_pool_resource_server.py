@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -78,6 +73,9 @@ def get_user_pool_resource_server(identifier: Optional[str] = None,
     return AwaitableGetUserPoolResourceServerResult(
         name=pulumi.get(__ret__, 'name'),
         scopes=pulumi.get(__ret__, 'scopes'))
+
+
+@_utilities.lift_output_func(get_user_pool_resource_server)
 def get_user_pool_resource_server_output(identifier: Optional[pulumi.Input[str]] = None,
                                          user_pool_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResourceServerResult]:
@@ -88,11 +86,4 @@ def get_user_pool_resource_server_output(identifier: Optional[pulumi.Input[str]]
     :param str identifier: A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
     :param str user_pool_id: The user pool ID for the user pool.
     """
-    __args__ = dict()
-    __args__['identifier'] = identifier
-    __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolResourceServer', __args__, opts=opts, typ=GetUserPoolResourceServerResult)
-    return __ret__.apply(lambda __response__: GetUserPoolResourceServerResult(
-        name=pulumi.get(__response__, 'name'),
-        scopes=pulumi.get(__response__, 'scopes')))
+    ...

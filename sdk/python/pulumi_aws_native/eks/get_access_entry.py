@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -119,6 +114,9 @@ def get_access_entry(cluster_name: Optional[str] = None,
         kubernetes_groups=pulumi.get(__ret__, 'kubernetes_groups'),
         tags=pulumi.get(__ret__, 'tags'),
         username=pulumi.get(__ret__, 'username'))
+
+
+@_utilities.lift_output_func(get_access_entry)
 def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
                             principal_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessEntryResult]:
@@ -129,14 +127,4 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The cluster that the access entry is created for.
     :param str principal_arn: The principal ARN that the access entry is created for.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    __args__['principalArn'] = principal_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult)
-    return __ret__.apply(lambda __response__: GetAccessEntryResult(
-        access_entry_arn=pulumi.get(__response__, 'access_entry_arn'),
-        access_policies=pulumi.get(__response__, 'access_policies'),
-        kubernetes_groups=pulumi.get(__response__, 'kubernetes_groups'),
-        tags=pulumi.get(__response__, 'tags'),
-        username=pulumi.get(__response__, 'username')))
+    ...

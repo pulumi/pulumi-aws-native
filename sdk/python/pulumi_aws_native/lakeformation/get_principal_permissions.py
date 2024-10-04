@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -77,6 +72,9 @@ def get_principal_permissions(principal_identifier: Optional[str] = None,
     return AwaitableGetPrincipalPermissionsResult(
         principal_identifier=pulumi.get(__ret__, 'principal_identifier'),
         resource_identifier=pulumi.get(__ret__, 'resource_identifier'))
+
+
+@_utilities.lift_output_func(get_principal_permissions)
 def get_principal_permissions_output(principal_identifier: Optional[pulumi.Input[str]] = None,
                                      resource_identifier: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrincipalPermissionsResult]:
@@ -87,11 +85,4 @@ def get_principal_permissions_output(principal_identifier: Optional[pulumi.Input
     :param str principal_identifier: Json encoding of the input principal. For example: `{"DataLakePrincipalIdentifier":"arn:aws:iam::123456789012:role/ExampleRole"}`
     :param str resource_identifier: Json encoding of the input resource. For example: `{"Catalog":null,"Database":null,"Table":null,"TableWithColumns":null,"DataLocation":null,"DataCellsFilter":{"TableCatalogId":"123456789012","DatabaseName":"ExampleDatabase","TableName":"ExampleTable","Name":"ExampleFilter"},"LFTag":null,"LFTagPolicy":null}`
     """
-    __args__ = dict()
-    __args__['principalIdentifier'] = principal_identifier
-    __args__['resourceIdentifier'] = resource_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lakeformation:getPrincipalPermissions', __args__, opts=opts, typ=GetPrincipalPermissionsResult)
-    return __ret__.apply(lambda __response__: GetPrincipalPermissionsResult(
-        principal_identifier=pulumi.get(__response__, 'principal_identifier'),
-        resource_identifier=pulumi.get(__response__, 'resource_identifier')))
+    ...

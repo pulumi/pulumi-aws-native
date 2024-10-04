@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -117,6 +112,9 @@ def get_access_point(name: Optional[str] = None,
         network_origin=pulumi.get(__ret__, 'network_origin'),
         policy=pulumi.get(__ret__, 'policy'),
         public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'))
+
+
+@_utilities.lift_output_func(get_access_point)
 def get_access_point_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
     """
@@ -125,13 +123,4 @@ def get_access_point_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
-    return __ret__.apply(lambda __response__: GetAccessPointResult(
-        alias=pulumi.get(__response__, 'alias'),
-        arn=pulumi.get(__response__, 'arn'),
-        network_origin=pulumi.get(__response__, 'network_origin'),
-        policy=pulumi.get(__response__, 'policy'),
-        public_access_block_configuration=pulumi.get(__response__, 'public_access_block_configuration')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -78,6 +73,9 @@ def get_lifecycle_policy(name: Optional[str] = None,
     return AwaitableGetLifecyclePolicyResult(
         description=pulumi.get(__ret__, 'description'),
         policy=pulumi.get(__ret__, 'policy'))
+
+
+@_utilities.lift_output_func(get_lifecycle_policy)
 def get_lifecycle_policy_output(name: Optional[pulumi.Input[str]] = None,
                                 type: Optional[pulumi.Input['LifecyclePolicyType']] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLifecyclePolicyResult]:
@@ -88,11 +86,4 @@ def get_lifecycle_policy_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the policy
     :param 'LifecyclePolicyType' type: The type of lifecycle policy.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getLifecyclePolicy', __args__, opts=opts, typ=GetLifecyclePolicyResult)
-    return __ret__.apply(lambda __response__: GetLifecyclePolicyResult(
-        description=pulumi.get(__response__, 'description'),
-        policy=pulumi.get(__response__, 'policy')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -293,6 +288,9 @@ def get_queue(queue_url: Optional[str] = None,
         sqs_managed_sse_enabled=pulumi.get(__ret__, 'sqs_managed_sse_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         visibility_timeout=pulumi.get(__ret__, 'visibility_timeout'))
+
+
+@_utilities.lift_output_func(get_queue)
 def get_queue_output(queue_url: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
@@ -309,24 +307,4 @@ def get_queue_output(queue_url: Optional[pulumi.Input[str]] = None,
 
     :param str queue_url: Returns the URLs of the queues from the policy.
     """
-    __args__ = dict()
-    __args__['queueUrl'] = queue_url
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sqs:getQueue', __args__, opts=opts, typ=GetQueueResult)
-    return __ret__.apply(lambda __response__: GetQueueResult(
-        arn=pulumi.get(__response__, 'arn'),
-        content_based_deduplication=pulumi.get(__response__, 'content_based_deduplication'),
-        deduplication_scope=pulumi.get(__response__, 'deduplication_scope'),
-        delay_seconds=pulumi.get(__response__, 'delay_seconds'),
-        fifo_throughput_limit=pulumi.get(__response__, 'fifo_throughput_limit'),
-        kms_data_key_reuse_period_seconds=pulumi.get(__response__, 'kms_data_key_reuse_period_seconds'),
-        kms_master_key_id=pulumi.get(__response__, 'kms_master_key_id'),
-        maximum_message_size=pulumi.get(__response__, 'maximum_message_size'),
-        message_retention_period=pulumi.get(__response__, 'message_retention_period'),
-        queue_url=pulumi.get(__response__, 'queue_url'),
-        receive_message_wait_time_seconds=pulumi.get(__response__, 'receive_message_wait_time_seconds'),
-        redrive_allow_policy=pulumi.get(__response__, 'redrive_allow_policy'),
-        redrive_policy=pulumi.get(__response__, 'redrive_policy'),
-        sqs_managed_sse_enabled=pulumi.get(__response__, 'sqs_managed_sse_enabled'),
-        tags=pulumi.get(__response__, 'tags'),
-        visibility_timeout=pulumi.get(__response__, 'visibility_timeout')))
+    ...

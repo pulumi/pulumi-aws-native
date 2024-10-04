@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:memorydb:getSubnetGroup", {
         "subnetGroupName": args.subnetGroupName,
@@ -46,10 +47,7 @@ export interface GetSubnetGroupResult {
  * The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
  */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:memorydb:getSubnetGroup", {
-        "subnetGroupName": args.subnetGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))
 }
 
 export interface GetSubnetGroupOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -167,6 +162,9 @@ def get_application_instance(application_instance_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_description=pulumi.get(__ret__, 'status_description'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_application_instance)
 def get_application_instance_output(application_instance_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationInstanceResult]:
     """
@@ -175,17 +173,4 @@ def get_application_instance_output(application_instance_id: Optional[pulumi.Inp
 
     :param str application_instance_id: The application instance's ID.
     """
-    __args__ = dict()
-    __args__['applicationInstanceId'] = application_instance_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:panorama:getApplicationInstance', __args__, opts=opts, typ=GetApplicationInstanceResult)
-    return __ret__.apply(lambda __response__: GetApplicationInstanceResult(
-        application_instance_id=pulumi.get(__response__, 'application_instance_id'),
-        arn=pulumi.get(__response__, 'arn'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        default_runtime_context_device_name=pulumi.get(__response__, 'default_runtime_context_device_name'),
-        health_status=pulumi.get(__response__, 'health_status'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        status=pulumi.get(__response__, 'status'),
-        status_description=pulumi.get(__response__, 'status_description'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

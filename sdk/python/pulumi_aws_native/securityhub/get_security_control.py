@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -89,6 +84,9 @@ def get_security_control(security_control_id: Optional[str] = None,
         last_update_reason=pulumi.get(__ret__, 'last_update_reason'),
         parameters=pulumi.get(__ret__, 'parameters'),
         security_control_arn=pulumi.get(__ret__, 'security_control_arn'))
+
+
+@_utilities.lift_output_func(get_security_control)
 def get_security_control_output(security_control_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityControlResult]:
     """
@@ -97,11 +95,4 @@ def get_security_control_output(security_control_id: Optional[pulumi.Input[str]]
 
     :param str security_control_id: The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
     """
-    __args__ = dict()
-    __args__['securityControlId'] = security_control_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getSecurityControl', __args__, opts=opts, typ=GetSecurityControlResult)
-    return __ret__.apply(lambda __response__: GetSecurityControlResult(
-        last_update_reason=pulumi.get(__response__, 'last_update_reason'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        security_control_arn=pulumi.get(__response__, 'security_control_arn')))
+    ...

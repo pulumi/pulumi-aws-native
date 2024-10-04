@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -207,6 +202,9 @@ def get_domain(id: Optional[str] = None,
         single_sign_on=pulumi.get(__ret__, 'single_sign_on'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_domain)
 def get_domain_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -215,20 +213,4 @@ def get_domain_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The id of the Amazon DataZone domain.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getDomain', __args__, opts=opts, typ=GetDomainResult)
-    return __ret__.apply(lambda __response__: GetDomainResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        domain_execution_role=pulumi.get(__response__, 'domain_execution_role'),
-        id=pulumi.get(__response__, 'id'),
-        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
-        managed_account_id=pulumi.get(__response__, 'managed_account_id'),
-        name=pulumi.get(__response__, 'name'),
-        portal_url=pulumi.get(__response__, 'portal_url'),
-        single_sign_on=pulumi.get(__response__, 'single_sign_on'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

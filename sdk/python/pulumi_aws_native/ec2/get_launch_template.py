@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -95,6 +90,9 @@ def get_launch_template(launch_template_id: Optional[str] = None,
         default_version_number=pulumi.get(__ret__, 'default_version_number'),
         latest_version_number=pulumi.get(__ret__, 'latest_version_number'),
         launch_template_id=pulumi.get(__ret__, 'launch_template_id'))
+
+
+@_utilities.lift_output_func(get_launch_template)
 def get_launch_template_output(launch_template_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchTemplateResult]:
     """
@@ -109,11 +107,4 @@ def get_launch_template_output(launch_template_id: Optional[pulumi.Input[str]] =
 
     :param str launch_template_id: The ID of the launch template.
     """
-    __args__ = dict()
-    __args__['launchTemplateId'] = launch_template_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getLaunchTemplate', __args__, opts=opts, typ=GetLaunchTemplateResult)
-    return __ret__.apply(lambda __response__: GetLaunchTemplateResult(
-        default_version_number=pulumi.get(__response__, 'default_version_number'),
-        latest_version_number=pulumi.get(__response__, 'latest_version_number'),
-        launch_template_id=pulumi.get(__response__, 'launch_template_id')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::CapacityReservationFleet
  */
 export function getCapacityReservationFleet(args: GetCapacityReservationFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationFleetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getCapacityReservationFleet", {
         "capacityReservationFleetId": args.capacityReservationFleetId,
@@ -43,10 +44,7 @@ export interface GetCapacityReservationFleetResult {
  * Resource Type definition for AWS::EC2::CapacityReservationFleet
  */
 export function getCapacityReservationFleetOutput(args: GetCapacityReservationFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationFleetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getCapacityReservationFleet", {
-        "capacityReservationFleetId": args.capacityReservationFleetId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCapacityReservationFleet(a, opts))
 }
 
 export interface GetCapacityReservationFleetOutputArgs {

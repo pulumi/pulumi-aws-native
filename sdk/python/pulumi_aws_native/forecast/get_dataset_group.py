@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -102,6 +97,9 @@ def get_dataset_group(dataset_group_arn: Optional[str] = None,
         dataset_group_arn=pulumi.get(__ret__, 'dataset_group_arn'),
         domain=pulumi.get(__ret__, 'domain'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_dataset_group)
 def get_dataset_group_output(dataset_group_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetGroupResult]:
     """
@@ -110,12 +108,4 @@ def get_dataset_group_output(dataset_group_arn: Optional[pulumi.Input[str]] = No
 
     :param str dataset_group_arn: The Amazon Resource Name (ARN) of the dataset group to delete.
     """
-    __args__ = dict()
-    __args__['datasetGroupArn'] = dataset_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:forecast:getDatasetGroup', __args__, opts=opts, typ=GetDatasetGroupResult)
-    return __ret__.apply(lambda __response__: GetDatasetGroupResult(
-        dataset_arns=pulumi.get(__response__, 'dataset_arns'),
-        dataset_group_arn=pulumi.get(__response__, 'dataset_group_arn'),
-        domain=pulumi.get(__response__, 'domain'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

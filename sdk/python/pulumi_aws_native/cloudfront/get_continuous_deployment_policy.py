@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -89,6 +84,9 @@ def get_continuous_deployment_policy(id: Optional[str] = None,
         continuous_deployment_policy_config=pulumi.get(__ret__, 'continuous_deployment_policy_config'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
+
+
+@_utilities.lift_output_func(get_continuous_deployment_policy)
 def get_continuous_deployment_policy_output(id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContinuousDeploymentPolicyResult]:
     """
@@ -97,11 +95,4 @@ def get_continuous_deployment_policy_output(id: Optional[pulumi.Input[str]] = No
 
     :param str id: The identifier of the cotinuous deployment policy.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getContinuousDeploymentPolicy', __args__, opts=opts, typ=GetContinuousDeploymentPolicyResult)
-    return __ret__.apply(lambda __response__: GetContinuousDeploymentPolicyResult(
-        continuous_deployment_policy_config=pulumi.get(__response__, 'continuous_deployment_policy_config'),
-        id=pulumi.get(__response__, 'id'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -88,6 +83,9 @@ def get_playback_key_pair(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         fingerprint=pulumi.get(__ret__, 'fingerprint'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_playback_key_pair)
 def get_playback_key_pair_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaybackKeyPairResult]:
     """
@@ -96,11 +94,4 @@ def get_playback_key_pair_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Key-pair identifier.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getPlaybackKeyPair', __args__, opts=opts, typ=GetPlaybackKeyPairResult)
-    return __ret__.apply(lambda __response__: GetPlaybackKeyPairResult(
-        arn=pulumi.get(__response__, 'arn'),
-        fingerprint=pulumi.get(__response__, 'fingerprint'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -155,6 +150,9 @@ def get_capacity_reservation(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         target_dpus=pulumi.get(__ret__, 'target_dpus'))
+
+
+@_utilities.lift_output_func(get_capacity_reservation)
 def get_capacity_reservation_output(arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
@@ -163,16 +161,4 @@ def get_capacity_reservation_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the capacity reservation.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult)
-    return __ret__.apply(lambda __response__: GetCapacityReservationResult(
-        allocated_dpus=pulumi.get(__response__, 'allocated_dpus'),
-        arn=pulumi.get(__response__, 'arn'),
-        capacity_assignment_configuration=pulumi.get(__response__, 'capacity_assignment_configuration'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        last_successful_allocation_time=pulumi.get(__response__, 'last_successful_allocation_time'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_dpus=pulumi.get(__response__, 'target_dpus')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -154,6 +149,9 @@ def get_mlflow_tracking_server(tracking_server_name: Optional[str] = None,
         tracking_server_arn=pulumi.get(__ret__, 'tracking_server_arn'),
         tracking_server_size=pulumi.get(__ret__, 'tracking_server_size'),
         weekly_maintenance_window_start=pulumi.get(__ret__, 'weekly_maintenance_window_start'))
+
+
+@_utilities.lift_output_func(get_mlflow_tracking_server)
 def get_mlflow_tracking_server_output(tracking_server_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMlflowTrackingServerResult]:
     """
@@ -162,16 +160,4 @@ def get_mlflow_tracking_server_output(tracking_server_name: Optional[pulumi.Inpu
 
     :param str tracking_server_name: The name of the MLFlow Tracking Server.
     """
-    __args__ = dict()
-    __args__['trackingServerName'] = tracking_server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getMlflowTrackingServer', __args__, opts=opts, typ=GetMlflowTrackingServerResult)
-    return __ret__.apply(lambda __response__: GetMlflowTrackingServerResult(
-        artifact_store_uri=pulumi.get(__response__, 'artifact_store_uri'),
-        automatic_model_registration=pulumi.get(__response__, 'automatic_model_registration'),
-        mlflow_version=pulumi.get(__response__, 'mlflow_version'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        tracking_server_arn=pulumi.get(__response__, 'tracking_server_arn'),
-        tracking_server_size=pulumi.get(__response__, 'tracking_server_size'),
-        weekly_maintenance_window_start=pulumi.get(__response__, 'weekly_maintenance_window_start')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -180,6 +175,9 @@ def get_app(app_arn: Optional[str] = None,
         resiliency_policy_arn=pulumi.get(__ret__, 'resiliency_policy_arn'),
         resource_mappings=pulumi.get(__ret__, 'resource_mappings'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_app)
 def get_app_output(app_arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
@@ -188,18 +186,4 @@ def get_app_output(app_arn: Optional[pulumi.Input[str]] = None,
 
     :param str app_arn: Amazon Resource Name (ARN) of the App.
     """
-    __args__ = dict()
-    __args__['appArn'] = app_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:resiliencehub:getApp', __args__, opts=opts, typ=GetAppResult)
-    return __ret__.apply(lambda __response__: GetAppResult(
-        app_arn=pulumi.get(__response__, 'app_arn'),
-        app_assessment_schedule=pulumi.get(__response__, 'app_assessment_schedule'),
-        app_template_body=pulumi.get(__response__, 'app_template_body'),
-        description=pulumi.get(__response__, 'description'),
-        drift_status=pulumi.get(__response__, 'drift_status'),
-        event_subscriptions=pulumi.get(__response__, 'event_subscriptions'),
-        permission_model=pulumi.get(__response__, 'permission_model'),
-        resiliency_policy_arn=pulumi.get(__response__, 'resiliency_policy_arn'),
-        resource_mappings=pulumi.get(__response__, 'resource_mappings'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

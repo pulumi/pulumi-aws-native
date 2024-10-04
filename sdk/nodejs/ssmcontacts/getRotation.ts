@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SSMContacts::Rotation.
  */
 export function getRotation(args: GetRotationArgs, opts?: pulumi.InvokeOptions): Promise<GetRotationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssmcontacts:getRotation", {
         "arn": args.arn,
@@ -58,10 +59,7 @@ export interface GetRotationResult {
  * Resource Type definition for AWS::SSMContacts::Rotation.
  */
 export function getRotationOutput(args: GetRotationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRotationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ssmcontacts:getRotation", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRotation(a, opts))
 }
 
 export interface GetRotationOutputArgs {

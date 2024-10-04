@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -74,6 +69,9 @@ def get_certificate_authority_activation(certificate_authority_arn: Optional[str
     return AwaitableGetCertificateAuthorityActivationResult(
         complete_certificate_chain=pulumi.get(__ret__, 'complete_certificate_chain'),
         status=pulumi.get(__ret__, 'status'))
+
+
+@_utilities.lift_output_func(get_certificate_authority_activation)
 def get_certificate_authority_activation_output(certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateAuthorityActivationResult]:
     """
@@ -82,10 +80,4 @@ def get_certificate_authority_activation_output(certificate_authority_arn: Optio
 
     :param str certificate_authority_arn: Arn of the Certificate Authority.
     """
-    __args__ = dict()
-    __args__['certificateAuthorityArn'] = certificate_authority_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:acmpca:getCertificateAuthorityActivation', __args__, opts=opts, typ=GetCertificateAuthorityActivationResult)
-    return __ret__.apply(lambda __response__: GetCertificateAuthorityActivationResult(
-        complete_certificate_chain=pulumi.get(__response__, 'complete_certificate_chain'),
-        status=pulumi.get(__response__, 'status')))
+    ...

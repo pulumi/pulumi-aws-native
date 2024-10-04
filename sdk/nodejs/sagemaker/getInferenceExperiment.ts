@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::InferenceExperiment
  */
 export function getInferenceExperiment(args: GetInferenceExperimentArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceExperimentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getInferenceExperiment", {
         "name": args.name,
@@ -81,10 +82,7 @@ export interface GetInferenceExperimentResult {
  * Resource Type definition for AWS::SageMaker::InferenceExperiment
  */
 export function getInferenceExperimentOutput(args: GetInferenceExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceExperimentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getInferenceExperiment", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInferenceExperiment(a, opts))
 }
 
 export interface GetInferenceExperimentOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -74,6 +69,9 @@ def get_security_group_ingress(id: Optional[str] = None,
     return AwaitableGetSecurityGroupIngressResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_security_group_ingress)
 def get_security_group_ingress_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupIngressResult]:
     """
@@ -82,10 +80,4 @@ def get_security_group_ingress_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The Security Group Rule Id
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSecurityGroupIngress', __args__, opts=opts, typ=GetSecurityGroupIngressResult)
-    return __ret__.apply(lambda __response__: GetSecurityGroupIngressResult(
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -80,6 +75,9 @@ def get_model(name: Optional[str] = None,
     return AwaitableGetModelResult(
         description=pulumi.get(__ret__, 'description'),
         schema=pulumi.get(__ret__, 'schema'))
+
+
+@_utilities.lift_output_func(get_model)
 def get_model_output(name: Optional[pulumi.Input[str]] = None,
                      rest_api_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
@@ -91,11 +89,4 @@ def get_model_output(name: Optional[pulumi.Input[str]] = None,
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getModel', __args__, opts=opts, typ=GetModelResult)
-    return __ret__.apply(lambda __response__: GetModelResult(
-        description=pulumi.get(__response__, 'description'),
-        schema=pulumi.get(__response__, 'schema')))
+    ...

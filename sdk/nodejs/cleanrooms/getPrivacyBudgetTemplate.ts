@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Represents a privacy budget within a collaboration
  */
 export function getPrivacyBudgetTemplate(args: GetPrivacyBudgetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivacyBudgetTemplateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cleanrooms:getPrivacyBudgetTemplate", {
         "membershipIdentifier": args.membershipIdentifier,
@@ -63,11 +64,7 @@ export interface GetPrivacyBudgetTemplateResult {
  * Represents a privacy budget within a collaboration
  */
 export function getPrivacyBudgetTemplateOutput(args: GetPrivacyBudgetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivacyBudgetTemplateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getPrivacyBudgetTemplate", {
-        "membershipIdentifier": args.membershipIdentifier,
-        "privacyBudgetTemplateIdentifier": args.privacyBudgetTemplateIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrivacyBudgetTemplate(a, opts))
 }
 
 export interface GetPrivacyBudgetTemplateOutputArgs {

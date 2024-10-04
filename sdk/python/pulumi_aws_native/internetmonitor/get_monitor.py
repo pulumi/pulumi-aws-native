@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -221,6 +216,9 @@ def get_monitor(monitor_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         traffic_percentage_to_monitor=pulumi.get(__ret__, 'traffic_percentage_to_monitor'))
+
+
+@_utilities.lift_output_func(get_monitor)
 def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
     """
@@ -229,20 +227,4 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
 
     :param str monitor_name: The name of the monitor. A monitor name can contain only alphanumeric characters, dashes (-), periods (.), and underscores (_).
     """
-    __args__ = dict()
-    __args__['monitorName'] = monitor_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:internetmonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
-    return __ret__.apply(lambda __response__: GetMonitorResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        health_events_config=pulumi.get(__response__, 'health_events_config'),
-        internet_measurements_log_delivery=pulumi.get(__response__, 'internet_measurements_log_delivery'),
-        max_city_networks_to_monitor=pulumi.get(__response__, 'max_city_networks_to_monitor'),
-        modified_at=pulumi.get(__response__, 'modified_at'),
-        monitor_arn=pulumi.get(__response__, 'monitor_arn'),
-        processing_status=pulumi.get(__response__, 'processing_status'),
-        processing_status_info=pulumi.get(__response__, 'processing_status_info'),
-        resources=pulumi.get(__response__, 'resources'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        traffic_percentage_to_monitor=pulumi.get(__response__, 'traffic_percentage_to_monitor')))
+    ...

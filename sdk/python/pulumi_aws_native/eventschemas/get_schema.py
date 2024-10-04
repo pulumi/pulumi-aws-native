@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -153,6 +148,9 @@ def get_schema(schema_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version_created_date=pulumi.get(__ret__, 'version_created_date'))
+
+
+@_utilities.lift_output_func(get_schema)
 def get_schema_output(schema_arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
     """
@@ -161,16 +159,4 @@ def get_schema_output(schema_arn: Optional[pulumi.Input[str]] = None,
 
     :param str schema_arn: The ARN of the schema.
     """
-    __args__ = dict()
-    __args__['schemaArn'] = schema_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:eventschemas:getSchema', __args__, opts=opts, typ=GetSchemaResult)
-    return __ret__.apply(lambda __response__: GetSchemaResult(
-        content=pulumi.get(__response__, 'content'),
-        description=pulumi.get(__response__, 'description'),
-        last_modified=pulumi.get(__response__, 'last_modified'),
-        schema_arn=pulumi.get(__response__, 'schema_arn'),
-        schema_version=pulumi.get(__response__, 'schema_version'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        version_created_date=pulumi.get(__response__, 'version_created_date')))
+    ...

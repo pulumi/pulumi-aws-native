@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -155,6 +150,9 @@ def get_room(arn: Optional[str] = None,
         message_review_handler=pulumi.get(__ret__, 'message_review_handler'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_room)
 def get_room_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoomResult]:
     """
@@ -163,16 +161,4 @@ def get_room_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Room ARN is automatically generated on creation and assigned as the unique identifier.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ivschat:getRoom', __args__, opts=opts, typ=GetRoomResult)
-    return __ret__.apply(lambda __response__: GetRoomResult(
-        arn=pulumi.get(__response__, 'arn'),
-        id=pulumi.get(__response__, 'id'),
-        logging_configuration_identifiers=pulumi.get(__response__, 'logging_configuration_identifiers'),
-        maximum_message_length=pulumi.get(__response__, 'maximum_message_length'),
-        maximum_message_rate_per_second=pulumi.get(__response__, 'maximum_message_rate_per_second'),
-        message_review_handler=pulumi.get(__response__, 'message_review_handler'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

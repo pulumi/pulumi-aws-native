@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -121,6 +116,9 @@ def get_project(arn: Optional[str] = None,
         data_delivery=pulumi.get(__ret__, 'data_delivery'),
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_project)
 def get_project_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
@@ -129,13 +127,4 @@ def get_project_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:evidently:getProject', __args__, opts=opts, typ=GetProjectResult)
-    return __ret__.apply(lambda __response__: GetProjectResult(
-        app_config_resource=pulumi.get(__response__, 'app_config_resource'),
-        arn=pulumi.get(__response__, 'arn'),
-        data_delivery=pulumi.get(__response__, 'data_delivery'),
-        description=pulumi.get(__response__, 'description'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

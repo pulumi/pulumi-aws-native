@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IVS::StreamKey
  */
 export function getStreamKey(args: GetStreamKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ivs:getStreamKey", {
         "arn": args.arn,
@@ -42,10 +43,7 @@ export interface GetStreamKeyResult {
  * Resource Type definition for AWS::IVS::StreamKey
  */
 export function getStreamKeyOutput(args: GetStreamKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ivs:getStreamKey", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStreamKey(a, opts))
 }
 
 export interface GetStreamKeyOutputArgs {

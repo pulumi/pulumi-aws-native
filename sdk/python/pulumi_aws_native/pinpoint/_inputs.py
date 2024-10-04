@@ -4,50 +4,20 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'InAppTemplateBodyConfigArgs',
-    'InAppTemplateBodyConfigArgsDict',
     'InAppTemplateButtonConfigArgs',
-    'InAppTemplateButtonConfigArgsDict',
     'InAppTemplateDefaultButtonConfigurationArgs',
-    'InAppTemplateDefaultButtonConfigurationArgsDict',
     'InAppTemplateHeaderConfigArgs',
-    'InAppTemplateHeaderConfigArgsDict',
     'InAppTemplateInAppMessageContentArgs',
-    'InAppTemplateInAppMessageContentArgsDict',
     'InAppTemplateOverrideButtonConfigurationArgs',
-    'InAppTemplateOverrideButtonConfigurationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class InAppTemplateBodyConfigArgsDict(TypedDict):
-        alignment: NotRequired[pulumi.Input['InAppTemplateAlignment']]
-        """
-        The text alignment of the main body text of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
-        """
-        body: NotRequired[pulumi.Input[str]]
-        """
-        The main body text of the message.
-        """
-        text_color: NotRequired[pulumi.Input[str]]
-        """
-        The color of the body text, expressed as a hex color code (such as #000000 for black).
-        """
-elif False:
-    InAppTemplateBodyConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InAppTemplateBodyConfigArgs:
@@ -103,27 +73,6 @@ class InAppTemplateBodyConfigArgs:
     def text_color(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_color", value)
 
-
-if not MYPY:
-    class InAppTemplateButtonConfigArgsDict(TypedDict):
-        android: NotRequired[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgsDict']]
-        """
-        Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
-        """
-        default_config: NotRequired[pulumi.Input['InAppTemplateDefaultButtonConfigurationArgsDict']]
-        """
-        Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
-        """
-        ios: NotRequired[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgsDict']]
-        """
-        Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
-        """
-        web: NotRequired[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgsDict']]
-        """
-        Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
-        """
-elif False:
-    InAppTemplateButtonConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InAppTemplateButtonConfigArgs:
@@ -195,39 +144,6 @@ class InAppTemplateButtonConfigArgs:
     def web(self, value: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']]):
         pulumi.set(self, "web", value)
 
-
-if not MYPY:
-    class InAppTemplateDefaultButtonConfigurationArgsDict(TypedDict):
-        background_color: NotRequired[pulumi.Input[str]]
-        """
-        The background color of a button, expressed as a hex color code (such as #000000 for black).
-        """
-        border_radius: NotRequired[pulumi.Input[int]]
-        """
-        The border radius of a button.
-        """
-        button_action: NotRequired[pulumi.Input['InAppTemplateButtonAction']]
-        """
-        The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
-
-        - `LINK` – A link to a web destination.
-        - `DEEP_LINK` – A link to a specific page in an application.
-        - `CLOSE` – Dismisses the message.
-        """
-        link: NotRequired[pulumi.Input[str]]
-        """
-        The destination (such as a URL) for a button.
-        """
-        text: NotRequired[pulumi.Input[str]]
-        """
-        The text that appears on a button in an in-app message.
-        """
-        text_color: NotRequired[pulumi.Input[str]]
-        """
-        The color of the body text in a button, expressed as a hex color code (such as #000000 for black).
-        """
-elif False:
-    InAppTemplateDefaultButtonConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InAppTemplateDefaultButtonConfigurationArgs:
@@ -340,23 +256,6 @@ class InAppTemplateDefaultButtonConfigurationArgs:
         pulumi.set(self, "text_color", value)
 
 
-if not MYPY:
-    class InAppTemplateHeaderConfigArgsDict(TypedDict):
-        alignment: NotRequired[pulumi.Input['InAppTemplateAlignment']]
-        """
-        The text alignment of the title of the message. Acceptable values: `LEFT` , `CENTER` , `RIGHT` .
-        """
-        header: NotRequired[pulumi.Input[str]]
-        """
-        The title text of the in-app message.
-        """
-        text_color: NotRequired[pulumi.Input[str]]
-        """
-        The color of the title text, expressed as a hex color code (such as #000000 for black).
-        """
-elif False:
-    InAppTemplateHeaderConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InAppTemplateHeaderConfigArgs:
     def __init__(__self__, *,
@@ -411,35 +310,6 @@ class InAppTemplateHeaderConfigArgs:
     def text_color(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_color", value)
 
-
-if not MYPY:
-    class InAppTemplateInAppMessageContentArgsDict(TypedDict):
-        background_color: NotRequired[pulumi.Input[str]]
-        """
-        The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
-        """
-        body_config: NotRequired[pulumi.Input['InAppTemplateBodyConfigArgsDict']]
-        """
-        An object that contains configuration information about the header or title text of the in-app message.
-        """
-        header_config: NotRequired[pulumi.Input['InAppTemplateHeaderConfigArgsDict']]
-        """
-        An object that contains configuration information about the header or title text of the in-app message.
-        """
-        image_url: NotRequired[pulumi.Input[str]]
-        """
-        The URL of the image that appears on an in-app message banner.
-        """
-        primary_btn: NotRequired[pulumi.Input['InAppTemplateButtonConfigArgsDict']]
-        """
-        An object that contains configuration information about the primary button in an in-app message.
-        """
-        secondary_btn: NotRequired[pulumi.Input['InAppTemplateButtonConfigArgsDict']]
-        """
-        An object that contains configuration information about the secondary button in an in-app message.
-        """
-elif False:
-    InAppTemplateInAppMessageContentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InAppTemplateInAppMessageContentArgs:
@@ -543,23 +413,6 @@ class InAppTemplateInAppMessageContentArgs:
     def secondary_btn(self, value: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']]):
         pulumi.set(self, "secondary_btn", value)
 
-
-if not MYPY:
-    class InAppTemplateOverrideButtonConfigurationArgsDict(TypedDict):
-        button_action: NotRequired[pulumi.Input['InAppTemplateButtonAction']]
-        """
-        The action that occurs when a recipient chooses a button in an in-app message. You can specify one of the following:
-
-        - `LINK` – A link to a web destination.
-        - `DEEP_LINK` – A link to a specific page in an application.
-        - `CLOSE` – Dismisses the message.
-        """
-        link: NotRequired[pulumi.Input[str]]
-        """
-        The destination (such as a URL) for a button.
-        """
-elif False:
-    InAppTemplateOverrideButtonConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InAppTemplateOverrideButtonConfigurationArgs:

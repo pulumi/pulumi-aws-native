@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Bedrock::FlowAlias Resource Type
  */
 export function getFlowAlias(args: GetFlowAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowAliasResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:bedrock:getFlowAlias", {
         "arn": args.arn,
@@ -74,11 +75,7 @@ export interface GetFlowAliasResult {
  * Definition of AWS::Bedrock::FlowAlias Resource Type
  */
 export function getFlowAliasOutput(args: GetFlowAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowAliasResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:bedrock:getFlowAlias", {
-        "arn": args.arn,
-        "flowArn": args.flowArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFlowAlias(a, opts))
 }
 
 export interface GetFlowAliasOutputArgs {

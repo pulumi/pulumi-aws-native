@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Evidently::Launch.
  */
 export function getLaunch(args: GetLaunchArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:evidently:getLaunch", {
         "arn": args.arn,
@@ -62,10 +63,7 @@ export interface GetLaunchResult {
  * Resource Type definition for AWS::Evidently::Launch.
  */
 export function getLaunchOutput(args: GetLaunchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:evidently:getLaunch", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLaunch(a, opts))
 }
 
 export interface GetLaunchOutputArgs {

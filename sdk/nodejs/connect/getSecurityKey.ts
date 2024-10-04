@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::SecurityKey
  */
 export function getSecurityKey(args: GetSecurityKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getSecurityKey", {
         "associationId": args.associationId,
@@ -40,11 +41,7 @@ export interface GetSecurityKeyResult {
  * Resource Type definition for AWS::Connect::SecurityKey
  */
 export function getSecurityKeyOutput(args: GetSecurityKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:connect:getSecurityKey", {
-        "associationId": args.associationId,
-        "instanceId": args.instanceId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityKey(a, opts))
 }
 
 export interface GetSecurityKeyOutputArgs {

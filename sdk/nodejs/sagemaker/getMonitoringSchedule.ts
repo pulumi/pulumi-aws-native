@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::MonitoringSchedule
  */
 export function getMonitoringSchedule(args: GetMonitoringScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringScheduleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getMonitoringSchedule", {
         "monitoringScheduleArn": args.monitoringScheduleArn,
@@ -66,10 +67,7 @@ export interface GetMonitoringScheduleResult {
  * Resource Type definition for AWS::SageMaker::MonitoringSchedule
  */
 export function getMonitoringScheduleOutput(args: GetMonitoringScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringScheduleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getMonitoringSchedule", {
-        "monitoringScheduleArn": args.monitoringScheduleArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMonitoringSchedule(a, opts))
 }
 
 export interface GetMonitoringScheduleOutputArgs {

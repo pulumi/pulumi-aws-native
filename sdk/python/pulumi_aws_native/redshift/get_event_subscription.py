@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -205,6 +200,9 @@ def get_event_subscription(subscription_name: Optional[str] = None,
         source_type=pulumi.get(__ret__, 'source_type'),
         status=pulumi.get(__ret__, 'status'),
         subscription_creation_time=pulumi.get(__ret__, 'subscription_creation_time'))
+
+
+@_utilities.lift_output_func(get_event_subscription)
 def get_event_subscription_output(subscription_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
@@ -213,20 +211,4 @@ def get_event_subscription_output(subscription_name: Optional[pulumi.Input[str]]
 
     :param str subscription_name: The name of the Amazon Redshift event notification subscription
     """
-    __args__ = dict()
-    __args__['subscriptionName'] = subscription_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getEventSubscription', __args__, opts=opts, typ=GetEventSubscriptionResult)
-    return __ret__.apply(lambda __response__: GetEventSubscriptionResult(
-        cust_subscription_id=pulumi.get(__response__, 'cust_subscription_id'),
-        customer_aws_id=pulumi.get(__response__, 'customer_aws_id'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        event_categories=pulumi.get(__response__, 'event_categories'),
-        event_categories_list=pulumi.get(__response__, 'event_categories_list'),
-        severity=pulumi.get(__response__, 'severity'),
-        sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn'),
-        source_ids=pulumi.get(__response__, 'source_ids'),
-        source_ids_list=pulumi.get(__response__, 'source_ids_list'),
-        source_type=pulumi.get(__response__, 'source_type'),
-        status=pulumi.get(__response__, 'status'),
-        subscription_creation_time=pulumi.get(__response__, 'subscription_creation_time')))
+    ...

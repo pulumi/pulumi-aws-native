@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -102,6 +97,9 @@ def get_identity_source(identity_source_id: Optional[str] = None,
         details=pulumi.get(__ret__, 'details'),
         identity_source_id=pulumi.get(__ret__, 'identity_source_id'),
         principal_entity_type=pulumi.get(__ret__, 'principal_entity_type'))
+
+
+@_utilities.lift_output_func(get_identity_source)
 def get_identity_source_output(identity_source_id: Optional[pulumi.Input[str]] = None,
                                policy_store_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentitySourceResult]:
@@ -112,13 +110,4 @@ def get_identity_source_output(identity_source_id: Optional[pulumi.Input[str]] =
     :param str identity_source_id: The unique ID of the new or updated identity store.
     :param str policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
     """
-    __args__ = dict()
-    __args__['identitySourceId'] = identity_source_id
-    __args__['policyStoreId'] = policy_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getIdentitySource', __args__, opts=opts, typ=GetIdentitySourceResult)
-    return __ret__.apply(lambda __response__: GetIdentitySourceResult(
-        configuration=pulumi.get(__response__, 'configuration'),
-        details=pulumi.get(__response__, 'details'),
-        identity_source_id=pulumi.get(__response__, 'identity_source_id'),
-        principal_entity_type=pulumi.get(__response__, 'principal_entity_type')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -179,6 +174,9 @@ def get_studio(studio_id: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
+
+
+@_utilities.lift_output_func(get_studio)
 def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioResult]:
     """
@@ -187,18 +185,4 @@ def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
 
     :param str studio_id: The ID of the EMR Studio.
     """
-    __args__ = dict()
-    __args__['studioId'] = studio_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:emr:getStudio', __args__, opts=opts, typ=GetStudioResult)
-    return __ret__.apply(lambda __response__: GetStudioResult(
-        arn=pulumi.get(__response__, 'arn'),
-        default_s3_location=pulumi.get(__response__, 'default_s3_location'),
-        description=pulumi.get(__response__, 'description'),
-        idp_auth_url=pulumi.get(__response__, 'idp_auth_url'),
-        idp_relay_state_parameter_name=pulumi.get(__response__, 'idp_relay_state_parameter_name'),
-        name=pulumi.get(__response__, 'name'),
-        studio_id=pulumi.get(__response__, 'studio_id'),
-        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
-        tags=pulumi.get(__response__, 'tags'),
-        url=pulumi.get(__response__, 'url')))
+    ...

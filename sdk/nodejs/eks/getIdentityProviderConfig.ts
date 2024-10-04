@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * An object representing an Amazon EKS IdentityProviderConfig.
  */
 export function getIdentityProviderConfig(args: GetIdentityProviderConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityProviderConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eks:getIdentityProviderConfig", {
         "clusterName": args.clusterName,
@@ -48,12 +49,7 @@ export interface GetIdentityProviderConfigResult {
  * An object representing an Amazon EKS IdentityProviderConfig.
  */
 export function getIdentityProviderConfigOutput(args: GetIdentityProviderConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:eks:getIdentityProviderConfig", {
-        "clusterName": args.clusterName,
-        "identityProviderConfigName": args.identityProviderConfigName,
-        "type": args.type,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIdentityProviderConfig(a, opts))
 }
 
 export interface GetIdentityProviderConfigOutputArgs {

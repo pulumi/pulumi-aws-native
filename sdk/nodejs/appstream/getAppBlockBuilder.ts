@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppStream::AppBlockBuilder.
  */
 export function getAppBlockBuilder(args: GetAppBlockBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppBlockBuilderResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appstream:getAppBlockBuilder", {
         "name": args.name,
@@ -72,10 +73,7 @@ export interface GetAppBlockBuilderResult {
  * Resource Type definition for AWS::AppStream::AppBlockBuilder.
  */
 export function getAppBlockBuilderOutput(args: GetAppBlockBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppBlockBuilderResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:appstream:getAppBlockBuilder", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAppBlockBuilder(a, opts))
 }
 
 export interface GetAppBlockBuilderOutputArgs {

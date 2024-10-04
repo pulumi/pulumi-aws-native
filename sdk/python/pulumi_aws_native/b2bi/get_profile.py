@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -167,23 +162,12 @@ def get_profile(profile_id: Optional[str] = None,
         profile_arn=pulumi.get(__ret__, 'profile_arn'),
         profile_id=pulumi.get(__ret__, 'profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_profile)
 def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
     Definition of AWS::B2BI::Profile Resource Type
     """
-    __args__ = dict()
-    __args__['profileId'] = profile_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:b2bi:getProfile', __args__, opts=opts, typ=GetProfileResult)
-    return __ret__.apply(lambda __response__: GetProfileResult(
-        business_name=pulumi.get(__response__, 'business_name'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        email=pulumi.get(__response__, 'email'),
-        log_group_name=pulumi.get(__response__, 'log_group_name'),
-        modified_at=pulumi.get(__response__, 'modified_at'),
-        name=pulumi.get(__response__, 'name'),
-        phone=pulumi.get(__response__, 'phone'),
-        profile_arn=pulumi.get(__response__, 'profile_arn'),
-        profile_id=pulumi.get(__response__, 'profile_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

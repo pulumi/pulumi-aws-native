@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -62,6 +57,9 @@ def get_application(application_name: Optional[str] = None,
 
     return AwaitableGetApplicationResult(
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_application)
 def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -70,9 +68,4 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
 
     :param str application_name: A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """
-    __args__ = dict()
-    __args__['applicationName'] = application_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:codedeploy:getApplication', __args__, opts=opts, typ=GetApplicationResult)
-    return __ret__.apply(lambda __response__: GetApplicationResult(
-        tags=pulumi.get(__response__, 'tags')))
+    ...

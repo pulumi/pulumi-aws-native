@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The resource schema to create a CodeArtifact package group.
  */
 export function getPackageGroup(args: GetPackageGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codeartifact:getPackageGroup", {
         "arn": args.arn,
@@ -54,10 +55,7 @@ export interface GetPackageGroupResult {
  * The resource schema to create a CodeArtifact package group.
  */
 export function getPackageGroupOutput(args: GetPackageGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:codeartifact:getPackageGroup", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPackageGroup(a, opts))
 }
 
 export interface GetPackageGroupOutputArgs {

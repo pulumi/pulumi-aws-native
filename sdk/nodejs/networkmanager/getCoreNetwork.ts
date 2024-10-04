@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * AWS::NetworkManager::CoreNetwork Resource Type Definition.
  */
 export function getCoreNetwork(args: GetCoreNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetCoreNetworkResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getCoreNetwork", {
         "coreNetworkId": args.coreNetworkId,
@@ -76,10 +77,7 @@ export interface GetCoreNetworkResult {
  * AWS::NetworkManager::CoreNetwork Resource Type Definition.
  */
 export function getCoreNetworkOutput(args: GetCoreNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoreNetworkResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:networkmanager:getCoreNetwork", {
-        "coreNetworkId": args.coreNetworkId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCoreNetwork(a, opts))
 }
 
 export interface GetCoreNetworkOutputArgs {

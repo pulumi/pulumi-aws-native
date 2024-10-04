@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::ConnectCampaigns::Campaign Resource Type
  */
 export function getCampaign(args: GetCampaignArgs, opts?: pulumi.InvokeOptions): Promise<GetCampaignResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connectcampaigns:getCampaign", {
         "arn": args.arn,
@@ -50,10 +51,7 @@ export interface GetCampaignResult {
  * Definition of AWS::ConnectCampaigns::Campaign Resource Type
  */
 export function getCampaignOutput(args: GetCampaignOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCampaignResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:connectcampaigns:getCampaign", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCampaign(a, opts))
 }
 
 export interface GetCampaignOutputArgs {

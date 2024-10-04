@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *  Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
  */
 export function getSecurityGroupEgress(args: GetSecurityGroupEgressArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupEgressResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSecurityGroupEgress", {
         "id": args.id,
@@ -38,10 +39,7 @@ export interface GetSecurityGroupEgressResult {
  *  Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
  */
 export function getSecurityGroupEgressOutput(args: GetSecurityGroupEgressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupEgressResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getSecurityGroupEgress", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSecurityGroupEgress(a, opts))
 }
 
 export interface GetSecurityGroupEgressOutputArgs {

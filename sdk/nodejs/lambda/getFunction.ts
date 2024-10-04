@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *  For a complete introduction to Lambda functions, see [What is Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/lambda-welcome.html) in the *Lambda developer guide.*
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getFunction", {
         "functionName": args.functionName,
@@ -145,10 +146,7 @@ export interface GetFunctionResult {
  *  For a complete introduction to Lambda functions, see [What is Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/lambda-welcome.html) in the *Lambda developer guide.*
  */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:lambda:getFunction", {
-        "functionName": args.functionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFunction(a, opts))
 }
 
 export interface GetFunctionOutputArgs {

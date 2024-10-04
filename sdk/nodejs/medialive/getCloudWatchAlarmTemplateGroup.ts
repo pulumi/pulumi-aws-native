@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaLive::CloudWatchAlarmTemplateGroup Resource Type
  */
 export function getCloudWatchAlarmTemplateGroup(args: GetCloudWatchAlarmTemplateGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudWatchAlarmTemplateGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:medialive:getCloudWatchAlarmTemplateGroup", {
         "identifier": args.identifier,
@@ -45,10 +46,7 @@ export interface GetCloudWatchAlarmTemplateGroupResult {
  * Definition of AWS::MediaLive::CloudWatchAlarmTemplateGroup Resource Type
  */
 export function getCloudWatchAlarmTemplateGroupOutput(args: GetCloudWatchAlarmTemplateGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWatchAlarmTemplateGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:medialive:getCloudWatchAlarmTemplateGroup", {
-        "identifier": args.identifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCloudWatchAlarmTemplateGroup(a, opts))
 }
 
 export interface GetCloudWatchAlarmTemplateGroupOutputArgs {

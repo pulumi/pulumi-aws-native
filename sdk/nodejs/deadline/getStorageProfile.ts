@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Deadline::StorageProfile Resource Type
  */
 export function getStorageProfile(args: GetStorageProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:deadline:getStorageProfile", {
         "farmId": args.farmId,
@@ -53,11 +54,7 @@ export interface GetStorageProfileResult {
  * Definition of AWS::Deadline::StorageProfile Resource Type
  */
 export function getStorageProfileOutput(args: GetStorageProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:deadline:getStorageProfile", {
-        "farmId": args.farmId,
-        "storageProfileId": args.storageProfileId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageProfile(a, opts))
 }
 
 export interface GetStorageProfileOutputArgs {

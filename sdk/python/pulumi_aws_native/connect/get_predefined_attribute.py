@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -91,6 +86,9 @@ def get_predefined_attribute(instance_arn: Optional[str] = None,
         last_modified_region=pulumi.get(__ret__, 'last_modified_region'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         values=pulumi.get(__ret__, 'values'))
+
+
+@_utilities.lift_output_func(get_predefined_attribute)
 def get_predefined_attribute_output(instance_arn: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredefinedAttributeResult]:
@@ -101,12 +99,4 @@ def get_predefined_attribute_output(instance_arn: Optional[pulumi.Input[str]] = 
     :param str instance_arn: The identifier of the Amazon Connect instance.
     :param str name: The name of the predefined attribute.
     """
-    __args__ = dict()
-    __args__['instanceArn'] = instance_arn
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getPredefinedAttribute', __args__, opts=opts, typ=GetPredefinedAttributeResult)
-    return __ret__.apply(lambda __response__: GetPredefinedAttributeResult(
-        last_modified_region=pulumi.get(__response__, 'last_modified_region'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        values=pulumi.get(__response__, 'values')))
+    ...

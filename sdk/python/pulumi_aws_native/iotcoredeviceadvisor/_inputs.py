@@ -4,80 +4,15 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'SuiteDefinitionConfigurationPropertiesArgs',
-    'SuiteDefinitionConfigurationPropertiesArgsDict',
     'SuiteDefinitionDeviceUnderTestArgs',
-    'SuiteDefinitionDeviceUnderTestArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class SuiteDefinitionConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The configuration of the Suite Definition. Listed below are the required elements of the `SuiteDefinitionConfiguration` .
-
-        - ***devicePermissionRoleArn*** - The device permission arn.
-
-        This is a required element.
-
-        *Type:* String
-        - ***devices*** - The list of configured devices under test. For more information on devices under test, see [DeviceUnderTest](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_DeviceUnderTest.html)
-
-        Not a required element.
-
-        *Type:* List of devices under test
-        - ***intendedForQualification*** - The tests intended for qualification in a suite.
-
-        Not a required element.
-
-        *Type:* Boolean
-        - ***rootGroup*** - The test suite root group. For more information on creating and using root groups see the [Device Advisor workflow](https://docs.aws.amazon.com/iot/latest/developerguide/device-advisor-workflow.html) .
-
-        This is a required element.
-
-        *Type:* String
-        - ***suiteDefinitionName*** - The Suite Definition Configuration name.
-
-        This is a required element.
-
-        *Type:* String
-        """
-        device_permission_role_arn: pulumi.Input[str]
-        """
-        Gets the device permission ARN. This is a required parameter.
-        """
-        root_group: pulumi.Input[str]
-        """
-        Gets the test suite root group. This is a required parameter. For updating or creating the latest qualification suite, if `intendedForQualification` is set to true, `rootGroup` can be an empty string. If `intendedForQualification` is false, `rootGroup` cannot be an empty string. If `rootGroup` is empty, and `intendedForQualification` is set to true, all the qualification tests are included, and the configuration is default.
-
-        For a qualification suite, the minimum length is 0, and the maximum is 2048. For a non-qualification suite, the minimum length is 1, and the maximum is 2048.
-        """
-        devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionDeviceUnderTestArgsDict']]]]
-        """
-        Gets the devices configured.
-        """
-        intended_for_qualification: NotRequired[pulumi.Input[bool]]
-        """
-        Gets the tests intended for qualification in a suite.
-        """
-        suite_definition_name: NotRequired[pulumi.Input[str]]
-        """
-        Gets the suite definition name. This is a required parameter.
-        """
-elif False:
-    SuiteDefinitionConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SuiteDefinitionConfigurationPropertiesArgs:
@@ -194,13 +129,6 @@ class SuiteDefinitionConfigurationPropertiesArgs:
     def suite_definition_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "suite_definition_name", value)
 
-
-if not MYPY:
-    class SuiteDefinitionDeviceUnderTestArgsDict(TypedDict):
-        certificate_arn: NotRequired[pulumi.Input[str]]
-        thing_arn: NotRequired[pulumi.Input[str]]
-elif False:
-    SuiteDefinitionDeviceUnderTestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SuiteDefinitionDeviceUnderTestArgs:

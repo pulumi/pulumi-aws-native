@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -299,6 +294,9 @@ def get_cluster(cluster_name: Optional[str] = None,
         sns_topic_status=pulumi.get(__ret__, 'sns_topic_status'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -307,27 +305,4 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:memorydb:getCluster', __args__, opts=opts, typ=GetClusterResult)
-    return __ret__.apply(lambda __response__: GetClusterResult(
-        acl_name=pulumi.get(__response__, 'acl_name'),
-        arn=pulumi.get(__response__, 'arn'),
-        auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
-        cluster_endpoint=pulumi.get(__response__, 'cluster_endpoint'),
-        description=pulumi.get(__response__, 'description'),
-        engine_version=pulumi.get(__response__, 'engine_version'),
-        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
-        node_type=pulumi.get(__response__, 'node_type'),
-        num_replicas_per_shard=pulumi.get(__response__, 'num_replicas_per_shard'),
-        num_shards=pulumi.get(__response__, 'num_shards'),
-        parameter_group_name=pulumi.get(__response__, 'parameter_group_name'),
-        parameter_group_status=pulumi.get(__response__, 'parameter_group_status'),
-        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
-        snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),
-        snapshot_window=pulumi.get(__response__, 'snapshot_window'),
-        sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn'),
-        sns_topic_status=pulumi.get(__response__, 'sns_topic_status'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DMS::InstanceProfile.
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dms:getInstanceProfile", {
         "instanceProfileArn": args.instanceProfileArn,
@@ -74,10 +75,7 @@ export interface GetInstanceProfileResult {
  * Resource schema for AWS::DMS::InstanceProfile.
  */
 export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:dms:getInstanceProfile", {
-        "instanceProfileArn": args.instanceProfileArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getInstanceProfile(a, opts))
 }
 
 export interface GetInstanceProfileOutputArgs {

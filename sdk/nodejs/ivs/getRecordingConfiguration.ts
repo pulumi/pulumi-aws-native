@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IVS::RecordingConfiguration
  */
 export function getRecordingConfiguration(args: GetRecordingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordingConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ivs:getRecordingConfiguration", {
         "arn": args.arn,
@@ -42,10 +43,7 @@ export interface GetRecordingConfigurationResult {
  * Resource Type definition for AWS::IVS::RecordingConfiguration
  */
 export function getRecordingConfigurationOutput(args: GetRecordingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordingConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ivs:getRecordingConfiguration", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRecordingConfiguration(a, opts))
 }
 
 export interface GetRecordingConfigurationOutputArgs {

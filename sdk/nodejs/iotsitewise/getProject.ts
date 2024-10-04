@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTSiteWise::Project
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotsitewise:getProject", {
         "projectId": args.projectId,
@@ -54,10 +55,7 @@ export interface GetProjectResult {
  * Resource schema for AWS::IoTSiteWise::Project
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iotsitewise:getProject", {
-        "projectId": args.projectId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }
 
 export interface GetProjectOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getDistribution", {
         "id": args.id,
@@ -46,10 +47,7 @@ export interface GetDistributionResult {
  * A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
  */
 export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getDistribution", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDistribution(a, opts))
 }
 
 export interface GetDistributionOutputArgs {

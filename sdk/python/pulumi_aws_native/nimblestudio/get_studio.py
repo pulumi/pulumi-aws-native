@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,6 +149,9 @@ def get_studio(studio_id: Optional[str] = None,
         studio_id=pulumi.get(__ret__, 'studio_id'),
         studio_url=pulumi.get(__ret__, 'studio_url'),
         user_role_arn=pulumi.get(__ret__, 'user_role_arn'))
+
+
+@_utilities.lift_output_func(get_studio)
 def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioResult]:
     """
@@ -162,16 +160,4 @@ def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
 
     :param str studio_id: The unique identifier for the studio resource.
     """
-    __args__ = dict()
-    __args__['studioId'] = studio_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getStudio', __args__, opts=opts, typ=GetStudioResult)
-    return __ret__.apply(lambda __response__: GetStudioResult(
-        admin_role_arn=pulumi.get(__response__, 'admin_role_arn'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        home_region=pulumi.get(__response__, 'home_region'),
-        sso_client_id=pulumi.get(__response__, 'sso_client_id'),
-        studio_encryption_configuration=pulumi.get(__response__, 'studio_encryption_configuration'),
-        studio_id=pulumi.get(__response__, 'studio_id'),
-        studio_url=pulumi.get(__response__, 'studio_url'),
-        user_role_arn=pulumi.get(__response__, 'user_role_arn')))
+    ...

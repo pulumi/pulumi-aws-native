@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -263,6 +258,9 @@ def get_app(arn: Optional[str] = None,
         platform=pulumi.get(__ret__, 'platform'),
         repository=pulumi.get(__ret__, 'repository'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_app)
 def get_app_output(arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
@@ -271,24 +269,4 @@ def get_app_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN for the Amplify App.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:amplify:getApp', __args__, opts=opts, typ=GetAppResult)
-    return __ret__.apply(lambda __response__: GetAppResult(
-        app_id=pulumi.get(__response__, 'app_id'),
-        app_name=pulumi.get(__response__, 'app_name'),
-        arn=pulumi.get(__response__, 'arn'),
-        build_spec=pulumi.get(__response__, 'build_spec'),
-        cache_config=pulumi.get(__response__, 'cache_config'),
-        custom_headers=pulumi.get(__response__, 'custom_headers'),
-        custom_rules=pulumi.get(__response__, 'custom_rules'),
-        default_domain=pulumi.get(__response__, 'default_domain'),
-        description=pulumi.get(__response__, 'description'),
-        enable_branch_auto_deletion=pulumi.get(__response__, 'enable_branch_auto_deletion'),
-        environment_variables=pulumi.get(__response__, 'environment_variables'),
-        iam_service_role=pulumi.get(__response__, 'iam_service_role'),
-        name=pulumi.get(__response__, 'name'),
-        platform=pulumi.get(__response__, 'platform'),
-        repository=pulumi.get(__response__, 'repository'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::ImageBuilder::LifecyclePolicy
  */
 export function getLifecyclePolicy(args: GetLifecyclePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:imagebuilder:getLifecyclePolicy", {
         "arn": args.arn,
@@ -62,10 +63,7 @@ export interface GetLifecyclePolicyResult {
  * Resource schema for AWS::ImageBuilder::LifecyclePolicy
  */
 export function getLifecyclePolicyOutput(args: GetLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecyclePolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getLifecyclePolicy", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLifecyclePolicy(a, opts))
 }
 
 export interface GetLifecyclePolicyOutputArgs {

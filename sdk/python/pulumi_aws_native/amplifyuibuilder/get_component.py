@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -251,6 +246,9 @@ def get_component(app_id: Optional[str] = None,
         source_id=pulumi.get(__ret__, 'source_id'),
         tags=pulumi.get(__ret__, 'tags'),
         variants=pulumi.get(__ret__, 'variants'))
+
+
+@_utilities.lift_output_func(get_component)
 def get_component_output(app_id: Optional[pulumi.Input[str]] = None,
                          environment_name: Optional[pulumi.Input[str]] = None,
                          id: Optional[pulumi.Input[str]] = None,
@@ -263,25 +261,4 @@ def get_component_output(app_id: Optional[pulumi.Input[str]] = None,
     :param str environment_name: The name of the backend environment that is a part of the Amplify app.
     :param str id: The unique ID of the component.
     """
-    __args__ = dict()
-    __args__['appId'] = app_id
-    __args__['environmentName'] = environment_name
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:amplifyuibuilder:getComponent', __args__, opts=opts, typ=GetComponentResult)
-    return __ret__.apply(lambda __response__: GetComponentResult(
-        binding_properties=pulumi.get(__response__, 'binding_properties'),
-        children=pulumi.get(__response__, 'children'),
-        collection_properties=pulumi.get(__response__, 'collection_properties'),
-        component_type=pulumi.get(__response__, 'component_type'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        events=pulumi.get(__response__, 'events'),
-        id=pulumi.get(__response__, 'id'),
-        modified_at=pulumi.get(__response__, 'modified_at'),
-        name=pulumi.get(__response__, 'name'),
-        overrides=pulumi.get(__response__, 'overrides'),
-        properties=pulumi.get(__response__, 'properties'),
-        schema_version=pulumi.get(__response__, 'schema_version'),
-        source_id=pulumi.get(__response__, 'source_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        variants=pulumi.get(__response__, 'variants')))
+    ...

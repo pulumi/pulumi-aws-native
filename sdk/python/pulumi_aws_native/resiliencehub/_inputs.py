@@ -4,53 +4,20 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AppEventSubscriptionArgs',
-    'AppEventSubscriptionArgsDict',
     'AppPermissionModelArgs',
-    'AppPermissionModelArgsDict',
     'AppPhysicalResourceIdArgs',
-    'AppPhysicalResourceIdArgsDict',
     'AppResourceMappingArgs',
-    'AppResourceMappingArgsDict',
     'ResiliencyPolicyFailurePolicyArgs',
-    'ResiliencyPolicyFailurePolicyArgsDict',
     'ResiliencyPolicyPolicyMapArgs',
-    'ResiliencyPolicyPolicyMapArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AppEventSubscriptionArgsDict(TypedDict):
-        """
-        Indicates an event you would like to subscribe and get notification for.
-        """
-        event_type: pulumi.Input['AppEventSubscriptionEventType']
-        """
-        The type of event you would like to subscribe and get notification for.
-        """
-        name: pulumi.Input[str]
-        """
-        Unique name to identify an event subscription.
-        """
-        sns_topic_arn: NotRequired[pulumi.Input[str]]
-        """
-        Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic.
-        """
-elif False:
-    AppEventSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppEventSubscriptionArgs:
@@ -106,26 +73,6 @@ class AppEventSubscriptionArgs:
         pulumi.set(self, "sns_topic_arn", value)
 
 
-if not MYPY:
-    class AppPermissionModelArgsDict(TypedDict):
-        """
-        Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
-        """
-        type: pulumi.Input['AppPermissionModelType']
-        """
-        Defines how AWS Resilience Hub scans your resources. It can scan for the resources by using a pre-existing role in your AWS account, or by using the credentials of the current IAM user.
-        """
-        cross_account_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These ARNs are used for querying purposes while importing resources and assessing your application.
-        """
-        invoker_role_name: NotRequired[pulumi.Input[str]]
-        """
-        Existing AWS IAM role name in the primary AWS account that will be assumed by AWS Resilience Hub Service Principle to obtain a read-only access to your application resources while running an assessment.
-        """
-elif False:
-    AppPermissionModelArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppPermissionModelArgs:
     def __init__(__self__, *,
@@ -180,56 +127,6 @@ class AppPermissionModelArgs:
     def invoker_role_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "invoker_role_name", value)
 
-
-if not MYPY:
-    class AppPhysicalResourceIdArgsDict(TypedDict):
-        identifier: pulumi.Input[str]
-        """
-        Identifier of the physical resource.
-        """
-        type: pulumi.Input[str]
-        """
-        Specifies the type of physical resource identifier.
-
-        - **Arn** - The resource identifier is an Amazon Resource Name (ARN) and it can identify the following list of resources:
-
-        - `AWS::ECS::Service`
-        - `AWS::EFS::FileSystem`
-        - `AWS::ElasticLoadBalancingV2::LoadBalancer`
-        - `AWS::Lambda::Function`
-        - `AWS::SNS::Topic`
-        - **Native** - The resource identifier is an AWS Resilience Hub -native identifier and it can identify the following list of resources:
-
-        - `AWS::ApiGateway::RestApi`
-        - `AWS::ApiGatewayV2::Api`
-        - `AWS::AutoScaling::AutoScalingGroup`
-        - `AWS::DocDB::DBCluster`
-        - `AWS::DocDB::DBGlobalCluster`
-        - `AWS::DocDB::DBInstance`
-        - `AWS::DynamoDB::GlobalTable`
-        - `AWS::DynamoDB::Table`
-        - `AWS::EC2::EC2Fleet`
-        - `AWS::EC2::Instance`
-        - `AWS::EC2::NatGateway`
-        - `AWS::EC2::Volume`
-        - `AWS::ElasticLoadBalancing::LoadBalancer`
-        - `AWS::RDS::DBCluster`
-        - `AWS::RDS::DBInstance`
-        - `AWS::RDS::GlobalCluster`
-        - `AWS::Route53::RecordSet`
-        - `AWS::S3::Bucket`
-        - `AWS::SQS::Queue`
-        """
-        aws_account_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS account that owns the physical resource.
-        """
-        aws_region: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Region that the physical resource is located in.
-        """
-elif False:
-    AppPhysicalResourceIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppPhysicalResourceIdArgs:
@@ -358,40 +255,6 @@ class AppPhysicalResourceIdArgs:
         pulumi.set(self, "aws_region", value)
 
 
-if not MYPY:
-    class AppResourceMappingArgsDict(TypedDict):
-        """
-        Resource mapping is used to map logical resources from template to physical resource
-        """
-        mapping_type: pulumi.Input[str]
-        """
-        Specifies the type of resource mapping.
-        """
-        physical_resource_id: pulumi.Input['AppPhysicalResourceIdArgsDict']
-        """
-        Identifier of the physical resource.
-        """
-        eks_source_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
-
-        > This parameter accepts values in "eks-cluster/namespace" format.
-        """
-        logical_stack_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
-        """
-        resource_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
-        """
-        terraform_source_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
-        """
-elif False:
-    AppResourceMappingArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppResourceMappingArgs:
     def __init__(__self__, *,
@@ -498,22 +361,6 @@ class AppResourceMappingArgs:
         pulumi.set(self, "terraform_source_name", value)
 
 
-if not MYPY:
-    class ResiliencyPolicyFailurePolicyArgsDict(TypedDict):
-        """
-        Failure Policy.
-        """
-        rpo_in_secs: pulumi.Input[int]
-        """
-        RPO in seconds.
-        """
-        rto_in_secs: pulumi.Input[int]
-        """
-        RTO in seconds.
-        """
-elif False:
-    ResiliencyPolicyFailurePolicyArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResiliencyPolicyFailurePolicyArgs:
     def __init__(__self__, *,
@@ -551,27 +398,6 @@ class ResiliencyPolicyFailurePolicyArgs:
     def rto_in_secs(self, value: pulumi.Input[int]):
         pulumi.set(self, "rto_in_secs", value)
 
-
-if not MYPY:
-    class ResiliencyPolicyPolicyMapArgsDict(TypedDict):
-        az: pulumi.Input['ResiliencyPolicyFailurePolicyArgsDict']
-        """
-        Defines the RTO and RPO targets for Availability Zone disruption.
-        """
-        hardware: pulumi.Input['ResiliencyPolicyFailurePolicyArgsDict']
-        """
-        Defines the RTO and RPO targets for hardware disruption.
-        """
-        software: pulumi.Input['ResiliencyPolicyFailurePolicyArgsDict']
-        """
-        Defines the RTO and RPO targets for software disruption.
-        """
-        region: NotRequired[pulumi.Input['ResiliencyPolicyFailurePolicyArgsDict']]
-        """
-        Defines the RTO and RPO targets for Regional disruption.
-        """
-elif False:
-    ResiliencyPolicyPolicyMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResiliencyPolicyPolicyMapArgs:

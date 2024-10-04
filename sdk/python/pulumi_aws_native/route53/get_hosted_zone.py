@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -155,6 +150,9 @@ def get_hosted_zone(id: Optional[str] = None,
         name_servers=pulumi.get(__ret__, 'name_servers'),
         query_logging_config=pulumi.get(__ret__, 'query_logging_config'),
         vpcs=pulumi.get(__ret__, 'vpcs'))
+
+
+@_utilities.lift_output_func(get_hosted_zone)
 def get_hosted_zone_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneResult]:
     """
@@ -178,14 +176,4 @@ def get_hosted_zone_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID that Amazon Route 53 assigned to the hosted zone when you created it.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53:getHostedZone', __args__, opts=opts, typ=GetHostedZoneResult)
-    return __ret__.apply(lambda __response__: GetHostedZoneResult(
-        hosted_zone_config=pulumi.get(__response__, 'hosted_zone_config'),
-        hosted_zone_tags=pulumi.get(__response__, 'hosted_zone_tags'),
-        id=pulumi.get(__response__, 'id'),
-        name_servers=pulumi.get(__response__, 'name_servers'),
-        query_logging_config=pulumi.get(__response__, 'query_logging_config'),
-        vpcs=pulumi.get(__response__, 'vpcs')))
+    ...

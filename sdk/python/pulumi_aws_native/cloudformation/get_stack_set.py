@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -181,6 +176,9 @@ def get_stack_set(stack_set_id: Optional[str] = None,
         stack_set_id=pulumi.get(__ret__, 'stack_set_id'),
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'))
+
+
+@_utilities.lift_output_func(get_stack_set)
 def get_stack_set_output(stack_set_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackSetResult]:
     """
@@ -189,18 +187,4 @@ def get_stack_set_output(stack_set_id: Optional[pulumi.Input[str]] = None,
 
     :param str stack_set_id: The ID of the stack set that you're creating.
     """
-    __args__ = dict()
-    __args__['stackSetId'] = stack_set_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getStackSet', __args__, opts=opts, typ=GetStackSetResult)
-    return __ret__.apply(lambda __response__: GetStackSetResult(
-        administration_role_arn=pulumi.get(__response__, 'administration_role_arn'),
-        auto_deployment=pulumi.get(__response__, 'auto_deployment'),
-        capabilities=pulumi.get(__response__, 'capabilities'),
-        description=pulumi.get(__response__, 'description'),
-        execution_role_name=pulumi.get(__response__, 'execution_role_name'),
-        managed_execution=pulumi.get(__response__, 'managed_execution'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        stack_set_id=pulumi.get(__response__, 'stack_set_id'),
-        tags=pulumi.get(__response__, 'tags'),
-        template_body=pulumi.get(__response__, 'template_body')))
+    ...

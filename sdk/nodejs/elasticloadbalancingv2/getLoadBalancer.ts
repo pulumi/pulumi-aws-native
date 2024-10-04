@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticloadbalancingv2:getLoadBalancer", {
         "loadBalancerArn": args.loadBalancerArn,
@@ -92,10 +93,7 @@ export interface GetLoadBalancerResult {
  * Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
  */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:elasticloadbalancingv2:getLoadBalancer", {
-        "loadBalancerArn": args.loadBalancerArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }
 
 export interface GetLoadBalancerOutputArgs {

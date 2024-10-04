@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -196,6 +191,9 @@ def get_subscriber(subscriber_arn: Optional[str] = None,
         subscriber_name=pulumi.get(__ret__, 'subscriber_name'),
         subscriber_role_arn=pulumi.get(__ret__, 'subscriber_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_subscriber)
 def get_subscriber_output(subscriber_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriberResult]:
     """
@@ -204,19 +202,4 @@ def get_subscriber_output(subscriber_arn: Optional[pulumi.Input[str]] = None,
 
     :param str subscriber_arn: The Amazon Resource Name (ARN) of the Security Lake subscriber.
     """
-    __args__ = dict()
-    __args__['subscriberArn'] = subscriber_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securitylake:getSubscriber', __args__, opts=opts, typ=GetSubscriberResult)
-    return __ret__.apply(lambda __response__: GetSubscriberResult(
-        access_types=pulumi.get(__response__, 'access_types'),
-        resource_share_arn=pulumi.get(__response__, 'resource_share_arn'),
-        resource_share_name=pulumi.get(__response__, 'resource_share_name'),
-        s3_bucket_arn=pulumi.get(__response__, 's3_bucket_arn'),
-        sources=pulumi.get(__response__, 'sources'),
-        subscriber_arn=pulumi.get(__response__, 'subscriber_arn'),
-        subscriber_description=pulumi.get(__response__, 'subscriber_description'),
-        subscriber_identity=pulumi.get(__response__, 'subscriber_identity'),
-        subscriber_name=pulumi.get(__response__, 'subscriber_name'),
-        subscriber_role_arn=pulumi.get(__response__, 'subscriber_role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

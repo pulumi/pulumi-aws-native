@@ -4,47 +4,17 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DevicePoolRuleArgs',
-    'DevicePoolRuleArgsDict',
     'ProjectVpcConfigArgs',
-    'ProjectVpcConfigArgsDict',
     'TestGridProjectVpcConfigArgs',
-    'TestGridProjectVpcConfigArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class DevicePoolRuleArgsDict(TypedDict):
-        """
-        Represents a condition for a device pool.
-        """
-        attribute: NotRequired[pulumi.Input['DevicePoolRuleAttribute']]
-        """
-        The rule's stringified attribute.
-        """
-        operator: NotRequired[pulumi.Input['DevicePoolRuleOperator']]
-        """
-        Specifies how Device Farm compares the rule's attribute to the value.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The rule's value.
-        """
-elif False:
-    DevicePoolRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevicePoolRuleArgs:
@@ -102,26 +72,6 @@ class DevicePoolRuleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ProjectVpcConfigArgsDict(TypedDict):
-        """
-        The VPC security groups and subnets that are attached to a project
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        An array of security group Ids in your Amazon VPC
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A array of subnet IDs in your Amazon VPC.
-        """
-        vpc_id: pulumi.Input[str]
-        """
-        The ID of the Amazon VPC
-        """
-elif False:
-    ProjectVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ProjectVpcConfigArgs:
     def __init__(__self__, *,
@@ -174,28 +124,6 @@ class ProjectVpcConfigArgs:
     def vpc_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_id", value)
 
-
-if not MYPY:
-    class TestGridProjectVpcConfigArgsDict(TypedDict):
-        """
-        The VPC security groups and subnets that are attached to a TestGrid project.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of VPC security group IDs in your Amazon VPC.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of VPC subnet IDs in your Amazon VPC.
-        """
-        vpc_id: pulumi.Input[str]
-        """
-        A list of VPC IDs.
-
-        Each VPC is given a unique ID upon creation.
-        """
-elif False:
-    TestGridProjectVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TestGridProjectVpcConfigArgs:

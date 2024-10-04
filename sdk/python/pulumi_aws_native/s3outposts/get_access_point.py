@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -76,6 +71,9 @@ def get_access_point(arn: Optional[str] = None,
     return AwaitableGetAccessPointResult(
         arn=pulumi.get(__ret__, 'arn'),
         policy=pulumi.get(__ret__, 'policy'))
+
+
+@_utilities.lift_output_func(get_access_point)
 def get_access_point_output(arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
     """
@@ -84,10 +82,4 @@ def get_access_point_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the specified AccessPoint.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:s3outposts:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
-    return __ret__.apply(lambda __response__: GetAccessPointResult(
-        arn=pulumi.get(__response__, 'arn'),
-        policy=pulumi.get(__response__, 'policy')))
+    ...

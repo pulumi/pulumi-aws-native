@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -64,6 +59,9 @@ def get_aws_log_source(source_name: Optional[str] = None,
 
     return AwaitableGetAwsLogSourceResult(
         accounts=pulumi.get(__ret__, 'accounts'))
+
+
+@_utilities.lift_output_func(get_aws_log_source)
 def get_aws_log_source_output(source_name: Optional[pulumi.Input[str]] = None,
                               source_version: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAwsLogSourceResult]:
@@ -74,10 +72,4 @@ def get_aws_log_source_output(source_name: Optional[pulumi.Input[str]] = None,
     :param str source_name: The name for a AWS source. This must be a Regionally unique value.
     :param str source_version: The version for a AWS source. This must be a Regionally unique value.
     """
-    __args__ = dict()
-    __args__['sourceName'] = source_name
-    __args__['sourceVersion'] = source_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securitylake:getAwsLogSource', __args__, opts=opts, typ=GetAwsLogSourceResult)
-    return __ret__.apply(lambda __response__: GetAwsLogSourceResult(
-        accounts=pulumi.get(__response__, 'accounts')))
+    ...

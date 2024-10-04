@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -88,6 +83,9 @@ def get_resolver_config(resource_id: Optional[str] = None,
         autodefined_reverse=pulumi.get(__ret__, 'autodefined_reverse'),
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'))
+
+
+@_utilities.lift_output_func(get_resolver_config)
 def get_resolver_config_output(resource_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverConfigResult]:
     """
@@ -96,11 +94,4 @@ def get_resolver_config_output(resource_id: Optional[pulumi.Input[str]] = None,
 
     :param str resource_id: ResourceId
     """
-    __args__ = dict()
-    __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverConfig', __args__, opts=opts, typ=GetResolverConfigResult)
-    return __ret__.apply(lambda __response__: GetResolverConfigResult(
-        autodefined_reverse=pulumi.get(__response__, 'autodefined_reverse'),
-        id=pulumi.get(__response__, 'id'),
-        owner_id=pulumi.get(__response__, 'owner_id')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -127,6 +122,9 @@ def get_dashboard(dashboard_id: Optional[str] = None,
         dashboard_id=pulumi.get(__ret__, 'dashboard_id'),
         dashboard_name=pulumi.get(__ret__, 'dashboard_name'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_dashboard)
 def get_dashboard_output(dashboard_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
     """
@@ -135,14 +133,4 @@ def get_dashboard_output(dashboard_id: Optional[pulumi.Input[str]] = None,
 
     :param str dashboard_id: The ID of the dashboard.
     """
-    __args__ = dict()
-    __args__['dashboardId'] = dashboard_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getDashboard', __args__, opts=opts, typ=GetDashboardResult)
-    return __ret__.apply(lambda __response__: GetDashboardResult(
-        dashboard_arn=pulumi.get(__response__, 'dashboard_arn'),
-        dashboard_definition=pulumi.get(__response__, 'dashboard_definition'),
-        dashboard_description=pulumi.get(__response__, 'dashboard_description'),
-        dashboard_id=pulumi.get(__response__, 'dashboard_id'),
-        dashboard_name=pulumi.get(__response__, 'dashboard_name'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

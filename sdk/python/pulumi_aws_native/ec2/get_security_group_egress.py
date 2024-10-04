@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -73,6 +68,9 @@ def get_security_group_egress(id: Optional[str] = None,
     return AwaitableGetSecurityGroupEgressResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_security_group_egress)
 def get_security_group_egress_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupEgressResult]:
     """
@@ -82,10 +80,4 @@ def get_security_group_egress_output(id: Optional[pulumi.Input[str]] = None,
      You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
      Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSecurityGroupEgress', __args__, opts=opts, typ=GetSecurityGroupEgressResult)
-    return __ret__.apply(lambda __response__: GetSecurityGroupEgressResult(
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id')))
+    ...

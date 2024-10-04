@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -149,6 +144,9 @@ def get_authorizer(authorizer_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         token_key_name=pulumi.get(__ret__, 'token_key_name'),
         token_signing_public_keys=pulumi.get(__ret__, 'token_signing_public_keys'))
+
+
+@_utilities.lift_output_func(get_authorizer)
 def get_authorizer_output(authorizer_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
@@ -157,15 +155,4 @@ def get_authorizer_output(authorizer_name: Optional[pulumi.Input[str]] = None,
 
     :param str authorizer_name: The authorizer name.
     """
-    __args__ = dict()
-    __args__['authorizerName'] = authorizer_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult)
-    return __ret__.apply(lambda __response__: GetAuthorizerResult(
-        arn=pulumi.get(__response__, 'arn'),
-        authorizer_function_arn=pulumi.get(__response__, 'authorizer_function_arn'),
-        enable_caching_for_http=pulumi.get(__response__, 'enable_caching_for_http'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        token_key_name=pulumi.get(__response__, 'token_key_name'),
-        token_signing_public_keys=pulumi.get(__response__, 'token_signing_public_keys')))
+    ...

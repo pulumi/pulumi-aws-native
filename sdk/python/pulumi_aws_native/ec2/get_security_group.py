@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -115,6 +110,9 @@ def get_security_group(id: Optional[str] = None,
         security_group_egress=pulumi.get(__ret__, 'security_group_egress'),
         security_group_ingress=pulumi.get(__ret__, 'security_group_ingress'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_security_group)
 def get_security_group_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupResult]:
     """
@@ -123,13 +121,4 @@ def get_security_group_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The group name or group ID depending on whether the SG is created in default or specific VPC
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSecurityGroup', __args__, opts=opts, typ=GetSecurityGroupResult)
-    return __ret__.apply(lambda __response__: GetSecurityGroupResult(
-        group_id=pulumi.get(__response__, 'group_id'),
-        id=pulumi.get(__response__, 'id'),
-        security_group_egress=pulumi.get(__response__, 'security_group_egress'),
-        security_group_ingress=pulumi.get(__response__, 'security_group_ingress'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

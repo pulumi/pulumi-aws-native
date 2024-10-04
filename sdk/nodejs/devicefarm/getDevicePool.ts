@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
  */
 export function getDevicePool(args: GetDevicePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicePoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:devicefarm:getDevicePool", {
         "arn": args.arn,
@@ -58,10 +59,7 @@ export interface GetDevicePoolResult {
  * AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
  */
 export function getDevicePoolOutput(args: GetDevicePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicePoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:devicefarm:getDevicePool", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDevicePool(a, opts))
 }
 
 export interface GetDevicePoolOutputArgs {

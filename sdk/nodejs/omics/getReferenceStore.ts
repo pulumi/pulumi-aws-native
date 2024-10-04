@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Omics::ReferenceStore Resource Type
  */
 export function getReferenceStore(args: GetReferenceStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetReferenceStoreResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:omics:getReferenceStore", {
         "referenceStoreId": args.referenceStoreId,
@@ -39,10 +40,7 @@ export interface GetReferenceStoreResult {
  * Definition of AWS::Omics::ReferenceStore Resource Type
  */
 export function getReferenceStoreOutput(args: GetReferenceStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceStoreResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:omics:getReferenceStore", {
-        "referenceStoreId": args.referenceStoreId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReferenceStore(a, opts))
 }
 
 export interface GetReferenceStoreOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -194,6 +189,9 @@ def get_task_template(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_task_template)
 def get_task_template_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskTemplateResult]:
     """
@@ -202,19 +200,4 @@ def get_task_template_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The identifier (arn) of the task template.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getTaskTemplate', __args__, opts=opts, typ=GetTaskTemplateResult)
-    return __ret__.apply(lambda __response__: GetTaskTemplateResult(
-        arn=pulumi.get(__response__, 'arn'),
-        client_token=pulumi.get(__response__, 'client_token'),
-        constraints=pulumi.get(__response__, 'constraints'),
-        contact_flow_arn=pulumi.get(__response__, 'contact_flow_arn'),
-        defaults=pulumi.get(__response__, 'defaults'),
-        description=pulumi.get(__response__, 'description'),
-        fields=pulumi.get(__response__, 'fields'),
-        instance_arn=pulumi.get(__response__, 'instance_arn'),
-        name=pulumi.get(__response__, 'name'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

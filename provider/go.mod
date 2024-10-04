@@ -25,8 +25,8 @@ require (
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
 	github.com/pulumi/providertest v0.0.10
 	github.com/pulumi/pulumi-go-provider v0.14.1-0.20240312115843-96cd54a979b1
-	github.com/pulumi/pulumi/pkg/v3 v3.134.1
-	github.com/pulumi/pulumi/sdk/v3 v3.134.1
+	github.com/pulumi/pulumi/pkg/v3 v3.132.0
+	github.com/pulumi/pulumi/sdk/v3 v3.132.0
 	github.com/stretchr/testify v1.9.0
 	github.com/wI2L/jsondiff v0.5.1
 	github.com/zclconf/go-cty v1.13.2

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *  For help migrating from launch configurations to launch templates, see [Migrate CloudFormation stacks from launch configurations to launch templates](https://docs.aws.amazon.com/autoscaling/ec2/userguide/migrate-launch-configurations-with-cloudformation.html) in the *Amazon EC2 Auto Scaling User Guide*.
  */
 export function getAutoScalingGroup(args: GetAutoScalingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScalingGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:autoscaling:getAutoScalingGroup", {
         "autoScalingGroupName": args.autoScalingGroupName,
@@ -169,10 +170,7 @@ export interface GetAutoScalingGroupResult {
  *  For help migrating from launch configurations to launch templates, see [Migrate CloudFormation stacks from launch configurations to launch templates](https://docs.aws.amazon.com/autoscaling/ec2/userguide/migrate-launch-configurations-with-cloudformation.html) in the *Amazon EC2 Auto Scaling User Guide*.
  */
 export function getAutoScalingGroupOutput(args: GetAutoScalingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScalingGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:autoscaling:getAutoScalingGroup", {
-        "autoScalingGroupName": args.autoScalingGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAutoScalingGroup(a, opts))
 }
 
 export interface GetAutoScalingGroupOutputArgs {

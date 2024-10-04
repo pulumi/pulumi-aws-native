@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
  *  The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
  */
 export function getDbCluster(args: GetDbClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDbClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDbCluster", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
@@ -410,10 +411,7 @@ export interface GetDbClusterResult {
  *  The default ``DeletionPolicy`` for ``AWS::RDS::DBCluster`` resources is ``Snapshot``. For more information about how AWS CloudFormation deletes resources, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
  */
 export function getDbClusterOutput(args: GetDbClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:rds:getDbCluster", {
-        "dbClusterIdentifier": args.dbClusterIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDbCluster(a, opts))
 }
 
 export interface GetDbClusterOutputArgs {

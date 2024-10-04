@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaLive::SdiSource Resource Type
  */
 export function getSdiSource(args: GetSdiSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSdiSourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:medialive:getSdiSource", {
         "id": args.id,
@@ -53,10 +54,7 @@ export interface GetSdiSourceResult {
  * Definition of AWS::MediaLive::SdiSource Resource Type
  */
 export function getSdiSourceOutput(args: GetSdiSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSdiSourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:medialive:getSdiSource", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSdiSource(a, opts))
 }
 
 export interface GetSdiSourceOutputArgs {

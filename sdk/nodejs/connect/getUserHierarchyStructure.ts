@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::UserHierarchyStructure
  */
 export function getUserHierarchyStructure(args: GetUserHierarchyStructureArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyStructureResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getUserHierarchyStructure", {
         "userHierarchyStructureArn": args.userHierarchyStructureArn,
@@ -38,10 +39,7 @@ export interface GetUserHierarchyStructureResult {
  * Resource Type definition for AWS::Connect::UserHierarchyStructure
  */
 export function getUserHierarchyStructureOutput(args: GetUserHierarchyStructureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyStructureResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:connect:getUserHierarchyStructure", {
-        "userHierarchyStructureArn": args.userHierarchyStructureArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUserHierarchyStructure(a, opts))
 }
 
 export interface GetUserHierarchyStructureOutputArgs {

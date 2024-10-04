@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.
  */
 export function getPlaybackRestrictionPolicy(args: GetPlaybackRestrictionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaybackRestrictionPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ivs:getPlaybackRestrictionPolicy", {
         "arn": args.arn,
@@ -54,10 +55,7 @@ export interface GetPlaybackRestrictionPolicyResult {
  * Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.
  */
 export function getPlaybackRestrictionPolicyOutput(args: GetPlaybackRestrictionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaybackRestrictionPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ivs:getPlaybackRestrictionPolicy", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPlaybackRestrictionPolicy(a, opts))
 }
 
 export interface GetPlaybackRestrictionPolicyOutputArgs {

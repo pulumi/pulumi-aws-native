@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElastiCache::ParameterGroup
  */
 export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticache:getParameterGroup", {
         "cacheParameterGroupName": args.cacheParameterGroupName,
@@ -46,10 +47,7 @@ export interface GetParameterGroupResult {
  * Resource Type definition for AWS::ElastiCache::ParameterGroup
  */
 export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:elasticache:getParameterGroup", {
-        "cacheParameterGroupName": args.cacheParameterGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getParameterGroup(a, opts))
 }
 
 export interface GetParameterGroupOutputArgs {

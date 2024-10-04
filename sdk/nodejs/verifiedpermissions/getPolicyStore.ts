@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
  */
 export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyStoreResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:verifiedpermissions:getPolicyStore", {
         "policyStoreId": args.policyStoreId,
@@ -54,10 +55,7 @@ export interface GetPolicyStoreResult {
  * Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
  */
 export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyStoreResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:verifiedpermissions:getPolicyStore", {
-        "policyStoreId": args.policyStoreId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPolicyStore(a, opts))
 }
 
 export interface GetPolicyStoreOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -79,6 +74,9 @@ def get_user_profile(domain_id: Optional[str] = None,
     return AwaitableGetUserProfileResult(
         user_profile_arn=pulumi.get(__ret__, 'user_profile_arn'),
         user_settings=pulumi.get(__ret__, 'user_settings'))
+
+
+@_utilities.lift_output_func(get_user_profile)
 def get_user_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
                             user_profile_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserProfileResult]:
@@ -89,11 +87,4 @@ def get_user_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
     :param str domain_id: The ID of the associated Domain.
     :param str user_profile_name: A name for the UserProfile.
     """
-    __args__ = dict()
-    __args__['domainId'] = domain_id
-    __args__['userProfileName'] = user_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getUserProfile', __args__, opts=opts, typ=GetUserProfileResult)
-    return __ret__.apply(lambda __response__: GetUserProfileResult(
-        user_profile_arn=pulumi.get(__response__, 'user_profile_arn'),
-        user_settings=pulumi.get(__response__, 'user_settings')))
+    ...

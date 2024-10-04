@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -75,6 +70,9 @@ def get_collection(collection_id: Optional[str] = None,
     return AwaitableGetCollectionResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_collection)
 def get_collection_output(collection_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollectionResult]:
     """
@@ -83,10 +81,4 @@ def get_collection_output(collection_id: Optional[pulumi.Input[str]] = None,
 
     :param str collection_id: ID for the collection that you are creating.
     """
-    __args__ = dict()
-    __args__['collectionId'] = collection_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:rekognition:getCollection', __args__, opts=opts, typ=GetCollectionResult)
-    return __ret__.apply(lambda __response__: GetCollectionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

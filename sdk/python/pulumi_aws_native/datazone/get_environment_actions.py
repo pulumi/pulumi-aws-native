@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -133,6 +128,9 @@ def get_environment_actions(domain_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         parameters=pulumi.get(__ret__, 'parameters'))
+
+
+@_utilities.lift_output_func(get_environment_actions)
 def get_environment_actions_output(domain_id: Optional[pulumi.Input[str]] = None,
                                    environment_id: Optional[pulumi.Input[str]] = None,
                                    id: Optional[pulumi.Input[str]] = None,
@@ -145,16 +143,4 @@ def get_environment_actions_output(domain_id: Optional[pulumi.Input[str]] = None
     :param str environment_id: The identifier of the Amazon DataZone environment in which the action is taking place
     :param str id: The ID of the Amazon DataZone environment action.
     """
-    __args__ = dict()
-    __args__['domainId'] = domain_id
-    __args__['environmentId'] = environment_id
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getEnvironmentActions', __args__, opts=opts, typ=GetEnvironmentActionsResult)
-    return __ret__.apply(lambda __response__: GetEnvironmentActionsResult(
-        description=pulumi.get(__response__, 'description'),
-        domain_id=pulumi.get(__response__, 'domain_id'),
-        environment_id=pulumi.get(__response__, 'environment_id'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        parameters=pulumi.get(__response__, 'parameters')))
+    ...

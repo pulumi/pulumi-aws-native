@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *   +  Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
  */
 export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getLogGroup", {
         "logGroupName": args.logGroupName,
@@ -74,10 +75,7 @@ export interface GetLogGroupResult {
  *   +  Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
  */
 export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:logs:getLogGroup", {
-        "logGroupName": args.logGroupName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLogGroup(a, opts))
 }
 
 export interface GetLogGroupOutputArgs {

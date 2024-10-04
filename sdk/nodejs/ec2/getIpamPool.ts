@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Schema of AWS::EC2::IPAMPool Type
  */
 export function getIpamPool(args: GetIpamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getIpamPool", {
         "ipamPoolId": args.ipamPoolId,
@@ -94,10 +95,7 @@ export interface GetIpamPoolResult {
  * Resource Schema of AWS::EC2::IPAMPool Type
  */
 export function getIpamPoolOutput(args: GetIpamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getIpamPool", {
-        "ipamPoolId": args.ipamPoolId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpamPool(a, opts))
 }
 
 export interface GetIpamPoolOutputArgs {

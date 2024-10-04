@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaLive::Multiplex
  */
 export function getMultiplex(args: GetMultiplexArgs, opts?: pulumi.InvokeOptions): Promise<GetMultiplexResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:medialive:getMultiplex", {
         "id": args.id,
@@ -66,10 +67,7 @@ export interface GetMultiplexResult {
  * Resource schema for AWS::MediaLive::Multiplex
  */
 export function getMultiplexOutput(args: GetMultiplexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiplexResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:medialive:getMultiplex", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMultiplex(a, opts))
 }
 
 export interface GetMultiplexOutputArgs {

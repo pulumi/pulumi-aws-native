@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
  */
 export function getNetworkSettings(args: GetNetworkSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSettingsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesweb:getNetworkSettings", {
         "networkSettingsArn": args.networkSettingsArn,
@@ -60,10 +61,7 @@ export interface GetNetworkSettingsResult {
  * Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
  */
 export function getNetworkSettingsOutput(args: GetNetworkSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSettingsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getNetworkSettings", {
-        "networkSettingsArn": args.networkSettingsArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNetworkSettings(a, opts))
 }
 
 export interface GetNetworkSettingsOutputArgs {

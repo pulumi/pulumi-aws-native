@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaPackage::OriginEndpoint
  */
 export function getOriginEndpoint(args: GetOriginEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginEndpointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackage:getOriginEndpoint", {
         "id": args.id,
@@ -90,10 +91,7 @@ export interface GetOriginEndpointResult {
  * Resource schema for AWS::MediaPackage::OriginEndpoint
  */
 export function getOriginEndpointOutput(args: GetOriginEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:mediapackage:getOriginEndpoint", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOriginEndpoint(a, opts))
 }
 
 export interface GetOriginEndpointOutputArgs {

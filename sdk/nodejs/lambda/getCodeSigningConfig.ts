@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lambda::CodeSigningConfig.
  */
 export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getCodeSigningConfig", {
         "codeSigningConfigArn": args.codeSigningConfigArn,
@@ -54,10 +55,7 @@ export interface GetCodeSigningConfigResult {
  * Resource Type definition for AWS::Lambda::CodeSigningConfig.
  */
 export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:lambda:getCodeSigningConfig", {
-        "codeSigningConfigArn": args.codeSigningConfigArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCodeSigningConfig(a, opts))
 }
 
 export interface GetCodeSigningConfigOutputArgs {

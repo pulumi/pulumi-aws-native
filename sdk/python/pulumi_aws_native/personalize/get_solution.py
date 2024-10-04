@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -61,6 +56,9 @@ def get_solution(solution_arn: Optional[str] = None,
 
     return AwaitableGetSolutionResult(
         solution_arn=pulumi.get(__ret__, 'solution_arn'))
+
+
+@_utilities.lift_output_func(get_solution)
 def get_solution_output(solution_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
     """
@@ -69,9 +67,4 @@ def get_solution_output(solution_arn: Optional[pulumi.Input[str]] = None,
 
     :param str solution_arn: The Amazon Resource Name (ARN) of the solution.
     """
-    __args__ = dict()
-    __args__['solutionArn'] = solution_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:personalize:getSolution', __args__, opts=opts, typ=GetSolutionResult)
-    return __ret__.apply(lambda __response__: GetSolutionResult(
-        solution_arn=pulumi.get(__response__, 'solution_arn')))
+    ...

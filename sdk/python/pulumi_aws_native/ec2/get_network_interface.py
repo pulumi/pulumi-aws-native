@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -297,6 +292,9 @@ def get_network_interface(id: Optional[str] = None,
         source_dest_check=pulumi.get(__ret__, 'source_dest_check'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
+
+
+@_utilities.lift_output_func(get_network_interface)
 def get_network_interface_output(id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
@@ -305,27 +303,4 @@ def get_network_interface_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Network interface id.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult)
-    return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
-        connection_tracking_specification=pulumi.get(__response__, 'connection_tracking_specification'),
-        description=pulumi.get(__response__, 'description'),
-        enable_primary_ipv6=pulumi.get(__response__, 'enable_primary_ipv6'),
-        group_set=pulumi.get(__response__, 'group_set'),
-        id=pulumi.get(__response__, 'id'),
-        ipv4_prefix_count=pulumi.get(__response__, 'ipv4_prefix_count'),
-        ipv4_prefixes=pulumi.get(__response__, 'ipv4_prefixes'),
-        ipv6_address_count=pulumi.get(__response__, 'ipv6_address_count'),
-        ipv6_addresses=pulumi.get(__response__, 'ipv6_addresses'),
-        ipv6_prefix_count=pulumi.get(__response__, 'ipv6_prefix_count'),
-        ipv6_prefixes=pulumi.get(__response__, 'ipv6_prefixes'),
-        primary_ipv6_address=pulumi.get(__response__, 'primary_ipv6_address'),
-        primary_private_ip_address=pulumi.get(__response__, 'primary_private_ip_address'),
-        private_ip_addresses=pulumi.get(__response__, 'private_ip_addresses'),
-        secondary_private_ip_address_count=pulumi.get(__response__, 'secondary_private_ip_address_count'),
-        secondary_private_ip_addresses=pulumi.get(__response__, 'secondary_private_ip_addresses'),
-        source_dest_check=pulumi.get(__response__, 'source_dest_check'),
-        tags=pulumi.get(__response__, 'tags'),
-        vpc_id=pulumi.get(__response__, 'vpc_id')))
+    ...

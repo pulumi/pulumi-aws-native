@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::MlflowTrackingServer
  */
 export function getMlflowTrackingServer(args: GetMlflowTrackingServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMlflowTrackingServerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getMlflowTrackingServer", {
         "trackingServerName": args.trackingServerName,
@@ -62,10 +63,7 @@ export interface GetMlflowTrackingServerResult {
  * Resource Type definition for AWS::SageMaker::MlflowTrackingServer
  */
 export function getMlflowTrackingServerOutput(args: GetMlflowTrackingServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMlflowTrackingServerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getMlflowTrackingServer", {
-        "trackingServerName": args.trackingServerName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMlflowTrackingServer(a, opts))
 }
 
 export interface GetMlflowTrackingServerOutputArgs {

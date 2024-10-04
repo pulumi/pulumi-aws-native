@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -234,6 +229,9 @@ def get_fleet(fleet_id: Optional[str] = None,
         resource_creation_limit_policy=pulumi.get(__ret__, 'resource_creation_limit_policy'),
         runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'),
         scaling_policies=pulumi.get(__ret__, 'scaling_policies'))
+
+
+@_utilities.lift_output_func(get_fleet)
 def get_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
@@ -242,22 +240,4 @@ def get_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
 
     :param str fleet_id: Unique fleet ID
     """
-    __args__ = dict()
-    __args__['fleetId'] = fleet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getFleet', __args__, opts=opts, typ=GetFleetResult)
-    return __ret__.apply(lambda __response__: GetFleetResult(
-        anywhere_configuration=pulumi.get(__response__, 'anywhere_configuration'),
-        description=pulumi.get(__response__, 'description'),
-        desired_ec2_instances=pulumi.get(__response__, 'desired_ec2_instances'),
-        ec2_inbound_permissions=pulumi.get(__response__, 'ec2_inbound_permissions'),
-        fleet_id=pulumi.get(__response__, 'fleet_id'),
-        locations=pulumi.get(__response__, 'locations'),
-        max_size=pulumi.get(__response__, 'max_size'),
-        metric_groups=pulumi.get(__response__, 'metric_groups'),
-        min_size=pulumi.get(__response__, 'min_size'),
-        name=pulumi.get(__response__, 'name'),
-        new_game_session_protection_policy=pulumi.get(__response__, 'new_game_session_protection_policy'),
-        resource_creation_limit_policy=pulumi.get(__response__, 'resource_creation_limit_policy'),
-        runtime_configuration=pulumi.get(__response__, 'runtime_configuration'),
-        scaling_policies=pulumi.get(__response__, 'scaling_policies')))
+    ...

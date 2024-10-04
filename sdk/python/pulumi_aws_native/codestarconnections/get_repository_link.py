@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -128,6 +123,9 @@ def get_repository_link(repository_link_arn: Optional[str] = None,
         repository_link_arn=pulumi.get(__ret__, 'repository_link_arn'),
         repository_link_id=pulumi.get(__ret__, 'repository_link_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_repository_link)
 def get_repository_link_output(repository_link_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryLinkResult]:
     """
@@ -136,14 +134,4 @@ def get_repository_link_output(repository_link_arn: Optional[pulumi.Input[str]] 
 
     :param str repository_link_arn: A unique Amazon Resource Name (ARN) to designate the repository link.
     """
-    __args__ = dict()
-    __args__['repositoryLinkArn'] = repository_link_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:codestarconnections:getRepositoryLink', __args__, opts=opts, typ=GetRepositoryLinkResult)
-    return __ret__.apply(lambda __response__: GetRepositoryLinkResult(
-        connection_arn=pulumi.get(__response__, 'connection_arn'),
-        encryption_key_arn=pulumi.get(__response__, 'encryption_key_arn'),
-        provider_type=pulumi.get(__response__, 'provider_type'),
-        repository_link_arn=pulumi.get(__response__, 'repository_link_arn'),
-        repository_link_id=pulumi.get(__response__, 'repository_link_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

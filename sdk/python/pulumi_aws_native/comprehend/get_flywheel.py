@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -115,6 +110,9 @@ def get_flywheel(arn: Optional[str] = None,
         data_access_role_arn=pulumi.get(__ret__, 'data_access_role_arn'),
         data_security_config=pulumi.get(__ret__, 'data_security_config'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_flywheel)
 def get_flywheel_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlywheelResult]:
     """
@@ -123,13 +121,4 @@ def get_flywheel_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the flywheel.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:comprehend:getFlywheel', __args__, opts=opts, typ=GetFlywheelResult)
-    return __ret__.apply(lambda __response__: GetFlywheelResult(
-        active_model_arn=pulumi.get(__response__, 'active_model_arn'),
-        arn=pulumi.get(__response__, 'arn'),
-        data_access_role_arn=pulumi.get(__response__, 'data_access_role_arn'),
-        data_security_config=pulumi.get(__response__, 'data_security_config'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

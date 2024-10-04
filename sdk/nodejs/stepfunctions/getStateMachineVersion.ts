@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource schema for StateMachineVersion
  */
 export function getStateMachineVersion(args: GetStateMachineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:stepfunctions:getStateMachineVersion", {
         "arn": args.arn,
@@ -35,10 +36,7 @@ export interface GetStateMachineVersionResult {
  * Resource schema for StateMachineVersion
  */
 export function getStateMachineVersionOutput(args: GetStateMachineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:stepfunctions:getStateMachineVersion", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStateMachineVersion(a, opts))
 }
 
 export interface GetStateMachineVersionOutputArgs {

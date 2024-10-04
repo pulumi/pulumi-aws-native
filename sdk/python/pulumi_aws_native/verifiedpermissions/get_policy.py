@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -95,6 +90,9 @@ def get_policy(policy_id: Optional[str] = None,
         definition=pulumi.get(__ret__, 'definition'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         policy_type=pulumi.get(__ret__, 'policy_type'))
+
+
+@_utilities.lift_output_func(get_policy)
 def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                       policy_store_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
@@ -105,12 +103,4 @@ def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
     :param str policy_id: The unique ID of the new or updated policy.
     :param str policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
     """
-    __args__ = dict()
-    __args__['policyId'] = policy_id
-    __args__['policyStoreId'] = policy_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
-    return __ret__.apply(lambda __response__: GetPolicyResult(
-        definition=pulumi.get(__response__, 'definition'),
-        policy_id=pulumi.get(__response__, 'policy_id'),
-        policy_type=pulumi.get(__response__, 'policy_type')))
+    ...

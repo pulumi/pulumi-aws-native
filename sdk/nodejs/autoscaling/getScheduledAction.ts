@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
  */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:autoscaling:getScheduledAction", {
         "autoScalingGroupName": args.autoScalingGroupName,
@@ -64,11 +65,7 @@ export interface GetScheduledActionResult {
  * The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
  */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:autoscaling:getScheduledAction", {
-        "autoScalingGroupName": args.autoScalingGroupName,
-        "scheduledActionName": args.scheduledActionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))
 }
 
 export interface GetScheduledActionOutputArgs {

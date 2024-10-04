@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -170,6 +165,9 @@ def get_link(global_network_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_link)
 def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
                     link_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkResult]:
@@ -180,18 +178,4 @@ def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
     :param str global_network_id: The ID of the global network.
     :param str link_id: The ID of the link.
     """
-    __args__ = dict()
-    __args__['globalNetworkId'] = global_network_id
-    __args__['linkId'] = link_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getLink', __args__, opts=opts, typ=GetLinkResult)
-    return __ret__.apply(lambda __response__: GetLinkResult(
-        bandwidth=pulumi.get(__response__, 'bandwidth'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        link_arn=pulumi.get(__response__, 'link_arn'),
-        link_id=pulumi.get(__response__, 'link_id'),
-        provider=pulumi.get(__response__, 'provider'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+    ...

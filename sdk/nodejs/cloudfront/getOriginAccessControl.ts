@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::OriginAccessControl
  */
 export function getOriginAccessControl(args: GetOriginAccessControlArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessControlResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getOriginAccessControl", {
         "id": args.id,
@@ -38,10 +39,7 @@ export interface GetOriginAccessControlResult {
  * Resource Type definition for AWS::CloudFront::OriginAccessControl
  */
 export function getOriginAccessControlOutput(args: GetOriginAccessControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessControlResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getOriginAccessControl", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOriginAccessControl(a, opts))
 }
 
 export interface GetOriginAccessControlOutputArgs {

@@ -4,35 +4,18 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationDefinition0PropertiesArgs',
-    'ApplicationDefinition0PropertiesArgsDict',
     'ApplicationDefinition1PropertiesArgs',
-    'ApplicationDefinition1PropertiesArgsDict',
     'EnvironmentHighAvailabilityConfigArgs',
-    'EnvironmentHighAvailabilityConfigArgsDict',
     'EnvironmentStorageConfigurationArgs',
-    'EnvironmentStorageConfigurationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ApplicationDefinition0PropertiesArgsDict(TypedDict):
-        s3_location: pulumi.Input[str]
-elif False:
-    ApplicationDefinition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationDefinition0PropertiesArgs:
@@ -50,12 +33,6 @@ class ApplicationDefinition0PropertiesArgs:
         pulumi.set(self, "s3_location", value)
 
 
-if not MYPY:
-    class ApplicationDefinition1PropertiesArgsDict(TypedDict):
-        content: pulumi.Input[str]
-elif False:
-    ApplicationDefinition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ApplicationDefinition1PropertiesArgs:
     def __init__(__self__, *,
@@ -71,18 +48,6 @@ class ApplicationDefinition1PropertiesArgs:
     def content(self, value: pulumi.Input[str]):
         pulumi.set(self, "content", value)
 
-
-if not MYPY:
-    class EnvironmentHighAvailabilityConfigArgsDict(TypedDict):
-        """
-        Defines the details of a high availability configuration.
-        """
-        desired_capacity: pulumi.Input[int]
-        """
-        The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
-        """
-elif False:
-    EnvironmentHighAvailabilityConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentHighAvailabilityConfigArgs:
@@ -106,15 +71,6 @@ class EnvironmentHighAvailabilityConfigArgs:
     def desired_capacity(self, value: pulumi.Input[int]):
         pulumi.set(self, "desired_capacity", value)
 
-
-if not MYPY:
-    class EnvironmentStorageConfigurationArgsDict(TypedDict):
-        """
-        Defines the storage configuration for an environment.
-        """
-        pass
-elif False:
-    EnvironmentStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentStorageConfigurationArgs:

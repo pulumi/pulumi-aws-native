@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,6 +64,9 @@ def get_origin_endpoint_policy(channel_group_name: Optional[str] = None,
 
     return AwaitableGetOriginEndpointPolicyResult(
         policy=pulumi.get(__ret__, 'policy'))
+
+
+@_utilities.lift_output_func(get_origin_endpoint_policy)
 def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[str]] = None,
                                       channel_name: Optional[pulumi.Input[str]] = None,
                                       origin_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -81,11 +79,4 @@ def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[
     :param str channel_name: The channel name associated with the origin endpoint policy.
     :param str origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint policy.
     """
-    __args__ = dict()
-    __args__['channelGroupName'] = channel_group_name
-    __args__['channelName'] = channel_name
-    __args__['originEndpointName'] = origin_endpoint_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackagev2:getOriginEndpointPolicy', __args__, opts=opts, typ=GetOriginEndpointPolicyResult)
-    return __ret__.apply(lambda __response__: GetOriginEndpointPolicyResult(
-        policy=pulumi.get(__response__, 'policy')))
+    ...

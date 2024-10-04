@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Macie AllowList resource schema
  */
 export function getAllowList(args: GetAllowListArgs, opts?: pulumi.InvokeOptions): Promise<GetAllowListResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:macie:getAllowList", {
         "id": args.id,
@@ -58,10 +59,7 @@ export interface GetAllowListResult {
  * Macie AllowList resource schema
  */
 export function getAllowListOutput(args: GetAllowListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAllowListResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:macie:getAllowList", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAllowList(a, opts))
 }
 
 export interface GetAllowListOutputArgs {

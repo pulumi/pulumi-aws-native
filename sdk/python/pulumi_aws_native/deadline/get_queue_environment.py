@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -120,6 +115,9 @@ def get_queue_environment(farm_id: Optional[str] = None,
         queue_environment_id=pulumi.get(__ret__, 'queue_environment_id'),
         template=pulumi.get(__ret__, 'template'),
         template_type=pulumi.get(__ret__, 'template_type'))
+
+
+@_utilities.lift_output_func(get_queue_environment)
 def get_queue_environment_output(farm_id: Optional[pulumi.Input[str]] = None,
                                  queue_environment_id: Optional[pulumi.Input[str]] = None,
                                  queue_id: Optional[pulumi.Input[str]] = None,
@@ -132,15 +130,4 @@ def get_queue_environment_output(farm_id: Optional[pulumi.Input[str]] = None,
     :param str queue_environment_id: The queue environment ID.
     :param str queue_id: The unique identifier of the queue that contains the environment.
     """
-    __args__ = dict()
-    __args__['farmId'] = farm_id
-    __args__['queueEnvironmentId'] = queue_environment_id
-    __args__['queueId'] = queue_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getQueueEnvironment', __args__, opts=opts, typ=GetQueueEnvironmentResult)
-    return __ret__.apply(lambda __response__: GetQueueEnvironmentResult(
-        name=pulumi.get(__response__, 'name'),
-        priority=pulumi.get(__response__, 'priority'),
-        queue_environment_id=pulumi.get(__response__, 'queue_environment_id'),
-        template=pulumi.get(__response__, 'template'),
-        template_type=pulumi.get(__response__, 'template_type')))
+    ...

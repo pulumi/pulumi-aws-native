@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SES::EmailIdentity
  */
 export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailIdentityResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getEmailIdentity", {
         "emailIdentity": args.emailIdentity,
@@ -76,10 +77,7 @@ export interface GetEmailIdentityResult {
  * Resource Type definition for AWS::SES::EmailIdentity
  */
 export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailIdentityResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ses:getEmailIdentity", {
-        "emailIdentity": args.emailIdentity,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEmailIdentity(a, opts))
 }
 
 export interface GetEmailIdentityOutputArgs {

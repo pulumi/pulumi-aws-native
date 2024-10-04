@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::LicenseManager::License
  */
 export function getLicense(args: GetLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:licensemanager:getLicense", {
         "licenseArn": args.licenseArn,
@@ -78,10 +79,7 @@ export interface GetLicenseResult {
  * Resource Type definition for AWS::LicenseManager::License
  */
 export function getLicenseOutput(args: GetLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:licensemanager:getLicense", {
-        "licenseArn": args.licenseArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getLicense(a, opts))
 }
 
 export interface GetLicenseOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -116,6 +111,9 @@ def get_mitigation_action(action_name: Optional[str] = None,
         mitigation_action_id=pulumi.get(__ret__, 'mitigation_action_id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_mitigation_action)
 def get_mitigation_action_output(action_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMitigationActionResult]:
     """
@@ -124,13 +122,4 @@ def get_mitigation_action_output(action_name: Optional[pulumi.Input[str]] = None
 
     :param str action_name: A unique identifier for the mitigation action.
     """
-    __args__ = dict()
-    __args__['actionName'] = action_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getMitigationAction', __args__, opts=opts, typ=GetMitigationActionResult)
-    return __ret__.apply(lambda __response__: GetMitigationActionResult(
-        action_params=pulumi.get(__response__, 'action_params'),
-        mitigation_action_arn=pulumi.get(__response__, 'mitigation_action_arn'),
-        mitigation_action_id=pulumi.get(__response__, 'mitigation_action_id'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

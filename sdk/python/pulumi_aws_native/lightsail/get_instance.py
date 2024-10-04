@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -265,6 +260,9 @@ def get_instance(instance_name: Optional[str] = None,
         support_code=pulumi.get(__ret__, 'support_code'),
         tags=pulumi.get(__ret__, 'tags'),
         user_name=pulumi.get(__ret__, 'user_name'))
+
+
+@_utilities.lift_output_func(get_instance)
 def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
@@ -273,24 +271,4 @@ def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
 
     :param str instance_name: The names to use for your new Lightsail instance.
     """
-    __args__ = dict()
-    __args__['instanceName'] = instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getInstance', __args__, opts=opts, typ=GetInstanceResult)
-    return __ret__.apply(lambda __response__: GetInstanceResult(
-        add_ons=pulumi.get(__response__, 'add_ons'),
-        hardware=pulumi.get(__response__, 'hardware'),
-        instance_arn=pulumi.get(__response__, 'instance_arn'),
-        ipv6_addresses=pulumi.get(__response__, 'ipv6_addresses'),
-        is_static_ip=pulumi.get(__response__, 'is_static_ip'),
-        key_pair_name=pulumi.get(__response__, 'key_pair_name'),
-        location=pulumi.get(__response__, 'location'),
-        networking=pulumi.get(__response__, 'networking'),
-        private_ip_address=pulumi.get(__response__, 'private_ip_address'),
-        public_ip_address=pulumi.get(__response__, 'public_ip_address'),
-        resource_type=pulumi.get(__response__, 'resource_type'),
-        ssh_key_name=pulumi.get(__response__, 'ssh_key_name'),
-        state=pulumi.get(__response__, 'state'),
-        support_code=pulumi.get(__response__, 'support_code'),
-        tags=pulumi.get(__response__, 'tags'),
-        user_name=pulumi.get(__response__, 'user_name')))
+    ...

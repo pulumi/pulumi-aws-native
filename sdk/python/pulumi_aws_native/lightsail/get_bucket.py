@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -167,6 +162,9 @@ def get_bucket(bucket_name: Optional[str] = None,
         resources_receiving_access=pulumi.get(__ret__, 'resources_receiving_access'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
+
+
+@_utilities.lift_output_func(get_bucket)
 def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
     """
@@ -175,17 +173,4 @@ def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
 
     :param str bucket_name: The name for the bucket.
     """
-    __args__ = dict()
-    __args__['bucketName'] = bucket_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getBucket', __args__, opts=opts, typ=GetBucketResult)
-    return __ret__.apply(lambda __response__: GetBucketResult(
-        able_to_update_bundle=pulumi.get(__response__, 'able_to_update_bundle'),
-        access_rules=pulumi.get(__response__, 'access_rules'),
-        bucket_arn=pulumi.get(__response__, 'bucket_arn'),
-        bundle_id=pulumi.get(__response__, 'bundle_id'),
-        object_versioning=pulumi.get(__response__, 'object_versioning'),
-        read_only_access_accounts=pulumi.get(__response__, 'read_only_access_accounts'),
-        resources_receiving_access=pulumi.get(__response__, 'resources_receiving_access'),
-        tags=pulumi.get(__response__, 'tags'),
-        url=pulumi.get(__response__, 'url')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -103,6 +98,9 @@ def get_role_alias(role_alias: Optional[str] = None,
         role_alias_arn=pulumi.get(__ret__, 'role_alias_arn'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_role_alias)
 def get_role_alias_output(role_alias: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAliasResult]:
     """
@@ -111,12 +109,4 @@ def get_role_alias_output(role_alias: Optional[pulumi.Input[str]] = None,
 
     :param str role_alias: The role alias.
     """
-    __args__ = dict()
-    __args__['roleAlias'] = role_alias
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getRoleAlias', __args__, opts=opts, typ=GetRoleAliasResult)
-    return __ret__.apply(lambda __response__: GetRoleAliasResult(
-        credential_duration_seconds=pulumi.get(__response__, 'credential_duration_seconds'),
-        role_alias_arn=pulumi.get(__response__, 'role_alias_arn'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

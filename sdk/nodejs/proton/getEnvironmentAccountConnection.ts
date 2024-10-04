@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
  */
 export function getEnvironmentAccountConnection(args: GetEnvironmentAccountConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentAccountConnectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:proton:getEnvironmentAccountConnection", {
         "arn": args.arn,
@@ -72,10 +73,7 @@ export interface GetEnvironmentAccountConnectionResult {
  * Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
  */
 export function getEnvironmentAccountConnectionOutput(args: GetEnvironmentAccountConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentAccountConnectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:proton:getEnvironmentAccountConnection", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironmentAccountConnection(a, opts))
 }
 
 export interface GetEnvironmentAccountConnectionOutputArgs {

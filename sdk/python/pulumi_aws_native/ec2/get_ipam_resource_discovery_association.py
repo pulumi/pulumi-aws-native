@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -166,6 +161,9 @@ def get_ipam_resource_discovery_association(ipam_resource_discovery_association_
         resource_discovery_status=pulumi.get(__ret__, 'resource_discovery_status'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_ipam_resource_discovery_association)
 def get_ipam_resource_discovery_association_output(ipam_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamResourceDiscoveryAssociationResult]:
     """
@@ -174,17 +172,4 @@ def get_ipam_resource_discovery_association_output(ipam_resource_discovery_assoc
 
     :param str ipam_resource_discovery_association_id: Id of the IPAM Resource Discovery Association.
     """
-    __args__ = dict()
-    __args__['ipamResourceDiscoveryAssociationId'] = ipam_resource_discovery_association_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpamResourceDiscoveryAssociation', __args__, opts=opts, typ=GetIpamResourceDiscoveryAssociationResult)
-    return __ret__.apply(lambda __response__: GetIpamResourceDiscoveryAssociationResult(
-        ipam_arn=pulumi.get(__response__, 'ipam_arn'),
-        ipam_region=pulumi.get(__response__, 'ipam_region'),
-        ipam_resource_discovery_association_arn=pulumi.get(__response__, 'ipam_resource_discovery_association_arn'),
-        ipam_resource_discovery_association_id=pulumi.get(__response__, 'ipam_resource_discovery_association_id'),
-        is_default=pulumi.get(__response__, 'is_default'),
-        owner_id=pulumi.get(__response__, 'owner_id'),
-        resource_discovery_status=pulumi.get(__response__, 'resource_discovery_status'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

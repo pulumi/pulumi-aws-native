@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *  When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
  */
 export function getKeyPair(args: GetKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyPairResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getKeyPair", {
         "keyName": args.keyName,
@@ -56,10 +57,7 @@ export interface GetKeyPairResult {
  *  When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
  */
 export function getKeyPairOutput(args: GetKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyPairResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getKeyPair", {
-        "keyName": args.keyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getKeyPair(a, opts))
 }
 
 export interface GetKeyPairOutputArgs {

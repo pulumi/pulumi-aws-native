@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -90,6 +85,9 @@ def get_db_parameter_group(db_parameter_group_name: Optional[str] = None,
     return AwaitableGetDbParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_db_parameter_group)
 def get_db_parameter_group_output(db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbParameterGroupResult]:
     """
@@ -109,10 +107,4 @@ def get_db_parameter_group_output(db_parameter_group_name: Optional[pulumi.Input
             If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
              This value is stored as a lowercase string.
     """
-    __args__ = dict()
-    __args__['dbParameterGroupName'] = db_parameter_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbParameterGroup', __args__, opts=opts, typ=GetDbParameterGroupResult)
-    return __ret__.apply(lambda __response__: GetDbParameterGroupResult(
-        parameters=pulumi.get(__response__, 'parameters'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

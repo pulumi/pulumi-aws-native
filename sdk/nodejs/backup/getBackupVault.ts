@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Backup::BackupVault
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:backup:getBackupVault", {
         "backupVaultName": args.backupVaultName,
@@ -52,10 +53,7 @@ export interface GetBackupVaultResult {
  * Resource Type definition for AWS::Backup::BackupVault
  */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:backup:getBackupVault", {
-        "backupVaultName": args.backupVaultName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBackupVault(a, opts))
 }
 
 export interface GetBackupVaultOutputArgs {

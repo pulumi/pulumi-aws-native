@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getGrant(args: GetGrantArgs, opts?: pulumi.InvokeOptions): Promise<GetGrantResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:licensemanager:getGrant", {
         "grantArn": args.grantArn,
@@ -47,10 +48,7 @@ export interface GetGrantResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getGrantOutput(args: GetGrantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrantResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:licensemanager:getGrant", {
-        "grantArn": args.grantArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGrant(a, opts))
 }
 
 export interface GetGrantOutputArgs {

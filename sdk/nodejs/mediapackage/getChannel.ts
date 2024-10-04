@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaPackage::Channel
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackage:getChannel", {
         "id": args.id,
@@ -50,10 +51,7 @@ export interface GetChannelResult {
  * Resource schema for AWS::MediaPackage::Channel
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:mediapackage:getChannel", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Amazon OpenSearchServerless collection resource
  */
 export function getCollection(args: GetCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opensearchserverless:getCollection", {
         "id": args.id,
@@ -54,10 +55,7 @@ export interface GetCollectionResult {
  * Amazon OpenSearchServerless collection resource
  */
 export function getCollectionOutput(args: GetCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getCollection", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCollection(a, opts))
 }
 
 export interface GetCollectionOutputArgs {

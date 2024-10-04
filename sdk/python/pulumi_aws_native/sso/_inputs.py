@@ -4,51 +4,21 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationPortalOptionsConfigurationArgs',
-    'ApplicationPortalOptionsConfigurationArgsDict',
     'ApplicationSignInOptionsArgs',
-    'ApplicationSignInOptionsArgsDict',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs',
-    'InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgsDict',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs',
-    'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict',
     'InstanceAccessControlAttributeConfigurationPropertiesArgs',
-    'InstanceAccessControlAttributeConfigurationPropertiesArgsDict',
     'PermissionSetCustomerManagedPolicyReferenceArgs',
-    'PermissionSetCustomerManagedPolicyReferenceArgsDict',
     'PermissionSetPermissionsBoundaryArgs',
-    'PermissionSetPermissionsBoundaryArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ApplicationPortalOptionsConfigurationArgsDict(TypedDict):
-        """
-        A structure that describes the options for the access portal associated with an application
-        """
-        sign_in_options: NotRequired[pulumi.Input['ApplicationSignInOptionsArgsDict']]
-        """
-        A structure that describes the sign-in options for the access portal
-        """
-        visibility: NotRequired[pulumi.Input['ApplicationPortalOptionsConfigurationVisibility']]
-        """
-        Indicates whether this application is visible in the access portal
-        """
-elif False:
-    ApplicationPortalOptionsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationPortalOptionsConfigurationArgs:
@@ -90,22 +60,6 @@ class ApplicationPortalOptionsConfigurationArgs:
         pulumi.set(self, "visibility", value)
 
 
-if not MYPY:
-    class ApplicationSignInOptionsArgsDict(TypedDict):
-        """
-        A structure that describes the sign-in options for an application portal
-        """
-        origin: pulumi.Input['ApplicationSignInOptionsOrigin']
-        """
-        This determines how IAM Identity Center navigates the user to the target application
-        """
-        application_url: NotRequired[pulumi.Input[str]]
-        """
-        The URL that accepts authentication requests for an application, this is a required parameter if the Origin parameter is APPLICATION
-        """
-elif False:
-    ApplicationSignInOptionsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ApplicationSignInOptionsArgs:
     def __init__(__self__, *,
@@ -145,12 +99,6 @@ class ApplicationSignInOptionsArgs:
         pulumi.set(self, "application_url", value)
 
 
-if not MYPY:
-    class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgsDict(TypedDict):
-        source: pulumi.Input[Sequence[pulumi.Input[str]]]
-elif False:
-    InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs:
     def __init__(__self__, *,
@@ -166,13 +114,6 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs
     def source(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "source", value)
 
-
-if not MYPY:
-    class InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict(TypedDict):
-        key: pulumi.Input[str]
-        value: pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgsDict']
-elif False:
-    InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs:
@@ -201,15 +142,6 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class InstanceAccessControlAttributeConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
-        """
-        access_control_attributes: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]
-elif False:
-    InstanceAccessControlAttributeConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InstanceAccessControlAttributeConfigurationPropertiesArgs:
     def __init__(__self__, *,
@@ -228,19 +160,6 @@ class InstanceAccessControlAttributeConfigurationPropertiesArgs:
     def access_control_attributes(self, value: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]):
         pulumi.set(self, "access_control_attributes", value)
 
-
-if not MYPY:
-    class PermissionSetCustomerManagedPolicyReferenceArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the IAM policy that you have configured in each account where you want to deploy your permission set.
-        """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/` . For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
-        """
-elif False:
-    PermissionSetCustomerManagedPolicyReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PermissionSetCustomerManagedPolicyReferenceArgs:
@@ -279,19 +198,6 @@ class PermissionSetCustomerManagedPolicyReferenceArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
-
-if not MYPY:
-    class PermissionSetPermissionsBoundaryArgsDict(TypedDict):
-        customer_managed_policy_reference: NotRequired[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgsDict']]
-        """
-        Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
-        """
-        managed_policy_arn: NotRequired[pulumi.Input[str]]
-        """
-        The AWS managed policy ARN that you want to attach to a permission set as a permissions boundary.
-        """
-elif False:
-    PermissionSetPermissionsBoundaryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PermissionSetPermissionsBoundaryArgs:

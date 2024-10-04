@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
  */
 export function getEnvironmentProfile(args: GetEnvironmentProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getEnvironmentProfile", {
         "domainId": args.domainId,
@@ -83,11 +84,7 @@ export interface GetEnvironmentProfileResult {
  * AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
  */
 export function getEnvironmentProfileOutput(args: GetEnvironmentProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datazone:getEnvironmentProfile", {
-        "domainId": args.domainId,
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEnvironmentProfile(a, opts))
 }
 
 export interface GetEnvironmentProfileOutputArgs {

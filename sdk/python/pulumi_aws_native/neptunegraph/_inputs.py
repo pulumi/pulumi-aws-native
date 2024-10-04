@@ -4,34 +4,14 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GraphVectorSearchConfigurationArgs',
-    'GraphVectorSearchConfigurationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class GraphVectorSearchConfigurationArgsDict(TypedDict):
-        """
-        The vector search configuration.
-        """
-        vector_search_dimension: pulumi.Input[int]
-        """
-        The vector search dimension
-        """
-elif False:
-    GraphVectorSearchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GraphVectorSearchConfigurationArgs:

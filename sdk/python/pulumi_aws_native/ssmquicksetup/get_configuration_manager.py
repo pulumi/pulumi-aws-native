@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -154,6 +149,9 @@ def get_configuration_manager(manager_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status_summaries=pulumi.get(__ret__, 'status_summaries'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_configuration_manager)
 def get_configuration_manager_output(manager_arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationManagerResult]:
     """
@@ -162,16 +160,4 @@ def get_configuration_manager_output(manager_arn: Optional[pulumi.Input[str]] = 
 
     :param str manager_arn: The ARN of the Quick Setup configuration.
     """
-    __args__ = dict()
-    __args__['managerArn'] = manager_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ssmquicksetup:getConfigurationManager', __args__, opts=opts, typ=GetConfigurationManagerResult)
-    return __ret__.apply(lambda __response__: GetConfigurationManagerResult(
-        configuration_definitions=pulumi.get(__response__, 'configuration_definitions'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        last_modified_at=pulumi.get(__response__, 'last_modified_at'),
-        manager_arn=pulumi.get(__response__, 'manager_arn'),
-        name=pulumi.get(__response__, 'name'),
-        status_summaries=pulumi.get(__response__, 'status_summaries'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

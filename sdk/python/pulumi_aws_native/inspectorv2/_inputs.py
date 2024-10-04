@@ -4,56 +4,28 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CisScanConfigurationCisTargetsArgs',
-    'CisScanConfigurationCisTargetsArgsDict',
     'CisScanConfigurationDailyScheduleArgs',
-    'CisScanConfigurationDailyScheduleArgsDict',
     'CisScanConfigurationMonthlyScheduleArgs',
-    'CisScanConfigurationMonthlyScheduleArgsDict',
     'CisScanConfigurationOneTimeScheduleArgs',
-    'CisScanConfigurationOneTimeScheduleArgsDict',
     'CisScanConfigurationScheduleArgs',
-    'CisScanConfigurationScheduleArgsDict',
     'CisScanConfigurationTimeArgs',
-    'CisScanConfigurationTimeArgsDict',
     'CisScanConfigurationWeeklyScheduleArgs',
-    'CisScanConfigurationWeeklyScheduleArgsDict',
     'FilterCriteriaArgs',
-    'FilterCriteriaArgsDict',
     'FilterDateFilterArgs',
-    'FilterDateFilterArgsDict',
     'FilterMapFilterArgs',
-    'FilterMapFilterArgsDict',
     'FilterNumberFilterArgs',
-    'FilterNumberFilterArgsDict',
     'FilterPackageFilterArgs',
-    'FilterPackageFilterArgsDict',
     'FilterPortRangeFilterArgs',
-    'FilterPortRangeFilterArgsDict',
     'FilterStringFilterArgs',
-    'FilterStringFilterArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class CisScanConfigurationCisTargetsArgsDict(TypedDict):
-        account_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        target_resource_tags: NotRequired[pulumi.Input[Mapping[str, Any]]]
-elif False:
-    CisScanConfigurationCisTargetsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CisScanConfigurationCisTargetsArgs:
@@ -83,12 +55,6 @@ class CisScanConfigurationCisTargetsArgs:
         pulumi.set(self, "target_resource_tags", value)
 
 
-if not MYPY:
-    class CisScanConfigurationDailyScheduleArgsDict(TypedDict):
-        start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
-elif False:
-    CisScanConfigurationDailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CisScanConfigurationDailyScheduleArgs:
     def __init__(__self__, *,
@@ -104,13 +70,6 @@ class CisScanConfigurationDailyScheduleArgs:
     def start_time(self, value: pulumi.Input['CisScanConfigurationTimeArgs']):
         pulumi.set(self, "start_time", value)
 
-
-if not MYPY:
-    class CisScanConfigurationMonthlyScheduleArgsDict(TypedDict):
-        day: pulumi.Input['CisScanConfigurationDay']
-        start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
-elif False:
-    CisScanConfigurationMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CisScanConfigurationMonthlyScheduleArgs:
@@ -139,29 +98,11 @@ class CisScanConfigurationMonthlyScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class CisScanConfigurationOneTimeScheduleArgsDict(TypedDict):
-        pass
-elif False:
-    CisScanConfigurationOneTimeScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CisScanConfigurationOneTimeScheduleArgs:
     def __init__(__self__):
         pass
 
-
-if not MYPY:
-    class CisScanConfigurationScheduleArgsDict(TypedDict):
-        """
-        Choose a Schedule cadence
-        """
-        daily: NotRequired[pulumi.Input['CisScanConfigurationDailyScheduleArgsDict']]
-        monthly: NotRequired[pulumi.Input['CisScanConfigurationMonthlyScheduleArgsDict']]
-        one_time: NotRequired[pulumi.Input['CisScanConfigurationOneTimeScheduleArgsDict']]
-        weekly: NotRequired[pulumi.Input['CisScanConfigurationWeeklyScheduleArgsDict']]
-elif False:
-    CisScanConfigurationScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CisScanConfigurationScheduleArgs:
@@ -219,13 +160,6 @@ class CisScanConfigurationScheduleArgs:
         pulumi.set(self, "weekly", value)
 
 
-if not MYPY:
-    class CisScanConfigurationTimeArgsDict(TypedDict):
-        time_of_day: pulumi.Input[str]
-        time_zone: pulumi.Input[str]
-elif False:
-    CisScanConfigurationTimeArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CisScanConfigurationTimeArgs:
     def __init__(__self__, *,
@@ -253,13 +187,6 @@ class CisScanConfigurationTimeArgs:
         pulumi.set(self, "time_zone", value)
 
 
-if not MYPY:
-    class CisScanConfigurationWeeklyScheduleArgsDict(TypedDict):
-        days: pulumi.Input[Sequence[pulumi.Input['CisScanConfigurationDay']]]
-        start_time: pulumi.Input['CisScanConfigurationTimeArgsDict']
-elif False:
-    CisScanConfigurationWeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CisScanConfigurationWeeklyScheduleArgs:
     def __init__(__self__, *,
@@ -286,135 +213,6 @@ class CisScanConfigurationWeeklyScheduleArgs:
     def start_time(self, value: pulumi.Input['CisScanConfigurationTimeArgs']):
         pulumi.set(self, "start_time", value)
 
-
-if not MYPY:
-    class FilterCriteriaArgsDict(TypedDict):
-        aws_account_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the AWS account IDs used to filter findings.
-        """
-        component_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the component IDs used to filter findings.
-        """
-        component_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the component types used to filter findings.
-        """
-        ec2_instance_image_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon EC2 instance image IDs used to filter findings.
-        """
-        ec2_instance_subnet_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon EC2 instance subnet IDs used to filter findings.
-        """
-        ec2_instance_vpc_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon EC2 instance VPC IDs used to filter findings.
-        """
-        ecr_image_architecture: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon ECR image architecture types used to filter findings.
-        """
-        ecr_image_hash: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details of the Amazon ECR image hashes used to filter findings.
-        """
-        ecr_image_pushed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        """
-        Details on the Amazon ECR image push date and time used to filter findings.
-        """
-        ecr_image_registry: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the Amazon ECR registry used to filter findings.
-        """
-        ecr_image_repository_name: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the name of the Amazon ECR repository used to filter findings.
-        """
-        ecr_image_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        The tags attached to the Amazon ECR container image.
-        """
-        finding_arn: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the finding ARNs used to filter findings.
-        """
-        finding_status: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the finding status types used to filter findings.
-        """
-        finding_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the finding types used to filter findings.
-        """
-        first_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        """
-        Details on the date and time a finding was first seen used to filter findings.
-        """
-        inspector_score: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]
-        """
-        The Amazon Inspector score to filter on.
-        """
-        last_observed_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        """
-        Details on the date and time a finding was last seen used to filter findings.
-        """
-        network_protocol: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on network protocol used to filter findings.
-        """
-        port_range: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterPortRangeFilterArgsDict']]]]
-        """
-        Details on the port ranges used to filter findings.
-        """
-        related_vulnerabilities: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the related vulnerabilities used to filter findings.
-        """
-        resource_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the resource IDs used to filter findings.
-        """
-        resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterMapFilterArgsDict']]]]
-        """
-        Details on the resource tags used to filter findings.
-        """
-        resource_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the resource types used to filter findings.
-        """
-        severity: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the severity used to filter findings.
-        """
-        title: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the finding title used to filter findings.
-        """
-        updated_at: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]
-        """
-        Details on the date and time a finding was last updated at used to filter findings.
-        """
-        vendor_severity: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the vendor severity used to filter findings.
-        """
-        vulnerability_id: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the vulnerability ID used to filter findings.
-        """
-        vulnerability_source: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterStringFilterArgsDict']]]]
-        """
-        Details on the vulnerability score to filter findings by.
-        """
-        vulnerable_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilterPackageFilterArgsDict']]]]
-        """
-        Details on the vulnerable packages used to filter findings.
-        """
-elif False:
-    FilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FilterCriteriaArgs:
@@ -919,13 +717,6 @@ class FilterCriteriaArgs:
         pulumi.set(self, "vulnerable_packages", value)
 
 
-if not MYPY:
-    class FilterDateFilterArgsDict(TypedDict):
-        end_inclusive: NotRequired[pulumi.Input[int]]
-        start_inclusive: NotRequired[pulumi.Input[int]]
-elif False:
-    FilterDateFilterArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class FilterDateFilterArgs:
     def __init__(__self__, *,
@@ -954,14 +745,6 @@ class FilterDateFilterArgs:
     def start_inclusive(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_inclusive", value)
 
-
-if not MYPY:
-    class FilterMapFilterArgsDict(TypedDict):
-        comparison: pulumi.Input['FilterMapComparison']
-        key: NotRequired[pulumi.Input[str]]
-        value: NotRequired[pulumi.Input[str]]
-elif False:
-    FilterMapFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FilterMapFilterArgs:
@@ -1003,13 +786,6 @@ class FilterMapFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FilterNumberFilterArgsDict(TypedDict):
-        lower_inclusive: NotRequired[pulumi.Input[float]]
-        upper_inclusive: NotRequired[pulumi.Input[float]]
-elif False:
-    FilterNumberFilterArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class FilterNumberFilterArgs:
     def __init__(__self__, *,
@@ -1038,17 +814,6 @@ class FilterNumberFilterArgs:
     def upper_inclusive(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "upper_inclusive", value)
 
-
-if not MYPY:
-    class FilterPackageFilterArgsDict(TypedDict):
-        architecture: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        epoch: NotRequired[pulumi.Input['FilterNumberFilterArgsDict']]
-        name: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        release: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        source_layer_hash: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-        version: NotRequired[pulumi.Input['FilterStringFilterArgsDict']]
-elif False:
-    FilterPackageFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FilterPackageFilterArgs:
@@ -1127,13 +892,6 @@ class FilterPackageFilterArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class FilterPortRangeFilterArgsDict(TypedDict):
-        begin_inclusive: NotRequired[pulumi.Input[int]]
-        end_inclusive: NotRequired[pulumi.Input[int]]
-elif False:
-    FilterPortRangeFilterArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class FilterPortRangeFilterArgs:
     def __init__(__self__, *,
@@ -1162,13 +920,6 @@ class FilterPortRangeFilterArgs:
     def end_inclusive(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "end_inclusive", value)
 
-
-if not MYPY:
-    class FilterStringFilterArgsDict(TypedDict):
-        comparison: pulumi.Input['FilterStringComparison']
-        value: pulumi.Input[str]
-elif False:
-    FilterStringFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FilterStringFilterArgs:

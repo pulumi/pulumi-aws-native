@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -74,6 +69,9 @@ def get_notification_channel(sns_topic_arn: Optional[str] = None,
     return AwaitableGetNotificationChannelResult(
         sns_role_name=pulumi.get(__ret__, 'sns_role_name'),
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'))
+
+
+@_utilities.lift_output_func(get_notification_channel)
 def get_notification_channel_output(sns_topic_arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
@@ -82,10 +80,4 @@ def get_notification_channel_output(sns_topic_arn: Optional[pulumi.Input[str]] =
 
     :param str sns_topic_arn: The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
     """
-    __args__ = dict()
-    __args__['snsTopicArn'] = sns_topic_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:fms:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
-    return __ret__.apply(lambda __response__: GetNotificationChannelResult(
-        sns_role_name=pulumi.get(__response__, 'sns_role_name'),
-        sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn')))
+    ...

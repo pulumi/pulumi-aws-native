@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
  */
 export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafv2:getIpSet", {
         "id": args.id,
@@ -68,12 +69,7 @@ export interface GetIpSetResult {
  * Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
  */
 export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:wafv2:getIpSet", {
-        "id": args.id,
-        "name": args.name,
-        "scope": args.scope,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIpSet(a, opts))
 }
 
 export interface GetIpSetOutputArgs {

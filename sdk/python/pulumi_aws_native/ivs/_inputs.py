@@ -4,47 +4,21 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'RecordingConfigurationDestinationConfigurationArgs',
-    'RecordingConfigurationDestinationConfigurationArgsDict',
     'RecordingConfigurationRenditionConfigurationArgs',
-    'RecordingConfigurationRenditionConfigurationArgsDict',
     'RecordingConfigurationS3DestinationConfigurationArgs',
-    'RecordingConfigurationS3DestinationConfigurationArgsDict',
     'RecordingConfigurationThumbnailConfigurationArgs',
-    'RecordingConfigurationThumbnailConfigurationArgsDict',
     'StageAutoParticipantRecordingConfigurationArgs',
-    'StageAutoParticipantRecordingConfigurationArgsDict',
     'StorageConfigurationS3StorageConfigurationArgs',
-    'StorageConfigurationS3StorageConfigurationArgsDict',
     'VideoPropertiesArgs',
-    'VideoPropertiesArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
-        """
-        Recording Destination Configuration.
-        """
-        s3: NotRequired[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgsDict']]
-        """
-        An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
-        """
-elif False:
-    RecordingConfigurationDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordingConfigurationDestinationConfigurationArgs:
@@ -69,22 +43,6 @@ class RecordingConfigurationDestinationConfigurationArgs:
     def s3(self, value: Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']]):
         pulumi.set(self, "s3", value)
 
-
-if not MYPY:
-    class RecordingConfigurationRenditionConfigurationArgsDict(TypedDict):
-        """
-        Rendition Configuration describes which renditions should be recorded for a stream.
-        """
-        rendition_selection: NotRequired[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionSelection']]
-        """
-        Resolution Selection indicates which set of renditions are recorded for a stream.
-        """
-        renditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationRenditionConfigurationRenditionsItem']]]]
-        """
-        Renditions indicates which renditions are recorded for a stream.
-        """
-elif False:
-    RecordingConfigurationRenditionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordingConfigurationRenditionConfigurationArgs:
@@ -126,18 +84,6 @@ class RecordingConfigurationRenditionConfigurationArgs:
         pulumi.set(self, "renditions", value)
 
 
-if not MYPY:
-    class RecordingConfigurationS3DestinationConfigurationArgsDict(TypedDict):
-        """
-        Recording S3 Destination Configuration.
-        """
-        bucket_name: pulumi.Input[str]
-        """
-        Location (S3 bucket name) where recorded videos will be stored.
-        """
-elif False:
-    RecordingConfigurationS3DestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class RecordingConfigurationS3DestinationConfigurationArgs:
     def __init__(__self__, *,
@@ -160,30 +106,6 @@ class RecordingConfigurationS3DestinationConfigurationArgs:
     def bucket_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket_name", value)
 
-
-if not MYPY:
-    class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
-        """
-        Recording Thumbnail Configuration.
-        """
-        recording_mode: NotRequired[pulumi.Input['RecordingConfigurationThumbnailConfigurationRecordingMode']]
-        """
-        Thumbnail Recording Mode, which determines whether thumbnails are recorded at an interval or are disabled.
-        """
-        resolution: NotRequired[pulumi.Input['RecordingConfigurationThumbnailConfigurationResolution']]
-        """
-        Resolution indicates the desired resolution of recorded thumbnails.
-        """
-        storage: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationThumbnailConfigurationStorageItem']]]]
-        """
-        Storage indicates the format in which thumbnails are recorded.
-        """
-        target_interval_seconds: NotRequired[pulumi.Input[int]]
-        """
-        Target Interval Seconds defines the interval at which thumbnails are recorded. This field is required if RecordingMode is INTERVAL.
-        """
-elif False:
-    RecordingConfigurationThumbnailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordingConfigurationThumbnailConfigurationArgs:
@@ -257,22 +179,6 @@ class RecordingConfigurationThumbnailConfigurationArgs:
         pulumi.set(self, "target_interval_seconds", value)
 
 
-if not MYPY:
-    class StageAutoParticipantRecordingConfigurationArgsDict(TypedDict):
-        """
-        Configuration object for individual participant recording, to attach to the new stage.
-        """
-        storage_configuration_arn: pulumi.Input[str]
-        """
-        ARN of the StorageConfiguration resource to use for individual participant recording.
-        """
-        media_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['StageAutoParticipantRecordingConfigurationMediaTypesItem']]]]
-        """
-        Types of media to be recorded. Default: AUDIO_VIDEO.
-        """
-elif False:
-    StageAutoParticipantRecordingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class StageAutoParticipantRecordingConfigurationArgs:
     def __init__(__self__, *,
@@ -312,18 +218,6 @@ class StageAutoParticipantRecordingConfigurationArgs:
         pulumi.set(self, "media_types", value)
 
 
-if not MYPY:
-    class StorageConfigurationS3StorageConfigurationArgsDict(TypedDict):
-        """
-        A complex type that describes an S3 location where recorded videos will be stored.
-        """
-        bucket_name: pulumi.Input[str]
-        """
-        Location (S3 bucket name) where recorded videos will be stored. Note that the StorageConfiguration and S3 bucket must be in the same region as the Composition.
-        """
-elif False:
-    StorageConfigurationS3StorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class StorageConfigurationS3StorageConfigurationArgs:
     def __init__(__self__, *,
@@ -346,30 +240,6 @@ class StorageConfigurationS3StorageConfigurationArgs:
     def bucket_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket_name", value)
 
-
-if not MYPY:
-    class VideoPropertiesArgsDict(TypedDict):
-        """
-        Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
-        """
-        bitrate: NotRequired[pulumi.Input[int]]
-        """
-        Bitrate for generated output, in bps. Default: 2500000.
-        """
-        framerate: NotRequired[pulumi.Input[float]]
-        """
-        Video frame rate, in fps. Default: 30.
-        """
-        height: NotRequired[pulumi.Input[int]]
-        """
-        Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
-        """
-        width: NotRequired[pulumi.Input[int]]
-        """
-        Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
-        """
-elif False:
-    VideoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VideoPropertiesArgs:

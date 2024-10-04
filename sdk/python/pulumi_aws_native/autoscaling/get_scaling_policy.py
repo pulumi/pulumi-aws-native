@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -205,6 +200,9 @@ def get_scaling_policy(arn: Optional[str] = None,
         scaling_adjustment=pulumi.get(__ret__, 'scaling_adjustment'),
         step_adjustments=pulumi.get(__ret__, 'step_adjustments'),
         target_tracking_configuration=pulumi.get(__ret__, 'target_tracking_configuration'))
+
+
+@_utilities.lift_output_func(get_scaling_policy)
 def get_scaling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPolicyResult]:
     """
@@ -213,20 +211,4 @@ def get_scaling_policy_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the AutoScaling scaling policy
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getScalingPolicy', __args__, opts=opts, typ=GetScalingPolicyResult)
-    return __ret__.apply(lambda __response__: GetScalingPolicyResult(
-        adjustment_type=pulumi.get(__response__, 'adjustment_type'),
-        arn=pulumi.get(__response__, 'arn'),
-        cooldown=pulumi.get(__response__, 'cooldown'),
-        estimated_instance_warmup=pulumi.get(__response__, 'estimated_instance_warmup'),
-        metric_aggregation_type=pulumi.get(__response__, 'metric_aggregation_type'),
-        min_adjustment_magnitude=pulumi.get(__response__, 'min_adjustment_magnitude'),
-        policy_name=pulumi.get(__response__, 'policy_name'),
-        policy_type=pulumi.get(__response__, 'policy_type'),
-        predictive_scaling_configuration=pulumi.get(__response__, 'predictive_scaling_configuration'),
-        scaling_adjustment=pulumi.get(__response__, 'scaling_adjustment'),
-        step_adjustments=pulumi.get(__response__, 'step_adjustments'),
-        target_tracking_configuration=pulumi.get(__response__, 'target_tracking_configuration')))
+    ...

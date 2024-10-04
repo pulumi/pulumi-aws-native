@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function importValue(args: ImportValueArgs, opts?: pulumi.InvokeOptions): Promise<ImportValueResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:index:importValue", {
         "name": args.name,
@@ -19,10 +20,7 @@ export interface ImportValueResult {
     readonly value?: any;
 }
 export function importValueOutput(args: ImportValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ImportValueResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:index:importValue", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => importValue(a, opts))
 }
 
 export interface ImportValueOutputArgs {

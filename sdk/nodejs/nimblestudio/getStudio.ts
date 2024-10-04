@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Represents a studio that contains other Nimble Studio resources
  */
 export function getStudio(args: GetStudioArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:nimblestudio:getStudio", {
         "studioId": args.studioId,
@@ -62,10 +63,7 @@ export interface GetStudioResult {
  * Represents a studio that contains other Nimble Studio resources
  */
 export function getStudioOutput(args: GetStudioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:nimblestudio:getStudio", {
-        "studioId": args.studioId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStudio(a, opts))
 }
 
 export interface GetStudioOutputArgs {

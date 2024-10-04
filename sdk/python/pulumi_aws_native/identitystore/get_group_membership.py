@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -64,6 +59,9 @@ def get_group_membership(identity_store_id: Optional[str] = None,
 
     return AwaitableGetGroupMembershipResult(
         membership_id=pulumi.get(__ret__, 'membership_id'))
+
+
+@_utilities.lift_output_func(get_group_membership)
 def get_group_membership_output(identity_store_id: Optional[pulumi.Input[str]] = None,
                                 membership_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupMembershipResult]:
@@ -74,10 +72,4 @@ def get_group_membership_output(identity_store_id: Optional[pulumi.Input[str]] =
     :param str identity_store_id: The globally unique identifier for the identity store.
     :param str membership_id: The identifier for a GroupMembership in the identity store.
     """
-    __args__ = dict()
-    __args__['identityStoreId'] = identity_store_id
-    __args__['membershipId'] = membership_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:identitystore:getGroupMembership', __args__, opts=opts, typ=GetGroupMembershipResult)
-    return __ret__.apply(lambda __response__: GetGroupMembershipResult(
-        membership_id=pulumi.get(__response__, 'membership_id')))
+    ...

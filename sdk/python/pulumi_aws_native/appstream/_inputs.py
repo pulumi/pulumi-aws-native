@@ -4,63 +4,28 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AppBlockBuilderAccessEndpointArgs',
-    'AppBlockBuilderAccessEndpointArgsDict',
     'AppBlockBuilderVpcConfigArgs',
-    'AppBlockBuilderVpcConfigArgsDict',
     'AppBlockS3LocationArgs',
-    'AppBlockS3LocationArgsDict',
     'AppBlockScriptDetailsArgs',
-    'AppBlockScriptDetailsArgsDict',
     'AppBlockTag0PropertiesArgs',
-    'AppBlockTag0PropertiesArgsDict',
     'AppBlockTag1PropertiesArgs',
-    'AppBlockTag1PropertiesArgsDict',
     'ApplicationS3LocationArgs',
-    'ApplicationS3LocationArgsDict',
     'ApplicationTag0PropertiesArgs',
-    'ApplicationTag0PropertiesArgsDict',
     'ApplicationTag1PropertiesArgs',
-    'ApplicationTag1PropertiesArgsDict',
     'DirectoryConfigCertificateBasedAuthPropertiesArgs',
-    'DirectoryConfigCertificateBasedAuthPropertiesArgsDict',
     'DirectoryConfigServiceAccountCredentialsArgs',
-    'DirectoryConfigServiceAccountCredentialsArgsDict',
     'EntitlementAttributeArgs',
-    'EntitlementAttributeArgsDict',
     'ImageBuilderAccessEndpointArgs',
-    'ImageBuilderAccessEndpointArgsDict',
     'ImageBuilderDomainJoinInfoArgs',
-    'ImageBuilderDomainJoinInfoArgsDict',
     'ImageBuilderVpcConfigArgs',
-    'ImageBuilderVpcConfigArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AppBlockBuilderAccessEndpointArgsDict(TypedDict):
-        endpoint_type: pulumi.Input[str]
-        """
-        The type of interface endpoint.
-        """
-        vpce_id: pulumi.Input[str]
-        """
-        The identifier (ID) of the VPC in which the interface endpoint is used.
-        """
-elif False:
-    AppBlockBuilderAccessEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppBlockBuilderAccessEndpointArgs:
@@ -98,19 +63,6 @@ class AppBlockBuilderAccessEndpointArgs:
     def vpce_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpce_id", value)
 
-
-if not MYPY:
-    class AppBlockBuilderVpcConfigArgsDict(TypedDict):
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The identifiers of the security groups for the fleet or image builder.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
-        """
-elif False:
-    AppBlockBuilderVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppBlockBuilderVpcConfigArgs:
@@ -150,21 +102,6 @@ class AppBlockBuilderVpcConfigArgs:
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
-
-if not MYPY:
-    class AppBlockS3LocationArgsDict(TypedDict):
-        s3_bucket: pulumi.Input[str]
-        """
-        The S3 bucket of the app block.
-        """
-        s3_key: NotRequired[pulumi.Input[str]]
-        """
-        The S3 key of the S3 object of the virtual hard disk.
-
-        This is required when it's used by `SetupScriptDetails` and `PostSetupScriptDetails` .
-        """
-elif False:
-    AppBlockS3LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppBlockS3LocationArgs:
@@ -207,27 +144,6 @@ class AppBlockS3LocationArgs:
     def s3_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key", value)
 
-
-if not MYPY:
-    class AppBlockScriptDetailsArgsDict(TypedDict):
-        executable_path: pulumi.Input[str]
-        """
-        The run path for the script.
-        """
-        script_s3_location: pulumi.Input['AppBlockS3LocationArgsDict']
-        """
-        The S3 object location of the script.
-        """
-        timeout_in_seconds: pulumi.Input[int]
-        """
-        The run timeout, in seconds, for the script.
-        """
-        executable_parameters: NotRequired[pulumi.Input[str]]
-        """
-        The parameters used in the run path for the script.
-        """
-elif False:
-    AppBlockScriptDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppBlockScriptDetailsArgs:
@@ -297,13 +213,6 @@ class AppBlockScriptDetailsArgs:
         pulumi.set(self, "executable_parameters", value)
 
 
-if not MYPY:
-    class AppBlockTag0PropertiesArgsDict(TypedDict):
-        key: pulumi.Input[str]
-        value: pulumi.Input[str]
-elif False:
-    AppBlockTag0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppBlockTag0PropertiesArgs:
     def __init__(__self__, *,
@@ -331,13 +240,6 @@ class AppBlockTag0PropertiesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AppBlockTag1PropertiesArgsDict(TypedDict):
-        tag_key: pulumi.Input[str]
-        tag_value: pulumi.Input[str]
-elif False:
-    AppBlockTag1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppBlockTag1PropertiesArgs:
     def __init__(__self__, *,
@@ -364,19 +266,6 @@ class AppBlockTag1PropertiesArgs:
     def tag_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "tag_value", value)
 
-
-if not MYPY:
-    class ApplicationS3LocationArgsDict(TypedDict):
-        s3_bucket: pulumi.Input[str]
-        """
-        The S3 bucket of the S3 object.
-        """
-        s3_key: pulumi.Input[str]
-        """
-        The S3 key of the S3 object.
-        """
-elif False:
-    ApplicationS3LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationS3LocationArgs:
@@ -415,13 +304,6 @@ class ApplicationS3LocationArgs:
         pulumi.set(self, "s3_key", value)
 
 
-if not MYPY:
-    class ApplicationTag0PropertiesArgsDict(TypedDict):
-        key: pulumi.Input[str]
-        value: pulumi.Input[str]
-elif False:
-    ApplicationTag0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ApplicationTag0PropertiesArgs:
     def __init__(__self__, *,
@@ -449,13 +331,6 @@ class ApplicationTag0PropertiesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ApplicationTag1PropertiesArgsDict(TypedDict):
-        tag_key: pulumi.Input[str]
-        tag_value: pulumi.Input[str]
-elif False:
-    ApplicationTag1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ApplicationTag1PropertiesArgs:
     def __init__(__self__, *,
@@ -482,19 +357,6 @@ class ApplicationTag1PropertiesArgs:
     def tag_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "tag_value", value)
 
-
-if not MYPY:
-    class DirectoryConfigCertificateBasedAuthPropertiesArgsDict(TypedDict):
-        certificate_authority_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of the AWS Certificate Manager Private CA resource.
-        """
-        status: NotRequired[pulumi.Input[str]]
-        """
-        The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
-        """
-elif False:
-    DirectoryConfigCertificateBasedAuthPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectoryConfigCertificateBasedAuthPropertiesArgs:
@@ -535,19 +397,6 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class DirectoryConfigServiceAccountCredentialsArgsDict(TypedDict):
-        account_name: pulumi.Input[str]
-        """
-        The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-        """
-        account_password: pulumi.Input[str]
-        """
-        The password for the account.
-        """
-elif False:
-    DirectoryConfigServiceAccountCredentialsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DirectoryConfigServiceAccountCredentialsArgs:
     def __init__(__self__, *,
@@ -584,29 +433,6 @@ class DirectoryConfigServiceAccountCredentialsArgs:
     def account_password(self, value: pulumi.Input[str]):
         pulumi.set(self, "account_password", value)
 
-
-if not MYPY:
-    class EntitlementAttributeArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        A supported AWS IAM SAML PrincipalTag attribute that is matched to a value when a user identity federates to an AppStream 2.0 SAML application.
-
-        The following are supported values:
-
-        - roles
-        - department
-        - organization
-        - groups
-        - title
-        - costCenter
-        - userType
-        """
-        value: pulumi.Input[str]
-        """
-        A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
-        """
-elif False:
-    EntitlementAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntitlementAttributeArgs:
@@ -665,19 +491,6 @@ class EntitlementAttributeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ImageBuilderAccessEndpointArgsDict(TypedDict):
-        endpoint_type: pulumi.Input[str]
-        """
-        The type of interface endpoint.
-        """
-        vpce_id: pulumi.Input[str]
-        """
-        The identifier (ID) of the VPC in which the interface endpoint is used.
-        """
-elif False:
-    ImageBuilderAccessEndpointArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ImageBuilderAccessEndpointArgs:
     def __init__(__self__, *,
@@ -714,19 +527,6 @@ class ImageBuilderAccessEndpointArgs:
     def vpce_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpce_id", value)
 
-
-if not MYPY:
-    class ImageBuilderDomainJoinInfoArgsDict(TypedDict):
-        directory_name: NotRequired[pulumi.Input[str]]
-        """
-        The fully qualified name of the directory (for example, corp.example.com).
-        """
-        organizational_unit_distinguished_name: NotRequired[pulumi.Input[str]]
-        """
-        The distinguished name of the organizational unit for computer accounts.
-        """
-elif False:
-    ImageBuilderDomainJoinInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageBuilderDomainJoinInfoArgs:
@@ -766,19 +566,6 @@ class ImageBuilderDomainJoinInfoArgs:
     def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
-
-if not MYPY:
-    class ImageBuilderVpcConfigArgsDict(TypedDict):
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The identifiers of the security groups for the image builder.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
-        """
-elif False:
-    ImageBuilderVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageBuilderVpcConfigArgs:

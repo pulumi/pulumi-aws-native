@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -79,6 +74,9 @@ def get_enabled_control(control_identifier: Optional[str] = None,
     return AwaitableGetEnabledControlResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_enabled_control)
 def get_enabled_control_output(control_identifier: Optional[pulumi.Input[str]] = None,
                                target_identifier: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnabledControlResult]:
@@ -89,11 +87,4 @@ def get_enabled_control_output(control_identifier: Optional[pulumi.Input[str]] =
     :param str control_identifier: Arn of the control.
     :param str target_identifier: Arn for Organizational unit to which the control needs to be applied
     """
-    __args__ = dict()
-    __args__['controlIdentifier'] = control_identifier
-    __args__['targetIdentifier'] = target_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:controltower:getEnabledControl', __args__, opts=opts, typ=GetEnabledControlResult)
-    return __ret__.apply(lambda __response__: GetEnabledControlResult(
-        parameters=pulumi.get(__response__, 'parameters'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

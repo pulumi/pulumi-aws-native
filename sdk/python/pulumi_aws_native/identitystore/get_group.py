@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -90,6 +85,9 @@ def get_group(group_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         group_id=pulumi.get(__ret__, 'group_id'))
+
+
+@_utilities.lift_output_func(get_group)
 def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
                      identity_store_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
@@ -100,12 +98,4 @@ def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
     :param str group_id: The unique identifier for a group in the identity store.
     :param str identity_store_id: The globally unique identifier for the identity store.
     """
-    __args__ = dict()
-    __args__['groupId'] = group_id
-    __args__['identityStoreId'] = identity_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:identitystore:getGroup', __args__, opts=opts, typ=GetGroupResult)
-    return __ret__.apply(lambda __response__: GetGroupResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        group_id=pulumi.get(__response__, 'group_id')))
+    ...

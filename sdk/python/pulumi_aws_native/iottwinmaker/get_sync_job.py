@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -103,6 +98,9 @@ def get_sync_job(sync_source: Optional[str] = None,
         creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
         state=pulumi.get(__ret__, 'state'),
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
+
+
+@_utilities.lift_output_func(get_sync_job)
 def get_sync_job_output(sync_source: Optional[pulumi.Input[str]] = None,
                         workspace_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncJobResult]:
@@ -113,13 +111,4 @@ def get_sync_job_output(sync_source: Optional[pulumi.Input[str]] = None,
     :param str sync_source: The source of the SyncJob.
     :param str workspace_id: The ID of the workspace.
     """
-    __args__ = dict()
-    __args__['syncSource'] = sync_source
-    __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iottwinmaker:getSyncJob', __args__, opts=opts, typ=GetSyncJobResult)
-    return __ret__.apply(lambda __response__: GetSyncJobResult(
-        arn=pulumi.get(__response__, 'arn'),
-        creation_date_time=pulumi.get(__response__, 'creation_date_time'),
-        state=pulumi.get(__response__, 'state'),
-        update_date_time=pulumi.get(__response__, 'update_date_time')))
+    ...

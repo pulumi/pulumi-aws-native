@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Omics::Workflow Resource Type
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:omics:getWorkflow", {
         "id": args.id,
@@ -62,10 +63,7 @@ export interface GetWorkflowResult {
  * Definition of AWS::Omics::Workflow Resource Type
  */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:omics:getWorkflow", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))
 }
 
 export interface GetWorkflowOutputArgs {

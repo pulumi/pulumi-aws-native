@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -90,6 +85,9 @@ def get_enclave_certificate_iam_role_association(certificate_arn: Optional[str] 
         certificate_s3_bucket_name=pulumi.get(__ret__, 'certificate_s3_bucket_name'),
         certificate_s3_object_key=pulumi.get(__ret__, 'certificate_s3_object_key'),
         encryption_kms_key_id=pulumi.get(__ret__, 'encryption_kms_key_id'))
+
+
+@_utilities.lift_output_func(get_enclave_certificate_iam_role_association)
 def get_enclave_certificate_iam_role_association_output(certificate_arn: Optional[pulumi.Input[str]] = None,
                                                         role_arn: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnclaveCertificateIamRoleAssociationResult]:
@@ -100,12 +98,4 @@ def get_enclave_certificate_iam_role_association_output(certificate_arn: Optiona
     :param str certificate_arn: The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
     :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
     """
-    __args__ = dict()
-    __args__['certificateArn'] = certificate_arn
-    __args__['roleArn'] = role_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEnclaveCertificateIamRoleAssociation', __args__, opts=opts, typ=GetEnclaveCertificateIamRoleAssociationResult)
-    return __ret__.apply(lambda __response__: GetEnclaveCertificateIamRoleAssociationResult(
-        certificate_s3_bucket_name=pulumi.get(__response__, 'certificate_s3_bucket_name'),
-        certificate_s3_object_key=pulumi.get(__response__, 'certificate_s3_object_key'),
-        encryption_kms_key_id=pulumi.get(__response__, 'encryption_kms_key_id')))
+    ...

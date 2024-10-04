@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -144,6 +139,9 @@ def get_site(global_network_id: Optional[str] = None,
         site_id=pulumi.get(__ret__, 'site_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_site)
 def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
                     site_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
@@ -154,16 +152,4 @@ def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
     :param str global_network_id: The ID of the global network.
     :param str site_id: The ID of the site.
     """
-    __args__ = dict()
-    __args__['globalNetworkId'] = global_network_id
-    __args__['siteId'] = site_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getSite', __args__, opts=opts, typ=GetSiteResult)
-    return __ret__.apply(lambda __response__: GetSiteResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        location=pulumi.get(__response__, 'location'),
-        site_arn=pulumi.get(__response__, 'site_arn'),
-        site_id=pulumi.get(__response__, 'site_id'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

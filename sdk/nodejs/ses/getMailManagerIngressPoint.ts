@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::SES::MailManagerIngressPoint Resource Type
  */
 export function getMailManagerIngressPoint(args: GetMailManagerIngressPointArgs, opts?: pulumi.InvokeOptions): Promise<GetMailManagerIngressPointResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getMailManagerIngressPoint", {
         "ingressPointId": args.ingressPointId,
@@ -66,10 +67,7 @@ export interface GetMailManagerIngressPointResult {
  * Definition of AWS::SES::MailManagerIngressPoint Resource Type
  */
 export function getMailManagerIngressPointOutput(args: GetMailManagerIngressPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerIngressPointResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerIngressPoint", {
-        "ingressPointId": args.ingressPointId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMailManagerIngressPoint(a, opts))
 }
 
 export interface GetMailManagerIngressPointOutputArgs {

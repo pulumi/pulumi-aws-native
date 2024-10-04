@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
  */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshift:getEventSubscription", {
         "subscriptionName": args.subscriptionName,
@@ -78,10 +79,7 @@ export interface GetEventSubscriptionResult {
  * The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
  */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:redshift:getEventSubscription", {
-        "subscriptionName": args.subscriptionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEventSubscription(a, opts))
 }
 
 export interface GetEventSubscriptionOutputArgs {

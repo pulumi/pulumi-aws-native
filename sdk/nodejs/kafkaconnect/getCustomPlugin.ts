@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomPluginResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kafkaconnect:getCustomPlugin", {
         "customPluginArn": args.customPluginArn,
@@ -43,10 +44,7 @@ export interface GetCustomPluginResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomPluginResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:kafkaconnect:getCustomPlugin", {
-        "customPluginArn": args.customPluginArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCustomPlugin(a, opts))
 }
 
 export interface GetCustomPluginOutputArgs {

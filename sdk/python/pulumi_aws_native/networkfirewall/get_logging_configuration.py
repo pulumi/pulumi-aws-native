@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -63,6 +58,9 @@ def get_logging_configuration(firewall_arn: Optional[str] = None,
 
     return AwaitableGetLoggingConfigurationResult(
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'))
+
+
+@_utilities.lift_output_func(get_logging_configuration)
 def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
@@ -71,9 +69,4 @@ def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[str]] =
 
     :param str firewall_arn: The Amazon Resource Name (ARN) of the `Firewall` that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
     """
-    __args__ = dict()
-    __args__['firewallArn'] = firewall_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult)
-    return __ret__.apply(lambda __response__: GetLoggingConfigurationResult(
-        logging_configuration=pulumi.get(__response__, 'logging_configuration')))
+    ...

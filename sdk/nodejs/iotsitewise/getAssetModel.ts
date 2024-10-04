@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTSiteWise::AssetModel
  */
 export function getAssetModel(args: GetAssetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetModelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotsitewise:getAssetModel", {
         "assetModelId": args.assetModelId,
@@ -66,10 +67,7 @@ export interface GetAssetModelResult {
  * Resource schema for AWS::IoTSiteWise::AssetModel
  */
 export function getAssetModelOutput(args: GetAssetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetModelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iotsitewise:getAssetModel", {
-        "assetModelId": args.assetModelId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAssetModel(a, opts))
 }
 
 export interface GetAssetModelOutputArgs {

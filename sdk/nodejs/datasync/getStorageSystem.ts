@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::StorageSystem.
  */
 export function getStorageSystem(args: GetStorageSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSystemResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getStorageSystem", {
         "storageSystemArn": args.storageSystemArn,
@@ -66,10 +67,7 @@ export interface GetStorageSystemResult {
  * Resource schema for AWS::DataSync::StorageSystem.
  */
 export function getStorageSystemOutput(args: GetStorageSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSystemResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:datasync:getStorageSystem", {
-        "storageSystemArn": args.storageSystemArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStorageSystem(a, opts))
 }
 
 export interface GetStorageSystemOutputArgs {

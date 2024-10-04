@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -219,6 +214,9 @@ def get_fleet_metric(metric_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         unit=pulumi.get(__ret__, 'unit'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_fleet_metric)
 def get_fleet_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetMetricResult]:
     """
@@ -227,21 +225,4 @@ def get_fleet_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
 
     :param str metric_name: The name of the fleet metric
     """
-    __args__ = dict()
-    __args__['metricName'] = metric_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getFleetMetric', __args__, opts=opts, typ=GetFleetMetricResult)
-    return __ret__.apply(lambda __response__: GetFleetMetricResult(
-        aggregation_field=pulumi.get(__response__, 'aggregation_field'),
-        aggregation_type=pulumi.get(__response__, 'aggregation_type'),
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        description=pulumi.get(__response__, 'description'),
-        index_name=pulumi.get(__response__, 'index_name'),
-        last_modified_date=pulumi.get(__response__, 'last_modified_date'),
-        metric_arn=pulumi.get(__response__, 'metric_arn'),
-        period=pulumi.get(__response__, 'period'),
-        query_string=pulumi.get(__response__, 'query_string'),
-        query_version=pulumi.get(__response__, 'query_version'),
-        tags=pulumi.get(__response__, 'tags'),
-        unit=pulumi.get(__response__, 'unit'),
-        version=pulumi.get(__response__, 'version')))
+    ...

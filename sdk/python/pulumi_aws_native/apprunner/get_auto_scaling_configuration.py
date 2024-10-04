@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -87,6 +82,9 @@ def get_auto_scaling_configuration(auto_scaling_configuration_arn: Optional[str]
         auto_scaling_configuration_arn=pulumi.get(__ret__, 'auto_scaling_configuration_arn'),
         auto_scaling_configuration_revision=pulumi.get(__ret__, 'auto_scaling_configuration_revision'),
         latest=pulumi.get(__ret__, 'latest'))
+
+
+@_utilities.lift_output_func(get_auto_scaling_configuration)
 def get_auto_scaling_configuration_output(auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScalingConfigurationResult]:
     """
@@ -95,11 +93,4 @@ def get_auto_scaling_configuration_output(auto_scaling_configuration_arn: Option
 
     :param str auto_scaling_configuration_arn: The Amazon Resource Name (ARN) of this auto scaling configuration.
     """
-    __args__ = dict()
-    __args__['autoScalingConfigurationArn'] = auto_scaling_configuration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apprunner:getAutoScalingConfiguration', __args__, opts=opts, typ=GetAutoScalingConfigurationResult)
-    return __ret__.apply(lambda __response__: GetAutoScalingConfigurationResult(
-        auto_scaling_configuration_arn=pulumi.get(__response__, 'auto_scaling_configuration_arn'),
-        auto_scaling_configuration_revision=pulumi.get(__response__, 'auto_scaling_configuration_revision'),
-        latest=pulumi.get(__response__, 'latest')))
+    ...

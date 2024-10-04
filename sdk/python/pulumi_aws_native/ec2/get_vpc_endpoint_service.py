@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -113,6 +108,9 @@ def get_vpc_endpoint_service(service_id: Optional[str] = None,
         network_load_balancer_arns=pulumi.get(__ret__, 'network_load_balancer_arns'),
         payer_responsibility=pulumi.get(__ret__, 'payer_responsibility'),
         service_id=pulumi.get(__ret__, 'service_id'))
+
+
+@_utilities.lift_output_func(get_vpc_endpoint_service)
 def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
@@ -121,13 +119,4 @@ def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = No
 
     :param str service_id: The ID of the endpoint service.
     """
-    __args__ = dict()
-    __args__['serviceId'] = service_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcEndpointService', __args__, opts=opts, typ=GetVpcEndpointServiceResult)
-    return __ret__.apply(lambda __response__: GetVpcEndpointServiceResult(
-        acceptance_required=pulumi.get(__response__, 'acceptance_required'),
-        gateway_load_balancer_arns=pulumi.get(__response__, 'gateway_load_balancer_arns'),
-        network_load_balancer_arns=pulumi.get(__response__, 'network_load_balancer_arns'),
-        payer_responsibility=pulumi.get(__response__, 'payer_responsibility'),
-        service_id=pulumi.get(__response__, 'service_id')))
+    ...

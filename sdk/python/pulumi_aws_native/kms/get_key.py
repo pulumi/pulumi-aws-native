@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -275,6 +270,9 @@ def get_key(key_id: Optional[str] = None,
         multi_region=pulumi.get(__ret__, 'multi_region'),
         origin=pulumi.get(__ret__, 'origin'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_key)
 def get_key_output(key_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
@@ -294,19 +292,4 @@ def get_key_output(key_id: Optional[pulumi.Input[str]] = None,
            
            For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
     """
-    __args__ = dict()
-    __args__['keyId'] = key_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:kms:getKey', __args__, opts=opts, typ=GetKeyResult)
-    return __ret__.apply(lambda __response__: GetKeyResult(
-        arn=pulumi.get(__response__, 'arn'),
-        description=pulumi.get(__response__, 'description'),
-        enable_key_rotation=pulumi.get(__response__, 'enable_key_rotation'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        key_id=pulumi.get(__response__, 'key_id'),
-        key_policy=pulumi.get(__response__, 'key_policy'),
-        key_spec=pulumi.get(__response__, 'key_spec'),
-        key_usage=pulumi.get(__response__, 'key_usage'),
-        multi_region=pulumi.get(__response__, 'multi_region'),
-        origin=pulumi.get(__response__, 'origin'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

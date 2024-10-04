@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Bedrock::Guardrail Resource Type
  */
 export function getGuardrail(args: GetGuardrailArgs, opts?: pulumi.InvokeOptions): Promise<GetGuardrailResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:bedrock:getGuardrail", {
         "guardrailArn": args.guardrailArn,
@@ -103,10 +104,7 @@ export interface GetGuardrailResult {
  * Definition of AWS::Bedrock::Guardrail Resource Type
  */
 export function getGuardrailOutput(args: GetGuardrailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuardrailResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:bedrock:getGuardrail", {
-        "guardrailArn": args.guardrailArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getGuardrail(a, opts))
 }
 
 export interface GetGuardrailOutputArgs {

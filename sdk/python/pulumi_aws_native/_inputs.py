@@ -4,55 +4,21 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from ._enums import *
 
 __all__ = [
     'AutoNamingArgs',
-    'AutoNamingArgsDict',
     'CreateOnlyTagArgs',
-    'CreateOnlyTagArgsDict',
     'ProviderAssumeRoleArgs',
-    'ProviderAssumeRoleArgsDict',
     'ProviderDefaultTagsArgs',
-    'ProviderDefaultTagsArgsDict',
     'ProviderEndpointArgs',
-    'ProviderEndpointArgsDict',
     'ProviderIgnoreTagsArgs',
-    'ProviderIgnoreTagsArgsDict',
     'TagArgs',
-    'TagArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AutoNamingArgsDict(TypedDict):
-        """
-        Auto-naming specification for the resource.
-        """
-        max_length: NotRequired[pulumi.Input[int]]
-        """
-        The maximum length of the name.
-        """
-        min_length: NotRequired[pulumi.Input[int]]
-        """
-        The minimum length of the name.
-        """
-        property_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the property in the Cloud Control payload that is used to set the name of the resource.
-        """
-elif False:
-    AutoNamingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoNamingArgs:
@@ -110,22 +76,6 @@ class AutoNamingArgs:
         pulumi.set(self, "property_name", value)
 
 
-if not MYPY:
-    class CreateOnlyTagArgsDict(TypedDict):
-        """
-        A set of tags to apply to the resource.
-        """
-        key: pulumi.Input[str]
-        """
-        The key name of the tag
-        """
-        value: pulumi.Input[str]
-        """
-        The value of the tag
-        """
-elif False:
-    CreateOnlyTagArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CreateOnlyTagArgs:
     def __init__(__self__, *,
@@ -163,46 +113,6 @@ class CreateOnlyTagArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class ProviderAssumeRoleArgsDict(TypedDict):
-        """
-        The configuration for a Provider to assume a role.
-        """
-        duration_seconds: NotRequired[pulumi.Input[int]]
-        """
-        Number of seconds to restrict the assume role session duration.
-        """
-        external_id: NotRequired[pulumi.Input[str]]
-        """
-        External identifier to use when assuming the role.
-        """
-        policy: NotRequired[pulumi.Input[str]]
-        """
-        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-        """
-        policy_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the role.
-        """
-        role_arn: NotRequired[pulumi.Input[str]]
-        """
-        Amazon Resource Name (ARN) of the IAM Role to assume.
-        """
-        session_name: NotRequired[pulumi.Input[str]]
-        """
-        Session name to use when assuming the role.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        Map of assume role session tags.
-        """
-        transitive_tag_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
-        """
-elif False:
-    ProviderAssumeRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderAssumeRoleArgs:
@@ -340,18 +250,6 @@ class ProviderAssumeRoleArgs:
         pulumi.set(self, "transitive_tag_keys", value)
 
 
-if not MYPY:
-    class ProviderDefaultTagsArgsDict(TypedDict):
-        """
-        The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        A group of tags to set across all resources.
-        """
-elif False:
-    ProviderDefaultTagsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ProviderDefaultTagsArgs:
     def __init__(__self__, *,
@@ -375,34 +273,6 @@ class ProviderDefaultTagsArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-
-if not MYPY:
-    class ProviderEndpointArgsDict(TypedDict):
-        """
-        The configuration for for customizing service endpoints.
-        """
-        cloudcontrol: NotRequired[pulumi.Input[str]]
-        """
-        Override the default endpoint for AWS CloudControl
-        """
-        cloudformation: NotRequired[pulumi.Input[str]]
-        """
-        Override the default endpoint for AWS CloudFormation
-        """
-        ec2: NotRequired[pulumi.Input[str]]
-        """
-        Override the default endpoint for AWS Elastic Compute Cloud (EC2)
-        """
-        ssm: NotRequired[pulumi.Input[str]]
-        """
-        Override the default endpoint for AWS Systems Manager
-        """
-        sts: NotRequired[pulumi.Input[str]]
-        """
-        Override the default endpoint for AWS Security Token Service (STS)
-        """
-elif False:
-    ProviderEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderEndpointArgs:
@@ -492,22 +362,6 @@ class ProviderEndpointArgs:
         pulumi.set(self, "sts", value)
 
 
-if not MYPY:
-    class ProviderIgnoreTagsArgsDict(TypedDict):
-        """
-        The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
-        """
-        key_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
-        """
-        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        List of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning any tag key matching the prefixes in any `tags` attributes and displaying any configuration difference for those tag values. If any resource configuration still has a tag matching one of the prefixes configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
-        """
-elif False:
-    ProviderIgnoreTagsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ProviderIgnoreTagsArgs:
     def __init__(__self__, *,
@@ -547,22 +401,6 @@ class ProviderIgnoreTagsArgs:
     def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "keys", value)
 
-
-if not MYPY:
-    class TagArgsDict(TypedDict):
-        """
-        A set of tags to apply to the resource.
-        """
-        key: pulumi.Input[str]
-        """
-        The key name of the tag
-        """
-        value: pulumi.Input[str]
-        """
-        The value of the tag
-        """
-elif False:
-    TagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagArgs:

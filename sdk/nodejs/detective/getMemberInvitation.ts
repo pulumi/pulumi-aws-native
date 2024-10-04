@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Detective::MemberInvitation
  */
 export function getMemberInvitation(args: GetMemberInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetMemberInvitationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:detective:getMemberInvitation", {
         "graphArn": args.graphArn,
@@ -36,11 +37,7 @@ export interface GetMemberInvitationResult {
  * Resource schema for AWS::Detective::MemberInvitation
  */
 export function getMemberInvitationOutput(args: GetMemberInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMemberInvitationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:detective:getMemberInvitation", {
-        "graphArn": args.graphArn,
-        "memberId": args.memberId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMemberInvitation(a, opts))
 }
 
 export interface GetMemberInvitationOutputArgs {

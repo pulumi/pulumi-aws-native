@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getConfigurationProfile", {
         "applicationId": args.applicationId,
@@ -67,11 +68,7 @@ export interface GetConfigurationProfileResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:appconfig:getConfigurationProfile", {
-        "applicationId": args.applicationId,
-        "configurationProfileId": args.configurationProfileId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationProfile(a, opts))
 }
 
 export interface GetConfigurationProfileOutputArgs {

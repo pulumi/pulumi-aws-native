@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -216,6 +211,9 @@ def get_rule_group(id: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'),
         visibility_config=pulumi.get(__ret__, 'visibility_config'))
+
+
+@_utilities.lift_output_func(get_rule_group)
 def get_rule_group_output(id: Optional[pulumi.Input[str]] = None,
                           name: Optional[pulumi.Input[str]] = None,
                           scope: Optional[pulumi.Input['RuleGroupScope']] = None,
@@ -230,21 +228,4 @@ def get_rule_group_output(id: Optional[pulumi.Input[str]] = None,
            
            > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
     """
-    __args__ = dict()
-    __args__['id'] = id
-    __args__['name'] = name
-    __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:wafv2:getRuleGroup', __args__, opts=opts, typ=GetRuleGroupResult)
-    return __ret__.apply(lambda __response__: GetRuleGroupResult(
-        arn=pulumi.get(__response__, 'arn'),
-        available_labels=pulumi.get(__response__, 'available_labels'),
-        capacity=pulumi.get(__response__, 'capacity'),
-        consumed_labels=pulumi.get(__response__, 'consumed_labels'),
-        custom_response_bodies=pulumi.get(__response__, 'custom_response_bodies'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        label_namespace=pulumi.get(__response__, 'label_namespace'),
-        rules=pulumi.get(__response__, 'rules'),
-        tags=pulumi.get(__response__, 'tags'),
-        visibility_config=pulumi.get(__response__, 'visibility_config')))
+    ...

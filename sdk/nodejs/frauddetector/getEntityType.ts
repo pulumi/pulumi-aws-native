@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * An entity type for fraud detector.
  */
 export function getEntityType(args: GetEntityTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityTypeResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:frauddetector:getEntityType", {
         "arn": args.arn,
@@ -50,10 +51,7 @@ export interface GetEntityTypeResult {
  * An entity type for fraud detector.
  */
 export function getEntityTypeOutput(args: GetEntityTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityTypeResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:frauddetector:getEntityType", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEntityType(a, opts))
 }
 
 export interface GetEntityTypeOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -75,6 +70,9 @@ def get_group_policy(group_name: Optional[str] = None,
 
     return AwaitableGetGroupPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
+
+
+@_utilities.lift_output_func(get_group_policy)
 def get_group_policy_output(group_name: Optional[pulumi.Input[str]] = None,
                             policy_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupPolicyResult]:
@@ -89,10 +87,4 @@ def get_group_policy_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str policy_name: The name of the policy document.
             This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
     """
-    __args__ = dict()
-    __args__['groupName'] = group_name
-    __args__['policyName'] = policy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getGroupPolicy', __args__, opts=opts, typ=GetGroupPolicyResult)
-    return __ret__.apply(lambda __response__: GetGroupPolicyResult(
-        policy_document=pulumi.get(__response__, 'policy_document')))
+    ...

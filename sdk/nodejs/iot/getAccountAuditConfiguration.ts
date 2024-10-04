@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
  */
 export function getAccountAuditConfiguration(args: GetAccountAuditConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountAuditConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getAccountAuditConfiguration", {
         "accountId": args.accountId,
@@ -50,10 +51,7 @@ export interface GetAccountAuditConfigurationResult {
  * Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
  */
 export function getAccountAuditConfigurationOutput(args: GetAccountAuditConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountAuditConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getAccountAuditConfiguration", {
-        "accountId": args.accountId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccountAuditConfiguration(a, opts))
 }
 
 export interface GetAccountAuditConfigurationOutputArgs {

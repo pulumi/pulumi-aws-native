@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -288,6 +283,9 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
         serverless_scaling_configuration=pulumi.get(__ret__, 'serverless_scaling_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
+
+
+@_utilities.lift_output_func(get_db_cluster)
 def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterResult]:
     """
@@ -296,26 +294,4 @@ def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = N
 
     :param str db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
     """
-    __args__ = dict()
-    __args__['dbClusterIdentifier'] = db_cluster_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:neptune:getDbCluster', __args__, opts=opts, typ=GetDbClusterResult)
-    return __ret__.apply(lambda __response__: GetDbClusterResult(
-        associated_roles=pulumi.get(__response__, 'associated_roles'),
-        backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
-        cluster_resource_id=pulumi.get(__response__, 'cluster_resource_id'),
-        copy_tags_to_snapshot=pulumi.get(__response__, 'copy_tags_to_snapshot'),
-        db_cluster_parameter_group_name=pulumi.get(__response__, 'db_cluster_parameter_group_name'),
-        db_port=pulumi.get(__response__, 'db_port'),
-        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
-        enable_cloudwatch_logs_exports=pulumi.get(__response__, 'enable_cloudwatch_logs_exports'),
-        endpoint=pulumi.get(__response__, 'endpoint'),
-        engine_version=pulumi.get(__response__, 'engine_version'),
-        iam_auth_enabled=pulumi.get(__response__, 'iam_auth_enabled'),
-        port=pulumi.get(__response__, 'port'),
-        preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
-        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
-        read_endpoint=pulumi.get(__response__, 'read_endpoint'),
-        serverless_scaling_configuration=pulumi.get(__response__, 'serverless_scaling_configuration'),
-        tags=pulumi.get(__response__, 'tags'),
-        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))
+    ...

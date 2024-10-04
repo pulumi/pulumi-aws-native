@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -127,6 +122,9 @@ def get_collection(id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         standby_replicas=pulumi.get(__ret__, 'standby_replicas'))
+
+
+@_utilities.lift_output_func(get_collection)
 def get_collection_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollectionResult]:
     """
@@ -135,14 +133,4 @@ def get_collection_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The identifier of the collection
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getCollection', __args__, opts=opts, typ=GetCollectionResult)
-    return __ret__.apply(lambda __response__: GetCollectionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        collection_endpoint=pulumi.get(__response__, 'collection_endpoint'),
-        dashboard_endpoint=pulumi.get(__response__, 'dashboard_endpoint'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        standby_replicas=pulumi.get(__response__, 'standby_replicas')))
+    ...

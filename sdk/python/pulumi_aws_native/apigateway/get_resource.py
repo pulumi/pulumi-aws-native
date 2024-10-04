@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -64,6 +59,9 @@ def get_resource(resource_id: Optional[str] = None,
 
     return AwaitableGetResourceResult(
         resource_id=pulumi.get(__ret__, 'resource_id'))
+
+
+@_utilities.lift_output_func(get_resource)
 def get_resource_output(resource_id: Optional[pulumi.Input[str]] = None,
                         rest_api_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
@@ -74,10 +72,4 @@ def get_resource_output(resource_id: Optional[pulumi.Input[str]] = None,
     :param str resource_id: The ID for the resource. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
-    __args__ = dict()
-    __args__['resourceId'] = resource_id
-    __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getResource', __args__, opts=opts, typ=GetResourceResult)
-    return __ret__.apply(lambda __response__: GetResourceResult(
-        resource_id=pulumi.get(__response__, 'resource_id')))
+    ...

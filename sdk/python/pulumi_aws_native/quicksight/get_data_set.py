@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -292,6 +287,9 @@ def get_data_set(aws_account_id: Optional[str] = None,
         row_level_permission_data_set=pulumi.get(__ret__, 'row_level_permission_data_set'),
         row_level_permission_tag_configuration=pulumi.get(__ret__, 'row_level_permission_tag_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_data_set)
 def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                         data_set_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
@@ -302,27 +300,4 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     :param str aws_account_id: The AWS account ID.
     :param str data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
     """
-    __args__ = dict()
-    __args__['awsAccountId'] = aws_account_id
-    __args__['dataSetId'] = data_set_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getDataSet', __args__, opts=opts, typ=GetDataSetResult)
-    return __ret__.apply(lambda __response__: GetDataSetResult(
-        arn=pulumi.get(__response__, 'arn'),
-        column_groups=pulumi.get(__response__, 'column_groups'),
-        column_level_permission_rules=pulumi.get(__response__, 'column_level_permission_rules'),
-        consumed_spice_capacity_in_bytes=pulumi.get(__response__, 'consumed_spice_capacity_in_bytes'),
-        created_time=pulumi.get(__response__, 'created_time'),
-        data_set_refresh_properties=pulumi.get(__response__, 'data_set_refresh_properties'),
-        data_set_usage_configuration=pulumi.get(__response__, 'data_set_usage_configuration'),
-        dataset_parameters=pulumi.get(__response__, 'dataset_parameters'),
-        import_mode=pulumi.get(__response__, 'import_mode'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        logical_table_map=pulumi.get(__response__, 'logical_table_map'),
-        name=pulumi.get(__response__, 'name'),
-        output_columns=pulumi.get(__response__, 'output_columns'),
-        permissions=pulumi.get(__response__, 'permissions'),
-        physical_table_map=pulumi.get(__response__, 'physical_table_map'),
-        row_level_permission_data_set=pulumi.get(__response__, 'row_level_permission_data_set'),
-        row_level_permission_tag_configuration=pulumi.get(__response__, 'row_level_permission_tag_configuration'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
  */
 export function getTlsInspectionConfiguration(args: GetTlsInspectionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTlsInspectionConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkfirewall:getTlsInspectionConfiguration", {
         "tlsInspectionConfigurationArn": args.tlsInspectionConfigurationArn,
@@ -50,10 +51,7 @@ export interface GetTlsInspectionConfigurationResult {
  * Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
  */
 export function getTlsInspectionConfigurationOutput(args: GetTlsInspectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTlsInspectionConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:networkfirewall:getTlsInspectionConfiguration", {
-        "tlsInspectionConfigurationArn": args.tlsInspectionConfigurationArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTlsInspectionConfiguration(a, opts))
 }
 
 export interface GetTlsInspectionConfigurationOutputArgs {

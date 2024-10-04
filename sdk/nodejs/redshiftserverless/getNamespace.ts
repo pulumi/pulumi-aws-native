@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::RedshiftServerless::Namespace Resource Type
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshiftserverless:getNamespace", {
         "namespaceName": args.namespaceName,
@@ -72,10 +73,7 @@ export interface GetNamespaceResult {
  * Definition of AWS::RedshiftServerless::Namespace Resource Type
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:redshiftserverless:getNamespace", {
-        "namespaceName": args.namespaceName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }
 
 export interface GetNamespaceOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
  */
 export function getIdentityPoolRoleAttachment(args: GetIdentityPoolRoleAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolRoleAttachmentResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getIdentityPoolRoleAttachment", {
         "id": args.id,
@@ -46,10 +47,7 @@ export interface GetIdentityPoolRoleAttachmentResult {
  * Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
  */
 export function getIdentityPoolRoleAttachmentOutput(args: GetIdentityPoolRoleAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolRoleAttachmentResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cognito:getIdentityPoolRoleAttachment", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIdentityPoolRoleAttachment(a, opts))
 }
 
 export interface GetIdentityPoolRoleAttachmentOutputArgs {

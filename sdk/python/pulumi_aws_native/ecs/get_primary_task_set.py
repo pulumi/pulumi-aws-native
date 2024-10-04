@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -64,6 +59,9 @@ def get_primary_task_set(cluster: Optional[str] = None,
 
     return AwaitableGetPrimaryTaskSetResult(
         task_set_id=pulumi.get(__ret__, 'task_set_id'))
+
+
+@_utilities.lift_output_func(get_primary_task_set)
 def get_primary_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
                                 service: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrimaryTaskSetResult]:
@@ -74,10 +72,4 @@ def get_primary_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
     :param str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
     :param str service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
     """
-    __args__ = dict()
-    __args__['cluster'] = cluster
-    __args__['service'] = service
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getPrimaryTaskSet', __args__, opts=opts, typ=GetPrimaryTaskSetResult)
-    return __ret__.apply(lambda __response__: GetPrimaryTaskSetResult(
-        task_set_id=pulumi.get(__response__, 'task_set_id')))
+    ...

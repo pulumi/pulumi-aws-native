@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -183,6 +178,9 @@ def get_image_version(image_version_arn: Optional[str] = None,
         release_notes=pulumi.get(__ret__, 'release_notes'),
         vendor_guidance=pulumi.get(__ret__, 'vendor_guidance'),
         version=pulumi.get(__ret__, 'version'))
+
+
+@_utilities.lift_output_func(get_image_version)
 def get_image_version_output(image_version_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageVersionResult]:
     """
@@ -197,19 +195,4 @@ def get_image_version_output(image_version_arn: Optional[pulumi.Input[str]] = No
            
            *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$`
     """
-    __args__ = dict()
-    __args__['imageVersionArn'] = image_version_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getImageVersion', __args__, opts=opts, typ=GetImageVersionResult)
-    return __ret__.apply(lambda __response__: GetImageVersionResult(
-        container_image=pulumi.get(__response__, 'container_image'),
-        horovod=pulumi.get(__response__, 'horovod'),
-        image_arn=pulumi.get(__response__, 'image_arn'),
-        image_version_arn=pulumi.get(__response__, 'image_version_arn'),
-        job_type=pulumi.get(__response__, 'job_type'),
-        ml_framework=pulumi.get(__response__, 'ml_framework'),
-        processor=pulumi.get(__response__, 'processor'),
-        programming_lang=pulumi.get(__response__, 'programming_lang'),
-        release_notes=pulumi.get(__response__, 'release_notes'),
-        vendor_guidance=pulumi.get(__response__, 'vendor_guidance'),
-        version=pulumi.get(__response__, 'version')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -107,6 +102,9 @@ def get_ip_set(detector_id: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_ip_set)
 def get_ip_set_output(detector_id: Optional[pulumi.Input[str]] = None,
                       id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpSetResult]:
@@ -119,13 +117,4 @@ def get_ip_set_output(detector_id: Optional[pulumi.Input[str]] = None,
            To find the `detectorId` in the current Region, see the
            Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
     """
-    __args__ = dict()
-    __args__['detectorId'] = detector_id
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:guardduty:getIpSet', __args__, opts=opts, typ=GetIpSetResult)
-    return __ret__.apply(lambda __response__: GetIpSetResult(
-        id=pulumi.get(__response__, 'id'),
-        location=pulumi.get(__response__, 'location'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

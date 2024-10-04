@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -74,6 +69,9 @@ def get_account_alias(account_alias_resource_id: Optional[str] = None,
     return AwaitableGetAccountAliasResult(
         account_alias=pulumi.get(__ret__, 'account_alias'),
         account_alias_resource_id=pulumi.get(__ret__, 'account_alias_resource_id'))
+
+
+@_utilities.lift_output_func(get_account_alias)
 def get_account_alias_output(account_alias_resource_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountAliasResult]:
     """
@@ -82,10 +80,4 @@ def get_account_alias_output(account_alias_resource_id: Optional[pulumi.Input[st
 
     :param str account_alias_resource_id: Unique identifier representing an alias tied to an account
     """
-    __args__ = dict()
-    __args__['accountAliasResourceId'] = account_alias_resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:supportapp:getAccountAlias', __args__, opts=opts, typ=GetAccountAliasResult)
-    return __ret__.apply(lambda __response__: GetAccountAliasResult(
-        account_alias=pulumi.get(__response__, 'account_alias'),
-        account_alias_resource_id=pulumi.get(__response__, 'account_alias_resource_id')))
+    ...

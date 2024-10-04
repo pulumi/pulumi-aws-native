@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -102,6 +97,9 @@ def get_application(application_arn: Optional[str] = None,
         application_id=pulumi.get(__ret__, 'application_id'),
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_application)
 def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -110,12 +108,4 @@ def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
 
     :param str application_arn: The Amazon Resource Name (ARN) of the application.
     """
-    __args__ = dict()
-    __args__['applicationArn'] = application_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:m2:getApplication', __args__, opts=opts, typ=GetApplicationResult)
-    return __ret__.apply(lambda __response__: GetApplicationResult(
-        application_arn=pulumi.get(__response__, 'application_arn'),
-        application_id=pulumi.get(__response__, 'application_id'),
-        description=pulumi.get(__response__, 'description'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

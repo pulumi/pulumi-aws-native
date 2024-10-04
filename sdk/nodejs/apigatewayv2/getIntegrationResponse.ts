@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
  */
 export function getIntegrationResponse(args: GetIntegrationResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResponseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getIntegrationResponse", {
         "apiId": args.apiId,
@@ -68,12 +69,7 @@ export interface GetIntegrationResponseResult {
  * The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
  */
 export function getIntegrationResponseOutput(args: GetIntegrationResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResponseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:apigatewayv2:getIntegrationResponse", {
-        "apiId": args.apiId,
-        "integrationId": args.integrationId,
-        "integrationResponseId": args.integrationResponseId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getIntegrationResponse(a, opts))
 }
 
 export interface GetIntegrationResponseOutputArgs {

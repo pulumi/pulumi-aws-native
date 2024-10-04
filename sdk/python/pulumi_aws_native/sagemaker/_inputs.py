@@ -4,547 +4,271 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AppImageConfigCodeEditorAppImageConfigArgs',
-    'AppImageConfigCodeEditorAppImageConfigArgsDict',
     'AppImageConfigContainerConfigArgs',
-    'AppImageConfigContainerConfigArgsDict',
     'AppImageConfigCustomImageContainerEnvironmentVariableArgs',
-    'AppImageConfigCustomImageContainerEnvironmentVariableArgsDict',
     'AppImageConfigFileSystemConfigArgs',
-    'AppImageConfigFileSystemConfigArgsDict',
     'AppImageConfigJupyterLabAppImageConfigArgs',
-    'AppImageConfigJupyterLabAppImageConfigArgsDict',
     'AppImageConfigKernelGatewayImageConfigArgs',
-    'AppImageConfigKernelGatewayImageConfigArgsDict',
     'AppImageConfigKernelSpecArgs',
-    'AppImageConfigKernelSpecArgsDict',
     'AppResourceSpecArgs',
-    'AppResourceSpecArgsDict',
     'ClusterInstanceGroupArgs',
-    'ClusterInstanceGroupArgsDict',
     'ClusterInstanceStorageConfigArgs',
-    'ClusterInstanceStorageConfigArgsDict',
     'ClusterLifeCycleConfigArgs',
-    'ClusterLifeCycleConfigArgsDict',
     'ClusterOrchestratorEksConfigArgs',
-    'ClusterOrchestratorEksConfigArgsDict',
     'ClusterOrchestratorArgs',
-    'ClusterOrchestratorArgsDict',
     'ClusterVpcConfigArgs',
-    'ClusterVpcConfigArgsDict',
     'DataQualityJobDefinitionBatchTransformInputArgs',
-    'DataQualityJobDefinitionBatchTransformInputArgsDict',
     'DataQualityJobDefinitionClusterConfigArgs',
-    'DataQualityJobDefinitionClusterConfigArgsDict',
     'DataQualityJobDefinitionConstraintsResourceArgs',
-    'DataQualityJobDefinitionConstraintsResourceArgsDict',
     'DataQualityJobDefinitionCsvArgs',
-    'DataQualityJobDefinitionCsvArgsDict',
     'DataQualityJobDefinitionDataQualityAppSpecificationArgs',
-    'DataQualityJobDefinitionDataQualityAppSpecificationArgsDict',
     'DataQualityJobDefinitionDataQualityBaselineConfigArgs',
-    'DataQualityJobDefinitionDataQualityBaselineConfigArgsDict',
     'DataQualityJobDefinitionDataQualityJobInputArgs',
-    'DataQualityJobDefinitionDataQualityJobInputArgsDict',
     'DataQualityJobDefinitionDatasetFormatArgs',
-    'DataQualityJobDefinitionDatasetFormatArgsDict',
     'DataQualityJobDefinitionEndpointInputArgs',
-    'DataQualityJobDefinitionEndpointInputArgsDict',
     'DataQualityJobDefinitionJsonArgs',
-    'DataQualityJobDefinitionJsonArgsDict',
     'DataQualityJobDefinitionMonitoringOutputConfigArgs',
-    'DataQualityJobDefinitionMonitoringOutputConfigArgsDict',
     'DataQualityJobDefinitionMonitoringOutputArgs',
-    'DataQualityJobDefinitionMonitoringOutputArgsDict',
     'DataQualityJobDefinitionMonitoringResourcesArgs',
-    'DataQualityJobDefinitionMonitoringResourcesArgsDict',
     'DataQualityJobDefinitionNetworkConfigArgs',
-    'DataQualityJobDefinitionNetworkConfigArgsDict',
     'DataQualityJobDefinitionS3OutputArgs',
-    'DataQualityJobDefinitionS3OutputArgsDict',
     'DataQualityJobDefinitionStatisticsResourceArgs',
-    'DataQualityJobDefinitionStatisticsResourceArgsDict',
     'DataQualityJobDefinitionStoppingConditionArgs',
-    'DataQualityJobDefinitionStoppingConditionArgsDict',
     'DataQualityJobDefinitionVpcConfigArgs',
-    'DataQualityJobDefinitionVpcConfigArgsDict',
     'DeviceFleetEdgeOutputConfigArgs',
-    'DeviceFleetEdgeOutputConfigArgsDict',
     'DeviceArgs',
-    'DeviceArgsDict',
     'DomainAppLifecycleManagementArgs',
-    'DomainAppLifecycleManagementArgsDict',
     'DomainCodeEditorAppSettingsArgs',
-    'DomainCodeEditorAppSettingsArgsDict',
     'DomainCodeRepositoryArgs',
-    'DomainCodeRepositoryArgsDict',
     'DomainCustomFileSystemConfigArgs',
-    'DomainCustomFileSystemConfigArgsDict',
     'DomainCustomImageArgs',
-    'DomainCustomImageArgsDict',
     'DomainCustomPosixUserConfigArgs',
-    'DomainCustomPosixUserConfigArgsDict',
     'DomainDefaultEbsStorageSettingsArgs',
-    'DomainDefaultEbsStorageSettingsArgsDict',
     'DomainDefaultSpaceSettingsArgs',
-    'DomainDefaultSpaceSettingsArgsDict',
     'DomainDefaultSpaceStorageSettingsArgs',
-    'DomainDefaultSpaceStorageSettingsArgsDict',
     'DomainDockerSettingsArgs',
-    'DomainDockerSettingsArgsDict',
     'DomainEfsFileSystemConfigArgs',
-    'DomainEfsFileSystemConfigArgsDict',
     'DomainIdleSettingsArgs',
-    'DomainIdleSettingsArgsDict',
     'DomainJupyterLabAppSettingsArgs',
-    'DomainJupyterLabAppSettingsArgsDict',
     'DomainJupyterServerAppSettingsArgs',
-    'DomainJupyterServerAppSettingsArgsDict',
     'DomainKernelGatewayAppSettingsArgs',
-    'DomainKernelGatewayAppSettingsArgsDict',
     'DomainRSessionAppSettingsArgs',
-    'DomainRSessionAppSettingsArgsDict',
     'DomainRStudioServerProAppSettingsArgs',
-    'DomainRStudioServerProAppSettingsArgsDict',
     'DomainRStudioServerProDomainSettingsArgs',
-    'DomainRStudioServerProDomainSettingsArgsDict',
     'DomainResourceSpecArgs',
-    'DomainResourceSpecArgsDict',
     'DomainSettingsArgs',
-    'DomainSettingsArgsDict',
     'DomainSharingSettingsArgs',
-    'DomainSharingSettingsArgsDict',
     'DomainStudioWebPortalSettingsArgs',
-    'DomainStudioWebPortalSettingsArgsDict',
     'DomainUserSettingsArgs',
-    'DomainUserSettingsArgsDict',
     'FeatureGroupDataCatalogConfigArgs',
-    'FeatureGroupDataCatalogConfigArgsDict',
     'FeatureGroupFeatureDefinitionArgs',
-    'FeatureGroupFeatureDefinitionArgsDict',
     'FeatureGroupOnlineStoreSecurityConfigArgs',
-    'FeatureGroupOnlineStoreSecurityConfigArgsDict',
     'FeatureGroupS3StorageConfigArgs',
-    'FeatureGroupS3StorageConfigArgsDict',
     'FeatureGroupThroughputConfigArgs',
-    'FeatureGroupThroughputConfigArgsDict',
     'FeatureGroupTtlDurationArgs',
-    'FeatureGroupTtlDurationArgsDict',
     'InferenceComponentComputeResourceRequirementsArgs',
-    'InferenceComponentComputeResourceRequirementsArgsDict',
     'InferenceComponentContainerSpecificationArgs',
-    'InferenceComponentContainerSpecificationArgsDict',
     'InferenceComponentDeployedImageArgs',
-    'InferenceComponentDeployedImageArgsDict',
     'InferenceComponentRuntimeConfigArgs',
-    'InferenceComponentRuntimeConfigArgsDict',
     'InferenceComponentSpecificationArgs',
-    'InferenceComponentSpecificationArgsDict',
     'InferenceComponentStartupParametersArgs',
-    'InferenceComponentStartupParametersArgsDict',
     'InferenceExperimentCaptureContentTypeHeaderArgs',
-    'InferenceExperimentCaptureContentTypeHeaderArgsDict',
     'InferenceExperimentDataStorageConfigArgs',
-    'InferenceExperimentDataStorageConfigArgsDict',
     'InferenceExperimentModelInfrastructureConfigArgs',
-    'InferenceExperimentModelInfrastructureConfigArgsDict',
     'InferenceExperimentModelVariantConfigArgs',
-    'InferenceExperimentModelVariantConfigArgsDict',
     'InferenceExperimentRealTimeInferenceConfigArgs',
-    'InferenceExperimentRealTimeInferenceConfigArgsDict',
     'InferenceExperimentScheduleArgs',
-    'InferenceExperimentScheduleArgsDict',
     'InferenceExperimentShadowModeConfigArgs',
-    'InferenceExperimentShadowModeConfigArgsDict',
     'InferenceExperimentShadowModelVariantConfigArgs',
-    'InferenceExperimentShadowModelVariantConfigArgsDict',
     'ModelBiasJobDefinitionBatchTransformInputArgs',
-    'ModelBiasJobDefinitionBatchTransformInputArgsDict',
     'ModelBiasJobDefinitionClusterConfigArgs',
-    'ModelBiasJobDefinitionClusterConfigArgsDict',
     'ModelBiasJobDefinitionConstraintsResourceArgs',
-    'ModelBiasJobDefinitionConstraintsResourceArgsDict',
     'ModelBiasJobDefinitionCsvArgs',
-    'ModelBiasJobDefinitionCsvArgsDict',
     'ModelBiasJobDefinitionDatasetFormatArgs',
-    'ModelBiasJobDefinitionDatasetFormatArgsDict',
     'ModelBiasJobDefinitionEndpointInputArgs',
-    'ModelBiasJobDefinitionEndpointInputArgsDict',
     'ModelBiasJobDefinitionJsonArgs',
-    'ModelBiasJobDefinitionJsonArgsDict',
     'ModelBiasJobDefinitionModelBiasAppSpecificationArgs',
-    'ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict',
     'ModelBiasJobDefinitionModelBiasBaselineConfigArgs',
-    'ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict',
     'ModelBiasJobDefinitionModelBiasJobInputArgs',
-    'ModelBiasJobDefinitionModelBiasJobInputArgsDict',
     'ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs',
-    'ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgsDict',
     'ModelBiasJobDefinitionMonitoringOutputConfigArgs',
-    'ModelBiasJobDefinitionMonitoringOutputConfigArgsDict',
     'ModelBiasJobDefinitionMonitoringOutputArgs',
-    'ModelBiasJobDefinitionMonitoringOutputArgsDict',
     'ModelBiasJobDefinitionMonitoringResourcesArgs',
-    'ModelBiasJobDefinitionMonitoringResourcesArgsDict',
     'ModelBiasJobDefinitionNetworkConfigArgs',
-    'ModelBiasJobDefinitionNetworkConfigArgsDict',
     'ModelBiasJobDefinitionS3OutputArgs',
-    'ModelBiasJobDefinitionS3OutputArgsDict',
     'ModelBiasJobDefinitionStoppingConditionArgs',
-    'ModelBiasJobDefinitionStoppingConditionArgsDict',
     'ModelBiasJobDefinitionVpcConfigArgs',
-    'ModelBiasJobDefinitionVpcConfigArgsDict',
     'ModelCardAdditionalInformationArgs',
-    'ModelCardAdditionalInformationArgsDict',
     'ModelCardBarChartMetricArgs',
-    'ModelCardBarChartMetricArgsDict',
     'ModelCardBusinessDetailsArgs',
-    'ModelCardBusinessDetailsArgsDict',
     'ModelCardContainerArgs',
-    'ModelCardContainerArgsDict',
     'ModelCardContentArgs',
-    'ModelCardContentArgsDict',
     'ModelCardEvaluationDetailArgs',
-    'ModelCardEvaluationDetailArgsDict',
     'ModelCardInferenceSpecificationArgs',
-    'ModelCardInferenceSpecificationArgsDict',
     'ModelCardIntendedUsesArgs',
-    'ModelCardIntendedUsesArgsDict',
     'ModelCardLinearGraphMetricArgs',
-    'ModelCardLinearGraphMetricArgsDict',
     'ModelCardMatrixMetricArgs',
-    'ModelCardMatrixMetricArgsDict',
     'ModelCardMetricGroupArgs',
-    'ModelCardMetricGroupArgsDict',
     'ModelCardModelOverviewInferenceEnvironmentPropertiesArgs',
-    'ModelCardModelOverviewInferenceEnvironmentPropertiesArgsDict',
     'ModelCardModelOverviewArgs',
-    'ModelCardModelOverviewArgsDict',
     'ModelCardModelPackageCreatorArgs',
-    'ModelCardModelPackageCreatorArgsDict',
     'ModelCardModelPackageDetailsArgs',
-    'ModelCardModelPackageDetailsArgsDict',
     'ModelCardObjectiveFunctionFunctionPropertiesArgs',
-    'ModelCardObjectiveFunctionFunctionPropertiesArgsDict',
     'ModelCardObjectiveFunctionArgs',
-    'ModelCardObjectiveFunctionArgsDict',
     'ModelCardSecurityConfigArgs',
-    'ModelCardSecurityConfigArgsDict',
     'ModelCardSimpleMetricArgs',
-    'ModelCardSimpleMetricArgsDict',
     'ModelCardSourceAlgorithmArgs',
-    'ModelCardSourceAlgorithmArgsDict',
     'ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs',
-    'ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgsDict',
     'ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs',
-    'ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgsDict',
     'ModelCardTrainingDetailsArgs',
-    'ModelCardTrainingDetailsArgsDict',
     'ModelCardTrainingHyperParameterArgs',
-    'ModelCardTrainingHyperParameterArgsDict',
     'ModelCardTrainingMetricArgs',
-    'ModelCardTrainingMetricArgsDict',
     'ModelCardUserContextArgs',
-    'ModelCardUserContextArgsDict',
     'ModelExplainabilityJobDefinitionBatchTransformInputArgs',
-    'ModelExplainabilityJobDefinitionBatchTransformInputArgsDict',
     'ModelExplainabilityJobDefinitionClusterConfigArgs',
-    'ModelExplainabilityJobDefinitionClusterConfigArgsDict',
     'ModelExplainabilityJobDefinitionConstraintsResourceArgs',
-    'ModelExplainabilityJobDefinitionConstraintsResourceArgsDict',
     'ModelExplainabilityJobDefinitionCsvArgs',
-    'ModelExplainabilityJobDefinitionCsvArgsDict',
     'ModelExplainabilityJobDefinitionDatasetFormatArgs',
-    'ModelExplainabilityJobDefinitionDatasetFormatArgsDict',
     'ModelExplainabilityJobDefinitionEndpointInputArgs',
-    'ModelExplainabilityJobDefinitionEndpointInputArgsDict',
     'ModelExplainabilityJobDefinitionJsonArgs',
-    'ModelExplainabilityJobDefinitionJsonArgsDict',
     'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs',
-    'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgsDict',
     'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs',
-    'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgsDict',
     'ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs',
-    'ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgsDict',
     'ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs',
-    'ModelExplainabilityJobDefinitionMonitoringOutputConfigArgsDict',
     'ModelExplainabilityJobDefinitionMonitoringOutputArgs',
-    'ModelExplainabilityJobDefinitionMonitoringOutputArgsDict',
     'ModelExplainabilityJobDefinitionMonitoringResourcesArgs',
-    'ModelExplainabilityJobDefinitionMonitoringResourcesArgsDict',
     'ModelExplainabilityJobDefinitionNetworkConfigArgs',
-    'ModelExplainabilityJobDefinitionNetworkConfigArgsDict',
     'ModelExplainabilityJobDefinitionS3OutputArgs',
-    'ModelExplainabilityJobDefinitionS3OutputArgsDict',
     'ModelExplainabilityJobDefinitionStoppingConditionArgs',
-    'ModelExplainabilityJobDefinitionStoppingConditionArgsDict',
     'ModelExplainabilityJobDefinitionVpcConfigArgs',
-    'ModelExplainabilityJobDefinitionVpcConfigArgsDict',
     'ModelPackageAdditionalInferenceSpecificationDefinitionArgs',
-    'ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict',
     'ModelPackageBiasArgs',
-    'ModelPackageBiasArgsDict',
     'ModelPackageContainerDefinitionModelInputPropertiesArgs',
-    'ModelPackageContainerDefinitionModelInputPropertiesArgsDict',
     'ModelPackageContainerDefinitionArgs',
-    'ModelPackageContainerDefinitionArgsDict',
     'ModelPackageCustomerMetadataPropertiesArgs',
-    'ModelPackageCustomerMetadataPropertiesArgsDict',
     'ModelPackageDataSourceArgs',
-    'ModelPackageDataSourceArgsDict',
     'ModelPackageDriftCheckBaselinesArgs',
-    'ModelPackageDriftCheckBaselinesArgsDict',
     'ModelPackageDriftCheckBiasArgs',
-    'ModelPackageDriftCheckBiasArgsDict',
     'ModelPackageDriftCheckExplainabilityArgs',
-    'ModelPackageDriftCheckExplainabilityArgsDict',
     'ModelPackageDriftCheckModelDataQualityArgs',
-    'ModelPackageDriftCheckModelDataQualityArgsDict',
     'ModelPackageDriftCheckModelQualityArgs',
-    'ModelPackageDriftCheckModelQualityArgsDict',
     'ModelPackageEnvironmentArgs',
-    'ModelPackageEnvironmentArgsDict',
     'ModelPackageExplainabilityArgs',
-    'ModelPackageExplainabilityArgsDict',
     'ModelPackageFileSourceArgs',
-    'ModelPackageFileSourceArgsDict',
     'ModelPackageInferenceSpecificationArgs',
-    'ModelPackageInferenceSpecificationArgsDict',
     'ModelPackageMetadataPropertiesArgs',
-    'ModelPackageMetadataPropertiesArgsDict',
     'ModelPackageMetricsSourceArgs',
-    'ModelPackageMetricsSourceArgsDict',
     'ModelPackageModelAccessConfigArgs',
-    'ModelPackageModelAccessConfigArgsDict',
     'ModelPackageModelCardArgs',
-    'ModelPackageModelCardArgsDict',
     'ModelPackageModelDataQualityArgs',
-    'ModelPackageModelDataQualityArgsDict',
     'ModelPackageModelDataSourceArgs',
-    'ModelPackageModelDataSourceArgsDict',
     'ModelPackageModelMetricsArgs',
-    'ModelPackageModelMetricsArgsDict',
     'ModelPackageModelQualityArgs',
-    'ModelPackageModelQualityArgsDict',
     'ModelPackageS3DataSourceArgs',
-    'ModelPackageS3DataSourceArgsDict',
     'ModelPackageS3ModelDataSourceArgs',
-    'ModelPackageS3ModelDataSourceArgsDict',
     'ModelPackageSecurityConfigArgs',
-    'ModelPackageSecurityConfigArgsDict',
     'ModelPackageSourceAlgorithmSpecificationArgs',
-    'ModelPackageSourceAlgorithmSpecificationArgsDict',
     'ModelPackageSourceAlgorithmArgs',
-    'ModelPackageSourceAlgorithmArgsDict',
     'ModelPackageStatusDetailsArgs',
-    'ModelPackageStatusDetailsArgsDict',
     'ModelPackageStatusItemArgs',
-    'ModelPackageStatusItemArgsDict',
     'ModelPackageTransformInputArgs',
-    'ModelPackageTransformInputArgsDict',
     'ModelPackageTransformJobDefinitionArgs',
-    'ModelPackageTransformJobDefinitionArgsDict',
     'ModelPackageTransformOutputArgs',
-    'ModelPackageTransformOutputArgsDict',
     'ModelPackageTransformResourcesArgs',
-    'ModelPackageTransformResourcesArgsDict',
     'ModelPackageValidationProfileArgs',
-    'ModelPackageValidationProfileArgsDict',
     'ModelPackageValidationSpecificationArgs',
-    'ModelPackageValidationSpecificationArgsDict',
     'ModelQualityJobDefinitionBatchTransformInputArgs',
-    'ModelQualityJobDefinitionBatchTransformInputArgsDict',
     'ModelQualityJobDefinitionClusterConfigArgs',
-    'ModelQualityJobDefinitionClusterConfigArgsDict',
     'ModelQualityJobDefinitionConstraintsResourceArgs',
-    'ModelQualityJobDefinitionConstraintsResourceArgsDict',
     'ModelQualityJobDefinitionCsvArgs',
-    'ModelQualityJobDefinitionCsvArgsDict',
     'ModelQualityJobDefinitionDatasetFormatArgs',
-    'ModelQualityJobDefinitionDatasetFormatArgsDict',
     'ModelQualityJobDefinitionEndpointInputArgs',
-    'ModelQualityJobDefinitionEndpointInputArgsDict',
     'ModelQualityJobDefinitionJsonArgs',
-    'ModelQualityJobDefinitionJsonArgsDict',
     'ModelQualityJobDefinitionModelQualityAppSpecificationArgs',
-    'ModelQualityJobDefinitionModelQualityAppSpecificationArgsDict',
     'ModelQualityJobDefinitionModelQualityBaselineConfigArgs',
-    'ModelQualityJobDefinitionModelQualityBaselineConfigArgsDict',
     'ModelQualityJobDefinitionModelQualityJobInputArgs',
-    'ModelQualityJobDefinitionModelQualityJobInputArgsDict',
     'ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs',
-    'ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgsDict',
     'ModelQualityJobDefinitionMonitoringOutputConfigArgs',
-    'ModelQualityJobDefinitionMonitoringOutputConfigArgsDict',
     'ModelQualityJobDefinitionMonitoringOutputArgs',
-    'ModelQualityJobDefinitionMonitoringOutputArgsDict',
     'ModelQualityJobDefinitionMonitoringResourcesArgs',
-    'ModelQualityJobDefinitionMonitoringResourcesArgsDict',
     'ModelQualityJobDefinitionNetworkConfigArgs',
-    'ModelQualityJobDefinitionNetworkConfigArgsDict',
     'ModelQualityJobDefinitionS3OutputArgs',
-    'ModelQualityJobDefinitionS3OutputArgsDict',
     'ModelQualityJobDefinitionStoppingConditionArgs',
-    'ModelQualityJobDefinitionStoppingConditionArgsDict',
     'ModelQualityJobDefinitionVpcConfigArgs',
-    'ModelQualityJobDefinitionVpcConfigArgsDict',
     'MonitoringScheduleBaselineConfigArgs',
-    'MonitoringScheduleBaselineConfigArgsDict',
     'MonitoringScheduleBatchTransformInputArgs',
-    'MonitoringScheduleBatchTransformInputArgsDict',
     'MonitoringScheduleClusterConfigArgs',
-    'MonitoringScheduleClusterConfigArgsDict',
     'MonitoringScheduleConfigArgs',
-    'MonitoringScheduleConfigArgsDict',
     'MonitoringScheduleConstraintsResourceArgs',
-    'MonitoringScheduleConstraintsResourceArgsDict',
     'MonitoringScheduleCsvArgs',
-    'MonitoringScheduleCsvArgsDict',
     'MonitoringScheduleDatasetFormatArgs',
-    'MonitoringScheduleDatasetFormatArgsDict',
     'MonitoringScheduleEndpointInputArgs',
-    'MonitoringScheduleEndpointInputArgsDict',
     'MonitoringScheduleJsonArgs',
-    'MonitoringScheduleJsonArgsDict',
     'MonitoringScheduleMonitoringAppSpecificationArgs',
-    'MonitoringScheduleMonitoringAppSpecificationArgsDict',
     'MonitoringScheduleMonitoringExecutionSummaryArgs',
-    'MonitoringScheduleMonitoringExecutionSummaryArgsDict',
     'MonitoringScheduleMonitoringInputArgs',
-    'MonitoringScheduleMonitoringInputArgsDict',
     'MonitoringScheduleMonitoringJobDefinitionArgs',
-    'MonitoringScheduleMonitoringJobDefinitionArgsDict',
     'MonitoringScheduleMonitoringOutputConfigArgs',
-    'MonitoringScheduleMonitoringOutputConfigArgsDict',
     'MonitoringScheduleMonitoringOutputArgs',
-    'MonitoringScheduleMonitoringOutputArgsDict',
     'MonitoringScheduleMonitoringResourcesArgs',
-    'MonitoringScheduleMonitoringResourcesArgsDict',
     'MonitoringScheduleNetworkConfigArgs',
-    'MonitoringScheduleNetworkConfigArgsDict',
     'MonitoringScheduleS3OutputArgs',
-    'MonitoringScheduleS3OutputArgsDict',
     'MonitoringScheduleScheduleConfigArgs',
-    'MonitoringScheduleScheduleConfigArgsDict',
     'MonitoringScheduleStatisticsResourceArgs',
-    'MonitoringScheduleStatisticsResourceArgsDict',
     'MonitoringScheduleStoppingConditionArgs',
-    'MonitoringScheduleStoppingConditionArgsDict',
     'MonitoringScheduleVpcConfigArgs',
-    'MonitoringScheduleVpcConfigArgsDict',
     'OfflineStoreConfigPropertiesArgs',
-    'OfflineStoreConfigPropertiesArgsDict',
     'OnlineStoreConfigPropertiesArgs',
-    'OnlineStoreConfigPropertiesArgsDict',
     'ParallelismConfigurationPropertiesArgs',
-    'ParallelismConfigurationPropertiesArgsDict',
     'PipelineDefinition0PropertiesArgs',
-    'PipelineDefinition0PropertiesArgsDict',
     'PipelineDefinition1PropertiesArgs',
-    'PipelineDefinition1PropertiesArgsDict',
     'PipelineS3LocationArgs',
-    'PipelineS3LocationArgsDict',
     'ProjectProvisioningParameterArgs',
-    'ProjectProvisioningParameterArgsDict',
     'ServiceCatalogProvisionedProductDetailsPropertiesArgs',
-    'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict',
     'ServiceCatalogProvisioningDetailsPropertiesArgs',
-    'ServiceCatalogProvisioningDetailsPropertiesArgsDict',
     'SpaceAppLifecycleManagementArgs',
-    'SpaceAppLifecycleManagementArgsDict',
     'SpaceCodeEditorAppSettingsArgs',
-    'SpaceCodeEditorAppSettingsArgsDict',
     'SpaceCodeRepositoryArgs',
-    'SpaceCodeRepositoryArgsDict',
     'SpaceCustomFileSystemArgs',
-    'SpaceCustomFileSystemArgsDict',
     'SpaceCustomImageArgs',
-    'SpaceCustomImageArgsDict',
     'SpaceEbsStorageSettingsArgs',
-    'SpaceEbsStorageSettingsArgsDict',
     'SpaceEfsFileSystemArgs',
-    'SpaceEfsFileSystemArgsDict',
     'SpaceIdleSettingsArgs',
-    'SpaceIdleSettingsArgsDict',
     'SpaceJupyterLabAppSettingsArgs',
-    'SpaceJupyterLabAppSettingsArgsDict',
     'SpaceJupyterServerAppSettingsArgs',
-    'SpaceJupyterServerAppSettingsArgsDict',
     'SpaceKernelGatewayAppSettingsArgs',
-    'SpaceKernelGatewayAppSettingsArgsDict',
     'SpaceOwnershipSettingsArgs',
-    'SpaceOwnershipSettingsArgsDict',
     'SpaceResourceSpecArgs',
-    'SpaceResourceSpecArgsDict',
     'SpaceSettingsArgs',
-    'SpaceSettingsArgsDict',
     'SpaceSharingSettingsArgs',
-    'SpaceSharingSettingsArgsDict',
     'SpaceStorageSettingsArgs',
-    'SpaceStorageSettingsArgsDict',
     'UserProfileAppLifecycleManagementArgs',
-    'UserProfileAppLifecycleManagementArgsDict',
     'UserProfileCodeEditorAppSettingsArgs',
-    'UserProfileCodeEditorAppSettingsArgsDict',
     'UserProfileCodeRepositoryArgs',
-    'UserProfileCodeRepositoryArgsDict',
     'UserProfileCustomFileSystemConfigArgs',
-    'UserProfileCustomFileSystemConfigArgsDict',
     'UserProfileCustomImageArgs',
-    'UserProfileCustomImageArgsDict',
     'UserProfileCustomPosixUserConfigArgs',
-    'UserProfileCustomPosixUserConfigArgsDict',
     'UserProfileDefaultEbsStorageSettingsArgs',
-    'UserProfileDefaultEbsStorageSettingsArgsDict',
     'UserProfileDefaultSpaceStorageSettingsArgs',
-    'UserProfileDefaultSpaceStorageSettingsArgsDict',
     'UserProfileEfsFileSystemConfigArgs',
-    'UserProfileEfsFileSystemConfigArgsDict',
     'UserProfileIdleSettingsArgs',
-    'UserProfileIdleSettingsArgsDict',
     'UserProfileJupyterLabAppSettingsArgs',
-    'UserProfileJupyterLabAppSettingsArgsDict',
     'UserProfileJupyterServerAppSettingsArgs',
-    'UserProfileJupyterServerAppSettingsArgsDict',
     'UserProfileKernelGatewayAppSettingsArgs',
-    'UserProfileKernelGatewayAppSettingsArgsDict',
     'UserProfileRStudioServerProAppSettingsArgs',
-    'UserProfileRStudioServerProAppSettingsArgsDict',
     'UserProfileResourceSpecArgs',
-    'UserProfileResourceSpecArgsDict',
     'UserProfileSharingSettingsArgs',
-    'UserProfileSharingSettingsArgsDict',
     'UserProfileStudioWebPortalSettingsArgs',
-    'UserProfileStudioWebPortalSettingsArgsDict',
     'UserProfileUserSettingsArgs',
-    'UserProfileUserSettingsArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AppImageConfigCodeEditorAppImageConfigArgsDict(TypedDict):
-        """
-        The configuration for the kernels in a SageMaker image running as a CodeEditor app.
-        """
-        container_config: NotRequired[pulumi.Input['AppImageConfigContainerConfigArgsDict']]
-        """
-        The container configuration for a SageMaker image.
-        """
-elif False:
-    AppImageConfigCodeEditorAppImageConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppImageConfigCodeEditorAppImageConfigArgs:
@@ -569,26 +293,6 @@ class AppImageConfigCodeEditorAppImageConfigArgs:
     def container_config(self, value: Optional[pulumi.Input['AppImageConfigContainerConfigArgs']]):
         pulumi.set(self, "container_config", value)
 
-
-if not MYPY:
-    class AppImageConfigContainerConfigArgsDict(TypedDict):
-        """
-        The container configuration for a SageMaker image.
-        """
-        container_arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of arguments to apply to the container.
-        """
-        container_entrypoint: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The custom entry point to use on container.
-        """
-        container_environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppImageConfigCustomImageContainerEnvironmentVariableArgsDict']]]]
-        """
-        A list of variables to apply to the custom container.
-        """
-elif False:
-    AppImageConfigContainerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppImageConfigContainerConfigArgs:
@@ -646,19 +350,6 @@ class AppImageConfigContainerConfigArgs:
         pulumi.set(self, "container_environment_variables", value)
 
 
-if not MYPY:
-    class AppImageConfigCustomImageContainerEnvironmentVariableArgsDict(TypedDict):
-        key: pulumi.Input[str]
-        """
-        The key that identifies a container environment variable.
-        """
-        value: pulumi.Input[str]
-        """
-        The value of the container environment variable.
-        """
-elif False:
-    AppImageConfigCustomImageContainerEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppImageConfigCustomImageContainerEnvironmentVariableArgs:
     def __init__(__self__, *,
@@ -695,26 +386,6 @@ class AppImageConfigCustomImageContainerEnvironmentVariableArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class AppImageConfigFileSystemConfigArgsDict(TypedDict):
-        """
-        The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
-        """
-        default_gid: NotRequired[pulumi.Input[int]]
-        """
-        The default POSIX group ID (GID). If not specified, defaults to 100.
-        """
-        default_uid: NotRequired[pulumi.Input[int]]
-        """
-        The default POSIX user ID (UID). If not specified, defaults to 1000.
-        """
-        mount_path: NotRequired[pulumi.Input[str]]
-        """
-        The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
-        """
-elif False:
-    AppImageConfigFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppImageConfigFileSystemConfigArgs:
@@ -772,18 +443,6 @@ class AppImageConfigFileSystemConfigArgs:
         pulumi.set(self, "mount_path", value)
 
 
-if not MYPY:
-    class AppImageConfigJupyterLabAppImageConfigArgsDict(TypedDict):
-        """
-        The configuration for the kernels in a SageMaker image running as a JupyterLab app.
-        """
-        container_config: NotRequired[pulumi.Input['AppImageConfigContainerConfigArgsDict']]
-        """
-        The container configuration for a SageMaker image.
-        """
-elif False:
-    AppImageConfigJupyterLabAppImageConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppImageConfigJupyterLabAppImageConfigArgs:
     def __init__(__self__, *,
@@ -807,22 +466,6 @@ class AppImageConfigJupyterLabAppImageConfigArgs:
     def container_config(self, value: Optional[pulumi.Input['AppImageConfigContainerConfigArgs']]):
         pulumi.set(self, "container_config", value)
 
-
-if not MYPY:
-    class AppImageConfigKernelGatewayImageConfigArgsDict(TypedDict):
-        """
-        The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
-        """
-        kernel_specs: pulumi.Input[Sequence[pulumi.Input['AppImageConfigKernelSpecArgsDict']]]
-        """
-        The specification of the Jupyter kernels in the image.
-        """
-        file_system_config: NotRequired[pulumi.Input['AppImageConfigFileSystemConfigArgsDict']]
-        """
-        The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
-        """
-elif False:
-    AppImageConfigKernelGatewayImageConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppImageConfigKernelGatewayImageConfigArgs:
@@ -863,19 +506,6 @@ class AppImageConfigKernelGatewayImageConfigArgs:
         pulumi.set(self, "file_system_config", value)
 
 
-if not MYPY:
-    class AppImageConfigKernelSpecArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        """
-        The name of the kernel.
-        """
-        display_name: NotRequired[pulumi.Input[str]]
-        """
-        The display name of the kernel.
-        """
-elif False:
-    AppImageConfigKernelSpecArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AppImageConfigKernelSpecArgs:
     def __init__(__self__, *,
@@ -913,27 +543,6 @@ class AppImageConfigKernelSpecArgs:
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
 
-
-if not MYPY:
-    class AppResourceSpecArgsDict(TypedDict):
-        instance_type: NotRequired[pulumi.Input['AppResourceSpecInstanceType']]
-        """
-        The instance type that the image version runs on.
-        """
-        lifecycle_config_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
-        """
-        sage_maker_image_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of the SageMaker image that the image version belongs to.
-        """
-        sage_maker_image_version_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of the image version created on the instance.
-        """
-elif False:
-    AppResourceSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppResourceSpecArgs:
@@ -1005,32 +614,6 @@ class AppResourceSpecArgs:
     def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sage_maker_image_version_arn", value)
 
-
-if not MYPY:
-    class ClusterInstanceGroupArgsDict(TypedDict):
-        """
-        Details of an instance group in a SageMaker HyperPod cluster.
-        """
-        execution_role: pulumi.Input[str]
-        instance_count: pulumi.Input[int]
-        """
-        The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
-        """
-        instance_group_name: pulumi.Input[str]
-        instance_type: pulumi.Input[str]
-        life_cycle_config: pulumi.Input['ClusterLifeCycleConfigArgsDict']
-        current_count: NotRequired[pulumi.Input[int]]
-        """
-        The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
-        """
-        instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
-        on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
-        threads_per_core: NotRequired[pulumi.Input[int]]
-        """
-        The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
-        """
-elif False:
-    ClusterInstanceGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterInstanceGroupArgs:
@@ -1155,15 +738,6 @@ class ClusterInstanceGroupArgs:
         pulumi.set(self, "threads_per_core", value)
 
 
-if not MYPY:
-    class ClusterInstanceStorageConfigArgsDict(TypedDict):
-        """
-        Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
-        """
-        pass
-elif False:
-    ClusterInstanceStorageConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ClusterInstanceStorageConfigArgs:
     def __init__(__self__):
@@ -1172,22 +746,6 @@ class ClusterInstanceStorageConfigArgs:
         """
         pass
 
-
-if not MYPY:
-    class ClusterLifeCycleConfigArgsDict(TypedDict):
-        """
-        The lifecycle configuration for a SageMaker HyperPod cluster.
-        """
-        on_create: pulumi.Input[str]
-        """
-        The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
-        """
-        source_s3_uri: pulumi.Input[str]
-        """
-        An Amazon S3 bucket path where your lifecycle scripts are stored.
-        """
-elif False:
-    ClusterLifeCycleConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterLifeCycleConfigArgs:
@@ -1227,18 +785,6 @@ class ClusterLifeCycleConfigArgs:
         pulumi.set(self, "source_s3_uri", value)
 
 
-if not MYPY:
-    class ClusterOrchestratorEksConfigArgsDict(TypedDict):
-        """
-        Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-        """
-        cluster_arn: pulumi.Input[str]
-        """
-        The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
-        """
-elif False:
-    ClusterOrchestratorEksConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ClusterOrchestratorEksConfigArgs:
     def __init__(__self__, *,
@@ -1262,18 +808,6 @@ class ClusterOrchestratorEksConfigArgs:
         pulumi.set(self, "cluster_arn", value)
 
 
-if not MYPY:
-    class ClusterOrchestratorArgsDict(TypedDict):
-        """
-        Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
-        """
-        eks: pulumi.Input['ClusterOrchestratorEksConfigArgsDict']
-        """
-        The configuration of the Amazon EKS orchestrator cluster for the SageMaker HyperPod cluster.
-        """
-elif False:
-    ClusterOrchestratorArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ClusterOrchestratorArgs:
     def __init__(__self__, *,
@@ -1296,22 +830,6 @@ class ClusterOrchestratorArgs:
     def eks(self, value: pulumi.Input['ClusterOrchestratorEksConfigArgs']):
         pulumi.set(self, "eks", value)
 
-
-if not MYPY:
-    class ClusterVpcConfigArgsDict(TypedDict):
-        """
-        Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The ID of the subnets in the VPC to which you want to connect your training job or model.
-        """
-elif False:
-    ClusterVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterVpcConfigArgs:
@@ -1350,38 +868,6 @@ class ClusterVpcConfigArgs:
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
-
-if not MYPY:
-    class DataQualityJobDefinitionBatchTransformInputArgsDict(TypedDict):
-        """
-        The batch transform input for a monitoring job.
-        """
-        data_captured_destination_s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
-        """
-        dataset_format: pulumi.Input['DataQualityJobDefinitionDatasetFormatArgsDict']
-        """
-        The dataset format for your batch transform job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        exclude_features_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Indexes or names of the features to be excluded from analysis
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['DataQualityJobDefinitionBatchTransformInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-elif False:
-    DataQualityJobDefinitionBatchTransformInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataQualityJobDefinitionBatchTransformInputArgs:
@@ -1484,30 +970,6 @@ class DataQualityJobDefinitionBatchTransformInputArgs:
         pulumi.set(self, "s3_input_mode", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionClusterConfigArgsDict(TypedDict):
-        """
-        Configuration for the cluster used to run model monitoring jobs.
-        """
-        instance_count: pulumi.Input[int]
-        """
-        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-        """
-        instance_type: pulumi.Input[str]
-        """
-        The ML compute instance type for the processing job.
-        """
-        volume_size_in_gb: pulumi.Input[int]
-        """
-        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-        """
-        volume_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-        """
-elif False:
-    DataQualityJobDefinitionClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionClusterConfigArgs:
     def __init__(__self__, *,
@@ -1577,18 +1039,6 @@ class DataQualityJobDefinitionClusterConfigArgs:
         pulumi.set(self, "volume_kms_key_id", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionConstraintsResourceArgsDict(TypedDict):
-        """
-        The baseline constraints resource for a monitoring job.
-        """
-        s3_uri: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
-        """
-elif False:
-    DataQualityJobDefinitionConstraintsResourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionConstraintsResourceArgs:
     def __init__(__self__, *,
@@ -1613,18 +1063,6 @@ class DataQualityJobDefinitionConstraintsResourceArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionCsvArgsDict(TypedDict):
-        """
-        The CSV format
-        """
-        header: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if given CSV has header
-        """
-elif False:
-    DataQualityJobDefinitionCsvArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionCsvArgs:
     def __init__(__self__, *,
@@ -1648,38 +1086,6 @@ class DataQualityJobDefinitionCsvArgs:
     def header(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "header", value)
 
-
-if not MYPY:
-    class DataQualityJobDefinitionDataQualityAppSpecificationArgsDict(TypedDict):
-        """
-        Container image configuration object for the monitoring job.
-        """
-        image_uri: pulumi.Input[str]
-        """
-        The container image to be run by the monitoring job.
-        """
-        container_arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        An array of arguments for the container used to run the monitoring job.
-        """
-        container_entrypoint: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Specifies the entrypoint for a container used to run the monitoring job.
-        """
-        environment: NotRequired[Any]
-        """
-        Sets the environment variables in the Docker container
-        """
-        post_analytics_processor_source_uri: NotRequired[pulumi.Input[str]]
-        """
-        An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-        """
-        record_preprocessor_source_uri: NotRequired[pulumi.Input[str]]
-        """
-        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
-        """
-elif False:
-    DataQualityJobDefinitionDataQualityAppSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataQualityJobDefinitionDataQualityAppSpecificationArgs:
@@ -1784,26 +1190,6 @@ class DataQualityJobDefinitionDataQualityAppSpecificationArgs:
         pulumi.set(self, "record_preprocessor_source_uri", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionDataQualityBaselineConfigArgsDict(TypedDict):
-        """
-        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
-        """
-        baselining_job_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the job that performs baselining for the data quality monitoring job.
-        """
-        constraints_resource: NotRequired[pulumi.Input['DataQualityJobDefinitionConstraintsResourceArgsDict']]
-        """
-        The constraints resource for a monitoring job.
-        """
-        statistics_resource: NotRequired[pulumi.Input['DataQualityJobDefinitionStatisticsResourceArgsDict']]
-        """
-        Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
-        """
-elif False:
-    DataQualityJobDefinitionDataQualityBaselineConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
     def __init__(__self__, *,
@@ -1860,22 +1246,6 @@ class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
         pulumi.set(self, "statistics_resource", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionDataQualityJobInputArgsDict(TypedDict):
-        """
-        The inputs for a monitoring job.
-        """
-        batch_transform_input: NotRequired[pulumi.Input['DataQualityJobDefinitionBatchTransformInputArgsDict']]
-        """
-        Input object for the batch transform job.
-        """
-        endpoint_input: NotRequired[pulumi.Input['DataQualityJobDefinitionEndpointInputArgsDict']]
-        """
-        Input object for the endpoint
-        """
-elif False:
-    DataQualityJobDefinitionDataQualityJobInputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionDataQualityJobInputArgs:
     def __init__(__self__, *,
@@ -1915,17 +1285,6 @@ class DataQualityJobDefinitionDataQualityJobInputArgs:
     def endpoint_input(self, value: Optional[pulumi.Input['DataQualityJobDefinitionEndpointInputArgs']]):
         pulumi.set(self, "endpoint_input", value)
 
-
-if not MYPY:
-    class DataQualityJobDefinitionDatasetFormatArgsDict(TypedDict):
-        """
-        The dataset format of the data to monitor
-        """
-        csv: NotRequired[pulumi.Input['DataQualityJobDefinitionCsvArgsDict']]
-        json: NotRequired[pulumi.Input['DataQualityJobDefinitionJsonArgsDict']]
-        parquet: NotRequired[pulumi.Input[bool]]
-elif False:
-    DataQualityJobDefinitionDatasetFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataQualityJobDefinitionDatasetFormatArgs:
@@ -1970,34 +1329,6 @@ class DataQualityJobDefinitionDatasetFormatArgs:
     def parquet(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "parquet", value)
 
-
-if not MYPY:
-    class DataQualityJobDefinitionEndpointInputArgsDict(TypedDict):
-        """
-        The endpoint for a monitoring job.
-        """
-        endpoint_name: pulumi.Input[str]
-        """
-        An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-        """
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        exclude_features_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Indexes or names of the features to be excluded from analysis
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['DataQualityJobDefinitionEndpointInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['DataQualityJobDefinitionEndpointInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-elif False:
-    DataQualityJobDefinitionEndpointInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataQualityJobDefinitionEndpointInputArgs:
@@ -2085,18 +1416,6 @@ class DataQualityJobDefinitionEndpointInputArgs:
         pulumi.set(self, "s3_input_mode", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionJsonArgsDict(TypedDict):
-        """
-        The Json format
-        """
-        line: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if it is JSON line format
-        """
-elif False:
-    DataQualityJobDefinitionJsonArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionJsonArgs:
     def __init__(__self__, *,
@@ -2120,22 +1439,6 @@ class DataQualityJobDefinitionJsonArgs:
     def line(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "line", value)
 
-
-if not MYPY:
-    class DataQualityJobDefinitionMonitoringOutputConfigArgsDict(TypedDict):
-        """
-        The output configuration for monitoring jobs.
-        """
-        monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['DataQualityJobDefinitionMonitoringOutputArgsDict']]]
-        """
-        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-        """
-elif False:
-    DataQualityJobDefinitionMonitoringOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataQualityJobDefinitionMonitoringOutputConfigArgs:
@@ -2176,18 +1479,6 @@ class DataQualityJobDefinitionMonitoringOutputConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionMonitoringOutputArgsDict(TypedDict):
-        """
-        The output object for a monitoring job.
-        """
-        s3_output: pulumi.Input['DataQualityJobDefinitionS3OutputArgsDict']
-        """
-        The Amazon S3 storage location where the results of a monitoring job are saved.
-        """
-elif False:
-    DataQualityJobDefinitionMonitoringOutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionMonitoringOutputArgs:
     def __init__(__self__, *,
@@ -2211,18 +1502,6 @@ class DataQualityJobDefinitionMonitoringOutputArgs:
         pulumi.set(self, "s3_output", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionMonitoringResourcesArgsDict(TypedDict):
-        """
-        Identifies the resources to deploy for a monitoring job.
-        """
-        cluster_config: pulumi.Input['DataQualityJobDefinitionClusterConfigArgsDict']
-        """
-        The configuration for the cluster resources used to run the processing job.
-        """
-elif False:
-    DataQualityJobDefinitionMonitoringResourcesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionMonitoringResourcesArgs:
     def __init__(__self__, *,
@@ -2245,26 +1524,6 @@ class DataQualityJobDefinitionMonitoringResourcesArgs:
     def cluster_config(self, value: pulumi.Input['DataQualityJobDefinitionClusterConfigArgs']):
         pulumi.set(self, "cluster_config", value)
 
-
-if not MYPY:
-    class DataQualityJobDefinitionNetworkConfigArgsDict(TypedDict):
-        """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
-        """
-        enable_inter_container_traffic_encryption: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-        """
-        enable_network_isolation: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-        """
-        vpc_config: NotRequired[pulumi.Input['DataQualityJobDefinitionVpcConfigArgsDict']]
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-elif False:
-    DataQualityJobDefinitionNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataQualityJobDefinitionNetworkConfigArgs:
@@ -2322,26 +1581,6 @@ class DataQualityJobDefinitionNetworkConfigArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionS3OutputArgsDict(TypedDict):
-        """
-        Information about where and how to store the results of a monitoring job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        """
-        s3_upload_mode: NotRequired[pulumi.Input['DataQualityJobDefinitionS3OutputS3UploadMode']]
-        """
-        Whether to upload the results of the monitoring job continuously or after the job completes.
-        """
-elif False:
-    DataQualityJobDefinitionS3OutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionS3OutputArgs:
     def __init__(__self__, *,
@@ -2396,18 +1635,6 @@ class DataQualityJobDefinitionS3OutputArgs:
         pulumi.set(self, "s3_upload_mode", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionStatisticsResourceArgsDict(TypedDict):
-        """
-        The baseline statistics resource for a monitoring job.
-        """
-        s3_uri: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
-        """
-elif False:
-    DataQualityJobDefinitionStatisticsResourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionStatisticsResourceArgs:
     def __init__(__self__, *,
@@ -2432,18 +1659,6 @@ class DataQualityJobDefinitionStatisticsResourceArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class DataQualityJobDefinitionStoppingConditionArgsDict(TypedDict):
-        """
-        Specifies a time limit for how long the monitoring job is allowed to run.
-        """
-        max_runtime_in_seconds: pulumi.Input[int]
-        """
-        The maximum runtime allowed in seconds.
-        """
-elif False:
-    DataQualityJobDefinitionStoppingConditionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DataQualityJobDefinitionStoppingConditionArgs:
     def __init__(__self__, *,
@@ -2466,22 +1681,6 @@ class DataQualityJobDefinitionStoppingConditionArgs:
     def max_runtime_in_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_runtime_in_seconds", value)
 
-
-if not MYPY:
-    class DataQualityJobDefinitionVpcConfigArgsDict(TypedDict):
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
-        """
-elif False:
-    DataQualityJobDefinitionVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataQualityJobDefinitionVpcConfigArgs:
@@ -2521,19 +1720,6 @@ class DataQualityJobDefinitionVpcConfigArgs:
         pulumi.set(self, "subnets", value)
 
 
-if not MYPY:
-    class DeviceFleetEdgeOutputConfigArgsDict(TypedDict):
-        s3_output_location: pulumi.Input[str]
-        """
-        The Amazon Simple Storage (S3) bucket URI
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The KMS key id used for encryption on the S3 bucket
-        """
-elif False:
-    DeviceFleetEdgeOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DeviceFleetEdgeOutputConfigArgs:
     def __init__(__self__, *,
@@ -2571,26 +1757,6 @@ class DeviceFleetEdgeOutputConfigArgs:
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
 
-
-if not MYPY:
-    class DeviceArgsDict(TypedDict):
-        """
-        Edge device you want to create
-        """
-        device_name: pulumi.Input[str]
-        """
-        The name of the device
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        Description of the device
-        """
-        iot_thing_name: NotRequired[pulumi.Input[str]]
-        """
-        AWS Internet of Things (IoT) object name.
-        """
-elif False:
-    DeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeviceArgs:
@@ -2647,15 +1813,6 @@ class DeviceArgs:
         pulumi.set(self, "iot_thing_name", value)
 
 
-if not MYPY:
-    class DomainAppLifecycleManagementArgsDict(TypedDict):
-        idle_settings: NotRequired[pulumi.Input['DomainIdleSettingsArgsDict']]
-        """
-        Settings related to idle shutdown of Studio applications.
-        """
-elif False:
-    DomainAppLifecycleManagementArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainAppLifecycleManagementArgs:
     def __init__(__self__, *,
@@ -2678,30 +1835,6 @@ class DomainAppLifecycleManagementArgs:
     def idle_settings(self, value: Optional[pulumi.Input['DomainIdleSettingsArgs']]):
         pulumi.set(self, "idle_settings", value)
 
-
-if not MYPY:
-    class DomainCodeEditorAppSettingsArgsDict(TypedDict):
-        """
-        The CodeEditor app settings.
-        """
-        app_lifecycle_management: NotRequired[pulumi.Input['DomainAppLifecycleManagementArgsDict']]
-        """
-        Settings that are used to configure and manage the lifecycle of CodeEditor applications.
-        """
-        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgsDict']]]]
-        """
-        A list of custom images for use for CodeEditor apps.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['DomainResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with CodeEditor apps.
-        """
-elif False:
-    DomainCodeEditorAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainCodeEditorAppSettingsArgs:
@@ -2775,15 +1908,6 @@ class DomainCodeEditorAppSettingsArgs:
         pulumi.set(self, "lifecycle_config_arns", value)
 
 
-if not MYPY:
-    class DomainCodeRepositoryArgsDict(TypedDict):
-        repository_url: pulumi.Input[str]
-        """
-        A CodeRepository (valid URL) to be used within Jupyter's Git extension.
-        """
-elif False:
-    DomainCodeRepositoryArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainCodeRepositoryArgs:
     def __init__(__self__, *,
@@ -2805,15 +1929,6 @@ class DomainCodeRepositoryArgs:
     def repository_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository_url", value)
 
-
-if not MYPY:
-    class DomainCustomFileSystemConfigArgsDict(TypedDict):
-        efs_file_system_config: NotRequired[pulumi.Input['DomainEfsFileSystemConfigArgsDict']]
-        """
-        The settings for a custom Amazon EFS file system.
-        """
-elif False:
-    DomainCustomFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainCustomFileSystemConfigArgs:
@@ -2837,26 +1952,6 @@ class DomainCustomFileSystemConfigArgs:
     def efs_file_system_config(self, value: Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']]):
         pulumi.set(self, "efs_file_system_config", value)
 
-
-if not MYPY:
-    class DomainCustomImageArgsDict(TypedDict):
-        """
-        A custom SageMaker image.
-        """
-        app_image_config_name: pulumi.Input[str]
-        """
-        The Name of the AppImageConfig.
-        """
-        image_name: pulumi.Input[str]
-        """
-        The name of the CustomImage. Must be unique to your account.
-        """
-        image_version_number: NotRequired[pulumi.Input[int]]
-        """
-        The version number of the CustomImage.
-        """
-elif False:
-    DomainCustomImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainCustomImageArgs:
@@ -2912,19 +2007,6 @@ class DomainCustomImageArgs:
         pulumi.set(self, "image_version_number", value)
 
 
-if not MYPY:
-    class DomainCustomPosixUserConfigArgsDict(TypedDict):
-        gid: pulumi.Input[int]
-        """
-        The POSIX group ID.
-        """
-        uid: pulumi.Input[int]
-        """
-        The POSIX user ID.
-        """
-elif False:
-    DomainCustomPosixUserConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainCustomPosixUserConfigArgs:
     def __init__(__self__, *,
@@ -2961,22 +2043,6 @@ class DomainCustomPosixUserConfigArgs:
     def uid(self, value: pulumi.Input[int]):
         pulumi.set(self, "uid", value)
 
-
-if not MYPY:
-    class DomainDefaultEbsStorageSettingsArgsDict(TypedDict):
-        """
-        Properties related to the Amazon Elastic Block Store volume. Must be provided if storage type is Amazon EBS and must not be provided if storage type is not Amazon EBS
-        """
-        default_ebs_volume_size_in_gb: pulumi.Input[int]
-        """
-        Default size of the Amazon EBS volume in Gb
-        """
-        maximum_ebs_volume_size_in_gb: pulumi.Input[int]
-        """
-        Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
-        """
-elif False:
-    DomainDefaultEbsStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainDefaultEbsStorageSettingsArgs:
@@ -3015,46 +2081,6 @@ class DomainDefaultEbsStorageSettingsArgs:
     def maximum_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
         pulumi.set(self, "maximum_ebs_volume_size_in_gb", value)
 
-
-if not MYPY:
-    class DomainDefaultSpaceSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
-        """
-        execution_role: pulumi.Input[str]
-        """
-        The execution role for the space.
-        """
-        custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgsDict']]]]
-        """
-        The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
-        """
-        custom_posix_user_config: NotRequired[pulumi.Input['DomainCustomPosixUserConfigArgsDict']]
-        """
-        The Jupyter lab's custom posix user configurations.
-        """
-        jupyter_lab_app_settings: NotRequired[pulumi.Input['DomainJupyterLabAppSettingsArgsDict']]
-        """
-        The Jupyter lab's app settings.
-        """
-        jupyter_server_app_settings: NotRequired[pulumi.Input['DomainJupyterServerAppSettingsArgsDict']]
-        """
-        The Jupyter server's app settings.
-        """
-        kernel_gateway_app_settings: NotRequired[pulumi.Input['DomainKernelGatewayAppSettingsArgsDict']]
-        """
-        The kernel gateway app settings.
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-        """
-        space_storage_settings: NotRequired[pulumi.Input['DomainDefaultSpaceStorageSettingsArgsDict']]
-        """
-        The Jupyter lab's space storage settings.
-        """
-elif False:
-    DomainDefaultSpaceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainDefaultSpaceSettingsArgs:
@@ -3191,18 +2217,6 @@ class DomainDefaultSpaceSettingsArgs:
         pulumi.set(self, "space_storage_settings", value)
 
 
-if not MYPY:
-    class DomainDefaultSpaceStorageSettingsArgsDict(TypedDict):
-        """
-        Default storage settings for a space.
-        """
-        default_ebs_storage_settings: NotRequired[pulumi.Input['DomainDefaultEbsStorageSettingsArgsDict']]
-        """
-        The default EBS storage settings for a space.
-        """
-elif False:
-    DomainDefaultSpaceStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainDefaultSpaceStorageSettingsArgs:
     def __init__(__self__, *,
@@ -3226,22 +2240,6 @@ class DomainDefaultSpaceStorageSettingsArgs:
     def default_ebs_storage_settings(self, value: Optional[pulumi.Input['DomainDefaultEbsStorageSettingsArgs']]):
         pulumi.set(self, "default_ebs_storage_settings", value)
 
-
-if not MYPY:
-    class DomainDockerSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that are required to start docker-proxy server.
-        """
-        enable_docker_access: NotRequired[pulumi.Input['DomainDockerSettingsEnableDockerAccess']]
-        """
-        The flag to enable/disable docker-proxy server
-        """
-        vpc_only_trusted_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of account id's that would be used to pull images from in VpcOnly mode
-        """
-elif False:
-    DomainDockerSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainDockerSettingsArgs:
@@ -3283,19 +2281,6 @@ class DomainDockerSettingsArgs:
         pulumi.set(self, "vpc_only_trusted_accounts", value)
 
 
-if not MYPY:
-    class DomainEfsFileSystemConfigArgsDict(TypedDict):
-        file_system_id: pulumi.Input[str]
-        """
-        The ID of your Amazon EFS file system.
-        """
-        file_system_path: NotRequired[pulumi.Input[str]]
-        """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
-        """
-elif False:
-    DomainEfsFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainEfsFileSystemConfigArgs:
     def __init__(__self__, *,
@@ -3333,27 +2318,6 @@ class DomainEfsFileSystemConfigArgs:
     def file_system_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system_path", value)
 
-
-if not MYPY:
-    class DomainIdleSettingsArgsDict(TypedDict):
-        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
-        """
-        The time that SageMaker waits after the application becomes idle before shutting it down.
-        """
-        lifecycle_management: NotRequired[pulumi.Input['DomainLifecycleManagement']]
-        """
-        Indicates whether idle shutdown is activated for the application type.
-        """
-        max_idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
-        """
-        The maximum value in minutes that custom idle shutdown can be set to by the user.
-        """
-        min_idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
-        """
-        The minimum value in minutes that custom idle shutdown can be set to by the user.
-        """
-elif False:
-    DomainIdleSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainIdleSettingsArgs:
@@ -3425,34 +2389,6 @@ class DomainIdleSettingsArgs:
     def min_idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_idle_timeout_in_minutes", value)
 
-
-if not MYPY:
-    class DomainJupyterLabAppSettingsArgsDict(TypedDict):
-        """
-        The JupyterLab app settings.
-        """
-        app_lifecycle_management: NotRequired[pulumi.Input['DomainAppLifecycleManagementArgsDict']]
-        """
-        Indicates whether idle shutdown is activated for JupyterLab applications.
-        """
-        code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgsDict']]]]
-        """
-        A list of CodeRepositories available for use with JupyterLab apps.
-        """
-        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgsDict']]]]
-        """
-        A list of custom images for use for JupyterLab apps.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['DomainResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with JupyterLab apps.
-        """
-elif False:
-    DomainJupyterLabAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainJupyterLabAppSettingsArgs:
@@ -3542,22 +2478,6 @@ class DomainJupyterLabAppSettingsArgs:
         pulumi.set(self, "lifecycle_config_arns", value)
 
 
-if not MYPY:
-    class DomainJupyterServerAppSettingsArgsDict(TypedDict):
-        """
-        The JupyterServer app settings.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['DomainResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with JupyterServer apps.
-        """
-elif False:
-    DomainJupyterServerAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainJupyterServerAppSettingsArgs:
     def __init__(__self__, *,
@@ -3597,26 +2517,6 @@ class DomainJupyterServerAppSettingsArgs:
     def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "lifecycle_config_arns", value)
 
-
-if not MYPY:
-    class DomainKernelGatewayAppSettingsArgsDict(TypedDict):
-        """
-        The kernel gateway app settings.
-        """
-        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgsDict']]]]
-        """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['DomainResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with KernelGateway apps.
-        """
-elif False:
-    DomainKernelGatewayAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainKernelGatewayAppSettingsArgs:
@@ -3674,22 +2574,6 @@ class DomainKernelGatewayAppSettingsArgs:
         pulumi.set(self, "lifecycle_config_arns", value)
 
 
-if not MYPY:
-    class DomainRSessionAppSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that apply to an RSessionGateway app.
-        """
-        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgsDict']]]]
-        """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['DomainResourceSpecArgsDict']]
-        """
-        Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
-        """
-elif False:
-    DomainRSessionAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainRSessionAppSettingsArgs:
     def __init__(__self__, *,
@@ -3730,22 +2614,6 @@ class DomainRSessionAppSettingsArgs:
         pulumi.set(self, "default_resource_spec", value)
 
 
-if not MYPY:
-    class DomainRStudioServerProAppSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that configure user interaction with the RStudioServerPro app.
-        """
-        access_status: NotRequired[pulumi.Input['DomainRStudioServerProAppSettingsAccessStatus']]
-        """
-        Indicates whether the current user has access to the RStudioServerPro app.
-        """
-        user_group: NotRequired[pulumi.Input['DomainRStudioServerProAppSettingsUserGroup']]
-        """
-        The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
-        """
-elif False:
-    DomainRStudioServerProAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainRStudioServerProAppSettingsArgs:
     def __init__(__self__, *,
@@ -3785,30 +2653,6 @@ class DomainRStudioServerProAppSettingsArgs:
     def user_group(self, value: Optional[pulumi.Input['DomainRStudioServerProAppSettingsUserGroup']]):
         pulumi.set(self, "user_group", value)
 
-
-if not MYPY:
-    class DomainRStudioServerProDomainSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
-        """
-        domain_execution_role_arn: pulumi.Input[str]
-        """
-        The ARN of the execution role for the RStudioServerPro Domain-level app.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['DomainResourceSpecArgsDict']]
-        """
-        A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
-        """
-        r_studio_connect_url: NotRequired[pulumi.Input[str]]
-        """
-        A URL pointing to an RStudio Connect server.
-        """
-        r_studio_package_manager_url: NotRequired[pulumi.Input[str]]
-        """
-        A URL pointing to an RStudio Package Manager server.
-        """
-elif False:
-    DomainRStudioServerProDomainSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainRStudioServerProDomainSettingsArgs:
@@ -3881,27 +2725,6 @@ class DomainRStudioServerProDomainSettingsArgs:
         pulumi.set(self, "r_studio_package_manager_url", value)
 
 
-if not MYPY:
-    class DomainResourceSpecArgsDict(TypedDict):
-        instance_type: NotRequired[pulumi.Input['DomainResourceSpecInstanceType']]
-        """
-        The instance type that the image version runs on.
-        """
-        lifecycle_config_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
-        """
-        sage_maker_image_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the SageMaker image that the image version belongs to.
-        """
-        sage_maker_image_version_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the image version created on the instance.
-        """
-elif False:
-    DomainResourceSpecArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainResourceSpecArgs:
     def __init__(__self__, *,
@@ -3973,26 +2796,6 @@ class DomainResourceSpecArgs:
         pulumi.set(self, "sage_maker_image_version_arn", value)
 
 
-if not MYPY:
-    class DomainSettingsArgsDict(TypedDict):
-        """
-        A collection of Domain settings.
-        """
-        docker_settings: NotRequired[pulumi.Input['DomainDockerSettingsArgsDict']]
-        """
-        A collection of settings that configure the domain's Docker interaction.
-        """
-        r_studio_server_pro_domain_settings: NotRequired[pulumi.Input['DomainRStudioServerProDomainSettingsArgsDict']]
-        """
-        A collection of settings that configure the `RStudioServerPro` Domain-level app.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-        """
-elif False:
-    DomainSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainSettingsArgs:
     def __init__(__self__, *,
@@ -4048,26 +2851,6 @@ class DomainSettingsArgs:
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
-
-if not MYPY:
-    class DomainSharingSettingsArgsDict(TypedDict):
-        """
-        Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
-        """
-        notebook_output_option: NotRequired[pulumi.Input['DomainSharingSettingsNotebookOutputOption']]
-        """
-        Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-        """
-        s3_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-        """
-        s3_output_path: NotRequired[pulumi.Input[str]]
-        """
-        When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
-        """
-elif False:
-    DomainSharingSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainSharingSettingsArgs:
@@ -4125,22 +2908,6 @@ class DomainSharingSettingsArgs:
         pulumi.set(self, "s3_output_path", value)
 
 
-if not MYPY:
-    class DomainStudioWebPortalSettingsArgsDict(TypedDict):
-        """
-        Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
-        """
-        hidden_app_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainAppType']]]]
-        """
-        Applications supported in Studio that are hidden from the Studio left navigation pane.
-        """
-        hidden_ml_tools: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]]
-        """
-        The machine learning tools that are hidden from the Studio left navigation pane.
-        """
-elif False:
-    DomainStudioWebPortalSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DomainStudioWebPortalSettingsArgs:
     def __init__(__self__, *,
@@ -4180,74 +2947,6 @@ class DomainStudioWebPortalSettingsArgs:
     def hidden_ml_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMlTools']]]]):
         pulumi.set(self, "hidden_ml_tools", value)
 
-
-if not MYPY:
-    class DomainUserSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
-        """
-        execution_role: pulumi.Input[str]
-        """
-        The execution role for the user.
-        """
-        code_editor_app_settings: NotRequired[pulumi.Input['DomainCodeEditorAppSettingsArgsDict']]
-        """
-        The Code Editor application settings.
-        """
-        custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgsDict']]]]
-        """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
-        """
-        custom_posix_user_config: NotRequired[pulumi.Input['DomainCustomPosixUserConfigArgsDict']]
-        """
-        Details about the POSIX identity that is used for file system operations.
-        """
-        default_landing_uri: NotRequired[pulumi.Input[str]]
-        """
-        Defines which Amazon SageMaker application users are directed to by default.
-        """
-        jupyter_lab_app_settings: NotRequired[pulumi.Input['DomainJupyterLabAppSettingsArgsDict']]
-        """
-        The settings for the JupyterLab application.
-        """
-        jupyter_server_app_settings: NotRequired[pulumi.Input['DomainJupyterServerAppSettingsArgsDict']]
-        """
-        The Jupyter server's app settings.
-        """
-        kernel_gateway_app_settings: NotRequired[pulumi.Input['DomainKernelGatewayAppSettingsArgsDict']]
-        """
-        The kernel gateway app settings.
-        """
-        r_session_app_settings: NotRequired[pulumi.Input['DomainRSessionAppSettingsArgsDict']]
-        """
-        A collection of settings that configure the `RSessionGateway` app.
-        """
-        r_studio_server_pro_app_settings: NotRequired[pulumi.Input['DomainRStudioServerProAppSettingsArgsDict']]
-        """
-        A collection of settings that configure user interaction with the `RStudioServerPro` app.
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-        """
-        sharing_settings: NotRequired[pulumi.Input['DomainSharingSettingsArgsDict']]
-        """
-        The sharing settings.
-        """
-        space_storage_settings: NotRequired[pulumi.Input['DomainDefaultSpaceStorageSettingsArgsDict']]
-        """
-        The storage settings for a space.
-        """
-        studio_web_portal: NotRequired[pulumi.Input['DomainUserSettingsStudioWebPortal']]
-        """
-        Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
-        """
-        studio_web_portal_settings: NotRequired[pulumi.Input['DomainStudioWebPortalSettingsArgsDict']]
-        """
-        Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
-        """
-elif False:
-    DomainUserSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainUserSettingsArgs:
@@ -4496,23 +3195,6 @@ class DomainUserSettingsArgs:
         pulumi.set(self, "studio_web_portal_settings", value)
 
 
-if not MYPY:
-    class FeatureGroupDataCatalogConfigArgsDict(TypedDict):
-        catalog: pulumi.Input[str]
-        """
-        The name of the Glue table catalog.
-        """
-        database: pulumi.Input[str]
-        """
-        The name of the Glue table database.
-        """
-        table_name: pulumi.Input[str]
-        """
-        The name of the Glue table.
-        """
-elif False:
-    FeatureGroupDataCatalogConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class FeatureGroupDataCatalogConfigArgs:
     def __init__(__self__, *,
@@ -4565,24 +3247,6 @@ class FeatureGroupDataCatalogConfigArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class FeatureGroupFeatureDefinitionArgsDict(TypedDict):
-        feature_name: pulumi.Input[str]
-        """
-        The name of a feature. The type must be a string. `FeatureName` cannot be any of the following: `is_deleted` , `write_time` , `api_invocation_time` .
-
-        The name:
-
-        - Must start with an alphanumeric character.
-        - Can only include alphanumeric characters, underscores, and hyphens. Spaces are not allowed.
-        """
-        feature_type: pulumi.Input['FeatureGroupFeatureDefinitionFeatureType']
-        """
-        The value type of a feature. Valid values are Integral, Fractional, or String.
-        """
-elif False:
-    FeatureGroupFeatureDefinitionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class FeatureGroupFeatureDefinitionArgs:
     def __init__(__self__, *,
@@ -4629,33 +3293,6 @@ class FeatureGroupFeatureDefinitionArgs:
     def feature_type(self, value: pulumi.Input['FeatureGroupFeatureDefinitionFeatureType']):
         pulumi.set(self, "feature_type", value)
 
-
-if not MYPY:
-    class FeatureGroupOnlineStoreSecurityConfigArgsDict(TypedDict):
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (KMS) key ARN that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
-
-        The caller (either user or IAM role) of `CreateFeatureGroup` must have below permissions to the `OnlineStore` `KmsKeyId` :
-
-        - `"kms:Encrypt"`
-        - `"kms:Decrypt"`
-        - `"kms:DescribeKey"`
-        - `"kms:CreateGrant"`
-        - `"kms:RetireGrant"`
-        - `"kms:ReEncryptFrom"`
-        - `"kms:ReEncryptTo"`
-        - `"kms:GenerateDataKey"`
-        - `"kms:ListAliases"`
-        - `"kms:ListGrants"`
-        - `"kms:RevokeGrant"`
-
-        The caller (either user or IAM role) to all DataPlane operations ( `PutRecord` , `GetRecord` , `DeleteRecord` ) must have the following permissions to the `KmsKeyId` :
-
-        - `"kms:Decrypt"`
-        """
-elif False:
-    FeatureGroupOnlineStoreSecurityConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FeatureGroupOnlineStoreSecurityConfigArgs:
@@ -4716,25 +3353,6 @@ class FeatureGroupOnlineStoreSecurityConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class FeatureGroupS3StorageConfigArgsDict(TypedDict):
-        s3_uri: pulumi.Input[str]
-        """
-        The S3 URI, or location in Amazon S3, of `OfflineStore` .
-
-        S3 URIs have a format similar to the following: `s3://example-bucket/prefix/` .
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (KMS) key ARN of the key used to encrypt any objects written into the `OfflineStore` S3 location.
-
-        The IAM `roleARN` that is passed as a parameter to `CreateFeatureGroup` must have below permissions to the `KmsKeyId` :
-
-        - `"kms:GenerateDataKey"`
-        """
-elif False:
-    FeatureGroupS3StorageConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class FeatureGroupS3StorageConfigArgs:
     def __init__(__self__, *,
@@ -4784,23 +3402,6 @@ class FeatureGroupS3StorageConfigArgs:
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
 
-
-if not MYPY:
-    class FeatureGroupThroughputConfigArgsDict(TypedDict):
-        throughput_mode: pulumi.Input['FeatureGroupThroughputMode']
-        """
-        The mode used for your feature group throughput: `ON_DEMAND` or `PROVISIONED` .
-        """
-        provisioned_read_capacity_units: NotRequired[pulumi.Input[int]]
-        """
-        For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
-        """
-        provisioned_write_capacity_units: NotRequired[pulumi.Input[int]]
-        """
-        For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
-        """
-elif False:
-    FeatureGroupThroughputConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FeatureGroupThroughputConfigArgs:
@@ -4856,22 +3457,6 @@ class FeatureGroupThroughputConfigArgs:
         pulumi.set(self, "provisioned_write_capacity_units", value)
 
 
-if not MYPY:
-    class FeatureGroupTtlDurationArgsDict(TypedDict):
-        """
-        TTL configuration of the feature group
-        """
-        unit: NotRequired[pulumi.Input['FeatureGroupUnit']]
-        """
-        `TtlDuration` time unit.
-        """
-        value: NotRequired[pulumi.Input[int]]
-        """
-        `TtlDuration` time value.
-        """
-elif False:
-    FeatureGroupTtlDurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class FeatureGroupTtlDurationArgs:
     def __init__(__self__, *,
@@ -4911,27 +3496,6 @@ class FeatureGroupTtlDurationArgs:
     def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class InferenceComponentComputeResourceRequirementsArgsDict(TypedDict):
-        max_memory_required_in_mb: NotRequired[pulumi.Input[int]]
-        """
-        The maximum MB of memory to allocate to run a model that you assign to an inference component.
-        """
-        min_memory_required_in_mb: NotRequired[pulumi.Input[int]]
-        """
-        The minimum MB of memory to allocate to run a model that you assign to an inference component.
-        """
-        number_of_accelerator_devices_required: NotRequired[pulumi.Input[float]]
-        """
-        The number of accelerators to allocate to run a model that you assign to an inference component. Accelerators include GPUs and AWS Inferentia.
-        """
-        number_of_cpu_cores_required: NotRequired[pulumi.Input[float]]
-        """
-        The number of CPU cores to allocate to run a model that you assign to an inference component.
-        """
-elif False:
-    InferenceComponentComputeResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceComponentComputeResourceRequirementsArgs:
@@ -5004,24 +3568,6 @@ class InferenceComponentComputeResourceRequirementsArgs:
         pulumi.set(self, "number_of_cpu_cores_required", value)
 
 
-if not MYPY:
-    class InferenceComponentContainerSpecificationArgsDict(TypedDict):
-        artifact_url: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
-        """
-        deployed_image: NotRequired[pulumi.Input['InferenceComponentDeployedImageArgsDict']]
-        environment: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
-        """
-        image: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.
-        """
-elif False:
-    InferenceComponentContainerSpecificationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InferenceComponentContainerSpecificationArgs:
     def __init__(__self__, *,
@@ -5089,23 +3635,6 @@ class InferenceComponentContainerSpecificationArgs:
         pulumi.set(self, "image", value)
 
 
-if not MYPY:
-    class InferenceComponentDeployedImageArgsDict(TypedDict):
-        resolution_time: NotRequired[pulumi.Input[str]]
-        """
-        The date and time when the image path for the model resolved to the `ResolvedImage`
-        """
-        resolved_image: NotRequired[pulumi.Input[str]]
-        """
-        The specific digest path of the image hosted in this `ProductionVariant` .
-        """
-        specified_image: NotRequired[pulumi.Input[str]]
-        """
-        The image path you specified when you created the model.
-        """
-elif False:
-    InferenceComponentDeployedImageArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InferenceComponentDeployedImageArgs:
     def __init__(__self__, *,
@@ -5161,20 +3690,6 @@ class InferenceComponentDeployedImageArgs:
         pulumi.set(self, "specified_image", value)
 
 
-if not MYPY:
-    class InferenceComponentRuntimeConfigArgsDict(TypedDict):
-        """
-        The runtime config for the inference component
-        """
-        copy_count: NotRequired[pulumi.Input[int]]
-        """
-        The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
-        """
-        current_copy_count: NotRequired[pulumi.Input[int]]
-        desired_copy_count: NotRequired[pulumi.Input[int]]
-elif False:
-    InferenceComponentRuntimeConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InferenceComponentRuntimeConfigArgs:
     def __init__(__self__, *,
@@ -5222,30 +3737,6 @@ class InferenceComponentRuntimeConfigArgs:
     def desired_copy_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "desired_copy_count", value)
 
-
-if not MYPY:
-    class InferenceComponentSpecificationArgsDict(TypedDict):
-        """
-        The specification for the inference component
-        """
-        compute_resource_requirements: pulumi.Input['InferenceComponentComputeResourceRequirementsArgsDict']
-        """
-        The compute resources allocated to run the model assigned to the inference component.
-        """
-        container: NotRequired[pulumi.Input['InferenceComponentContainerSpecificationArgsDict']]
-        """
-        Defines a container that provides the runtime environment for a model that you deploy with an inference component.
-        """
-        model_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
-        """
-        startup_parameters: NotRequired[pulumi.Input['InferenceComponentStartupParametersArgsDict']]
-        """
-        Settings that take effect while the model container starts up.
-        """
-elif False:
-    InferenceComponentSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceComponentSpecificationArgs:
@@ -5318,19 +3809,6 @@ class InferenceComponentSpecificationArgs:
         pulumi.set(self, "startup_parameters", value)
 
 
-if not MYPY:
-    class InferenceComponentStartupParametersArgsDict(TypedDict):
-        container_startup_health_check_timeout_in_seconds: NotRequired[pulumi.Input[int]]
-        """
-        The timeout value, in seconds, for your inference container to pass health check by Amazon S3 Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests) .
-        """
-        model_data_download_timeout_in_seconds: NotRequired[pulumi.Input[int]]
-        """
-        The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this inference component.
-        """
-elif False:
-    InferenceComponentStartupParametersArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InferenceComponentStartupParametersArgs:
     def __init__(__self__, *,
@@ -5369,22 +3847,6 @@ class InferenceComponentStartupParametersArgs:
     def model_data_download_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "model_data_download_timeout_in_seconds", value)
 
-
-if not MYPY:
-    class InferenceExperimentCaptureContentTypeHeaderArgsDict(TypedDict):
-        """
-        Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
-        """
-        csv_content_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The list of all content type headers that SageMaker will treat as CSV and capture accordingly.
-        """
-        json_content_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The list of all content type headers that SageMaker will treat as JSON and capture accordingly.
-        """
-elif False:
-    InferenceExperimentCaptureContentTypeHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceExperimentCaptureContentTypeHeaderArgs:
@@ -5425,26 +3887,6 @@ class InferenceExperimentCaptureContentTypeHeaderArgs:
     def json_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "json_content_types", value)
 
-
-if not MYPY:
-    class InferenceExperimentDataStorageConfigArgsDict(TypedDict):
-        """
-        The Amazon S3 location and configuration for storing inference request and response data.
-        """
-        destination: pulumi.Input[str]
-        """
-        The Amazon S3 bucket where the inference request and response data is stored.
-        """
-        content_type: NotRequired[pulumi.Input['InferenceExperimentCaptureContentTypeHeaderArgsDict']]
-        """
-        Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
-        """
-        kms_key: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.
-        """
-elif False:
-    InferenceExperimentDataStorageConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceExperimentDataStorageConfigArgs:
@@ -5501,22 +3943,6 @@ class InferenceExperimentDataStorageConfigArgs:
         pulumi.set(self, "kms_key", value)
 
 
-if not MYPY:
-    class InferenceExperimentModelInfrastructureConfigArgsDict(TypedDict):
-        """
-        The configuration for the infrastructure that the model will be deployed to.
-        """
-        infrastructure_type: pulumi.Input['InferenceExperimentModelInfrastructureConfigInfrastructureType']
-        """
-        The type of the inference experiment that you want to run.
-        """
-        real_time_inference_config: pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgsDict']
-        """
-        The infrastructure configuration for deploying the model to real-time inference.
-        """
-elif False:
-    InferenceExperimentModelInfrastructureConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InferenceExperimentModelInfrastructureConfigArgs:
     def __init__(__self__, *,
@@ -5554,26 +3980,6 @@ class InferenceExperimentModelInfrastructureConfigArgs:
     def real_time_inference_config(self, value: pulumi.Input['InferenceExperimentRealTimeInferenceConfigArgs']):
         pulumi.set(self, "real_time_inference_config", value)
 
-
-if not MYPY:
-    class InferenceExperimentModelVariantConfigArgsDict(TypedDict):
-        """
-        Contains information about the deployment options of a model.
-        """
-        infrastructure_config: pulumi.Input['InferenceExperimentModelInfrastructureConfigArgsDict']
-        """
-        The configuration for the infrastructure that the model will be deployed to.
-        """
-        model_name: pulumi.Input[str]
-        """
-        The name of the Amazon SageMaker Model entity.
-        """
-        variant_name: pulumi.Input[str]
-        """
-        The name of the variant.
-        """
-elif False:
-    InferenceExperimentModelVariantConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceExperimentModelVariantConfigArgs:
@@ -5628,22 +4034,6 @@ class InferenceExperimentModelVariantConfigArgs:
         pulumi.set(self, "variant_name", value)
 
 
-if not MYPY:
-    class InferenceExperimentRealTimeInferenceConfigArgsDict(TypedDict):
-        """
-        The infrastructure configuration for deploying the model to a real-time inference endpoint.
-        """
-        instance_count: pulumi.Input[int]
-        """
-        The number of instances of the type specified by InstanceType.
-        """
-        instance_type: pulumi.Input[str]
-        """
-        The instance type the model is deployed to.
-        """
-elif False:
-    InferenceExperimentRealTimeInferenceConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InferenceExperimentRealTimeInferenceConfigArgs:
     def __init__(__self__, *,
@@ -5681,22 +4071,6 @@ class InferenceExperimentRealTimeInferenceConfigArgs:
     def instance_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_type", value)
 
-
-if not MYPY:
-    class InferenceExperimentScheduleArgsDict(TypedDict):
-        """
-        The duration for which you want the inference experiment to run.
-        """
-        end_time: NotRequired[pulumi.Input[str]]
-        """
-        The timestamp at which the inference experiment ended or will end.
-        """
-        start_time: NotRequired[pulumi.Input[str]]
-        """
-        The timestamp at which the inference experiment started or will start.
-        """
-elif False:
-    InferenceExperimentScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceExperimentScheduleArgs:
@@ -5738,22 +4112,6 @@ class InferenceExperimentScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class InferenceExperimentShadowModeConfigArgsDict(TypedDict):
-        """
-        The configuration of ShadowMode inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates.
-        """
-        shadow_model_variants: pulumi.Input[Sequence[pulumi.Input['InferenceExperimentShadowModelVariantConfigArgsDict']]]
-        """
-        List of shadow variant configurations.
-        """
-        source_model_variant_name: pulumi.Input[str]
-        """
-        The name of the production variant, which takes all the inference requests.
-        """
-elif False:
-    InferenceExperimentShadowModeConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InferenceExperimentShadowModeConfigArgs:
     def __init__(__self__, *,
@@ -5792,22 +4150,6 @@ class InferenceExperimentShadowModeConfigArgs:
         pulumi.set(self, "source_model_variant_name", value)
 
 
-if not MYPY:
-    class InferenceExperimentShadowModelVariantConfigArgsDict(TypedDict):
-        """
-        The name and sampling percentage of a shadow variant.
-        """
-        sampling_percentage: pulumi.Input[int]
-        """
-        The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
-        """
-        shadow_model_variant_name: pulumi.Input[str]
-        """
-        The name of the shadow variant.
-        """
-elif False:
-    InferenceExperimentShadowModelVariantConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class InferenceExperimentShadowModelVariantConfigArgs:
     def __init__(__self__, *,
@@ -5845,58 +4187,6 @@ class InferenceExperimentShadowModelVariantConfigArgs:
     def shadow_model_variant_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "shadow_model_variant_name", value)
 
-
-if not MYPY:
-    class ModelBiasJobDefinitionBatchTransformInputArgsDict(TypedDict):
-        """
-        The batch transform input for a monitoring job.
-        """
-        data_captured_destination_s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
-        """
-        dataset_format: pulumi.Input['ModelBiasJobDefinitionDatasetFormatArgsDict']
-        """
-        The dataset format for your batch transform job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        end_time_offset: NotRequired[pulumi.Input[str]]
-        """
-        Monitoring end time offset, e.g. PT0H
-        """
-        features_attribute: NotRequired[pulumi.Input[str]]
-        """
-        JSONpath to locate features in JSONlines dataset
-        """
-        inference_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate predicted label(s)
-        """
-        probability_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate probabilities
-        """
-        probability_threshold_attribute: NotRequired[pulumi.Input[float]]
-        """
-        The threshold for the class probability to be evaluated as a positive result.
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['ModelBiasJobDefinitionBatchTransformInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-        start_time_offset: NotRequired[pulumi.Input[str]]
-        """
-        Monitoring start time offset, e.g. -PT1H
-        """
-elif False:
-    ModelBiasJobDefinitionBatchTransformInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelBiasJobDefinitionBatchTransformInputArgs:
@@ -6079,30 +4369,6 @@ class ModelBiasJobDefinitionBatchTransformInputArgs:
         pulumi.set(self, "start_time_offset", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionClusterConfigArgsDict(TypedDict):
-        """
-        Configuration for the cluster used to run model monitoring jobs.
-        """
-        instance_count: pulumi.Input[int]
-        """
-        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-        """
-        instance_type: pulumi.Input[str]
-        """
-        The ML compute instance type for the processing job.
-        """
-        volume_size_in_gb: pulumi.Input[int]
-        """
-        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-        """
-        volume_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-        """
-elif False:
-    ModelBiasJobDefinitionClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionClusterConfigArgs:
     def __init__(__self__, *,
@@ -6172,18 +4438,6 @@ class ModelBiasJobDefinitionClusterConfigArgs:
         pulumi.set(self, "volume_kms_key_id", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionConstraintsResourceArgsDict(TypedDict):
-        """
-        The baseline constraints resource for a monitoring job.
-        """
-        s3_uri: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
-        """
-elif False:
-    ModelBiasJobDefinitionConstraintsResourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionConstraintsResourceArgs:
     def __init__(__self__, *,
@@ -6208,18 +4462,6 @@ class ModelBiasJobDefinitionConstraintsResourceArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionCsvArgsDict(TypedDict):
-        """
-        The CSV format
-        """
-        header: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if given CSV has header
-        """
-elif False:
-    ModelBiasJobDefinitionCsvArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionCsvArgs:
     def __init__(__self__, *,
@@ -6243,17 +4485,6 @@ class ModelBiasJobDefinitionCsvArgs:
     def header(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "header", value)
 
-
-if not MYPY:
-    class ModelBiasJobDefinitionDatasetFormatArgsDict(TypedDict):
-        """
-        The dataset format of the data to monitor
-        """
-        csv: NotRequired[pulumi.Input['ModelBiasJobDefinitionCsvArgsDict']]
-        json: NotRequired[pulumi.Input['ModelBiasJobDefinitionJsonArgsDict']]
-        parquet: NotRequired[pulumi.Input[bool]]
-elif False:
-    ModelBiasJobDefinitionDatasetFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelBiasJobDefinitionDatasetFormatArgs:
@@ -6298,54 +4529,6 @@ class ModelBiasJobDefinitionDatasetFormatArgs:
     def parquet(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "parquet", value)
 
-
-if not MYPY:
-    class ModelBiasJobDefinitionEndpointInputArgsDict(TypedDict):
-        """
-        The endpoint for a monitoring job.
-        """
-        endpoint_name: pulumi.Input[str]
-        """
-        An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-        """
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        end_time_offset: NotRequired[pulumi.Input[str]]
-        """
-        Monitoring end time offset, e.g. PT0H
-        """
-        features_attribute: NotRequired[pulumi.Input[str]]
-        """
-        JSONpath to locate features in JSONlines dataset
-        """
-        inference_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate predicted label(s)
-        """
-        probability_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate probabilities
-        """
-        probability_threshold_attribute: NotRequired[pulumi.Input[float]]
-        """
-        The threshold for the class probability to be evaluated as a positive result.
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['ModelBiasJobDefinitionEndpointInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['ModelBiasJobDefinitionEndpointInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-        start_time_offset: NotRequired[pulumi.Input[str]]
-        """
-        Monitoring start time offset, e.g. -PT1H
-        """
-elif False:
-    ModelBiasJobDefinitionEndpointInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelBiasJobDefinitionEndpointInputArgs:
@@ -6513,18 +4696,6 @@ class ModelBiasJobDefinitionEndpointInputArgs:
         pulumi.set(self, "start_time_offset", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionJsonArgsDict(TypedDict):
-        """
-        The Json format
-        """
-        line: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if it is JSON line format
-        """
-elif False:
-    ModelBiasJobDefinitionJsonArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionJsonArgs:
     def __init__(__self__, *,
@@ -6548,26 +4719,6 @@ class ModelBiasJobDefinitionJsonArgs:
     def line(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "line", value)
 
-
-if not MYPY:
-    class ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict(TypedDict):
-        """
-        Container image configuration object for the monitoring job.
-        """
-        config_uri: pulumi.Input[str]
-        """
-        The S3 URI to an analysis configuration file
-        """
-        image_uri: pulumi.Input[str]
-        """
-        The container image to be run by the monitoring job.
-        """
-        environment: NotRequired[Any]
-        """
-        Sets the environment variables in the Docker container
-        """
-elif False:
-    ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelBiasJobDefinitionModelBiasAppSpecificationArgs:
@@ -6623,22 +4774,6 @@ class ModelBiasJobDefinitionModelBiasAppSpecificationArgs:
         pulumi.set(self, "environment", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict(TypedDict):
-        """
-        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
-        """
-        baselining_job_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the baseline model bias job.
-        """
-        constraints_resource: NotRequired[pulumi.Input['ModelBiasJobDefinitionConstraintsResourceArgsDict']]
-        """
-        The constraints resource for a monitoring job.
-        """
-elif False:
-    ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionModelBiasBaselineConfigArgs:
     def __init__(__self__, *,
@@ -6678,26 +4813,6 @@ class ModelBiasJobDefinitionModelBiasBaselineConfigArgs:
     def constraints_resource(self, value: Optional[pulumi.Input['ModelBiasJobDefinitionConstraintsResourceArgs']]):
         pulumi.set(self, "constraints_resource", value)
 
-
-if not MYPY:
-    class ModelBiasJobDefinitionModelBiasJobInputArgsDict(TypedDict):
-        """
-        The inputs for a monitoring job.
-        """
-        ground_truth_s3_input: pulumi.Input['ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgsDict']
-        """
-        Location of ground truth labels to use in model bias job.
-        """
-        batch_transform_input: NotRequired[pulumi.Input['ModelBiasJobDefinitionBatchTransformInputArgsDict']]
-        """
-        Input object for the batch transform job.
-        """
-        endpoint_input: NotRequired[pulumi.Input['ModelBiasJobDefinitionEndpointInputArgsDict']]
-        """
-        Input object for the endpoint
-        """
-elif False:
-    ModelBiasJobDefinitionModelBiasJobInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelBiasJobDefinitionModelBiasJobInputArgs:
@@ -6754,18 +4869,6 @@ class ModelBiasJobDefinitionModelBiasJobInputArgs:
         pulumi.set(self, "endpoint_input", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgsDict(TypedDict):
-        """
-        Ground truth input provided in S3 
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        """
-elif False:
-    ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs:
     def __init__(__self__, *,
@@ -6788,22 +4891,6 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs:
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
 
-
-if not MYPY:
-    class ModelBiasJobDefinitionMonitoringOutputConfigArgsDict(TypedDict):
-        """
-        The output configuration for monitoring jobs.
-        """
-        monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['ModelBiasJobDefinitionMonitoringOutputArgsDict']]]
-        """
-        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-        """
-elif False:
-    ModelBiasJobDefinitionMonitoringOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelBiasJobDefinitionMonitoringOutputConfigArgs:
@@ -6844,18 +4931,6 @@ class ModelBiasJobDefinitionMonitoringOutputConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionMonitoringOutputArgsDict(TypedDict):
-        """
-        The output object for a monitoring job.
-        """
-        s3_output: pulumi.Input['ModelBiasJobDefinitionS3OutputArgsDict']
-        """
-        The Amazon S3 storage location where the results of a monitoring job are saved.
-        """
-elif False:
-    ModelBiasJobDefinitionMonitoringOutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionMonitoringOutputArgs:
     def __init__(__self__, *,
@@ -6879,18 +4954,6 @@ class ModelBiasJobDefinitionMonitoringOutputArgs:
         pulumi.set(self, "s3_output", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionMonitoringResourcesArgsDict(TypedDict):
-        """
-        Identifies the resources to deploy for a monitoring job.
-        """
-        cluster_config: pulumi.Input['ModelBiasJobDefinitionClusterConfigArgsDict']
-        """
-        The configuration for the cluster resources used to run the processing job.
-        """
-elif False:
-    ModelBiasJobDefinitionMonitoringResourcesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionMonitoringResourcesArgs:
     def __init__(__self__, *,
@@ -6913,26 +4976,6 @@ class ModelBiasJobDefinitionMonitoringResourcesArgs:
     def cluster_config(self, value: pulumi.Input['ModelBiasJobDefinitionClusterConfigArgs']):
         pulumi.set(self, "cluster_config", value)
 
-
-if not MYPY:
-    class ModelBiasJobDefinitionNetworkConfigArgsDict(TypedDict):
-        """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
-        """
-        enable_inter_container_traffic_encryption: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-        """
-        enable_network_isolation: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-        """
-        vpc_config: NotRequired[pulumi.Input['ModelBiasJobDefinitionVpcConfigArgsDict']]
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-elif False:
-    ModelBiasJobDefinitionNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelBiasJobDefinitionNetworkConfigArgs:
@@ -6990,26 +5033,6 @@ class ModelBiasJobDefinitionNetworkConfigArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionS3OutputArgsDict(TypedDict):
-        """
-        Information about where and how to store the results of a monitoring job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        """
-        s3_upload_mode: NotRequired[pulumi.Input['ModelBiasJobDefinitionS3OutputS3UploadMode']]
-        """
-        Whether to upload the results of the monitoring job continuously or after the job completes.
-        """
-elif False:
-    ModelBiasJobDefinitionS3OutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionS3OutputArgs:
     def __init__(__self__, *,
@@ -7064,18 +5087,6 @@ class ModelBiasJobDefinitionS3OutputArgs:
         pulumi.set(self, "s3_upload_mode", value)
 
 
-if not MYPY:
-    class ModelBiasJobDefinitionStoppingConditionArgsDict(TypedDict):
-        """
-        Specifies a time limit for how long the monitoring job is allowed to run.
-        """
-        max_runtime_in_seconds: pulumi.Input[int]
-        """
-        The maximum runtime allowed in seconds.
-        """
-elif False:
-    ModelBiasJobDefinitionStoppingConditionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelBiasJobDefinitionStoppingConditionArgs:
     def __init__(__self__, *,
@@ -7098,22 +5109,6 @@ class ModelBiasJobDefinitionStoppingConditionArgs:
     def max_runtime_in_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_runtime_in_seconds", value)
 
-
-if not MYPY:
-    class ModelBiasJobDefinitionVpcConfigArgsDict(TypedDict):
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
-        """
-elif False:
-    ModelBiasJobDefinitionVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelBiasJobDefinitionVpcConfigArgs:
@@ -7152,23 +5147,6 @@ class ModelBiasJobDefinitionVpcConfigArgs:
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
-
-if not MYPY:
-    class ModelCardAdditionalInformationArgsDict(TypedDict):
-        caveats_and_recommendations: NotRequired[pulumi.Input[str]]
-        """
-        Caveats and recommendations for people who might use this model in their applications.
-        """
-        custom_details: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        customer details.
-        """
-        ethical_considerations: NotRequired[pulumi.Input[str]]
-        """
-        Any ethical considerations that the author wants to provide.
-        """
-elif False:
-    ModelCardAdditionalInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardAdditionalInformationArgs:
@@ -7224,17 +5202,6 @@ class ModelCardAdditionalInformationArgs:
     def ethical_considerations(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ethical_considerations", value)
 
-
-if not MYPY:
-    class ModelCardBarChartMetricArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        type: pulumi.Input['ModelCardBarChartMetricType']
-        value: pulumi.Input[Sequence[pulumi.Input[float]]]
-        notes: NotRequired[pulumi.Input[str]]
-        x_axis_name: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        y_axis_name: NotRequired[pulumi.Input[str]]
-elif False:
-    ModelCardBarChartMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardBarChartMetricArgs:
@@ -7310,26 +5277,6 @@ class ModelCardBarChartMetricArgs:
         pulumi.set(self, "y_axis_name", value)
 
 
-if not MYPY:
-    class ModelCardBusinessDetailsArgsDict(TypedDict):
-        """
-        Business details.
-        """
-        business_problem: NotRequired[pulumi.Input[str]]
-        """
-        What business problem does the model solve?
-        """
-        business_stakeholders: NotRequired[pulumi.Input[str]]
-        """
-        Business stakeholders.
-        """
-        line_of_business: NotRequired[pulumi.Input[str]]
-        """
-        Line of business.
-        """
-elif False:
-    ModelCardBusinessDetailsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardBusinessDetailsArgs:
     def __init__(__self__, *,
@@ -7386,23 +5333,6 @@ class ModelCardBusinessDetailsArgs:
         pulumi.set(self, "line_of_business", value)
 
 
-if not MYPY:
-    class ModelCardContainerArgsDict(TypedDict):
-        image: pulumi.Input[str]
-        """
-        Inference environment path. The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
-        """
-        model_data_url: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 path where the model artifacts, which result from model training, are stored.
-        """
-        nearest_model_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
-        """
-elif False:
-    ModelCardContainerArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardContainerArgs:
     def __init__(__self__, *,
@@ -7456,39 +5386,6 @@ class ModelCardContainerArgs:
     def nearest_model_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nearest_model_name", value)
 
-
-if not MYPY:
-    class ModelCardContentArgsDict(TypedDict):
-        """
-        The content of the model card.
-        """
-        additional_information: NotRequired[pulumi.Input['ModelCardAdditionalInformationArgsDict']]
-        """
-        Additional information about the model.
-        """
-        business_details: NotRequired[pulumi.Input['ModelCardBusinessDetailsArgsDict']]
-        """
-        Information about how the model supports business goals.
-        """
-        evaluation_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelCardEvaluationDetailArgsDict']]]]
-        """
-        An overview about the model's evaluation.
-        """
-        intended_uses: NotRequired[pulumi.Input['ModelCardIntendedUsesArgsDict']]
-        """
-        The intended usage of the model.
-        """
-        model_overview: NotRequired[pulumi.Input['ModelCardModelOverviewArgsDict']]
-        """
-        An overview about the model
-        """
-        model_package_details: NotRequired[pulumi.Input['ModelCardModelPackageDetailsArgsDict']]
-        training_details: NotRequired[pulumi.Input['ModelCardTrainingDetailsArgsDict']]
-        """
-        An overview about model training.
-        """
-elif False:
-    ModelCardContentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardContentArgs:
@@ -7606,23 +5503,6 @@ class ModelCardContentArgs:
         pulumi.set(self, "training_details", value)
 
 
-if not MYPY:
-    class ModelCardEvaluationDetailArgsDict(TypedDict):
-        """
-        item of evaluation details
-        """
-        name: pulumi.Input[str]
-        datasets: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        evaluation_job_arn: NotRequired[pulumi.Input[str]]
-        evaluation_observation: NotRequired[pulumi.Input[str]]
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        additional attributes associated with the evaluation results.
-        """
-        metric_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelCardMetricGroupArgsDict']]]]
-elif False:
-    ModelCardEvaluationDetailArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardEvaluationDetailArgs:
     def __init__(__self__, *,
@@ -7706,15 +5586,6 @@ class ModelCardEvaluationDetailArgs:
         pulumi.set(self, "metric_groups", value)
 
 
-if not MYPY:
-    class ModelCardInferenceSpecificationArgsDict(TypedDict):
-        containers: pulumi.Input[Sequence[pulumi.Input['ModelCardContainerArgsDict']]]
-        """
-        Contains inference related information which were used to create model package.
-        """
-elif False:
-    ModelCardInferenceSpecificationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardInferenceSpecificationArgs:
     def __init__(__self__, *,
@@ -7736,39 +5607,6 @@ class ModelCardInferenceSpecificationArgs:
     def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ModelCardContainerArgs']]]):
         pulumi.set(self, "containers", value)
 
-
-if not MYPY:
-    class ModelCardIntendedUsesArgsDict(TypedDict):
-        """
-        Intended usage of model.
-        """
-        explanations_for_risk_rating: NotRequired[pulumi.Input[str]]
-        """
-        An explanation of why your organization categorizes the model with its risk rating.
-        """
-        factors_affecting_model_efficiency: NotRequired[pulumi.Input[str]]
-        """
-        Factors affecting model efficacy.
-        """
-        intended_uses: NotRequired[pulumi.Input[str]]
-        """
-        intended use cases.
-        """
-        purpose_of_model: NotRequired[pulumi.Input[str]]
-        """
-        Why the model was developed?
-        """
-        risk_rating: NotRequired[pulumi.Input['ModelCardRiskRating']]
-        """
-        Your organization's risk rating. You can specify one the following values as the risk rating:
-
-        - High
-        - Medium
-        - Low
-        - Unknown
-        """
-elif False:
-    ModelCardIntendedUsesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardIntendedUsesArgs:
@@ -7868,20 +5706,6 @@ class ModelCardIntendedUsesArgs:
         pulumi.set(self, "risk_rating", value)
 
 
-if not MYPY:
-    class ModelCardLinearGraphMetricArgsDict(TypedDict):
-        """
-        Linear graph metric.
-        """
-        name: pulumi.Input[str]
-        type: pulumi.Input['ModelCardLinearGraphMetricType']
-        value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]
-        notes: NotRequired[pulumi.Input[str]]
-        x_axis_name: NotRequired[pulumi.Input[str]]
-        y_axis_name: NotRequired[pulumi.Input[str]]
-elif False:
-    ModelCardLinearGraphMetricArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardLinearGraphMetricArgs:
     def __init__(__self__, *,
@@ -7959,17 +5783,6 @@ class ModelCardLinearGraphMetricArgs:
         pulumi.set(self, "y_axis_name", value)
 
 
-if not MYPY:
-    class ModelCardMatrixMetricArgsDict(TypedDict):
-        name: pulumi.Input[str]
-        type: pulumi.Input['ModelCardMatrixMetricType']
-        value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]
-        notes: NotRequired[pulumi.Input[str]]
-        x_axis_name: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        y_axis_name: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-elif False:
-    ModelCardMatrixMetricArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardMatrixMetricArgs:
     def __init__(__self__, *,
@@ -8044,16 +5857,6 @@ class ModelCardMatrixMetricArgs:
         pulumi.set(self, "y_axis_name", value)
 
 
-if not MYPY:
-    class ModelCardMetricGroupArgsDict(TypedDict):
-        """
-        item in metric groups
-        """
-        metric_data: pulumi.Input[Sequence[pulumi.Input[Union['ModelCardSimpleMetricArgsDict', 'ModelCardLinearGraphMetricArgsDict', 'ModelCardBarChartMetricArgsDict', 'ModelCardMatrixMetricArgsDict']]]]
-        name: pulumi.Input[str]
-elif False:
-    ModelCardMetricGroupArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardMetricGroupArgs:
     def __init__(__self__, *,
@@ -8084,18 +5887,6 @@ class ModelCardMetricGroupArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ModelCardModelOverviewInferenceEnvironmentPropertiesArgsDict(TypedDict):
-        """
-        Overview about the inference.
-        """
-        container_image: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        SageMaker inference image uri.
-        """
-elif False:
-    ModelCardModelOverviewInferenceEnvironmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardModelOverviewInferenceEnvironmentPropertiesArgs:
     def __init__(__self__, *,
@@ -8119,54 +5910,6 @@ class ModelCardModelOverviewInferenceEnvironmentPropertiesArgs:
     def container_image(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "container_image", value)
 
-
-if not MYPY:
-    class ModelCardModelOverviewArgsDict(TypedDict):
-        """
-        Overview about the model.
-        """
-        algorithm_type: NotRequired[pulumi.Input[str]]
-        """
-        Algorithm used to solve the problem.
-        """
-        inference_environment: NotRequired[pulumi.Input['ModelCardModelOverviewInferenceEnvironmentPropertiesArgsDict']]
-        """
-        Overview about the inference.
-        """
-        model_artifact: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Location of the model artifact.
-        """
-        model_creator: NotRequired[pulumi.Input[str]]
-        """
-        Creator of model.
-        """
-        model_description: NotRequired[pulumi.Input[str]]
-        """
-        description of model.
-        """
-        model_id: NotRequired[pulumi.Input[str]]
-        """
-        SageMaker Model Arn or Non SageMaker Model id.
-        """
-        model_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the model.
-        """
-        model_owner: NotRequired[pulumi.Input[str]]
-        """
-        Owner of model.
-        """
-        model_version: NotRequired[pulumi.Input[float]]
-        """
-        Version of the model.
-        """
-        problem_type: NotRequired[pulumi.Input[str]]
-        """
-        Problem being solved with the model.
-        """
-elif False:
-    ModelCardModelOverviewArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardModelOverviewArgs:
@@ -8336,15 +6079,6 @@ class ModelCardModelOverviewArgs:
         pulumi.set(self, "problem_type", value)
 
 
-if not MYPY:
-    class ModelCardModelPackageCreatorArgsDict(TypedDict):
-        user_profile_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the user's profile in Studio
-        """
-elif False:
-    ModelCardModelPackageCreatorArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardModelPackageCreatorArgs:
     def __init__(__self__, *,
@@ -8367,66 +6101,6 @@ class ModelCardModelPackageCreatorArgs:
     def user_profile_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_profile_name", value)
 
-
-if not MYPY:
-    class ModelCardModelPackageDetailsArgsDict(TypedDict):
-        """
-        Metadata information related to model package version
-        """
-        approval_description: NotRequired[pulumi.Input[str]]
-        """
-        A description provided for the model approval
-        """
-        created_by: NotRequired[pulumi.Input['ModelCardModelPackageCreatorArgsDict']]
-        """
-        Information about the user who created model package.
-        """
-        domain: NotRequired[pulumi.Input[str]]
-        """
-        The machine learning domain of the model package you specified. Common machine learning domains include computer vision and natural language processing.
-        """
-        inference_specification: NotRequired[pulumi.Input['ModelCardInferenceSpecificationArgsDict']]
-        """
-        Details about inference jobs that can be run with models based on this model package.
-        """
-        model_approval_status: NotRequired[pulumi.Input['ModelCardModelPackageDetailsModelApprovalStatus']]
-        """
-        Current approval status of model package
-        """
-        model_package_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the model package
-        """
-        model_package_description: NotRequired[pulumi.Input[str]]
-        """
-        A brief summary of the model package
-        """
-        model_package_group_name: NotRequired[pulumi.Input[str]]
-        """
-        If the model is a versioned model, the name of the model group that the versioned model belongs to.
-        """
-        model_package_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the model package
-        """
-        model_package_status: NotRequired[pulumi.Input['ModelCardModelPackageDetailsModelPackageStatus']]
-        """
-        Current status of model package
-        """
-        model_package_version: NotRequired[pulumi.Input[float]]
-        """
-        Version of the model package
-        """
-        source_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelCardSourceAlgorithmArgsDict']]]]
-        """
-        A list of algorithms that were used to create a model package.
-        """
-        task: NotRequired[pulumi.Input[str]]
-        """
-        The machine learning task you specified that your model package accomplishes. Common machine learning tasks include object detection and image classification.
-        """
-elif False:
-    ModelCardModelPackageDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardModelPackageDetailsArgs:
@@ -8644,17 +6318,6 @@ class ModelCardModelPackageDetailsArgs:
         pulumi.set(self, "task", value)
 
 
-if not MYPY:
-    class ModelCardObjectiveFunctionFunctionPropertiesArgsDict(TypedDict):
-        """
-        objective function that training job is optimized for.
-        """
-        condition: NotRequired[pulumi.Input[str]]
-        facet: NotRequired[pulumi.Input[str]]
-        function: NotRequired[pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesFunction']]
-elif False:
-    ModelCardObjectiveFunctionFunctionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardObjectiveFunctionFunctionPropertiesArgs:
     def __init__(__self__, *,
@@ -8699,22 +6362,6 @@ class ModelCardObjectiveFunctionFunctionPropertiesArgs:
         pulumi.set(self, "function", value)
 
 
-if not MYPY:
-    class ModelCardObjectiveFunctionArgsDict(TypedDict):
-        """
-        the objective function the model will optimize for.
-        """
-        function: NotRequired[pulumi.Input['ModelCardObjectiveFunctionFunctionPropertiesArgsDict']]
-        """
-        objective function that training job is optimized for.
-        """
-        notes: NotRequired[pulumi.Input[str]]
-        """
-        Notes about the object function, including other considerations for possible objective functions.
-        """
-elif False:
-    ModelCardObjectiveFunctionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardObjectiveFunctionArgs:
     def __init__(__self__, *,
@@ -8755,18 +6402,6 @@ class ModelCardObjectiveFunctionArgs:
         pulumi.set(self, "notes", value)
 
 
-if not MYPY:
-    class ModelCardSecurityConfigArgsDict(TypedDict):
-        """
-        An optional Key Management Service key to encrypt, decrypt, and re-encrypt model card content for regulated workloads with highly sensitive data.
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        A Key Management Service key ID to use for encrypting a model card.
-        """
-elif False:
-    ModelCardSecurityConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardSecurityConfigArgs:
     def __init__(__self__, *,
@@ -8792,20 +6427,6 @@ class ModelCardSecurityConfigArgs:
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
 
-
-if not MYPY:
-    class ModelCardSimpleMetricArgsDict(TypedDict):
-        """
-        metric data
-        """
-        name: pulumi.Input[str]
-        type: pulumi.Input['ModelCardSimpleMetricType']
-        value: pulumi.Input[Union[float, str, bool]]
-        notes: NotRequired[pulumi.Input[str]]
-        x_axis_name: NotRequired[pulumi.Input[str]]
-        y_axis_name: NotRequired[pulumi.Input[str]]
-elif False:
-    ModelCardSimpleMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardSimpleMetricArgs:
@@ -8884,19 +6505,6 @@ class ModelCardSimpleMetricArgs:
         pulumi.set(self, "y_axis_name", value)
 
 
-if not MYPY:
-    class ModelCardSourceAlgorithmArgsDict(TypedDict):
-        algorithm_name: pulumi.Input[str]
-        """
-        The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
-        """
-        model_data_url: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 path where the model artifacts, which result from model training, are stored.
-        """
-elif False:
-    ModelCardSourceAlgorithmArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardSourceAlgorithmArgs:
     def __init__(__self__, *,
@@ -8935,15 +6543,6 @@ class ModelCardSourceAlgorithmArgs:
         pulumi.set(self, "model_data_url", value)
 
 
-if not MYPY:
-    class ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgsDict(TypedDict):
-        container_image: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        SageMaker training image uri.
-        """
-elif False:
-    ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgs:
     def __init__(__self__, *,
@@ -8966,27 +6565,6 @@ class ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPro
     def container_image(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "container_image", value)
 
-
-if not MYPY:
-    class ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgsDict(TypedDict):
-        """
-        Details about any associated training jobs.
-        """
-        hyper_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgsDict']]]]
-        training_arn: NotRequired[pulumi.Input[str]]
-        """
-        SageMaker Training job arn.
-        """
-        training_datasets: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Location of the model datasets.
-        """
-        training_environment: NotRequired[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesArgsDict']]
-        training_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgsDict']]]]
-        user_provided_hyper_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingHyperParameterArgsDict']]]]
-        user_provided_training_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelCardTrainingMetricArgsDict']]]]
-elif False:
-    ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs:
@@ -9088,26 +6666,6 @@ class ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs:
         pulumi.set(self, "user_provided_training_metrics", value)
 
 
-if not MYPY:
-    class ModelCardTrainingDetailsArgsDict(TypedDict):
-        """
-        Overview about the training.
-        """
-        objective_function: NotRequired[pulumi.Input['ModelCardObjectiveFunctionArgsDict']]
-        """
-        The function that is optimized during model training.
-        """
-        training_job_details: NotRequired[pulumi.Input['ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgsDict']]
-        """
-        Details about any associated training jobs.
-        """
-        training_observations: NotRequired[pulumi.Input[str]]
-        """
-        Any observations about training.
-        """
-elif False:
-    ModelCardTrainingDetailsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardTrainingDetailsArgs:
     def __init__(__self__, *,
@@ -9164,22 +6722,6 @@ class ModelCardTrainingDetailsArgs:
         pulumi.set(self, "training_observations", value)
 
 
-if not MYPY:
-    class ModelCardTrainingHyperParameterArgsDict(TypedDict):
-        """
-        training hyper parameter
-        """
-        name: pulumi.Input[str]
-        """
-        The name of the hyper parameter.
-        """
-        value: pulumi.Input[str]
-        """
-        The value specified for the hyper parameter.
-        """
-elif False:
-    ModelCardTrainingHyperParameterArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelCardTrainingHyperParameterArgs:
     def __init__(__self__, *,
@@ -9217,26 +6759,6 @@ class ModelCardTrainingHyperParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class ModelCardTrainingMetricArgsDict(TypedDict):
-        """
-        training metric data.
-        """
-        name: pulumi.Input[str]
-        """
-        The name of the result from the SageMaker training job.
-        """
-        value: pulumi.Input[float]
-        """
-        The value of a result from the SageMaker training job.
-        """
-        notes: NotRequired[pulumi.Input[str]]
-        """
-        Any additional notes describing the result of the training job.
-        """
-elif False:
-    ModelCardTrainingMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardTrainingMetricArgs:
@@ -9291,26 +6813,6 @@ class ModelCardTrainingMetricArgs:
     def notes(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "notes", value)
 
-
-if not MYPY:
-    class ModelCardUserContextArgsDict(TypedDict):
-        """
-        Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
-        """
-        domain_id: NotRequired[pulumi.Input[str]]
-        """
-        The domain associated with the user.
-        """
-        user_profile_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the user's profile.
-        """
-        user_profile_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the user's profile.
-        """
-elif False:
-    ModelCardUserContextArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelCardUserContextArgs:
@@ -9367,46 +6869,6 @@ class ModelCardUserContextArgs:
     def user_profile_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_profile_name", value)
 
-
-if not MYPY:
-    class ModelExplainabilityJobDefinitionBatchTransformInputArgsDict(TypedDict):
-        """
-        The batch transform input for a monitoring job.
-        """
-        data_captured_destination_s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
-        """
-        dataset_format: pulumi.Input['ModelExplainabilityJobDefinitionDatasetFormatArgsDict']
-        """
-        The dataset format for your batch transform job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        features_attribute: NotRequired[pulumi.Input[str]]
-        """
-        JSONpath to locate features in JSONlines dataset
-        """
-        inference_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate predicted label(s)
-        """
-        probability_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate probabilities
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionBatchTransformInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionBatchTransformInputArgs:
@@ -9541,30 +7003,6 @@ class ModelExplainabilityJobDefinitionBatchTransformInputArgs:
         pulumi.set(self, "s3_input_mode", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionClusterConfigArgsDict(TypedDict):
-        """
-        Configuration for the cluster used to run model monitoring jobs.
-        """
-        instance_count: pulumi.Input[int]
-        """
-        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-        """
-        instance_type: pulumi.Input[str]
-        """
-        The ML compute instance type for the processing job.
-        """
-        volume_size_in_gb: pulumi.Input[int]
-        """
-        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-        """
-        volume_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionClusterConfigArgs:
     def __init__(__self__, *,
@@ -9634,18 +7072,6 @@ class ModelExplainabilityJobDefinitionClusterConfigArgs:
         pulumi.set(self, "volume_kms_key_id", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionConstraintsResourceArgsDict(TypedDict):
-        """
-        The baseline constraints resource for a monitoring job.
-        """
-        s3_uri: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionConstraintsResourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionConstraintsResourceArgs:
     def __init__(__self__, *,
@@ -9670,18 +7096,6 @@ class ModelExplainabilityJobDefinitionConstraintsResourceArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionCsvArgsDict(TypedDict):
-        """
-        The CSV format
-        """
-        header: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if given CSV has header
-        """
-elif False:
-    ModelExplainabilityJobDefinitionCsvArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionCsvArgs:
     def __init__(__self__, *,
@@ -9705,17 +7119,6 @@ class ModelExplainabilityJobDefinitionCsvArgs:
     def header(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "header", value)
 
-
-if not MYPY:
-    class ModelExplainabilityJobDefinitionDatasetFormatArgsDict(TypedDict):
-        """
-        The dataset format of the data to monitor
-        """
-        csv: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionCsvArgsDict']]
-        json: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionJsonArgsDict']]
-        parquet: NotRequired[pulumi.Input[bool]]
-elif False:
-    ModelExplainabilityJobDefinitionDatasetFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionDatasetFormatArgs:
@@ -9760,42 +7163,6 @@ class ModelExplainabilityJobDefinitionDatasetFormatArgs:
     def parquet(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "parquet", value)
 
-
-if not MYPY:
-    class ModelExplainabilityJobDefinitionEndpointInputArgsDict(TypedDict):
-        """
-        The endpoint for a monitoring job.
-        """
-        endpoint_name: pulumi.Input[str]
-        """
-        An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-        """
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        features_attribute: NotRequired[pulumi.Input[str]]
-        """
-        JSONpath to locate features in JSONlines dataset
-        """
-        inference_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate predicted label(s)
-        """
-        probability_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate probabilities
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionEndpointInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionEndpointInputArgs:
@@ -9915,18 +7282,6 @@ class ModelExplainabilityJobDefinitionEndpointInputArgs:
         pulumi.set(self, "s3_input_mode", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionJsonArgsDict(TypedDict):
-        """
-        The Json format
-        """
-        line: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if it is JSON line format
-        """
-elif False:
-    ModelExplainabilityJobDefinitionJsonArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionJsonArgs:
     def __init__(__self__, *,
@@ -9950,26 +7305,6 @@ class ModelExplainabilityJobDefinitionJsonArgs:
     def line(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "line", value)
 
-
-if not MYPY:
-    class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgsDict(TypedDict):
-        """
-        Container image configuration object for the monitoring job.
-        """
-        config_uri: pulumi.Input[str]
-        """
-        The S3 URI to an analysis configuration file
-        """
-        image_uri: pulumi.Input[str]
-        """
-        The container image to be run by the monitoring job.
-        """
-        environment: NotRequired[Any]
-        """
-        Sets the environment variables in the Docker container
-        """
-elif False:
-    ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs:
@@ -10025,22 +7360,6 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs:
         pulumi.set(self, "environment", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgsDict(TypedDict):
-        """
-        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
-        """
-        baselining_job_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the baseline model explainability job.
-        """
-        constraints_resource: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionConstraintsResourceArgsDict']]
-        """
-        The constraints resource for a model explainability job.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs:
     def __init__(__self__, *,
@@ -10080,22 +7399,6 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs:
     def constraints_resource(self, value: Optional[pulumi.Input['ModelExplainabilityJobDefinitionConstraintsResourceArgs']]):
         pulumi.set(self, "constraints_resource", value)
 
-
-if not MYPY:
-    class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgsDict(TypedDict):
-        """
-        The inputs for a monitoring job.
-        """
-        batch_transform_input: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionBatchTransformInputArgsDict']]
-        """
-        Input object for the batch transform job.
-        """
-        endpoint_input: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionEndpointInputArgsDict']]
-        """
-        Input object for the endpoint
-        """
-elif False:
-    ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs:
@@ -10137,22 +7440,6 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs:
         pulumi.set(self, "endpoint_input", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionMonitoringOutputConfigArgsDict(TypedDict):
-        """
-        The output configuration for monitoring jobs.
-        """
-        monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputArgsDict']]]
-        """
-        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionMonitoringOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs:
     def __init__(__self__, *,
@@ -10192,18 +7479,6 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionMonitoringOutputArgsDict(TypedDict):
-        """
-        The output object for a monitoring job.
-        """
-        s3_output: pulumi.Input['ModelExplainabilityJobDefinitionS3OutputArgsDict']
-        """
-        The Amazon S3 storage location where the results of a monitoring job are saved.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionMonitoringOutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionMonitoringOutputArgs:
     def __init__(__self__, *,
@@ -10227,18 +7502,6 @@ class ModelExplainabilityJobDefinitionMonitoringOutputArgs:
         pulumi.set(self, "s3_output", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionMonitoringResourcesArgsDict(TypedDict):
-        """
-        Identifies the resources to deploy for a monitoring job.
-        """
-        cluster_config: pulumi.Input['ModelExplainabilityJobDefinitionClusterConfigArgsDict']
-        """
-        The configuration for the cluster resources used to run the processing job.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionMonitoringResourcesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionMonitoringResourcesArgs:
     def __init__(__self__, *,
@@ -10261,26 +7524,6 @@ class ModelExplainabilityJobDefinitionMonitoringResourcesArgs:
     def cluster_config(self, value: pulumi.Input['ModelExplainabilityJobDefinitionClusterConfigArgs']):
         pulumi.set(self, "cluster_config", value)
 
-
-if not MYPY:
-    class ModelExplainabilityJobDefinitionNetworkConfigArgsDict(TypedDict):
-        """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
-        """
-        enable_inter_container_traffic_encryption: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-        """
-        enable_network_isolation: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-        """
-        vpc_config: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionVpcConfigArgsDict']]
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionNetworkConfigArgs:
@@ -10338,26 +7581,6 @@ class ModelExplainabilityJobDefinitionNetworkConfigArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionS3OutputArgsDict(TypedDict):
-        """
-        Information about where and how to store the results of a monitoring job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        """
-        s3_upload_mode: NotRequired[pulumi.Input['ModelExplainabilityJobDefinitionS3OutputS3UploadMode']]
-        """
-        Whether to upload the results of the monitoring job continuously or after the job completes.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionS3OutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionS3OutputArgs:
     def __init__(__self__, *,
@@ -10412,18 +7635,6 @@ class ModelExplainabilityJobDefinitionS3OutputArgs:
         pulumi.set(self, "s3_upload_mode", value)
 
 
-if not MYPY:
-    class ModelExplainabilityJobDefinitionStoppingConditionArgsDict(TypedDict):
-        """
-        Specifies a time limit for how long the monitoring job is allowed to run.
-        """
-        max_runtime_in_seconds: pulumi.Input[int]
-        """
-        The maximum runtime allowed in seconds.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionStoppingConditionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionStoppingConditionArgs:
     def __init__(__self__, *,
@@ -10446,22 +7657,6 @@ class ModelExplainabilityJobDefinitionStoppingConditionArgs:
     def max_runtime_in_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_runtime_in_seconds", value)
 
-
-if not MYPY:
-    class ModelExplainabilityJobDefinitionVpcConfigArgsDict(TypedDict):
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
-        """
-elif False:
-    ModelExplainabilityJobDefinitionVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelExplainabilityJobDefinitionVpcConfigArgs:
@@ -10500,42 +7695,6 @@ class ModelExplainabilityJobDefinitionVpcConfigArgs:
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
-
-if not MYPY:
-    class ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict(TypedDict):
-        """
-        Additional Inference Specification specifies details about inference jobs that can be run with models based on this model package.AdditionalInferenceSpecifications can be added to existing model packages using AdditionalInferenceSpecificationsToAdd.
-        """
-        containers: pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgsDict']]]
-        """
-        The Amazon ECR registry path of the Docker image that contains the inference code.
-        """
-        name: pulumi.Input[str]
-        """
-        A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        A description of the additional Inference specification.
-        """
-        supported_content_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The supported MIME types for the input data.
-        """
-        supported_realtime_inference_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of the instance types that are used to generate inferences in real-time
-        """
-        supported_response_mime_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The supported MIME types for the output data.
-        """
-        supported_transform_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
-        """
-elif False:
-    ModelPackageAdditionalInferenceSpecificationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageAdditionalInferenceSpecificationDefinitionArgs:
@@ -10655,26 +7814,6 @@ class ModelPackageAdditionalInferenceSpecificationDefinitionArgs:
         pulumi.set(self, "supported_transform_instance_types", value)
 
 
-if not MYPY:
-    class ModelPackageBiasArgsDict(TypedDict):
-        """
-        Contains bias metrics for a model.
-        """
-        post_training_report: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The post-training bias report for a model.
-        """
-        pre_training_report: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The pre-training bias report for a model.
-        """
-        report: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The bias report for a model
-        """
-elif False:
-    ModelPackageBiasArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageBiasArgs:
     def __init__(__self__, *,
@@ -10731,15 +7870,6 @@ class ModelPackageBiasArgs:
         pulumi.set(self, "report", value)
 
 
-if not MYPY:
-    class ModelPackageContainerDefinitionModelInputPropertiesArgsDict(TypedDict):
-        data_input_config: pulumi.Input[str]
-        """
-        The input configuration object for the model.
-        """
-elif False:
-    ModelPackageContainerDefinitionModelInputPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageContainerDefinitionModelInputPropertiesArgs:
     def __init__(__self__, *,
@@ -10761,45 +7891,6 @@ class ModelPackageContainerDefinitionModelInputPropertiesArgs:
     def data_input_config(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_input_config", value)
 
-
-if not MYPY:
-    class ModelPackageContainerDefinitionArgsDict(TypedDict):
-        """
-        Describes the Docker container for the model package.
-        """
-        image: pulumi.Input[str]
-        """
-        The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
-        """
-        container_hostname: NotRequired[pulumi.Input[str]]
-        """
-        The DNS host name for the Docker container.
-        """
-        environment: NotRequired[pulumi.Input['ModelPackageEnvironmentArgsDict']]
-        framework: NotRequired[pulumi.Input[str]]
-        """
-        The machine learning framework of the model package container image.
-        """
-        framework_version: NotRequired[pulumi.Input[str]]
-        """
-        The framework version of the Model Package Container Image.
-        """
-        image_digest: NotRequired[pulumi.Input[str]]
-        """
-        An MD5 hash of the training algorithm that identifies the Docker image used for training.
-        """
-        model_data_source: NotRequired[pulumi.Input['ModelPackageModelDataSourceArgsDict']]
-        model_data_url: NotRequired[pulumi.Input[str]]
-        """
-        A structure with Model Input details.
-        """
-        model_input: NotRequired[pulumi.Input['ModelPackageContainerDefinitionModelInputPropertiesArgsDict']]
-        nearest_model_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
-        """
-elif False:
-    ModelPackageContainerDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageContainerDefinitionArgs:
@@ -10956,15 +8047,6 @@ class ModelPackageContainerDefinitionArgs:
         pulumi.set(self, "nearest_model_name", value)
 
 
-if not MYPY:
-    class ModelPackageCustomerMetadataPropertiesArgsDict(TypedDict):
-        """
-        The metadata properties associated with the model package versions.
-        """
-        pass
-elif False:
-    ModelPackageCustomerMetadataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageCustomerMetadataPropertiesArgs:
     def __init__(__self__):
@@ -10973,18 +8055,6 @@ class ModelPackageCustomerMetadataPropertiesArgs:
         """
         pass
 
-
-if not MYPY:
-    class ModelPackageDataSourceArgsDict(TypedDict):
-        """
-        Describes the input source of a transform job and the way the transform job consumes it.
-        """
-        s3_data_source: pulumi.Input['ModelPackageS3DataSourceArgsDict']
-        """
-        The S3 location of the data source that is associated with a channel.
-        """
-elif False:
-    ModelPackageDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageDataSourceArgs:
@@ -11008,30 +8078,6 @@ class ModelPackageDataSourceArgs:
     def s3_data_source(self, value: pulumi.Input['ModelPackageS3DataSourceArgs']):
         pulumi.set(self, "s3_data_source", value)
 
-
-if not MYPY:
-    class ModelPackageDriftCheckBaselinesArgsDict(TypedDict):
-        """
-        Represents the drift check baselines that can be used when the model monitor is set using the model package.
-        """
-        bias: NotRequired[pulumi.Input['ModelPackageDriftCheckBiasArgsDict']]
-        """
-        Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
-        """
-        explainability: NotRequired[pulumi.Input['ModelPackageDriftCheckExplainabilityArgsDict']]
-        """
-        Represents the drift check explainability baselines that can be used when the model monitor is set using the model package.
-        """
-        model_data_quality: NotRequired[pulumi.Input['ModelPackageDriftCheckModelDataQualityArgsDict']]
-        """
-        Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
-        """
-        model_quality: NotRequired[pulumi.Input['ModelPackageDriftCheckModelQualityArgsDict']]
-        """
-        Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
-        """
-elif False:
-    ModelPackageDriftCheckBaselinesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageDriftCheckBaselinesArgs:
@@ -11105,26 +8151,6 @@ class ModelPackageDriftCheckBaselinesArgs:
         pulumi.set(self, "model_quality", value)
 
 
-if not MYPY:
-    class ModelPackageDriftCheckBiasArgsDict(TypedDict):
-        """
-        Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
-        """
-        config_file: NotRequired[pulumi.Input['ModelPackageFileSourceArgsDict']]
-        """
-        The bias config file for a model.
-        """
-        post_training_constraints: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The post-training constraints.
-        """
-        pre_training_constraints: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The pre-training constraints.
-        """
-elif False:
-    ModelPackageDriftCheckBiasArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageDriftCheckBiasArgs:
     def __init__(__self__, *,
@@ -11181,22 +8207,6 @@ class ModelPackageDriftCheckBiasArgs:
         pulumi.set(self, "pre_training_constraints", value)
 
 
-if not MYPY:
-    class ModelPackageDriftCheckExplainabilityArgsDict(TypedDict):
-        """
-        Contains explainability metrics for a model.
-        """
-        config_file: NotRequired[pulumi.Input['ModelPackageFileSourceArgsDict']]
-        """
-        The explainability config file for the model.
-        """
-        constraints: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The drift check explainability constraints.
-        """
-elif False:
-    ModelPackageDriftCheckExplainabilityArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageDriftCheckExplainabilityArgs:
     def __init__(__self__, *,
@@ -11236,22 +8246,6 @@ class ModelPackageDriftCheckExplainabilityArgs:
     def constraints(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
         pulumi.set(self, "constraints", value)
 
-
-if not MYPY:
-    class ModelPackageDriftCheckModelDataQualityArgsDict(TypedDict):
-        """
-        Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
-        """
-        constraints: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The drift check model data quality constraints.
-        """
-        statistics: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The drift check model data quality statistics.
-        """
-elif False:
-    ModelPackageDriftCheckModelDataQualityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageDriftCheckModelDataQualityArgs:
@@ -11293,22 +8287,6 @@ class ModelPackageDriftCheckModelDataQualityArgs:
         pulumi.set(self, "statistics", value)
 
 
-if not MYPY:
-    class ModelPackageDriftCheckModelQualityArgsDict(TypedDict):
-        """
-        Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
-        """
-        constraints: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The drift check model quality constraints.
-        """
-        statistics: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The drift check model quality statistics.
-        """
-elif False:
-    ModelPackageDriftCheckModelQualityArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageDriftCheckModelQualityArgs:
     def __init__(__self__, *,
@@ -11349,15 +8327,6 @@ class ModelPackageDriftCheckModelQualityArgs:
         pulumi.set(self, "statistics", value)
 
 
-if not MYPY:
-    class ModelPackageEnvironmentArgsDict(TypedDict):
-        """
-        Sets the environment variables in the Docker container
-        """
-        pass
-elif False:
-    ModelPackageEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageEnvironmentArgs:
     def __init__(__self__):
@@ -11366,18 +8335,6 @@ class ModelPackageEnvironmentArgs:
         """
         pass
 
-
-if not MYPY:
-    class ModelPackageExplainabilityArgsDict(TypedDict):
-        """
-        Contains explainability metrics for a model.
-        """
-        report: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        The explainability report for a model.
-        """
-elif False:
-    ModelPackageExplainabilityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageExplainabilityArgs:
@@ -11402,26 +8359,6 @@ class ModelPackageExplainabilityArgs:
     def report(self, value: Optional[pulumi.Input['ModelPackageMetricsSourceArgs']]):
         pulumi.set(self, "report", value)
 
-
-if not MYPY:
-    class ModelPackageFileSourceArgsDict(TypedDict):
-        """
-        Represents a File Source Object.
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        The Amazon S3 URI for the file source.
-        """
-        content_digest: NotRequired[pulumi.Input[str]]
-        """
-        The digest of the file source.
-        """
-        content_type: NotRequired[pulumi.Input[str]]
-        """
-        The type of content stored in the file source.
-        """
-elif False:
-    ModelPackageFileSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageFileSourceArgs:
@@ -11477,34 +8414,6 @@ class ModelPackageFileSourceArgs:
     def content_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_type", value)
 
-
-if not MYPY:
-    class ModelPackageInferenceSpecificationArgsDict(TypedDict):
-        """
-        Details about inference jobs that can be run with models based on this model package.
-        """
-        containers: pulumi.Input[Sequence[pulumi.Input['ModelPackageContainerDefinitionArgsDict']]]
-        """
-        The Amazon ECR registry path of the Docker image that contains the inference code.
-        """
-        supported_content_types: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The supported MIME types for the input data.
-        """
-        supported_response_mime_types: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The supported MIME types for the output data.
-        """
-        supported_realtime_inference_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of the instance types that are used to generate inferences in real-time
-        """
-        supported_transform_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
-        """
-elif False:
-    ModelPackageInferenceSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageInferenceSpecificationArgs:
@@ -11591,30 +8500,6 @@ class ModelPackageInferenceSpecificationArgs:
         pulumi.set(self, "supported_transform_instance_types", value)
 
 
-if not MYPY:
-    class ModelPackageMetadataPropertiesArgsDict(TypedDict):
-        """
-        Metadata properties of the tracking entity, trial, or trial component.
-        """
-        commit_id: NotRequired[pulumi.Input[str]]
-        """
-        The commit ID.
-        """
-        generated_by: NotRequired[pulumi.Input[str]]
-        """
-        The entity this entity was generated by.
-        """
-        project_id: NotRequired[pulumi.Input[str]]
-        """
-        The project ID metadata.
-        """
-        repository: NotRequired[pulumi.Input[str]]
-        """
-        The repository metadata.
-        """
-elif False:
-    ModelPackageMetadataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageMetadataPropertiesArgs:
     def __init__(__self__, *,
@@ -11687,26 +8572,6 @@ class ModelPackageMetadataPropertiesArgs:
         pulumi.set(self, "repository", value)
 
 
-if not MYPY:
-    class ModelPackageMetricsSourceArgsDict(TypedDict):
-        """
-        Represents a Metric Source Object.
-        """
-        content_type: pulumi.Input[str]
-        """
-        The type of content stored in the metric source.
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        The Amazon S3 URI for the metric source.
-        """
-        content_digest: NotRequired[pulumi.Input[str]]
-        """
-        The digest of the metric source.
-        """
-elif False:
-    ModelPackageMetricsSourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageMetricsSourceArgs:
     def __init__(__self__, *,
@@ -11761,18 +8626,6 @@ class ModelPackageMetricsSourceArgs:
         pulumi.set(self, "content_digest", value)
 
 
-if not MYPY:
-    class ModelPackageModelAccessConfigArgsDict(TypedDict):
-        """
-        Specifies the access configuration file for the ML model.
-        """
-        accept_eula: pulumi.Input[bool]
-        """
-        Specifies agreement to the model end-user license agreement (EULA).
-        """
-elif False:
-    ModelPackageModelAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageModelAccessConfigArgs:
     def __init__(__self__, *,
@@ -11795,22 +8648,6 @@ class ModelPackageModelAccessConfigArgs:
     def accept_eula(self, value: pulumi.Input[bool]):
         pulumi.set(self, "accept_eula", value)
 
-
-if not MYPY:
-    class ModelPackageModelCardArgsDict(TypedDict):
-        """
-        The model card associated with the model package.
-        """
-        model_card_content: pulumi.Input[str]
-        """
-        The content of the model card.
-        """
-        model_card_status: pulumi.Input['ModelPackageModelCardModelCardStatus']
-        """
-        The approval status of the model card within your organization.
-        """
-elif False:
-    ModelPackageModelCardArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageModelCardArgs:
@@ -11849,22 +8686,6 @@ class ModelPackageModelCardArgs:
     def model_card_status(self, value: pulumi.Input['ModelPackageModelCardModelCardStatus']):
         pulumi.set(self, "model_card_status", value)
 
-
-if not MYPY:
-    class ModelPackageModelDataQualityArgsDict(TypedDict):
-        """
-        Metrics that measure the quality of the input data for a model.
-        """
-        constraints: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        Data quality constraints for a model.
-        """
-        statistics: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        Data quality statistics for a model.
-        """
-elif False:
-    ModelPackageModelDataQualityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageModelDataQualityArgs:
@@ -11906,15 +8727,6 @@ class ModelPackageModelDataQualityArgs:
         pulumi.set(self, "statistics", value)
 
 
-if not MYPY:
-    class ModelPackageModelDataSourceArgsDict(TypedDict):
-        """
-        Specifies the location of ML model data to deploy during endpoint creation.
-        """
-        s3_data_source: NotRequired[pulumi.Input['ModelPackageS3ModelDataSourceArgsDict']]
-elif False:
-    ModelPackageModelDataSourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageModelDataSourceArgs:
     def __init__(__self__, *,
@@ -11934,30 +8746,6 @@ class ModelPackageModelDataSourceArgs:
     def s3_data_source(self, value: Optional[pulumi.Input['ModelPackageS3ModelDataSourceArgs']]):
         pulumi.set(self, "s3_data_source", value)
 
-
-if not MYPY:
-    class ModelPackageModelMetricsArgsDict(TypedDict):
-        """
-        A structure that contains model metrics reports.
-        """
-        bias: NotRequired[pulumi.Input['ModelPackageBiasArgsDict']]
-        """
-        Metrics that measure bias in a model.
-        """
-        explainability: NotRequired[pulumi.Input['ModelPackageExplainabilityArgsDict']]
-        """
-        Metrics that help explain a model.
-        """
-        model_data_quality: NotRequired[pulumi.Input['ModelPackageModelDataQualityArgsDict']]
-        """
-        Metrics that measure the quality of the input data for a model.
-        """
-        model_quality: NotRequired[pulumi.Input['ModelPackageModelQualityArgsDict']]
-        """
-        Metrics that measure the quality of a model.
-        """
-elif False:
-    ModelPackageModelMetricsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageModelMetricsArgs:
@@ -12031,22 +8819,6 @@ class ModelPackageModelMetricsArgs:
         pulumi.set(self, "model_quality", value)
 
 
-if not MYPY:
-    class ModelPackageModelQualityArgsDict(TypedDict):
-        """
-        Metrics that measure the quality of a model.
-        """
-        constraints: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        Model quality constraints.
-        """
-        statistics: NotRequired[pulumi.Input['ModelPackageMetricsSourceArgsDict']]
-        """
-        Model quality statistics.
-        """
-elif False:
-    ModelPackageModelQualityArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageModelQualityArgs:
     def __init__(__self__, *,
@@ -12087,22 +8859,6 @@ class ModelPackageModelQualityArgs:
         pulumi.set(self, "statistics", value)
 
 
-if not MYPY:
-    class ModelPackageS3DataSourceArgsDict(TypedDict):
-        """
-        Describes the S3 data source.
-        """
-        s3_data_type: pulumi.Input['ModelPackageS3DataSourceS3DataType']
-        """
-        The S3 Data Source Type
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        Depending on the value specified for the S3DataType, identifies either a key name prefix or a manifest.
-        """
-elif False:
-    ModelPackageS3DataSourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageS3DataSourceArgs:
     def __init__(__self__, *,
@@ -12140,27 +8896,6 @@ class ModelPackageS3DataSourceArgs:
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
 
-
-if not MYPY:
-    class ModelPackageS3ModelDataSourceArgsDict(TypedDict):
-        """
-        Specifies the S3 location of ML model data to deploy.
-        """
-        compression_type: pulumi.Input['ModelPackageS3ModelDataSourceCompressionType']
-        """
-        Specifies how the ML model data is prepared.
-        """
-        s3_data_type: pulumi.Input['ModelPackageS3ModelDataSourceS3DataType']
-        """
-        Specifies the type of ML model data to deploy.
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        Specifies the S3 path of ML model data to deploy.
-        """
-        model_access_config: NotRequired[pulumi.Input['ModelPackageModelAccessConfigArgsDict']]
-elif False:
-    ModelPackageS3ModelDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageS3ModelDataSourceArgs:
@@ -12227,18 +8962,6 @@ class ModelPackageS3ModelDataSourceArgs:
         pulumi.set(self, "model_access_config", value)
 
 
-if not MYPY:
-    class ModelPackageSecurityConfigArgsDict(TypedDict):
-        """
-        An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
-        """
-        kms_key_id: pulumi.Input[str]
-        """
-        The AWS KMS Key ID (KMSKeyId) used for encryption of model package information.
-        """
-elif False:
-    ModelPackageSecurityConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageSecurityConfigArgs:
     def __init__(__self__, *,
@@ -12262,18 +8985,6 @@ class ModelPackageSecurityConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class ModelPackageSourceAlgorithmSpecificationArgsDict(TypedDict):
-        """
-        Details about the algorithm that was used to create the model package.
-        """
-        source_algorithms: pulumi.Input[Sequence[pulumi.Input['ModelPackageSourceAlgorithmArgsDict']]]
-        """
-        A list of algorithms that were used to create a model package.
-        """
-elif False:
-    ModelPackageSourceAlgorithmSpecificationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageSourceAlgorithmSpecificationArgs:
     def __init__(__self__, *,
@@ -12296,22 +9007,6 @@ class ModelPackageSourceAlgorithmSpecificationArgs:
     def source_algorithms(self, value: pulumi.Input[Sequence[pulumi.Input['ModelPackageSourceAlgorithmArgs']]]):
         pulumi.set(self, "source_algorithms", value)
 
-
-if not MYPY:
-    class ModelPackageSourceAlgorithmArgsDict(TypedDict):
-        """
-        Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
-        """
-        algorithm_name: pulumi.Input[str]
-        """
-        The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
-        """
-        model_data_url: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
-        """
-elif False:
-    ModelPackageSourceAlgorithmArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageSourceAlgorithmArgs:
@@ -12352,18 +9047,6 @@ class ModelPackageSourceAlgorithmArgs:
         pulumi.set(self, "model_data_url", value)
 
 
-if not MYPY:
-    class ModelPackageStatusDetailsArgsDict(TypedDict):
-        """
-        Details about the current status of the model package.
-        """
-        validation_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgsDict']]]]
-        """
-        The validation status of the model package.
-        """
-elif False:
-    ModelPackageStatusDetailsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageStatusDetailsArgs:
     def __init__(__self__, *,
@@ -12387,26 +9070,6 @@ class ModelPackageStatusDetailsArgs:
     def validation_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageStatusItemArgs']]]]):
         pulumi.set(self, "validation_statuses", value)
 
-
-if not MYPY:
-    class ModelPackageStatusItemArgsDict(TypedDict):
-        """
-        Represents the overall status of a model package.
-        """
-        name: pulumi.Input[str]
-        """
-        The name of the model package for which the overall status is being reported.
-        """
-        status: pulumi.Input['ModelPackageStatusItemStatus']
-        """
-        The current status.
-        """
-        failure_reason: NotRequired[pulumi.Input[str]]
-        """
-        If the overall status is Failed, the reason for the failure.
-        """
-elif False:
-    ModelPackageStatusItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageStatusItemArgs:
@@ -12461,30 +9124,6 @@ class ModelPackageStatusItemArgs:
     def failure_reason(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "failure_reason", value)
 
-
-if not MYPY:
-    class ModelPackageTransformInputArgsDict(TypedDict):
-        """
-        Describes the input source of a transform job and the way the transform job consumes it.
-        """
-        data_source: pulumi.Input['ModelPackageDataSourceArgsDict']
-        """
-        Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
-        """
-        compression_type: NotRequired[pulumi.Input['ModelPackageTransformInputCompressionType']]
-        """
-        If your transform data is compressed, specify the compression type. Amazon SageMaker automatically decompresses the data for the transform job accordingly. The default value is None.
-        """
-        content_type: NotRequired[pulumi.Input[str]]
-        """
-        The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
-        """
-        split_type: NotRequired[pulumi.Input['ModelPackageTransformInputSplitType']]
-        """
-        The method to use to split the transform job's data files into smaller batches. 
-        """
-elif False:
-    ModelPackageTransformInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageTransformInputArgs:
@@ -12556,42 +9195,6 @@ class ModelPackageTransformInputArgs:
     def split_type(self, value: Optional[pulumi.Input['ModelPackageTransformInputSplitType']]):
         pulumi.set(self, "split_type", value)
 
-
-if not MYPY:
-    class ModelPackageTransformJobDefinitionArgsDict(TypedDict):
-        """
-        Defines the input needed to run a transform job using the inference specification specified in the algorithm.
-        """
-        transform_input: pulumi.Input['ModelPackageTransformInputArgsDict']
-        """
-        A description of the input source and the way the transform job consumes it.
-        """
-        transform_output: pulumi.Input['ModelPackageTransformOutputArgsDict']
-        """
-        Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
-        """
-        transform_resources: pulumi.Input['ModelPackageTransformResourcesArgsDict']
-        """
-        Identifies the ML compute instances for the transform job.
-        """
-        batch_strategy: NotRequired[pulumi.Input['ModelPackageTransformJobDefinitionBatchStrategy']]
-        """
-        A string that determines the number of records included in a single mini-batch.
-        """
-        environment: NotRequired[pulumi.Input['ModelPackageEnvironmentArgsDict']]
-        """
-        The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
-        """
-        max_concurrent_transforms: NotRequired[pulumi.Input[int]]
-        """
-        The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
-        """
-        max_payload_in_mb: NotRequired[pulumi.Input[int]]
-        """
-        The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
-        """
-elif False:
-    ModelPackageTransformJobDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelPackageTransformJobDefinitionArgs:
@@ -12710,30 +9313,6 @@ class ModelPackageTransformJobDefinitionArgs:
         pulumi.set(self, "max_payload_in_mb", value)
 
 
-if not MYPY:
-    class ModelPackageTransformOutputArgsDict(TypedDict):
-        """
-        Describes the results of a transform job.
-        """
-        s3_output_path: pulumi.Input[str]
-        """
-        The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.
-        """
-        accept: NotRequired[pulumi.Input[str]]
-        """
-        The MIME type used to specify the output data. Amazon SageMaker uses the MIME type with each http call to transfer data from the transform job.
-        """
-        assemble_with: NotRequired[pulumi.Input['ModelPackageTransformOutputAssembleWith']]
-        """
-        Defines how to assemble the results of the transform job as a single S3 object.
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-        """
-elif False:
-    ModelPackageTransformOutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageTransformOutputArgs:
     def __init__(__self__, *,
@@ -12805,26 +9384,6 @@ class ModelPackageTransformOutputArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class ModelPackageTransformResourcesArgsDict(TypedDict):
-        """
-        Describes the resources, including ML instance types and ML instance count, to use for transform job.
-        """
-        instance_count: pulumi.Input[int]
-        """
-        The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is 1.
-        """
-        instance_type: pulumi.Input[str]
-        """
-        The ML compute instance type for the transform job.
-        """
-        volume_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job.
-        """
-elif False:
-    ModelPackageTransformResourcesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageTransformResourcesArgs:
     def __init__(__self__, *,
@@ -12879,22 +9438,6 @@ class ModelPackageTransformResourcesArgs:
         pulumi.set(self, "volume_kms_key_id", value)
 
 
-if not MYPY:
-    class ModelPackageValidationProfileArgsDict(TypedDict):
-        """
-        Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
-        """
-        profile_name: pulumi.Input[str]
-        """
-        The name of the profile for the model package.
-        """
-        transform_job_definition: pulumi.Input['ModelPackageTransformJobDefinitionArgsDict']
-        """
-        The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
-        """
-elif False:
-    ModelPackageValidationProfileArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageValidationProfileArgs:
     def __init__(__self__, *,
@@ -12933,22 +9476,6 @@ class ModelPackageValidationProfileArgs:
         pulumi.set(self, "transform_job_definition", value)
 
 
-if not MYPY:
-    class ModelPackageValidationSpecificationArgsDict(TypedDict):
-        """
-        Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
-        """
-        validation_profiles: pulumi.Input[Sequence[pulumi.Input['ModelPackageValidationProfileArgsDict']]]
-        """
-        An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
-        """
-        validation_role: pulumi.Input[str]
-        """
-        The IAM roles to be used for the validation of the model package.
-        """
-elif False:
-    ModelPackageValidationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelPackageValidationSpecificationArgs:
     def __init__(__self__, *,
@@ -12986,54 +9513,6 @@ class ModelPackageValidationSpecificationArgs:
     def validation_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "validation_role", value)
 
-
-if not MYPY:
-    class ModelQualityJobDefinitionBatchTransformInputArgsDict(TypedDict):
-        """
-        The batch transform input for a monitoring job.
-        """
-        data_captured_destination_s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
-        """
-        dataset_format: pulumi.Input['ModelQualityJobDefinitionDatasetFormatArgsDict']
-        """
-        The dataset format for your batch transform job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        end_time_offset: NotRequired[pulumi.Input[str]]
-        """
-        Monitoring end time offset, e.g. PT0H
-        """
-        inference_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate predicted label(s)
-        """
-        probability_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate probabilities
-        """
-        probability_threshold_attribute: NotRequired[pulumi.Input[float]]
-        """
-        The threshold for the class probability to be evaluated as a positive result.
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['ModelQualityJobDefinitionBatchTransformInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-        start_time_offset: NotRequired[pulumi.Input[str]]
-        """
-        Monitoring start time offset, e.g. -PT1H
-        """
-elif False:
-    ModelQualityJobDefinitionBatchTransformInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelQualityJobDefinitionBatchTransformInputArgs:
@@ -13200,30 +9679,6 @@ class ModelQualityJobDefinitionBatchTransformInputArgs:
         pulumi.set(self, "start_time_offset", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionClusterConfigArgsDict(TypedDict):
-        """
-        Configuration for the cluster used to run model monitoring jobs.
-        """
-        instance_count: pulumi.Input[int]
-        """
-        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-        """
-        instance_type: pulumi.Input[str]
-        """
-        The ML compute instance type for the processing job.
-        """
-        volume_size_in_gb: pulumi.Input[int]
-        """
-        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-        """
-        volume_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-        """
-elif False:
-    ModelQualityJobDefinitionClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionClusterConfigArgs:
     def __init__(__self__, *,
@@ -13293,18 +9748,6 @@ class ModelQualityJobDefinitionClusterConfigArgs:
         pulumi.set(self, "volume_kms_key_id", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionConstraintsResourceArgsDict(TypedDict):
-        """
-        The baseline constraints resource for a monitoring job.
-        """
-        s3_uri: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
-        """
-elif False:
-    ModelQualityJobDefinitionConstraintsResourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionConstraintsResourceArgs:
     def __init__(__self__, *,
@@ -13329,18 +9772,6 @@ class ModelQualityJobDefinitionConstraintsResourceArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionCsvArgsDict(TypedDict):
-        """
-        The CSV format
-        """
-        header: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if given CSV has header
-        """
-elif False:
-    ModelQualityJobDefinitionCsvArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionCsvArgs:
     def __init__(__self__, *,
@@ -13364,17 +9795,6 @@ class ModelQualityJobDefinitionCsvArgs:
     def header(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "header", value)
 
-
-if not MYPY:
-    class ModelQualityJobDefinitionDatasetFormatArgsDict(TypedDict):
-        """
-        The dataset format of the data to monitor
-        """
-        csv: NotRequired[pulumi.Input['ModelQualityJobDefinitionCsvArgsDict']]
-        json: NotRequired[pulumi.Input['ModelQualityJobDefinitionJsonArgsDict']]
-        parquet: NotRequired[pulumi.Input[bool]]
-elif False:
-    ModelQualityJobDefinitionDatasetFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelQualityJobDefinitionDatasetFormatArgs:
@@ -13419,50 +9839,6 @@ class ModelQualityJobDefinitionDatasetFormatArgs:
     def parquet(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "parquet", value)
 
-
-if not MYPY:
-    class ModelQualityJobDefinitionEndpointInputArgsDict(TypedDict):
-        """
-        The endpoint for a monitoring job.
-        """
-        endpoint_name: pulumi.Input[str]
-        """
-        An endpoint in customer's account which has enabled `DataCaptureConfig` enabled.
-        """
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        end_time_offset: NotRequired[pulumi.Input[str]]
-        """
-        Monitoring end time offset, e.g. PT0H
-        """
-        inference_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate predicted label(s)
-        """
-        probability_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Index or JSONpath to locate probabilities
-        """
-        probability_threshold_attribute: NotRequired[pulumi.Input[float]]
-        """
-        The threshold for the class probability to be evaluated as a positive result.
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['ModelQualityJobDefinitionEndpointInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['ModelQualityJobDefinitionEndpointInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-        start_time_offset: NotRequired[pulumi.Input[str]]
-        """
-        Monitoring start time offset, e.g. -PT1H
-        """
-elif False:
-    ModelQualityJobDefinitionEndpointInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelQualityJobDefinitionEndpointInputArgs:
@@ -13614,18 +9990,6 @@ class ModelQualityJobDefinitionEndpointInputArgs:
         pulumi.set(self, "start_time_offset", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionJsonArgsDict(TypedDict):
-        """
-        The Json format
-        """
-        line: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if it is JSON line format
-        """
-elif False:
-    ModelQualityJobDefinitionJsonArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionJsonArgs:
     def __init__(__self__, *,
@@ -13649,42 +10013,6 @@ class ModelQualityJobDefinitionJsonArgs:
     def line(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "line", value)
 
-
-if not MYPY:
-    class ModelQualityJobDefinitionModelQualityAppSpecificationArgsDict(TypedDict):
-        """
-        Container image configuration object for the monitoring job.
-        """
-        image_uri: pulumi.Input[str]
-        """
-        The container image to be run by the monitoring job.
-        """
-        problem_type: pulumi.Input['ModelQualityJobDefinitionProblemType']
-        """
-        The machine learning problem type of the model that the monitoring job monitors.
-        """
-        container_arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        An array of arguments for the container used to run the monitoring job.
-        """
-        container_entrypoint: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Specifies the entrypoint for a container used to run the monitoring job.
-        """
-        environment: NotRequired[Any]
-        """
-        Sets the environment variables in the Docker container
-        """
-        post_analytics_processor_source_uri: NotRequired[pulumi.Input[str]]
-        """
-        An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-        """
-        record_preprocessor_source_uri: NotRequired[pulumi.Input[str]]
-        """
-        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
-        """
-elif False:
-    ModelQualityJobDefinitionModelQualityAppSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelQualityJobDefinitionModelQualityAppSpecificationArgs:
@@ -13804,22 +10132,6 @@ class ModelQualityJobDefinitionModelQualityAppSpecificationArgs:
         pulumi.set(self, "record_preprocessor_source_uri", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionModelQualityBaselineConfigArgsDict(TypedDict):
-        """
-        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
-        """
-        baselining_job_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the job that performs baselining for the monitoring job.
-        """
-        constraints_resource: NotRequired[pulumi.Input['ModelQualityJobDefinitionConstraintsResourceArgsDict']]
-        """
-        The constraints resource for a monitoring job.
-        """
-elif False:
-    ModelQualityJobDefinitionModelQualityBaselineConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionModelQualityBaselineConfigArgs:
     def __init__(__self__, *,
@@ -13859,26 +10171,6 @@ class ModelQualityJobDefinitionModelQualityBaselineConfigArgs:
     def constraints_resource(self, value: Optional[pulumi.Input['ModelQualityJobDefinitionConstraintsResourceArgs']]):
         pulumi.set(self, "constraints_resource", value)
 
-
-if not MYPY:
-    class ModelQualityJobDefinitionModelQualityJobInputArgsDict(TypedDict):
-        """
-        The inputs for a monitoring job.
-        """
-        ground_truth_s3_input: pulumi.Input['ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgsDict']
-        """
-        The ground truth label provided for the model.
-        """
-        batch_transform_input: NotRequired[pulumi.Input['ModelQualityJobDefinitionBatchTransformInputArgsDict']]
-        """
-        Input object for the batch transform job.
-        """
-        endpoint_input: NotRequired[pulumi.Input['ModelQualityJobDefinitionEndpointInputArgsDict']]
-        """
-        Input object for the endpoint
-        """
-elif False:
-    ModelQualityJobDefinitionModelQualityJobInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelQualityJobDefinitionModelQualityJobInputArgs:
@@ -13935,18 +10227,6 @@ class ModelQualityJobDefinitionModelQualityJobInputArgs:
         pulumi.set(self, "endpoint_input", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgsDict(TypedDict):
-        """
-        Ground truth input provided in S3 
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        """
-elif False:
-    ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs:
     def __init__(__self__, *,
@@ -13969,22 +10249,6 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs:
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
 
-
-if not MYPY:
-    class ModelQualityJobDefinitionMonitoringOutputConfigArgsDict(TypedDict):
-        """
-        The output configuration for monitoring jobs.
-        """
-        monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['ModelQualityJobDefinitionMonitoringOutputArgsDict']]]
-        """
-        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-        """
-elif False:
-    ModelQualityJobDefinitionMonitoringOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelQualityJobDefinitionMonitoringOutputConfigArgs:
@@ -14025,18 +10289,6 @@ class ModelQualityJobDefinitionMonitoringOutputConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionMonitoringOutputArgsDict(TypedDict):
-        """
-        The output object for a monitoring job.
-        """
-        s3_output: pulumi.Input['ModelQualityJobDefinitionS3OutputArgsDict']
-        """
-        The Amazon S3 storage location where the results of a monitoring job are saved.
-        """
-elif False:
-    ModelQualityJobDefinitionMonitoringOutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionMonitoringOutputArgs:
     def __init__(__self__, *,
@@ -14060,18 +10312,6 @@ class ModelQualityJobDefinitionMonitoringOutputArgs:
         pulumi.set(self, "s3_output", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionMonitoringResourcesArgsDict(TypedDict):
-        """
-        Identifies the resources to deploy for a monitoring job.
-        """
-        cluster_config: pulumi.Input['ModelQualityJobDefinitionClusterConfigArgsDict']
-        """
-        The configuration for the cluster resources used to run the processing job.
-        """
-elif False:
-    ModelQualityJobDefinitionMonitoringResourcesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionMonitoringResourcesArgs:
     def __init__(__self__, *,
@@ -14094,26 +10334,6 @@ class ModelQualityJobDefinitionMonitoringResourcesArgs:
     def cluster_config(self, value: pulumi.Input['ModelQualityJobDefinitionClusterConfigArgs']):
         pulumi.set(self, "cluster_config", value)
 
-
-if not MYPY:
-    class ModelQualityJobDefinitionNetworkConfigArgsDict(TypedDict):
-        """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
-        """
-        enable_inter_container_traffic_encryption: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-        """
-        enable_network_isolation: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-        """
-        vpc_config: NotRequired[pulumi.Input['ModelQualityJobDefinitionVpcConfigArgsDict']]
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-elif False:
-    ModelQualityJobDefinitionNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelQualityJobDefinitionNetworkConfigArgs:
@@ -14171,26 +10391,6 @@ class ModelQualityJobDefinitionNetworkConfigArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionS3OutputArgsDict(TypedDict):
-        """
-        Information about where and how to store the results of a monitoring job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        """
-        s3_upload_mode: NotRequired[pulumi.Input['ModelQualityJobDefinitionS3OutputS3UploadMode']]
-        """
-        Whether to upload the results of the monitoring job continuously or after the job completes.
-        """
-elif False:
-    ModelQualityJobDefinitionS3OutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionS3OutputArgs:
     def __init__(__self__, *,
@@ -14245,18 +10445,6 @@ class ModelQualityJobDefinitionS3OutputArgs:
         pulumi.set(self, "s3_upload_mode", value)
 
 
-if not MYPY:
-    class ModelQualityJobDefinitionStoppingConditionArgsDict(TypedDict):
-        """
-        Specifies a time limit for how long the monitoring job is allowed to run.
-        """
-        max_runtime_in_seconds: pulumi.Input[int]
-        """
-        The maximum runtime allowed in seconds.
-        """
-elif False:
-    ModelQualityJobDefinitionStoppingConditionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ModelQualityJobDefinitionStoppingConditionArgs:
     def __init__(__self__, *,
@@ -14279,22 +10467,6 @@ class ModelQualityJobDefinitionStoppingConditionArgs:
     def max_runtime_in_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_runtime_in_seconds", value)
 
-
-if not MYPY:
-    class ModelQualityJobDefinitionVpcConfigArgsDict(TypedDict):
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
-        """
-elif False:
-    ModelQualityJobDefinitionVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ModelQualityJobDefinitionVpcConfigArgs:
@@ -14333,22 +10505,6 @@ class ModelQualityJobDefinitionVpcConfigArgs:
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
-
-if not MYPY:
-    class MonitoringScheduleBaselineConfigArgsDict(TypedDict):
-        """
-        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
-        """
-        constraints_resource: NotRequired[pulumi.Input['MonitoringScheduleConstraintsResourceArgsDict']]
-        """
-        The Amazon S3 URI for the constraints resource.
-        """
-        statistics_resource: NotRequired[pulumi.Input['MonitoringScheduleStatisticsResourceArgsDict']]
-        """
-        The baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
-        """
-elif False:
-    MonitoringScheduleBaselineConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleBaselineConfigArgs:
@@ -14389,35 +10545,6 @@ class MonitoringScheduleBaselineConfigArgs:
     def statistics_resource(self, value: Optional[pulumi.Input['MonitoringScheduleStatisticsResourceArgs']]):
         pulumi.set(self, "statistics_resource", value)
 
-
-if not MYPY:
-    class MonitoringScheduleBatchTransformInputArgsDict(TypedDict):
-        """
-        The batch transform input for a monitoring job.
-        """
-        data_captured_destination_s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
-        """
-        dataset_format: pulumi.Input['MonitoringScheduleDatasetFormatArgsDict']
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        exclude_features_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Indexes or names of the features to be excluded from analysis
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['MonitoringScheduleBatchTransformInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['MonitoringScheduleBatchTransformInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-elif False:
-    MonitoringScheduleBatchTransformInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleBatchTransformInputArgs:
@@ -14516,30 +10643,6 @@ class MonitoringScheduleBatchTransformInputArgs:
         pulumi.set(self, "s3_input_mode", value)
 
 
-if not MYPY:
-    class MonitoringScheduleClusterConfigArgsDict(TypedDict):
-        """
-        Configuration for the cluster used to run model monitoring jobs.
-        """
-        instance_count: pulumi.Input[int]
-        """
-        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
-        """
-        instance_type: pulumi.Input[str]
-        """
-        The ML compute instance type for the processing job.
-        """
-        volume_size_in_gb: pulumi.Input[int]
-        """
-        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-        """
-        volume_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
-        """
-elif False:
-    MonitoringScheduleClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleClusterConfigArgs:
     def __init__(__self__, *,
@@ -14608,30 +10711,6 @@ class MonitoringScheduleClusterConfigArgs:
     def volume_kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "volume_kms_key_id", value)
 
-
-if not MYPY:
-    class MonitoringScheduleConfigArgsDict(TypedDict):
-        """
-        The configuration object that specifies the monitoring schedule and defines the monitoring job.
-        """
-        monitoring_job_definition: NotRequired[pulumi.Input['MonitoringScheduleMonitoringJobDefinitionArgsDict']]
-        """
-        Defines the monitoring job.
-        """
-        monitoring_job_definition_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the job definition
-        """
-        monitoring_type: NotRequired[pulumi.Input['MonitoringScheduleMonitoringType']]
-        """
-        The type of the monitoring job definition to schedule.
-        """
-        schedule_config: NotRequired[pulumi.Input['MonitoringScheduleScheduleConfigArgsDict']]
-        """
-        Configures the monitoring schedule.
-        """
-elif False:
-    MonitoringScheduleConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleConfigArgs:
@@ -14705,18 +10784,6 @@ class MonitoringScheduleConfigArgs:
         pulumi.set(self, "schedule_config", value)
 
 
-if not MYPY:
-    class MonitoringScheduleConstraintsResourceArgsDict(TypedDict):
-        """
-        The baseline constraints resource for a monitoring job.
-        """
-        s3_uri: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
-        """
-elif False:
-    MonitoringScheduleConstraintsResourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleConstraintsResourceArgs:
     def __init__(__self__, *,
@@ -14741,18 +10808,6 @@ class MonitoringScheduleConstraintsResourceArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class MonitoringScheduleCsvArgsDict(TypedDict):
-        """
-        The CSV format
-        """
-        header: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if given CSV has header
-        """
-elif False:
-    MonitoringScheduleCsvArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleCsvArgs:
     def __init__(__self__, *,
@@ -14776,17 +10831,6 @@ class MonitoringScheduleCsvArgs:
     def header(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "header", value)
 
-
-if not MYPY:
-    class MonitoringScheduleDatasetFormatArgsDict(TypedDict):
-        """
-        The dataset format of the data to monitor
-        """
-        csv: NotRequired[pulumi.Input['MonitoringScheduleCsvArgsDict']]
-        json: NotRequired[pulumi.Input['MonitoringScheduleJsonArgsDict']]
-        parquet: NotRequired[pulumi.Input[bool]]
-elif False:
-    MonitoringScheduleDatasetFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleDatasetFormatArgs:
@@ -14831,31 +10875,6 @@ class MonitoringScheduleDatasetFormatArgs:
     def parquet(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "parquet", value)
 
-
-if not MYPY:
-    class MonitoringScheduleEndpointInputArgsDict(TypedDict):
-        """
-        The endpoint for a monitoring job.
-        """
-        endpoint_name: pulumi.Input[str]
-        local_path: pulumi.Input[str]
-        """
-        Path to the filesystem where the endpoint data is available to the container.
-        """
-        exclude_features_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Indexes or names of the features to be excluded from analysis
-        """
-        s3_data_distribution_type: NotRequired[pulumi.Input['MonitoringScheduleEndpointInputS3DataDistributionType']]
-        """
-        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        """
-        s3_input_mode: NotRequired[pulumi.Input['MonitoringScheduleEndpointInputS3InputMode']]
-        """
-        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-        """
-elif False:
-    MonitoringScheduleEndpointInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleEndpointInputArgs:
@@ -14939,18 +10958,6 @@ class MonitoringScheduleEndpointInputArgs:
         pulumi.set(self, "s3_input_mode", value)
 
 
-if not MYPY:
-    class MonitoringScheduleJsonArgsDict(TypedDict):
-        """
-        The Json format
-        """
-        line: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean flag indicating if it is JSON line format
-        """
-elif False:
-    MonitoringScheduleJsonArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleJsonArgs:
     def __init__(__self__, *,
@@ -14974,34 +10981,6 @@ class MonitoringScheduleJsonArgs:
     def line(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "line", value)
 
-
-if not MYPY:
-    class MonitoringScheduleMonitoringAppSpecificationArgsDict(TypedDict):
-        """
-        Container image configuration object for the monitoring job.
-        """
-        image_uri: pulumi.Input[str]
-        """
-        The container image to be run by the monitoring job.
-        """
-        container_arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        An array of arguments for the container used to run the monitoring job.
-        """
-        container_entrypoint: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Specifies the entrypoint for a container used to run the monitoring job.
-        """
-        post_analytics_processor_source_uri: NotRequired[pulumi.Input[str]]
-        """
-        An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-        """
-        record_preprocessor_source_uri: NotRequired[pulumi.Input[str]]
-        """
-        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
-        """
-elif False:
-    MonitoringScheduleMonitoringAppSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleMonitoringAppSpecificationArgs:
@@ -15089,46 +11068,6 @@ class MonitoringScheduleMonitoringAppSpecificationArgs:
     def record_preprocessor_source_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "record_preprocessor_source_uri", value)
 
-
-if not MYPY:
-    class MonitoringScheduleMonitoringExecutionSummaryArgsDict(TypedDict):
-        """
-        Summary of information about monitoring job
-        """
-        creation_time: pulumi.Input[str]
-        """
-        The time at which the monitoring job was created.
-        """
-        last_modified_time: pulumi.Input[str]
-        """
-        A timestamp that indicates the last time the monitoring job was modified.
-        """
-        monitoring_execution_status: pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus']
-        """
-        The status of the monitoring job.
-        """
-        monitoring_schedule_name: pulumi.Input[str]
-        """
-        The name of the monitoring schedule.
-        """
-        scheduled_time: pulumi.Input[str]
-        """
-        The time the monitoring job was scheduled.
-        """
-        endpoint_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the endpoint used to run the monitoring job.
-        """
-        failure_reason: NotRequired[pulumi.Input[str]]
-        """
-        Contains the reason a monitoring job failed, if it failed.
-        """
-        processing_job_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the monitoring job.
-        """
-elif False:
-    MonitoringScheduleMonitoringExecutionSummaryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleMonitoringExecutionSummaryArgs:
@@ -15261,16 +11200,6 @@ class MonitoringScheduleMonitoringExecutionSummaryArgs:
         pulumi.set(self, "processing_job_arn", value)
 
 
-if not MYPY:
-    class MonitoringScheduleMonitoringInputArgsDict(TypedDict):
-        """
-        The inputs for a monitoring job.
-        """
-        batch_transform_input: NotRequired[pulumi.Input['MonitoringScheduleBatchTransformInputArgsDict']]
-        endpoint_input: NotRequired[pulumi.Input['MonitoringScheduleEndpointInputArgsDict']]
-elif False:
-    MonitoringScheduleMonitoringInputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleMonitoringInputArgs:
     def __init__(__self__, *,
@@ -15302,50 +11231,6 @@ class MonitoringScheduleMonitoringInputArgs:
     def endpoint_input(self, value: Optional[pulumi.Input['MonitoringScheduleEndpointInputArgs']]):
         pulumi.set(self, "endpoint_input", value)
 
-
-if not MYPY:
-    class MonitoringScheduleMonitoringJobDefinitionArgsDict(TypedDict):
-        """
-        Defines the monitoring job.
-        """
-        monitoring_app_specification: pulumi.Input['MonitoringScheduleMonitoringAppSpecificationArgsDict']
-        """
-        Configures the monitoring job to run a specified Docker container image.
-        """
-        monitoring_inputs: pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringInputArgsDict']]]
-        """
-        The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
-        """
-        monitoring_output_config: pulumi.Input['MonitoringScheduleMonitoringOutputConfigArgsDict']
-        """
-        The array of outputs from the monitoring job to be uploaded to Amazon S3.
-        """
-        monitoring_resources: pulumi.Input['MonitoringScheduleMonitoringResourcesArgsDict']
-        """
-        Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-        """
-        baseline_config: NotRequired[pulumi.Input['MonitoringScheduleBaselineConfigArgsDict']]
-        """
-        Baseline configuration used to validate that the data conforms to the specified constraints and statistics
-        """
-        environment: NotRequired[Any]
-        """
-        Sets the environment variables in the Docker container
-        """
-        network_config: NotRequired[pulumi.Input['MonitoringScheduleNetworkConfigArgsDict']]
-        """
-        Specifies networking options for an monitoring job.
-        """
-        stopping_condition: NotRequired[pulumi.Input['MonitoringScheduleStoppingConditionArgsDict']]
-        """
-        Specifies a time limit for how long the monitoring job is allowed to run.
-        """
-elif False:
-    MonitoringScheduleMonitoringJobDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleMonitoringJobDefinitionArgs:
@@ -15494,22 +11379,6 @@ class MonitoringScheduleMonitoringJobDefinitionArgs:
         pulumi.set(self, "stopping_condition", value)
 
 
-if not MYPY:
-    class MonitoringScheduleMonitoringOutputConfigArgsDict(TypedDict):
-        """
-        The output configuration for monitoring jobs.
-        """
-        monitoring_outputs: pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleMonitoringOutputArgsDict']]]
-        """
-        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-        """
-        kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-        """
-elif False:
-    MonitoringScheduleMonitoringOutputConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleMonitoringOutputConfigArgs:
     def __init__(__self__, *,
@@ -15549,18 +11418,6 @@ class MonitoringScheduleMonitoringOutputConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class MonitoringScheduleMonitoringOutputArgsDict(TypedDict):
-        """
-        The output object for a monitoring job.
-        """
-        s3_output: pulumi.Input['MonitoringScheduleS3OutputArgsDict']
-        """
-        The Amazon S3 storage location where the results of a monitoring job are saved.
-        """
-elif False:
-    MonitoringScheduleMonitoringOutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleMonitoringOutputArgs:
     def __init__(__self__, *,
@@ -15584,18 +11441,6 @@ class MonitoringScheduleMonitoringOutputArgs:
         pulumi.set(self, "s3_output", value)
 
 
-if not MYPY:
-    class MonitoringScheduleMonitoringResourcesArgsDict(TypedDict):
-        """
-        Identifies the resources to deploy for a monitoring job.
-        """
-        cluster_config: pulumi.Input['MonitoringScheduleClusterConfigArgsDict']
-        """
-        The configuration for the cluster resources used to run the processing job.
-        """
-elif False:
-    MonitoringScheduleMonitoringResourcesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleMonitoringResourcesArgs:
     def __init__(__self__, *,
@@ -15618,26 +11463,6 @@ class MonitoringScheduleMonitoringResourcesArgs:
     def cluster_config(self, value: pulumi.Input['MonitoringScheduleClusterConfigArgs']):
         pulumi.set(self, "cluster_config", value)
 
-
-if not MYPY:
-    class MonitoringScheduleNetworkConfigArgsDict(TypedDict):
-        """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
-        """
-        enable_inter_container_traffic_encryption: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
-        """
-        enable_network_isolation: NotRequired[pulumi.Input[bool]]
-        """
-        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
-        """
-        vpc_config: NotRequired[pulumi.Input['MonitoringScheduleVpcConfigArgsDict']]
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
-        """
-elif False:
-    MonitoringScheduleNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleNetworkConfigArgs:
@@ -15695,26 +11520,6 @@ class MonitoringScheduleNetworkConfigArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class MonitoringScheduleS3OutputArgsDict(TypedDict):
-        """
-        Information about where and how to store the results of a monitoring job.
-        """
-        local_path: pulumi.Input[str]
-        """
-        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
-        """
-        s3_uri: pulumi.Input[str]
-        """
-        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        """
-        s3_upload_mode: NotRequired[pulumi.Input['MonitoringScheduleS3OutputS3UploadMode']]
-        """
-        Whether to upload the results of the monitoring job continuously or after the job completes.
-        """
-elif False:
-    MonitoringScheduleS3OutputArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleS3OutputArgs:
     def __init__(__self__, *,
@@ -15768,26 +11573,6 @@ class MonitoringScheduleS3OutputArgs:
     def s3_upload_mode(self, value: Optional[pulumi.Input['MonitoringScheduleS3OutputS3UploadMode']]):
         pulumi.set(self, "s3_upload_mode", value)
 
-
-if not MYPY:
-    class MonitoringScheduleScheduleConfigArgsDict(TypedDict):
-        """
-        Configuration details about the monitoring schedule.
-        """
-        schedule_expression: pulumi.Input[str]
-        """
-        A cron expression or 'NOW' that describes details about the monitoring schedule.
-        """
-        data_analysis_end_time: NotRequired[pulumi.Input[str]]
-        """
-        Data Analysis end time, e.g. PT0H
-        """
-        data_analysis_start_time: NotRequired[pulumi.Input[str]]
-        """
-        Data Analysis start time, e.g. -PT1H
-        """
-elif False:
-    MonitoringScheduleScheduleConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleScheduleConfigArgs:
@@ -15844,18 +11629,6 @@ class MonitoringScheduleScheduleConfigArgs:
         pulumi.set(self, "data_analysis_start_time", value)
 
 
-if not MYPY:
-    class MonitoringScheduleStatisticsResourceArgsDict(TypedDict):
-        """
-        The baseline statistics resource for a monitoring job.
-        """
-        s3_uri: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
-        """
-elif False:
-    MonitoringScheduleStatisticsResourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleStatisticsResourceArgs:
     def __init__(__self__, *,
@@ -15880,18 +11653,6 @@ class MonitoringScheduleStatisticsResourceArgs:
         pulumi.set(self, "s3_uri", value)
 
 
-if not MYPY:
-    class MonitoringScheduleStoppingConditionArgsDict(TypedDict):
-        """
-        Specifies a time limit for how long the monitoring job is allowed to run.
-        """
-        max_runtime_in_seconds: pulumi.Input[int]
-        """
-        The maximum runtime allowed in seconds.
-        """
-elif False:
-    MonitoringScheduleStoppingConditionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class MonitoringScheduleStoppingConditionArgs:
     def __init__(__self__, *,
@@ -15914,22 +11675,6 @@ class MonitoringScheduleStoppingConditionArgs:
     def max_runtime_in_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_runtime_in_seconds", value)
 
-
-if not MYPY:
-    class MonitoringScheduleVpcConfigArgsDict(TypedDict):
-        """
-        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
-        """
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
-        """
-elif False:
-    MonitoringScheduleVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitoringScheduleVpcConfigArgs:
@@ -15968,32 +11713,6 @@ class MonitoringScheduleVpcConfigArgs:
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
-
-if not MYPY:
-    class OfflineStoreConfigPropertiesArgsDict(TypedDict):
-        """
-        The configuration of an `OfflineStore` .
-        """
-        s3_storage_config: pulumi.Input['FeatureGroupS3StorageConfigArgsDict']
-        """
-        The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
-        """
-        data_catalog_config: NotRequired[pulumi.Input['FeatureGroupDataCatalogConfigArgsDict']]
-        """
-        The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
-        """
-        disable_glue_table_creation: NotRequired[pulumi.Input[bool]]
-        """
-        Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` . If set to `False` , Feature Store will name the `OfflineStore` Glue table following [Athena's naming recommendations](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html) .
-
-        The default value is `False` .
-        """
-        table_format: NotRequired[pulumi.Input['FeatureGroupTableFormat']]
-        """
-        Format for the offline store table. Supported formats are Glue (Default) and [Apache Iceberg](https://docs.aws.amazon.com/https://iceberg.apache.org/) .
-        """
-elif False:
-    OfflineStoreConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OfflineStoreConfigPropertiesArgs:
@@ -16069,35 +11788,6 @@ class OfflineStoreConfigPropertiesArgs:
     def table_format(self, value: Optional[pulumi.Input['FeatureGroupTableFormat']]):
         pulumi.set(self, "table_format", value)
 
-
-if not MYPY:
-    class OnlineStoreConfigPropertiesArgsDict(TypedDict):
-        """
-        The configuration of an `OnlineStore` .
-        """
-        enable_online_store: NotRequired[pulumi.Input[bool]]
-        """
-        Turn `OnlineStore` off by specifying `False` for the `EnableOnlineStore` flag. Turn `OnlineStore` on by specifying `True` for the `EnableOnlineStore` flag.
-
-        The default value is `False` .
-        """
-        security_config: NotRequired[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgsDict']]
-        """
-        Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
-        """
-        storage_type: NotRequired[pulumi.Input['FeatureGroupStorageType']]
-        """
-        Option for different tiers of low latency storage for real-time data retrieval.
-
-        - `Standard` : A managed low latency data store for feature groups.
-        - `InMemory` : A managed data store for feature groups that supports very low latency retrieval.
-        """
-        ttl_duration: NotRequired[pulumi.Input['FeatureGroupTtlDurationArgsDict']]
-        """
-        Time to live duration, where the record is hard deleted after the expiration time is reached; `ExpiresAt` = `EventTime` + `TtlDuration` . For information on HardDelete, see the [DeleteRecord](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html) API in the Amazon SageMaker API Reference guide.
-        """
-elif False:
-    OnlineStoreConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OnlineStoreConfigPropertiesArgs:
@@ -16181,18 +11871,6 @@ class OnlineStoreConfigPropertiesArgs:
         pulumi.set(self, "ttl_duration", value)
 
 
-if not MYPY:
-    class ParallelismConfigurationPropertiesArgsDict(TypedDict):
-        """
-        The parallelism configuration applied to the pipeline.
-        """
-        max_parallel_execution_steps: pulumi.Input[int]
-        """
-        Maximum parallel execution steps
-        """
-elif False:
-    ParallelismConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ParallelismConfigurationPropertiesArgs:
     def __init__(__self__, *,
@@ -16215,18 +11893,6 @@ class ParallelismConfigurationPropertiesArgs:
     def max_parallel_execution_steps(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_parallel_execution_steps", value)
 
-
-if not MYPY:
-    class PipelineDefinition0PropertiesArgsDict(TypedDict):
-        """
-        The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
-        """
-        pipeline_definition_body: pulumi.Input[str]
-        """
-        A specification that defines the pipeline in JSON format.
-        """
-elif False:
-    PipelineDefinition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineDefinition0PropertiesArgs:
@@ -16251,15 +11917,6 @@ class PipelineDefinition0PropertiesArgs:
         pulumi.set(self, "pipeline_definition_body", value)
 
 
-if not MYPY:
-    class PipelineDefinition1PropertiesArgsDict(TypedDict):
-        """
-        The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
-        """
-        pipeline_definition_s3_location: pulumi.Input['PipelineS3LocationArgsDict']
-elif False:
-    PipelineDefinition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class PipelineDefinition1PropertiesArgs:
     def __init__(__self__, *,
@@ -16278,27 +11935,6 @@ class PipelineDefinition1PropertiesArgs:
     def pipeline_definition_s3_location(self, value: pulumi.Input['PipelineS3LocationArgs']):
         pulumi.set(self, "pipeline_definition_s3_location", value)
 
-
-if not MYPY:
-    class PipelineS3LocationArgsDict(TypedDict):
-        bucket: pulumi.Input[str]
-        """
-        The name of the S3 bucket where the PipelineDefinition file is stored.
-        """
-        key: pulumi.Input[str]
-        """
-        The file name of the PipelineDefinition file (Amazon S3 object name).
-        """
-        e_tag: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon S3 ETag (a file checksum) of the PipelineDefinition file. If you don't specify a value, SageMaker skips ETag validation of your PipelineDefinition file.
-        """
-        version: NotRequired[pulumi.Input[str]]
-        """
-        For versioning-enabled buckets, a specific version of the PipelineDefinition file.
-        """
-elif False:
-    PipelineS3LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineS3LocationArgs:
@@ -16369,22 +12005,6 @@ class PipelineS3LocationArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ProjectProvisioningParameterArgsDict(TypedDict):
-        """
-        Information about a parameter used to provision a product.
-        """
-        key: pulumi.Input[str]
-        """
-        The parameter key.
-        """
-        value: pulumi.Input[str]
-        """
-        The parameter value.
-        """
-elif False:
-    ProjectProvisioningParameterArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ProjectProvisioningParameterArgs:
     def __init__(__self__, *,
@@ -16422,28 +12042,6 @@ class ProjectProvisioningParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class ServiceCatalogProvisionedProductDetailsPropertiesArgsDict(TypedDict):
-        """
-        Provisioned ServiceCatalog  Details
-        """
-        provisioned_product_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the provisioned product.
-        """
-        provisioned_product_status_message: NotRequired[pulumi.Input[str]]
-        """
-        The current status of the product.
-
-        - `AVAILABLE` - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
-        - `UNDER_CHANGE` - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.
-        - `TAINTED` - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
-        - `ERROR` - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
-        - `PLAN_IN_PROGRESS` - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.
-        """
-elif False:
-    ServiceCatalogProvisionedProductDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceCatalogProvisionedProductDetailsPropertiesArgs:
@@ -16496,30 +12094,6 @@ class ServiceCatalogProvisionedProductDetailsPropertiesArgs:
     def provisioned_product_status_message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provisioned_product_status_message", value)
 
-
-if not MYPY:
-    class ServiceCatalogProvisioningDetailsPropertiesArgsDict(TypedDict):
-        """
-        Input ServiceCatalog Provisioning Details
-        """
-        product_id: pulumi.Input[str]
-        """
-        The ID of the product to provision.
-        """
-        path_id: NotRequired[pulumi.Input[str]]
-        """
-        The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
-        """
-        provisioning_artifact_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the provisioning artifact.
-        """
-        provisioning_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProjectProvisioningParameterArgsDict']]]]
-        """
-        Parameters specified by the administrator that are required for provisioning the product.
-        """
-elif False:
-    ServiceCatalogProvisioningDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceCatalogProvisioningDetailsPropertiesArgs:
@@ -16592,15 +12166,6 @@ class ServiceCatalogProvisioningDetailsPropertiesArgs:
         pulumi.set(self, "provisioning_parameters", value)
 
 
-if not MYPY:
-    class SpaceAppLifecycleManagementArgsDict(TypedDict):
-        idle_settings: NotRequired[pulumi.Input['SpaceIdleSettingsArgsDict']]
-        """
-        Settings related to idle shutdown of Studio applications.
-        """
-elif False:
-    SpaceAppLifecycleManagementArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SpaceAppLifecycleManagementArgs:
     def __init__(__self__, *,
@@ -16623,22 +12188,6 @@ class SpaceAppLifecycleManagementArgs:
     def idle_settings(self, value: Optional[pulumi.Input['SpaceIdleSettingsArgs']]):
         pulumi.set(self, "idle_settings", value)
 
-
-if not MYPY:
-    class SpaceCodeEditorAppSettingsArgsDict(TypedDict):
-        """
-        The CodeEditor app settings.
-        """
-        app_lifecycle_management: NotRequired[pulumi.Input['SpaceAppLifecycleManagementArgsDict']]
-        """
-        Settings that are used to configure and manage the lifecycle of CodeEditor applications in a space.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['SpaceResourceSpecArgsDict']]
-        """
-        Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
-        """
-elif False:
-    SpaceCodeEditorAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceCodeEditorAppSettingsArgs:
@@ -16680,15 +12229,6 @@ class SpaceCodeEditorAppSettingsArgs:
         pulumi.set(self, "default_resource_spec", value)
 
 
-if not MYPY:
-    class SpaceCodeRepositoryArgsDict(TypedDict):
-        repository_url: pulumi.Input[str]
-        """
-        A CodeRepository (valid URL) to be used within Jupyter's Git extension.
-        """
-elif False:
-    SpaceCodeRepositoryArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SpaceCodeRepositoryArgs:
     def __init__(__self__, *,
@@ -16711,12 +12251,6 @@ class SpaceCodeRepositoryArgs:
         pulumi.set(self, "repository_url", value)
 
 
-if not MYPY:
-    class SpaceCustomFileSystemArgsDict(TypedDict):
-        efs_file_system: NotRequired[pulumi.Input['SpaceEfsFileSystemArgsDict']]
-elif False:
-    SpaceCustomFileSystemArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SpaceCustomFileSystemArgs:
     def __init__(__self__, *,
@@ -16733,26 +12267,6 @@ class SpaceCustomFileSystemArgs:
     def efs_file_system(self, value: Optional[pulumi.Input['SpaceEfsFileSystemArgs']]):
         pulumi.set(self, "efs_file_system", value)
 
-
-if not MYPY:
-    class SpaceCustomImageArgsDict(TypedDict):
-        """
-        A custom SageMaker image.
-        """
-        app_image_config_name: pulumi.Input[str]
-        """
-        The Name of the AppImageConfig.
-        """
-        image_name: pulumi.Input[str]
-        """
-        The name of the CustomImage. Must be unique to your account.
-        """
-        image_version_number: NotRequired[pulumi.Input[int]]
-        """
-        The version number of the CustomImage.
-        """
-elif False:
-    SpaceCustomImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceCustomImageArgs:
@@ -16808,18 +12322,6 @@ class SpaceCustomImageArgs:
         pulumi.set(self, "image_version_number", value)
 
 
-if not MYPY:
-    class SpaceEbsStorageSettingsArgsDict(TypedDict):
-        """
-        Properties related to the space's Amazon Elastic Block Store volume.
-        """
-        ebs_volume_size_in_gb: pulumi.Input[int]
-        """
-        Size of the Amazon EBS volume in Gb
-        """
-elif False:
-    SpaceEbsStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SpaceEbsStorageSettingsArgs:
     def __init__(__self__, *,
@@ -16843,12 +12345,6 @@ class SpaceEbsStorageSettingsArgs:
         pulumi.set(self, "ebs_volume_size_in_gb", value)
 
 
-if not MYPY:
-    class SpaceEfsFileSystemArgsDict(TypedDict):
-        file_system_id: pulumi.Input[str]
-elif False:
-    SpaceEfsFileSystemArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SpaceEfsFileSystemArgs:
     def __init__(__self__, *,
@@ -16864,15 +12360,6 @@ class SpaceEfsFileSystemArgs:
     def file_system_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "file_system_id", value)
 
-
-if not MYPY:
-    class SpaceIdleSettingsArgsDict(TypedDict):
-        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
-        """
-        The space idle timeout value set in minutes
-        """
-elif False:
-    SpaceIdleSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceIdleSettingsArgs:
@@ -16896,26 +12383,6 @@ class SpaceIdleSettingsArgs:
     def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
-
-if not MYPY:
-    class SpaceJupyterLabAppSettingsArgsDict(TypedDict):
-        """
-        The JupyterServer app settings.
-        """
-        app_lifecycle_management: NotRequired[pulumi.Input['SpaceAppLifecycleManagementArgsDict']]
-        """
-        Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space.
-        """
-        code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceCodeRepositoryArgsDict']]]]
-        """
-        A list of CodeRepositories available for use with JupyterLab apps.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['SpaceResourceSpecArgsDict']]
-        """
-        Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
-        """
-elif False:
-    SpaceJupyterLabAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceJupyterLabAppSettingsArgs:
@@ -16973,22 +12440,6 @@ class SpaceJupyterLabAppSettingsArgs:
         pulumi.set(self, "default_resource_spec", value)
 
 
-if not MYPY:
-    class SpaceJupyterServerAppSettingsArgsDict(TypedDict):
-        """
-        The JupyterServer app settings.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['SpaceResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with JupyterServer apps.
-        """
-elif False:
-    SpaceJupyterServerAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SpaceJupyterServerAppSettingsArgs:
     def __init__(__self__, *,
@@ -17028,26 +12479,6 @@ class SpaceJupyterServerAppSettingsArgs:
     def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "lifecycle_config_arns", value)
 
-
-if not MYPY:
-    class SpaceKernelGatewayAppSettingsArgsDict(TypedDict):
-        """
-        The kernel gateway app settings.
-        """
-        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceCustomImageArgsDict']]]]
-        """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['SpaceResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with KernelGateway apps.
-        """
-elif False:
-    SpaceKernelGatewayAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceKernelGatewayAppSettingsArgs:
@@ -17105,15 +12536,6 @@ class SpaceKernelGatewayAppSettingsArgs:
         pulumi.set(self, "lifecycle_config_arns", value)
 
 
-if not MYPY:
-    class SpaceOwnershipSettingsArgsDict(TypedDict):
-        owner_user_profile_name: pulumi.Input[str]
-        """
-        The user profile who is the owner of the space.
-        """
-elif False:
-    SpaceOwnershipSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SpaceOwnershipSettingsArgs:
     def __init__(__self__, *,
@@ -17135,27 +12557,6 @@ class SpaceOwnershipSettingsArgs:
     def owner_user_profile_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "owner_user_profile_name", value)
 
-
-if not MYPY:
-    class SpaceResourceSpecArgsDict(TypedDict):
-        instance_type: NotRequired[pulumi.Input['SpaceResourceSpecInstanceType']]
-        """
-        The instance type that the image version runs on.
-        """
-        lifecycle_config_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
-        """
-        sage_maker_image_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of the SageMaker image that the image version belongs to.
-        """
-        sage_maker_image_version_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of the image version created on the instance.
-        """
-elif False:
-    SpaceResourceSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceResourceSpecArgs:
@@ -17227,42 +12628,6 @@ class SpaceResourceSpecArgs:
     def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sage_maker_image_version_arn", value)
 
-
-if not MYPY:
-    class SpaceSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
-        """
-        app_type: NotRequired[pulumi.Input['SpaceAppType']]
-        """
-        The type of app created within the space.
-        """
-        code_editor_app_settings: NotRequired[pulumi.Input['SpaceCodeEditorAppSettingsArgsDict']]
-        """
-        The CodeEditor app settings.
-        """
-        custom_file_systems: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpaceCustomFileSystemArgsDict']]]]
-        """
-        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
-        """
-        jupyter_lab_app_settings: NotRequired[pulumi.Input['SpaceJupyterLabAppSettingsArgsDict']]
-        """
-        The JupyterLab app settings.
-        """
-        jupyter_server_app_settings: NotRequired[pulumi.Input['SpaceJupyterServerAppSettingsArgsDict']]
-        """
-        The Jupyter server's app settings.
-        """
-        kernel_gateway_app_settings: NotRequired[pulumi.Input['SpaceKernelGatewayAppSettingsArgsDict']]
-        """
-        The kernel gateway app settings.
-        """
-        space_storage_settings: NotRequired[pulumi.Input['SpaceStorageSettingsArgsDict']]
-        """
-        Default storage settings for a space.
-        """
-elif False:
-    SpaceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceSettingsArgs:
@@ -17384,15 +12749,6 @@ class SpaceSettingsArgs:
         pulumi.set(self, "space_storage_settings", value)
 
 
-if not MYPY:
-    class SpaceSharingSettingsArgsDict(TypedDict):
-        sharing_type: pulumi.Input['SpaceSharingSettingsSharingType']
-        """
-        Specifies the sharing type of the space.
-        """
-elif False:
-    SpaceSharingSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SpaceSharingSettingsArgs:
     def __init__(__self__, *,
@@ -17414,15 +12770,6 @@ class SpaceSharingSettingsArgs:
     def sharing_type(self, value: pulumi.Input['SpaceSharingSettingsSharingType']):
         pulumi.set(self, "sharing_type", value)
 
-
-if not MYPY:
-    class SpaceStorageSettingsArgsDict(TypedDict):
-        ebs_storage_settings: NotRequired[pulumi.Input['SpaceEbsStorageSettingsArgsDict']]
-        """
-        A collection of EBS storage settings for a space.
-        """
-elif False:
-    SpaceStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceStorageSettingsArgs:
@@ -17447,15 +12794,6 @@ class SpaceStorageSettingsArgs:
         pulumi.set(self, "ebs_storage_settings", value)
 
 
-if not MYPY:
-    class UserProfileAppLifecycleManagementArgsDict(TypedDict):
-        idle_settings: NotRequired[pulumi.Input['UserProfileIdleSettingsArgsDict']]
-        """
-        Settings related to idle shutdown of Studio applications.
-        """
-elif False:
-    UserProfileAppLifecycleManagementArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class UserProfileAppLifecycleManagementArgs:
     def __init__(__self__, *,
@@ -17478,30 +12816,6 @@ class UserProfileAppLifecycleManagementArgs:
     def idle_settings(self, value: Optional[pulumi.Input['UserProfileIdleSettingsArgs']]):
         pulumi.set(self, "idle_settings", value)
 
-
-if not MYPY:
-    class UserProfileCodeEditorAppSettingsArgsDict(TypedDict):
-        """
-        The CodeEditor app settings.
-        """
-        app_lifecycle_management: NotRequired[pulumi.Input['UserProfileAppLifecycleManagementArgsDict']]
-        """
-        Settings that are used to configure and manage the lifecycle of CodeEditor applications.
-        """
-        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgsDict']]]]
-        """
-        A list of custom images for use for CodeEditor apps.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['UserProfileResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with CodeEditor apps.
-        """
-elif False:
-    UserProfileCodeEditorAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileCodeEditorAppSettingsArgs:
@@ -17575,15 +12889,6 @@ class UserProfileCodeEditorAppSettingsArgs:
         pulumi.set(self, "lifecycle_config_arns", value)
 
 
-if not MYPY:
-    class UserProfileCodeRepositoryArgsDict(TypedDict):
-        repository_url: pulumi.Input[str]
-        """
-        A CodeRepository (valid URL) to be used within Jupyter's Git extension.
-        """
-elif False:
-    UserProfileCodeRepositoryArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class UserProfileCodeRepositoryArgs:
     def __init__(__self__, *,
@@ -17605,15 +12910,6 @@ class UserProfileCodeRepositoryArgs:
     def repository_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository_url", value)
 
-
-if not MYPY:
-    class UserProfileCustomFileSystemConfigArgsDict(TypedDict):
-        efs_file_system_config: NotRequired[pulumi.Input['UserProfileEfsFileSystemConfigArgsDict']]
-        """
-        The settings for a custom Amazon EFS file system.
-        """
-elif False:
-    UserProfileCustomFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileCustomFileSystemConfigArgs:
@@ -17637,26 +12933,6 @@ class UserProfileCustomFileSystemConfigArgs:
     def efs_file_system_config(self, value: Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']]):
         pulumi.set(self, "efs_file_system_config", value)
 
-
-if not MYPY:
-    class UserProfileCustomImageArgsDict(TypedDict):
-        """
-        A custom SageMaker image.
-        """
-        app_image_config_name: pulumi.Input[str]
-        """
-        The Name of the AppImageConfig.
-        """
-        image_name: pulumi.Input[str]
-        """
-        The name of the CustomImage. Must be unique to your account.
-        """
-        image_version_number: NotRequired[pulumi.Input[int]]
-        """
-        The version number of the CustomImage.
-        """
-elif False:
-    UserProfileCustomImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileCustomImageArgs:
@@ -17712,19 +12988,6 @@ class UserProfileCustomImageArgs:
         pulumi.set(self, "image_version_number", value)
 
 
-if not MYPY:
-    class UserProfileCustomPosixUserConfigArgsDict(TypedDict):
-        gid: pulumi.Input[int]
-        """
-        The POSIX group ID.
-        """
-        uid: pulumi.Input[int]
-        """
-        The POSIX user ID.
-        """
-elif False:
-    UserProfileCustomPosixUserConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class UserProfileCustomPosixUserConfigArgs:
     def __init__(__self__, *,
@@ -17761,22 +13024,6 @@ class UserProfileCustomPosixUserConfigArgs:
     def uid(self, value: pulumi.Input[int]):
         pulumi.set(self, "uid", value)
 
-
-if not MYPY:
-    class UserProfileDefaultEbsStorageSettingsArgsDict(TypedDict):
-        """
-        Properties related to the Amazon Elastic Block Store volume.
-        """
-        default_ebs_volume_size_in_gb: pulumi.Input[int]
-        """
-        Default size of the Amazon EBS volume in Gb
-        """
-        maximum_ebs_volume_size_in_gb: pulumi.Input[int]
-        """
-        Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
-        """
-elif False:
-    UserProfileDefaultEbsStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileDefaultEbsStorageSettingsArgs:
@@ -17816,18 +13063,6 @@ class UserProfileDefaultEbsStorageSettingsArgs:
         pulumi.set(self, "maximum_ebs_volume_size_in_gb", value)
 
 
-if not MYPY:
-    class UserProfileDefaultSpaceStorageSettingsArgsDict(TypedDict):
-        """
-        Default storage settings for a space.
-        """
-        default_ebs_storage_settings: NotRequired[pulumi.Input['UserProfileDefaultEbsStorageSettingsArgsDict']]
-        """
-        The default EBS storage settings for a space.
-        """
-elif False:
-    UserProfileDefaultSpaceStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class UserProfileDefaultSpaceStorageSettingsArgs:
     def __init__(__self__, *,
@@ -17851,19 +13086,6 @@ class UserProfileDefaultSpaceStorageSettingsArgs:
     def default_ebs_storage_settings(self, value: Optional[pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs']]):
         pulumi.set(self, "default_ebs_storage_settings", value)
 
-
-if not MYPY:
-    class UserProfileEfsFileSystemConfigArgsDict(TypedDict):
-        file_system_id: pulumi.Input[str]
-        """
-        The ID of your Amazon EFS file system.
-        """
-        file_system_path: NotRequired[pulumi.Input[str]]
-        """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
-        """
-elif False:
-    UserProfileEfsFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileEfsFileSystemConfigArgs:
@@ -17902,27 +13124,6 @@ class UserProfileEfsFileSystemConfigArgs:
     def file_system_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system_path", value)
 
-
-if not MYPY:
-    class UserProfileIdleSettingsArgsDict(TypedDict):
-        idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
-        """
-        The time that SageMaker waits after the application becomes idle before shutting it down.
-        """
-        lifecycle_management: NotRequired[pulumi.Input['UserProfileLifecycleManagement']]
-        """
-        Indicates whether idle shutdown is activated for the application type.
-        """
-        max_idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
-        """
-        The maximum value in minutes that custom idle shutdown can be set to by the user.
-        """
-        min_idle_timeout_in_minutes: NotRequired[pulumi.Input[int]]
-        """
-        The minimum value in minutes that custom idle shutdown can be set to by the user.
-        """
-elif False:
-    UserProfileIdleSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileIdleSettingsArgs:
@@ -17994,34 +13195,6 @@ class UserProfileIdleSettingsArgs:
     def min_idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_idle_timeout_in_minutes", value)
 
-
-if not MYPY:
-    class UserProfileJupyterLabAppSettingsArgsDict(TypedDict):
-        """
-        The JupyterLab app settings.
-        """
-        app_lifecycle_management: NotRequired[pulumi.Input['UserProfileAppLifecycleManagementArgsDict']]
-        """
-        Indicates whether idle shutdown is activated for JupyterLab applications.
-        """
-        code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgsDict']]]]
-        """
-        A list of CodeRepositories available for use with JupyterLab apps.
-        """
-        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgsDict']]]]
-        """
-        A list of custom images available for use for JupyterLab apps
-        """
-        default_resource_spec: NotRequired[pulumi.Input['UserProfileResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with JupyterLab apps.
-        """
-elif False:
-    UserProfileJupyterLabAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileJupyterLabAppSettingsArgs:
@@ -18111,22 +13284,6 @@ class UserProfileJupyterLabAppSettingsArgs:
         pulumi.set(self, "lifecycle_config_arns", value)
 
 
-if not MYPY:
-    class UserProfileJupyterServerAppSettingsArgsDict(TypedDict):
-        """
-        The JupyterServer app settings.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['UserProfileResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with JupyterServer apps.
-        """
-elif False:
-    UserProfileJupyterServerAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class UserProfileJupyterServerAppSettingsArgs:
     def __init__(__self__, *,
@@ -18166,26 +13323,6 @@ class UserProfileJupyterServerAppSettingsArgs:
     def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "lifecycle_config_arns", value)
 
-
-if not MYPY:
-    class UserProfileKernelGatewayAppSettingsArgsDict(TypedDict):
-        """
-        The kernel gateway app settings.
-        """
-        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgsDict']]]]
-        """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app.
-        """
-        default_resource_spec: NotRequired[pulumi.Input['UserProfileResourceSpecArgsDict']]
-        """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
-        """
-        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of LifecycleConfigArns available for use with KernelGateway apps.
-        """
-elif False:
-    UserProfileKernelGatewayAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileKernelGatewayAppSettingsArgs:
@@ -18243,22 +13380,6 @@ class UserProfileKernelGatewayAppSettingsArgs:
         pulumi.set(self, "lifecycle_config_arns", value)
 
 
-if not MYPY:
-    class UserProfileRStudioServerProAppSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that configure user interaction with the RStudioServerPro app.
-        """
-        access_status: NotRequired[pulumi.Input['UserProfileRStudioServerProAppSettingsAccessStatus']]
-        """
-        Indicates whether the current user has access to the RStudioServerPro app.
-        """
-        user_group: NotRequired[pulumi.Input['UserProfileRStudioServerProAppSettingsUserGroup']]
-        """
-        The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
-        """
-elif False:
-    UserProfileRStudioServerProAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class UserProfileRStudioServerProAppSettingsArgs:
     def __init__(__self__, *,
@@ -18298,27 +13419,6 @@ class UserProfileRStudioServerProAppSettingsArgs:
     def user_group(self, value: Optional[pulumi.Input['UserProfileRStudioServerProAppSettingsUserGroup']]):
         pulumi.set(self, "user_group", value)
 
-
-if not MYPY:
-    class UserProfileResourceSpecArgsDict(TypedDict):
-        instance_type: NotRequired[pulumi.Input['UserProfileResourceSpecInstanceType']]
-        """
-        The instance type that the image version runs on.
-        """
-        lifecycle_config_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
-        """
-        sage_maker_image_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of the SageMaker image that the image version belongs to.
-        """
-        sage_maker_image_version_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of the image version created on the instance.
-        """
-elif False:
-    UserProfileResourceSpecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileResourceSpecArgs:
@@ -18391,26 +13491,6 @@ class UserProfileResourceSpecArgs:
         pulumi.set(self, "sage_maker_image_version_arn", value)
 
 
-if not MYPY:
-    class UserProfileSharingSettingsArgsDict(TypedDict):
-        """
-        Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
-        """
-        notebook_output_option: NotRequired[pulumi.Input['UserProfileSharingSettingsNotebookOutputOption']]
-        """
-        Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-        """
-        s3_kms_key_id: NotRequired[pulumi.Input[str]]
-        """
-        When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
-        """
-        s3_output_path: NotRequired[pulumi.Input[str]]
-        """
-        When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
-        """
-elif False:
-    UserProfileSharingSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class UserProfileSharingSettingsArgs:
     def __init__(__self__, *,
@@ -18467,22 +13547,6 @@ class UserProfileSharingSettingsArgs:
         pulumi.set(self, "s3_output_path", value)
 
 
-if not MYPY:
-    class UserProfileStudioWebPortalSettingsArgsDict(TypedDict):
-        """
-        Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
-        """
-        hidden_app_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileAppType']]]]
-        """
-        Applications supported in Studio that are hidden from the Studio left navigation pane.
-        """
-        hidden_ml_tools: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]]
-        """
-        The machine learning tools that are hidden from the Studio left navigation pane.
-        """
-elif False:
-    UserProfileStudioWebPortalSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class UserProfileStudioWebPortalSettingsArgs:
     def __init__(__self__, *,
@@ -18522,70 +13586,6 @@ class UserProfileStudioWebPortalSettingsArgs:
     def hidden_ml_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileMlTools']]]]):
         pulumi.set(self, "hidden_ml_tools", value)
 
-
-if not MYPY:
-    class UserProfileUserSettingsArgsDict(TypedDict):
-        """
-        A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
-        """
-        code_editor_app_settings: NotRequired[pulumi.Input['UserProfileCodeEditorAppSettingsArgsDict']]
-        """
-        The Code Editor application settings.
-        """
-        custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgsDict']]]]
-        """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
-        """
-        custom_posix_user_config: NotRequired[pulumi.Input['UserProfileCustomPosixUserConfigArgsDict']]
-        """
-        Details about the POSIX identity that is used for file system operations.
-        """
-        default_landing_uri: NotRequired[pulumi.Input[str]]
-        """
-        Defines which Amazon SageMaker application users are directed to by default.
-        """
-        execution_role: NotRequired[pulumi.Input[str]]
-        """
-        The user profile Amazon Resource Name (ARN).
-        """
-        jupyter_lab_app_settings: NotRequired[pulumi.Input['UserProfileJupyterLabAppSettingsArgsDict']]
-        """
-        The settings for the JupyterLab application.
-        """
-        jupyter_server_app_settings: NotRequired[pulumi.Input['UserProfileJupyterServerAppSettingsArgsDict']]
-        """
-        The Jupyter server's app settings.
-        """
-        kernel_gateway_app_settings: NotRequired[pulumi.Input['UserProfileKernelGatewayAppSettingsArgsDict']]
-        """
-        The kernel gateway app settings.
-        """
-        r_studio_server_pro_app_settings: NotRequired[pulumi.Input['UserProfileRStudioServerProAppSettingsArgsDict']]
-        """
-        A collection of settings that configure user interaction with the `RStudioServerPro` app.
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-        """
-        sharing_settings: NotRequired[pulumi.Input['UserProfileSharingSettingsArgsDict']]
-        """
-        The sharing settings.
-        """
-        space_storage_settings: NotRequired[pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgsDict']]
-        """
-        The storage settings for a space.
-        """
-        studio_web_portal: NotRequired[pulumi.Input['UserProfileUserSettingsStudioWebPortal']]
-        """
-        Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
-        """
-        studio_web_portal_settings: NotRequired[pulumi.Input['UserProfileStudioWebPortalSettingsArgsDict']]
-        """
-        Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
-        """
-elif False:
-    UserProfileUserSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileUserSettingsArgs:

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
  */
 export function getCloudFormationProvisionedProduct(args: GetCloudFormationProvisionedProductArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationProvisionedProductResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getCloudFormationProvisionedProduct", {
         "provisionedProductId": args.provisionedProductId,
@@ -102,10 +103,7 @@ export interface GetCloudFormationProvisionedProductResult {
  * Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
  */
 export function getCloudFormationProvisionedProductOutput(args: GetCloudFormationProvisionedProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationProvisionedProductResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:servicecatalog:getCloudFormationProvisionedProduct", {
-        "provisionedProductId": args.provisionedProductId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCloudFormationProvisionedProduct(a, opts))
 }
 
 export interface GetCloudFormationProvisionedProductOutputArgs {

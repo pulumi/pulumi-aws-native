@@ -4,37 +4,16 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AgentPermissionsPropertiesArgs',
-    'AgentPermissionsPropertiesArgsDict',
     'ProfilingGroupChannelArgs',
-    'ProfilingGroupChannelArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AgentPermissionsPropertiesArgsDict(TypedDict):
-        """
-        The agent permissions attached to this profiling group.
-        """
-        principals: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        The principals for the agent permissions.
-        """
-elif False:
-    AgentPermissionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentPermissionsPropertiesArgs:
@@ -58,22 +37,6 @@ class AgentPermissionsPropertiesArgs:
     def principals(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "principals", value)
 
-
-if not MYPY:
-    class ProfilingGroupChannelArgsDict(TypedDict):
-        """
-        Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
-        """
-        channel_uri: pulumi.Input[str]
-        """
-        The channel URI.
-        """
-        channel_id: NotRequired[pulumi.Input[str]]
-        """
-        The channel ID.
-        """
-elif False:
-    ProfilingGroupChannelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProfilingGroupChannelArgs:

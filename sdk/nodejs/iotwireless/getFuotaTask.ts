@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Create and manage FUOTA tasks.
  */
 export function getFuotaTask(args: GetFuotaTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetFuotaTaskResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getFuotaTask", {
         "id": args.id,
@@ -82,10 +83,7 @@ export interface GetFuotaTaskResult {
  * Create and manage FUOTA tasks.
  */
 export function getFuotaTaskOutput(args: GetFuotaTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFuotaTaskResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iotwireless:getFuotaTask", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFuotaTask(a, opts))
 }
 
 export interface GetFuotaTaskOutputArgs {

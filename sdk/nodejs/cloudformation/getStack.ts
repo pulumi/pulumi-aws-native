@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
  */
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getStack", {
         "stackId": args.stackId,
@@ -167,10 +168,7 @@ export interface GetStackResult {
  * The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
  */
 export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudformation:getStack", {
-        "stackId": args.stackId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStack(a, opts))
 }
 
 export interface GetStackOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -238,6 +233,9 @@ def get_pipe(name: Optional[str] = None,
         state_reason=pulumi.get(__ret__, 'state_reason'),
         tags=pulumi.get(__ret__, 'tags'),
         target=pulumi.get(__ret__, 'target'))
+
+
+@_utilities.lift_output_func(get_pipe)
 def get_pipe_output(name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipeResult]:
     """
@@ -246,22 +244,4 @@ def get_pipe_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the pipe.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:pipes:getPipe', __args__, opts=opts, typ=GetPipeResult)
-    return __ret__.apply(lambda __response__: GetPipeResult(
-        arn=pulumi.get(__response__, 'arn'),
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        current_state=pulumi.get(__response__, 'current_state'),
-        description=pulumi.get(__response__, 'description'),
-        desired_state=pulumi.get(__response__, 'desired_state'),
-        enrichment=pulumi.get(__response__, 'enrichment'),
-        enrichment_parameters=pulumi.get(__response__, 'enrichment_parameters'),
-        kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        log_configuration=pulumi.get(__response__, 'log_configuration'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        state_reason=pulumi.get(__response__, 'state_reason'),
-        tags=pulumi.get(__response__, 'tags'),
-        target=pulumi.get(__response__, 'target')))
+    ...

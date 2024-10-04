@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Registers a package version.
  */
 export function getPackageVersion(args: GetPackageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:panorama:getPackageVersion", {
         "packageId": args.packageId,
@@ -68,12 +69,7 @@ export interface GetPackageVersionResult {
  * Registers a package version.
  */
 export function getPackageVersionOutput(args: GetPackageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:panorama:getPackageVersion", {
-        "packageId": args.packageId,
-        "packageVersion": args.packageVersion,
-        "patchVersion": args.patchVersion,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPackageVersion(a, opts))
 }
 
 export interface GetPackageVersionOutputArgs {

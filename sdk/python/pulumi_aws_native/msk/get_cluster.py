@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -183,26 +178,12 @@ def get_cluster(arn: Optional[str] = None,
         open_monitoring=pulumi.get(__ret__, 'open_monitoring'),
         storage_mode=pulumi.get(__ret__, 'storage_mode'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Resource Type definition for AWS::MSK::Cluster
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:msk:getCluster', __args__, opts=opts, typ=GetClusterResult)
-    return __ret__.apply(lambda __response__: GetClusterResult(
-        arn=pulumi.get(__response__, 'arn'),
-        broker_node_group_info=pulumi.get(__response__, 'broker_node_group_info'),
-        client_authentication=pulumi.get(__response__, 'client_authentication'),
-        configuration_info=pulumi.get(__response__, 'configuration_info'),
-        current_version=pulumi.get(__response__, 'current_version'),
-        encryption_info=pulumi.get(__response__, 'encryption_info'),
-        enhanced_monitoring=pulumi.get(__response__, 'enhanced_monitoring'),
-        kafka_version=pulumi.get(__response__, 'kafka_version'),
-        logging_info=pulumi.get(__response__, 'logging_info'),
-        number_of_broker_nodes=pulumi.get(__response__, 'number_of_broker_nodes'),
-        open_monitoring=pulumi.get(__response__, 'open_monitoring'),
-        storage_mode=pulumi.get(__response__, 'storage_mode'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

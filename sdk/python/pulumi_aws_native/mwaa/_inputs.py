@@ -4,55 +4,17 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'EnvironmentLoggingConfigurationArgs',
-    'EnvironmentLoggingConfigurationArgsDict',
     'EnvironmentModuleLoggingConfigurationArgs',
-    'EnvironmentModuleLoggingConfigurationArgsDict',
     'EnvironmentNetworkConfigurationArgs',
-    'EnvironmentNetworkConfigurationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class EnvironmentLoggingConfigurationArgsDict(TypedDict):
-        """
-        Logging configuration for the environment.
-        """
-        dag_processing_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
-        """
-        Defines the processing logs sent to CloudWatch Logs and the logging level to send.
-        """
-        scheduler_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
-        """
-        Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
-        """
-        task_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
-        """
-        Defines the task logs sent to CloudWatch Logs and the logging level to send.
-        """
-        webserver_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
-        """
-        Defines the web server logs sent to CloudWatch Logs and the logging level to send.
-        """
-        worker_logs: NotRequired[pulumi.Input['EnvironmentModuleLoggingConfigurationArgsDict']]
-        """
-        Defines the worker logs sent to CloudWatch Logs and the logging level to send.
-        """
-elif False:
-    EnvironmentLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentLoggingConfigurationArgs:
@@ -142,28 +104,6 @@ class EnvironmentLoggingConfigurationArgs:
         pulumi.set(self, "worker_logs", value)
 
 
-if not MYPY:
-    class EnvironmentModuleLoggingConfigurationArgsDict(TypedDict):
-        """
-        Logging configuration for a specific airflow component.
-        """
-        cloud_watch_log_group_arn: NotRequired[pulumi.Input[str]]
-        """
-        The ARN of the CloudWatch Logs log group for each type of Apache Airflow log type that you have enabled.
-
-        > `CloudWatchLogGroupArn` is available only as a return value, accessible when specified as an attribute in the [`Fn:GetAtt`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#aws-resource-mwaa-environment-return-values) intrinsic function. Any value you provide for `CloudWatchLogGroupArn` is discarded by Amazon MWAA.
-        """
-        enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Indicates whether to enable the Apache Airflow log type (e.g. `DagProcessingLogs` ) in CloudWatch Logs.
-        """
-        log_level: NotRequired[pulumi.Input['EnvironmentLoggingLevel']]
-        """
-        Defines the Apache Airflow logs to send for the log type (e.g. `DagProcessingLogs` ) to CloudWatch Logs. Valid values: `CRITICAL` , `ERROR` , `WARNING` , `INFO` .
-        """
-elif False:
-    EnvironmentModuleLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class EnvironmentModuleLoggingConfigurationArgs:
     def __init__(__self__, *,
@@ -223,22 +163,6 @@ class EnvironmentModuleLoggingConfigurationArgs:
     def log_level(self, value: Optional[pulumi.Input['EnvironmentLoggingLevel']]):
         pulumi.set(self, "log_level", value)
 
-
-if not MYPY:
-    class EnvironmentNetworkConfigurationArgsDict(TypedDict):
-        """
-        Configures the network resources of the environment.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of security groups to use for the environment.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
-        """
-elif False:
-    EnvironmentNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentNetworkConfigurationArgs:

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Schema for AWS::EKS::Addon
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eks:getAddon", {
         "addonName": args.addonName,
@@ -55,11 +56,7 @@ export interface GetAddonResult {
  * Resource Schema for AWS::EKS::Addon
  */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:eks:getAddon", {
-        "addonName": args.addonName,
-        "clusterName": args.clusterName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAddon(a, opts))
 }
 
 export interface GetAddonOutputArgs {

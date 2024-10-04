@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -131,6 +126,9 @@ def get_protection_group(protection_group_arn: Optional[str] = None,
         protection_group_arn=pulumi.get(__ret__, 'protection_group_arn'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_protection_group)
 def get_protection_group_output(protection_group_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionGroupResult]:
     """
@@ -139,14 +137,4 @@ def get_protection_group_output(protection_group_arn: Optional[pulumi.Input[str]
 
     :param str protection_group_arn: The ARN (Amazon Resource Name) of the protection group.
     """
-    __args__ = dict()
-    __args__['protectionGroupArn'] = protection_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:shield:getProtectionGroup', __args__, opts=opts, typ=GetProtectionGroupResult)
-    return __ret__.apply(lambda __response__: GetProtectionGroupResult(
-        aggregation=pulumi.get(__response__, 'aggregation'),
-        members=pulumi.get(__response__, 'members'),
-        pattern=pulumi.get(__response__, 'pattern'),
-        protection_group_arn=pulumi.get(__response__, 'protection_group_arn'),
-        resource_type=pulumi.get(__response__, 'resource_type'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

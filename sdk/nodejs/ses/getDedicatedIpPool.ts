@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SES::DedicatedIpPool
  */
 export function getDedicatedIpPool(args: GetDedicatedIpPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedIpPoolResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getDedicatedIpPool", {
         "poolName": args.poolName,
@@ -31,10 +32,7 @@ export interface GetDedicatedIpPoolResult {
  * Resource Type definition for AWS::SES::DedicatedIpPool
  */
 export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedIpPoolResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ses:getDedicatedIpPool", {
-        "poolName": args.poolName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDedicatedIpPool(a, opts))
 }
 
 export interface GetDedicatedIpPoolOutputArgs {

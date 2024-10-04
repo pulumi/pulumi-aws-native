@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Deadline::MeteredProduct Resource Type
  */
 export function getMeteredProduct(args: GetMeteredProductArgs, opts?: pulumi.InvokeOptions): Promise<GetMeteredProductResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:deadline:getMeteredProduct", {
         "arn": args.arn,
@@ -43,10 +44,7 @@ export interface GetMeteredProductResult {
  * Definition of AWS::Deadline::MeteredProduct Resource Type
  */
 export function getMeteredProductOutput(args: GetMeteredProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeteredProductResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:deadline:getMeteredProduct", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMeteredProduct(a, opts))
 }
 
 export interface GetMeteredProductOutputArgs {

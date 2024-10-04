@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
  */
 export function getContinuousDeploymentPolicy(args: GetContinuousDeploymentPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetContinuousDeploymentPolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getContinuousDeploymentPolicy", {
         "id": args.id,
@@ -42,10 +43,7 @@ export interface GetContinuousDeploymentPolicyResult {
  * Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
  */
 export function getContinuousDeploymentPolicyOutput(args: GetContinuousDeploymentPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContinuousDeploymentPolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getContinuousDeploymentPolicy", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getContinuousDeploymentPolicy(a, opts))
 }
 
 export interface GetContinuousDeploymentPolicyOutputArgs {

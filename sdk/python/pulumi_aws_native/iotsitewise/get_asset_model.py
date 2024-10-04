@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -168,6 +163,9 @@ def get_asset_model(asset_model_id: Optional[str] = None,
         asset_model_name=pulumi.get(__ret__, 'asset_model_name'),
         asset_model_properties=pulumi.get(__ret__, 'asset_model_properties'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_asset_model)
 def get_asset_model_output(asset_model_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetModelResult]:
     """
@@ -176,17 +174,4 @@ def get_asset_model_output(asset_model_id: Optional[pulumi.Input[str]] = None,
 
     :param str asset_model_id: The ID of the asset model.
     """
-    __args__ = dict()
-    __args__['assetModelId'] = asset_model_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getAssetModel', __args__, opts=opts, typ=GetAssetModelResult)
-    return __ret__.apply(lambda __response__: GetAssetModelResult(
-        asset_model_arn=pulumi.get(__response__, 'asset_model_arn'),
-        asset_model_composite_models=pulumi.get(__response__, 'asset_model_composite_models'),
-        asset_model_description=pulumi.get(__response__, 'asset_model_description'),
-        asset_model_external_id=pulumi.get(__response__, 'asset_model_external_id'),
-        asset_model_hierarchies=pulumi.get(__response__, 'asset_model_hierarchies'),
-        asset_model_id=pulumi.get(__response__, 'asset_model_id'),
-        asset_model_name=pulumi.get(__response__, 'asset_model_name'),
-        asset_model_properties=pulumi.get(__response__, 'asset_model_properties'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

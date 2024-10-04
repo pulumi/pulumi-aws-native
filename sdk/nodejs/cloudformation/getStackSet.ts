@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
  */
 export function getStackSet(args: GetStackSetArgs, opts?: pulumi.InvokeOptions): Promise<GetStackSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getStackSet", {
         "stackSetId": args.stackSetId,
@@ -70,10 +71,7 @@ export interface GetStackSetResult {
  * StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
  */
 export function getStackSetOutput(args: GetStackSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudformation:getStackSet", {
-        "stackSetId": args.stackSetId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStackSet(a, opts))
 }
 
 export interface GetStackSetOutputArgs {

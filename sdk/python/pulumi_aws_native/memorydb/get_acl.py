@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -101,6 +96,9 @@ def get_acl(acl_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         user_names=pulumi.get(__ret__, 'user_names'))
+
+
+@_utilities.lift_output_func(get_acl)
 def get_acl_output(acl_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAclResult]:
     """
@@ -109,12 +107,4 @@ def get_acl_output(acl_name: Optional[pulumi.Input[str]] = None,
 
     :param str acl_name: The name of the acl.
     """
-    __args__ = dict()
-    __args__['aclName'] = acl_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:memorydb:getAcl', __args__, opts=opts, typ=GetAclResult)
-    return __ret__.apply(lambda __response__: GetAclResult(
-        arn=pulumi.get(__response__, 'arn'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags'),
-        user_names=pulumi.get(__response__, 'user_names')))
+    ...

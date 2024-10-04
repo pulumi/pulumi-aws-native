@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -130,6 +125,9 @@ def get_event_bus(name: Optional[str] = None,
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_event_bus)
 def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventBusResult]:
     """
@@ -138,14 +136,4 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the event bus.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:events:getEventBus', __args__, opts=opts, typ=GetEventBusResult)
-    return __ret__.apply(lambda __response__: GetEventBusResult(
-        arn=pulumi.get(__response__, 'arn'),
-        dead_letter_config=pulumi.get(__response__, 'dead_letter_config'),
-        description=pulumi.get(__response__, 'description'),
-        kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
-        policy=pulumi.get(__response__, 'policy'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

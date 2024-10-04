@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub. Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
  */
 export function getOrganizationConfiguration(args: GetOrganizationConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securityhub:getOrganizationConfiguration", {
         "organizationConfigurationIdentifier": args.organizationConfigurationIdentifier,
@@ -58,10 +59,7 @@ export interface GetOrganizationConfigurationResult {
  * The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub. Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
  */
 export function getOrganizationConfigurationOutput(args: GetOrganizationConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:securityhub:getOrganizationConfiguration", {
-        "organizationConfigurationIdentifier": args.organizationConfigurationIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getOrganizationConfiguration(a, opts))
 }
 
 export interface GetOrganizationConfigurationOutputArgs {

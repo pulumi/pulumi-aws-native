@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *  Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
  */
 export function getFindingAggregator(args: GetFindingAggregatorArgs, opts?: pulumi.InvokeOptions): Promise<GetFindingAggregatorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securityhub:getFindingAggregator", {
         "findingAggregatorArn": args.findingAggregatorArn,
@@ -58,10 +59,7 @@ export interface GetFindingAggregatorResult {
  *  Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
  */
 export function getFindingAggregatorOutput(args: GetFindingAggregatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingAggregatorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:securityhub:getFindingAggregator", {
-        "findingAggregatorArn": args.findingAggregatorArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getFindingAggregator(a, opts))
 }
 
 export interface GetFindingAggregatorOutputArgs {

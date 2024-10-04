@@ -4,55 +4,23 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'FunctionConfigurationAppSyncRuntimeArgs',
-    'FunctionConfigurationAppSyncRuntimeArgsDict',
     'FunctionConfigurationLambdaConflictHandlerConfigArgs',
-    'FunctionConfigurationLambdaConflictHandlerConfigArgsDict',
     'FunctionConfigurationSyncConfigArgs',
-    'FunctionConfigurationSyncConfigArgsDict',
     'ResolverAppSyncRuntimeArgs',
-    'ResolverAppSyncRuntimeArgsDict',
     'ResolverCachingConfigArgs',
-    'ResolverCachingConfigArgsDict',
     'ResolverLambdaConflictHandlerConfigArgs',
-    'ResolverLambdaConflictHandlerConfigArgsDict',
     'ResolverPipelineConfigArgs',
-    'ResolverPipelineConfigArgsDict',
     'ResolverSyncConfigArgs',
-    'ResolverSyncConfigArgsDict',
     'SourceApiAssociationConfigArgs',
-    'SourceApiAssociationConfigArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class FunctionConfigurationAppSyncRuntimeArgsDict(TypedDict):
-        """
-        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
-        """
-        name: pulumi.Input[str]
-        """
-        The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
-        """
-        runtime_version: pulumi.Input[str]
-        """
-        The version of the runtime to use. Currently, the only allowed version is 1.0.0.
-        """
-elif False:
-    FunctionConfigurationAppSyncRuntimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionConfigurationAppSyncRuntimeArgs:
@@ -92,18 +60,6 @@ class FunctionConfigurationAppSyncRuntimeArgs:
         pulumi.set(self, "runtime_version", value)
 
 
-if not MYPY:
-    class FunctionConfigurationLambdaConflictHandlerConfigArgsDict(TypedDict):
-        """
-        The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
-        """
-        lambda_conflict_handler_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-        """
-elif False:
-    FunctionConfigurationLambdaConflictHandlerConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class FunctionConfigurationLambdaConflictHandlerConfigArgs:
     def __init__(__self__, *,
@@ -127,26 +83,6 @@ class FunctionConfigurationLambdaConflictHandlerConfigArgs:
     def lambda_conflict_handler_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lambda_conflict_handler_arn", value)
 
-
-if not MYPY:
-    class FunctionConfigurationSyncConfigArgsDict(TypedDict):
-        """
-        Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
-        """
-        conflict_detection: pulumi.Input[str]
-        """
-        The Conflict Detection strategy to use.
-        """
-        conflict_handler: NotRequired[pulumi.Input[str]]
-        """
-        The Conflict Resolution strategy to perform in the event of a conflict.
-        """
-        lambda_conflict_handler_config: NotRequired[pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgsDict']]
-        """
-        The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
-        """
-elif False:
-    FunctionConfigurationSyncConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionConfigurationSyncConfigArgs:
@@ -203,22 +139,6 @@ class FunctionConfigurationSyncConfigArgs:
         pulumi.set(self, "lambda_conflict_handler_config", value)
 
 
-if not MYPY:
-    class ResolverAppSyncRuntimeArgsDict(TypedDict):
-        """
-        Describes a runtime used by an APSYlong resolver or APSYlong function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
-        """
-        name: pulumi.Input[str]
-        """
-        The ``name`` of the runtime to use. Currently, the only allowed value is ``APPSYNC_JS``.
-        """
-        runtime_version: pulumi.Input[str]
-        """
-        The ``version`` of the runtime to use. Currently, the only allowed version is ``1.0.0``.
-        """
-elif False:
-    ResolverAppSyncRuntimeArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResolverAppSyncRuntimeArgs:
     def __init__(__self__, *,
@@ -256,24 +176,6 @@ class ResolverAppSyncRuntimeArgs:
     def runtime_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "runtime_version", value)
 
-
-if not MYPY:
-    class ResolverCachingConfigArgsDict(TypedDict):
-        """
-        The caching configuration for a resolver that has caching activated.
-        """
-        ttl: pulumi.Input[float]
-        """
-        The TTL in seconds for a resolver that has caching activated.
-         Valid values are 1–3,600 seconds.
-        """
-        caching_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The caching keys for a resolver that has caching activated.
-         Valid values are entries from the ``$context.arguments``, ``$context.source``, and ``$context.identity`` maps.
-        """
-elif False:
-    ResolverCachingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResolverCachingConfigArgs:
@@ -318,18 +220,6 @@ class ResolverCachingConfigArgs:
         pulumi.set(self, "caching_keys", value)
 
 
-if not MYPY:
-    class ResolverLambdaConflictHandlerConfigArgsDict(TypedDict):
-        """
-        The ``LambdaConflictHandlerConfig`` when configuring LAMBDA as the Conflict Handler.
-        """
-        lambda_conflict_handler_arn: NotRequired[pulumi.Input[str]]
-        """
-        The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-        """
-elif False:
-    ResolverLambdaConflictHandlerConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ResolverLambdaConflictHandlerConfigArgs:
     def __init__(__self__, *,
@@ -353,19 +243,6 @@ class ResolverLambdaConflictHandlerConfigArgs:
     def lambda_conflict_handler_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lambda_conflict_handler_arn", value)
 
-
-if not MYPY:
-    class ResolverPipelineConfigArgsDict(TypedDict):
-        """
-        Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
-          ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
-        """
-        functions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of ``Function`` objects.
-        """
-elif False:
-    ResolverPipelineConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResolverPipelineConfigArgs:
@@ -391,32 +268,6 @@ class ResolverPipelineConfigArgs:
     def functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "functions", value)
 
-
-if not MYPY:
-    class ResolverSyncConfigArgsDict(TypedDict):
-        """
-        Describes a Sync configuration for a resolver.
-         Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
-        """
-        conflict_detection: pulumi.Input[str]
-        """
-        The Conflict Detection strategy to use.
-          +   *VERSION*: Detect conflicts based on object versions for this resolver.
-          +   *NONE*: Do not detect conflicts when invoking this resolver.
-        """
-        conflict_handler: NotRequired[pulumi.Input[str]]
-        """
-        The Conflict Resolution strategy to perform in the event of a conflict.
-          +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
-          +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
-          +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
-        """
-        lambda_conflict_handler_config: NotRequired[pulumi.Input['ResolverLambdaConflictHandlerConfigArgsDict']]
-        """
-        The ``LambdaConflictHandlerConfig`` when configuring ``LAMBDA`` as the Conflict Handler.
-        """
-elif False:
-    ResolverSyncConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResolverSyncConfigArgs:
@@ -483,15 +334,6 @@ class ResolverSyncConfigArgs:
     def lambda_conflict_handler_config(self, value: Optional[pulumi.Input['ResolverLambdaConflictHandlerConfigArgs']]):
         pulumi.set(self, "lambda_conflict_handler_config", value)
 
-
-if not MYPY:
-    class SourceApiAssociationConfigArgsDict(TypedDict):
-        merge_type: NotRequired[pulumi.Input['SourceApiAssociationConfigMergeType']]
-        """
-        Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
-        """
-elif False:
-    SourceApiAssociationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourceApiAssociationConfigArgs:

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:memorydb:getCluster", {
         "clusterName": args.clusterName,
@@ -108,10 +109,7 @@ export interface GetClusterResult {
  * The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:memorydb:getCluster", {
-        "clusterName": args.clusterName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -168,6 +163,9 @@ def get_endpoint_authorization(account: Optional[str] = None,
         grantor=pulumi.get(__ret__, 'grantor'),
         status=pulumi.get(__ret__, 'status'),
         vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
+
+
+@_utilities.lift_output_func(get_endpoint_authorization)
 def get_endpoint_authorization_output(account: Optional[pulumi.Input[str]] = None,
                                       cluster_identifier: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointAuthorizationResult]:
@@ -178,18 +176,4 @@ def get_endpoint_authorization_output(account: Optional[pulumi.Input[str]] = Non
     :param str account: The target AWS account ID to grant or revoke access for.
     :param str cluster_identifier: The cluster identifier.
     """
-    __args__ = dict()
-    __args__['account'] = account
-    __args__['clusterIdentifier'] = cluster_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getEndpointAuthorization', __args__, opts=opts, typ=GetEndpointAuthorizationResult)
-    return __ret__.apply(lambda __response__: GetEndpointAuthorizationResult(
-        allowed_all_vpcs=pulumi.get(__response__, 'allowed_all_vpcs'),
-        allowed_vpcs=pulumi.get(__response__, 'allowed_vpcs'),
-        authorize_time=pulumi.get(__response__, 'authorize_time'),
-        cluster_status=pulumi.get(__response__, 'cluster_status'),
-        endpoint_count=pulumi.get(__response__, 'endpoint_count'),
-        grantee=pulumi.get(__response__, 'grantee'),
-        grantor=pulumi.get(__response__, 'grantor'),
-        status=pulumi.get(__response__, 'status'),
-        vpc_ids=pulumi.get(__response__, 'vpc_ids')))
+    ...

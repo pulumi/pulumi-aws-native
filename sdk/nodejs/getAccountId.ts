@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getAccountId(opts?: pulumi.InvokeOptions): Promise<GetAccountIdResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:index:getAccountId", {
     }, opts);
@@ -14,7 +15,5 @@ export interface GetAccountIdResult {
     readonly accountId: string;
 }
 export function getAccountIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountIdResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:index:getAccountId", {
-    }, opts);
+    return pulumi.output(getAccountId(opts))
 }

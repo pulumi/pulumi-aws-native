@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * A pseudo-resource that manages which of your ECS task sets is primary.
  */
 export function getPrimaryTaskSet(args: GetPrimaryTaskSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPrimaryTaskSetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ecs:getPrimaryTaskSet", {
         "cluster": args.cluster,
@@ -36,11 +37,7 @@ export interface GetPrimaryTaskSetResult {
  * A pseudo-resource that manages which of your ECS task sets is primary.
  */
 export function getPrimaryTaskSetOutput(args: GetPrimaryTaskSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrimaryTaskSetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ecs:getPrimaryTaskSet", {
-        "cluster": args.cluster,
-        "service": args.service,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrimaryTaskSet(a, opts))
 }
 
 export interface GetPrimaryTaskSetOutputArgs {

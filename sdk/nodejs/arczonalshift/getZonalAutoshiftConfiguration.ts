@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
  */
 export function getZonalAutoshiftConfiguration(args: GetZonalAutoshiftConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetZonalAutoshiftConfigurationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:arczonalshift:getZonalAutoshiftConfiguration", {
         "resourceIdentifier": args.resourceIdentifier,
@@ -44,10 +45,7 @@ export interface GetZonalAutoshiftConfigurationResult {
  * Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
  */
 export function getZonalAutoshiftConfigurationOutput(args: GetZonalAutoshiftConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZonalAutoshiftConfigurationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:arczonalshift:getZonalAutoshiftConfiguration", {
-        "resourceIdentifier": args.resourceIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getZonalAutoshiftConfiguration(a, opts))
 }
 
 export interface GetZonalAutoshiftConfigurationOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -103,6 +98,9 @@ def get_load_balancer_tls_certificate(certificate_name: Optional[str] = None,
         is_attached=pulumi.get(__ret__, 'is_attached'),
         load_balancer_tls_certificate_arn=pulumi.get(__ret__, 'load_balancer_tls_certificate_arn'),
         status=pulumi.get(__ret__, 'status'))
+
+
+@_utilities.lift_output_func(get_load_balancer_tls_certificate)
 def get_load_balancer_tls_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                              load_balancer_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerTlsCertificateResult]:
@@ -113,13 +111,4 @@ def get_load_balancer_tls_certificate_output(certificate_name: Optional[pulumi.I
     :param str certificate_name: The SSL/TLS certificate name.
     :param str load_balancer_name: The name of your load balancer.
     """
-    __args__ = dict()
-    __args__['certificateName'] = certificate_name
-    __args__['loadBalancerName'] = load_balancer_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getLoadBalancerTlsCertificate', __args__, opts=opts, typ=GetLoadBalancerTlsCertificateResult)
-    return __ret__.apply(lambda __response__: GetLoadBalancerTlsCertificateResult(
-        https_redirection_enabled=pulumi.get(__response__, 'https_redirection_enabled'),
-        is_attached=pulumi.get(__response__, 'is_attached'),
-        load_balancer_tls_certificate_arn=pulumi.get(__response__, 'load_balancer_tls_certificate_arn'),
-        status=pulumi.get(__response__, 'status')))
+    ...

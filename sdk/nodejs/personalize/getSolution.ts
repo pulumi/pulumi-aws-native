@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Personalize::Solution.
  */
 export function getSolution(args: GetSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:personalize:getSolution", {
         "solutionArn": args.solutionArn,
@@ -31,10 +32,7 @@ export interface GetSolutionResult {
  * Resource schema for AWS::Personalize::Solution.
  */
 export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:personalize:getSolution", {
-        "solutionArn": args.solutionArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSolution(a, opts))
 }
 
 export interface GetSolutionOutputArgs {

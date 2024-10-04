@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -146,6 +141,9 @@ def get_repository(repository_name: Optional[str] = None,
         repository_policy_text=pulumi.get(__ret__, 'repository_policy_text'),
         repository_uri=pulumi.get(__ret__, 'repository_uri'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_repository)
 def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
     """
@@ -156,15 +154,4 @@ def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
             The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
-    __args__ = dict()
-    __args__['repositoryName'] = repository_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ecr:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
-    return __ret__.apply(lambda __response__: GetRepositoryResult(
-        arn=pulumi.get(__response__, 'arn'),
-        image_scanning_configuration=pulumi.get(__response__, 'image_scanning_configuration'),
-        image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
-        lifecycle_policy=pulumi.get(__response__, 'lifecycle_policy'),
-        repository_policy_text=pulumi.get(__response__, 'repository_policy_text'),
-        repository_uri=pulumi.get(__response__, 'repository_uri'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

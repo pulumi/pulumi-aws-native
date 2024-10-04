@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -116,6 +111,9 @@ def get_work_group(name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         work_group_configuration=pulumi.get(__ret__, 'work_group_configuration'))
+
+
+@_utilities.lift_output_func(get_work_group)
 def get_work_group_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkGroupResult]:
     """
@@ -124,13 +122,4 @@ def get_work_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The workGroup name.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getWorkGroup', __args__, opts=opts, typ=GetWorkGroupResult)
-    return __ret__.apply(lambda __response__: GetWorkGroupResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags'),
-        work_group_configuration=pulumi.get(__response__, 'work_group_configuration')))
+    ...

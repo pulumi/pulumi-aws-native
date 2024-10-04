@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Backup::RestoreTestingPlan Resource Type
  */
 export function getRestoreTestingPlan(args: GetRestoreTestingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetRestoreTestingPlanResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:backup:getRestoreTestingPlan", {
         "restoreTestingPlanName": args.restoreTestingPlanName,
@@ -57,10 +58,7 @@ export interface GetRestoreTestingPlanResult {
  * Definition of AWS::Backup::RestoreTestingPlan Resource Type
  */
 export function getRestoreTestingPlanOutput(args: GetRestoreTestingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestoreTestingPlanResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:backup:getRestoreTestingPlan", {
-        "restoreTestingPlanName": args.restoreTestingPlanName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRestoreTestingPlan(a, opts))
 }
 
 export interface GetRestoreTestingPlanOutputArgs {

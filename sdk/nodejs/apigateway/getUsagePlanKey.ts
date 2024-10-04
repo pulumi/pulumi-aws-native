@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
  */
 export function getUsagePlanKey(args: GetUsagePlanKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUsagePlanKeyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getUsagePlanKey", {
         "id": args.id,
@@ -31,10 +32,7 @@ export interface GetUsagePlanKeyResult {
  * The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
  */
 export function getUsagePlanKeyOutput(args: GetUsagePlanKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsagePlanKeyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:apigateway:getUsagePlanKey", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUsagePlanKey(a, opts))
 }
 
 export interface GetUsagePlanKeyOutputArgs {

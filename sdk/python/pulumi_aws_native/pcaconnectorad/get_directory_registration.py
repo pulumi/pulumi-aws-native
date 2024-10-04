@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -61,6 +56,9 @@ def get_directory_registration(directory_registration_arn: Optional[str] = None,
 
     return AwaitableGetDirectoryRegistrationResult(
         directory_registration_arn=pulumi.get(__ret__, 'directory_registration_arn'))
+
+
+@_utilities.lift_output_func(get_directory_registration)
 def get_directory_registration_output(directory_registration_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryRegistrationResult]:
     """
@@ -69,9 +67,4 @@ def get_directory_registration_output(directory_registration_arn: Optional[pulum
 
     :param str directory_registration_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
     """
-    __args__ = dict()
-    __args__['directoryRegistrationArn'] = directory_registration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:pcaconnectorad:getDirectoryRegistration', __args__, opts=opts, typ=GetDirectoryRegistrationResult)
-    return __ret__.apply(lambda __response__: GetDirectoryRegistrationResult(
-        directory_registration_arn=pulumi.get(__response__, 'directory_registration_arn')))
+    ...

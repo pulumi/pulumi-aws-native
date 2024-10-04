@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -258,6 +253,9 @@ def get_target_group(target_group_arn: Optional[str] = None,
         target_group_name=pulumi.get(__ret__, 'target_group_name'),
         targets=pulumi.get(__ret__, 'targets'),
         unhealthy_threshold_count=pulumi.get(__ret__, 'unhealthy_threshold_count'))
+
+
+@_utilities.lift_output_func(get_target_group)
 def get_target_group_output(target_group_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
@@ -266,24 +264,4 @@ def get_target_group_output(target_group_arn: Optional[pulumi.Input[str]] = None
 
     :param str target_group_arn: The ARN of the Target Group
     """
-    __args__ = dict()
-    __args__['targetGroupArn'] = target_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancingv2:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult)
-    return __ret__.apply(lambda __response__: GetTargetGroupResult(
-        health_check_enabled=pulumi.get(__response__, 'health_check_enabled'),
-        health_check_interval_seconds=pulumi.get(__response__, 'health_check_interval_seconds'),
-        health_check_path=pulumi.get(__response__, 'health_check_path'),
-        health_check_port=pulumi.get(__response__, 'health_check_port'),
-        health_check_protocol=pulumi.get(__response__, 'health_check_protocol'),
-        health_check_timeout_seconds=pulumi.get(__response__, 'health_check_timeout_seconds'),
-        healthy_threshold_count=pulumi.get(__response__, 'healthy_threshold_count'),
-        load_balancer_arns=pulumi.get(__response__, 'load_balancer_arns'),
-        matcher=pulumi.get(__response__, 'matcher'),
-        tags=pulumi.get(__response__, 'tags'),
-        target_group_arn=pulumi.get(__response__, 'target_group_arn'),
-        target_group_attributes=pulumi.get(__response__, 'target_group_attributes'),
-        target_group_full_name=pulumi.get(__response__, 'target_group_full_name'),
-        target_group_name=pulumi.get(__response__, 'target_group_name'),
-        targets=pulumi.get(__response__, 'targets'),
-        unhealthy_threshold_count=pulumi.get(__response__, 'unhealthy_threshold_count')))
+    ...

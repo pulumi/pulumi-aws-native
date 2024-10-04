@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
  */
 export function getSnapshotBlockPublicAccess(args: GetSnapshotBlockPublicAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotBlockPublicAccessResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSnapshotBlockPublicAccess", {
         "accountId": args.accountId,
@@ -38,10 +39,7 @@ export interface GetSnapshotBlockPublicAccessResult {
  * Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
  */
 export function getSnapshotBlockPublicAccessOutput(args: GetSnapshotBlockPublicAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotBlockPublicAccessResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getSnapshotBlockPublicAccess", {
-        "accountId": args.accountId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSnapshotBlockPublicAccess(a, opts))
 }
 
 export interface GetSnapshotBlockPublicAccessOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -126,6 +121,9 @@ def get_anomaly_monitor(monitor_arn: Optional[str] = None,
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         monitor_arn=pulumi.get(__ret__, 'monitor_arn'),
         monitor_name=pulumi.get(__ret__, 'monitor_name'))
+
+
+@_utilities.lift_output_func(get_anomaly_monitor)
 def get_anomaly_monitor_output(monitor_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalyMonitorResult]:
     """
@@ -134,14 +132,4 @@ def get_anomaly_monitor_output(monitor_arn: Optional[pulumi.Input[str]] = None,
 
     :param str monitor_arn: The Amazon Resource Name (ARN) value for the monitor.
     """
-    __args__ = dict()
-    __args__['monitorArn'] = monitor_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ce:getAnomalyMonitor', __args__, opts=opts, typ=GetAnomalyMonitorResult)
-    return __ret__.apply(lambda __response__: GetAnomalyMonitorResult(
-        creation_date=pulumi.get(__response__, 'creation_date'),
-        dimensional_value_count=pulumi.get(__response__, 'dimensional_value_count'),
-        last_evaluated_date=pulumi.get(__response__, 'last_evaluated_date'),
-        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
-        monitor_arn=pulumi.get(__response__, 'monitor_arn'),
-        monitor_name=pulumi.get(__response__, 'monitor_name')))
+    ...

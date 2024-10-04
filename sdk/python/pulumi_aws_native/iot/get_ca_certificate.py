@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -137,6 +132,9 @@ def get_ca_certificate(id: Optional[str] = None,
         registration_config=pulumi.get(__ret__, 'registration_config'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_ca_certificate)
 def get_ca_certificate_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCaCertificateResult]:
     """
@@ -145,14 +143,4 @@ def get_ca_certificate_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The CA certificate ID.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getCaCertificate', __args__, opts=opts, typ=GetCaCertificateResult)
-    return __ret__.apply(lambda __response__: GetCaCertificateResult(
-        arn=pulumi.get(__response__, 'arn'),
-        auto_registration_status=pulumi.get(__response__, 'auto_registration_status'),
-        id=pulumi.get(__response__, 'id'),
-        registration_config=pulumi.get(__response__, 'registration_config'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

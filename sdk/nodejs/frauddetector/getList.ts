@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A resource schema for a List in Amazon Fraud Detector.
  */
 export function getList(args: GetListArgs, opts?: pulumi.InvokeOptions): Promise<GetListResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:frauddetector:getList", {
         "arn": args.arn,
@@ -58,10 +59,7 @@ export interface GetListResult {
  * A resource schema for a List in Amazon Fraud Detector.
  */
 export function getListOutput(args: GetListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:frauddetector:getList", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getList(a, opts))
 }
 
 export interface GetListOutputArgs {

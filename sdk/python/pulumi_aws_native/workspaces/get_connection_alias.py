@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -89,6 +84,9 @@ def get_connection_alias(alias_id: Optional[str] = None,
         alias_id=pulumi.get(__ret__, 'alias_id'),
         associations=pulumi.get(__ret__, 'associations'),
         connection_alias_state=pulumi.get(__ret__, 'connection_alias_state'))
+
+
+@_utilities.lift_output_func(get_connection_alias)
 def get_connection_alias_output(alias_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionAliasResult]:
     """
@@ -97,11 +95,4 @@ def get_connection_alias_output(alias_id: Optional[pulumi.Input[str]] = None,
 
     :param str alias_id: The identifier of the connection alias, returned as a string.
     """
-    __args__ = dict()
-    __args__['aliasId'] = alias_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:workspaces:getConnectionAlias', __args__, opts=opts, typ=GetConnectionAliasResult)
-    return __ret__.apply(lambda __response__: GetConnectionAliasResult(
-        alias_id=pulumi.get(__response__, 'alias_id'),
-        associations=pulumi.get(__response__, 'associations'),
-        connection_alias_state=pulumi.get(__response__, 'connection_alias_state')))
+    ...

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * AWS Route53 Recovery Control Cluster resource schema
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53recoverycontrol:getCluster", {
         "clusterArn": args.clusterArn,
@@ -42,10 +43,7 @@ export interface GetClusterResult {
  * AWS Route53 Recovery Control Cluster resource schema
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53recoverycontrol:getCluster", {
-        "clusterArn": args.clusterArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -169,6 +164,9 @@ def get_application(application_identifier: Optional[str] = None,
         stage_name=pulumi.get(__ret__, 'stage_name'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
+
+
+@_utilities.lift_output_func(get_application)
 def get_application_output(application_identifier: Optional[pulumi.Input[str]] = None,
                            environment_identifier: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
@@ -179,18 +177,4 @@ def get_application_output(application_identifier: Optional[pulumi.Input[str]] =
     :param str application_identifier: The unique identifier of the application.
     :param str environment_identifier: The unique identifier of the environment.
     """
-    __args__ = dict()
-    __args__['applicationIdentifier'] = application_identifier
-    __args__['environmentIdentifier'] = environment_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:refactorspaces:getApplication', __args__, opts=opts, typ=GetApplicationResult)
-    return __ret__.apply(lambda __response__: GetApplicationResult(
-        api_gateway_id=pulumi.get(__response__, 'api_gateway_id'),
-        application_identifier=pulumi.get(__response__, 'application_identifier'),
-        arn=pulumi.get(__response__, 'arn'),
-        nlb_arn=pulumi.get(__response__, 'nlb_arn'),
-        nlb_name=pulumi.get(__response__, 'nlb_name'),
-        proxy_url=pulumi.get(__response__, 'proxy_url'),
-        stage_name=pulumi.get(__response__, 'stage_name'),
-        tags=pulumi.get(__response__, 'tags'),
-        vpc_link_id=pulumi.get(__response__, 'vpc_link_id')))
+    ...

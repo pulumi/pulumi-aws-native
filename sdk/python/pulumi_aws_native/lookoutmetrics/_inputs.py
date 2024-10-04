@@ -4,68 +4,31 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AlertActionArgs',
-    'AlertActionArgsDict',
     'AlertLambdaConfigurationArgs',
-    'AlertLambdaConfigurationArgsDict',
     'AlertSnsConfigurationArgs',
-    'AlertSnsConfigurationArgsDict',
     'AnomalyDetectorAppFlowConfigArgs',
-    'AnomalyDetectorAppFlowConfigArgsDict',
     'AnomalyDetectorCloudwatchConfigArgs',
-    'AnomalyDetectorCloudwatchConfigArgsDict',
     'AnomalyDetectorConfigArgs',
-    'AnomalyDetectorConfigArgsDict',
     'AnomalyDetectorCsvFormatDescriptorArgs',
-    'AnomalyDetectorCsvFormatDescriptorArgsDict',
     'AnomalyDetectorFileFormatDescriptorArgs',
-    'AnomalyDetectorFileFormatDescriptorArgsDict',
     'AnomalyDetectorJsonFormatDescriptorArgs',
-    'AnomalyDetectorJsonFormatDescriptorArgsDict',
     'AnomalyDetectorMetricSetArgs',
-    'AnomalyDetectorMetricSetArgsDict',
     'AnomalyDetectorMetricSourceArgs',
-    'AnomalyDetectorMetricSourceArgsDict',
     'AnomalyDetectorMetricArgs',
-    'AnomalyDetectorMetricArgsDict',
     'AnomalyDetectorRdsSourceConfigArgs',
-    'AnomalyDetectorRdsSourceConfigArgsDict',
     'AnomalyDetectorRedshiftSourceConfigArgs',
-    'AnomalyDetectorRedshiftSourceConfigArgsDict',
     'AnomalyDetectorS3SourceConfigArgs',
-    'AnomalyDetectorS3SourceConfigArgsDict',
     'AnomalyDetectorTimestampColumnArgs',
-    'AnomalyDetectorTimestampColumnArgsDict',
     'AnomalyDetectorVpcConfigurationArgs',
-    'AnomalyDetectorVpcConfigurationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class AlertActionArgsDict(TypedDict):
-        lambda_configuration: NotRequired[pulumi.Input['AlertLambdaConfigurationArgsDict']]
-        """
-        A configuration for an AWS Lambda channel.
-        """
-        sns_configuration: NotRequired[pulumi.Input['AlertSnsConfigurationArgsDict']]
-        """
-        A configuration for an Amazon SNS channel.
-        """
-elif False:
-    AlertActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertActionArgs:
@@ -106,22 +69,6 @@ class AlertActionArgs:
         pulumi.set(self, "sns_configuration", value)
 
 
-if not MYPY:
-    class AlertLambdaConfigurationArgsDict(TypedDict):
-        """
-        Configuration options for a Lambda alert action.
-        """
-        lambda_arn: pulumi.Input[str]
-        """
-        ARN of a Lambda to send alert notifications to.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
-        """
-elif False:
-    AlertLambdaConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AlertLambdaConfigurationArgs:
     def __init__(__self__, *,
@@ -159,22 +106,6 @@ class AlertLambdaConfigurationArgs:
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
 
-
-if not MYPY:
-    class AlertSnsConfigurationArgsDict(TypedDict):
-        """
-        Configuration options for an SNS alert action.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
-        """
-        sns_topic_arn: pulumi.Input[str]
-        """
-        ARN of an SNS topic to send alert notifications to.
-        """
-elif False:
-    AlertSnsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertSnsConfigurationArgs:
@@ -214,19 +145,6 @@ class AlertSnsConfigurationArgs:
         pulumi.set(self, "sns_topic_arn", value)
 
 
-if not MYPY:
-    class AnomalyDetectorAppFlowConfigArgsDict(TypedDict):
-        flow_name: pulumi.Input[str]
-        """
-        name of the flow.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        An IAM role that gives Amazon Lookout for Metrics permission to access the flow.
-        """
-elif False:
-    AnomalyDetectorAppFlowConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorAppFlowConfigArgs:
     def __init__(__self__, *,
@@ -264,15 +182,6 @@ class AnomalyDetectorAppFlowConfigArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class AnomalyDetectorCloudwatchConfigArgsDict(TypedDict):
-        role_arn: pulumi.Input[str]
-        """
-        An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.
-        """
-elif False:
-    AnomalyDetectorCloudwatchConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorCloudwatchConfigArgs:
     def __init__(__self__, *,
@@ -295,15 +204,6 @@ class AnomalyDetectorCloudwatchConfigArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class AnomalyDetectorConfigArgsDict(TypedDict):
-        anomaly_detector_frequency: pulumi.Input['AnomalyDetectorFrequency']
-        """
-        Frequency of anomaly detection
-        """
-elif False:
-    AnomalyDetectorConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorConfigArgs:
     def __init__(__self__, *,
@@ -325,35 +225,6 @@ class AnomalyDetectorConfigArgs:
     def anomaly_detector_frequency(self, value: pulumi.Input['AnomalyDetectorFrequency']):
         pulumi.set(self, "anomaly_detector_frequency", value)
 
-
-if not MYPY:
-    class AnomalyDetectorCsvFormatDescriptorArgsDict(TypedDict):
-        charset: NotRequired[pulumi.Input[str]]
-        """
-        The character set in which the source CSV file is written.
-        """
-        contains_header: NotRequired[pulumi.Input[bool]]
-        """
-        Whether or not the source CSV file contains a header.
-        """
-        delimiter: NotRequired[pulumi.Input[str]]
-        """
-        The character used to delimit the source CSV file.
-        """
-        file_compression: NotRequired[pulumi.Input['AnomalyDetectorCsvFormatDescriptorFileCompression']]
-        """
-        The level of compression of the source CSV file.
-        """
-        header_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of the source CSV file's headers, if any.
-        """
-        quote_symbol: NotRequired[pulumi.Input[str]]
-        """
-        The character used as a quote character.
-        """
-elif False:
-    AnomalyDetectorCsvFormatDescriptorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnomalyDetectorCsvFormatDescriptorArgs:
@@ -458,19 +329,6 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
         pulumi.set(self, "quote_symbol", value)
 
 
-if not MYPY:
-    class AnomalyDetectorFileFormatDescriptorArgsDict(TypedDict):
-        csv_format_descriptor: NotRequired[pulumi.Input['AnomalyDetectorCsvFormatDescriptorArgsDict']]
-        """
-        Contains information about how a source CSV data file should be analyzed.
-        """
-        json_format_descriptor: NotRequired[pulumi.Input['AnomalyDetectorJsonFormatDescriptorArgsDict']]
-        """
-        Contains information about how a source JSON data file should be analyzed.
-        """
-elif False:
-    AnomalyDetectorFileFormatDescriptorArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorFileFormatDescriptorArgs:
     def __init__(__self__, *,
@@ -510,19 +368,6 @@ class AnomalyDetectorFileFormatDescriptorArgs:
         pulumi.set(self, "json_format_descriptor", value)
 
 
-if not MYPY:
-    class AnomalyDetectorJsonFormatDescriptorArgsDict(TypedDict):
-        charset: NotRequired[pulumi.Input[str]]
-        """
-        The character set in which the source JSON file is written.
-        """
-        file_compression: NotRequired[pulumi.Input['AnomalyDetectorJsonFormatDescriptorFileCompression']]
-        """
-        The level of compression of the source CSV file.
-        """
-elif False:
-    AnomalyDetectorJsonFormatDescriptorArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorJsonFormatDescriptorArgs:
     def __init__(__self__, *,
@@ -561,47 +406,6 @@ class AnomalyDetectorJsonFormatDescriptorArgs:
     def file_compression(self, value: Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorFileCompression']]):
         pulumi.set(self, "file_compression", value)
 
-
-if not MYPY:
-    class AnomalyDetectorMetricSetArgsDict(TypedDict):
-        metric_list: pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricArgsDict']]]
-        """
-        Metrics captured by this MetricSet.
-        """
-        metric_set_name: pulumi.Input[str]
-        """
-        The name of the MetricSet.
-        """
-        metric_source: pulumi.Input['AnomalyDetectorMetricSourceArgsDict']
-        """
-        Contains information about how the source data should be interpreted.
-        """
-        dimension_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Dimensions for this MetricSet.
-        """
-        metric_set_description: NotRequired[pulumi.Input[str]]
-        """
-        A description for the MetricSet.
-        """
-        metric_set_frequency: NotRequired[pulumi.Input['AnomalyDetectorMetricSetMetricSetFrequency']]
-        """
-        A frequency period to aggregate the data
-        """
-        offset: NotRequired[pulumi.Input[int]]
-        """
-        Offset, in seconds, between the frequency interval and the time at which the metrics are available.
-        """
-        timestamp_column: NotRequired[pulumi.Input['AnomalyDetectorTimestampColumnArgsDict']]
-        """
-        Contains information about the column used for tracking time in your source data.
-        """
-        timezone: NotRequired[pulumi.Input[str]]
-        """
-        The time zone in which your source data was recorded.
-        """
-elif False:
-    AnomalyDetectorMetricSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnomalyDetectorMetricSetArgs:
@@ -751,31 +555,6 @@ class AnomalyDetectorMetricSetArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class AnomalyDetectorMetricSourceArgsDict(TypedDict):
-        app_flow_config: NotRequired[pulumi.Input['AnomalyDetectorAppFlowConfigArgsDict']]
-        """
-        Details about an AppFlow datasource.
-        """
-        cloudwatch_config: NotRequired[pulumi.Input['AnomalyDetectorCloudwatchConfigArgsDict']]
-        """
-        Details about an Amazon CloudWatch monitoring datasource.
-        """
-        rds_source_config: NotRequired[pulumi.Input['AnomalyDetectorRdsSourceConfigArgsDict']]
-        """
-        Details about an Amazon Relational Database Service (RDS) datasource.
-        """
-        redshift_source_config: NotRequired[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgsDict']]
-        """
-        Details about an Amazon Redshift database datasource.
-        """
-        s3_source_config: NotRequired[pulumi.Input['AnomalyDetectorS3SourceConfigArgsDict']]
-        """
-        Contains information about the configuration of the S3 bucket that contains source files.
-        """
-elif False:
-    AnomalyDetectorMetricSourceArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorMetricSourceArgs:
     def __init__(__self__, *,
@@ -863,23 +642,6 @@ class AnomalyDetectorMetricSourceArgs:
         pulumi.set(self, "s3_source_config", value)
 
 
-if not MYPY:
-    class AnomalyDetectorMetricArgsDict(TypedDict):
-        aggregation_function: pulumi.Input['AnomalyDetectorMetricAggregationFunction']
-        """
-        Operator used to aggregate metric values
-        """
-        metric_name: pulumi.Input[str]
-        """
-        The name of the metric.
-        """
-        namespace: NotRequired[pulumi.Input[str]]
-        """
-        The namespace for the metric.
-        """
-elif False:
-    AnomalyDetectorMetricArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorMetricArgs:
     def __init__(__self__, *,
@@ -932,43 +694,6 @@ class AnomalyDetectorMetricArgs:
     def namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace", value)
 
-
-if not MYPY:
-    class AnomalyDetectorRdsSourceConfigArgsDict(TypedDict):
-        database_host: pulumi.Input[str]
-        """
-        The host name of the database.
-        """
-        database_name: pulumi.Input[str]
-        """
-        The name of the RDS database.
-        """
-        database_port: pulumi.Input[int]
-        """
-        The port number where the database can be accessed.
-        """
-        db_instance_identifier: pulumi.Input[str]
-        """
-        A string identifying the database instance.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the role.
-        """
-        secret_manager_arn: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-        """
-        table_name: pulumi.Input[str]
-        """
-        The name of the table in the database.
-        """
-        vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgsDict']
-        """
-        An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
-        """
-elif False:
-    AnomalyDetectorRdsSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnomalyDetectorRdsSourceConfigArgs:
@@ -1097,43 +822,6 @@ class AnomalyDetectorRdsSourceConfigArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
-if not MYPY:
-    class AnomalyDetectorRedshiftSourceConfigArgsDict(TypedDict):
-        cluster_identifier: pulumi.Input[str]
-        """
-        A string identifying the Redshift cluster.
-        """
-        database_host: pulumi.Input[str]
-        """
-        The name of the database host.
-        """
-        database_name: pulumi.Input[str]
-        """
-        The Redshift database name.
-        """
-        database_port: pulumi.Input[int]
-        """
-        The port number where the database can be accessed.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the role providing access to the database.
-        """
-        secret_manager_arn: pulumi.Input[str]
-        """
-        The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-        """
-        table_name: pulumi.Input[str]
-        """
-        The table name of the Redshift database.
-        """
-        vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgsDict']
-        """
-        Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
-        """
-elif False:
-    AnomalyDetectorRedshiftSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorRedshiftSourceConfigArgs:
     def __init__(__self__, *,
@@ -1261,27 +949,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
-if not MYPY:
-    class AnomalyDetectorS3SourceConfigArgsDict(TypedDict):
-        file_format_descriptor: pulumi.Input['AnomalyDetectorFileFormatDescriptorArgsDict']
-        """
-        Contains information about a source file's formatting.
-        """
-        role_arn: pulumi.Input[str]
-        """
-        The ARN of an IAM role that has read and write access permissions to the source S3 bucket.
-        """
-        historical_data_path_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of paths to the historical data files.
-        """
-        templated_path_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of templated paths to the source files.
-        """
-elif False:
-    AnomalyDetectorS3SourceConfigArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorS3SourceConfigArgs:
     def __init__(__self__, *,
@@ -1351,19 +1018,6 @@ class AnomalyDetectorS3SourceConfigArgs:
         pulumi.set(self, "templated_path_list", value)
 
 
-if not MYPY:
-    class AnomalyDetectorTimestampColumnArgsDict(TypedDict):
-        column_format: NotRequired[pulumi.Input[str]]
-        """
-        A timestamp format for the timestamps in the dataset
-        """
-        column_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the timestamp column.
-        """
-elif False:
-    AnomalyDetectorTimestampColumnArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class AnomalyDetectorTimestampColumnArgs:
     def __init__(__self__, *,
@@ -1402,19 +1056,6 @@ class AnomalyDetectorTimestampColumnArgs:
     def column_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "column_name", value)
 
-
-if not MYPY:
-    class AnomalyDetectorVpcConfigurationArgsDict(TypedDict):
-        security_group_id_list: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        An array of strings containing the list of security groups.
-        """
-        subnet_id_list: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        An array of strings containing the Amazon VPC subnet IDs (e.g., `subnet-0bb1c79de3EXAMPLE` .
-        """
-elif False:
-    AnomalyDetectorVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnomalyDetectorVpcConfigurationArgs:

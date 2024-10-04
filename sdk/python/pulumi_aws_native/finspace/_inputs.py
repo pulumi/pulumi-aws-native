@@ -4,40 +4,17 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'EnvironmentFederationParametersAttributeMapItemPropertiesArgs',
-    'EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict',
     'EnvironmentFederationParametersArgs',
-    'EnvironmentFederationParametersArgsDict',
     'EnvironmentSuperuserParametersArgs',
-    'EnvironmentSuperuserParametersArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[str]]
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-elif False:
-    EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentFederationParametersAttributeMapItemPropertiesArgs:
@@ -77,38 +54,6 @@ class EnvironmentFederationParametersAttributeMapItemPropertiesArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
-
-if not MYPY:
-    class EnvironmentFederationParametersArgsDict(TypedDict):
-        """
-        Additional parameters to identify Federation mode
-        """
-        application_call_back_url: NotRequired[pulumi.Input[str]]
-        """
-        SAML metadata URL to link with the Environment
-        """
-        attribute_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict']]]]
-        """
-        Attribute map for SAML configuration
-        """
-        federation_provider_name: NotRequired[pulumi.Input[str]]
-        """
-        Federation provider name to link with the Environment
-        """
-        federation_urn: NotRequired[pulumi.Input[str]]
-        """
-        SAML metadata URL to link with the Environment
-        """
-        saml_metadata_document: NotRequired[pulumi.Input[str]]
-        """
-        SAML metadata document to link the federation provider to the Environment
-        """
-        saml_metadata_url: NotRequired[pulumi.Input[str]]
-        """
-        SAML metadata URL to link with the Environment
-        """
-elif False:
-    EnvironmentFederationParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentFederationParametersArgs:
@@ -213,26 +158,6 @@ class EnvironmentFederationParametersArgs:
     def saml_metadata_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "saml_metadata_url", value)
 
-
-if not MYPY:
-    class EnvironmentSuperuserParametersArgsDict(TypedDict):
-        """
-        Parameters of the first Superuser for the FinSpace Environment
-        """
-        email_address: NotRequired[pulumi.Input[str]]
-        """
-        Email address
-        """
-        first_name: NotRequired[pulumi.Input[str]]
-        """
-        First name
-        """
-        last_name: NotRequired[pulumi.Input[str]]
-        """
-        Last name
-        """
-elif False:
-    EnvironmentSuperuserParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentSuperuserParametersArgs:

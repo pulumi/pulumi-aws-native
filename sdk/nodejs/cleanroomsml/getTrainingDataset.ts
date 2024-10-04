@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
  */
 export function getTrainingDataset(args: GetTrainingDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetTrainingDatasetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cleanroomsml:getTrainingDataset", {
         "trainingDatasetArn": args.trainingDatasetArn,
@@ -42,10 +43,7 @@ export interface GetTrainingDatasetResult {
  * Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
  */
 export function getTrainingDatasetOutput(args: GetTrainingDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrainingDatasetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cleanroomsml:getTrainingDataset", {
-        "trainingDatasetArn": args.trainingDatasetArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTrainingDataset(a, opts))
 }
 
 export interface GetTrainingDatasetOutputArgs {

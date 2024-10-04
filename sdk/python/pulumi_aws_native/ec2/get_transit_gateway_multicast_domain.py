@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -128,6 +123,9 @@ def get_transit_gateway_multicast_domain(transit_gateway_multicast_domain_id: Op
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_multicast_domain_arn=pulumi.get(__ret__, 'transit_gateway_multicast_domain_arn'),
         transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
+
+
+@_utilities.lift_output_func(get_transit_gateway_multicast_domain)
 def get_transit_gateway_multicast_domain_output(transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayMulticastDomainResult]:
     """
@@ -136,14 +134,4 @@ def get_transit_gateway_multicast_domain_output(transit_gateway_multicast_domain
 
     :param str transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
     """
-    __args__ = dict()
-    __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayMulticastDomain', __args__, opts=opts, typ=GetTransitGatewayMulticastDomainResult)
-    return __ret__.apply(lambda __response__: GetTransitGatewayMulticastDomainResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        options=pulumi.get(__response__, 'options'),
-        state=pulumi.get(__response__, 'state'),
-        tags=pulumi.get(__response__, 'tags'),
-        transit_gateway_multicast_domain_arn=pulumi.get(__response__, 'transit_gateway_multicast_domain_arn'),
-        transit_gateway_multicast_domain_id=pulumi.get(__response__, 'transit_gateway_multicast_domain_id')))
+    ...

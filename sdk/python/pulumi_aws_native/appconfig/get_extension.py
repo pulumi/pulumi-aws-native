@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -127,6 +122,9 @@ def get_extension(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         parameters=pulumi.get(__ret__, 'parameters'),
         version_number=pulumi.get(__ret__, 'version_number'))
+
+
+@_utilities.lift_output_func(get_extension)
 def get_extension_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
@@ -135,14 +133,4 @@ def get_extension_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The system-generated ID of the extension.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getExtension', __args__, opts=opts, typ=GetExtensionResult)
-    return __ret__.apply(lambda __response__: GetExtensionResult(
-        actions=pulumi.get(__response__, 'actions'),
-        arn=pulumi.get(__response__, 'arn'),
-        description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        version_number=pulumi.get(__response__, 'version_number')))
+    ...

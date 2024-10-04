@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MemoryDB::User
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:memorydb:getUser", {
         "userName": args.userName,
@@ -42,10 +43,7 @@ export interface GetUserResult {
  * Resource Type definition for AWS::MemoryDB::User
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:memorydb:getUser", {
-        "userName": args.userName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
 
 export interface GetUserOutputArgs {

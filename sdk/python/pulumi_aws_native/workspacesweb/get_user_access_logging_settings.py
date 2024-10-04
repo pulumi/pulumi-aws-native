@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -101,6 +96,9 @@ def get_user_access_logging_settings(user_access_logging_settings_arn: Optional[
         kinesis_stream_arn=pulumi.get(__ret__, 'kinesis_stream_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         user_access_logging_settings_arn=pulumi.get(__ret__, 'user_access_logging_settings_arn'))
+
+
+@_utilities.lift_output_func(get_user_access_logging_settings)
 def get_user_access_logging_settings_output(user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAccessLoggingSettingsResult]:
     """
@@ -109,12 +107,4 @@ def get_user_access_logging_settings_output(user_access_logging_settings_arn: Op
 
     :param str user_access_logging_settings_arn: The ARN of the user access logging settings.
     """
-    __args__ = dict()
-    __args__['userAccessLoggingSettingsArn'] = user_access_logging_settings_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getUserAccessLoggingSettings', __args__, opts=opts, typ=GetUserAccessLoggingSettingsResult)
-    return __ret__.apply(lambda __response__: GetUserAccessLoggingSettingsResult(
-        associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),
-        kinesis_stream_arn=pulumi.get(__response__, 'kinesis_stream_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        user_access_logging_settings_arn=pulumi.get(__response__, 'user_access_logging_settings_arn')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -352,6 +347,9 @@ def get_alarm(alarm_name: Optional[str] = None,
         threshold_metric_id=pulumi.get(__ret__, 'threshold_metric_id'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'),
         unit=pulumi.get(__ret__, 'unit'))
+
+
+@_utilities.lift_output_func(get_alarm)
 def get_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlarmResult]:
     """
@@ -363,30 +361,4 @@ def get_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
     :param str alarm_name: The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
-    __args__ = dict()
-    __args__['alarmName'] = alarm_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getAlarm', __args__, opts=opts, typ=GetAlarmResult)
-    return __ret__.apply(lambda __response__: GetAlarmResult(
-        actions_enabled=pulumi.get(__response__, 'actions_enabled'),
-        alarm_actions=pulumi.get(__response__, 'alarm_actions'),
-        alarm_description=pulumi.get(__response__, 'alarm_description'),
-        arn=pulumi.get(__response__, 'arn'),
-        comparison_operator=pulumi.get(__response__, 'comparison_operator'),
-        datapoints_to_alarm=pulumi.get(__response__, 'datapoints_to_alarm'),
-        dimensions=pulumi.get(__response__, 'dimensions'),
-        evaluate_low_sample_count_percentile=pulumi.get(__response__, 'evaluate_low_sample_count_percentile'),
-        evaluation_periods=pulumi.get(__response__, 'evaluation_periods'),
-        extended_statistic=pulumi.get(__response__, 'extended_statistic'),
-        insufficient_data_actions=pulumi.get(__response__, 'insufficient_data_actions'),
-        metric_name=pulumi.get(__response__, 'metric_name'),
-        metrics=pulumi.get(__response__, 'metrics'),
-        namespace=pulumi.get(__response__, 'namespace'),
-        ok_actions=pulumi.get(__response__, 'ok_actions'),
-        period=pulumi.get(__response__, 'period'),
-        statistic=pulumi.get(__response__, 'statistic'),
-        tags=pulumi.get(__response__, 'tags'),
-        threshold=pulumi.get(__response__, 'threshold'),
-        threshold_metric_id=pulumi.get(__response__, 'threshold_metric_id'),
-        treat_missing_data=pulumi.get(__response__, 'treat_missing_data'),
-        unit=pulumi.get(__response__, 'unit')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -115,6 +110,9 @@ def get_hub(arn: Optional[str] = None,
         control_finding_generator=pulumi.get(__ret__, 'control_finding_generator'),
         subscribed_at=pulumi.get(__ret__, 'subscribed_at'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_hub)
 def get_hub_output(arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubResult]:
     """
@@ -123,13 +121,4 @@ def get_hub_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: An ARN is automatically created for the customer.
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getHub', __args__, opts=opts, typ=GetHubResult)
-    return __ret__.apply(lambda __response__: GetHubResult(
-        arn=pulumi.get(__response__, 'arn'),
-        auto_enable_controls=pulumi.get(__response__, 'auto_enable_controls'),
-        control_finding_generator=pulumi.get(__response__, 'control_finding_generator'),
-        subscribed_at=pulumi.get(__response__, 'subscribed_at'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

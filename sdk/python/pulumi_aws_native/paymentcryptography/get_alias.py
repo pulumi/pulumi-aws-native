@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -63,6 +58,9 @@ def get_alias(alias_name: Optional[str] = None,
 
     return AwaitableGetAliasResult(
         key_arn=pulumi.get(__ret__, 'key_arn'))
+
+
+@_utilities.lift_output_func(get_alias)
 def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
@@ -73,9 +71,4 @@ def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
            
            > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
     """
-    __args__ = dict()
-    __args__['aliasName'] = alias_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:paymentcryptography:getAlias', __args__, opts=opts, typ=GetAliasResult)
-    return __ret__.apply(lambda __response__: GetAliasResult(
-        key_arn=pulumi.get(__response__, 'key_arn')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -167,6 +162,9 @@ def get_network_insights_access_scope_analysis(network_insights_access_scope_ana
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_network_insights_access_scope_analysis)
 def get_network_insights_access_scope_analysis_output(network_insights_access_scope_analysis_id: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeAnalysisResult]:
     """
@@ -175,17 +173,4 @@ def get_network_insights_access_scope_analysis_output(network_insights_access_sc
 
     :param str network_insights_access_scope_analysis_id: The ID of the Network Access Scope analysis.
     """
-    __args__ = dict()
-    __args__['networkInsightsAccessScopeAnalysisId'] = network_insights_access_scope_analysis_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInsightsAccessScopeAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAccessScopeAnalysisResult)
-    return __ret__.apply(lambda __response__: GetNetworkInsightsAccessScopeAnalysisResult(
-        analyzed_eni_count=pulumi.get(__response__, 'analyzed_eni_count'),
-        end_date=pulumi.get(__response__, 'end_date'),
-        findings_found=pulumi.get(__response__, 'findings_found'),
-        network_insights_access_scope_analysis_arn=pulumi.get(__response__, 'network_insights_access_scope_analysis_arn'),
-        network_insights_access_scope_analysis_id=pulumi.get(__response__, 'network_insights_access_scope_analysis_id'),
-        start_date=pulumi.get(__response__, 'start_date'),
-        status=pulumi.get(__response__, 'status'),
-        status_message=pulumi.get(__response__, 'status_message'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

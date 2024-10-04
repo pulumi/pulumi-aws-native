@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GameLift::Build
  */
 export function getBuild(args: GetBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getBuild", {
         "buildId": args.buildId,
@@ -39,10 +40,7 @@ export interface GetBuildResult {
  * Resource Type definition for AWS::GameLift::Build
  */
 export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:gamelift:getBuild", {
-        "buildId": args.buildId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBuild(a, opts))
 }
 
 export interface GetBuildOutputArgs {

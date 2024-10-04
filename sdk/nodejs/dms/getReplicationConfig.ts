@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
  */
 export function getReplicationConfig(args: GetReplicationConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationConfigResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dms:getReplicationConfig", {
         "replicationConfigArn": args.replicationConfigArn,
@@ -76,10 +77,7 @@ export interface GetReplicationConfigResult {
  * A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
  */
 export function getReplicationConfigOutput(args: GetReplicationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationConfigResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:dms:getReplicationConfig", {
-        "replicationConfigArn": args.replicationConfigArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getReplicationConfig(a, opts))
 }
 
 export interface GetReplicationConfigOutputArgs {

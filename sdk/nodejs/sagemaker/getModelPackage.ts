@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::ModelPackage
  */
 export function getModelPackage(args: GetModelPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetModelPackageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getModelPackage", {
         "modelPackageArn": args.modelPackageArn,
@@ -104,10 +105,7 @@ export interface GetModelPackageResult {
  * Resource Type definition for AWS::SageMaker::ModelPackage
  */
 export function getModelPackageOutput(args: GetModelPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelPackageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getModelPackage", {
-        "modelPackageArn": args.modelPackageArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getModelPackage(a, opts))
 }
 
 export interface GetModelPackageOutputArgs {

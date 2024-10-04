@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * resource definition
  */
 export function getSoftwarePackageVersion(args: GetSoftwarePackageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSoftwarePackageVersionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getSoftwarePackageVersion", {
         "packageName": args.packageName,
@@ -47,11 +48,7 @@ export interface GetSoftwarePackageVersionResult {
  * resource definition
  */
 export function getSoftwarePackageVersionOutput(args: GetSoftwarePackageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwarePackageVersionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getSoftwarePackageVersion", {
-        "packageName": args.packageName,
-        "versionName": args.versionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSoftwarePackageVersion(a, opts))
 }
 
 export interface GetSoftwarePackageVersionOutputArgs {

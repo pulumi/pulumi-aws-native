@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.
  */
 export function getPrincipalPermissions(args: GetPrincipalPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPrincipalPermissionsResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lakeformation:getPrincipalPermissions", {
         "principalIdentifier": args.principalIdentifier,
@@ -40,11 +41,7 @@ export interface GetPrincipalPermissionsResult {
  * The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.
  */
 export function getPrincipalPermissionsOutput(args: GetPrincipalPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrincipalPermissionsResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:lakeformation:getPrincipalPermissions", {
-        "principalIdentifier": args.principalIdentifier,
-        "resourceIdentifier": args.resourceIdentifier,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPrincipalPermissions(a, opts))
 }
 
 export interface GetPrincipalPermissionsOutputArgs {

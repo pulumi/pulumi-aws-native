@@ -4,39 +4,17 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationInstanceManifestOverridesPayloadArgs',
-    'ApplicationInstanceManifestOverridesPayloadArgsDict',
     'ApplicationInstanceManifestPayloadArgs',
-    'ApplicationInstanceManifestPayloadArgsDict',
     'PackageStorageLocationArgs',
-    'PackageStorageLocationArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class ApplicationInstanceManifestOverridesPayloadArgsDict(TypedDict):
-        """
-        Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
-        """
-        payload_data: NotRequired[pulumi.Input[str]]
-        """
-        The overrides document.
-        """
-elif False:
-    ApplicationInstanceManifestOverridesPayloadArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationInstanceManifestOverridesPayloadArgs:
@@ -62,18 +40,6 @@ class ApplicationInstanceManifestOverridesPayloadArgs:
         pulumi.set(self, "payload_data", value)
 
 
-if not MYPY:
-    class ApplicationInstanceManifestPayloadArgsDict(TypedDict):
-        """
-        A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
-        """
-        payload_data: NotRequired[pulumi.Input[str]]
-        """
-        The application manifest.
-        """
-elif False:
-    ApplicationInstanceManifestPayloadArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class ApplicationInstanceManifestPayloadArgs:
     def __init__(__self__, *,
@@ -97,34 +63,6 @@ class ApplicationInstanceManifestPayloadArgs:
     def payload_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "payload_data", value)
 
-
-if not MYPY:
-    class PackageStorageLocationArgsDict(TypedDict):
-        """
-        A storage location.
-        """
-        binary_prefix_location: NotRequired[pulumi.Input[str]]
-        """
-        The location's binary prefix.
-        """
-        bucket: NotRequired[pulumi.Input[str]]
-        """
-        The location's bucket.
-        """
-        generated_prefix_location: NotRequired[pulumi.Input[str]]
-        """
-        The location's generated prefix.
-        """
-        manifest_prefix_location: NotRequired[pulumi.Input[str]]
-        """
-        The location's manifest prefix.
-        """
-        repo_prefix_location: NotRequired[pulumi.Input[str]]
-        """
-        The location's repo prefix.
-        """
-elif False:
-    PackageStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PackageStorageLocationArgs:

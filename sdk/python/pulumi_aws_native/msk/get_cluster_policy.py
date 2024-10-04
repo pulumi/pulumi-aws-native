@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -76,6 +71,9 @@ def get_cluster_policy(cluster_arn: Optional[str] = None,
     return AwaitableGetClusterPolicyResult(
         current_version=pulumi.get(__ret__, 'current_version'),
         policy=pulumi.get(__ret__, 'policy'))
+
+
+@_utilities.lift_output_func(get_cluster_policy)
 def get_cluster_policy_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterPolicyResult]:
     """
@@ -84,10 +82,4 @@ def get_cluster_policy_output(cluster_arn: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_arn: The arn of the cluster for the resource policy.
     """
-    __args__ = dict()
-    __args__['clusterArn'] = cluster_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:msk:getClusterPolicy', __args__, opts=opts, typ=GetClusterPolicyResult)
-    return __ret__.apply(lambda __response__: GetClusterPolicyResult(
-        current_version=pulumi.get(__response__, 'current_version'),
-        policy=pulumi.get(__response__, 'policy')))
+    ...

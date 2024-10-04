@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::UserPoolDomain
  */
 export function getUserPoolDomain(args: GetUserPoolDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolDomainResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolDomain", {
         "id": args.id,
@@ -42,10 +43,7 @@ export interface GetUserPoolDomainResult {
  * Resource Type definition for AWS::Cognito::UserPoolDomain
  */
 export function getUserPoolDomainOutput(args: GetUserPoolDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolDomainResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolDomain", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getUserPoolDomain(a, opts))
 }
 
 export interface GetUserPoolDomainOutputArgs {

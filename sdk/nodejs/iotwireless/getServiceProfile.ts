@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getServiceProfile(args: GetServiceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceProfileResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getServiceProfile", {
         "id": args.id,
@@ -50,10 +51,7 @@ export interface GetServiceProfileResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getServiceProfileOutput(args: GetServiceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceProfileResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iotwireless:getServiceProfile", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getServiceProfile(a, opts))
 }
 
 export interface GetServiceProfileOutputArgs {

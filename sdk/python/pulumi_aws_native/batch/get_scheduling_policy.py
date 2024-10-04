@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -75,6 +70,9 @@ def get_scheduling_policy(arn: Optional[str] = None,
     return AwaitableGetSchedulingPolicyResult(
         arn=pulumi.get(__ret__, 'arn'),
         fairshare_policy=pulumi.get(__ret__, 'fairshare_policy'))
+
+
+@_utilities.lift_output_func(get_scheduling_policy)
 def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
@@ -83,10 +81,4 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getSchedulingPolicy', __args__, opts=opts, typ=GetSchedulingPolicyResult)
-    return __ret__.apply(lambda __response__: GetSchedulingPolicyResult(
-        arn=pulumi.get(__response__, 'arn'),
-        fairshare_policy=pulumi.get(__response__, 'fairshare_policy')))
+    ...

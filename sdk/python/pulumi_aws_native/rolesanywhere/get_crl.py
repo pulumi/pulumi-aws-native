@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -127,6 +122,9 @@ def get_crl(crl_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'))
+
+
+@_utilities.lift_output_func(get_crl)
 def get_crl_output(crl_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrlResult]:
     """
@@ -135,14 +133,4 @@ def get_crl_output(crl_id: Optional[pulumi.Input[str]] = None,
 
     :param str crl_id: The unique primary identifier of the Crl
     """
-    __args__ = dict()
-    __args__['crlId'] = crl_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:rolesanywhere:getCrl', __args__, opts=opts, typ=GetCrlResult)
-    return __ret__.apply(lambda __response__: GetCrlResult(
-        crl_data=pulumi.get(__response__, 'crl_data'),
-        crl_id=pulumi.get(__response__, 'crl_id'),
-        enabled=pulumi.get(__response__, 'enabled'),
-        name=pulumi.get(__response__, 'name'),
-        tags=pulumi.get(__response__, 'tags'),
-        trust_anchor_arn=pulumi.get(__response__, 'trust_anchor_arn')))
+    ...

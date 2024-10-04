@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -134,6 +129,9 @@ def get_image(image_arn: Optional[str] = None,
         image_display_name=pulumi.get(__ret__, 'image_display_name'),
         image_role_arn=pulumi.get(__ret__, 'image_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_image)
 def get_image_output(image_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
@@ -148,13 +146,4 @@ def get_image_output(image_arn: Optional[pulumi.Input[str]] = None,
            
            *Pattern* : `^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$`
     """
-    __args__ = dict()
-    __args__['imageArn'] = image_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getImage', __args__, opts=opts, typ=GetImageResult)
-    return __ret__.apply(lambda __response__: GetImageResult(
-        image_arn=pulumi.get(__response__, 'image_arn'),
-        image_description=pulumi.get(__response__, 'image_description'),
-        image_display_name=pulumi.get(__response__, 'image_display_name'),
-        image_role_arn=pulumi.get(__response__, 'image_role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::S3Express::DirectoryBucket.
  */
 export function getDirectoryBucket(args: GetDirectoryBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryBucketResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3express:getDirectoryBucket", {
         "bucketName": args.bucketName,
@@ -41,10 +42,7 @@ export interface GetDirectoryBucketResult {
  * Resource Type definition for AWS::S3Express::DirectoryBucket.
  */
 export function getDirectoryBucketOutput(args: GetDirectoryBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryBucketResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:s3express:getDirectoryBucket", {
-        "bucketName": args.bucketName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDirectoryBucket(a, opts))
 }
 
 export interface GetDirectoryBucketOutputArgs {

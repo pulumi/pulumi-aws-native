@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -193,6 +188,9 @@ def get_portal(portal_id: Optional[str] = None,
         portal_start_url=pulumi.get(__ret__, 'portal_start_url'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_portal)
 def get_portal_output(portal_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortalResult]:
     """
@@ -201,19 +199,4 @@ def get_portal_output(portal_id: Optional[pulumi.Input[str]] = None,
 
     :param str portal_id: The ID of the portal.
     """
-    __args__ = dict()
-    __args__['portalId'] = portal_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getPortal', __args__, opts=opts, typ=GetPortalResult)
-    return __ret__.apply(lambda __response__: GetPortalResult(
-        alarms=pulumi.get(__response__, 'alarms'),
-        notification_sender_email=pulumi.get(__response__, 'notification_sender_email'),
-        portal_arn=pulumi.get(__response__, 'portal_arn'),
-        portal_client_id=pulumi.get(__response__, 'portal_client_id'),
-        portal_contact_email=pulumi.get(__response__, 'portal_contact_email'),
-        portal_description=pulumi.get(__response__, 'portal_description'),
-        portal_id=pulumi.get(__response__, 'portal_id'),
-        portal_name=pulumi.get(__response__, 'portal_name'),
-        portal_start_url=pulumi.get(__response__, 'portal_start_url'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
  */
 export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetModelResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getModel", {
         "name": args.name,
@@ -43,11 +44,7 @@ export interface GetModelResult {
  * The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
  */
 export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:apigateway:getModel", {
-        "name": args.name,
-        "restApiId": args.restApiId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getModel(a, opts))
 }
 
 export interface GetModelOutputArgs {

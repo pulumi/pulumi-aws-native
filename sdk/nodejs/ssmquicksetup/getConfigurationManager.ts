@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
  */
 export function getConfigurationManager(args: GetConfigurationManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationManagerResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssmquicksetup:getConfigurationManager", {
         "managerArn": args.managerArn,
@@ -62,10 +63,7 @@ export interface GetConfigurationManagerResult {
  * Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
  */
 export function getConfigurationManagerOutput(args: GetConfigurationManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationManagerResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ssmquicksetup:getConfigurationManager", {
-        "managerArn": args.managerArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getConfigurationManager(a, opts))
 }
 
 export interface GetConfigurationManagerOutputArgs {

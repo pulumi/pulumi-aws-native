@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
  */
 export function getSubnetCidrBlock(args: GetSubnetCidrBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetCidrBlockResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSubnetCidrBlock", {
         "id": args.id,
@@ -39,10 +40,7 @@ export interface GetSubnetCidrBlockResult {
  * The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
  */
 export function getSubnetCidrBlockOutput(args: GetSubnetCidrBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetCidrBlockResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:ec2:getSubnetCidrBlock", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSubnetCidrBlock(a, opts))
 }
 
 export interface GetSubnetCidrBlockOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Enable a resource that has been published in the CloudFormation Registry.
  */
 export function getTypeActivation(args: GetTypeActivationArgs, opts?: pulumi.InvokeOptions): Promise<GetTypeActivationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getTypeActivation", {
         "arn": args.arn,
@@ -49,10 +50,7 @@ export interface GetTypeActivationResult {
  * Enable a resource that has been published in the CloudFormation Registry.
  */
 export function getTypeActivationOutput(args: GetTypeActivationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTypeActivationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:cloudformation:getTypeActivation", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTypeActivation(a, opts))
 }
 
 export interface GetTypeActivationOutputArgs {

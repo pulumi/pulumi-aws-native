@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
  */
 export function getAccessGrantsLocation(args: GetAccessGrantsLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessGrantsLocationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3:getAccessGrantsLocation", {
         "accessGrantsLocationId": args.accessGrantsLocationId,
@@ -43,10 +44,7 @@ export interface GetAccessGrantsLocationResult {
  * The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
  */
 export function getAccessGrantsLocationOutput(args: GetAccessGrantsLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessGrantsLocationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:s3:getAccessGrantsLocation", {
-        "accessGrantsLocationId": args.accessGrantsLocationId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAccessGrantsLocation(a, opts))
 }
 
 export interface GetAccessGrantsLocationOutputArgs {

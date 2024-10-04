@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
  */
 export function getChannelGroup(args: GetChannelGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackagev2:getChannelGroup", {
         "arn": args.arn,
@@ -54,10 +55,7 @@ export interface GetChannelGroupResult {
  * <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
  */
 export function getChannelGroupOutput(args: GetChannelGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:mediapackagev2:getChannelGroup", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getChannelGroup(a, opts))
 }
 
 export interface GetChannelGroupOutputArgs {

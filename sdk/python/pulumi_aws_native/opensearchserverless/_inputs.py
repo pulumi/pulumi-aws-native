@@ -4,47 +4,15 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'SecurityConfigSamlConfigOptionsArgs',
-    'SecurityConfigSamlConfigOptionsArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class SecurityConfigSamlConfigOptionsArgsDict(TypedDict):
-        """
-        Describes saml options in form of key value map
-        """
-        metadata: pulumi.Input[str]
-        """
-        The XML saml provider metadata document that you want to use
-        """
-        group_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Group attribute for this saml integration
-        """
-        session_timeout: NotRequired[pulumi.Input[int]]
-        """
-        Defines the session timeout in minutes
-        """
-        user_attribute: NotRequired[pulumi.Input[str]]
-        """
-        Custom attribute for this saml integration
-        """
-elif False:
-    SecurityConfigSamlConfigOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityConfigSamlConfigOptionsArgs:

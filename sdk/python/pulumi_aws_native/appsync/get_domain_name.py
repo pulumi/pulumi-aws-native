@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -87,6 +82,9 @@ def get_domain_name(domain_name: Optional[str] = None,
         app_sync_domain_name=pulumi.get(__ret__, 'app_sync_domain_name'),
         description=pulumi.get(__ret__, 'description'),
         hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'))
+
+
+@_utilities.lift_output_func(get_domain_name)
 def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
     """
@@ -95,11 +93,4 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
 
     :param str domain_name: The domain name.
     """
-    __args__ = dict()
-    __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getDomainName', __args__, opts=opts, typ=GetDomainNameResult)
-    return __ret__.apply(lambda __response__: GetDomainNameResult(
-        app_sync_domain_name=pulumi.get(__response__, 'app_sync_domain_name'),
-        description=pulumi.get(__response__, 'description'),
-        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id')))
+    ...

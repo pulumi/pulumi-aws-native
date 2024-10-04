@@ -4,49 +4,20 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'RobotApplicationRobotSoftwareSuiteArgs',
-    'RobotApplicationRobotSoftwareSuiteArgsDict',
     'RobotApplicationSourceConfigArgs',
-    'RobotApplicationSourceConfigArgsDict',
     'SimulationApplicationRenderingEngineArgs',
-    'SimulationApplicationRenderingEngineArgsDict',
     'SimulationApplicationRobotSoftwareSuiteArgs',
-    'SimulationApplicationRobotSoftwareSuiteArgsDict',
     'SimulationApplicationSimulationSoftwareSuiteArgs',
-    'SimulationApplicationSimulationSoftwareSuiteArgsDict',
     'SimulationApplicationSourceConfigArgs',
-    'SimulationApplicationSourceConfigArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class RobotApplicationRobotSoftwareSuiteArgsDict(TypedDict):
-        """
-        The robot software suite used by the robot application.
-        """
-        name: pulumi.Input['RobotApplicationRobotSoftwareSuiteName']
-        """
-        The name of robot software suite.
-        """
-        version: NotRequired[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']]
-        """
-        The version of robot software suite.
-        """
-elif False:
-    RobotApplicationRobotSoftwareSuiteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RobotApplicationRobotSoftwareSuiteArgs:
@@ -86,23 +57,6 @@ class RobotApplicationRobotSoftwareSuiteArgs:
     def version(self, value: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']]):
         pulumi.set(self, "version", value)
 
-
-if not MYPY:
-    class RobotApplicationSourceConfigArgsDict(TypedDict):
-        architecture: pulumi.Input['RobotApplicationSourceConfigArchitecture']
-        """
-        The architecture of robot application.
-        """
-        s3_bucket: pulumi.Input[str]
-        """
-        The Arn of the S3Bucket that stores the robot application source.
-        """
-        s3_key: pulumi.Input[str]
-        """
-        The s3 key of robot application source.
-        """
-elif False:
-    RobotApplicationSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RobotApplicationSourceConfigArgs:
@@ -156,22 +110,6 @@ class RobotApplicationSourceConfigArgs:
         pulumi.set(self, "s3_key", value)
 
 
-if not MYPY:
-    class SimulationApplicationRenderingEngineArgsDict(TypedDict):
-        """
-        Information about a rendering engine.
-        """
-        name: pulumi.Input['SimulationApplicationRenderingEngineName']
-        """
-        The name of the rendering engine.
-        """
-        version: pulumi.Input[str]
-        """
-        The version of the rendering engine.
-        """
-elif False:
-    SimulationApplicationRenderingEngineArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SimulationApplicationRenderingEngineArgs:
     def __init__(__self__, *,
@@ -209,22 +147,6 @@ class SimulationApplicationRenderingEngineArgs:
     def version(self, value: pulumi.Input[str]):
         pulumi.set(self, "version", value)
 
-
-if not MYPY:
-    class SimulationApplicationRobotSoftwareSuiteArgsDict(TypedDict):
-        """
-        Information about a robot software suite.
-        """
-        name: pulumi.Input['SimulationApplicationRobotSoftwareSuiteName']
-        """
-        The name of the robot software suite.
-        """
-        version: NotRequired[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']]
-        """
-        The version of the robot software suite.
-        """
-elif False:
-    SimulationApplicationRobotSoftwareSuiteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimulationApplicationRobotSoftwareSuiteArgs:
@@ -265,22 +187,6 @@ class SimulationApplicationRobotSoftwareSuiteArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SimulationApplicationSimulationSoftwareSuiteArgsDict(TypedDict):
-        """
-        Information about a simulation software suite.
-        """
-        name: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName']
-        """
-        The name of the simulation software suite.
-        """
-        version: NotRequired[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']]
-        """
-        The version of the simulation software suite.
-        """
-elif False:
-    SimulationApplicationSimulationSoftwareSuiteArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SimulationApplicationSimulationSoftwareSuiteArgs:
     def __init__(__self__, *,
@@ -319,26 +225,6 @@ class SimulationApplicationSimulationSoftwareSuiteArgs:
     def version(self, value: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']]):
         pulumi.set(self, "version", value)
 
-
-if not MYPY:
-    class SimulationApplicationSourceConfigArgsDict(TypedDict):
-        """
-        Information about a source configuration.
-        """
-        architecture: pulumi.Input['SimulationApplicationSourceConfigArchitecture']
-        """
-        The target processor architecture for the application.
-        """
-        s3_bucket: pulumi.Input[str]
-        """
-        The Amazon S3 bucket name.
-        """
-        s3_key: pulumi.Input[str]
-        """
-        The s3 object key.
-        """
-elif False:
-    SimulationApplicationSourceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SimulationApplicationSourceConfigArgs:

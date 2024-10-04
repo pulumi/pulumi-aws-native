@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Schema for SQS QueueInlinePolicy
  */
 export function getQueueInlinePolicy(args: GetQueueInlinePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueInlinePolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sqs:getQueueInlinePolicy", {
         "queue": args.queue,
@@ -33,10 +34,7 @@ export interface GetQueueInlinePolicyResult {
  * Schema for SQS QueueInlinePolicy
  */
 export function getQueueInlinePolicyOutput(args: GetQueueInlinePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueInlinePolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:sqs:getQueueInlinePolicy", {
-        "queue": args.queue,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getQueueInlinePolicy(a, opts))
 }
 
 export interface GetQueueInlinePolicyOutputArgs {

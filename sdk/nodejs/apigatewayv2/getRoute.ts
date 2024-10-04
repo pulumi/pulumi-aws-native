@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getRoute", {
         "apiId": args.apiId,
@@ -74,11 +75,7 @@ export interface GetRouteResult {
  * The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:apigatewayv2:getRoute", {
-        "apiId": args.apiId,
-        "routeId": args.routeId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRoute(a, opts))
 }
 
 export interface GetRouteOutputArgs {

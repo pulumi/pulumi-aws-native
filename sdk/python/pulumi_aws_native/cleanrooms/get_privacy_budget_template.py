@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -144,6 +139,9 @@ def get_privacy_budget_template(membership_identifier: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         privacy_budget_template_identifier=pulumi.get(__ret__, 'privacy_budget_template_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_privacy_budget_template)
 def get_privacy_budget_template_output(membership_identifier: Optional[pulumi.Input[str]] = None,
                                        privacy_budget_template_identifier: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivacyBudgetTemplateResult]:
@@ -154,16 +152,4 @@ def get_privacy_budget_template_output(membership_identifier: Optional[pulumi.In
     :param str membership_identifier: The identifier for a membership resource.
     :param str privacy_budget_template_identifier: A unique identifier for one of your memberships for a collaboration. The privacy budget template is created in the collaboration that this membership belongs to. Accepts a membership ID.
     """
-    __args__ = dict()
-    __args__['membershipIdentifier'] = membership_identifier
-    __args__['privacyBudgetTemplateIdentifier'] = privacy_budget_template_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getPrivacyBudgetTemplate', __args__, opts=opts, typ=GetPrivacyBudgetTemplateResult)
-    return __ret__.apply(lambda __response__: GetPrivacyBudgetTemplateResult(
-        arn=pulumi.get(__response__, 'arn'),
-        collaboration_arn=pulumi.get(__response__, 'collaboration_arn'),
-        collaboration_identifier=pulumi.get(__response__, 'collaboration_identifier'),
-        membership_arn=pulumi.get(__response__, 'membership_arn'),
-        parameters=pulumi.get(__response__, 'parameters'),
-        privacy_budget_template_identifier=pulumi.get(__response__, 'privacy_budget_template_identifier'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

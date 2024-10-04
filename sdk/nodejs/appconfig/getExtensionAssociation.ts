@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getExtensionAssociation(args: GetExtensionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getExtensionAssociation", {
         "id": args.id,
@@ -47,10 +48,7 @@ export interface GetExtensionAssociationResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getExtensionAssociationOutput(args: GetExtensionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:appconfig:getExtensionAssociation", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getExtensionAssociation(a, opts))
 }
 
 export interface GetExtensionAssociationOutputArgs {

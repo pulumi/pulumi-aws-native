@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -93,6 +88,9 @@ def get_transit_gateway_multicast_domain_association(subnet_id: Optional[str] = 
         resource_id=pulumi.get(__ret__, 'resource_id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         state=pulumi.get(__ret__, 'state'))
+
+
+@_utilities.lift_output_func(get_transit_gateway_multicast_domain_association)
 def get_transit_gateway_multicast_domain_association_output(subnet_id: Optional[pulumi.Input[str]] = None,
                                                             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                                                             transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
@@ -105,13 +103,4 @@ def get_transit_gateway_multicast_domain_association_output(subnet_id: Optional[
     :param str transit_gateway_attachment_id: The ID of the transit gateway attachment.
     :param str transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
     """
-    __args__ = dict()
-    __args__['subnetId'] = subnet_id
-    __args__['transitGatewayAttachmentId'] = transit_gateway_attachment_id
-    __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayMulticastDomainAssociation', __args__, opts=opts, typ=GetTransitGatewayMulticastDomainAssociationResult)
-    return __ret__.apply(lambda __response__: GetTransitGatewayMulticastDomainAssociationResult(
-        resource_id=pulumi.get(__response__, 'resource_id'),
-        resource_type=pulumi.get(__response__, 'resource_type'),
-        state=pulumi.get(__response__, 'state')))
+    ...

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::Wisdom::AssistantAssociation Resource Type
  */
 export function getAssistantAssociation(args: GetAssistantAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssistantAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wisdom:getAssistantAssociation", {
         "assistantAssociationId": args.assistantAssociationId,
@@ -44,11 +45,7 @@ export interface GetAssistantAssociationResult {
  * Definition of AWS::Wisdom::AssistantAssociation Resource Type
  */
 export function getAssistantAssociationOutput(args: GetAssistantAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssistantAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:wisdom:getAssistantAssociation", {
-        "assistantAssociationId": args.assistantAssociationId,
-        "assistantId": args.assistantId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAssistantAssociation(a, opts))
 }
 
 export interface GetAssistantAssociationOutputArgs {

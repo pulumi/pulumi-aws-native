@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -168,6 +163,9 @@ def get_game_session_queue(name: Optional[str] = None,
         priority_configuration=pulumi.get(__ret__, 'priority_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'))
+
+
+@_utilities.lift_output_func(get_game_session_queue)
 def get_game_session_queue_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGameSessionQueueResult]:
     """
@@ -176,17 +174,4 @@ def get_game_session_queue_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
     """
-    __args__ = dict()
-    __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getGameSessionQueue', __args__, opts=opts, typ=GetGameSessionQueueResult)
-    return __ret__.apply(lambda __response__: GetGameSessionQueueResult(
-        arn=pulumi.get(__response__, 'arn'),
-        custom_event_data=pulumi.get(__response__, 'custom_event_data'),
-        destinations=pulumi.get(__response__, 'destinations'),
-        filter_configuration=pulumi.get(__response__, 'filter_configuration'),
-        notification_target=pulumi.get(__response__, 'notification_target'),
-        player_latency_policies=pulumi.get(__response__, 'player_latency_policies'),
-        priority_configuration=pulumi.get(__response__, 'priority_configuration'),
-        tags=pulumi.get(__response__, 'tags'),
-        timeout_in_seconds=pulumi.get(__response__, 'timeout_in_seconds')))
+    ...

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
  */
 export function getDeliverySource(args: GetDeliverySourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliverySourceResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getDeliverySource", {
         "name": args.name,
@@ -54,10 +55,7 @@ export interface GetDeliverySourceResult {
  * Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
  */
 export function getDeliverySourceOutput(args: GetDeliverySourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliverySourceResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:logs:getDeliverySource", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDeliverySource(a, opts))
 }
 
 export interface GetDeliverySourceOutputArgs {

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
  */
 export function getMountTarget(args: GetMountTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetMountTargetResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:efs:getMountTarget", {
         "id": args.id,
@@ -39,10 +40,7 @@ export interface GetMountTargetResult {
  * The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
  */
 export function getMountTargetOutput(args: GetMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMountTargetResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:efs:getMountTarget", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMountTarget(a, opts))
 }
 
 export interface GetMountTargetOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -167,6 +162,9 @@ def get_multicast_group(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_multicast_group)
 def get_multicast_group_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMulticastGroupResult]:
     """
@@ -175,17 +173,4 @@ def get_multicast_group_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Multicast group id. Returned after successful create.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getMulticastGroup', __args__, opts=opts, typ=GetMulticastGroupResult)
-    return __ret__.apply(lambda __response__: GetMulticastGroupResult(
-        arn=pulumi.get(__response__, 'arn'),
-        associate_wireless_device=pulumi.get(__response__, 'associate_wireless_device'),
-        description=pulumi.get(__response__, 'description'),
-        disassociate_wireless_device=pulumi.get(__response__, 'disassociate_wireless_device'),
-        id=pulumi.get(__response__, 'id'),
-        lo_ra_wan=pulumi.get(__response__, 'lo_ra_wan'),
-        name=pulumi.get(__response__, 'name'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

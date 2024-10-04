@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -161,6 +156,9 @@ def get_geofence_collection(collection_name: Optional[str] = None,
         pricing_plan_data_source=pulumi.get(__ret__, 'pricing_plan_data_source'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
+
+
+@_utilities.lift_output_func(get_geofence_collection)
 def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeofenceCollectionResult]:
     """
@@ -175,16 +173,4 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] 
            - Must be a unique geofence collection name.
            - No spaces allowed. For example, `ExampleGeofenceCollection` .
     """
-    __args__ = dict()
-    __args__['collectionName'] = collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:location:getGeofenceCollection', __args__, opts=opts, typ=GetGeofenceCollectionResult)
-    return __ret__.apply(lambda __response__: GetGeofenceCollectionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        collection_arn=pulumi.get(__response__, 'collection_arn'),
-        create_time=pulumi.get(__response__, 'create_time'),
-        description=pulumi.get(__response__, 'description'),
-        pricing_plan=pulumi.get(__response__, 'pricing_plan'),
-        pricing_plan_data_source=pulumi.get(__response__, 'pricing_plan_data_source'),
-        tags=pulumi.get(__response__, 'tags'),
-        update_time=pulumi.get(__response__, 'update_time')))
+    ...

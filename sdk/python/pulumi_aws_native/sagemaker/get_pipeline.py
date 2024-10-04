@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -128,6 +123,9 @@ def get_pipeline(pipeline_name: Optional[str] = None,
         pipeline_display_name=pulumi.get(__ret__, 'pipeline_display_name'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_pipeline)
 def get_pipeline_output(pipeline_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
     """
@@ -136,14 +134,4 @@ def get_pipeline_output(pipeline_name: Optional[pulumi.Input[str]] = None,
 
     :param str pipeline_name: The name of the Pipeline.
     """
-    __args__ = dict()
-    __args__['pipelineName'] = pipeline_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
-    return __ret__.apply(lambda __response__: GetPipelineResult(
-        parallelism_configuration=pulumi.get(__response__, 'parallelism_configuration'),
-        pipeline_definition=pulumi.get(__response__, 'pipeline_definition'),
-        pipeline_description=pulumi.get(__response__, 'pipeline_description'),
-        pipeline_display_name=pulumi.get(__response__, 'pipeline_display_name'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

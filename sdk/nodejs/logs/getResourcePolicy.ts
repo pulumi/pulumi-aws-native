@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * The resource schema for AWSLogs ResourcePolicy
  */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getResourcePolicy", {
         "policyName": args.policyName,
@@ -31,10 +32,7 @@ export interface GetResourcePolicyResult {
  * The resource schema for AWSLogs ResourcePolicy
  */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:logs:getResourcePolicy", {
-        "policyName": args.policyName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getResourcePolicy(a, opts))
 }
 
 export interface GetResourcePolicyOutputArgs {

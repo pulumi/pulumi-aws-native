@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
  */
 export function getResourceAssociation(args: GetResourceAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalogappregistry:getResourceAssociation", {
         "applicationArn": args.applicationArn,
@@ -48,12 +49,7 @@ export interface GetResourceAssociationResult {
  * Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
  */
 export function getResourceAssociationOutput(args: GetResourceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:servicecatalogappregistry:getResourceAssociation", {
-        "applicationArn": args.applicationArn,
-        "resourceArn": args.resourceArn,
-        "resourceType": args.resourceType,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getResourceAssociation(a, opts))
 }
 
 export interface GetResourceAssociationOutputArgs {

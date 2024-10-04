@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -89,6 +84,9 @@ def get_health_check(health_check_id: Optional[str] = None,
         health_check_config=pulumi.get(__ret__, 'health_check_config'),
         health_check_id=pulumi.get(__ret__, 'health_check_id'),
         health_check_tags=pulumi.get(__ret__, 'health_check_tags'))
+
+
+@_utilities.lift_output_func(get_health_check)
 def get_health_check_output(health_check_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHealthCheckResult]:
     """
@@ -97,11 +95,4 @@ def get_health_check_output(health_check_id: Optional[pulumi.Input[str]] = None,
 
     :param str health_check_id: The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
     """
-    __args__ = dict()
-    __args__['healthCheckId'] = health_check_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53:getHealthCheck', __args__, opts=opts, typ=GetHealthCheckResult)
-    return __ret__.apply(lambda __response__: GetHealthCheckResult(
-        health_check_config=pulumi.get(__response__, 'health_check_config'),
-        health_check_id=pulumi.get(__response__, 'health_check_id'),
-        health_check_tags=pulumi.get(__response__, 'health_check_tags')))
+    ...

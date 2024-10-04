@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type
  */
 export function getDefaultViewAssociation(args: GetDefaultViewAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultViewAssociationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:resourceexplorer2:getDefaultViewAssociation", {
         "associatedAwsPrincipal": args.associatedAwsPrincipal,
@@ -35,10 +36,7 @@ export interface GetDefaultViewAssociationResult {
  * Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type
  */
 export function getDefaultViewAssociationOutput(args: GetDefaultViewAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultViewAssociationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:resourceexplorer2:getDefaultViewAssociation", {
-        "associatedAwsPrincipal": args.associatedAwsPrincipal,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDefaultViewAssociation(a, opts))
 }
 
 export interface GetDefaultViewAssociationOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -100,6 +95,9 @@ def get_static_ip(static_ip_name: Optional[str] = None,
         ip_address=pulumi.get(__ret__, 'ip_address'),
         is_attached=pulumi.get(__ret__, 'is_attached'),
         static_ip_arn=pulumi.get(__ret__, 'static_ip_arn'))
+
+
+@_utilities.lift_output_func(get_static_ip)
 def get_static_ip_output(static_ip_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticIpResult]:
     """
@@ -108,12 +106,4 @@ def get_static_ip_output(static_ip_name: Optional[pulumi.Input[str]] = None,
 
     :param str static_ip_name: The name of the static IP address.
     """
-    __args__ = dict()
-    __args__['staticIpName'] = static_ip_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getStaticIp', __args__, opts=opts, typ=GetStaticIpResult)
-    return __ret__.apply(lambda __response__: GetStaticIpResult(
-        attached_to=pulumi.get(__response__, 'attached_to'),
-        ip_address=pulumi.get(__response__, 'ip_address'),
-        is_attached=pulumi.get(__response__, 'is_attached'),
-        static_ip_arn=pulumi.get(__response__, 'static_ip_arn')))
+    ...

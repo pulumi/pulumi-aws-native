@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
  */
 export function getMitigationAction(args: GetMitigationActionArgs, opts?: pulumi.InvokeOptions): Promise<GetMitigationActionResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getMitigationAction", {
         "actionName": args.actionName,
@@ -50,10 +51,7 @@ export interface GetMitigationActionResult {
  * Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
  */
 export function getMitigationActionOutput(args: GetMitigationActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMitigationActionResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getMitigationAction", {
-        "actionName": args.actionName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getMitigationAction(a, opts))
 }
 
 export interface GetMitigationActionOutputArgs {

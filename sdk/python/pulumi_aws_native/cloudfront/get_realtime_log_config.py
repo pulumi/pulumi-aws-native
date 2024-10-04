@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -103,6 +98,9 @@ def get_realtime_log_config(arn: Optional[str] = None,
         end_points=pulumi.get(__ret__, 'end_points'),
         fields=pulumi.get(__ret__, 'fields'),
         sampling_rate=pulumi.get(__ret__, 'sampling_rate'))
+
+
+@_utilities.lift_output_func(get_realtime_log_config)
 def get_realtime_log_config_output(arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRealtimeLogConfigResult]:
     """
@@ -111,12 +109,4 @@ def get_realtime_log_config_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getRealtimeLogConfig', __args__, opts=opts, typ=GetRealtimeLogConfigResult)
-    return __ret__.apply(lambda __response__: GetRealtimeLogConfigResult(
-        arn=pulumi.get(__response__, 'arn'),
-        end_points=pulumi.get(__response__, 'end_points'),
-        fields=pulumi.get(__response__, 'fields'),
-        sampling_rate=pulumi.get(__response__, 'sampling_rate')))
+    ...

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -167,6 +162,9 @@ def get_verified_access_instance(verified_access_instance_id: Optional[str] = No
         verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'),
         verified_access_trust_provider_ids=pulumi.get(__ret__, 'verified_access_trust_provider_ids'),
         verified_access_trust_providers=pulumi.get(__ret__, 'verified_access_trust_providers'))
+
+
+@_utilities.lift_output_func(get_verified_access_instance)
 def get_verified_access_instance_output(verified_access_instance_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVerifiedAccessInstanceResult]:
     """
@@ -175,17 +173,4 @@ def get_verified_access_instance_output(verified_access_instance_id: Optional[pu
 
     :param str verified_access_instance_id: The ID of the AWS Verified Access instance.
     """
-    __args__ = dict()
-    __args__['verifiedAccessInstanceId'] = verified_access_instance_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVerifiedAccessInstance', __args__, opts=opts, typ=GetVerifiedAccessInstanceResult)
-    return __ret__.apply(lambda __response__: GetVerifiedAccessInstanceResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        description=pulumi.get(__response__, 'description'),
-        fips_enabled=pulumi.get(__response__, 'fips_enabled'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
-        logging_configurations=pulumi.get(__response__, 'logging_configurations'),
-        tags=pulumi.get(__response__, 'tags'),
-        verified_access_instance_id=pulumi.get(__response__, 'verified_access_instance_id'),
-        verified_access_trust_provider_ids=pulumi.get(__response__, 'verified_access_trust_provider_ids'),
-        verified_access_trust_providers=pulumi.get(__response__, 'verified_access_trust_providers')))
+    ...

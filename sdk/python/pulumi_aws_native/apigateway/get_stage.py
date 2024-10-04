@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -209,6 +204,9 @@ def get_stage(rest_api_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tracing_enabled=pulumi.get(__ret__, 'tracing_enabled'),
         variables=pulumi.get(__ret__, 'variables'))
+
+
+@_utilities.lift_output_func(get_stage)
 def get_stage_output(rest_api_id: Optional[pulumi.Input[str]] = None,
                      stage_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStageResult]:
@@ -219,21 +217,4 @@ def get_stage_output(rest_api_id: Optional[pulumi.Input[str]] = None,
     :param str rest_api_id: The string identifier of the associated RestApi.
     :param str stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
     """
-    __args__ = dict()
-    __args__['restApiId'] = rest_api_id
-    __args__['stageName'] = stage_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getStage', __args__, opts=opts, typ=GetStageResult)
-    return __ret__.apply(lambda __response__: GetStageResult(
-        access_log_setting=pulumi.get(__response__, 'access_log_setting'),
-        cache_cluster_enabled=pulumi.get(__response__, 'cache_cluster_enabled'),
-        cache_cluster_size=pulumi.get(__response__, 'cache_cluster_size'),
-        canary_setting=pulumi.get(__response__, 'canary_setting'),
-        client_certificate_id=pulumi.get(__response__, 'client_certificate_id'),
-        deployment_id=pulumi.get(__response__, 'deployment_id'),
-        description=pulumi.get(__response__, 'description'),
-        documentation_version=pulumi.get(__response__, 'documentation_version'),
-        method_settings=pulumi.get(__response__, 'method_settings'),
-        tags=pulumi.get(__response__, 'tags'),
-        tracing_enabled=pulumi.get(__response__, 'tracing_enabled'),
-        variables=pulumi.get(__response__, 'variables')))
+    ...

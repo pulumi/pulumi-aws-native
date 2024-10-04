@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -168,6 +163,9 @@ def get_monitoring_schedule(monitoring_schedule_arn: Optional[str] = None,
         monitoring_schedule_config=pulumi.get(__ret__, 'monitoring_schedule_config'),
         monitoring_schedule_status=pulumi.get(__ret__, 'monitoring_schedule_status'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_monitoring_schedule)
 def get_monitoring_schedule_output(monitoring_schedule_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringScheduleResult]:
     """
@@ -176,17 +174,4 @@ def get_monitoring_schedule_output(monitoring_schedule_arn: Optional[pulumi.Inpu
 
     :param str monitoring_schedule_arn: The Amazon Resource Name (ARN) of the monitoring schedule.
     """
-    __args__ = dict()
-    __args__['monitoringScheduleArn'] = monitoring_schedule_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getMonitoringSchedule', __args__, opts=opts, typ=GetMonitoringScheduleResult)
-    return __ret__.apply(lambda __response__: GetMonitoringScheduleResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        endpoint_name=pulumi.get(__response__, 'endpoint_name'),
-        failure_reason=pulumi.get(__response__, 'failure_reason'),
-        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
-        last_monitoring_execution_summary=pulumi.get(__response__, 'last_monitoring_execution_summary'),
-        monitoring_schedule_arn=pulumi.get(__response__, 'monitoring_schedule_arn'),
-        monitoring_schedule_config=pulumi.get(__response__, 'monitoring_schedule_config'),
-        monitoring_schedule_status=pulumi.get(__response__, 'monitoring_schedule_status'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

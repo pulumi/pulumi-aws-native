@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -205,6 +200,9 @@ def get_application(application_id: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         sso_client_id=pulumi.get(__ret__, 'sso_client_id'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_application)
 def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -213,20 +211,4 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
 
     :param str application_id: The ID of the application.
     """
-    __args__ = dict()
-    __args__['applicationId'] = application_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iotfleethub:getApplication', __args__, opts=opts, typ=GetApplicationResult)
-    return __ret__.apply(lambda __response__: GetApplicationResult(
-        application_arn=pulumi.get(__response__, 'application_arn'),
-        application_creation_date=pulumi.get(__response__, 'application_creation_date'),
-        application_description=pulumi.get(__response__, 'application_description'),
-        application_id=pulumi.get(__response__, 'application_id'),
-        application_last_update_date=pulumi.get(__response__, 'application_last_update_date'),
-        application_name=pulumi.get(__response__, 'application_name'),
-        application_state=pulumi.get(__response__, 'application_state'),
-        application_url=pulumi.get(__response__, 'application_url'),
-        error_message=pulumi.get(__response__, 'error_message'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        sso_client_id=pulumi.get(__response__, 'sso_client_id'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

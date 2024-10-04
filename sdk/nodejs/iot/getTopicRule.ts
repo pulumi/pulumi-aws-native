@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT::TopicRule
  */
 export function getTopicRule(args: GetTopicRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicRuleResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getTopicRule", {
         "ruleName": args.ruleName,
@@ -50,10 +51,7 @@ export interface GetTopicRuleResult {
  * Resource Type definition for AWS::IoT::TopicRule
  */
 export function getTopicRuleOutput(args: GetTopicRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicRuleResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getTopicRule", {
-        "ruleName": args.ruleName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTopicRule(a, opts))
 }
 
 export interface GetTopicRuleOutputArgs {

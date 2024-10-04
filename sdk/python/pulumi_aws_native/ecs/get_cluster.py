@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -139,6 +134,9 @@ def get_cluster(cluster_name: Optional[str] = None,
         configuration=pulumi.get(__ret__, 'configuration'),
         default_capacity_provider_strategy=pulumi.get(__ret__, 'default_capacity_provider_strategy'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -147,14 +145,4 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
     """
-    __args__ = dict()
-    __args__['clusterName'] = cluster_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getCluster', __args__, opts=opts, typ=GetClusterResult)
-    return __ret__.apply(lambda __response__: GetClusterResult(
-        arn=pulumi.get(__response__, 'arn'),
-        capacity_providers=pulumi.get(__response__, 'capacity_providers'),
-        cluster_settings=pulumi.get(__response__, 'cluster_settings'),
-        configuration=pulumi.get(__response__, 'configuration'),
-        default_capacity_provider_strategy=pulumi.get(__response__, 'default_capacity_provider_strategy'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

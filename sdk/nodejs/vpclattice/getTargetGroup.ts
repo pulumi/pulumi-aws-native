@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
  */
 export function getTargetGroup(args: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:vpclattice:getTargetGroup", {
         "arn": args.arn,
@@ -62,10 +63,7 @@ export interface GetTargetGroupResult {
  * A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
  */
 export function getTargetGroupOutput(args: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:vpclattice:getTargetGroup", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getTargetGroup(a, opts))
 }
 
 export interface GetTargetGroupOutputArgs {

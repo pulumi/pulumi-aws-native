@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GuardDuty::Detector
  */
 export function getDetector(args: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:guardduty:getDetector", {
         "id": args.id,
@@ -58,10 +59,7 @@ export interface GetDetectorResult {
  * Resource Type definition for AWS::GuardDuty::Detector
  */
 export function getDetectorOutput(args: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:guardduty:getDetector", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDetector(a, opts))
 }
 
 export interface GetDetectorOutputArgs {

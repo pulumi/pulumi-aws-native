@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -172,6 +167,9 @@ def get_flow_alias(arn: Optional[str] = None,
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
+
+
+@_utilities.lift_output_func(get_flow_alias)
 def get_flow_alias_output(arn: Optional[pulumi.Input[str]] = None,
                           flow_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowAliasResult]:
@@ -182,18 +180,4 @@ def get_flow_alias_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: Arn of the Flow Alias
     :param str flow_arn: Arn representation of the Flow
     """
-    __args__ = dict()
-    __args__['arn'] = arn
-    __args__['flowArn'] = flow_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getFlowAlias', __args__, opts=opts, typ=GetFlowAliasResult)
-    return __ret__.apply(lambda __response__: GetFlowAliasResult(
-        arn=pulumi.get(__response__, 'arn'),
-        created_at=pulumi.get(__response__, 'created_at'),
-        description=pulumi.get(__response__, 'description'),
-        flow_id=pulumi.get(__response__, 'flow_id'),
-        id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        routing_configuration=pulumi.get(__response__, 'routing_configuration'),
-        tags=pulumi.get(__response__, 'tags'),
-        updated_at=pulumi.get(__response__, 'updated_at')))
+    ...

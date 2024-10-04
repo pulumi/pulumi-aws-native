@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -87,6 +82,9 @@ def get_cluster_subnet_group(cluster_subnet_group_name: Optional[str] = None,
         cluster_subnet_group_name=pulumi.get(__ret__, 'cluster_subnet_group_name'),
         description=pulumi.get(__ret__, 'description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
+
+
+@_utilities.lift_output_func(get_cluster_subnet_group)
 def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterSubnetGroupResult]:
     """
@@ -95,11 +93,4 @@ def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.I
 
     :param str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
     """
-    __args__ = dict()
-    __args__['clusterSubnetGroupName'] = cluster_subnet_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getClusterSubnetGroup', __args__, opts=opts, typ=GetClusterSubnetGroupResult)
-    return __ret__.apply(lambda __response__: GetClusterSubnetGroupResult(
-        cluster_subnet_group_name=pulumi.get(__response__, 'cluster_subnet_group_name'),
-        description=pulumi.get(__response__, 'description'),
-        subnet_ids=pulumi.get(__response__, 'subnet_ids')))
+    ...

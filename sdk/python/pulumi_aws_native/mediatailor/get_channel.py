@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -146,6 +141,9 @@ def get_channel(channel_name: Optional[str] = None,
         playback_mode=pulumi.get(__ret__, 'playback_mode'),
         tags=pulumi.get(__ret__, 'tags'),
         time_shift_configuration=pulumi.get(__ret__, 'time_shift_configuration'))
+
+
+@_utilities.lift_output_func(get_channel)
 def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
@@ -154,15 +152,4 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
 
     :param str channel_name: The name of the channel.
     """
-    __args__ = dict()
-    __args__['channelName'] = channel_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getChannel', __args__, opts=opts, typ=GetChannelResult)
-    return __ret__.apply(lambda __response__: GetChannelResult(
-        arn=pulumi.get(__response__, 'arn'),
-        audiences=pulumi.get(__response__, 'audiences'),
-        filler_slate=pulumi.get(__response__, 'filler_slate'),
-        log_configuration=pulumi.get(__response__, 'log_configuration'),
-        playback_mode=pulumi.get(__response__, 'playback_mode'),
-        tags=pulumi.get(__response__, 'tags'),
-        time_shift_configuration=pulumi.get(__response__, 'time_shift_configuration')))
+    ...

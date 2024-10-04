@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -127,6 +122,9 @@ def get_integration(integration_arn: Optional[str] = None,
         integration_arn=pulumi.get(__ret__, 'integration_arn'),
         integration_name=pulumi.get(__ret__, 'integration_name'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_integration)
 def get_integration_output(integration_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
     """
@@ -135,14 +133,4 @@ def get_integration_output(integration_arn: Optional[pulumi.Input[str]] = None,
 
     :param str integration_arn: The ARN of the integration.
     """
-    __args__ = dict()
-    __args__['integrationArn'] = integration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getIntegration', __args__, opts=opts, typ=GetIntegrationResult)
-    return __ret__.apply(lambda __response__: GetIntegrationResult(
-        create_time=pulumi.get(__response__, 'create_time'),
-        data_filter=pulumi.get(__response__, 'data_filter'),
-        description=pulumi.get(__response__, 'description'),
-        integration_arn=pulumi.get(__response__, 'integration_arn'),
-        integration_name=pulumi.get(__response__, 'integration_name'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

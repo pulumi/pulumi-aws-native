@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Creates a package and storage location in an Amazon S3 access point.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:panorama:getPackage", {
         "packageId": args.packageId,
@@ -50,10 +51,7 @@ export interface GetPackageResult {
  * Creates a package and storage location in an Amazon S3 access point.
  */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:panorama:getPackage", {
-        "packageId": args.packageId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPackage(a, opts))
 }
 
 export interface GetPackageOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:osis:getPipeline", {
         "pipelineArn": args.pipelineArn,
@@ -74,10 +75,7 @@ export interface GetPipelineResult {
  * An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:osis:getPipeline", {
-        "pipelineArn": args.pipelineArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
 }
 
 export interface GetPipelineOutputArgs {

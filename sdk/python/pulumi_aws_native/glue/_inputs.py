@@ -4,99 +4,39 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CrawlerCatalogTargetArgs',
-    'CrawlerCatalogTargetArgsDict',
     'CrawlerDeltaTargetArgs',
-    'CrawlerDeltaTargetArgsDict',
     'CrawlerDynamoDbTargetArgs',
-    'CrawlerDynamoDbTargetArgsDict',
     'CrawlerIcebergTargetArgs',
-    'CrawlerIcebergTargetArgsDict',
     'CrawlerJdbcTargetArgs',
-    'CrawlerJdbcTargetArgsDict',
     'CrawlerLakeFormationConfigurationArgs',
-    'CrawlerLakeFormationConfigurationArgsDict',
     'CrawlerMongoDbTargetArgs',
-    'CrawlerMongoDbTargetArgsDict',
     'CrawlerRecrawlPolicyArgs',
-    'CrawlerRecrawlPolicyArgsDict',
     'CrawlerS3TargetArgs',
-    'CrawlerS3TargetArgsDict',
     'CrawlerScheduleArgs',
-    'CrawlerScheduleArgsDict',
     'CrawlerSchemaChangePolicyArgs',
-    'CrawlerSchemaChangePolicyArgsDict',
     'CrawlerTargetsArgs',
-    'CrawlerTargetsArgsDict',
     'DatabaseDataLakePrincipalArgs',
-    'DatabaseDataLakePrincipalArgsDict',
     'DatabaseFederatedDatabaseArgs',
-    'DatabaseFederatedDatabaseArgsDict',
     'DatabaseIdentifierArgs',
-    'DatabaseIdentifierArgsDict',
     'DatabaseInputArgs',
-    'DatabaseInputArgsDict',
     'DatabasePrincipalPrivilegesArgs',
-    'DatabasePrincipalPrivilegesArgsDict',
     'SchemaRegistryArgs',
-    'SchemaRegistryArgsDict',
     'SchemaVersionSchemaArgs',
-    'SchemaVersionSchemaArgsDict',
     'SchemaVersionArgs',
-    'SchemaVersionArgsDict',
     'TriggerActionArgs',
-    'TriggerActionArgsDict',
     'TriggerConditionArgs',
-    'TriggerConditionArgsDict',
     'TriggerEventBatchingConditionArgs',
-    'TriggerEventBatchingConditionArgsDict',
     'TriggerNotificationPropertyArgs',
-    'TriggerNotificationPropertyArgsDict',
     'TriggerPredicateArgs',
-    'TriggerPredicateArgsDict',
 ]
-
-MYPY = False
-
-if not MYPY:
-    class CrawlerCatalogTargetArgsDict(TypedDict):
-        """
-        Specifies an AWS Glue Data Catalog target.
-        """
-        connection_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
-        """
-        database_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the database to be synchronized.
-        """
-        dlq_event_queue_arn: NotRequired[pulumi.Input[str]]
-        """
-        A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
-        """
-        event_queue_arn: NotRequired[pulumi.Input[str]]
-        """
-        A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
-        """
-        tables: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of the tables to be synchronized.
-        """
-elif False:
-    CrawlerCatalogTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerCatalogTargetArgs:
@@ -186,30 +126,6 @@ class CrawlerCatalogTargetArgs:
         pulumi.set(self, "tables", value)
 
 
-if not MYPY:
-    class CrawlerDeltaTargetArgsDict(TypedDict):
-        """
-        Specifies a Delta data store to crawl one or more Delta tables.
-        """
-        connection_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the connection to use to connect to the Delta table target.
-        """
-        create_native_delta_table: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
-        """
-        delta_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of the Amazon S3 paths to the Delta tables.
-        """
-        write_manifest: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to write the manifest files to the Delta table path.
-        """
-elif False:
-    CrawlerDeltaTargetArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CrawlerDeltaTargetArgs:
     def __init__(__self__, *,
@@ -282,18 +198,6 @@ class CrawlerDeltaTargetArgs:
         pulumi.set(self, "write_manifest", value)
 
 
-if not MYPY:
-    class CrawlerDynamoDbTargetArgsDict(TypedDict):
-        """
-        Specifies an Amazon DynamoDB table to crawl.
-        """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The name of the DynamoDB table to crawl.
-        """
-elif False:
-    CrawlerDynamoDbTargetArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CrawlerDynamoDbTargetArgs:
     def __init__(__self__, *,
@@ -317,30 +221,6 @@ class CrawlerDynamoDbTargetArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
-
-if not MYPY:
-    class CrawlerIcebergTargetArgsDict(TypedDict):
-        """
-        Specifies Apache Iceberg data store targets.
-        """
-        connection_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the connection to use to connect to the Iceberg target.
-        """
-        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of global patterns used to exclude from the crawl.
-        """
-        maximum_traversal_depth: NotRequired[pulumi.Input[int]]
-        """
-        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
-        """
-        paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix .
-        """
-elif False:
-    CrawlerIcebergTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerIcebergTargetArgs:
@@ -413,32 +293,6 @@ class CrawlerIcebergTargetArgs:
     def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "paths", value)
 
-
-if not MYPY:
-    class CrawlerJdbcTargetArgsDict(TypedDict):
-        """
-        Specifies a JDBC data store to crawl.
-        """
-        connection_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the connection to use to connect to the JDBC target.
-        """
-        enable_additional_metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
-
-        If you do not need additional metadata, keep the field empty.
-        """
-        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
-        """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The path of the JDBC target.
-        """
-elif False:
-    CrawlerJdbcTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerJdbcTargetArgs:
@@ -516,22 +370,6 @@ class CrawlerJdbcTargetArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class CrawlerLakeFormationConfigurationArgsDict(TypedDict):
-        """
-        Specifies AWS Lake Formation configuration settings for the crawler
-        """
-        account_id: NotRequired[pulumi.Input[str]]
-        """
-        Required for cross account crawls. For same account crawls as the target data, this can be left as null.
-        """
-        use_lake_formation_credentials: NotRequired[pulumi.Input[bool]]
-        """
-        Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
-        """
-elif False:
-    CrawlerLakeFormationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CrawlerLakeFormationConfigurationArgs:
     def __init__(__self__, *,
@@ -571,22 +409,6 @@ class CrawlerLakeFormationConfigurationArgs:
     def use_lake_formation_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_lake_formation_credentials", value)
 
-
-if not MYPY:
-    class CrawlerMongoDbTargetArgsDict(TypedDict):
-        """
-        Specifies an Amazon DocumentDB or MongoDB data store to crawl.
-        """
-        connection_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-        """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The path of the Amazon DocumentDB or MongoDB target (database/collection).
-        """
-elif False:
-    CrawlerMongoDbTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerMongoDbTargetArgs:
@@ -628,18 +450,6 @@ class CrawlerMongoDbTargetArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class CrawlerRecrawlPolicyArgsDict(TypedDict):
-        """
-        When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
-        """
-        recrawl_behavior: NotRequired[pulumi.Input[str]]
-        """
-        Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
-        """
-elif False:
-    CrawlerRecrawlPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CrawlerRecrawlPolicyArgs:
     def __init__(__self__, *,
@@ -663,38 +473,6 @@ class CrawlerRecrawlPolicyArgs:
     def recrawl_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "recrawl_behavior", value)
 
-
-if not MYPY:
-    class CrawlerS3TargetArgsDict(TypedDict):
-        """
-        Specifies a data store in Amazon Simple Storage Service (Amazon S3).
-        """
-        connection_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
-        """
-        dlq_event_queue_arn: NotRequired[pulumi.Input[str]]
-        """
-        A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
-        """
-        event_queue_arn: NotRequired[pulumi.Input[str]]
-        """
-        A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
-        """
-        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of glob patterns used to exclude from the crawl.
-        """
-        path: NotRequired[pulumi.Input[str]]
-        """
-        The path to the Amazon S3 target.
-        """
-        sample_size: NotRequired[pulumi.Input[int]]
-        """
-        Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-        """
-elif False:
-    CrawlerS3TargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerS3TargetArgs:
@@ -800,18 +578,6 @@ class CrawlerS3TargetArgs:
         pulumi.set(self, "sample_size", value)
 
 
-if not MYPY:
-    class CrawlerScheduleArgsDict(TypedDict):
-        """
-        A scheduling object using a cron statement to schedule an event.
-        """
-        schedule_expression: NotRequired[pulumi.Input[str]]
-        """
-        A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
-        """
-elif False:
-    CrawlerScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class CrawlerScheduleArgs:
     def __init__(__self__, *,
@@ -835,22 +601,6 @@ class CrawlerScheduleArgs:
     def schedule_expression(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schedule_expression", value)
 
-
-if not MYPY:
-    class CrawlerSchemaChangePolicyArgsDict(TypedDict):
-        """
-        The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
-        """
-        delete_behavior: NotRequired[pulumi.Input[str]]
-        """
-        The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
-        """
-        update_behavior: NotRequired[pulumi.Input[str]]
-        """
-        The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
-        """
-elif False:
-    CrawlerSchemaChangePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerSchemaChangePolicyArgs:
@@ -891,42 +641,6 @@ class CrawlerSchemaChangePolicyArgs:
     def update_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update_behavior", value)
 
-
-if not MYPY:
-    class CrawlerTargetsArgsDict(TypedDict):
-        """
-        Specifies data stores to crawl.
-        """
-        catalog_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgsDict']]]]
-        """
-        Specifies AWS Glue Data Catalog targets.
-        """
-        delta_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgsDict']]]]
-        """
-        Specifies an array of Delta data store targets.
-        """
-        dynamo_db_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgsDict']]]]
-        """
-        Specifies Amazon DynamoDB targets.
-        """
-        iceberg_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgsDict']]]]
-        """
-        Specifies Apache Iceberg data store targets.
-        """
-        jdbc_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgsDict']]]]
-        """
-        Specifies JDBC targets.
-        """
-        mongo_db_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgsDict']]]]
-        """
-        A list of Mongo DB targets.
-        """
-        s3_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgsDict']]]]
-        """
-        Specifies Amazon Simple Storage Service (Amazon S3) targets.
-        """
-elif False:
-    CrawlerTargetsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerTargetsArgs:
@@ -1048,18 +762,6 @@ class CrawlerTargetsArgs:
         pulumi.set(self, "s3_targets", value)
 
 
-if not MYPY:
-    class DatabaseDataLakePrincipalArgsDict(TypedDict):
-        """
-        The AWS Lake Formation principal.
-        """
-        data_lake_principal_identifier: NotRequired[pulumi.Input[str]]
-        """
-        An identifier for the AWS Lake Formation principal.
-        """
-elif False:
-    DatabaseDataLakePrincipalArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DatabaseDataLakePrincipalArgs:
     def __init__(__self__, *,
@@ -1083,22 +785,6 @@ class DatabaseDataLakePrincipalArgs:
     def data_lake_principal_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_lake_principal_identifier", value)
 
-
-if not MYPY:
-    class DatabaseFederatedDatabaseArgsDict(TypedDict):
-        """
-        A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
-        """
-        connection_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the connection to the external metastore.
-        """
-        identifier: NotRequired[pulumi.Input[str]]
-        """
-        A unique identifier for the federated database.
-        """
-elif False:
-    DatabaseFederatedDatabaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseFederatedDatabaseArgs:
@@ -1139,26 +825,6 @@ class DatabaseFederatedDatabaseArgs:
     def identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identifier", value)
 
-
-if not MYPY:
-    class DatabaseIdentifierArgsDict(TypedDict):
-        """
-        A structure that describes a target database for resource linking.
-        """
-        catalog_id: NotRequired[pulumi.Input[str]]
-        """
-        The ID of the Data Catalog in which the database resides.
-        """
-        database_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the catalog database.
-        """
-        region: NotRequired[pulumi.Input[str]]
-        """
-        Region of the target database.
-        """
-elif False:
-    DatabaseIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseIdentifierArgs:
@@ -1215,42 +881,6 @@ class DatabaseIdentifierArgs:
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
 
-
-if not MYPY:
-    class DatabaseInputArgsDict(TypedDict):
-        """
-        The structure used to create or update a database.
-        """
-        create_table_default_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabasePrincipalPrivilegesArgsDict']]]]
-        """
-        Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        A description of the database.
-        """
-        federated_database: NotRequired[pulumi.Input['DatabaseFederatedDatabaseArgsDict']]
-        """
-        A FederatedDatabase structure that references an entity outside the AWS Glue Data Catalog.
-        """
-        location_uri: NotRequired[pulumi.Input[str]]
-        """
-        The location of the database (for example, an HDFS path).
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the database. For hive compatibility, this is folded to lowercase when it is stored.
-        """
-        parameters: NotRequired[Any]
-        """
-        These key-value pairs define parameters and properties of the database.
-        """
-        target_database: NotRequired[pulumi.Input['DatabaseIdentifierArgsDict']]
-        """
-        A DatabaseIdentifier structure that describes a target database for resource linking.
-        """
-elif False:
-    DatabaseInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseInputArgs:
@@ -1372,22 +1002,6 @@ class DatabaseInputArgs:
         pulumi.set(self, "target_database", value)
 
 
-if not MYPY:
-    class DatabasePrincipalPrivilegesArgsDict(TypedDict):
-        """
-        The permissions granted to a principal.
-        """
-        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The permissions that are granted to the principal.
-        """
-        principal: NotRequired[pulumi.Input['DatabaseDataLakePrincipalArgsDict']]
-        """
-        The principal who is granted permissions.
-        """
-elif False:
-    DatabasePrincipalPrivilegesArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class DatabasePrincipalPrivilegesArgs:
     def __init__(__self__, *,
@@ -1428,22 +1042,6 @@ class DatabasePrincipalPrivilegesArgs:
         pulumi.set(self, "principal", value)
 
 
-if not MYPY:
-    class SchemaRegistryArgsDict(TypedDict):
-        """
-        Identifier for the registry which the schema is part of.
-        """
-        arn: NotRequired[pulumi.Input[str]]
-        """
-        Amazon Resource Name for the Registry.
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the registry in which the schema will be created.
-        """
-elif False:
-    SchemaRegistryArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SchemaRegistryArgs:
     def __init__(__self__, *,
@@ -1483,26 +1081,6 @@ class SchemaRegistryArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
-
-if not MYPY:
-    class SchemaVersionSchemaArgsDict(TypedDict):
-        """
-        Identifier for the schema where the schema version will be created.
-        """
-        registry_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the registry to identify where the Schema is located.
-        """
-        schema_arn: NotRequired[pulumi.Input[str]]
-        """
-        Amazon Resource Name for the Schema. This attribute can be used to uniquely represent the Schema.
-        """
-        schema_name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the schema. This parameter requires RegistryName to be provided.
-        """
-elif False:
-    SchemaVersionSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaVersionSchemaArgs:
@@ -1560,22 +1138,6 @@ class SchemaVersionSchemaArgs:
         pulumi.set(self, "schema_name", value)
 
 
-if not MYPY:
-    class SchemaVersionArgsDict(TypedDict):
-        """
-        Specify checkpoint version for update. This is only required to update the Compatibility.
-        """
-        is_latest: NotRequired[pulumi.Input[bool]]
-        """
-        Indicates if the latest version needs to be updated.
-        """
-        version_number: NotRequired[pulumi.Input[int]]
-        """
-        Indicates the version number in the schema to update.
-        """
-elif False:
-    SchemaVersionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class SchemaVersionArgs:
     def __init__(__self__, *,
@@ -1615,38 +1177,6 @@ class SchemaVersionArgs:
     def version_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "version_number", value)
 
-
-if not MYPY:
-    class TriggerActionArgsDict(TypedDict):
-        """
-        The actions initiated by this trigger.
-        """
-        arguments: NotRequired[Any]
-        """
-        The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
-        """
-        crawler_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the crawler to be used with this action.
-        """
-        job_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of a job to be executed.
-        """
-        notification_property: NotRequired[pulumi.Input['TriggerNotificationPropertyArgsDict']]
-        """
-        Specifies configuration properties of a job run notification.
-        """
-        security_configuration: NotRequired[pulumi.Input[str]]
-        """
-        The name of the SecurityConfiguration structure to be used with this action.
-        """
-        timeout: NotRequired[pulumi.Input[int]]
-        """
-        The JobRun timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
-        """
-elif False:
-    TriggerActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerActionArgs:
@@ -1752,34 +1282,6 @@ class TriggerActionArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class TriggerConditionArgsDict(TypedDict):
-        """
-        Defines a condition under which a trigger fires.
-        """
-        crawl_state: NotRequired[pulumi.Input[str]]
-        """
-        The state of the crawler to which this condition applies.
-        """
-        crawler_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the crawler to which this condition applies.
-        """
-        job_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the job whose JobRuns this condition applies to, and on which this trigger waits.
-        """
-        logical_operator: NotRequired[pulumi.Input[str]]
-        """
-        A logical operator.
-        """
-        state: NotRequired[pulumi.Input[str]]
-        """
-        The condition state. Currently, the values supported are SUCCEEDED, STOPPED, TIMEOUT, and FAILED.
-        """
-elif False:
-    TriggerConditionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class TriggerConditionArgs:
     def __init__(__self__, *,
@@ -1868,22 +1370,6 @@ class TriggerConditionArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class TriggerEventBatchingConditionArgsDict(TypedDict):
-        """
-        Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
-        """
-        batch_size: pulumi.Input[int]
-        """
-        Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
-        """
-        batch_window: NotRequired[pulumi.Input[int]]
-        """
-        Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received.
-        """
-elif False:
-    TriggerEventBatchingConditionArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class TriggerEventBatchingConditionArgs:
     def __init__(__self__, *,
@@ -1923,18 +1409,6 @@ class TriggerEventBatchingConditionArgs:
         pulumi.set(self, "batch_window", value)
 
 
-if not MYPY:
-    class TriggerNotificationPropertyArgsDict(TypedDict):
-        """
-        Specifies configuration properties of a job run notification.
-        """
-        notify_delay_after: NotRequired[pulumi.Input[int]]
-        """
-        After a job run starts, the number of minutes to wait before sending a job run delay notification
-        """
-elif False:
-    TriggerNotificationPropertyArgsDict: TypeAlias = Mapping[str, Any]
-
 @pulumi.input_type
 class TriggerNotificationPropertyArgs:
     def __init__(__self__, *,
@@ -1958,22 +1432,6 @@ class TriggerNotificationPropertyArgs:
     def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "notify_delay_after", value)
 
-
-if not MYPY:
-    class TriggerPredicateArgsDict(TypedDict):
-        """
-        The predicate of this trigger, which defines when it will fire.
-        """
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TriggerConditionArgsDict']]]]
-        """
-        A list of the conditions that determine when the trigger will fire.
-        """
-        logical: NotRequired[pulumi.Input[str]]
-        """
-        An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
-        """
-elif False:
-    TriggerPredicateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerPredicateArgs:

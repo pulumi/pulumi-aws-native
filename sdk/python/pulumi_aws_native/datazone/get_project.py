@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -155,6 +150,9 @@ def get_project(domain_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         name=pulumi.get(__ret__, 'name'))
+
+
+@_utilities.lift_output_func(get_project)
 def get_project_output(domain_id: Optional[pulumi.Input[str]] = None,
                        id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
@@ -165,17 +163,4 @@ def get_project_output(domain_id: Optional[pulumi.Input[str]] = None,
     :param str domain_id: The identifier of the Amazon DataZone domain in which the project was created.
     :param str id: The ID of the Amazon DataZone project.
     """
-    __args__ = dict()
-    __args__['domainId'] = domain_id
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getProject', __args__, opts=opts, typ=GetProjectResult)
-    return __ret__.apply(lambda __response__: GetProjectResult(
-        created_at=pulumi.get(__response__, 'created_at'),
-        created_by=pulumi.get(__response__, 'created_by'),
-        description=pulumi.get(__response__, 'description'),
-        domain_id=pulumi.get(__response__, 'domain_id'),
-        glossary_terms=pulumi.get(__response__, 'glossary_terms'),
-        id=pulumi.get(__response__, 'id'),
-        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
-        name=pulumi.get(__response__, 'name')))
+    ...

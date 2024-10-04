@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -75,6 +70,9 @@ def get_logging(account_id: Optional[str] = None,
     return AwaitableGetLoggingResult(
         default_log_level=pulumi.get(__ret__, 'default_log_level'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
+
+
+@_utilities.lift_output_func(get_logging)
 def get_logging_output(account_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingResult]:
     """
@@ -83,10 +81,4 @@ def get_logging_output(account_id: Optional[pulumi.Input[str]] = None,
 
     :param str account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
     """
-    __args__ = dict()
-    __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getLogging', __args__, opts=opts, typ=GetLoggingResult)
-    return __ret__.apply(lambda __response__: GetLoggingResult(
-        default_log_level=pulumi.get(__response__, 'default_log_level'),
-        role_arn=pulumi.get(__response__, 'role_arn')))
+    ...

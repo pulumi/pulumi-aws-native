@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Athena::CapacityReservation
  */
 export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:athena:getCapacityReservation", {
         "arn": args.arn,
@@ -62,10 +63,7 @@ export interface GetCapacityReservationResult {
  * Resource schema for AWS::Athena::CapacityReservation
  */
 export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:athena:getCapacityReservation", {
-        "arn": args.arn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCapacityReservation(a, opts))
 }
 
 export interface GetCapacityReservationOutputArgs {

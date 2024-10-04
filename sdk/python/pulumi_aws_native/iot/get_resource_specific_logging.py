@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -75,6 +70,9 @@ def get_resource_specific_logging(target_id: Optional[str] = None,
     return AwaitableGetResourceSpecificLoggingResult(
         log_level=pulumi.get(__ret__, 'log_level'),
         target_id=pulumi.get(__ret__, 'target_id'))
+
+
+@_utilities.lift_output_func(get_resource_specific_logging)
 def get_resource_specific_logging_output(target_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSpecificLoggingResult]:
     """
@@ -83,10 +81,4 @@ def get_resource_specific_logging_output(target_id: Optional[pulumi.Input[str]] 
 
     :param str target_id: Unique Id for a Target (TargetType:TargetName), this will be internally built to serve as primary identifier for a log target.
     """
-    __args__ = dict()
-    __args__['targetId'] = target_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getResourceSpecificLogging', __args__, opts=opts, typ=GetResourceSpecificLoggingResult)
-    return __ret__.apply(lambda __response__: GetResourceSpecificLoggingResult(
-        log_level=pulumi.get(__response__, 'log_level'),
-        target_id=pulumi.get(__response__, 'target_id')))
+    ...

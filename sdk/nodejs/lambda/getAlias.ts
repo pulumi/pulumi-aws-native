@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lambda::Alias
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getAlias", {
         "aliasArn": args.aliasArn,
@@ -50,10 +51,7 @@ export interface GetAliasResult {
  * Resource Type definition for AWS::Lambda::Alias
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:lambda:getAlias", {
-        "aliasArn": args.aliasArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getAlias(a, opts))
 }
 
 export interface GetAliasOutputArgs {

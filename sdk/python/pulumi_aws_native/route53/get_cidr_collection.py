@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -88,6 +83,9 @@ def get_cidr_collection(id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         locations=pulumi.get(__ret__, 'locations'))
+
+
+@_utilities.lift_output_func(get_cidr_collection)
 def get_cidr_collection_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCidrCollectionResult]:
     """
@@ -96,11 +94,4 @@ def get_cidr_collection_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: UUID of the CIDR collection.
     """
-    __args__ = dict()
-    __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53:getCidrCollection', __args__, opts=opts, typ=GetCidrCollectionResult)
-    return __ret__.apply(lambda __response__: GetCidrCollectionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        id=pulumi.get(__response__, 'id'),
-        locations=pulumi.get(__response__, 'locations')))
+    ...

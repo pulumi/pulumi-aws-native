@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -115,6 +110,9 @@ def get_report_plan(report_plan_arn: Optional[str] = None,
         report_plan_description=pulumi.get(__ret__, 'report_plan_description'),
         report_plan_tags=pulumi.get(__ret__, 'report_plan_tags'),
         report_setting=pulumi.get(__ret__, 'report_setting'))
+
+
+@_utilities.lift_output_func(get_report_plan)
 def get_report_plan_output(report_plan_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportPlanResult]:
     """
@@ -123,13 +121,4 @@ def get_report_plan_output(report_plan_arn: Optional[pulumi.Input[str]] = None,
 
     :param str report_plan_arn: An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
     """
-    __args__ = dict()
-    __args__['reportPlanArn'] = report_plan_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getReportPlan', __args__, opts=opts, typ=GetReportPlanResult)
-    return __ret__.apply(lambda __response__: GetReportPlanResult(
-        report_delivery_channel=pulumi.get(__response__, 'report_delivery_channel'),
-        report_plan_arn=pulumi.get(__response__, 'report_plan_arn'),
-        report_plan_description=pulumi.get(__response__, 'report_plan_description'),
-        report_plan_tags=pulumi.get(__response__, 'report_plan_tags'),
-        report_setting=pulumi.get(__response__, 'report_setting')))
+    ...

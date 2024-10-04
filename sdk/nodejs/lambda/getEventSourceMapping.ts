@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *   +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
  */
 export function getEventSourceMapping(args: GetEventSourceMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceMappingResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getEventSourceMapping", {
         "id": args.id,
@@ -152,10 +153,7 @@ export interface GetEventSourceMappingResult {
  *   +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
  */
 export function getEventSourceMappingOutput(args: GetEventSourceMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceMappingResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:lambda:getEventSourceMapping", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getEventSourceMapping(a, opts))
 }
 
 export interface GetEventSourceMappingOutputArgs {

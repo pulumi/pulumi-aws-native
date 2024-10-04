@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *   You can only delete empty buckets. Deletion fails for buckets that have contents.
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3:getBucket", {
         "bucketName": args.bucketName,
@@ -147,10 +148,7 @@ export interface GetBucketResult {
  *   You can only delete empty buckets. Deletion fails for buckets that have contents.
  */
 export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:s3:getBucket", {
-        "bucketName": args.bucketName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getBucket(a, opts))
 }
 
 export interface GetBucketOutputArgs {

@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -195,6 +190,9 @@ def get_domain_name(domain_name: Optional[str] = None,
         regional_hosted_zone_id=pulumi.get(__ret__, 'regional_hosted_zone_id'),
         security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_domain_name)
 def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
     """
@@ -203,19 +201,4 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
 
     :param str domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
     """
-    __args__ = dict()
-    __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getDomainName', __args__, opts=opts, typ=GetDomainNameResult)
-    return __ret__.apply(lambda __response__: GetDomainNameResult(
-        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
-        distribution_domain_name=pulumi.get(__response__, 'distribution_domain_name'),
-        distribution_hosted_zone_id=pulumi.get(__response__, 'distribution_hosted_zone_id'),
-        endpoint_configuration=pulumi.get(__response__, 'endpoint_configuration'),
-        mutual_tls_authentication=pulumi.get(__response__, 'mutual_tls_authentication'),
-        ownership_verification_certificate_arn=pulumi.get(__response__, 'ownership_verification_certificate_arn'),
-        regional_certificate_arn=pulumi.get(__response__, 'regional_certificate_arn'),
-        regional_domain_name=pulumi.get(__response__, 'regional_domain_name'),
-        regional_hosted_zone_id=pulumi.get(__response__, 'regional_hosted_zone_id'),
-        security_policy=pulumi.get(__response__, 'security_policy'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

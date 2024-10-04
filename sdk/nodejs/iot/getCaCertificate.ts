@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Registers a CA Certificate in IoT.
  */
 export function getCaCertificate(args: GetCaCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCaCertificateResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getCaCertificate", {
         "id": args.id,
@@ -62,10 +63,7 @@ export interface GetCaCertificateResult {
  * Registers a CA Certificate in IoT.
  */
 export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCaCertificateResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:iot:getCaCertificate", {
-        "id": args.id,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCaCertificate(a, opts))
 }
 
 export interface GetCaCertificateOutputArgs {

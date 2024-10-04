@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS::KinesisVideo::Stream
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kinesisvideo:getStream", {
         "name": args.name,
@@ -54,10 +55,7 @@ export interface GetStreamResult {
  * Resource Type Definition for AWS::KinesisVideo::Stream
  */
 export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:kinesisvideo:getStream", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getStream(a, opts))
 }
 
 export interface GetStreamOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The API Schema for AWS Route53 Recovery Readiness Cells.
  */
 export function getCell(args: GetCellArgs, opts?: pulumi.InvokeOptions): Promise<GetCellResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53recoveryreadiness:getCell", {
         "cellName": args.cellName,
@@ -46,10 +47,7 @@ export interface GetCellResult {
  * The API Schema for AWS Route53 Recovery Readiness Cells.
  */
 export function getCellOutput(args: GetCellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCellResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:route53recoveryreadiness:getCell", {
-        "cellName": args.cellName,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getCell(a, opts))
 }
 
 export interface GetCellOutputArgs {

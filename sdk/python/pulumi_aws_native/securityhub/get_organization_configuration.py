@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -140,6 +135,9 @@ def get_organization_configuration(organization_configuration_identifier: Option
         organization_configuration_identifier=pulumi.get(__ret__, 'organization_configuration_identifier'),
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
+
+
+@_utilities.lift_output_func(get_organization_configuration)
 def get_organization_configuration_output(organization_configuration_identifier: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationConfigurationResult]:
     """
@@ -148,15 +146,4 @@ def get_organization_configuration_output(organization_configuration_identifier:
 
     :param str organization_configuration_identifier: The identifier of the OrganizationConfiguration being created and assigned as the unique identifier.
     """
-    __args__ = dict()
-    __args__['organizationConfigurationIdentifier'] = organization_configuration_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getOrganizationConfiguration', __args__, opts=opts, typ=GetOrganizationConfigurationResult)
-    return __ret__.apply(lambda __response__: GetOrganizationConfigurationResult(
-        auto_enable=pulumi.get(__response__, 'auto_enable'),
-        auto_enable_standards=pulumi.get(__response__, 'auto_enable_standards'),
-        configuration_type=pulumi.get(__response__, 'configuration_type'),
-        member_account_limit_reached=pulumi.get(__response__, 'member_account_limit_reached'),
-        organization_configuration_identifier=pulumi.get(__response__, 'organization_configuration_identifier'),
-        status=pulumi.get(__response__, 'status'),
-        status_message=pulumi.get(__response__, 'status_message')))
+    ...

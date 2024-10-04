@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
  */
 export function getRouteResponse(args: GetRouteResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResponseResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getRouteResponse", {
         "apiId": args.apiId,
@@ -62,12 +63,7 @@ export interface GetRouteResponseResult {
  * The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
  */
 export function getRouteResponseOutput(args: GetRouteResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResponseResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:apigatewayv2:getRouteResponse", {
-        "apiId": args.apiId,
-        "routeId": args.routeId,
-        "routeResponseId": args.routeResponseId,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getRouteResponse(a, opts))
 }
 
 export interface GetRouteResponseOutputArgs {

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Represents a dataset group that holds a collection of related datasets
  */
 export function getDatasetGroup(args: GetDatasetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetGroupResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:forecast:getDatasetGroup", {
         "datasetGroupArn": args.datasetGroupArn,
@@ -46,10 +47,7 @@ export interface GetDatasetGroupResult {
  * Represents a dataset group that holds a collection of related datasets
  */
 export function getDatasetGroupOutput(args: GetDatasetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetGroupResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:forecast:getDatasetGroup", {
-        "datasetGroupArn": args.datasetGroupArn,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getDatasetGroup(a, opts))
 }
 
 export interface GetDatasetGroupOutputArgs {

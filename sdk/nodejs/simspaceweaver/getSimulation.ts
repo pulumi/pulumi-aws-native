@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
  */
 export function getSimulation(args: GetSimulationArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationResult> {
+
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:simspaceweaver:getSimulation", {
         "name": args.name,
@@ -31,10 +32,7 @@ export interface GetSimulationResult {
  * AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
  */
 export function getSimulationOutput(args: GetSimulationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationResult> {
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("aws-native:simspaceweaver:getSimulation", {
-        "name": args.name,
-    }, opts);
+    return pulumi.output(args).apply((a: any) => getSimulation(a, opts))
 }
 
 export interface GetSimulationOutputArgs {

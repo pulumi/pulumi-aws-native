@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -117,6 +112,9 @@ def get_feature_group(feature_group_name: Optional[str] = None,
         feature_group_status=pulumi.get(__ret__, 'feature_group_status'),
         online_store_config=pulumi.get(__ret__, 'online_store_config'),
         throughput_config=pulumi.get(__ret__, 'throughput_config'))
+
+
+@_utilities.lift_output_func(get_feature_group)
 def get_feature_group_output(feature_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeatureGroupResult]:
     """
@@ -125,13 +123,4 @@ def get_feature_group_output(feature_group_name: Optional[pulumi.Input[str]] = N
 
     :param str feature_group_name: The Name of the FeatureGroup.
     """
-    __args__ = dict()
-    __args__['featureGroupName'] = feature_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getFeatureGroup', __args__, opts=opts, typ=GetFeatureGroupResult)
-    return __ret__.apply(lambda __response__: GetFeatureGroupResult(
-        creation_time=pulumi.get(__response__, 'creation_time'),
-        feature_definitions=pulumi.get(__response__, 'feature_definitions'),
-        feature_group_status=pulumi.get(__response__, 'feature_group_status'),
-        online_store_config=pulumi.get(__response__, 'online_store_config'),
-        throughput_config=pulumi.get(__response__, 'throughput_config')))
+    ...

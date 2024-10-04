@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -88,6 +83,9 @@ def get_recovery_group(recovery_group_name: Optional[str] = None,
         cells=pulumi.get(__ret__, 'cells'),
         recovery_group_arn=pulumi.get(__ret__, 'recovery_group_arn'),
         tags=pulumi.get(__ret__, 'tags'))
+
+
+@_utilities.lift_output_func(get_recovery_group)
 def get_recovery_group_output(recovery_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecoveryGroupResult]:
     """
@@ -96,11 +94,4 @@ def get_recovery_group_output(recovery_group_name: Optional[pulumi.Input[str]] =
 
     :param str recovery_group_name: The name of the recovery group to create.
     """
-    __args__ = dict()
-    __args__['recoveryGroupName'] = recovery_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoveryreadiness:getRecoveryGroup', __args__, opts=opts, typ=GetRecoveryGroupResult)
-    return __ret__.apply(lambda __response__: GetRecoveryGroupResult(
-        cells=pulumi.get(__response__, 'cells'),
-        recovery_group_arn=pulumi.get(__response__, 'recovery_group_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+    ...

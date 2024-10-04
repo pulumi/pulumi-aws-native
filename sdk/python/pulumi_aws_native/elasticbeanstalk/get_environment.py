@@ -4,14 +4,9 @@
 
 import copy
 import warnings
-import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-if sys.version_info >= (3, 11):
-    from typing import NotRequired, TypedDict, TypeAlias
-else:
-    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -147,6 +142,9 @@ def get_environment(environment_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'),
         version_label=pulumi.get(__ret__, 'version_label'))
+
+
+@_utilities.lift_output_func(get_environment)
 def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
@@ -155,15 +153,4 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
 
     :param str environment_name: A unique name for the environment.
     """
-    __args__ = dict()
-    __args__['environmentName'] = environment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticbeanstalk:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
-    return __ret__.apply(lambda __response__: GetEnvironmentResult(
-        description=pulumi.get(__response__, 'description'),
-        endpoint_url=pulumi.get(__response__, 'endpoint_url'),
-        operations_role=pulumi.get(__response__, 'operations_role'),
-        platform_arn=pulumi.get(__response__, 'platform_arn'),
-        tags=pulumi.get(__response__, 'tags'),
-        tier=pulumi.get(__response__, 'tier'),
-        version_label=pulumi.get(__response__, 'version_label')))
+    ...
