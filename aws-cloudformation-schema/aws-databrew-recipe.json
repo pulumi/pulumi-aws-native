@@ -2,7 +2,6 @@
   "typeName" : "AWS::DataBrew::Recipe",
   "description" : "Resource schema for AWS::DataBrew::Recipe.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-databrew.git",
-  "taggable" : true,
   "properties" : {
     "Description" : {
       "description" : "Description of the recipe",
@@ -515,6 +514,14 @@
   "required" : [ "Name", "Steps" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Tags" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "databrew:TagResource", "databrew:UntagResource", "databrew:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "databrew:CreateRecipe", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]

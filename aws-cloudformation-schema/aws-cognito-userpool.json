@@ -488,7 +488,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "cognito-idp:CreateUserPool", "iam:PassRole", "cognito-idp:SetUserPoolMfaConfig", "cognito-idp:DescribeUserPool", "kms:CreateGrant", "iam:CreateServiceLinkedRole" ],
+      "permissions" : [ "cognito-idp:CreateUserPool", "iam:PassRole", "cognito-idp:SetUserPoolMfaConfig", "cognito-idp:DescribeUserPool", "kms:CreateGrant", "iam:CreateServiceLinkedRole", "cognito-idp:TagResource" ],
       "timeoutInMinutes" : 2
     },
     "read" : {

@@ -263,7 +263,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotfleetwise:UntagResource", "iotfleetwise:TagResource", "iotfleetwise:ListTagsForResource" ]
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/LastModificationTime", "/properties/NodeCounts/TotalNodes", "/properties/NodeCounts/TotalBranches", "/properties/NodeCounts/TotalSensors", "/properties/NodeCounts/TotalAttributes", "/properties/NodeCounts/TotalActuators" ],
   "createOnlyProperties" : [ "/properties/Name" ],
