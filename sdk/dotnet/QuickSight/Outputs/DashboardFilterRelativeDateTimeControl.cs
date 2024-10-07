@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardFilterRelativeDateTimeControl
     {
         /// <summary>
+        /// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.DashboardCommitMode? CommitMode;
+        /// <summary>
         /// The display options of a control.
         /// </summary>
         public readonly Outputs.DashboardRelativeDateTimeControlDisplayOptions? DisplayOptions;
@@ -32,6 +36,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DashboardFilterRelativeDateTimeControl(
+            Pulumi.AwsNative.QuickSight.DashboardCommitMode? commitMode,
+
             Outputs.DashboardRelativeDateTimeControlDisplayOptions? displayOptions,
 
             string filterControlId,
@@ -40,6 +46,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string title)
         {
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             FilterControlId = filterControlId;
             SourceFilterId = sourceFilterId;

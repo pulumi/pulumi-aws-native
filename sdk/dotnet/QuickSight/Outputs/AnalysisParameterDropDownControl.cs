@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisCascadingControlConfiguration? CascadingControlConfiguration;
         /// <summary>
+        /// The visibility configuration of the Apply button on a `ParameterDropDownControl` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisCommitMode? CommitMode;
+        /// <summary>
         /// The display options of a control.
         /// </summary>
         public readonly Outputs.AnalysisDropDownControlDisplayOptions? DisplayOptions;
@@ -46,6 +50,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisParameterDropDownControl(
             Outputs.AnalysisCascadingControlConfiguration? cascadingControlConfiguration,
 
+            Pulumi.AwsNative.QuickSight.AnalysisCommitMode? commitMode,
+
             Outputs.AnalysisDropDownControlDisplayOptions? displayOptions,
 
             string parameterControlId,
@@ -59,6 +65,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.AnalysisSheetControlListType? type)
         {
             CascadingControlConfiguration = cascadingControlConfiguration;
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             ParameterControlId = parameterControlId;
             SelectableValues = selectableValues;

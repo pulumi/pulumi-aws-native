@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisFilterRelativeDateTimeControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
+        /// </summary>
+        [Input("commitMode")]
+        public Input<Pulumi.AwsNative.QuickSight.AnalysisCommitMode>? CommitMode { get; set; }
+
+        /// <summary>
         /// The display options of a control.
         /// </summary>
         [Input("displayOptions")]

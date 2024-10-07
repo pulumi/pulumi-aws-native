@@ -431,6 +431,11 @@
         }
       },
       "required" : [ "TokenEndpoint", "Issuer", "UserInfoEndpoint", "ClientId", "AuthorizationEndpoint" ],
+      "anyOf" : [ {
+        "required" : [ "ClientSecret" ]
+      }, {
+        "required" : [ "UseExistingClientSecret" ]
+      } ],
       "description" : "Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users."
     },
     "SourceIpConfig" : {

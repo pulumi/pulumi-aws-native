@@ -19,9 +19,9 @@ type Stage struct {
 
 	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting StageAccessLogSettingPtrOutput `pulumi:"accessLogSetting"`
-	// Specifies whether a cache cluster is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 	CacheClusterEnabled pulumi.BoolPtrOutput `pulumi:"cacheClusterEnabled"`
-	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
 	CacheClusterSize pulumi.StringPtrOutput `pulumi:"cacheClusterSize"`
 	// Settings for the canary deployment in this stage.
 	CanarySetting StageCanarySettingPtrOutput `pulumi:"canarySetting"`
@@ -33,7 +33,7 @@ type Stage struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrOutput `pulumi:"documentationVersion"`
-	// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
+	// A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*/\*` for overriding all methods in the stage.
 	MethodSettings StageMethodSettingArrayOutput `pulumi:"methodSettings"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
@@ -97,9 +97,9 @@ func (StageState) ElementType() reflect.Type {
 type stageArgs struct {
 	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting *StageAccessLogSetting `pulumi:"accessLogSetting"`
-	// Specifies whether a cache cluster is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
-	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
 	// Settings for the canary deployment in this stage.
 	CanarySetting *StageCanarySetting `pulumi:"canarySetting"`
@@ -111,7 +111,7 @@ type stageArgs struct {
 	Description *string `pulumi:"description"`
 	// The version of the associated API documentation.
 	DocumentationVersion *string `pulumi:"documentationVersion"`
-	// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
+	// A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*/\*` for overriding all methods in the stage.
 	MethodSettings []StageMethodSetting `pulumi:"methodSettings"`
 	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
@@ -129,9 +129,9 @@ type stageArgs struct {
 type StageArgs struct {
 	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting StageAccessLogSettingPtrInput
-	// Specifies whether a cache cluster is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 	CacheClusterEnabled pulumi.BoolPtrInput
-	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
 	CacheClusterSize pulumi.StringPtrInput
 	// Settings for the canary deployment in this stage.
 	CanarySetting StageCanarySettingPtrInput
@@ -143,7 +143,7 @@ type StageArgs struct {
 	Description pulumi.StringPtrInput
 	// The version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrInput
-	// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
+	// A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*/\*` for overriding all methods in the stage.
 	MethodSettings StageMethodSettingArrayInput
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput
@@ -199,12 +199,12 @@ func (o StageOutput) AccessLogSetting() StageAccessLogSettingPtrOutput {
 	return o.ApplyT(func(v *Stage) StageAccessLogSettingPtrOutput { return v.AccessLogSetting }).(StageAccessLogSettingPtrOutput)
 }
 
-// Specifies whether a cache cluster is enabled for the stage.
+// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 func (o StageOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
 func (o StageOutput) CacheClusterSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
 }
@@ -234,7 +234,7 @@ func (o StageOutput) DocumentationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
 }
 
-// A map that defines the method settings for a Stage resource. Keys (designated as “/{method_setting_key“ below) are method paths defined as “{resource_path}/{http_method}“ for an individual method override, or “/\*/\*“ for overriding all methods in the stage.
+// A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*/\*` for overriding all methods in the stage.
 func (o StageOutput) MethodSettings() StageMethodSettingArrayOutput {
 	return o.ApplyT(func(v *Stage) StageMethodSettingArrayOutput { return v.MethodSettings }).(StageMethodSettingArrayOutput)
 }

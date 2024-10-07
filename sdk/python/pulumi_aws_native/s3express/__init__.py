@@ -10,3 +10,5 @@ from .bucket_policy import *
 from .directory_bucket import *
 from .get_bucket_policy import *
 from .get_directory_bucket import *
+from ._inputs import *
+from . import outputs

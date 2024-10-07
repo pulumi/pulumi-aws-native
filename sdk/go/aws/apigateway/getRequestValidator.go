@@ -34,7 +34,7 @@ type LookupRequestValidatorResult struct {
 	RequestValidatorId *string `pulumi:"requestValidatorId"`
 	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
-	// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+	// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
 	ValidateRequestParameters *bool `pulumi:"validateRequestParameters"`
 }
 
@@ -92,7 +92,7 @@ func (o LookupRequestValidatorResultOutput) ValidateRequestBody() pulumi.BoolPtr
 	return o.ApplyT(func(v LookupRequestValidatorResult) *bool { return v.ValidateRequestBody }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean flag to indicate whether to validate request parameters (“true“) or not (“false“).
+// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
 func (o LookupRequestValidatorResultOutput) ValidateRequestParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRequestValidatorResult) *bool { return v.ValidateRequestParameters }).(pulumi.BoolPtrOutput)
 }

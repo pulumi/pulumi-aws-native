@@ -18,7 +18,7 @@ type DeliveryStreamAmazonOpenSearchServerlessBufferingHints struct {
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	//
-	// We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+	// We recommend setting this parameter to a value greater than the amount of data you typically ingest into the Firehose stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 	SizeInMbs *int `pulumi:"sizeInMbs"`
 }
 
@@ -38,7 +38,7 @@ type DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs struct {
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 	//
-	// We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+	// We recommend setting this parameter to a value greater than the amount of data you typically ingest into the Firehose stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 	SizeInMbs pulumi.IntPtrInput `pulumi:"sizeInMbs"`
 }
 
@@ -126,7 +126,7 @@ func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) IntervalIn
 
 // Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 //
-// We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+// We recommend setting this parameter to a value greater than the amount of data you typically ingest into the Firehose stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) SizeInMbs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessBufferingHints) *int { return v.SizeInMbs }).(pulumi.IntPtrOutput)
 }
@@ -167,7 +167,7 @@ func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) Interva
 
 // Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 //
-// We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+// We recommend setting this parameter to a value greater than the amount of data you typically ingest into the Firehose stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
 func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessBufferingHints) *int {
 		if v == nil {
@@ -1634,9 +1634,7 @@ func (o DeliveryStreamBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOutput {
 }
 
 type DeliveryStreamCatalogConfiguration struct {
-	// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
+	// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
 	CatalogArn *string `pulumi:"catalogArn"`
 }
 
@@ -1652,9 +1650,7 @@ type DeliveryStreamCatalogConfigurationInput interface {
 }
 
 type DeliveryStreamCatalogConfigurationArgs struct {
-	// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
+	// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
 	CatalogArn pulumi.StringPtrInput `pulumi:"catalogArn"`
 }
 
@@ -1735,9 +1731,7 @@ func (o DeliveryStreamCatalogConfigurationOutput) ToDeliveryStreamCatalogConfigu
 	}).(DeliveryStreamCatalogConfigurationPtrOutput)
 }
 
-// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-//
-// Amazon Data Firehose is in preview release and is subject to change.
+// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
 func (o DeliveryStreamCatalogConfigurationOutput) CatalogArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamCatalogConfiguration) *string { return v.CatalogArn }).(pulumi.StringPtrOutput)
 }
@@ -1766,9 +1760,7 @@ func (o DeliveryStreamCatalogConfigurationPtrOutput) Elem() DeliveryStreamCatalo
 	}).(DeliveryStreamCatalogConfigurationOutput)
 }
 
-// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-//
-// Amazon Data Firehose is in preview release and is subject to change.
+// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
 func (o DeliveryStreamCatalogConfigurationPtrOutput) CatalogArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamCatalogConfiguration) *string {
 		if v == nil {
@@ -3959,7 +3951,7 @@ type DeliveryStreamExtendedS3DestinationConfiguration struct {
 	BucketArn string `pulumi:"bucketArn"`
 	// The buffering option.
 	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
-	// The Amazon CloudWatch logging options for your delivery stream.
+	// The Amazon CloudWatch logging options for your Firehose stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED` .
 	CompressionFormat *DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat `pulumi:"compressionFormat"`
@@ -3983,7 +3975,7 @@ type DeliveryStreamExtendedS3DestinationConfiguration struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3.
 	S3BackupConfiguration *DeliveryStreamS3DestinationConfiguration `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+	// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
 	S3BackupMode *DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
 }
 
@@ -4003,7 +3995,7 @@ type DeliveryStreamExtendedS3DestinationConfigurationArgs struct {
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// The buffering option.
 	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The Amazon CloudWatch logging options for your delivery stream.
+	// The Amazon CloudWatch logging options for your Firehose stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED` .
 	CompressionFormat DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrInput `pulumi:"compressionFormat"`
@@ -4027,7 +4019,7 @@ type DeliveryStreamExtendedS3DestinationConfigurationArgs struct {
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3.
 	S3BackupConfiguration DeliveryStreamS3DestinationConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+	// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
 	S3BackupMode DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
 }
 
@@ -4120,7 +4112,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) BufferingHints()
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The Amazon CloudWatch logging options for your delivery stream.
+// The Amazon CloudWatch logging options for your Firehose stream.
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -4194,7 +4186,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) S3BackupConfigur
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) S3BackupMode() DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode {
 		return v.S3BackupMode
@@ -4245,7 +4237,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) BufferingHint
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The Amazon CloudWatch logging options for your delivery stream.
+// The Amazon CloudWatch logging options for your Firehose stream.
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -4365,7 +4357,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) S3BackupConfi
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode {
 		if v == nil {
@@ -5280,23 +5272,15 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ContentEncoding
 type DeliveryStreamIcebergDestinationConfiguration struct {
 	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
 	// Configuration describing where the destination Apache Iceberg Tables are persisted.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
 	CatalogConfiguration     DeliveryStreamCatalogConfiguration      `pulumi:"catalogConfiguration"`
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
 	DestinationTableConfigurationList []DeliveryStreamDestinationTableConfiguration `pulumi:"destinationTableConfigurationList"`
 	ProcessingConfiguration           *DeliveryStreamProcessingConfiguration        `pulumi:"processingConfiguration"`
 	RetryOptions                      *DeliveryStreamRetryOptions                   `pulumi:"retryOptions"`
-	// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
+	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 	RoleArn string `pulumi:"roleArn"`
-	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
+	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
 	S3BackupMode    *DeliveryStreamIcebergDestinationConfigurations3BackupMode `pulumi:"s3BackupMode"`
 	S3Configuration DeliveryStreamS3DestinationConfiguration                   `pulumi:"s3Configuration"`
 }
@@ -5315,23 +5299,15 @@ type DeliveryStreamIcebergDestinationConfigurationInput interface {
 type DeliveryStreamIcebergDestinationConfigurationArgs struct {
 	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
 	// Configuration describing where the destination Apache Iceberg Tables are persisted.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
 	CatalogConfiguration     DeliveryStreamCatalogConfigurationInput        `pulumi:"catalogConfiguration"`
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
 	DestinationTableConfigurationList DeliveryStreamDestinationTableConfigurationArrayInput `pulumi:"destinationTableConfigurationList"`
 	ProcessingConfiguration           DeliveryStreamProcessingConfigurationPtrInput         `pulumi:"processingConfiguration"`
 	RetryOptions                      DeliveryStreamRetryOptionsPtrInput                    `pulumi:"retryOptions"`
-	// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
+	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
-	//
-	// Amazon Data Firehose is in preview release and is subject to change.
+	// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
 	S3BackupMode    DeliveryStreamIcebergDestinationConfigurations3BackupModePtrInput `pulumi:"s3BackupMode"`
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput                     `pulumi:"s3Configuration"`
 }
@@ -5420,8 +5396,6 @@ func (o DeliveryStreamIcebergDestinationConfigurationOutput) BufferingHints() De
 }
 
 // Configuration describing where the destination Apache Iceberg Tables are persisted.
-//
-// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamIcebergDestinationConfigurationOutput) CatalogConfiguration() DeliveryStreamCatalogConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) DeliveryStreamCatalogConfiguration {
 		return v.CatalogConfiguration
@@ -5435,8 +5409,6 @@ func (o DeliveryStreamIcebergDestinationConfigurationOutput) CloudWatchLoggingOp
 }
 
 // Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
-//
-// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamIcebergDestinationConfigurationOutput) DestinationTableConfigurationList() DeliveryStreamDestinationTableConfigurationArrayOutput {
 	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) []DeliveryStreamDestinationTableConfiguration {
 		return v.DestinationTableConfigurationList
@@ -5455,16 +5427,12 @@ func (o DeliveryStreamIcebergDestinationConfigurationOutput) RetryOptions() Deli
 	}).(DeliveryStreamRetryOptionsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-//
-// Amazon Data Firehose is in preview release and is subject to change.
+// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 func (o DeliveryStreamIcebergDestinationConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
-//
-// Amazon Data Firehose is in preview release and is subject to change.
+// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
 func (o DeliveryStreamIcebergDestinationConfigurationOutput) S3BackupMode() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
 	return o.ApplyT(func(v DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamIcebergDestinationConfigurations3BackupMode {
 		return v.S3BackupMode
@@ -5511,8 +5479,6 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) BufferingHints()
 }
 
 // Configuration describing where the destination Apache Iceberg Tables are persisted.
-//
-// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) CatalogConfiguration() DeliveryStreamCatalogConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamCatalogConfiguration {
 		if v == nil {
@@ -5532,8 +5498,6 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) CloudWatchLoggin
 }
 
 // Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
-//
-// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) DestinationTableConfigurationList() DeliveryStreamDestinationTableConfigurationArrayOutput {
 	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) []DeliveryStreamDestinationTableConfiguration {
 		if v == nil {
@@ -5561,9 +5525,7 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) RetryOptions() D
 	}).(DeliveryStreamRetryOptionsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-//
-// Amazon Data Firehose is in preview release and is subject to change.
+// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
 func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *string {
 		if v == nil {
@@ -5573,9 +5535,7 @@ func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) RoleArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
-//
-// Amazon Data Firehose is in preview release and is subject to change.
+// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
 func (o DeliveryStreamIcebergDestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamIcebergDestinationConfigurations3BackupModePtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamIcebergDestinationConfiguration) *DeliveryStreamIcebergDestinationConfigurations3BackupMode {
 		if v == nil {
@@ -7473,7 +7433,7 @@ func (o DeliveryStreamProcessorParameterArrayOutput) Index(i pulumi.IntInput) De
 }
 
 type DeliveryStreamRedshiftDestinationConfiguration struct {
-	// The CloudWatch logging options for your delivery stream.
+	// The CloudWatch logging options for your Firehose stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
 	ClusterJdbcurl string `pulumi:"clusterJdbcurl"`
@@ -7489,7 +7449,7 @@ type DeliveryStreamRedshiftDestinationConfiguration struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3.
 	S3BackupConfiguration *DeliveryStreamS3DestinationConfiguration `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+	// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
 	S3BackupMode *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
 	// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
 	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
@@ -7511,7 +7471,7 @@ type DeliveryStreamRedshiftDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamRedshiftDestinationConfigurationArgs struct {
-	// The CloudWatch logging options for your delivery stream.
+	// The CloudWatch logging options for your Firehose stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
 	ClusterJdbcurl pulumi.StringInput `pulumi:"clusterJdbcurl"`
@@ -7527,7 +7487,7 @@ type DeliveryStreamRedshiftDestinationConfigurationArgs struct {
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3.
 	S3BackupConfiguration DeliveryStreamS3DestinationConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+	// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
 	S3BackupMode DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
 	// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
@@ -7614,7 +7574,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) ToDeliveryStreamRe
 	}).(DeliveryStreamRedshiftDestinationConfigurationPtrOutput)
 }
 
-// The CloudWatch logging options for your delivery stream.
+// The CloudWatch logging options for your Firehose stream.
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -7662,7 +7622,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3BackupConfigurat
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3BackupMode() DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode {
 		return v.S3BackupMode
@@ -7712,7 +7672,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) Elem() Delivery
 	}).(DeliveryStreamRedshiftDestinationConfigurationOutput)
 }
 
-// The CloudWatch logging options for your delivery stream.
+// The CloudWatch logging options for your Firehose stream.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -7792,7 +7752,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3BackupConfigu
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode {
 		if v == nil {
@@ -8111,7 +8071,7 @@ type DeliveryStreamS3DestinationConfiguration struct {
 	BucketArn string `pulumi:"bucketArn"`
 	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
 	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
-	// The CloudWatch logging options for your delivery stream.
+	// The CloudWatch logging options for your Firehose stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 	CompressionFormat *DeliveryStreamS3DestinationConfigurationCompressionFormat `pulumi:"compressionFormat"`
@@ -8141,7 +8101,7 @@ type DeliveryStreamS3DestinationConfigurationArgs struct {
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
 	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The CloudWatch logging options for your delivery stream.
+	// The CloudWatch logging options for your Firehose stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 	CompressionFormat DeliveryStreamS3DestinationConfigurationCompressionFormatPtrInput `pulumi:"compressionFormat"`
@@ -8244,7 +8204,7 @@ func (o DeliveryStreamS3DestinationConfigurationOutput) BufferingHints() Deliver
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The CloudWatch logging options for your delivery stream.
+// The CloudWatch logging options for your Firehose stream.
 func (o DeliveryStreamS3DestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamS3DestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -8324,7 +8284,7 @@ func (o DeliveryStreamS3DestinationConfigurationPtrOutput) BufferingHints() Deli
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The CloudWatch logging options for your delivery stream.
+// The CloudWatch logging options for your Firehose stream.
 func (o DeliveryStreamS3DestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamS3DestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -8641,11 +8601,11 @@ func (o DeliveryStreamSchemaConfigurationPtrOutput) VersionId() pulumi.StringPtr
 }
 
 type DeliveryStreamSecretsManagerConfiguration struct {
-	// Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+	// Specifies whether you want to use the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
 	Enabled bool `pulumi:"enabled"`
 	// Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
 	RoleArn *string `pulumi:"roleArn"`
-	// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+	// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -8661,11 +8621,11 @@ type DeliveryStreamSecretsManagerConfigurationInput interface {
 }
 
 type DeliveryStreamSecretsManagerConfigurationArgs struct {
-	// Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+	// Specifies whether you want to use the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+	// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -8746,7 +8706,7 @@ func (o DeliveryStreamSecretsManagerConfigurationOutput) ToDeliveryStreamSecrets
 	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
 }
 
-// Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+// Specifies whether you want to use the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
 func (o DeliveryStreamSecretsManagerConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -8756,7 +8716,7 @@ func (o DeliveryStreamSecretsManagerConfigurationOutput) RoleArn() pulumi.String
 	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 func (o DeliveryStreamSecretsManagerConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSecretsManagerConfiguration) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -8785,7 +8745,7 @@ func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) Elem() DeliveryStrea
 	}).(DeliveryStreamSecretsManagerConfigurationOutput)
 }
 
-// Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+// Specifies whether you want to use the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
 func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) *bool {
 		if v == nil {
@@ -8805,7 +8765,7 @@ func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) RoleArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+// The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
 func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSecretsManagerConfiguration) *string {
 		if v == nil {
@@ -10226,7 +10186,7 @@ func (o DeliveryStreamSplunkBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOu
 type DeliveryStreamSplunkDestinationConfiguration struct {
 	// The buffering options. If no value is specified, the default values for Splunk are used.
 	BufferingHints *DeliveryStreamSplunkBufferingHints `pulumi:"bufferingHints"`
-	// The Amazon CloudWatch logging options for your delivery stream.
+	// The Amazon CloudWatch logging options for your Firehose stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
 	HecAcknowledgmentTimeoutInSeconds *int `pulumi:"hecAcknowledgmentTimeoutInSeconds"`
@@ -10264,7 +10224,7 @@ type DeliveryStreamSplunkDestinationConfigurationInput interface {
 type DeliveryStreamSplunkDestinationConfigurationArgs struct {
 	// The buffering options. If no value is specified, the default values for Splunk are used.
 	BufferingHints DeliveryStreamSplunkBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The Amazon CloudWatch logging options for your delivery stream.
+	// The Amazon CloudWatch logging options for your Firehose stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
 	HecAcknowledgmentTimeoutInSeconds pulumi.IntPtrInput `pulumi:"hecAcknowledgmentTimeoutInSeconds"`
@@ -10372,7 +10332,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) BufferingHints() Del
 	}).(DeliveryStreamSplunkBufferingHintsPtrOutput)
 }
 
-// The Amazon CloudWatch logging options for your delivery stream.
+// The Amazon CloudWatch logging options for your Firehose stream.
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -10470,7 +10430,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) BufferingHints() 
 	}).(DeliveryStreamSplunkBufferingHintsPtrOutput)
 }
 
-// The Amazon CloudWatch logging options for your delivery stream.
+// The Amazon CloudWatch logging options for your Firehose stream.
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {

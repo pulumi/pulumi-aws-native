@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? ApiKeyId;
         /// <summary>
-        /// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+        /// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
         /// </summary>
         public readonly string? CustomerId;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiKeyStageKey> StageKeys;
         /// <summary>
-        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

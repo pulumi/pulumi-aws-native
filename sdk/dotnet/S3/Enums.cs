@@ -464,6 +464,42 @@ namespace Pulumi.AwsNative.S3
     }
 
     /// <summary>
+    /// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+    /// 
+    /// - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
+    /// - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+    /// 
+    /// To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
+    /// </summary>
+    [EnumType]
+    public readonly struct BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize : IEquatable<BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize>
+    {
+        private readonly string _value;
+
+        private BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize VariesByStorageClass { get; } = new BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize("varies_by_storage_class");
+        public static BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize AllStorageClasses128k { get; } = new BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize("all_storage_classes_128K");
+
+        public static bool operator ==(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize left, BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize right) => left.Equals(right);
+        public static bool operator !=(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize left, BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize right) => !left.Equals(right);
+
+        public static explicit operator string(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize other && Equals(other);
+        public bool Equals(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies whether the replication metrics are enabled.
     /// </summary>
     [EnumType]

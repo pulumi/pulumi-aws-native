@@ -2401,6 +2401,177 @@ func (in *bucketInventoryConfigurationScheduleFrequencyPtr) ToBucketInventoryCon
 	return pulumi.ToOutputWithContext(ctx, in).(BucketInventoryConfigurationScheduleFrequencyPtrOutput)
 }
 
+// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+//
+// - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
+// - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+//
+// To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
+type BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize string
+
+const (
+	BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeVariesByStorageClass  = BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize("varies_by_storage_class")
+	BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeAllStorageClasses128k = BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize("all_storage_classes_128K")
+)
+
+func (BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize)(nil)).Elem()
+}
+
+func (e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput {
+	return pulumi.ToOutput(e).(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput)
+}
+
+func (e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput)
+}
+
+func (e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
+	return e.ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(context.Background())
+}
+
+func (e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
+	return BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize(e).ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutputWithContext(ctx).ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(ctx)
+}
+
+func (e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput struct{ *pulumi.OutputState }
+
+func (BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize)(nil)).Elem()
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
+	return o.ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(context.Background())
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) *BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize {
+		return &v
+	}).(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput)
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize)(nil)).Elem()
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput) Elem() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize
+		return ret
+	}).(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput)
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeInput is an input type that accepts values of the BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize enum
+// A concrete instance of `BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeInput` can be one of the following:
+//
+//	BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeVariesByStorageClass
+//	BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeAllStorageClasses128k
+type BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeInput interface {
+	pulumi.Input
+
+	ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput
+	ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutputWithContext(context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput
+}
+
+var bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrType = reflect.TypeOf((**BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize)(nil)).Elem()
+
+type BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrInput interface {
+	pulumi.Input
+
+	ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput
+	ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput
+}
+
+type bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr string
+
+func BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr(v string) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrInput {
+	return (*bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr)(&v)
+}
+
+func (*bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr) ElementType() reflect.Type {
+	return bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrType
+}
+
+func (in *bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
+	return pulumi.ToOutput(in).(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput)
+}
+
+func (in *bucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtr) ToBucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput)
+}
+
 // Specifies whether the replication metrics are enabled.
 type BucketMetricsStatus string
 
@@ -5377,6 +5548,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryConfigurationOptionalFieldsItemArrayInput)(nil)).Elem(), BucketInventoryConfigurationOptionalFieldsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryConfigurationScheduleFrequencyInput)(nil)).Elem(), BucketInventoryConfigurationScheduleFrequency("Daily"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketInventoryConfigurationScheduleFrequencyPtrInput)(nil)).Elem(), BucketInventoryConfigurationScheduleFrequency("Daily"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeInput)(nil)).Elem(), BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize("varies_by_storage_class"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrInput)(nil)).Elem(), BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize("varies_by_storage_class"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsStatusInput)(nil)).Elem(), BucketMetricsStatus("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricsStatusPtrInput)(nil)).Elem(), BucketMetricsStatus("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionStorageClassInput)(nil)).Elem(), BucketNoncurrentVersionTransitionStorageClass("DEEP_ARCHIVE"))
@@ -5441,6 +5614,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketInventoryConfigurationOptionalFieldsItemArrayOutput{})
 	pulumi.RegisterOutputType(BucketInventoryConfigurationScheduleFrequencyOutput{})
 	pulumi.RegisterOutputType(BucketInventoryConfigurationScheduleFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizeOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput{})
 	pulumi.RegisterOutputType(BucketMetricsStatusOutput{})
 	pulumi.RegisterOutputType(BucketMetricsStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionStorageClassOutput{})

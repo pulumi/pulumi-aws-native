@@ -1570,6 +1570,352 @@ func (in *dimensionTypePtr) ToDimensionTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DimensionTypePtrOutput)
 }
 
+// An enumerated string that speciﬁes the application-layer protocol.
+//
+// > This property isn't available in China.
+type DomainConfigurationApplicationProtocol string
+
+const (
+	DomainConfigurationApplicationProtocolSecureMqtt = DomainConfigurationApplicationProtocol("SECURE_MQTT")
+	DomainConfigurationApplicationProtocolMqttWss    = DomainConfigurationApplicationProtocol("MQTT_WSS")
+	DomainConfigurationApplicationProtocolHttps      = DomainConfigurationApplicationProtocol("HTTPS")
+	DomainConfigurationApplicationProtocolDefault    = DomainConfigurationApplicationProtocol("DEFAULT")
+)
+
+func (DomainConfigurationApplicationProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationApplicationProtocol)(nil)).Elem()
+}
+
+func (e DomainConfigurationApplicationProtocol) ToDomainConfigurationApplicationProtocolOutput() DomainConfigurationApplicationProtocolOutput {
+	return pulumi.ToOutput(e).(DomainConfigurationApplicationProtocolOutput)
+}
+
+func (e DomainConfigurationApplicationProtocol) ToDomainConfigurationApplicationProtocolOutputWithContext(ctx context.Context) DomainConfigurationApplicationProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainConfigurationApplicationProtocolOutput)
+}
+
+func (e DomainConfigurationApplicationProtocol) ToDomainConfigurationApplicationProtocolPtrOutput() DomainConfigurationApplicationProtocolPtrOutput {
+	return e.ToDomainConfigurationApplicationProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e DomainConfigurationApplicationProtocol) ToDomainConfigurationApplicationProtocolPtrOutputWithContext(ctx context.Context) DomainConfigurationApplicationProtocolPtrOutput {
+	return DomainConfigurationApplicationProtocol(e).ToDomainConfigurationApplicationProtocolOutputWithContext(ctx).ToDomainConfigurationApplicationProtocolPtrOutputWithContext(ctx)
+}
+
+func (e DomainConfigurationApplicationProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainConfigurationApplicationProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainConfigurationApplicationProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainConfigurationApplicationProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainConfigurationApplicationProtocolOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationApplicationProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationApplicationProtocol)(nil)).Elem()
+}
+
+func (o DomainConfigurationApplicationProtocolOutput) ToDomainConfigurationApplicationProtocolOutput() DomainConfigurationApplicationProtocolOutput {
+	return o
+}
+
+func (o DomainConfigurationApplicationProtocolOutput) ToDomainConfigurationApplicationProtocolOutputWithContext(ctx context.Context) DomainConfigurationApplicationProtocolOutput {
+	return o
+}
+
+func (o DomainConfigurationApplicationProtocolOutput) ToDomainConfigurationApplicationProtocolPtrOutput() DomainConfigurationApplicationProtocolPtrOutput {
+	return o.ToDomainConfigurationApplicationProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationApplicationProtocolOutput) ToDomainConfigurationApplicationProtocolPtrOutputWithContext(ctx context.Context) DomainConfigurationApplicationProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConfigurationApplicationProtocol) *DomainConfigurationApplicationProtocol {
+		return &v
+	}).(DomainConfigurationApplicationProtocolPtrOutput)
+}
+
+func (o DomainConfigurationApplicationProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationApplicationProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConfigurationApplicationProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainConfigurationApplicationProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationApplicationProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConfigurationApplicationProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainConfigurationApplicationProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationApplicationProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConfigurationApplicationProtocol)(nil)).Elem()
+}
+
+func (o DomainConfigurationApplicationProtocolPtrOutput) ToDomainConfigurationApplicationProtocolPtrOutput() DomainConfigurationApplicationProtocolPtrOutput {
+	return o
+}
+
+func (o DomainConfigurationApplicationProtocolPtrOutput) ToDomainConfigurationApplicationProtocolPtrOutputWithContext(ctx context.Context) DomainConfigurationApplicationProtocolPtrOutput {
+	return o
+}
+
+func (o DomainConfigurationApplicationProtocolPtrOutput) Elem() DomainConfigurationApplicationProtocolOutput {
+	return o.ApplyT(func(v *DomainConfigurationApplicationProtocol) DomainConfigurationApplicationProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret DomainConfigurationApplicationProtocol
+		return ret
+	}).(DomainConfigurationApplicationProtocolOutput)
+}
+
+func (o DomainConfigurationApplicationProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationApplicationProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainConfigurationApplicationProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainConfigurationApplicationProtocolInput is an input type that accepts values of the DomainConfigurationApplicationProtocol enum
+// A concrete instance of `DomainConfigurationApplicationProtocolInput` can be one of the following:
+//
+//	DomainConfigurationApplicationProtocolSecureMqtt
+//	DomainConfigurationApplicationProtocolMqttWss
+//	DomainConfigurationApplicationProtocolHttps
+//	DomainConfigurationApplicationProtocolDefault
+type DomainConfigurationApplicationProtocolInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationApplicationProtocolOutput() DomainConfigurationApplicationProtocolOutput
+	ToDomainConfigurationApplicationProtocolOutputWithContext(context.Context) DomainConfigurationApplicationProtocolOutput
+}
+
+var domainConfigurationApplicationProtocolPtrType = reflect.TypeOf((**DomainConfigurationApplicationProtocol)(nil)).Elem()
+
+type DomainConfigurationApplicationProtocolPtrInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationApplicationProtocolPtrOutput() DomainConfigurationApplicationProtocolPtrOutput
+	ToDomainConfigurationApplicationProtocolPtrOutputWithContext(context.Context) DomainConfigurationApplicationProtocolPtrOutput
+}
+
+type domainConfigurationApplicationProtocolPtr string
+
+func DomainConfigurationApplicationProtocolPtr(v string) DomainConfigurationApplicationProtocolPtrInput {
+	return (*domainConfigurationApplicationProtocolPtr)(&v)
+}
+
+func (*domainConfigurationApplicationProtocolPtr) ElementType() reflect.Type {
+	return domainConfigurationApplicationProtocolPtrType
+}
+
+func (in *domainConfigurationApplicationProtocolPtr) ToDomainConfigurationApplicationProtocolPtrOutput() DomainConfigurationApplicationProtocolPtrOutput {
+	return pulumi.ToOutput(in).(DomainConfigurationApplicationProtocolPtrOutput)
+}
+
+func (in *domainConfigurationApplicationProtocolPtr) ToDomainConfigurationApplicationProtocolPtrOutputWithContext(ctx context.Context) DomainConfigurationApplicationProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationApplicationProtocolPtrOutput)
+}
+
+// An enumerated string that speciﬁes the authentication type.
+//
+// > This property isn't available in China.
+type DomainConfigurationAuthenticationType string
+
+const (
+	DomainConfigurationAuthenticationTypeAwsX509        = DomainConfigurationAuthenticationType("AWS_X509")
+	DomainConfigurationAuthenticationTypeCustomAuth     = DomainConfigurationAuthenticationType("CUSTOM_AUTH")
+	DomainConfigurationAuthenticationTypeAwsSigv4       = DomainConfigurationAuthenticationType("AWS_SIGV4")
+	DomainConfigurationAuthenticationTypeCustomAuthX509 = DomainConfigurationAuthenticationType("CUSTOM_AUTH_X509")
+	DomainConfigurationAuthenticationTypeDefault        = DomainConfigurationAuthenticationType("DEFAULT")
+)
+
+func (DomainConfigurationAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationAuthenticationType)(nil)).Elem()
+}
+
+func (e DomainConfigurationAuthenticationType) ToDomainConfigurationAuthenticationTypeOutput() DomainConfigurationAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(DomainConfigurationAuthenticationTypeOutput)
+}
+
+func (e DomainConfigurationAuthenticationType) ToDomainConfigurationAuthenticationTypeOutputWithContext(ctx context.Context) DomainConfigurationAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainConfigurationAuthenticationTypeOutput)
+}
+
+func (e DomainConfigurationAuthenticationType) ToDomainConfigurationAuthenticationTypePtrOutput() DomainConfigurationAuthenticationTypePtrOutput {
+	return e.ToDomainConfigurationAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainConfigurationAuthenticationType) ToDomainConfigurationAuthenticationTypePtrOutputWithContext(ctx context.Context) DomainConfigurationAuthenticationTypePtrOutput {
+	return DomainConfigurationAuthenticationType(e).ToDomainConfigurationAuthenticationTypeOutputWithContext(ctx).ToDomainConfigurationAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainConfigurationAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainConfigurationAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainConfigurationAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainConfigurationAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainConfigurationAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationAuthenticationType)(nil)).Elem()
+}
+
+func (o DomainConfigurationAuthenticationTypeOutput) ToDomainConfigurationAuthenticationTypeOutput() DomainConfigurationAuthenticationTypeOutput {
+	return o
+}
+
+func (o DomainConfigurationAuthenticationTypeOutput) ToDomainConfigurationAuthenticationTypeOutputWithContext(ctx context.Context) DomainConfigurationAuthenticationTypeOutput {
+	return o
+}
+
+func (o DomainConfigurationAuthenticationTypeOutput) ToDomainConfigurationAuthenticationTypePtrOutput() DomainConfigurationAuthenticationTypePtrOutput {
+	return o.ToDomainConfigurationAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationAuthenticationTypeOutput) ToDomainConfigurationAuthenticationTypePtrOutputWithContext(ctx context.Context) DomainConfigurationAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConfigurationAuthenticationType) *DomainConfigurationAuthenticationType {
+		return &v
+	}).(DomainConfigurationAuthenticationTypePtrOutput)
+}
+
+func (o DomainConfigurationAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConfigurationAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainConfigurationAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConfigurationAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainConfigurationAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConfigurationAuthenticationType)(nil)).Elem()
+}
+
+func (o DomainConfigurationAuthenticationTypePtrOutput) ToDomainConfigurationAuthenticationTypePtrOutput() DomainConfigurationAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o DomainConfigurationAuthenticationTypePtrOutput) ToDomainConfigurationAuthenticationTypePtrOutputWithContext(ctx context.Context) DomainConfigurationAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o DomainConfigurationAuthenticationTypePtrOutput) Elem() DomainConfigurationAuthenticationTypeOutput {
+	return o.ApplyT(func(v *DomainConfigurationAuthenticationType) DomainConfigurationAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainConfigurationAuthenticationType
+		return ret
+	}).(DomainConfigurationAuthenticationTypeOutput)
+}
+
+func (o DomainConfigurationAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainConfigurationAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainConfigurationAuthenticationTypeInput is an input type that accepts values of the DomainConfigurationAuthenticationType enum
+// A concrete instance of `DomainConfigurationAuthenticationTypeInput` can be one of the following:
+//
+//	DomainConfigurationAuthenticationTypeAwsX509
+//	DomainConfigurationAuthenticationTypeCustomAuth
+//	DomainConfigurationAuthenticationTypeAwsSigv4
+//	DomainConfigurationAuthenticationTypeCustomAuthX509
+//	DomainConfigurationAuthenticationTypeDefault
+type DomainConfigurationAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationAuthenticationTypeOutput() DomainConfigurationAuthenticationTypeOutput
+	ToDomainConfigurationAuthenticationTypeOutputWithContext(context.Context) DomainConfigurationAuthenticationTypeOutput
+}
+
+var domainConfigurationAuthenticationTypePtrType = reflect.TypeOf((**DomainConfigurationAuthenticationType)(nil)).Elem()
+
+type DomainConfigurationAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationAuthenticationTypePtrOutput() DomainConfigurationAuthenticationTypePtrOutput
+	ToDomainConfigurationAuthenticationTypePtrOutputWithContext(context.Context) DomainConfigurationAuthenticationTypePtrOutput
+}
+
+type domainConfigurationAuthenticationTypePtr string
+
+func DomainConfigurationAuthenticationTypePtr(v string) DomainConfigurationAuthenticationTypePtrInput {
+	return (*domainConfigurationAuthenticationTypePtr)(&v)
+}
+
+func (*domainConfigurationAuthenticationTypePtr) ElementType() reflect.Type {
+	return domainConfigurationAuthenticationTypePtrType
+}
+
+func (in *domainConfigurationAuthenticationTypePtr) ToDomainConfigurationAuthenticationTypePtrOutput() DomainConfigurationAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainConfigurationAuthenticationTypePtrOutput)
+}
+
+func (in *domainConfigurationAuthenticationTypePtr) ToDomainConfigurationAuthenticationTypePtrOutputWithContext(ctx context.Context) DomainConfigurationAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationAuthenticationTypePtrOutput)
+}
+
 // The type of service delivered by the domain.
 type DomainConfigurationDomainType string
 
@@ -5447,6 +5793,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricMetricTypePtrInput)(nil)).Elem(), CustomMetricMetricType("string-list"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTypeInput)(nil)).Elem(), DimensionType("TOPIC_FILTER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTypePtrInput)(nil)).Elem(), DimensionType("TOPIC_FILTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationApplicationProtocolInput)(nil)).Elem(), DomainConfigurationApplicationProtocol("SECURE_MQTT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationApplicationProtocolPtrInput)(nil)).Elem(), DomainConfigurationApplicationProtocol("SECURE_MQTT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthenticationTypeInput)(nil)).Elem(), DomainConfigurationAuthenticationType("AWS_X509"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthenticationTypePtrInput)(nil)).Elem(), DomainConfigurationAuthenticationType("AWS_X509"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServiceTypeInput)(nil)).Elem(), DomainConfigurationServiceType("DATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServiceTypePtrInput)(nil)).Elem(), DomainConfigurationServiceType("DATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationStatusInput)(nil)).Elem(), DomainConfigurationStatus("ENABLED"))
@@ -5508,6 +5858,10 @@ func init() {
 	pulumi.RegisterOutputType(CustomMetricMetricTypePtrOutput{})
 	pulumi.RegisterOutputType(DimensionTypeOutput{})
 	pulumi.RegisterOutputType(DimensionTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationApplicationProtocolOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationApplicationProtocolPtrOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationDomainTypeOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationDomainTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput{})

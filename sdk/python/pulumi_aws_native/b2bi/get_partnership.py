@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -19,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetPartnershipResult:
-    def __init__(__self__, capabilities=None, created_at=None, modified_at=None, name=None, partnership_arn=None, partnership_id=None, tags=None, trading_partner_id=None):
+    def __init__(__self__, capabilities=None, capability_options=None, created_at=None, modified_at=None, name=None, partnership_arn=None, partnership_id=None, tags=None, trading_partner_id=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
+        if capability_options and not isinstance(capability_options, dict):
+            raise TypeError("Expected argument 'capability_options' to be a dict")
+        pulumi.set(__self__, "capability_options", capability_options)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -52,6 +56,14 @@ class GetPartnershipResult:
         Returns one or more capabilities associated with this partnership.
         """
         return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="capabilityOptions")
+    def capability_options(self) -> Optional['outputs.PartnershipCapabilityOptions']:
+        """
+        Contains the details for an Outbound EDI capability.
+        """
+        return pulumi.get(self, "capability_options")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -117,6 +129,7 @@ class AwaitableGetPartnershipResult(GetPartnershipResult):
             yield self
         return GetPartnershipResult(
             capabilities=self.capabilities,
+            capability_options=self.capability_options,
             created_at=self.created_at,
             modified_at=self.modified_at,
             name=self.name,
@@ -141,6 +154,7 @@ def get_partnership(partnership_id: Optional[str] = None,
 
     return AwaitableGetPartnershipResult(
         capabilities=pulumi.get(__ret__, 'capabilities'),
+        capability_options=pulumi.get(__ret__, 'capability_options'),
         created_at=pulumi.get(__ret__, 'created_at'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         name=pulumi.get(__ret__, 'name'),

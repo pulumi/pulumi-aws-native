@@ -29,6 +29,10 @@ __all__ = [
     'DatabaseIdentifier',
     'DatabaseInput',
     'DatabasePrincipalPrivileges',
+    'JobCommand',
+    'JobConnectionsList',
+    'JobExecutionProperty',
+    'JobNotificationProperty',
     'SchemaRegistry',
     'SchemaVersion',
     'SchemaVersionSchema',
@@ -37,13 +41,12 @@ __all__ = [
     'TriggerEventBatchingCondition',
     'TriggerNotificationProperty',
     'TriggerPredicate',
+    'UsageProfileConfigurationObject',
+    'UsageProfileProfileConfiguration',
 ]
 
 @pulumi.output_type
 class CrawlerCatalogTarget(dict):
-    """
-    Specifies an AWS Glue Data Catalog target.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -74,11 +77,10 @@ class CrawlerCatalogTarget(dict):
                  event_queue_arn: Optional[str] = None,
                  tables: Optional[Sequence[str]] = None):
         """
-        Specifies an AWS Glue Data Catalog target.
-        :param str connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+        :param str connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
         :param str database_name: The name of the database to be synchronized.
-        :param str dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
-        :param str event_queue_arn: A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        :param str dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
+        :param str event_queue_arn: A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
         :param Sequence[str] tables: A list of the tables to be synchronized.
         """
         if connection_name is not None:
@@ -96,7 +98,7 @@ class CrawlerCatalogTarget(dict):
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[str]:
         """
-        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
         """
         return pulumi.get(self, "connection_name")
 
@@ -112,7 +114,7 @@ class CrawlerCatalogTarget(dict):
     @pulumi.getter(name="dlqEventQueueArn")
     def dlq_event_queue_arn(self) -> Optional[str]:
         """
-        A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 
@@ -120,7 +122,7 @@ class CrawlerCatalogTarget(dict):
     @pulumi.getter(name="eventQueueArn")
     def event_queue_arn(self) -> Optional[str]:
         """
-        A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
         """
         return pulumi.get(self, "event_queue_arn")
 
@@ -135,9 +137,6 @@ class CrawlerCatalogTarget(dict):
 
 @pulumi.output_type
 class CrawlerDeltaTarget(dict):
-    """
-    Specifies a Delta data store to crawl one or more Delta tables.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -167,7 +166,6 @@ class CrawlerDeltaTarget(dict):
                  delta_tables: Optional[Sequence[str]] = None,
                  write_manifest: Optional[bool] = None):
         """
-        Specifies a Delta data store to crawl one or more Delta tables.
         :param str connection_name: The name of the connection to use to connect to the Delta table target.
         :param bool create_native_delta_table: Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
         :param Sequence[str] delta_tables: A list of the Amazon S3 paths to the Delta tables.
@@ -217,13 +215,9 @@ class CrawlerDeltaTarget(dict):
 
 @pulumi.output_type
 class CrawlerDynamoDbTarget(dict):
-    """
-    Specifies an Amazon DynamoDB table to crawl.
-    """
     def __init__(__self__, *,
                  path: Optional[str] = None):
         """
-        Specifies an Amazon DynamoDB table to crawl.
         :param str path: The name of the DynamoDB table to crawl.
         """
         if path is not None:
@@ -240,9 +234,6 @@ class CrawlerDynamoDbTarget(dict):
 
 @pulumi.output_type
 class CrawlerIcebergTarget(dict):
-    """
-    Specifies Apache Iceberg data store targets.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -268,7 +259,6 @@ class CrawlerIcebergTarget(dict):
                  maximum_traversal_depth: Optional[int] = None,
                  paths: Optional[Sequence[str]] = None):
         """
-        Specifies Apache Iceberg data store targets.
         :param str connection_name: The name of the connection to use to connect to the Iceberg target.
         :param Sequence[str] exclusions: A list of global patterns used to exclude from the crawl.
         :param int maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
@@ -318,9 +308,6 @@ class CrawlerIcebergTarget(dict):
 
 @pulumi.output_type
 class CrawlerJdbcTarget(dict):
-    """
-    Specifies a JDBC data store to crawl.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -346,12 +333,11 @@ class CrawlerJdbcTarget(dict):
                  exclusions: Optional[Sequence[str]] = None,
                  path: Optional[str] = None):
         """
-        Specifies a JDBC data store to crawl.
         :param str connection_name: The name of the connection to use to connect to the JDBC target.
-        :param Sequence[str] enable_additional_metadata: Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+        :param Sequence[str] enable_additional_metadata: Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata in table responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
                
                If you do not need additional metadata, keep the field empty.
-        :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+        :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
         :param str path: The path of the JDBC target.
         """
         if connection_name is not None:
@@ -375,7 +361,7 @@ class CrawlerJdbcTarget(dict):
     @pulumi.getter(name="enableAdditionalMetadata")
     def enable_additional_metadata(self) -> Optional[Sequence[str]]:
         """
-        Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
+        Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata in table responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
 
         If you do not need additional metadata, keep the field empty.
         """
@@ -385,7 +371,7 @@ class CrawlerJdbcTarget(dict):
     @pulumi.getter
     def exclusions(self) -> Optional[Sequence[str]]:
         """
-        A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
+        A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
         """
         return pulumi.get(self, "exclusions")
 
@@ -400,9 +386,6 @@ class CrawlerJdbcTarget(dict):
 
 @pulumi.output_type
 class CrawlerLakeFormationConfiguration(dict):
-    """
-    Specifies AWS Lake Formation configuration settings for the crawler
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -426,7 +409,6 @@ class CrawlerLakeFormationConfiguration(dict):
                  account_id: Optional[str] = None,
                  use_lake_formation_credentials: Optional[bool] = None):
         """
-        Specifies AWS Lake Formation configuration settings for the crawler
         :param str account_id: Required for cross account crawls. For same account crawls as the target data, this can be left as null.
         :param bool use_lake_formation_credentials: Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
         """
@@ -454,9 +436,6 @@ class CrawlerLakeFormationConfiguration(dict):
 
 @pulumi.output_type
 class CrawlerMongoDbTarget(dict):
-    """
-    Specifies an Amazon DocumentDB or MongoDB data store to crawl.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -478,7 +457,6 @@ class CrawlerMongoDbTarget(dict):
                  connection_name: Optional[str] = None,
                  path: Optional[str] = None):
         """
-        Specifies an Amazon DocumentDB or MongoDB data store to crawl.
         :param str connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         """
@@ -506,9 +484,6 @@ class CrawlerMongoDbTarget(dict):
 
 @pulumi.output_type
 class CrawlerRecrawlPolicy(dict):
-    """
-    When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -529,8 +504,13 @@ class CrawlerRecrawlPolicy(dict):
     def __init__(__self__, *,
                  recrawl_behavior: Optional[str] = None):
         """
-        When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
-        :param str recrawl_behavior: Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+        :param str recrawl_behavior: Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+               
+               A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
+               
+               A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
+               
+               A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
         """
         if recrawl_behavior is not None:
             pulumi.set(__self__, "recrawl_behavior", recrawl_behavior)
@@ -539,16 +519,19 @@ class CrawlerRecrawlPolicy(dict):
     @pulumi.getter(name="recrawlBehavior")
     def recrawl_behavior(self) -> Optional[str]:
         """
-        Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
+        Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+
+        A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
+
+        A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
+
+        A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
         """
         return pulumi.get(self, "recrawl_behavior")
 
 
 @pulumi.output_type
 class CrawlerS3Target(dict):
-    """
-    Specifies a data store in Amazon Simple Storage Service (Amazon S3).
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -580,11 +563,10 @@ class CrawlerS3Target(dict):
                  path: Optional[str] = None,
                  sample_size: Optional[int] = None):
         """
-        Specifies a data store in Amazon Simple Storage Service (Amazon S3).
         :param str connection_name: The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
-        :param str dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
-        :param str event_queue_arn: A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
-        :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
+        :param str dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
+        :param str event_queue_arn: A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
+        :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
         :param str path: The path to the Amazon S3 target.
         :param int sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
@@ -613,7 +595,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter(name="dlqEventQueueArn")
     def dlq_event_queue_arn(self) -> Optional[str]:
         """
-        A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 
@@ -621,7 +603,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter(name="eventQueueArn")
     def event_queue_arn(self) -> Optional[str]:
         """
-        A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
         """
         return pulumi.get(self, "event_queue_arn")
 
@@ -629,7 +611,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter
     def exclusions(self) -> Optional[Sequence[str]]:
         """
-        A list of glob patterns used to exclude from the crawl.
+        A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
         """
         return pulumi.get(self, "exclusions")
 
@@ -652,9 +634,6 @@ class CrawlerS3Target(dict):
 
 @pulumi.output_type
 class CrawlerSchedule(dict):
-    """
-    A scheduling object using a cron statement to schedule an event.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -675,8 +654,7 @@ class CrawlerSchedule(dict):
     def __init__(__self__, *,
                  schedule_expression: Optional[str] = None):
         """
-        A scheduling object using a cron statement to schedule an event.
-        :param str schedule_expression: A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+        :param str schedule_expression: A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
         """
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -685,16 +663,13 @@ class CrawlerSchedule(dict):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[str]:
         """
-        A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
+        A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
         """
         return pulumi.get(self, "schedule_expression")
 
 
 @pulumi.output_type
 class CrawlerSchemaChangePolicy(dict):
-    """
-    The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -718,9 +693,18 @@ class CrawlerSchemaChangePolicy(dict):
                  delete_behavior: Optional[str] = None,
                  update_behavior: Optional[str] = None):
         """
-        The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
-        :param str delete_behavior: The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
-        :param str update_behavior: The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+        :param str delete_behavior: The deletion behavior when the crawler finds a deleted object.
+               
+               A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
+               
+               A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
+               
+               A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
+        :param str update_behavior: The update behavior when the crawler finds a changed schema.
+               
+               A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
+               
+               A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
         """
         if delete_behavior is not None:
             pulumi.set(__self__, "delete_behavior", delete_behavior)
@@ -731,7 +715,13 @@ class CrawlerSchemaChangePolicy(dict):
     @pulumi.getter(name="deleteBehavior")
     def delete_behavior(self) -> Optional[str]:
         """
-        The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+        The deletion behavior when the crawler finds a deleted object.
+
+        A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
+
+        A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
+
+        A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
         """
         return pulumi.get(self, "delete_behavior")
 
@@ -739,16 +729,17 @@ class CrawlerSchemaChangePolicy(dict):
     @pulumi.getter(name="updateBehavior")
     def update_behavior(self) -> Optional[str]:
         """
-        The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+        The update behavior when the crawler finds a changed schema.
+
+        A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
+
+        A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
         """
         return pulumi.get(self, "update_behavior")
 
 
 @pulumi.output_type
 class CrawlerTargets(dict):
-    """
-    Specifies data stores to crawl.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -787,7 +778,6 @@ class CrawlerTargets(dict):
                  mongo_db_targets: Optional[Sequence['outputs.CrawlerMongoDbTarget']] = None,
                  s3_targets: Optional[Sequence['outputs.CrawlerS3Target']] = None):
         """
-        Specifies data stores to crawl.
         :param Sequence['CrawlerCatalogTarget'] catalog_targets: Specifies AWS Glue Data Catalog targets.
         :param Sequence['CrawlerDeltaTarget'] delta_targets: Specifies an array of Delta data store targets.
         :param Sequence['CrawlerDynamoDbTarget'] dynamo_db_targets: Specifies Amazon DynamoDB targets.
@@ -1177,6 +1167,171 @@ class DatabasePrincipalPrivileges(dict):
         The principal who is granted permissions.
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class JobCommand(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pythonVersion":
+            suggest = "python_version"
+        elif key == "scriptLocation":
+            suggest = "script_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobCommand. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobCommand.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobCommand.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 python_version: Optional[str] = None,
+                 runtime: Optional[str] = None,
+                 script_location: Optional[str] = None):
+        """
+        :param str name: The name of the job command
+        :param str python_version: The Python version being used to execute a Python shell job.
+        :param str runtime: Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment
+        :param str script_location: Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if script_location is not None:
+            pulumi.set(__self__, "script_location", script_location)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the job command
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[str]:
+        """
+        The Python version being used to execute a Python shell job.
+        """
+        return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[str]:
+        """
+        Runtime is used to specify the versions of Ray, Python and additional libraries available in your environment
+        """
+        return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="scriptLocation")
+    def script_location(self) -> Optional[str]:
+        """
+        Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job
+        """
+        return pulumi.get(self, "script_location")
+
+
+@pulumi.output_type
+class JobConnectionsList(dict):
+    def __init__(__self__, *,
+                 connections: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] connections: A list of connections used by the job.
+        """
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+
+    @property
+    @pulumi.getter
+    def connections(self) -> Optional[Sequence[str]]:
+        """
+        A list of connections used by the job.
+        """
+        return pulumi.get(self, "connections")
+
+
+@pulumi.output_type
+class JobExecutionProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentRuns":
+            suggest = "max_concurrent_runs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobExecutionProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobExecutionProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobExecutionProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrent_runs: Optional[float] = None):
+        """
+        :param float max_concurrent_runs: The maximum number of concurrent runs allowed for the job.
+        """
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[float]:
+        """
+        The maximum number of concurrent runs allowed for the job.
+        """
+        return pulumi.get(self, "max_concurrent_runs")
+
+
+@pulumi.output_type
+class JobNotificationProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notifyDelayAfter":
+            suggest = "notify_delay_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobNotificationProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobNotificationProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobNotificationProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 notify_delay_after: Optional[int] = None):
+        """
+        :param int notify_delay_after: It is the number of minutes to wait before sending a job run delay notification after a job run starts
+        """
+        if notify_delay_after is not None:
+            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+
+    @property
+    @pulumi.getter(name="notifyDelayAfter")
+    def notify_delay_after(self) -> Optional[int]:
+        """
+        It is the number of minutes to wait before sending a job run delay notification after a job run starts
+        """
+        return pulumi.get(self, "notify_delay_after")
 
 
 @pulumi.output_type
@@ -1662,5 +1817,105 @@ class TriggerPredicate(dict):
         An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
         """
         return pulumi.get(self, "logical")
+
+
+@pulumi.output_type
+class UsageProfileConfigurationObject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "defaultValue":
+            suggest = "default_value"
+        elif key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UsageProfileConfigurationObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UsageProfileConfigurationObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UsageProfileConfigurationObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Optional[Sequence[str]] = None,
+                 default_value: Optional[str] = None,
+                 max_value: Optional[str] = None,
+                 min_value: Optional[str] = None):
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if max_value is not None:
+            pulumi.set(__self__, "max_value", max_value)
+        if min_value is not None:
+            pulumi.set(__self__, "min_value", min_value)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> Optional[str]:
+        return pulumi.get(self, "max_value")
+
+    @property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> Optional[str]:
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class UsageProfileProfileConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobConfiguration":
+            suggest = "job_configuration"
+        elif key == "sessionConfiguration":
+            suggest = "session_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UsageProfileProfileConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UsageProfileProfileConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UsageProfileProfileConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 job_configuration: Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']] = None,
+                 session_configuration: Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']] = None):
+        if job_configuration is not None:
+            pulumi.set(__self__, "job_configuration", job_configuration)
+        if session_configuration is not None:
+            pulumi.set(__self__, "session_configuration", session_configuration)
+
+    @property
+    @pulumi.getter(name="jobConfiguration")
+    def job_configuration(self) -> Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']]:
+        return pulumi.get(self, "job_configuration")
+
+    @property
+    @pulumi.getter(name="sessionConfiguration")
+    def session_configuration(self) -> Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']]:
+        return pulumi.get(self, "session_configuration")
 
 

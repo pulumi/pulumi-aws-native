@@ -21,13 +21,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainConfigurationResult:
-    def __init__(__self__, arn=None, authorizer_config=None, domain_configuration_status=None, domain_type=None, server_certificate_config=None, server_certificates=None, tags=None, tls_config=None):
+    def __init__(__self__, application_protocol=None, arn=None, authentication_type=None, authorizer_config=None, client_certificate_config=None, domain_configuration_status=None, domain_type=None, server_certificate_config=None, server_certificates=None, tags=None, tls_config=None):
+        if application_protocol and not isinstance(application_protocol, str):
+            raise TypeError("Expected argument 'application_protocol' to be a str")
+        pulumi.set(__self__, "application_protocol", application_protocol)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if authentication_type and not isinstance(authentication_type, str):
+            raise TypeError("Expected argument 'authentication_type' to be a str")
+        pulumi.set(__self__, "authentication_type", authentication_type)
         if authorizer_config and not isinstance(authorizer_config, dict):
             raise TypeError("Expected argument 'authorizer_config' to be a dict")
         pulumi.set(__self__, "authorizer_config", authorizer_config)
+        if client_certificate_config and not isinstance(client_certificate_config, dict):
+            raise TypeError("Expected argument 'client_certificate_config' to be a dict")
+        pulumi.set(__self__, "client_certificate_config", client_certificate_config)
         if domain_configuration_status and not isinstance(domain_configuration_status, str):
             raise TypeError("Expected argument 'domain_configuration_status' to be a str")
         pulumi.set(__self__, "domain_configuration_status", domain_configuration_status)
@@ -48,6 +57,16 @@ class GetDomainConfigurationResult:
         pulumi.set(__self__, "tls_config", tls_config)
 
     @property
+    @pulumi.getter(name="applicationProtocol")
+    def application_protocol(self) -> Optional['DomainConfigurationApplicationProtocol']:
+        """
+        An enumerated string that speciﬁes the application-layer protocol.
+
+        > This property isn't available in China.
+        """
+        return pulumi.get(self, "application_protocol")
+
+    @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
@@ -56,12 +75,32 @@ class GetDomainConfigurationResult:
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional['DomainConfigurationAuthenticationType']:
+        """
+        An enumerated string that speciﬁes the authentication type.
+
+        > This property isn't available in China.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
     @pulumi.getter(name="authorizerConfig")
     def authorizer_config(self) -> Optional['outputs.DomainConfigurationAuthorizerConfig']:
         """
         An object that specifies the authorization service for a domain.
         """
         return pulumi.get(self, "authorizer_config")
+
+    @property
+    @pulumi.getter(name="clientCertificateConfig")
+    def client_certificate_config(self) -> Optional['outputs.DomainConfigurationClientCertificateConfig']:
+        """
+        An object that speciﬁes the client certificate conﬁguration for a domain.
+
+        > This property isn't available in China.
+        """
+        return pulumi.get(self, "client_certificate_config")
 
     @property
     @pulumi.getter(name="domainConfigurationStatus")
@@ -128,8 +167,11 @@ class AwaitableGetDomainConfigurationResult(GetDomainConfigurationResult):
         if False:
             yield self
         return GetDomainConfigurationResult(
+            application_protocol=self.application_protocol,
             arn=self.arn,
+            authentication_type=self.authentication_type,
             authorizer_config=self.authorizer_config,
+            client_certificate_config=self.client_certificate_config,
             domain_configuration_status=self.domain_configuration_status,
             domain_type=self.domain_type,
             server_certificate_config=self.server_certificate_config,
@@ -152,8 +194,11 @@ def get_domain_configuration(domain_configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getDomainConfiguration', __args__, opts=opts, typ=GetDomainConfigurationResult).value
 
     return AwaitableGetDomainConfigurationResult(
+        application_protocol=pulumi.get(__ret__, 'application_protocol'),
         arn=pulumi.get(__ret__, 'arn'),
+        authentication_type=pulumi.get(__ret__, 'authentication_type'),
         authorizer_config=pulumi.get(__ret__, 'authorizer_config'),
+        client_certificate_config=pulumi.get(__ret__, 'client_certificate_config'),
         domain_configuration_status=pulumi.get(__ret__, 'domain_configuration_status'),
         domain_type=pulumi.get(__ret__, 'domain_type'),
         server_certificate_config=pulumi.get(__ret__, 'server_certificate_config'),

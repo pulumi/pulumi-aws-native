@@ -14,13 +14,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisDefaultRelativeDateTimeControlOptions
     {
         /// <summary>
+        /// The visibility configuration of the Apply button on a `RelativeDateTimeControl` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisCommitMode? CommitMode;
+        /// <summary>
         /// The display options of a control.
         /// </summary>
         public readonly Outputs.AnalysisRelativeDateTimeControlDisplayOptions? DisplayOptions;
 
         [OutputConstructor]
-        private AnalysisDefaultRelativeDateTimeControlOptions(Outputs.AnalysisRelativeDateTimeControlDisplayOptions? displayOptions)
+        private AnalysisDefaultRelativeDateTimeControlOptions(
+            Pulumi.AwsNative.QuickSight.AnalysisCommitMode? commitMode,
+
+            Outputs.AnalysisRelativeDateTimeControlDisplayOptions? displayOptions)
         {
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
         }
     }

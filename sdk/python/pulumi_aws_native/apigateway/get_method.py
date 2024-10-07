@@ -64,7 +64,7 @@ class GetMethodResult:
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> Optional[Sequence[str]]:
         """
-        A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+        A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         """
         return pulumi.get(self, "authorization_scopes")
 
@@ -81,7 +81,7 @@ class GetMethodResult:
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> Optional[str]:
         """
-        The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+        The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -89,7 +89,7 @@ class GetMethodResult:
     @pulumi.getter
     def integration(self) -> Optional['outputs.MethodIntegration']:
         """
-        Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         """
         return pulumi.get(self, "integration")
 
@@ -105,7 +105,7 @@ class GetMethodResult:
     @pulumi.getter(name="operationName")
     def operation_name(self) -> Optional[str]:
         """
-        A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+        A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         """
         return pulumi.get(self, "operation_name")
 
@@ -121,7 +121,7 @@ class GetMethodResult:
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[Mapping[str, Any]]:
         """
-        A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         """
         return pulumi.get(self, "request_parameters")
 

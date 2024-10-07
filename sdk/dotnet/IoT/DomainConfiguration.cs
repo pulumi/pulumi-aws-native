@@ -16,16 +16,40 @@ namespace Pulumi.AwsNative.IoT
     public partial class DomainConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An enumerated string that speciﬁes the application-layer protocol.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        [Output("applicationProtocol")]
+        public Output<Pulumi.AwsNative.IoT.DomainConfigurationApplicationProtocol?> ApplicationProtocol { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the domain configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// An enumerated string that speciﬁes the authentication type.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        [Output("authenticationType")]
+        public Output<Pulumi.AwsNative.IoT.DomainConfigurationAuthenticationType?> AuthenticationType { get; private set; } = null!;
+
+        /// <summary>
         /// An object that specifies the authorization service for a domain.
         /// </summary>
         [Output("authorizerConfig")]
         public Output<Outputs.DomainConfigurationAuthorizerConfig?> AuthorizerConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// An object that speciﬁes the client certificate conﬁguration for a domain.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        [Output("clientCertificateConfig")]
+        public Output<Outputs.DomainConfigurationClientCertificateConfig?> ClientCertificateConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the domain configuration. This value must be unique to a region.
@@ -159,10 +183,34 @@ namespace Pulumi.AwsNative.IoT
     public sealed class DomainConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An enumerated string that speciﬁes the application-layer protocol.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        [Input("applicationProtocol")]
+        public Input<Pulumi.AwsNative.IoT.DomainConfigurationApplicationProtocol>? ApplicationProtocol { get; set; }
+
+        /// <summary>
+        /// An enumerated string that speciﬁes the authentication type.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<Pulumi.AwsNative.IoT.DomainConfigurationAuthenticationType>? AuthenticationType { get; set; }
+
+        /// <summary>
         /// An object that specifies the authorization service for a domain.
         /// </summary>
         [Input("authorizerConfig")]
         public Input<Inputs.DomainConfigurationAuthorizerConfigArgs>? AuthorizerConfig { get; set; }
+
+        /// <summary>
+        /// An object that speciﬁes the client certificate conﬁguration for a domain.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        [Input("clientCertificateConfig")]
+        public Input<Inputs.DomainConfigurationClientCertificateConfigArgs>? ClientCertificateConfig { get; set; }
 
         /// <summary>
         /// The name of the domain configuration. This value must be unique to a region.

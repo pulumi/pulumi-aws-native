@@ -1534,6 +1534,151 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) DefaultAuthorizerName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainConfigurationClientCertificateConfig struct {
+	// The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+	//
+	// > This property isn't available in China.
+	ClientCertificateCallbackArn *string `pulumi:"clientCertificateCallbackArn"`
+}
+
+// DomainConfigurationClientCertificateConfigInput is an input type that accepts DomainConfigurationClientCertificateConfigArgs and DomainConfigurationClientCertificateConfigOutput values.
+// You can construct a concrete instance of `DomainConfigurationClientCertificateConfigInput` via:
+//
+//	DomainConfigurationClientCertificateConfigArgs{...}
+type DomainConfigurationClientCertificateConfigInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationClientCertificateConfigOutput() DomainConfigurationClientCertificateConfigOutput
+	ToDomainConfigurationClientCertificateConfigOutputWithContext(context.Context) DomainConfigurationClientCertificateConfigOutput
+}
+
+type DomainConfigurationClientCertificateConfigArgs struct {
+	// The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+	//
+	// > This property isn't available in China.
+	ClientCertificateCallbackArn pulumi.StringPtrInput `pulumi:"clientCertificateCallbackArn"`
+}
+
+func (DomainConfigurationClientCertificateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationClientCertificateConfig)(nil)).Elem()
+}
+
+func (i DomainConfigurationClientCertificateConfigArgs) ToDomainConfigurationClientCertificateConfigOutput() DomainConfigurationClientCertificateConfigOutput {
+	return i.ToDomainConfigurationClientCertificateConfigOutputWithContext(context.Background())
+}
+
+func (i DomainConfigurationClientCertificateConfigArgs) ToDomainConfigurationClientCertificateConfigOutputWithContext(ctx context.Context) DomainConfigurationClientCertificateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationClientCertificateConfigOutput)
+}
+
+func (i DomainConfigurationClientCertificateConfigArgs) ToDomainConfigurationClientCertificateConfigPtrOutput() DomainConfigurationClientCertificateConfigPtrOutput {
+	return i.ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainConfigurationClientCertificateConfigArgs) ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationClientCertificateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationClientCertificateConfigOutput).ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(ctx)
+}
+
+// DomainConfigurationClientCertificateConfigPtrInput is an input type that accepts DomainConfigurationClientCertificateConfigArgs, DomainConfigurationClientCertificateConfigPtr and DomainConfigurationClientCertificateConfigPtrOutput values.
+// You can construct a concrete instance of `DomainConfigurationClientCertificateConfigPtrInput` via:
+//
+//	        DomainConfigurationClientCertificateConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainConfigurationClientCertificateConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationClientCertificateConfigPtrOutput() DomainConfigurationClientCertificateConfigPtrOutput
+	ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(context.Context) DomainConfigurationClientCertificateConfigPtrOutput
+}
+
+type domainConfigurationClientCertificateConfigPtrType DomainConfigurationClientCertificateConfigArgs
+
+func DomainConfigurationClientCertificateConfigPtr(v *DomainConfigurationClientCertificateConfigArgs) DomainConfigurationClientCertificateConfigPtrInput {
+	return (*domainConfigurationClientCertificateConfigPtrType)(v)
+}
+
+func (*domainConfigurationClientCertificateConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConfigurationClientCertificateConfig)(nil)).Elem()
+}
+
+func (i *domainConfigurationClientCertificateConfigPtrType) ToDomainConfigurationClientCertificateConfigPtrOutput() DomainConfigurationClientCertificateConfigPtrOutput {
+	return i.ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainConfigurationClientCertificateConfigPtrType) ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationClientCertificateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationClientCertificateConfigPtrOutput)
+}
+
+type DomainConfigurationClientCertificateConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationClientCertificateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationClientCertificateConfig)(nil)).Elem()
+}
+
+func (o DomainConfigurationClientCertificateConfigOutput) ToDomainConfigurationClientCertificateConfigOutput() DomainConfigurationClientCertificateConfigOutput {
+	return o
+}
+
+func (o DomainConfigurationClientCertificateConfigOutput) ToDomainConfigurationClientCertificateConfigOutputWithContext(ctx context.Context) DomainConfigurationClientCertificateConfigOutput {
+	return o
+}
+
+func (o DomainConfigurationClientCertificateConfigOutput) ToDomainConfigurationClientCertificateConfigPtrOutput() DomainConfigurationClientCertificateConfigPtrOutput {
+	return o.ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationClientCertificateConfigOutput) ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationClientCertificateConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConfigurationClientCertificateConfig) *DomainConfigurationClientCertificateConfig {
+		return &v
+	}).(DomainConfigurationClientCertificateConfigPtrOutput)
+}
+
+// The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+//
+// > This property isn't available in China.
+func (o DomainConfigurationClientCertificateConfigOutput) ClientCertificateCallbackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainConfigurationClientCertificateConfig) *string { return v.ClientCertificateCallbackArn }).(pulumi.StringPtrOutput)
+}
+
+type DomainConfigurationClientCertificateConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationClientCertificateConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConfigurationClientCertificateConfig)(nil)).Elem()
+}
+
+func (o DomainConfigurationClientCertificateConfigPtrOutput) ToDomainConfigurationClientCertificateConfigPtrOutput() DomainConfigurationClientCertificateConfigPtrOutput {
+	return o
+}
+
+func (o DomainConfigurationClientCertificateConfigPtrOutput) ToDomainConfigurationClientCertificateConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationClientCertificateConfigPtrOutput {
+	return o
+}
+
+func (o DomainConfigurationClientCertificateConfigPtrOutput) Elem() DomainConfigurationClientCertificateConfigOutput {
+	return o.ApplyT(func(v *DomainConfigurationClientCertificateConfig) DomainConfigurationClientCertificateConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainConfigurationClientCertificateConfig
+		return ret
+	}).(DomainConfigurationClientCertificateConfigOutput)
+}
+
+// The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+//
+// > This property isn't available in China.
+func (o DomainConfigurationClientCertificateConfigPtrOutput) ClientCertificateCallbackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfigurationClientCertificateConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateCallbackArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainConfigurationServerCertificateConfig struct {
 	// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 	EnableOcspCheck *bool `pulumi:"enableOcspCheck"`
@@ -14104,6 +14249,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigPtrInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigPtrInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationClientCertificateConfigInput)(nil)).Elem(), DomainConfigurationClientCertificateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationClientCertificateConfigPtrInput)(nil)).Elem(), DomainConfigurationClientCertificateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServerCertificateConfigInput)(nil)).Elem(), DomainConfigurationServerCertificateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationServerCertificateConfigPtrInput)(nil)).Elem(), DomainConfigurationServerCertificateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTlsConfigInput)(nil)).Elem(), DomainConfigurationTlsConfigArgs{})
@@ -14263,6 +14410,8 @@ func init() {
 	pulumi.RegisterOutputType(CaCertificateRegistrationConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationClientCertificateConfigOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationClientCertificateConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateConfigOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryOutput{})

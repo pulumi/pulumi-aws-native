@@ -32,7 +32,7 @@ class NatGatewayArgs:
         :param pulumi.Input[str] connectivity_type: Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
         :param pulumi.Input[int] max_drain_duration_seconds: The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
         :param pulumi.Input[str] private_ip_address: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
         :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
                  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
@@ -121,7 +121,7 @@ class NatGatewayArgs:
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
         """
         return pulumi.get(self, "secondary_allocation_ids")
 
@@ -195,7 +195,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] connectivity_type: Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
         :param pulumi.Input[int] max_drain_duration_seconds: The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
         :param pulumi.Input[str] private_ip_address: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
         :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
                  ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
@@ -340,7 +340,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
         """
         return pulumi.get(self, "secondary_allocation_ids")
 

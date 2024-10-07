@@ -36,15 +36,15 @@ class MethodArgs:
         :param pulumi.Input[str] resource_id: The Resource identifier for the MethodResponse resource.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[bool] api_key_required: A boolean flag specifying whether a valid ApiKey is required to invoke this method.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         :param pulumi.Input[str] authorization_type: The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
                  If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-        :param pulumi.Input[str] authorizer_id: The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
-        :param pulumi.Input['MethodIntegrationArgs'] integration: Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        :param pulumi.Input[str] authorizer_id: The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
+        :param pulumi.Input['MethodIntegrationArgs'] integration: Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         :param pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]] method_responses: Gets a method response associated with a given HTTP status code.
-        :param pulumi.Input[str] operation_name: A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+        :param pulumi.Input[str] operation_name: A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         :param pulumi.Input[str] request_validator_id: The identifier of a RequestValidator for request validation.
         """
         pulumi.set(__self__, "http_method", http_method)
@@ -123,7 +123,7 @@ class MethodArgs:
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+        A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         """
         return pulumi.get(self, "authorization_scopes")
 
@@ -148,7 +148,7 @@ class MethodArgs:
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+        The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -160,7 +160,7 @@ class MethodArgs:
     @pulumi.getter
     def integration(self) -> Optional[pulumi.Input['MethodIntegrationArgs']]:
         """
-        Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         """
         return pulumi.get(self, "integration")
 
@@ -184,7 +184,7 @@ class MethodArgs:
     @pulumi.getter(name="operationName")
     def operation_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+        A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         """
         return pulumi.get(self, "operation_name")
 
@@ -208,7 +208,7 @@ class MethodArgs:
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]]:
         """
-        A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         """
         return pulumi.get(self, "request_parameters")
 
@@ -254,16 +254,16 @@ class Method(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] api_key_required: A boolean flag specifying whether a valid ApiKey is required to invoke this method.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_scopes: A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         :param pulumi.Input[str] authorization_type: The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
                  If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
-        :param pulumi.Input[str] authorizer_id: The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+        :param pulumi.Input[str] authorizer_id: The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         :param pulumi.Input[str] http_method: The method's HTTP verb.
-        :param pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']] integration: Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        :param pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']] integration: Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]] method_responses: Gets a method response associated with a given HTTP status code.
-        :param pulumi.Input[str] operation_name: A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+        :param pulumi.Input[str] operation_name: A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         :param pulumi.Input[str] request_validator_id: The identifier of a RequestValidator for request validation.
         :param pulumi.Input[str] resource_id: The Resource identifier for the MethodResponse resource.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
@@ -384,7 +384,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="authorizationScopes")
     def authorization_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+        A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         """
         return pulumi.get(self, "authorization_scopes")
 
@@ -401,7 +401,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+        The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -417,7 +417,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter
     def integration(self) -> pulumi.Output[Optional['outputs.MethodIntegration']]:
         """
-        Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         """
         return pulumi.get(self, "integration")
 
@@ -433,7 +433,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="operationName")
     def operation_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+        A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         """
         return pulumi.get(self, "operation_name")
 
@@ -449,7 +449,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         """
         return pulumi.get(self, "request_parameters")
 

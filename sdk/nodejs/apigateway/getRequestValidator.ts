@@ -37,7 +37,7 @@ export interface GetRequestValidatorResult {
      */
     readonly validateRequestBody?: boolean;
     /**
-     * A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+     * A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
      */
     readonly validateRequestParameters?: boolean;
 }

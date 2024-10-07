@@ -20,6 +20,7 @@ __all__ = [
     'BillingGroupPropertiesProperties',
     'CaCertificateRegistrationConfig',
     'DomainConfigurationAuthorizerConfig',
+    'DomainConfigurationClientCertificateConfig',
     'DomainConfigurationServerCertificateConfig',
     'DomainConfigurationServerCertificateSummary',
     'DomainConfigurationTlsConfig',
@@ -645,6 +646,46 @@ class DomainConfigurationAuthorizerConfig(dict):
         The name of the authorization service for a domain configuration.
         """
         return pulumi.get(self, "default_authorizer_name")
+
+
+@pulumi.output_type
+class DomainConfigurationClientCertificateConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificateCallbackArn":
+            suggest = "client_certificate_callback_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConfigurationClientCertificateConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConfigurationClientCertificateConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConfigurationClientCertificateConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_certificate_callback_arn: Optional[str] = None):
+        """
+        :param str client_certificate_callback_arn: The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+               
+               > This property isn't available in China.
+        """
+        if client_certificate_callback_arn is not None:
+            pulumi.set(__self__, "client_certificate_callback_arn", client_certificate_callback_arn)
+
+    @property
+    @pulumi.getter(name="clientCertificateCallbackArn")
+    def client_certificate_callback_arn(self) -> Optional[str]:
+        """
+        The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+
+        > This property isn't available in China.
+        """
+        return pulumi.get(self, "client_certificate_callback_arn")
 
 
 @pulumi.output_type

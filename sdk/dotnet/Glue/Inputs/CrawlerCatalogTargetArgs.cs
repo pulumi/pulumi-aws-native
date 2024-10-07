@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
-    /// <summary>
-    /// Specifies an AWS Glue Data Catalog target.
-    /// </summary>
     public sealed class CrawlerCatalogTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
+        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
@@ -28,13 +25,13 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        /// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
         /// </summary>
         [Input("dlqEventQueueArn")]
         public Input<string>? DlqEventQueueArn { get; set; }
 
         /// <summary>
-        /// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        /// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
         /// </summary>
         [Input("eventQueueArn")]
         public Input<string>? EventQueueArn { get; set; }

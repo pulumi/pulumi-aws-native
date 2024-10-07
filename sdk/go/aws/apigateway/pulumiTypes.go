@@ -140,9 +140,9 @@ type ClientCertificateTag struct {
 //
 //	``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
 type DeploymentAccessLogSetting struct {
-	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``.
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
 	DestinationArn *string `pulumi:"destinationArn"`
-	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least ``$context.requestId``.
+	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
 	Format *string `pulumi:"format"`
 }
 
@@ -161,9 +161,9 @@ type DeploymentAccessLogSettingInput interface {
 //
 //	``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
 type DeploymentAccessLogSettingArgs struct {
-	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``.
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
 	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
-	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least ``$context.requestId``.
+	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
 	Format pulumi.StringPtrInput `pulumi:"format"`
 }
 
@@ -247,12 +247,12 @@ func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingPtrOutputW
 	}).(DeploymentAccessLogSettingPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with “amazon-apigateway-“.
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
 func (o DeploymentAccessLogSettingOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentAccessLogSetting) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
 }
 
-// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least “$context.requestId“.
+// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
 func (o DeploymentAccessLogSettingOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentAccessLogSetting) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
@@ -281,7 +281,7 @@ func (o DeploymentAccessLogSettingPtrOutput) Elem() DeploymentAccessLogSettingOu
 	}).(DeploymentAccessLogSettingOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with “amazon-apigateway-“.
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
 func (o DeploymentAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentAccessLogSetting) *string {
 		if v == nil {
@@ -291,7 +291,7 @@ func (o DeploymentAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least “$context.requestId“.
+// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
 func (o DeploymentAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentAccessLogSetting) *string {
 		if v == nil {
@@ -677,7 +677,7 @@ type DeploymentMethodSetting struct {
 	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
 	// The HTTP method.
 	HttpMethod *string `pulumi:"httpMethod"`
-	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
 	LoggingLevel *string `pulumi:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
 	MetricsEnabled *bool `pulumi:"metricsEnabled"`
@@ -714,7 +714,7 @@ type DeploymentMethodSettingArgs struct {
 	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
 	// The HTTP method.
 	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
-	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
 	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
 	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
@@ -805,7 +805,7 @@ func (o DeploymentMethodSettingOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are “OFF“, “ERROR“, and “INFO“. Choose “ERROR“ to write only error-level entries to CloudWatch Logs, or choose “INFO“ to include all “ERROR“ events as well as extra informational events.
+// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
 func (o DeploymentMethodSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
@@ -854,7 +854,7 @@ func (o DeploymentMethodSettingArrayOutput) Index(i pulumi.IntInput) DeploymentM
 type DeploymentStageDescription struct {
 	// Specifies settings for logging access in this stage.
 	AccessLogSetting *DeploymentAccessLogSetting `pulumi:"accessLogSetting"`
-	// Specifies whether a cache cluster is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
 	// The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
@@ -908,7 +908,7 @@ type DeploymentStageDescriptionInput interface {
 type DeploymentStageDescriptionArgs struct {
 	// Specifies settings for logging access in this stage.
 	AccessLogSetting DeploymentAccessLogSettingPtrInput `pulumi:"accessLogSetting"`
-	// Specifies whether a cache cluster is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 	CacheClusterEnabled pulumi.BoolPtrInput `pulumi:"cacheClusterEnabled"`
 	// The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
 	CacheClusterSize pulumi.StringPtrInput `pulumi:"cacheClusterSize"`
@@ -1030,7 +1030,7 @@ func (o DeploymentStageDescriptionOutput) AccessLogSetting() DeploymentAccessLog
 	return o.ApplyT(func(v DeploymentStageDescription) *DeploymentAccessLogSetting { return v.AccessLogSetting }).(DeploymentAccessLogSettingPtrOutput)
 }
 
-// Specifies whether a cache cluster is enabled for the stage.
+// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 func (o DeploymentStageDescriptionOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1156,7 +1156,7 @@ func (o DeploymentStageDescriptionPtrOutput) AccessLogSetting() DeploymentAccess
 	}).(DeploymentAccessLogSettingPtrOutput)
 }
 
-// Specifies whether a cache cluster is enabled for the stage.
+// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 func (o DeploymentStageDescriptionPtrOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
 		if v == nil {
@@ -1448,15 +1448,15 @@ func (o DeploymentTagArrayOutput) Index(i pulumi.IntInput) DeploymentTagOutput {
 //
 //	For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
 type DocumentationPartLocation struct {
-	// The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+	// The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
 	Method *string `pulumi:"method"`
-	// The name of the targeted API entity. It is a valid and required field for the API entity types of ``AUTHORIZER``, ``MODEL``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY`` and ``RESPONSE_HEADER``. It is an invalid field for any other entity type.
+	// The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
 	Name *string `pulumi:"name"`
-	// The URL path of the target. It is a valid field for the API entity types of ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+	// The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
 	Path *string `pulumi:"path"`
-	// The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+	// The HTTP status code of a response. It is a valid field for the API entity types of `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `statusCode` attribute must match that of the parent entity exactly.
 	StatusCode *string `pulumi:"statusCode"`
-	// The type of API entity to which the documentation content applies. Valid values are ``API``, ``AUTHORIZER``, ``MODEL``, ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. Content inheritance does not apply to any entity of the ``API``, ``AUTHORIZER``, ``METHOD``, ``MODEL``, ``REQUEST_BODY``, or ``RESOURCE`` type.
+	// The type of API entity to which the documentation content applies. Valid values are `API` , `AUTHORIZER` , `MODEL` , `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . Content inheritance does not apply to any entity of the `API` , `AUTHORIZER` , `METHOD` , `MODEL` , `REQUEST_BODY` , or `RESOURCE` type.
 	Type *DocumentationPartLocationType `pulumi:"type"`
 }
 
@@ -1475,15 +1475,15 @@ type DocumentationPartLocationInput interface {
 //
 //	For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
 type DocumentationPartLocationArgs struct {
-	// The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+	// The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
 	Method pulumi.StringPtrInput `pulumi:"method"`
-	// The name of the targeted API entity. It is a valid and required field for the API entity types of ``AUTHORIZER``, ``MODEL``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY`` and ``RESPONSE_HEADER``. It is an invalid field for any other entity type.
+	// The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The URL path of the target. It is a valid field for the API entity types of ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+	// The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+	// The HTTP status code of a response. It is a valid field for the API entity types of `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `statusCode` attribute must match that of the parent entity exactly.
 	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
-	// The type of API entity to which the documentation content applies. Valid values are ``API``, ``AUTHORIZER``, ``MODEL``, ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. Content inheritance does not apply to any entity of the ``API``, ``AUTHORIZER``, ``METHOD``, ``MODEL``, ``REQUEST_BODY``, or ``RESOURCE`` type.
+	// The type of API entity to which the documentation content applies. Valid values are `API` , `AUTHORIZER` , `MODEL` , `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . Content inheritance does not apply to any entity of the `API` , `AUTHORIZER` , `METHOD` , `MODEL` , `REQUEST_BODY` , or `RESOURCE` type.
 	Type DocumentationPartLocationTypePtrInput `pulumi:"type"`
 }
 
@@ -1516,27 +1516,27 @@ func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutputWithCo
 	return o
 }
 
-// The HTTP verb of a method. It is a valid field for the API entity types of “METHOD“, “PATH_PARAMETER“, “QUERY_PARAMETER“, “REQUEST_HEADER“, “REQUEST_BODY“, “RESPONSE“, “RESPONSE_HEADER“, and “RESPONSE_BODY“. The default value is “*“ for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other “location“ attributes, the child entity's “method“ attribute must match that of the parent entity exactly.
+// The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
 func (o DocumentationPartLocationOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// The name of the targeted API entity. It is a valid and required field for the API entity types of “AUTHORIZER“, “MODEL“, “PATH_PARAMETER“, “QUERY_PARAMETER“, “REQUEST_HEADER“, “REQUEST_BODY“ and “RESPONSE_HEADER“. It is an invalid field for any other entity type.
+// The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
 func (o DocumentationPartLocationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The URL path of the target. It is a valid field for the API entity types of “RESOURCE“, “METHOD“, “PATH_PARAMETER“, “QUERY_PARAMETER“, “REQUEST_HEADER“, “REQUEST_BODY“, “RESPONSE“, “RESPONSE_HEADER“, and “RESPONSE_BODY“. The default value is “/“ for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other “location“ attributes, the child entity's “path“ attribute must match that of the parent entity as a prefix.
+// The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
 func (o DocumentationPartLocationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP status code of a response. It is a valid field for the API entity types of “RESPONSE“, “RESPONSE_HEADER“, and “RESPONSE_BODY“. The default value is “*“ for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other “location“ attributes, the child entity's “statusCode“ attribute must match that of the parent entity exactly.
+// The HTTP status code of a response. It is a valid field for the API entity types of `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `statusCode` attribute must match that of the parent entity exactly.
 func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
-// The type of API entity to which the documentation content applies. Valid values are “API“, “AUTHORIZER“, “MODEL“, “RESOURCE“, “METHOD“, “PATH_PARAMETER“, “QUERY_PARAMETER“, “REQUEST_HEADER“, “REQUEST_BODY“, “RESPONSE“, “RESPONSE_HEADER“, and “RESPONSE_BODY“. Content inheritance does not apply to any entity of the “API“, “AUTHORIZER“, “METHOD“, “MODEL“, “REQUEST_BODY“, or “RESOURCE“ type.
+// The type of API entity to which the documentation content applies. Valid values are `API` , `AUTHORIZER` , `MODEL` , `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . Content inheritance does not apply to any entity of the `API` , `AUTHORIZER` , `METHOD` , `MODEL` , `REQUEST_BODY` , or `RESOURCE` type.
 func (o DocumentationPartLocationOutput) Type() DocumentationPartLocationTypePtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *DocumentationPartLocationType { return v.Type }).(DocumentationPartLocationTypePtrOutput)
 }
@@ -1843,36 +1843,39 @@ type DomainNameTag struct {
 
 // “Integration“ is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
 type MethodIntegration struct {
-	// A list of request parameters whose values API Gateway caches. To be valid values for ``cacheKeyParameters``, these parameters must also be specified for Method ``requestParameters``.
+	// A list of request parameters whose values API Gateway caches. To be valid values for `cacheKeyParameters` , these parameters must also be specified for Method `requestParameters` .
 	CacheKeyParameters []string `pulumi:"cacheKeyParameters"`
-	// Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the ``cacheNamespace``. You can specify the same ``cacheNamespace`` across resources to return the same cached data for requests to different resources.
+	// Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the `cacheNamespace` . You can specify the same `cacheNamespace` across resources to return the same cached data for requests to different resources.
 	CacheNamespace *string `pulumi:"cacheNamespace"`
-	// The ID of the VpcLink used for the integration when ``connectionType=VPC_LINK`` and undefined, otherwise.
+	// The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
 	ConnectionId *string `pulumi:"connectionId"`
-	// The type of the network connection to the integration endpoint. The valid value is ``INTERNET`` for connections through the public routable internet or ``VPC_LINK`` for private connections between API Gateway and a network load balancer in a VPC. The default value is ``INTERNET``.
+	// The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
 	ConnectionType *MethodIntegrationConnectionType `pulumi:"connectionType"`
-	// Specifies how to handle request payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-	//  If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the ``passthroughBehavior`` is configured to support payload pass-through.
+	// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+	//
+	// If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the `passthroughBehavior` is configured to support payload pass-through.
 	ContentHandling *MethodIntegrationContentHandling `pulumi:"contentHandling"`
-	// Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*``. To use resource-based permissions on supported AWS services, specify null.
+	// Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*` . To use resource-based permissions on supported AWS services, specify null.
 	Credentials *string `pulumi:"credentials"`
-	// Specifies the integration's HTTP method type. For the Type property, if you specify ``MOCK``, this property is optional. For Lambda integrations, you must set the integration method to ``POST``. For all other types, you must specify this property.
+	// Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
 	IntegrationHttpMethod *string `pulumi:"integrationHttpMethod"`
 	// Specifies the integration's responses.
 	IntegrationResponses []MethodIntegrationResponse `pulumi:"integrationResponses"`
-	// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
+	// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 	PassthroughBehavior *MethodIntegrationPassthroughBehavior `pulumi:"passthroughBehavior"`
-	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
+	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
 	RequestParameters map[string]string `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
 	RequestTemplates map[string]string `pulumi:"requestTemplates"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutInMillis *int `pulumi:"timeoutInMillis"`
 	// Specifies an API method integration type. The valid value is one of the following:
-	//  For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https``), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+	//
+	// For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type MethodIntegrationType `pulumi:"type"`
 	// Specifies Uniform Resource Identifier (URI) of the integration endpoint.
-	//  For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
+	//
+	// For `HTTP` or `HTTP_PROXY` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If `connectionType` is `VPC_LINK` specify the Network Load Balancer DNS name. For `AWS` or `AWS_PROXY` integrations, the URI is of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}` . Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either `arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}` or `arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}`
 	Uri *string `pulumi:"uri"`
 }
 
@@ -1889,36 +1892,39 @@ type MethodIntegrationInput interface {
 
 // “Integration“ is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
 type MethodIntegrationArgs struct {
-	// A list of request parameters whose values API Gateway caches. To be valid values for ``cacheKeyParameters``, these parameters must also be specified for Method ``requestParameters``.
+	// A list of request parameters whose values API Gateway caches. To be valid values for `cacheKeyParameters` , these parameters must also be specified for Method `requestParameters` .
 	CacheKeyParameters pulumi.StringArrayInput `pulumi:"cacheKeyParameters"`
-	// Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the ``cacheNamespace``. You can specify the same ``cacheNamespace`` across resources to return the same cached data for requests to different resources.
+	// Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the `cacheNamespace` . You can specify the same `cacheNamespace` across resources to return the same cached data for requests to different resources.
 	CacheNamespace pulumi.StringPtrInput `pulumi:"cacheNamespace"`
-	// The ID of the VpcLink used for the integration when ``connectionType=VPC_LINK`` and undefined, otherwise.
+	// The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
 	ConnectionId pulumi.StringPtrInput `pulumi:"connectionId"`
-	// The type of the network connection to the integration endpoint. The valid value is ``INTERNET`` for connections through the public routable internet or ``VPC_LINK`` for private connections between API Gateway and a network load balancer in a VPC. The default value is ``INTERNET``.
+	// The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
 	ConnectionType MethodIntegrationConnectionTypePtrInput `pulumi:"connectionType"`
-	// Specifies how to handle request payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-	//  If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the ``passthroughBehavior`` is configured to support payload pass-through.
+	// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+	//
+	// If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the `passthroughBehavior` is configured to support payload pass-through.
 	ContentHandling MethodIntegrationContentHandlingPtrInput `pulumi:"contentHandling"`
-	// Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\*:user/\*``. To use resource-based permissions on supported AWS services, specify null.
+	// Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*` . To use resource-based permissions on supported AWS services, specify null.
 	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
-	// Specifies the integration's HTTP method type. For the Type property, if you specify ``MOCK``, this property is optional. For Lambda integrations, you must set the integration method to ``POST``. For all other types, you must specify this property.
+	// Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
 	IntegrationHttpMethod pulumi.StringPtrInput `pulumi:"integrationHttpMethod"`
 	// Specifies the integration's responses.
 	IntegrationResponses MethodIntegrationResponseArrayInput `pulumi:"integrationResponses"`
-	// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
+	// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 	PassthroughBehavior MethodIntegrationPassthroughBehaviorPtrInput `pulumi:"passthroughBehavior"`
-	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
+	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
 	RequestParameters pulumi.StringMapInput `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
 	RequestTemplates pulumi.StringMapInput `pulumi:"requestTemplates"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
 	TimeoutInMillis pulumi.IntPtrInput `pulumi:"timeoutInMillis"`
 	// Specifies an API method integration type. The valid value is one of the following:
-	//  For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https``), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+	//
+	// For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 	Type MethodIntegrationTypeInput `pulumi:"type"`
 	// Specifies Uniform Resource Identifier (URI) of the integration endpoint.
-	//  For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
+	//
+	// For `HTTP` or `HTTP_PROXY` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If `connectionType` is `VPC_LINK` specify the Network Load Balancer DNS name. For `AWS` or `AWS_PROXY` integrations, the URI is of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}` . Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either `arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}` or `arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}`
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -2000,39 +2006,39 @@ func (o MethodIntegrationOutput) ToMethodIntegrationPtrOutputWithContext(ctx con
 	}).(MethodIntegrationPtrOutput)
 }
 
-// A list of request parameters whose values API Gateway caches. To be valid values for “cacheKeyParameters“, these parameters must also be specified for Method “requestParameters“.
+// A list of request parameters whose values API Gateway caches. To be valid values for `cacheKeyParameters` , these parameters must also be specified for Method `requestParameters` .
 func (o MethodIntegrationOutput) CacheKeyParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MethodIntegration) []string { return v.CacheKeyParameters }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the “cacheNamespace“. You can specify the same “cacheNamespace“ across resources to return the same cached data for requests to different resources.
+// Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the `cacheNamespace` . You can specify the same `cacheNamespace` across resources to return the same cached data for requests to different resources.
 func (o MethodIntegrationOutput) CacheNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.CacheNamespace }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VpcLink used for the integration when “connectionType=VPC_LINK“ and undefined, otherwise.
+// The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
 func (o MethodIntegrationOutput) ConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.ConnectionId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the network connection to the integration endpoint. The valid value is “INTERNET“ for connections through the public routable internet or “VPC_LINK“ for private connections between API Gateway and a network load balancer in a VPC. The default value is “INTERNET“.
+// The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
 func (o MethodIntegrationOutput) ConnectionType() MethodIntegrationConnectionTypePtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationConnectionType { return v.ConnectionType }).(MethodIntegrationConnectionTypePtrOutput)
 }
 
-// Specifies how to handle request payload content type conversions. Supported values are “CONVERT_TO_BINARY“ and “CONVERT_TO_TEXT“, with the following behaviors:
+// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
 //
-//	If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the ``passthroughBehavior`` is configured to support payload pass-through.
+// If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the `passthroughBehavior` is configured to support payload pass-through.
 func (o MethodIntegrationOutput) ContentHandling() MethodIntegrationContentHandlingPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationContentHandling { return v.ContentHandling }).(MethodIntegrationContentHandlingPtrOutput)
 }
 
-// Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string “arn:aws:iam::\*:user/\*“. To use resource-based permissions on supported AWS services, specify null.
+// Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*` . To use resource-based permissions on supported AWS services, specify null.
 func (o MethodIntegrationOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.Credentials }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the integration's HTTP method type. For the Type property, if you specify “MOCK“, this property is optional. For Lambda integrations, you must set the integration method to “POST“. For all other types, you must specify this property.
+// Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
 func (o MethodIntegrationOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.IntegrationHttpMethod }).(pulumi.StringPtrOutput)
 }
@@ -2042,12 +2048,12 @@ func (o MethodIntegrationOutput) IntegrationResponses() MethodIntegrationRespons
 	return o.ApplyT(func(v MethodIntegration) []MethodIntegrationResponse { return v.IntegrationResponses }).(MethodIntegrationResponseArrayOutput)
 }
 
-// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in “requestTemplates“. The valid value is one of the following: “WHEN_NO_MATCH“: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. “WHEN_NO_TEMPLATES“: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. “NEVER“: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
+// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 func (o MethodIntegrationOutput) PassthroughBehavior() MethodIntegrationPassthroughBehaviorPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationPassthroughBehavior { return v.PassthroughBehavior }).(MethodIntegrationPassthroughBehaviorPtrOutput)
 }
 
-// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of “method.request.{location}.{name}“, where “location“ is “querystring“, “path“, or “header“ and “name“ must be a valid and unique method request parameter name.
+// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
 func (o MethodIntegrationOutput) RequestParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MethodIntegration) map[string]string { return v.RequestParameters }).(pulumi.StringMapOutput)
 }
@@ -2064,14 +2070,14 @@ func (o MethodIntegrationOutput) TimeoutInMillis() pulumi.IntPtrOutput {
 
 // Specifies an API method integration type. The valid value is one of the following:
 //
-//	For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https``), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+// For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 func (o MethodIntegrationOutput) Type() MethodIntegrationTypeOutput {
 	return o.ApplyT(func(v MethodIntegration) MethodIntegrationType { return v.Type }).(MethodIntegrationTypeOutput)
 }
 
 // Specifies Uniform Resource Identifier (URI) of the integration endpoint.
 //
-//	For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
+// For `HTTP` or `HTTP_PROXY` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If `connectionType` is `VPC_LINK` specify the Network Load Balancer DNS name. For `AWS` or `AWS_PROXY` integrations, the URI is of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}` . Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either `arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}` or `arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}`
 func (o MethodIntegrationOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -2100,7 +2106,7 @@ func (o MethodIntegrationPtrOutput) Elem() MethodIntegrationOutput {
 	}).(MethodIntegrationOutput)
 }
 
-// A list of request parameters whose values API Gateway caches. To be valid values for “cacheKeyParameters“, these parameters must also be specified for Method “requestParameters“.
+// A list of request parameters whose values API Gateway caches. To be valid values for `cacheKeyParameters` , these parameters must also be specified for Method `requestParameters` .
 func (o MethodIntegrationPtrOutput) CacheKeyParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MethodIntegration) []string {
 		if v == nil {
@@ -2110,7 +2116,7 @@ func (o MethodIntegrationPtrOutput) CacheKeyParameters() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the “cacheNamespace“. You can specify the same “cacheNamespace“ across resources to return the same cached data for requests to different resources.
+// Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the `cacheNamespace` . You can specify the same `cacheNamespace` across resources to return the same cached data for requests to different resources.
 func (o MethodIntegrationPtrOutput) CacheNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2120,7 +2126,7 @@ func (o MethodIntegrationPtrOutput) CacheNamespace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VpcLink used for the integration when “connectionType=VPC_LINK“ and undefined, otherwise.
+// The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
 func (o MethodIntegrationPtrOutput) ConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2130,7 +2136,7 @@ func (o MethodIntegrationPtrOutput) ConnectionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the network connection to the integration endpoint. The valid value is “INTERNET“ for connections through the public routable internet or “VPC_LINK“ for private connections between API Gateway and a network load balancer in a VPC. The default value is “INTERNET“.
+// The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
 func (o MethodIntegrationPtrOutput) ConnectionType() MethodIntegrationConnectionTypePtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationConnectionType {
 		if v == nil {
@@ -2140,9 +2146,9 @@ func (o MethodIntegrationPtrOutput) ConnectionType() MethodIntegrationConnection
 	}).(MethodIntegrationConnectionTypePtrOutput)
 }
 
-// Specifies how to handle request payload content type conversions. Supported values are “CONVERT_TO_BINARY“ and “CONVERT_TO_TEXT“, with the following behaviors:
+// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
 //
-//	If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the ``passthroughBehavior`` is configured to support payload pass-through.
+// If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the `passthroughBehavior` is configured to support payload pass-through.
 func (o MethodIntegrationPtrOutput) ContentHandling() MethodIntegrationContentHandlingPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationContentHandling {
 		if v == nil {
@@ -2152,7 +2158,7 @@ func (o MethodIntegrationPtrOutput) ContentHandling() MethodIntegrationContentHa
 	}).(MethodIntegrationContentHandlingPtrOutput)
 }
 
-// Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string “arn:aws:iam::\*:user/\*“. To use resource-based permissions on supported AWS services, specify null.
+// Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*` . To use resource-based permissions on supported AWS services, specify null.
 func (o MethodIntegrationPtrOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2162,7 +2168,7 @@ func (o MethodIntegrationPtrOutput) Credentials() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the integration's HTTP method type. For the Type property, if you specify “MOCK“, this property is optional. For Lambda integrations, you must set the integration method to “POST“. For all other types, you must specify this property.
+// Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
 func (o MethodIntegrationPtrOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2182,7 +2188,7 @@ func (o MethodIntegrationPtrOutput) IntegrationResponses() MethodIntegrationResp
 	}).(MethodIntegrationResponseArrayOutput)
 }
 
-// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in “requestTemplates“. The valid value is one of the following: “WHEN_NO_MATCH“: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. “WHEN_NO_TEMPLATES“: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. “NEVER“: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
+// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 func (o MethodIntegrationPtrOutput) PassthroughBehavior() MethodIntegrationPassthroughBehaviorPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationPassthroughBehavior {
 		if v == nil {
@@ -2192,7 +2198,7 @@ func (o MethodIntegrationPtrOutput) PassthroughBehavior() MethodIntegrationPasst
 	}).(MethodIntegrationPassthroughBehaviorPtrOutput)
 }
 
-// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of “method.request.{location}.{name}“, where “location“ is “querystring“, “path“, or “header“ and “name“ must be a valid and unique method request parameter name.
+// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
 func (o MethodIntegrationPtrOutput) RequestParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MethodIntegration) map[string]string {
 		if v == nil {
@@ -2224,7 +2230,7 @@ func (o MethodIntegrationPtrOutput) TimeoutInMillis() pulumi.IntPtrOutput {
 
 // Specifies an API method integration type. The valid value is one of the following:
 //
-//	For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https``), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+// For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
 func (o MethodIntegrationPtrOutput) Type() MethodIntegrationTypePtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationType {
 		if v == nil {
@@ -2236,7 +2242,7 @@ func (o MethodIntegrationPtrOutput) Type() MethodIntegrationTypePtrOutput {
 
 // Specifies Uniform Resource Identifier (URI) of the integration endpoint.
 //
-//	For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
+// For `HTTP` or `HTTP_PROXY` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If `connectionType` is `VPC_LINK` specify the Network Load Balancer DNS name. For `AWS` or `AWS_PROXY` integrations, the URI is of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}` . Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either `arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}` or `arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}`
 func (o MethodIntegrationPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *string {
 		if v == nil {
@@ -2248,14 +2254,15 @@ func (o MethodIntegrationPtrOutput) Uri() pulumi.StringPtrOutput {
 
 // “IntegrationResponse“ is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
 type MethodIntegrationResponse struct {
-	// Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-	//  If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+	// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+	//
+	// If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 	ContentHandling *MethodIntegrationResponseContentHandling `pulumi:"contentHandling"`
-	// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
+	// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header.{name}` , where `name` is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header.{name}` or `integration.response.body.{JSON-expression}` , where `name` is a valid and unique response header name and `JSON-expression` is a valid JSON expression without the `$` prefix.
 	ResponseParameters map[string]string `pulumi:"responseParameters"`
 	// Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
 	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
-	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
+	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the `.+` regex to match error response. However, make sure that the error response does not contain any newline ( `\n` ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
 	// Specifies the status code that is used to map the integration response to an existing MethodResponse.
 	StatusCode string `pulumi:"statusCode"`
@@ -2274,14 +2281,15 @@ type MethodIntegrationResponseInput interface {
 
 // “IntegrationResponse“ is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
 type MethodIntegrationResponseArgs struct {
-	// Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-	//  If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+	// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+	//
+	// If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 	ContentHandling MethodIntegrationResponseContentHandlingPtrInput `pulumi:"contentHandling"`
-	// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
+	// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header.{name}` , where `name` is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header.{name}` or `integration.response.body.{JSON-expression}` , where `name` is a valid and unique response header name and `JSON-expression` is a valid JSON expression without the `$` prefix.
 	ResponseParameters pulumi.StringMapInput `pulumi:"responseParameters"`
 	// Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
 	ResponseTemplates pulumi.StringMapInput `pulumi:"responseTemplates"`
-	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
+	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the `.+` regex to match error response. However, make sure that the error response does not contain any newline ( `\n` ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput `pulumi:"selectionPattern"`
 	// Specifies the status code that is used to map the integration response to an existing MethodResponse.
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
@@ -2339,14 +2347,14 @@ func (o MethodIntegrationResponseOutput) ToMethodIntegrationResponseOutputWithCo
 	return o
 }
 
-// Specifies how to handle response payload content type conversions. Supported values are “CONVERT_TO_BINARY“ and “CONVERT_TO_TEXT“, with the following behaviors:
+// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
 //
-//	If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+// If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 func (o MethodIntegrationResponseOutput) ContentHandling() MethodIntegrationResponseContentHandlingPtrOutput {
 	return o.ApplyT(func(v MethodIntegrationResponse) *MethodIntegrationResponseContentHandling { return v.ContentHandling }).(MethodIntegrationResponseContentHandlingPtrOutput)
 }
 
-// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of “method.response.header.{name}“, where “name“ is a valid and unique header name. The mapped non-static value must match the pattern of “integration.response.header.{name}“ or “integration.response.body.{JSON-expression}“, where “name“ is a valid and unique response header name and “JSON-expression“ is a valid JSON expression without the “$“ prefix.
+// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header.{name}` , where `name` is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header.{name}` or `integration.response.body.{JSON-expression}` , where `name` is a valid and unique response header name and `JSON-expression` is a valid JSON expression without the `$` prefix.
 func (o MethodIntegrationResponseOutput) ResponseParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MethodIntegrationResponse) map[string]string { return v.ResponseParameters }).(pulumi.StringMapOutput)
 }
@@ -2356,7 +2364,7 @@ func (o MethodIntegrationResponseOutput) ResponseTemplates() pulumi.StringMapOut
 	return o.ApplyT(func(v MethodIntegrationResponse) map[string]string { return v.ResponseTemplates }).(pulumi.StringMapOutput)
 }
 
-// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the “.+“ regex to match error response. However, make sure that the error response does not contain any newline (“\n“) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
+// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the `.+` regex to match error response. However, make sure that the error response does not contain any newline ( `\n` ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 func (o MethodIntegrationResponseOutput) SelectionPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodIntegrationResponse) *string { return v.SelectionPattern }).(pulumi.StringPtrOutput)
 }
@@ -2386,11 +2394,10 @@ func (o MethodIntegrationResponseArrayOutput) Index(i pulumi.IntInput) MethodInt
 	}).(MethodIntegrationResponseOutput)
 }
 
-// Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
 type MethodResponse struct {
 	// Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
 	ResponseModels map[string]string `pulumi:"responseModels"`
-	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern `method.response.header.{name}` , where `name` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in `integration.response.header.{name}` , a static value enclosed within a pair of single quotes (e.g., `'application/json'` ), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}` , where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters map[string]interface{} `pulumi:"responseParameters"`
 	// The method response's status code.
 	StatusCode string `pulumi:"statusCode"`
@@ -2407,11 +2414,10 @@ type MethodResponseInput interface {
 	ToMethodResponseOutputWithContext(context.Context) MethodResponseOutput
 }
 
-// Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
 type MethodResponseArgs struct {
 	// Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
 	ResponseModels pulumi.StringMapInput `pulumi:"responseModels"`
-	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern `method.response.header.{name}` , where `name` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in `integration.response.header.{name}` , a static value enclosed within a pair of single quotes (e.g., `'application/json'` ), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}` , where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.MapInput `pulumi:"responseParameters"`
 	// The method response's status code.
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
@@ -2454,7 +2460,6 @@ func (i MethodResponseArray) ToMethodResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseArrayOutput)
 }
 
-// Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
 type MethodResponseOutput struct{ *pulumi.OutputState }
 
 func (MethodResponseOutput) ElementType() reflect.Type {
@@ -2474,7 +2479,7 @@ func (o MethodResponseOutput) ResponseModels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MethodResponse) map[string]string { return v.ResponseModels }).(pulumi.StringMapOutput)
 }
 
-// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern “method.response.header.{name}“, where “name“ is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in “integration.response.header.{name}“, a static value enclosed within a pair of single quotes (e.g., “'application/json'“), or a JSON expression from the back-end response payload in the form of “integration.response.body.{JSON-expression}“, where “JSON-expression“ is a valid JSON expression without the “$“ prefix.)
+// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern `method.response.header.{name}` , where `name` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in `integration.response.header.{name}` , a static value enclosed within a pair of single quotes (e.g., `'application/json'` ), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}` , where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 func (o MethodResponseOutput) ResponseParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v MethodResponse) map[string]interface{} { return v.ResponseParameters }).(pulumi.MapOutput)
 }
@@ -2508,9 +2513,9 @@ func (o MethodResponseArrayOutput) Index(i pulumi.IntInput) MethodResponseOutput
 //
 //	``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
 type RestApiEndpointConfiguration struct {
-	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
+	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types []string `pulumi:"types"`
-	// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
+	// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
 	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
 }
 
@@ -2529,9 +2534,9 @@ type RestApiEndpointConfigurationInput interface {
 //
 //	``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
 type RestApiEndpointConfigurationArgs struct {
-	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
+	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types pulumi.StringArrayInput `pulumi:"types"`
-	// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
+	// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
 	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
 }
 
@@ -2615,12 +2620,12 @@ func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOut
 	}).(RestApiEndpointConfigurationPtrOutput)
 }
 
-// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is “"EDGE"“. For a regional API and its custom domain name, the endpoint type is “REGIONAL“. For a private API, the endpoint type is “PRIVATE“.
+// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 func (o RestApiEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
 
-// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for “PRIVATE“ endpoint type.
+// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
 func (o RestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
 }
@@ -2649,7 +2654,7 @@ func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurati
 	}).(RestApiEndpointConfigurationOutput)
 }
 
-// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is “"EDGE"“. For a regional API and its custom domain name, the endpoint type is “REGIONAL“. For a private API, the endpoint type is “PRIVATE“.
+// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 func (o RestApiEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestApiEndpointConfiguration) []string {
 		if v == nil {
@@ -2659,7 +2664,7 @@ func (o RestApiEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for “PRIVATE“ endpoint type.
+// A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
 func (o RestApiEndpointConfigurationPtrOutput) VpcEndpointIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RestApiEndpointConfiguration) []string {
 		if v == nil {
@@ -3044,7 +3049,6 @@ func (o StageAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings of a canary deployment.
 type StageCanarySetting struct {
 	// The ID of the canary deployment.
 	DeploymentId *string `pulumi:"deploymentId"`
@@ -3067,7 +3071,6 @@ type StageCanarySettingInput interface {
 	ToStageCanarySettingOutputWithContext(context.Context) StageCanarySettingOutput
 }
 
-// Configuration settings of a canary deployment.
 type StageCanarySettingArgs struct {
 	// The ID of the canary deployment.
 	DeploymentId pulumi.StringPtrInput `pulumi:"deploymentId"`
@@ -3132,7 +3135,6 @@ func (i *stageCanarySettingPtrType) ToStageCanarySettingPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingPtrOutput)
 }
 
-// Configuration settings of a canary deployment.
 type StageCanarySettingOutput struct{ *pulumi.OutputState }
 
 func (StageCanarySettingOutput) ElementType() reflect.Type {
@@ -3255,7 +3257,7 @@ type StageMethodSetting struct {
 	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
 	// The HTTP method. To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
 	HttpMethod *string `pulumi:"httpMethod"`
-	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
 	LoggingLevel *string `pulumi:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
 	MetricsEnabled *bool `pulumi:"metricsEnabled"`
@@ -3292,7 +3294,7 @@ type StageMethodSettingArgs struct {
 	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
 	// The HTTP method. To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
 	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
-	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+	// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
 	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
 	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
@@ -3383,7 +3385,7 @@ func (o StageMethodSettingOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are “OFF“, “ERROR“, and “INFO“. Choose “ERROR“ to write only error-level entries to CloudWatch Logs, or choose “INFO“ to include all “ERROR“ events as well as extra informational events.
+// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
 func (o StageMethodSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageMethodSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
@@ -3435,7 +3437,6 @@ type StageTag struct {
 	Value string `pulumi:"value"`
 }
 
-// API stage name of the associated API stage in a usage plan.
 type UsagePlanApiStage struct {
 	// API Id of the associated API stage in a usage plan.
 	ApiId *string `pulumi:"apiId"`
@@ -3456,7 +3457,6 @@ type UsagePlanApiStageInput interface {
 	ToUsagePlanApiStageOutputWithContext(context.Context) UsagePlanApiStageOutput
 }
 
-// API stage name of the associated API stage in a usage plan.
 type UsagePlanApiStageArgs struct {
 	// API Id of the associated API stage in a usage plan.
 	ApiId pulumi.StringPtrInput `pulumi:"apiId"`
@@ -3503,7 +3503,6 @@ func (i UsagePlanApiStageArray) ToUsagePlanApiStageArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageArrayOutput)
 }
 
-// API stage name of the associated API stage in a usage plan.
 type UsagePlanApiStageOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanApiStageOutput) ElementType() reflect.Type {
@@ -3746,10 +3745,8 @@ type UsagePlanTag struct {
 
 // “ThrottleSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
 type UsagePlanThrottleSettings struct {
-	// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
-	BurstLimit *int `pulumi:"burstLimit"`
-	// The API target request rate limit.
-	RateLimit *float64 `pulumi:"rateLimit"`
+	BurstLimit *int     `pulumi:"burstLimit"`
+	RateLimit  *float64 `pulumi:"rateLimit"`
 }
 
 // UsagePlanThrottleSettingsInput is an input type that accepts UsagePlanThrottleSettingsArgs and UsagePlanThrottleSettingsOutput values.
@@ -3765,10 +3762,8 @@ type UsagePlanThrottleSettingsInput interface {
 
 // “ThrottleSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
 type UsagePlanThrottleSettingsArgs struct {
-	// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
-	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
-	// The API target request rate limit.
-	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
+	BurstLimit pulumi.IntPtrInput     `pulumi:"burstLimit"`
+	RateLimit  pulumi.Float64PtrInput `pulumi:"rateLimit"`
 }
 
 func (UsagePlanThrottleSettingsArgs) ElementType() reflect.Type {
@@ -3874,12 +3869,10 @@ func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutputWit
 	}).(UsagePlanThrottleSettingsPtrOutput)
 }
 
-// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
 func (o UsagePlanThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
-// The API target request rate limit.
 func (o UsagePlanThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -3908,7 +3901,6 @@ func (o UsagePlanThrottleSettingsPtrOutput) Elem() UsagePlanThrottleSettingsOutp
 	}).(UsagePlanThrottleSettingsOutput)
 }
 
-// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
 func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanThrottleSettings) *int {
 		if v == nil {
@@ -3918,7 +3910,6 @@ func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The API target request rate limit.
 func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *UsagePlanThrottleSettings) *float64 {
 		if v == nil {

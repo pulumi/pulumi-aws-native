@@ -59,7 +59,7 @@ class GetRestApiResult:
     @pulumi.getter(name="apiKeySourceType")
     def api_key_source_type(self) -> Optional[str]:
         """
-        The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
         """
         return pulumi.get(self, "api_key_source_type")
 
@@ -83,7 +83,7 @@ class GetRestApiResult:
     @pulumi.getter(name="disableExecuteApiEndpoint")
     def disable_execute_api_endpoint(self) -> Optional[bool]:
         """
-        Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
@@ -141,7 +141,7 @@ class GetRestApiResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         return pulumi.get(self, "tags")
 

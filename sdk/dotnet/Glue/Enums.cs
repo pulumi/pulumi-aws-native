@@ -8,6 +8,42 @@ using Pulumi;
 namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
+    /// TThe type of predefined worker that is allocated when a job runs.
+    /// </summary>
+    [EnumType]
+    public readonly struct JobWorkerType : IEquatable<JobWorkerType>
+    {
+        private readonly string _value;
+
+        private JobWorkerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobWorkerType Standard { get; } = new JobWorkerType("Standard");
+        public static JobWorkerType G1x { get; } = new JobWorkerType("G.1X");
+        public static JobWorkerType G2x { get; } = new JobWorkerType("G.2X");
+        public static JobWorkerType G025x { get; } = new JobWorkerType("G.025X");
+        public static JobWorkerType G4x { get; } = new JobWorkerType("G.4X");
+        public static JobWorkerType G8x { get; } = new JobWorkerType("G.8X");
+        public static JobWorkerType Z2x { get; } = new JobWorkerType("Z.2X");
+
+        public static bool operator ==(JobWorkerType left, JobWorkerType right) => left.Equals(right);
+        public static bool operator !=(JobWorkerType left, JobWorkerType right) => !left.Equals(right);
+
+        public static explicit operator string(JobWorkerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobWorkerType other && Equals(other);
+        public bool Equals(JobWorkerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Compatibility setting for the schema.
     /// </summary>
     [EnumType]

@@ -168,6 +168,21 @@
         }
       }
     },
+    "OnDemandResizingSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CapacityReservationOptions" : {
+          "$ref" : "#/definitions/OnDemandCapacityReservationOptions"
+        },
+        "AllocationStrategy" : {
+          "type" : "string"
+        },
+        "TimeoutDurationMinutes" : {
+          "type" : "integer"
+        }
+      }
+    },
     "StepConfig" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -194,15 +209,18 @@
         "TargetSpotCapacity" : {
           "type" : "integer"
         },
+        "LaunchSpecifications" : {
+          "$ref" : "#/definitions/InstanceFleetProvisioningSpecifications"
+        },
+        "ResizeSpecifications" : {
+          "$ref" : "#/definitions/InstanceFleetResizingSpecifications"
+        },
         "InstanceTypeConfigs" : {
           "type" : "array",
           "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/InstanceTypeConfig"
           }
-        },
-        "LaunchSpecifications" : {
-          "$ref" : "#/definitions/InstanceFleetProvisioningSpecifications"
         },
         "Name" : {
           "type" : "string"
@@ -221,6 +239,9 @@
         },
         "EbsConfiguration" : {
           "$ref" : "#/definitions/EbsConfiguration"
+        },
+        "Priority" : {
+          "type" : "number"
         },
         "BidPriceAsPercentageOfOnDemandPrice" : {
           "type" : "number"
@@ -277,6 +298,18 @@
       },
       "required" : [ "Path" ]
     },
+    "InstanceFleetResizingSpecifications" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OnDemandResizeSpecification" : {
+          "$ref" : "#/definitions/OnDemandResizingSpecification"
+        },
+        "SpotResizeSpecification" : {
+          "$ref" : "#/definitions/SpotResizingSpecification"
+        }
+      }
+    },
     "InstanceFleetProvisioningSpecifications" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -322,6 +355,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "CapacityReservationOptions" : {
+          "$ref" : "#/definitions/OnDemandCapacityReservationOptions"
+        },
         "AllocationStrategy" : {
           "type" : "string"
         }
@@ -676,6 +712,18 @@
       },
       "required" : [ "ScriptBootstrapAction", "Name" ]
     },
+    "SpotResizingSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AllocationStrategy" : {
+          "type" : "string"
+        },
+        "TimeoutDurationMinutes" : {
+          "type" : "integer"
+        }
+      }
+    },
     "AutoScalingPolicy" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -692,6 +740,21 @@
         }
       },
       "required" : [ "Constraints", "Rules" ]
+    },
+    "OnDemandCapacityReservationOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "UsageStrategy" : {
+          "type" : "string"
+        },
+        "CapacityReservationResourceGroupArn" : {
+          "type" : "string"
+        },
+        "CapacityReservationPreference" : {
+          "type" : "string"
+        }
+      }
     },
     "PlacementType" : {
       "type" : "object",

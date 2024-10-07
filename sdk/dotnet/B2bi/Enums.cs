@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.B2bi
 {
     [EnumType]
+    public readonly struct CapabilityDirection : IEquatable<CapabilityDirection>
+    {
+        private readonly string _value;
+
+        private CapabilityDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapabilityDirection Inbound { get; } = new CapabilityDirection("INBOUND");
+        public static CapabilityDirection Outbound { get; } = new CapabilityDirection("OUTBOUND");
+
+        public static bool operator ==(CapabilityDirection left, CapabilityDirection right) => left.Equals(right);
+        public static bool operator !=(CapabilityDirection left, CapabilityDirection right) => !left.Equals(right);
+
+        public static explicit operator string(CapabilityDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapabilityDirection other && Equals(other);
+        public bool Equals(CapabilityDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CapabilityType : IEquatable<CapabilityType>
     {
         private readonly string _value;
@@ -205,6 +233,7 @@ namespace Pulumi.AwsNative.B2bi
 
         public static TransformerFileFormat Xml { get; } = new TransformerFileFormat("XML");
         public static TransformerFileFormat Json { get; } = new TransformerFileFormat("JSON");
+        public static TransformerFileFormat NotUsed { get; } = new TransformerFileFormat("NOT_USED");
 
         public static bool operator ==(TransformerFileFormat left, TransformerFileFormat right) => left.Equals(right);
         public static bool operator !=(TransformerFileFormat left, TransformerFileFormat right) => !left.Equals(right);
@@ -214,6 +243,61 @@ namespace Pulumi.AwsNative.B2bi
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TransformerFileFormat other && Equals(other);
         public bool Equals(TransformerFileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransformerFromFormat : IEquatable<TransformerFromFormat>
+    {
+        private readonly string _value;
+
+        private TransformerFromFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransformerFromFormat X12 { get; } = new TransformerFromFormat("X12");
+
+        public static bool operator ==(TransformerFromFormat left, TransformerFromFormat right) => left.Equals(right);
+        public static bool operator !=(TransformerFromFormat left, TransformerFromFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TransformerFromFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransformerFromFormat other && Equals(other);
+        public bool Equals(TransformerFromFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransformerMappingTemplateLanguage : IEquatable<TransformerMappingTemplateLanguage>
+    {
+        private readonly string _value;
+
+        private TransformerMappingTemplateLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransformerMappingTemplateLanguage Xslt { get; } = new TransformerMappingTemplateLanguage("XSLT");
+        public static TransformerMappingTemplateLanguage Jsonata { get; } = new TransformerMappingTemplateLanguage("JSONATA");
+
+        public static bool operator ==(TransformerMappingTemplateLanguage left, TransformerMappingTemplateLanguage right) => left.Equals(right);
+        public static bool operator !=(TransformerMappingTemplateLanguage left, TransformerMappingTemplateLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(TransformerMappingTemplateLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransformerMappingTemplateLanguage other && Equals(other);
+        public bool Equals(TransformerMappingTemplateLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -242,6 +326,33 @@ namespace Pulumi.AwsNative.B2bi
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TransformerStatus other && Equals(other);
         public bool Equals(TransformerStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransformerToFormat : IEquatable<TransformerToFormat>
+    {
+        private readonly string _value;
+
+        private TransformerToFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransformerToFormat X12 { get; } = new TransformerToFormat("X12");
+
+        public static bool operator ==(TransformerToFormat left, TransformerToFormat right) => left.Equals(right);
+        public static bool operator !=(TransformerToFormat left, TransformerToFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TransformerToFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransformerToFormat other && Equals(other);
+        public bool Equals(TransformerToFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

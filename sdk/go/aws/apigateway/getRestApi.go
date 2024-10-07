@@ -31,13 +31,13 @@ type LookupRestApiArgs struct {
 }
 
 type LookupRestApiResult struct {
-	// The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+	// The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 	ApiKeySourceType *string `pulumi:"apiKeySourceType"`
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
 	// The description of the RestApi.
 	Description *string `pulumi:"description"`
-	// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
@@ -53,7 +53,7 @@ type LookupRestApiResult struct {
 	RestApiId *string `pulumi:"restApiId"`
 	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 	RootResourceId *string `pulumi:"rootResourceId"`
-	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ func (o LookupRestApiResultOutput) ToLookupRestApiResultOutputWithContext(ctx co
 	return o
 }
 
-// The source of the API key for metering requests according to a usage plan. Valid values are: “HEADER“ to read the API key from the “X-API-Key“ header of a request. “AUTHORIZER“ to read the API key from the “UsageIdentifierKey“ from a custom authorizer.
+// The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 func (o LookupRestApiResultOutput) ApiKeySourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.ApiKeySourceType }).(pulumi.StringPtrOutput)
 }
@@ -114,7 +114,7 @@ func (o LookupRestApiResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether clients can invoke your API by using the default “execute-api“ endpoint. By default, clients can invoke your API with the default “https://{api_id}.execute-api.{region}.amazonaws.com“ endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 func (o LookupRestApiResultOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -151,7 +151,7 @@ func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.RootResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with “aws:“. The tag value can be up to 256 characters.
+// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 func (o LookupRestApiResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRestApiResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

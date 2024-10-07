@@ -449,7 +449,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iottwinmaker:TagResource", "iottwinmaker:UntagResource", "iottwinmaker:ListTagsForResource" ]
   },
   "required" : [ "WorkspaceId", "ComponentTypeId" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationDateTime", "/properties/UpdateDateTime", "/properties/Status", "/properties/IsAbstract", "/properties/IsSchemaInitialized" ],

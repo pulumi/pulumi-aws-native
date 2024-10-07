@@ -78,7 +78,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiKeyId!: pulumi.Output<string>;
     /**
-     * An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+     * An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
      */
     public readonly customerId!: pulumi.Output<string | undefined>;
     /**
@@ -90,7 +90,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+     * Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
      */
     public readonly generateDistinctId!: pulumi.Output<boolean | undefined>;
     /**
@@ -103,7 +103,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly stageKeys!: pulumi.Output<outputs.apigateway.ApiKeyStageKey[] | undefined>;
     /**
-     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -154,7 +154,7 @@ export class ApiKey extends pulumi.CustomResource {
  */
 export interface ApiKeyArgs {
     /**
-     * An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+     * An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
      */
     customerId?: pulumi.Input<string>;
     /**
@@ -166,7 +166,7 @@ export interface ApiKeyArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+     * Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
      */
     generateDistinctId?: pulumi.Input<boolean>;
     /**
@@ -179,7 +179,7 @@ export interface ApiKeyArgs {
      */
     stageKeys?: pulumi.Input<pulumi.Input<inputs.apigateway.ApiKeyStageKeyArgs>[]>;
     /**
-     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

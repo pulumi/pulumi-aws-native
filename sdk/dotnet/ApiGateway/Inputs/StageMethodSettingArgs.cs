@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public Input<string>? HttpMethod { get; set; }
 
         /// <summary>
-        /// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+        /// Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
         /// </summary>
         [Input("loggingLevel")]
         public Input<string>? LoggingLevel { get; set; }

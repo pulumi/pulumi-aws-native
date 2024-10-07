@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateDefaultDateTimePickerControlOptions
     {
         /// <summary>
+        /// The visibility configuration of the Apply button on a `DateTimePickerControl` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.TemplateCommitMode? CommitMode;
+        /// <summary>
         /// The display options of a control.
         /// </summary>
         public readonly Outputs.TemplateDateTimePickerControlDisplayOptions? DisplayOptions;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateDefaultDateTimePickerControlOptions(
+            Pulumi.AwsNative.QuickSight.TemplateCommitMode? commitMode,
+
             Outputs.TemplateDateTimePickerControlDisplayOptions? displayOptions,
 
             Pulumi.AwsNative.QuickSight.TemplateSheetControlDateTimePickerType? type)
         {
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             Type = type;
         }

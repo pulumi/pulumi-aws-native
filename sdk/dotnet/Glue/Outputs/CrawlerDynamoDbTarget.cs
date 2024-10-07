@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
-    /// <summary>
-    /// Specifies an Amazon DynamoDB table to crawl.
-    /// </summary>
     [OutputType]
     public sealed class CrawlerDynamoDbTarget
     {

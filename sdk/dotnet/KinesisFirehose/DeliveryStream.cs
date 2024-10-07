@@ -40,16 +40,16 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public Output<Outputs.DeliveryStreamEncryptionConfigurationInput?> DeliveryStreamEncryptionConfigurationInput { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the delivery stream.
+        /// The name of the Firehose stream.
         /// </summary>
         [Output("deliveryStreamName")]
         public Output<string?> DeliveryStreamName { get; private set; } = null!;
 
         /// <summary>
-        /// The delivery stream type. This can be one of the following values:
+        /// The Firehose stream type. This can be one of the following values:
         /// 
-        /// - `DirectPut` : Provider applications access the delivery stream directly.
-        /// - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+        /// - `DirectPut` : Provider applications access the Firehose stream directly.
+        /// - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
         /// </summary>
         [Output("deliveryStreamType")]
         public Output<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType?> DeliveryStreamType { get; private set; } = null!;
@@ -82,8 +82,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
         /// <summary>
         /// Specifies the destination configure settings for Apache Iceberg Table.
-        /// 
-        /// Amazon Data Firehose is in preview release and is subject to change.
         /// </summary>
         [Output("icebergDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamIcebergDestinationConfiguration?> IcebergDestinationConfiguration { get; private set; } = null!;
@@ -133,11 +131,11 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public Output<Outputs.DeliveryStreamSplunkDestinationConfiguration?> SplunkDestinationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
+        /// A set of tags to assign to the Firehose stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the Firehose stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
         /// 
-        /// You can specify up to 50 tags when creating a delivery stream.
+        /// You can specify up to 50 tags when creating a Firehose stream.
         /// 
-        /// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose delivery streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+        /// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
         /// 
         /// *AccessDeniedException*
         /// 
@@ -224,16 +222,16 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public Input<Inputs.DeliveryStreamEncryptionConfigurationInputArgs>? DeliveryStreamEncryptionConfigurationInput { get; set; }
 
         /// <summary>
-        /// The name of the delivery stream.
+        /// The name of the Firehose stream.
         /// </summary>
         [Input("deliveryStreamName")]
         public Input<string>? DeliveryStreamName { get; set; }
 
         /// <summary>
-        /// The delivery stream type. This can be one of the following values:
+        /// The Firehose stream type. This can be one of the following values:
         /// 
-        /// - `DirectPut` : Provider applications access the delivery stream directly.
-        /// - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+        /// - `DirectPut` : Provider applications access the Firehose stream directly.
+        /// - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
         /// </summary>
         [Input("deliveryStreamType")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamType>? DeliveryStreamType { get; set; }
@@ -266,8 +264,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
         /// <summary>
         /// Specifies the destination configure settings for Apache Iceberg Table.
-        /// 
-        /// Amazon Data Firehose is in preview release and is subject to change.
         /// </summary>
         [Input("icebergDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamIcebergDestinationConfigurationArgs>? IcebergDestinationConfiguration { get; set; }
@@ -320,11 +316,11 @@ namespace Pulumi.AwsNative.KinesisFirehose
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
+        /// A set of tags to assign to the Firehose stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the Firehose stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
         /// 
-        /// You can specify up to 50 tags when creating a delivery stream.
+        /// You can specify up to 50 tags when creating a Firehose stream.
         /// 
-        /// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose delivery streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+        /// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
         /// 
         /// *AccessDeniedException*
         /// 

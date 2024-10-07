@@ -31,6 +31,10 @@ export interface GetPartnershipResult {
      */
     readonly capabilities?: string[];
     /**
+     * Contains the details for an Outbound EDI capability.
+     */
+    readonly capabilityOptions?: outputs.b2bi.PartnershipCapabilityOptions;
+    /**
      * Returns a timestamp for creation date and time of the partnership.
      */
     readonly createdAt?: string;

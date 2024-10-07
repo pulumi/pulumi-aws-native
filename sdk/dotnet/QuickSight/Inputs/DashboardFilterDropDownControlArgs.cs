@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardCascadingControlConfigurationArgs>? CascadingControlConfiguration { get; set; }
 
         /// <summary>
+        /// The visibility configuration of the Apply button on a `FilterDropDownControl` .
+        /// </summary>
+        [Input("commitMode")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardCommitMode>? CommitMode { get; set; }
+
+        /// <summary>
         /// The display options of the `FilterDropDownControl` .
         /// </summary>
         [Input("displayOptions")]

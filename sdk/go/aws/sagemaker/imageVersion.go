@@ -45,7 +45,7 @@ type ImageVersion struct {
 	ProgrammingLang pulumi.StringPtrOutput              `pulumi:"programmingLang"`
 	ReleaseNotes    pulumi.StringPtrOutput              `pulumi:"releaseNotes"`
 	VendorGuidance  ImageVersionVendorGuidancePtrOutput `pulumi:"vendorGuidance"`
-	// The version of the image.
+	// The version number.
 	Version pulumi.IntPtrOutput `pulumi:"version"`
 }
 
@@ -117,7 +117,7 @@ type imageVersionArgs struct {
 	ProgrammingLang *string                     `pulumi:"programmingLang"`
 	ReleaseNotes    *string                     `pulumi:"releaseNotes"`
 	VendorGuidance  *ImageVersionVendorGuidance `pulumi:"vendorGuidance"`
-	// The version of the image.
+	// The version number.
 	Version *int `pulumi:"version"`
 }
 
@@ -140,7 +140,7 @@ type ImageVersionArgs struct {
 	ProgrammingLang pulumi.StringPtrInput
 	ReleaseNotes    pulumi.StringPtrInput
 	VendorGuidance  ImageVersionVendorGuidancePtrInput
-	// The version of the image.
+	// The version number.
 	Version pulumi.IntPtrInput
 }
 
@@ -252,7 +252,7 @@ func (o ImageVersionOutput) VendorGuidance() ImageVersionVendorGuidancePtrOutput
 	return o.ApplyT(func(v *ImageVersion) ImageVersionVendorGuidancePtrOutput { return v.VendorGuidance }).(ImageVersionVendorGuidancePtrOutput)
 }
 
-// The version of the image.
+// The version number.
 func (o ImageVersionOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
 }

@@ -36,4 +36,37 @@ namespace Pulumi.AwsNative.S3Express
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Server-side encryption algorithm to use for the default encryption.
+    /// 
+    /// &gt; For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
+    /// </summary>
+    [EnumType]
+    public readonly struct DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm : IEquatable<DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm>
+    {
+        private readonly string _value;
+
+        private DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm Awskms { get; } = new DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms");
+        public static DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm Aes256 { get; } = new DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("AES256");
+
+        public static bool operator ==(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm left, DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm right) => left.Equals(right);
+        public static bool operator !=(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm left, DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm other && Equals(other);
+        public bool Equals(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

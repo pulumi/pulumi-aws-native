@@ -97,7 +97,7 @@ class DeliveryStreamAmazonOpenSearchServerlessBufferingHints(dict):
         :param int interval_in_seconds: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         :param int size_in_mbs: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                
-               We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+               We recommend setting this parameter to a value greater than the amount of data you typically ingest into the Firehose stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
         """
         if interval_in_seconds is not None:
             pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
@@ -118,7 +118,7 @@ class DeliveryStreamAmazonOpenSearchServerlessBufferingHints(dict):
         """
         Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
 
-        We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+        We recommend setting this parameter to a value greater than the amount of data you typically ingest into the Firehose stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
         """
         return pulumi.get(self, "size_in_mbs")
 
@@ -721,9 +721,7 @@ class DeliveryStreamCatalogConfiguration(dict):
     def __init__(__self__, *,
                  catalog_arn: Optional[str] = None):
         """
-        :param str catalog_arn: Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-               
-               Amazon Data Firehose is in preview release and is subject to change.
+        :param str catalog_arn: Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
         """
         if catalog_arn is not None:
             pulumi.set(__self__, "catalog_arn", catalog_arn)
@@ -732,9 +730,7 @@ class DeliveryStreamCatalogConfiguration(dict):
     @pulumi.getter(name="catalogArn")
     def catalog_arn(self) -> Optional[str]:
         """
-        Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-
-        Amazon Data Firehose is in preview release and is subject to change.
+        Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
         """
         return pulumi.get(self, "catalog_arn")
 
@@ -1620,7 +1616,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         :param str bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
         :param str role_arn: The Amazon Resource Name (ARN) of the AWS credentials. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
         :param 'DeliveryStreamBufferingHints' buffering_hints: The buffering option.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The Amazon CloudWatch logging options for your delivery stream.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The Amazon CloudWatch logging options for your Firehose stream.
         :param 'DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat' compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED` .
         :param str custom_time_zone: The time zone you prefer. UTC is the default.
         :param 'DeliveryStreamDataFormatConversionConfiguration' data_format_conversion_configuration: The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
@@ -1631,7 +1627,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         :param str prefix: The `YYYY/MM/DD/HH` time format prefix is automatically used for delivered Amazon S3 files. For more information, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
         :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The data processing configuration for the Kinesis Data Firehose delivery stream.
         :param 'DeliveryStreamS3DestinationConfiguration' s3_backup_configuration: The configuration for backup in Amazon S3.
-        :param 'DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode' s3_backup_mode: The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        :param 'DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode' s3_backup_mode: The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1690,7 +1686,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The Amazon CloudWatch logging options for your delivery stream.
+        The Amazon CloudWatch logging options for your Firehose stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -1778,7 +1774,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode']:
         """
-        The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
         """
         return pulumi.get(self, "s3_backup_mode")
 
@@ -2183,17 +2179,9 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
                  s3_backup_mode: Optional['DeliveryStreamIcebergDestinationConfigurations3BackupMode'] = None):
         """
         :param 'DeliveryStreamCatalogConfiguration' catalog_configuration: Configuration describing where the destination Apache Iceberg Tables are persisted.
-               
-               Amazon Data Firehose is in preview release and is subject to change.
-        :param str role_arn: The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-               
-               Amazon Data Firehose is in preview release and is subject to change.
+        :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
         :param Sequence['DeliveryStreamDestinationTableConfiguration'] destination_table_configuration_list: Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
-               
-               Amazon Data Firehose is in preview release and is subject to change.
-        :param 'DeliveryStreamIcebergDestinationConfigurations3BackupMode' s3_backup_mode: Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
-               
-               Amazon Data Firehose is in preview release and is subject to change.
+        :param 'DeliveryStreamIcebergDestinationConfigurations3BackupMode' s3_backup_mode: Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
         """
         pulumi.set(__self__, "catalog_configuration", catalog_configuration)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2216,8 +2204,6 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
     def catalog_configuration(self) -> 'outputs.DeliveryStreamCatalogConfiguration':
         """
         Configuration describing where the destination Apache Iceberg Tables are persisted.
-
-        Amazon Data Firehose is in preview release and is subject to change.
         """
         return pulumi.get(self, "catalog_configuration")
 
@@ -2225,9 +2211,7 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-
-        Amazon Data Firehose is in preview release and is subject to change.
+        The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
         """
         return pulumi.get(self, "role_arn")
 
@@ -2251,8 +2235,6 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
     def destination_table_configuration_list(self) -> Optional[Sequence['outputs.DeliveryStreamDestinationTableConfiguration']]:
         """
         Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
-
-        Amazon Data Firehose is in preview release and is subject to change.
         """
         return pulumi.get(self, "destination_table_configuration_list")
 
@@ -2270,9 +2252,7 @@ class DeliveryStreamIcebergDestinationConfiguration(dict):
     @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional['DeliveryStreamIcebergDestinationConfigurations3BackupMode']:
         """
-        Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
-
-        Amazon Data Firehose is in preview release and is subject to change.
+        Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
         """
         return pulumi.get(self, "s3_backup_mode")
 
@@ -2981,12 +2961,12 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         :param 'DeliveryStreamCopyCommand' copy_command: Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
         :param str role_arn: The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
         :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The CloudWatch logging options for your delivery stream.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The CloudWatch logging options for your Firehose stream.
         :param str password: The password for the Amazon Redshift user that you specified in the `Username` property.
         :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The data processing configuration for the Kinesis Data Firehose delivery stream.
         :param 'DeliveryStreamRedshiftRetryOptions' retry_options: The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
         :param 'DeliveryStreamS3DestinationConfiguration' s3_backup_configuration: The configuration for backup in Amazon S3.
-        :param 'DeliveryStreamRedshiftDestinationConfigurationS3BackupMode' s3_backup_mode: The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        :param 'DeliveryStreamRedshiftDestinationConfigurationS3BackupMode' s3_backup_mode: The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
         :param 'DeliveryStreamSecretsManagerConfiguration' secrets_manager_configuration: The configuration that defines how you access secrets for Amazon Redshift.
         :param str username: The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
         """
@@ -3047,7 +3027,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The CloudWatch logging options for your delivery stream.
+        The CloudWatch logging options for your Firehose stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -3087,7 +3067,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @pulumi.getter(name="s3BackupMode")
     def s3_backup_mode(self) -> Optional['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']:
         """
-        The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
         """
         return pulumi.get(self, "s3_backup_mode")
 
@@ -3224,7 +3204,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         :param str bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.
         :param str role_arn: The ARN of an AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon S3 Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3) in the *Amazon Kinesis Data Firehose Developer Guide* .
         :param 'DeliveryStreamBufferingHints' buffering_hints: Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The CloudWatch logging options for your delivery stream.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The CloudWatch logging options for your Firehose stream.
         :param 'DeliveryStreamS3DestinationConfigurationCompressionFormat' compression_format: The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
         :param 'DeliveryStreamEncryptionConfiguration' encryption_configuration: Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
         :param str error_output_prefix: A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
@@ -3273,7 +3253,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The CloudWatch logging options for your delivery stream.
+        The CloudWatch logging options for your Firehose stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -3452,9 +3432,9 @@ class DeliveryStreamSecretsManagerConfiguration(dict):
                  role_arn: Optional[str] = None,
                  secret_arn: Optional[str] = None):
         """
-        :param bool enabled: Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+        :param bool enabled: Specifies whether you want to use the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
         :param str role_arn: Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
-        :param str secret_arn: The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+        :param str secret_arn: The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
         """
         pulumi.set(__self__, "enabled", enabled)
         if role_arn is not None:
@@ -3466,7 +3446,7 @@ class DeliveryStreamSecretsManagerConfiguration(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Specifies whether you want to use the the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+        Specifies whether you want to use the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
         """
         return pulumi.get(self, "enabled")
 
@@ -3482,7 +3462,7 @@ class DeliveryStreamSecretsManagerConfiguration(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         """
-        The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the delivery stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+        The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
         """
         return pulumi.get(self, "secret_arn")
 
@@ -4092,7 +4072,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         :param 'DeliveryStreamSplunkDestinationConfigurationHecEndpointType' hec_endpoint_type: This type can be either `Raw` or `Event` .
         :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The configuration for the backup Amazon S3 location.
         :param 'DeliveryStreamSplunkBufferingHints' buffering_hints: The buffering options. If no value is specified, the default values for Splunk are used.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The Amazon CloudWatch logging options for your delivery stream.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The Amazon CloudWatch logging options for your Firehose stream.
         :param int hec_acknowledgment_timeout_in_seconds: The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
         :param str hec_token: This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The data processing configuration.
@@ -4158,7 +4138,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The Amazon CloudWatch logging options for your delivery stream.
+        The Amazon CloudWatch logging options for your Firehose stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 

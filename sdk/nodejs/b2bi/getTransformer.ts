@@ -30,16 +30,18 @@ export interface GetTransformerResult {
      * Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
      */
     readonly createdAt?: string;
-    /**
-     * Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-     */
     readonly ediType?: outputs.b2bi.TransformerEdiTypeProperties;
-    /**
-     * Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-     */
     readonly fileFormat?: enums.b2bi.TransformerFileFormat;
     /**
-     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     * Returns a structure that contains the format options for the transformation.
+     */
+    readonly inputConversion?: outputs.b2bi.TransformerInputConversion;
+    /**
+     * Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+     */
+    readonly mapping?: outputs.b2bi.TransformerMapping;
+    /**
+     * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
     readonly mappingTemplate?: string;
     /**
@@ -51,9 +53,17 @@ export interface GetTransformerResult {
      */
     readonly name?: string;
     /**
-     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     * Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+     */
+    readonly outputConversion?: outputs.b2bi.TransformerOutputConversion;
+    /**
+     * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
     readonly sampleDocument?: string;
+    /**
+     * Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+     */
+    readonly sampleDocuments?: outputs.b2bi.TransformerSampleDocuments;
     /**
      * Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
      */

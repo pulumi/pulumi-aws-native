@@ -19,6 +19,120 @@ import (
 //	To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see [Retrieve a secret in an resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).
 //	For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
 //	For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
+//
+// ## Example Usage
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myRedshiftSecret, err := secretsmanager.NewSecret(ctx, "myRedshiftSecret", &secretsmanager.SecretArgs{
+//				Description: pulumi.String("This is a Secrets Manager secret for a Redshift cluster"),
+//				GenerateSecretString: &secretsmanager.SecretGenerateSecretStringArgs{
+//					SecretStringTemplate: pulumi.String("{\"username\": \"admin\"}"),
+//					GenerateStringKey:    pulumi.String("password"),
+//					PasswordLength:       pulumi.Int(16),
+//					ExcludeCharacters:    pulumi.String("\"'@/\\"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myRedshiftCluster, err := redshift.NewCluster(ctx, "myRedshiftCluster", &redshift.ClusterArgs{
+//				DbName: pulumi.String("myjsondb"),
+//				MasterUsername: myRedshiftSecret.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("{{resolve:secretsmanager:%v::username}}", id), nil
+//				}).(pulumi.StringOutput),
+//				MasterUserPassword: myRedshiftSecret.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("{{resolve:secretsmanager:%v::password}}", id), nil
+//				}).(pulumi.StringOutput),
+//				NodeType:    pulumi.String("ds2.xlarge"),
+//				ClusterType: pulumi.String("single-node"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = secretsmanager.NewSecretTargetAttachment(ctx, "secretRedshiftAttachment", &secretsmanager.SecretTargetAttachmentArgs{
+//				SecretId:   myRedshiftSecret.ID(),
+//				TargetId:   myRedshiftCluster.ID(),
+//				TargetType: pulumi.String("AWS::Redshift::Cluster"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myRedshiftSecret, err := secretsmanager.NewSecret(ctx, "myRedshiftSecret", &secretsmanager.SecretArgs{
+//				Description: pulumi.String("This is a Secrets Manager secret for a Redshift cluster"),
+//				GenerateSecretString: &secretsmanager.SecretGenerateSecretStringArgs{
+//					SecretStringTemplate: pulumi.String("{\"username\": \"admin\"}"),
+//					GenerateStringKey:    pulumi.String("password"),
+//					PasswordLength:       pulumi.Int(16),
+//					ExcludeCharacters:    pulumi.String("\"'@/\\"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myRedshiftCluster, err := redshift.NewCluster(ctx, "myRedshiftCluster", &redshift.ClusterArgs{
+//				DbName: pulumi.String("myjsondb"),
+//				MasterUsername: myRedshiftSecret.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("{{resolve:secretsmanager:%v::username}}", id), nil
+//				}).(pulumi.StringOutput),
+//				MasterUserPassword: myRedshiftSecret.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("{{resolve:secretsmanager:%v::password}}", id), nil
+//				}).(pulumi.StringOutput),
+//				NodeType:    pulumi.String("ds2.xlarge"),
+//				ClusterType: pulumi.String("single-node"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = secretsmanager.NewSecretTargetAttachment(ctx, "secretRedshiftAttachment", &secretsmanager.SecretTargetAttachmentArgs{
+//				SecretId:   myRedshiftSecret.ID(),
+//				TargetId:   myRedshiftCluster.ID(),
+//				TargetType: pulumi.String("AWS::Redshift::Cluster"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Secret struct {
 	pulumi.CustomResourceState
 

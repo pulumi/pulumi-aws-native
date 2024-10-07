@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateCascadingControlConfigurationArgs>? CascadingControlConfiguration { get; set; }
 
         /// <summary>
+        /// The visibility configuration of the Apply button on a `ParameterDropDownControl` .
+        /// </summary>
+        [Input("commitMode")]
+        public Input<Pulumi.AwsNative.QuickSight.TemplateCommitMode>? CommitMode { get; set; }
+
+        /// <summary>
         /// The display options of a control.
         /// </summary>
         [Input("displayOptions")]

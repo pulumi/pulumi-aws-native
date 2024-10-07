@@ -36,14 +36,14 @@ class StageArgs:
         The set of arguments for constructing a Stage resource.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input['StageAccessLogSettingArgs'] access_log_setting: Access log settings, including the access log format and access log destination ARN.
-        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage.
-        :param pulumi.Input[str] cache_cluster_size: The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
+        :param pulumi.Input[str] cache_cluster_size: The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
         :param pulumi.Input['StageCanarySettingArgs'] canary_setting: Settings for the canary deployment in this stage.
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for an API stage.
         :param pulumi.Input[str] deployment_id: The identifier of the Deployment that the stage points to.
         :param pulumi.Input[str] description: The stage's description.
         :param pulumi.Input[str] documentation_version: The version of the associated API documentation.
-        :param pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
+        :param pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\\*/\\*` for overriding all methods in the stage.
         :param pulumi.Input[str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for the Stage.
@@ -105,7 +105,7 @@ class StageArgs:
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether a cache cluster is enabled for the stage.
+        Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
@@ -117,7 +117,7 @@ class StageArgs:
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> Optional[pulumi.Input[str]]:
         """
-        The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+        The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
         """
         return pulumi.get(self, "cache_cluster_size")
 
@@ -189,7 +189,7 @@ class StageArgs:
     @pulumi.getter(name="methodSettings")
     def method_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]]]:
         """
-        A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
+        A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\\*/\\*` for overriding all methods in the stage.
         """
         return pulumi.get(self, "method_settings")
 
@@ -272,14 +272,14 @@ class Stage(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']] access_log_setting: Access log settings, including the access log format and access log destination ARN.
-        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage.
-        :param pulumi.Input[str] cache_cluster_size: The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
+        :param pulumi.Input[str] cache_cluster_size: The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
         :param pulumi.Input[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict']] canary_setting: Settings for the canary deployment in this stage.
         :param pulumi.Input[str] client_certificate_id: The identifier of a client certificate for an API stage.
         :param pulumi.Input[str] deployment_id: The identifier of the Deployment that the stage points to.
         :param pulumi.Input[str] description: The stage's description.
         :param pulumi.Input[str] documentation_version: The version of the associated API documentation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\\*/\\*` for overriding all methods in the stage.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The collection of tags. Each tag element is associated with a given resource.
@@ -401,7 +401,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether a cache cluster is enabled for the stage.
+        Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
@@ -409,7 +409,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> pulumi.Output[Optional[str]]:
         """
-        The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+        The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
         """
         return pulumi.get(self, "cache_cluster_size")
 
@@ -457,7 +457,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="methodSettings")
     def method_settings(self) -> pulumi.Output[Optional[Sequence['outputs.StageMethodSetting']]]:
         """
-        A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
+        A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\\*/\\*` for overriding all methods in the stage.
         """
         return pulumi.get(self, "method_settings")
 

@@ -82,8 +82,8 @@ class DeploymentAccessLogSettingArgs:
         """
         The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
           ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
-        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``.
-        :param pulumi.Input[str] format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least ``$context.requestId``.
+        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
+        :param pulumi.Input[str] format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
         """
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
@@ -94,7 +94,7 @@ class DeploymentAccessLogSettingArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with ``amazon-apigateway-``.
+        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-` .
         """
         return pulumi.get(self, "destination_arn")
 
@@ -106,7 +106,7 @@ class DeploymentAccessLogSettingArgs:
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
         """
-        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least ``$context.requestId``.
+        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least `$context.requestId` .
         """
         return pulumi.get(self, "format")
 
@@ -249,7 +249,7 @@ class DeploymentMethodSettingArgs:
         :param pulumi.Input[bool] caching_enabled: Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         :param pulumi.Input[bool] data_trace_enabled: Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         :param pulumi.Input[str] http_method: The HTTP method.
-        :param pulumi.Input[str] logging_level: Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+        :param pulumi.Input[str] logging_level: Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
         :param pulumi.Input[bool] metrics_enabled: Specifies whether Amazon CloudWatch metrics are enabled for this method.
         :param pulumi.Input[str] resource_path: The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``).
         :param pulumi.Input[int] throttling_burst_limit: Specifies the throttling burst limit.
@@ -340,7 +340,7 @@ class DeploymentMethodSettingArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+        Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
         """
         return pulumi.get(self, "logging_level")
 
@@ -422,7 +422,7 @@ class DeploymentStageDescriptionArgs:
         """
         ``StageDescription`` is a property of the [AWS::ApiGateway::Deployment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html) resource that configures a deployment stage.
         :param pulumi.Input['DeploymentAccessLogSettingArgs'] access_log_setting: Specifies settings for logging access in this stage.
-        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage.
+        :param pulumi.Input[bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         :param pulumi.Input[str] cache_cluster_size: The size of the stage's cache cluster. For more information, see [cacheClusterSize](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateStage.html#apigw-CreateStage-request-cacheClusterSize) in the *API Gateway API Reference*.
         :param pulumi.Input[bool] cache_data_encrypted: Indicates whether the cached responses are encrypted.
         :param pulumi.Input[int] cache_ttl_in_seconds: The time-to-live (TTL) period, in seconds, that specifies how long API Gateway caches responses.
@@ -497,7 +497,7 @@ class DeploymentStageDescriptionArgs:
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether a cache cluster is enabled for the stage.
+        Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
@@ -759,11 +759,11 @@ class DocumentationPartLocationArgs:
         """
         The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.
          For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.
-        :param pulumi.Input[str] method: The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
-        :param pulumi.Input[str] name: The name of the targeted API entity. It is a valid and required field for the API entity types of ``AUTHORIZER``, ``MODEL``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY`` and ``RESPONSE_HEADER``. It is an invalid field for any other entity type.
-        :param pulumi.Input[str] path: The URL path of the target. It is a valid field for the API entity types of ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
-        :param pulumi.Input[str] status_code: The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
-        :param pulumi.Input['DocumentationPartLocationType'] type: The type of API entity to which the documentation content applies. Valid values are ``API``, ``AUTHORIZER``, ``MODEL``, ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. Content inheritance does not apply to any entity of the ``API``, ``AUTHORIZER``, ``METHOD``, ``MODEL``, ``REQUEST_BODY``, or ``RESOURCE`` type.
+        :param pulumi.Input[str] method: The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
+        :param pulumi.Input[str] name: The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
+        :param pulumi.Input[str] path: The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
+        :param pulumi.Input[str] status_code: The HTTP status code of a response. It is a valid field for the API entity types of `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `statusCode` attribute must match that of the parent entity exactly.
+        :param pulumi.Input['DocumentationPartLocationType'] type: The type of API entity to which the documentation content applies. Valid values are `API` , `AUTHORIZER` , `MODEL` , `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . Content inheritance does not apply to any entity of the `API` , `AUTHORIZER` , `METHOD` , `MODEL` , `REQUEST_BODY` , or `RESOURCE` type.
         """
         if method is not None:
             pulumi.set(__self__, "method", method)
@@ -780,7 +780,7 @@ class DocumentationPartLocationArgs:
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[str]]:
         """
-        The HTTP verb of a method. It is a valid field for the API entity types of ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``method`` attribute must match that of the parent entity exactly.
+        The HTTP verb of a method. It is a valid field for the API entity types of `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any method. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `method` attribute must match that of the parent entity exactly.
         """
         return pulumi.get(self, "method")
 
@@ -792,7 +792,7 @@ class DocumentationPartLocationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the targeted API entity. It is a valid and required field for the API entity types of ``AUTHORIZER``, ``MODEL``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY`` and ``RESPONSE_HEADER``. It is an invalid field for any other entity type.
+        The name of the targeted API entity. It is a valid and required field for the API entity types of `AUTHORIZER` , `MODEL` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` and `RESPONSE_HEADER` . It is an invalid field for any other entity type.
         """
         return pulumi.get(self, "name")
 
@@ -804,7 +804,7 @@ class DocumentationPartLocationArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL path of the target. It is a valid field for the API entity types of ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``/`` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``path`` attribute must match that of the parent entity as a prefix.
+        The URL path of the target. It is a valid field for the API entity types of `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `/` for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other `location` attributes, the child entity's `path` attribute must match that of the parent entity as a prefix.
         """
         return pulumi.get(self, "path")
 
@@ -816,7 +816,7 @@ class DocumentationPartLocationArgs:
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
         """
-        The HTTP status code of a response. It is a valid field for the API entity types of ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. The default value is ``*`` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other ``location`` attributes, the child entity's ``statusCode`` attribute must match that of the parent entity exactly.
+        The HTTP status code of a response. It is a valid field for the API entity types of `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . The default value is `*` for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other `location` attributes, the child entity's `statusCode` attribute must match that of the parent entity exactly.
         """
         return pulumi.get(self, "status_code")
 
@@ -828,7 +828,7 @@ class DocumentationPartLocationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['DocumentationPartLocationType']]:
         """
-        The type of API entity to which the documentation content applies. Valid values are ``API``, ``AUTHORIZER``, ``MODEL``, ``RESOURCE``, ``METHOD``, ``PATH_PARAMETER``, ``QUERY_PARAMETER``, ``REQUEST_HEADER``, ``REQUEST_BODY``, ``RESPONSE``, ``RESPONSE_HEADER``, and ``RESPONSE_BODY``. Content inheritance does not apply to any entity of the ``API``, ``AUTHORIZER``, ``METHOD``, ``MODEL``, ``REQUEST_BODY``, or ``RESOURCE`` type.
+        The type of API entity to which the documentation content applies. Valid values are `API` , `AUTHORIZER` , `MODEL` , `RESOURCE` , `METHOD` , `PATH_PARAMETER` , `QUERY_PARAMETER` , `REQUEST_HEADER` , `REQUEST_BODY` , `RESPONSE` , `RESPONSE_HEADER` , and `RESPONSE_BODY` . Content inheritance does not apply to any entity of the `API` , `AUTHORIZER` , `METHOD` , `MODEL` , `REQUEST_BODY` , or `RESOURCE` type.
         """
         return pulumi.get(self, "type")
 
@@ -910,11 +910,12 @@ class MethodIntegrationResponseArgs:
         """
         ``IntegrationResponse`` is a property of the [Amazon API Gateway Method Integration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html) property type that specifies the response that API Gateway sends after a method's backend finishes processing a request.
         :param pulumi.Input[str] status_code: Specifies the status code that is used to map the integration response to an existing MethodResponse.
-        :param pulumi.Input['MethodIntegrationResponseContentHandling'] content_handling: Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-                If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
+        :param pulumi.Input['MethodIntegrationResponseContentHandling'] content_handling: Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+               
+               If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header.{name}` , where `name` is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header.{name}` or `integration.response.body.{JSON-expression}` , where `name` is a valid and unique response header name and `JSON-expression` is a valid JSON expression without the `$` prefix.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
-        :param pulumi.Input[str] selection_pattern: Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
+        :param pulumi.Input[str] selection_pattern: Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the `.+` regex to match error response. However, make sure that the error response does not contain any newline ( `\\n` ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
         """
         pulumi.set(__self__, "status_code", status_code)
         if content_handling is not None:
@@ -942,8 +943,9 @@ class MethodIntegrationResponseArgs:
     @pulumi.getter(name="contentHandling")
     def content_handling(self) -> Optional[pulumi.Input['MethodIntegrationResponseContentHandling']]:
         """
-        Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-         If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+
+        If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         """
         return pulumi.get(self, "content_handling")
 
@@ -955,7 +957,7 @@ class MethodIntegrationResponseArgs:
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
+        A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header.{name}` , where `name` is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header.{name}` or `integration.response.body.{JSON-expression}` , where `name` is a valid and unique response header name and `JSON-expression` is a valid JSON expression without the `$` prefix.
         """
         return pulumi.get(self, "response_parameters")
 
@@ -979,7 +981,7 @@ class MethodIntegrationResponseArgs:
     @pulumi.getter(name="selectionPattern")
     def selection_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
+        Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the `.+` regex to match error response. However, make sure that the error response does not contain any newline ( `\\n` ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
         """
         return pulumi.get(self, "selection_pattern")
 
@@ -1008,22 +1010,25 @@ class MethodIntegrationArgs:
         """
         ``Integration`` is a property of the [AWS::ApiGateway::Method](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html) resource that specifies information about the target backend that a method calls.
         :param pulumi.Input['MethodIntegrationType'] type: Specifies an API method integration type. The valid value is one of the following:
-                For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https``), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cache_key_parameters: A list of request parameters whose values API Gateway caches. To be valid values for ``cacheKeyParameters``, these parameters must also be specified for Method ``requestParameters``.
-        :param pulumi.Input[str] cache_namespace: Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the ``cacheNamespace``. You can specify the same ``cacheNamespace`` across resources to return the same cached data for requests to different resources.
-        :param pulumi.Input[str] connection_id: The ID of the VpcLink used for the integration when ``connectionType=VPC_LINK`` and undefined, otherwise.
-        :param pulumi.Input['MethodIntegrationConnectionType'] connection_type: The type of the network connection to the integration endpoint. The valid value is ``INTERNET`` for connections through the public routable internet or ``VPC_LINK`` for private connections between API Gateway and a network load balancer in a VPC. The default value is ``INTERNET``.
-        :param pulumi.Input['MethodIntegrationContentHandling'] content_handling: Specifies how to handle request payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-                If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the ``passthroughBehavior`` is configured to support payload pass-through.
-        :param pulumi.Input[str] credentials: Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\\*:user/\\*``. To use resource-based permissions on supported AWS services, specify null.
-        :param pulumi.Input[str] integration_http_method: Specifies the integration's HTTP method type. For the Type property, if you specify ``MOCK``, this property is optional. For Lambda integrations, you must set the integration method to ``POST``. For all other types, you must specify this property.
+               
+               For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cache_key_parameters: A list of request parameters whose values API Gateway caches. To be valid values for `cacheKeyParameters` , these parameters must also be specified for Method `requestParameters` .
+        :param pulumi.Input[str] cache_namespace: Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the `cacheNamespace` . You can specify the same `cacheNamespace` across resources to return the same cached data for requests to different resources.
+        :param pulumi.Input[str] connection_id: The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
+        :param pulumi.Input['MethodIntegrationConnectionType'] connection_type: The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
+        :param pulumi.Input['MethodIntegrationContentHandling'] content_handling: Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+               
+               If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the `passthroughBehavior` is configured to support payload pass-through.
+        :param pulumi.Input[str] credentials: Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*` . To use resource-based permissions on supported AWS services, specify null.
+        :param pulumi.Input[str] integration_http_method: Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
         :param pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]] integration_responses: Specifies the integration's responses.
-        :param pulumi.Input['MethodIntegrationPassthroughBehavior'] passthrough_behavior: Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
+        :param pulumi.Input['MethodIntegrationPassthroughBehavior'] passthrough_behavior: Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         :param pulumi.Input[int] timeout_in_millis: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.
         :param pulumi.Input[str] uri: Specifies Uniform Resource Identifier (URI) of the integration endpoint.
-                For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
+               
+               For `HTTP` or `HTTP_PROXY` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If `connectionType` is `VPC_LINK` specify the Network Load Balancer DNS name. For `AWS` or `AWS_PROXY` integrations, the URI is of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}` . Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either `arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}` or `arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}`
         """
         pulumi.set(__self__, "type", type)
         if cache_key_parameters is not None:
@@ -1058,7 +1063,8 @@ class MethodIntegrationArgs:
     def type(self) -> pulumi.Input['MethodIntegrationType']:
         """
         Specifies an API method integration type. The valid value is one of the following:
-         For the HTTP and HTTP proxy integrations, each integration can specify a protocol (``http/https``), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a ``connectionType`` of ``VPC_LINK`` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+
+        For the HTTP and HTTP proxy integrations, each integration can specify a protocol ( `http/https` ), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         """
         return pulumi.get(self, "type")
 
@@ -1070,7 +1076,7 @@ class MethodIntegrationArgs:
     @pulumi.getter(name="cacheKeyParameters")
     def cache_key_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of request parameters whose values API Gateway caches. To be valid values for ``cacheKeyParameters``, these parameters must also be specified for Method ``requestParameters``.
+        A list of request parameters whose values API Gateway caches. To be valid values for `cacheKeyParameters` , these parameters must also be specified for Method `requestParameters` .
         """
         return pulumi.get(self, "cache_key_parameters")
 
@@ -1082,7 +1088,7 @@ class MethodIntegrationArgs:
     @pulumi.getter(name="cacheNamespace")
     def cache_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the ``cacheNamespace``. You can specify the same ``cacheNamespace`` across resources to return the same cached data for requests to different resources.
+        Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the `cacheNamespace` . You can specify the same `cacheNamespace` across resources to return the same cached data for requests to different resources.
         """
         return pulumi.get(self, "cache_namespace")
 
@@ -1094,7 +1100,7 @@ class MethodIntegrationArgs:
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the VpcLink used for the integration when ``connectionType=VPC_LINK`` and undefined, otherwise.
+        The ID of the VpcLink used for the integration when `connectionType=VPC_LINK` and undefined, otherwise.
         """
         return pulumi.get(self, "connection_id")
 
@@ -1106,7 +1112,7 @@ class MethodIntegrationArgs:
     @pulumi.getter(name="connectionType")
     def connection_type(self) -> Optional[pulumi.Input['MethodIntegrationConnectionType']]:
         """
-        The type of the network connection to the integration endpoint. The valid value is ``INTERNET`` for connections through the public routable internet or ``VPC_LINK`` for private connections between API Gateway and a network load balancer in a VPC. The default value is ``INTERNET``.
+        The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
         """
         return pulumi.get(self, "connection_type")
 
@@ -1118,8 +1124,9 @@ class MethodIntegrationArgs:
     @pulumi.getter(name="contentHandling")
     def content_handling(self) -> Optional[pulumi.Input['MethodIntegrationContentHandling']]:
         """
-        Specifies how to handle request payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-         If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the ``passthroughBehavior`` is configured to support payload pass-through.
+        Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+
+        If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the `passthroughBehavior` is configured to support payload pass-through.
         """
         return pulumi.get(self, "content_handling")
 
@@ -1131,7 +1138,7 @@ class MethodIntegrationArgs:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string ``arn:aws:iam::\\*:user/\\*``. To use resource-based permissions on supported AWS services, specify null.
+        Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*` . To use resource-based permissions on supported AWS services, specify null.
         """
         return pulumi.get(self, "credentials")
 
@@ -1143,7 +1150,7 @@ class MethodIntegrationArgs:
     @pulumi.getter(name="integrationHttpMethod")
     def integration_http_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the integration's HTTP method type. For the Type property, if you specify ``MOCK``, this property is optional. For Lambda integrations, you must set the integration method to ``POST``. For all other types, you must specify this property.
+        Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
         """
         return pulumi.get(self, "integration_http_method")
 
@@ -1167,7 +1174,7 @@ class MethodIntegrationArgs:
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> Optional[pulumi.Input['MethodIntegrationPassthroughBehavior']]:
         """
-        Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
+        Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
         """
         return pulumi.get(self, "passthrough_behavior")
 
@@ -1179,7 +1186,7 @@ class MethodIntegrationArgs:
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` must be a valid and unique method request parameter name.
+        A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
         """
         return pulumi.get(self, "request_parameters")
 
@@ -1216,7 +1223,8 @@ class MethodIntegrationArgs:
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies Uniform Resource Identifier (URI) of the integration endpoint.
-         For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
+
+        For `HTTP` or `HTTP_PROXY` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If `connectionType` is `VPC_LINK` specify the Network Load Balancer DNS name. For `AWS` or `AWS_PROXY` integrations, the URI is of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}` . Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either `arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}` or `arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}`
         """
         return pulumi.get(self, "uri")
 
@@ -1232,10 +1240,9 @@ class MethodResponseArgs:
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]] = None):
         """
-        Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template.
         :param pulumi.Input[str] status_code: The method response's status code.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] response_parameters: A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] response_parameters: A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern `method.response.header.{name}` , where `name` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in `integration.response.header.{name}` , a static value enclosed within a pair of single quotes (e.g., `'application/json'` ), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}` , where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         """
         pulumi.set(__self__, "status_code", status_code)
         if response_models is not None:
@@ -1271,7 +1278,7 @@ class MethodResponseArgs:
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]]:
         """
-        A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
+        A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern `method.response.header.{name}` , where `name` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in `integration.response.header.{name}` , a static value enclosed within a pair of single quotes (e.g., `'application/json'` ), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}` , where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         """
         return pulumi.get(self, "response_parameters")
 
@@ -1288,8 +1295,8 @@ class RestApiEndpointConfigurationArgs:
         """
         The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.
          ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_endpoint_ids: A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_endpoint_ids: A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
         """
         if types is not None:
             pulumi.set(__self__, "types", types)
@@ -1300,7 +1307,7 @@ class RestApiEndpointConfigurationArgs:
     @pulumi.getter
     def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
+        A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
         """
         return pulumi.get(self, "types")
 
@@ -1312,7 +1319,7 @@ class RestApiEndpointConfigurationArgs:
     @pulumi.getter(name="vpcEndpointIds")
     def vpc_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
+        A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for `PRIVATE` endpoint type.
         """
         return pulumi.get(self, "vpc_endpoint_ids")
 
@@ -1443,7 +1450,6 @@ class StageCanarySettingArgs:
                  stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_stage_cache: Optional[pulumi.Input[bool]] = None):
         """
-        Configuration settings of a canary deployment.
         :param pulumi.Input[str] deployment_id: The ID of the canary deployment.
         :param pulumi.Input[float] percent_traffic: The percent (0-100) of traffic diverted to a canary deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variable_overrides: Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.
@@ -1528,7 +1534,7 @@ class StageMethodSettingArgs:
         :param pulumi.Input[bool] caching_enabled: Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
         :param pulumi.Input[bool] data_trace_enabled: Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.
         :param pulumi.Input[str] http_method: The HTTP method. To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
-        :param pulumi.Input[str] logging_level: Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+        :param pulumi.Input[str] logging_level: Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
         :param pulumi.Input[bool] metrics_enabled: Specifies whether Amazon CloudWatch metrics are enabled for this method.
         :param pulumi.Input[str] resource_path: The resource path for this method. Forward slashes (``/``) are encoded as ``~1`` and the initial slash must include a forward slash. For example, the path value ``/resource/subresource`` must be encoded as ``/~1resource~1subresource``. To specify the root path, use only a slash (``/``). To apply settings to multiple resources and methods, specify an asterisk (``*``) for the ``HttpMethod`` and ``/*`` for the ``ResourcePath``. This parameter is required when you specify a ``MethodSetting``.
         :param pulumi.Input[int] throttling_burst_limit: Specifies the throttling burst limit.
@@ -1619,7 +1625,7 @@ class StageMethodSettingArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are ``OFF``, ``ERROR``, and ``INFO``. Choose ``ERROR`` to write only error-level entries to CloudWatch Logs, or choose ``INFO`` to include all ``ERROR`` events as well as extra informational events.
+        Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are `OFF` , `ERROR` , and `INFO` . Choose `ERROR` to write only error-level entries to CloudWatch Logs, or choose `INFO` to include all `ERROR` events as well as extra informational events.
         """
         return pulumi.get(self, "logging_level")
 
@@ -1683,7 +1689,6 @@ class UsagePlanApiStageArgs:
                  stage: Optional[pulumi.Input[str]] = None,
                  throttle: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]] = None):
         """
-        API stage name of the associated API stage in a usage plan.
         :param pulumi.Input[str] api_id: API Id of the associated API stage in a usage plan.
         :param pulumi.Input[str] stage: API stage name of the associated API stage in a usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]] throttle: Map containing method level throttling information for API stage in a usage plan.
@@ -1796,8 +1801,6 @@ class UsagePlanThrottleSettingsArgs:
                  rate_limit: Optional[pulumi.Input[float]] = None):
         """
         ``ThrottleSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
-        :param pulumi.Input[int] burst_limit: The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
-        :param pulumi.Input[float] rate_limit: The API target request rate limit.
         """
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
@@ -1807,9 +1810,6 @@ class UsagePlanThrottleSettingsArgs:
     @property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
-        """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
@@ -1819,9 +1819,6 @@ class UsagePlanThrottleSettingsArgs:
     @property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[pulumi.Input[float]]:
-        """
-        The API target request rate limit.
-        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter

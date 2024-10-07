@@ -19,6 +19,7 @@ __all__ = [
     'BucketInventoryConfigurationIncludedObjectVersions',
     'BucketInventoryConfigurationOptionalFieldsItem',
     'BucketInventoryConfigurationScheduleFrequency',
+    'BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize',
     'BucketMetricsStatus',
     'BucketNoncurrentVersionTransitionStorageClass',
     'BucketOwnershipControlsRuleObjectOwnership',
@@ -172,6 +173,19 @@ class BucketInventoryConfigurationScheduleFrequency(str, Enum):
     """
     DAILY = "Daily"
     WEEKLY = "Weekly"
+
+
+class BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize(str, Enum):
+    """
+    Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+
+    - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
+    - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+
+    To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
+    """
+    VARIES_BY_STORAGE_CLASS = "varies_by_storage_class"
+    ALL_STORAGE_CLASSES128K = "all_storage_classes_128K"
 
 
 class BucketMetricsStatus(str, Enum):

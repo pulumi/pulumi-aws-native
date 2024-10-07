@@ -116,6 +116,226 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws_native from "@pulumi/aws-native";
  *
+ * const myJobRole = new aws_native.iam.Role("myJobRole", {
+ *     assumeRolePolicyDocument: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: ["glue.amazonaws.com"],
+ *             },
+ *             action: ["sts:AssumeRole"],
+ *         }],
+ *     },
+ *     path: "/",
+ *     policies: [{
+ *         policyName: "root",
+ *         policyDocument: {
+ *             version: "2012-10-17",
+ *             statement: [{
+ *                 effect: "Allow",
+ *                 action: "*",
+ *                 resource: "*",
+ *             }],
+ *         },
+ *     }],
+ * });
+ * const myJob = new aws_native.glue.Job("myJob", {
+ *     command: {
+ *         name: "glueetl",
+ *         scriptLocation: "s3://<your-S3-script-uri>",
+ *     },
+ *     defaultArguments: {
+ *         "--job-bookmark-option": "job-bookmark-enable",
+ *     },
+ *     executionProperty: {
+ *         maxConcurrentRuns: 2,
+ *     },
+ *     maxRetries: 0,
+ *     name: "cf-job1",
+ *     role: myJobRole.id,
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const myJobRole = new aws_native.iam.Role("myJobRole", {
+ *     assumeRolePolicyDocument: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: ["glue.amazonaws.com"],
+ *             },
+ *             action: ["sts:AssumeRole"],
+ *         }],
+ *     },
+ *     path: "/",
+ *     policies: [{
+ *         policyName: "root",
+ *         policyDocument: {
+ *             version: "2012-10-17",
+ *             statement: [{
+ *                 effect: "Allow",
+ *                 action: "*",
+ *                 resource: "*",
+ *             }],
+ *         },
+ *     }],
+ * });
+ * const myJob = new aws_native.glue.Job("myJob", {
+ *     command: {
+ *         name: "glueetl",
+ *         scriptLocation: "s3://<your-S3-script-uri>",
+ *     },
+ *     defaultArguments: {
+ *         "--job-bookmark-option": "job-bookmark-enable",
+ *     },
+ *     executionProperty: {
+ *         maxConcurrentRuns: 2,
+ *     },
+ *     maxRetries: 0,
+ *     name: "cf-job1",
+ *     role: myJobRole.id,
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const myJobTriggerRole = new aws_native.iam.Role("myJobTriggerRole", {
+ *     assumeRolePolicyDocument: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: ["glue.amazonaws.com"],
+ *             },
+ *             action: ["sts:AssumeRole"],
+ *         }],
+ *     },
+ *     path: "/",
+ *     policies: [{
+ *         policyName: "root",
+ *         policyDocument: {
+ *             version: "2012-10-17",
+ *             statement: [{
+ *                 effect: "Allow",
+ *                 action: "*",
+ *                 resource: "*",
+ *             }],
+ *         },
+ *     }],
+ * });
+ * const myJob = new aws_native.glue.Job("myJob", {
+ *     name: "MyJobTriggerJob",
+ *     logUri: "wikiData",
+ *     role: myJobTriggerRole.id,
+ *     command: {
+ *         name: "glueetl",
+ *         scriptLocation: "s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py",
+ *     },
+ *     defaultArguments: {
+ *         "--job-bookmark-option": "job-bookmark-enable",
+ *     },
+ *     maxRetries: 0,
+ * });
+ * const myJobTrigger = new aws_native.glue.Trigger("myJobTrigger", {
+ *     name: "MyJobTrigger",
+ *     type: "CONDITIONAL",
+ *     description: "Description for a conditional job trigger",
+ *     actions: [{
+ *         jobName: myJob.id,
+ *         arguments: {
+ *             "--job-bookmark-option": "job-bookmark-enable",
+ *         },
+ *     }],
+ *     predicate: {
+ *         conditions: [{
+ *             logicalOperator: "EQUALS",
+ *             jobName: myJob.id,
+ *             state: "SUCCEEDED",
+ *         }],
+ *     },
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const myJobTriggerRole = new aws_native.iam.Role("myJobTriggerRole", {
+ *     assumeRolePolicyDocument: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: ["glue.amazonaws.com"],
+ *             },
+ *             action: ["sts:AssumeRole"],
+ *         }],
+ *     },
+ *     path: "/",
+ *     policies: [{
+ *         policyName: "root",
+ *         policyDocument: {
+ *             version: "2012-10-17",
+ *             statement: [{
+ *                 effect: "Allow",
+ *                 action: "*",
+ *                 resource: "*",
+ *             }],
+ *         },
+ *     }],
+ * });
+ * const myJob = new aws_native.glue.Job("myJob", {
+ *     name: "MyJobTriggerJob",
+ *     logUri: "wikiData",
+ *     role: myJobTriggerRole.id,
+ *     command: {
+ *         name: "glueetl",
+ *         scriptLocation: "s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py",
+ *     },
+ *     defaultArguments: {
+ *         "--job-bookmark-option": "job-bookmark-enable",
+ *     },
+ *     maxRetries: 0,
+ * });
+ * const myJobTrigger = new aws_native.glue.Trigger("myJobTrigger", {
+ *     name: "MyJobTrigger",
+ *     type: "CONDITIONAL",
+ *     description: "Description for a conditional job trigger",
+ *     actions: [{
+ *         jobName: myJob.id,
+ *         arguments: {
+ *             "--job-bookmark-option": "job-bookmark-enable",
+ *         },
+ *     }],
+ *     predicate: {
+ *         conditions: [{
+ *             logicalOperator: "EQUALS",
+ *             jobName: myJob.id,
+ *             state: "SUCCEEDED",
+ *         }],
+ *     },
+ * });
+ *
+ * ```
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
  * const amazonGrafanaWorkspaceIAMRole = new aws_native.iam.Role("amazonGrafanaWorkspaceIAMRole", {
  *     managedPolicyArns: ["arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"],
  *     assumeRolePolicyDocument: {

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamSplunkBufferingHintsArgs>? BufferingHints { get; set; }
 
         /// <summary>
-        /// The Amazon CloudWatch logging options for your delivery stream.
+        /// The Amazon CloudWatch logging options for your Firehose stream.
         /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }

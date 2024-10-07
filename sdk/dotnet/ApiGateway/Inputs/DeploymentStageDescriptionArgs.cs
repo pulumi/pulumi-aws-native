@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         public Input<Inputs.DeploymentAccessLogSettingArgs>? AccessLogSetting { get; set; }
 
         /// <summary>
-        /// Specifies whether a cache cluster is enabled for the stage.
+        /// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         /// </summary>
         [Input("cacheClusterEnabled")]
         public Input<bool>? CacheClusterEnabled { get; set; }

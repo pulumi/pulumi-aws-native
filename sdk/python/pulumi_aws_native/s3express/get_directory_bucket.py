@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetDirectoryBucketResult',
@@ -47,11 +49,9 @@ class GetDirectoryBucketResult:
 
     @property
     @pulumi.getter(name="bucketEncryption")
-    def bucket_encryption(self) -> Optional[Any]:
+    def bucket_encryption(self) -> Optional['outputs.DirectoryBucketBucketEncryption']:
         """
         Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "bucket_encryption")
 

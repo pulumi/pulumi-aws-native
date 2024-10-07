@@ -175,6 +175,352 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myJobRole, err := iam.NewRole(ctx, "myJobRole", &iam.RoleArgs{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"glue.amazonaws.com",
+//								},
+//							},
+//							"action": []string{
+//								"sts:AssumeRole",
+//							},
+//						},
+//					},
+//				}),
+//				Path: pulumi.String("/"),
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyName: pulumi.String("root"),
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
+//								map[string]interface{}{
+//									"effect":   "Allow",
+//									"action":   "*",
+//									"resource": "*",
+//								},
+//							},
+//						}),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewJob(ctx, "myJob", &glue.JobArgs{
+//				Command: &glue.JobCommandArgs{
+//					Name:           pulumi.String("glueetl"),
+//					ScriptLocation: pulumi.String("s3://<your-S3-script-uri>"),
+//				},
+//				DefaultArguments: pulumi.Any(map[string]interface{}{
+//					"--job-bookmark-option": "job-bookmark-enable",
+//				}),
+//				ExecutionProperty: &glue.JobExecutionPropertyArgs{
+//					MaxConcurrentRuns: pulumi.Float64(2),
+//				},
+//				MaxRetries: pulumi.Float64(0),
+//				Name:       pulumi.String("cf-job1"),
+//				Role:       myJobRole.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myJobRole, err := iam.NewRole(ctx, "myJobRole", &iam.RoleArgs{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"glue.amazonaws.com",
+//								},
+//							},
+//							"action": []string{
+//								"sts:AssumeRole",
+//							},
+//						},
+//					},
+//				}),
+//				Path: pulumi.String("/"),
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyName: pulumi.String("root"),
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
+//								map[string]interface{}{
+//									"effect":   "Allow",
+//									"action":   "*",
+//									"resource": "*",
+//								},
+//							},
+//						}),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewJob(ctx, "myJob", &glue.JobArgs{
+//				Command: &glue.JobCommandArgs{
+//					Name:           pulumi.String("glueetl"),
+//					ScriptLocation: pulumi.String("s3://<your-S3-script-uri>"),
+//				},
+//				DefaultArguments: pulumi.Any(map[string]interface{}{
+//					"--job-bookmark-option": "job-bookmark-enable",
+//				}),
+//				ExecutionProperty: &glue.JobExecutionPropertyArgs{
+//					MaxConcurrentRuns: pulumi.Float64(2),
+//				},
+//				MaxRetries: pulumi.Float64(0),
+//				Name:       pulumi.String("cf-job1"),
+//				Role:       myJobRole.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myJobTriggerRole, err := iam.NewRole(ctx, "myJobTriggerRole", &iam.RoleArgs{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"glue.amazonaws.com",
+//								},
+//							},
+//							"action": []string{
+//								"sts:AssumeRole",
+//							},
+//						},
+//					},
+//				}),
+//				Path: pulumi.String("/"),
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyName: pulumi.String("root"),
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
+//								map[string]interface{}{
+//									"effect":   "Allow",
+//									"action":   "*",
+//									"resource": "*",
+//								},
+//							},
+//						}),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myJob, err := glue.NewJob(ctx, "myJob", &glue.JobArgs{
+//				Name:   pulumi.String("MyJobTriggerJob"),
+//				LogUri: pulumi.String("wikiData"),
+//				Role:   myJobTriggerRole.ID(),
+//				Command: &glue.JobCommandArgs{
+//					Name:           pulumi.String("glueetl"),
+//					ScriptLocation: pulumi.String("s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py"),
+//				},
+//				DefaultArguments: pulumi.Any(map[string]interface{}{
+//					"--job-bookmark-option": "job-bookmark-enable",
+//				}),
+//				MaxRetries: pulumi.Float64(0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewTrigger(ctx, "myJobTrigger", &glue.TriggerArgs{
+//				Name:        pulumi.String("MyJobTrigger"),
+//				Type:        pulumi.String("CONDITIONAL"),
+//				Description: pulumi.String("Description for a conditional job trigger"),
+//				Actions: glue.TriggerActionArray{
+//					&glue.TriggerActionArgs{
+//						JobName: myJob.ID(),
+//						Arguments: pulumi.Any(map[string]interface{}{
+//							"--job-bookmark-option": "job-bookmark-enable",
+//						}),
+//					},
+//				},
+//				Predicate: &glue.TriggerPredicateArgs{
+//					Conditions: glue.TriggerConditionArray{
+//						&glue.TriggerConditionArgs{
+//							LogicalOperator: pulumi.String("EQUALS"),
+//							JobName:         myJob.ID(),
+//							State:           pulumi.String("SUCCEEDED"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myJobTriggerRole, err := iam.NewRole(ctx, "myJobTriggerRole", &iam.RoleArgs{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"glue.amazonaws.com",
+//								},
+//							},
+//							"action": []string{
+//								"sts:AssumeRole",
+//							},
+//						},
+//					},
+//				}),
+//				Path: pulumi.String("/"),
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyName: pulumi.String("root"),
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
+//								map[string]interface{}{
+//									"effect":   "Allow",
+//									"action":   "*",
+//									"resource": "*",
+//								},
+//							},
+//						}),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myJob, err := glue.NewJob(ctx, "myJob", &glue.JobArgs{
+//				Name:   pulumi.String("MyJobTriggerJob"),
+//				LogUri: pulumi.String("wikiData"),
+//				Role:   myJobTriggerRole.ID(),
+//				Command: &glue.JobCommandArgs{
+//					Name:           pulumi.String("glueetl"),
+//					ScriptLocation: pulumi.String("s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py"),
+//				},
+//				DefaultArguments: pulumi.Any(map[string]interface{}{
+//					"--job-bookmark-option": "job-bookmark-enable",
+//				}),
+//				MaxRetries: pulumi.Float64(0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewTrigger(ctx, "myJobTrigger", &glue.TriggerArgs{
+//				Name:        pulumi.String("MyJobTrigger"),
+//				Type:        pulumi.String("CONDITIONAL"),
+//				Description: pulumi.String("Description for a conditional job trigger"),
+//				Actions: glue.TriggerActionArray{
+//					&glue.TriggerActionArgs{
+//						JobName: myJob.ID(),
+//						Arguments: pulumi.Any(map[string]interface{}{
+//							"--job-bookmark-option": "job-bookmark-enable",
+//						}),
+//					},
+//				},
+//				Predicate: &glue.TriggerPredicateArgs{
+//					Conditions: glue.TriggerConditionArray{
+//						&glue.TriggerConditionArgs{
+//							LogicalOperator: pulumi.String("EQUALS"),
+//							JobName:         myJob.ID(),
+//							State:           pulumi.String("SUCCEEDED"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/grafana"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"

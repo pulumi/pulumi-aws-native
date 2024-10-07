@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// </summary>
         public readonly Outputs.DeploymentAccessLogSetting? AccessLogSetting;
         /// <summary>
-        /// Specifies whether a cache cluster is enabled for the stage.
+        /// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         /// </summary>
         public readonly bool? CacheClusterEnabled;
         /// <summary>

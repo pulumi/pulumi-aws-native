@@ -23,21 +23,21 @@ func LookupCrawler(ctx *pulumi.Context, args *LookupCrawlerArgs, opts ...pulumi.
 }
 
 type LookupCrawlerArgs struct {
-	// The name of the crawler.
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
 }
 
 type LookupCrawlerResult struct {
 	// A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
 	Classifiers []string `pulumi:"classifiers"`
-	// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+	// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
 	Configuration *string `pulumi:"configuration"`
-	// The name of the SecurityConfiguration structure to be used by this crawler.
+	// The name of the `SecurityConfiguration` structure to be used by this crawler.
 	CrawlerSecurityConfiguration *string `pulumi:"crawlerSecurityConfiguration"`
 	// The name of the database in which the crawler's output is stored.
 	DatabaseName *string `pulumi:"databaseName"`
 	// A description of the crawler.
 	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
 	// Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
 	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
 	// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
@@ -80,8 +80,7 @@ func LookupCrawlerOutput(ctx *pulumi.Context, args LookupCrawlerOutputArgs, opts
 }
 
 type LookupCrawlerOutputArgs struct {
-	// The name of the crawler.
-	Name pulumi.StringInput `pulumi:"name"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupCrawlerOutputArgs) ElementType() reflect.Type {
@@ -107,12 +106,12 @@ func (o LookupCrawlerResultOutput) Classifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCrawlerResult) []string { return v.Classifiers }).(pulumi.StringArrayOutput)
 }
 
-// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+// Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
 func (o LookupCrawlerResultOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCrawlerResult) *string { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SecurityConfiguration structure to be used by this crawler.
+// The name of the `SecurityConfiguration` structure to be used by this crawler.
 func (o LookupCrawlerResultOutput) CrawlerSecurityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCrawlerResult) *string { return v.CrawlerSecurityConfiguration }).(pulumi.StringPtrOutput)
 }
@@ -125,6 +124,10 @@ func (o LookupCrawlerResultOutput) DatabaseName() pulumi.StringPtrOutput {
 // A description of the crawler.
 func (o LookupCrawlerResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCrawlerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCrawlerResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCrawlerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.

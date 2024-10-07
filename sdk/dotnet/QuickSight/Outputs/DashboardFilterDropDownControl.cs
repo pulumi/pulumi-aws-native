@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardCascadingControlConfiguration? CascadingControlConfiguration;
         /// <summary>
+        /// The visibility configuration of the Apply button on a `FilterDropDownControl` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.DashboardCommitMode? CommitMode;
+        /// <summary>
         /// The display options of the `FilterDropDownControl` .
         /// </summary>
         public readonly Outputs.DashboardDropDownControlDisplayOptions? DisplayOptions;
@@ -49,6 +53,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private DashboardFilterDropDownControl(
             Outputs.DashboardCascadingControlConfiguration? cascadingControlConfiguration,
 
+            Pulumi.AwsNative.QuickSight.DashboardCommitMode? commitMode,
+
             Outputs.DashboardDropDownControlDisplayOptions? displayOptions,
 
             string filterControlId,
@@ -62,6 +68,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.DashboardSheetControlListType? type)
         {
             CascadingControlConfiguration = cascadingControlConfiguration;
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             FilterControlId = filterControlId;
             SelectableValues = selectableValues;

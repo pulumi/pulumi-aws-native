@@ -756,7 +756,7 @@ import (
 type RestApi struct {
 	pulumi.CustomResourceState
 
-	// The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+	// The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 	ApiKeySourceType pulumi.StringPtrOutput `pulumi:"apiKeySourceType"`
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes pulumi.StringArrayOutput `pulumi:"binaryMediaTypes"`
@@ -770,11 +770,11 @@ type RestApi struct {
 	CloneFrom pulumi.StringPtrOutput `pulumi:"cloneFrom"`
 	// The description of the RestApi.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint pulumi.BoolPtrOutput `pulumi:"disableExecuteApiEndpoint"`
 	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration RestApiEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
-	// A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
 	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
 	MinimumCompressionSize pulumi.IntPtrOutput `pulumi:"minimumCompressionSize"`
@@ -787,7 +787,7 @@ type RestApi struct {
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	//
@@ -797,7 +797,7 @@ type RestApi struct {
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
-	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -841,7 +841,7 @@ func (RestApiState) ElementType() reflect.Type {
 }
 
 type restApiArgs struct {
-	// The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+	// The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 	ApiKeySourceType *string `pulumi:"apiKeySourceType"`
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
@@ -855,11 +855,11 @@ type restApiArgs struct {
 	CloneFrom *string `pulumi:"cloneFrom"`
 	// The description of the RestApi.
 	Description *string `pulumi:"description"`
-	// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
 	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
-	// A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
 	FailOnWarnings *bool `pulumi:"failOnWarnings"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
@@ -872,19 +872,19 @@ type restApiArgs struct {
 	Mode *string `pulumi:"mode"`
 	// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
 	Name *string `pulumi:"name"`
-	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
 	Parameters map[string]string `pulumi:"parameters"`
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
-	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestApi resource.
 type RestApiArgs struct {
-	// The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+	// The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 	ApiKeySourceType pulumi.StringPtrInput
 	// The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
 	BinaryMediaTypes pulumi.StringArrayInput
@@ -898,11 +898,11 @@ type RestApiArgs struct {
 	CloneFrom pulumi.StringPtrInput
 	// The description of the RestApi.
 	Description pulumi.StringPtrInput
-	// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
 	// A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
-	// A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
 	FailOnWarnings pulumi.BoolPtrInput
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
 	MinimumCompressionSize pulumi.IntPtrInput
@@ -915,13 +915,13 @@ type RestApiArgs struct {
 	Mode pulumi.StringPtrInput
 	// The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
 	Name pulumi.StringPtrInput
-	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+	// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
 	Parameters pulumi.StringMapInput
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
 	Policy pulumi.Input
-	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags aws.TagArrayInput
 }
 
@@ -962,7 +962,7 @@ func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOu
 	return o
 }
 
-// The source of the API key for metering requests according to a usage plan. Valid values are: “HEADER“ to read the API key from the “X-API-Key“ header of a request. “AUTHORIZER“ to read the API key from the “UsageIdentifierKey“ from a custom authorizer.
+// The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
 func (o RestApiOutput) ApiKeySourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.ApiKeySourceType }).(pulumi.StringPtrOutput)
 }
@@ -994,7 +994,7 @@ func (o RestApiOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether clients can invoke your API by using the default “execute-api“ endpoint. By default, clients can invoke your API with the default “https://{api_id}.execute-api.{region}.amazonaws.com“ endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 func (o RestApiOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.BoolPtrOutput { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -1004,7 +1004,7 @@ func (o RestApiOutput) EndpointConfiguration() RestApiEndpointConfigurationPtrOu
 	return o.ApplyT(func(v *RestApi) RestApiEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(RestApiEndpointConfigurationPtrOutput)
 }
 
-// A query parameter to indicate whether to rollback the API update (“true“) or not (“false“) when a warning is encountered. The default value is “false“.
+// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
 func (o RestApiOutput) FailOnWarnings() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.BoolPtrOutput { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
 }
@@ -1030,7 +1030,7 @@ func (o RestApiOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set “ignore=documentation“ as a “parameters“ value, as in the AWS CLI command of “aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'“.
+// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
 func (o RestApiOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -1052,7 +1052,7 @@ func (o RestApiOutput) RootResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.RootResourceId }).(pulumi.StringOutput)
 }
 
-// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with “aws:“. The tag value can be up to 256 characters.
+// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 func (o RestApiOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RestApi) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

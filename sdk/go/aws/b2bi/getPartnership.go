@@ -31,6 +31,8 @@ type LookupPartnershipArgs struct {
 type LookupPartnershipResult struct {
 	// Returns one or more capabilities associated with this partnership.
 	Capabilities []string `pulumi:"capabilities"`
+	// Contains the details for an Outbound EDI capability.
+	CapabilityOptions *PartnershipCapabilityOptions `pulumi:"capabilityOptions"`
 	// Returns a timestamp for creation date and time of the partnership.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Returns a timestamp that identifies the most recent date and time that the partnership was modified.
@@ -92,6 +94,11 @@ func (o LookupPartnershipResultOutput) ToLookupPartnershipResultOutputWithContex
 // Returns one or more capabilities associated with this partnership.
 func (o LookupPartnershipResultOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
+}
+
+// Contains the details for an Outbound EDI capability.
+func (o LookupPartnershipResultOutput) CapabilityOptions() PartnershipCapabilityOptionsPtrOutput {
+	return o.ApplyT(func(v LookupPartnershipResult) *PartnershipCapabilityOptions { return v.CapabilityOptions }).(PartnershipCapabilityOptionsPtrOutput)
 }
 
 // Returns a timestamp for creation date and time of the partnership.

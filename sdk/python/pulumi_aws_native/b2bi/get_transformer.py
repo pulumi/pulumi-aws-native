@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransformerResult:
-    def __init__(__self__, created_at=None, edi_type=None, file_format=None, mapping_template=None, modified_at=None, name=None, sample_document=None, status=None, tags=None, transformer_arn=None, transformer_id=None):
+    def __init__(__self__, created_at=None, edi_type=None, file_format=None, input_conversion=None, mapping=None, mapping_template=None, modified_at=None, name=None, output_conversion=None, sample_document=None, sample_documents=None, status=None, tags=None, transformer_arn=None, transformer_id=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -31,6 +31,12 @@ class GetTransformerResult:
         if file_format and not isinstance(file_format, str):
             raise TypeError("Expected argument 'file_format' to be a str")
         pulumi.set(__self__, "file_format", file_format)
+        if input_conversion and not isinstance(input_conversion, dict):
+            raise TypeError("Expected argument 'input_conversion' to be a dict")
+        pulumi.set(__self__, "input_conversion", input_conversion)
+        if mapping and not isinstance(mapping, dict):
+            raise TypeError("Expected argument 'mapping' to be a dict")
+        pulumi.set(__self__, "mapping", mapping)
         if mapping_template and not isinstance(mapping_template, str):
             raise TypeError("Expected argument 'mapping_template' to be a str")
         pulumi.set(__self__, "mapping_template", mapping_template)
@@ -40,9 +46,15 @@ class GetTransformerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if output_conversion and not isinstance(output_conversion, dict):
+            raise TypeError("Expected argument 'output_conversion' to be a dict")
+        pulumi.set(__self__, "output_conversion", output_conversion)
         if sample_document and not isinstance(sample_document, str):
             raise TypeError("Expected argument 'sample_document' to be a str")
         pulumi.set(__self__, "sample_document", sample_document)
+        if sample_documents and not isinstance(sample_documents, dict):
+            raise TypeError("Expected argument 'sample_documents' to be a dict")
+        pulumi.set(__self__, "sample_documents", sample_documents)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -67,24 +79,34 @@ class GetTransformerResult:
     @property
     @pulumi.getter(name="ediType")
     def edi_type(self) -> Optional['outputs.TransformerEdiTypeProperties']:
-        """
-        Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-        """
         return pulumi.get(self, "edi_type")
 
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional['TransformerFileFormat']:
-        """
-        Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-        """
         return pulumi.get(self, "file_format")
+
+    @property
+    @pulumi.getter(name="inputConversion")
+    def input_conversion(self) -> Optional['outputs.TransformerInputConversion']:
+        """
+        Returns a structure that contains the format options for the transformation.
+        """
+        return pulumi.get(self, "input_conversion")
+
+    @property
+    @pulumi.getter
+    def mapping(self) -> Optional['outputs.TransformerMapping']:
+        """
+        Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+        """
+        return pulumi.get(self, "mapping")
 
     @property
     @pulumi.getter(name="mappingTemplate")
     def mapping_template(self) -> Optional[str]:
         """
-        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         """
         return pulumi.get(self, "mapping_template")
 
@@ -105,12 +127,28 @@ class GetTransformerResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outputConversion")
+    def output_conversion(self) -> Optional['outputs.TransformerOutputConversion']:
+        """
+        Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+        """
+        return pulumi.get(self, "output_conversion")
+
+    @property
     @pulumi.getter(name="sampleDocument")
     def sample_document(self) -> Optional[str]:
         """
-        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         """
         return pulumi.get(self, "sample_document")
+
+    @property
+    @pulumi.getter(name="sampleDocuments")
+    def sample_documents(self) -> Optional['outputs.TransformerSampleDocuments']:
+        """
+        Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+        """
+        return pulumi.get(self, "sample_documents")
 
     @property
     @pulumi.getter
@@ -154,10 +192,14 @@ class AwaitableGetTransformerResult(GetTransformerResult):
             created_at=self.created_at,
             edi_type=self.edi_type,
             file_format=self.file_format,
+            input_conversion=self.input_conversion,
+            mapping=self.mapping,
             mapping_template=self.mapping_template,
             modified_at=self.modified_at,
             name=self.name,
+            output_conversion=self.output_conversion,
             sample_document=self.sample_document,
+            sample_documents=self.sample_documents,
             status=self.status,
             tags=self.tags,
             transformer_arn=self.transformer_arn,
@@ -181,10 +223,14 @@ def get_transformer(transformer_id: Optional[str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         edi_type=pulumi.get(__ret__, 'edi_type'),
         file_format=pulumi.get(__ret__, 'file_format'),
+        input_conversion=pulumi.get(__ret__, 'input_conversion'),
+        mapping=pulumi.get(__ret__, 'mapping'),
         mapping_template=pulumi.get(__ret__, 'mapping_template'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         name=pulumi.get(__ret__, 'name'),
+        output_conversion=pulumi.get(__ret__, 'output_conversion'),
         sample_document=pulumi.get(__ret__, 'sample_document'),
+        sample_documents=pulumi.get(__ret__, 'sample_documents'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         transformer_arn=pulumi.get(__ret__, 'transformer_arn'),

@@ -19,6 +19,8 @@ type Partnership struct {
 
 	// Returns one or more capabilities associated with this partnership.
 	Capabilities pulumi.StringArrayOutput `pulumi:"capabilities"`
+	// Contains the details for an Outbound EDI capability.
+	CapabilityOptions PartnershipCapabilityOptionsPtrOutput `pulumi:"capabilityOptions"`
 	// Returns a timestamp for creation date and time of the partnership.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	Email     pulumi.StringOutput `pulumi:"email"`
@@ -46,6 +48,9 @@ func NewPartnership(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Capabilities == nil {
+		return nil, errors.New("invalid value for required argument 'Capabilities'")
+	}
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
@@ -93,7 +98,9 @@ func (PartnershipState) ElementType() reflect.Type {
 type partnershipArgs struct {
 	// Returns one or more capabilities associated with this partnership.
 	Capabilities []string `pulumi:"capabilities"`
-	Email        string   `pulumi:"email"`
+	// Contains the details for an Outbound EDI capability.
+	CapabilityOptions *PartnershipCapabilityOptions `pulumi:"capabilityOptions"`
+	Email             string                        `pulumi:"email"`
 	// Returns the name of the partnership.
 	Name  *string `pulumi:"name"`
 	Phone *string `pulumi:"phone"`
@@ -107,7 +114,9 @@ type partnershipArgs struct {
 type PartnershipArgs struct {
 	// Returns one or more capabilities associated with this partnership.
 	Capabilities pulumi.StringArrayInput
-	Email        pulumi.StringInput
+	// Contains the details for an Outbound EDI capability.
+	CapabilityOptions PartnershipCapabilityOptionsPtrInput
+	Email             pulumi.StringInput
 	// Returns the name of the partnership.
 	Name  pulumi.StringPtrInput
 	Phone pulumi.StringPtrInput
@@ -157,6 +166,11 @@ func (o PartnershipOutput) ToPartnershipOutputWithContext(ctx context.Context) P
 // Returns one or more capabilities associated with this partnership.
 func (o PartnershipOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringArrayOutput { return v.Capabilities }).(pulumi.StringArrayOutput)
+}
+
+// Contains the details for an Outbound EDI capability.
+func (o PartnershipOutput) CapabilityOptions() PartnershipCapabilityOptionsPtrOutput {
+	return o.ApplyT(func(v *Partnership) PartnershipCapabilityOptionsPtrOutput { return v.CapabilityOptions }).(PartnershipCapabilityOptionsPtrOutput)
 }
 
 // Returns a timestamp for creation date and time of the partnership.

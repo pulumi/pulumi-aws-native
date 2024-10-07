@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateDefaultFilterDropDownControlOptions
     {
         /// <summary>
+        /// The visibility configuration of the Apply button on a `FilterDropDownControl` .
+        /// </summary>
+        public readonly Pulumi.AwsNative.QuickSight.TemplateCommitMode? CommitMode;
+        /// <summary>
         /// The display options of a control.
         /// </summary>
         public readonly Outputs.TemplateDropDownControlDisplayOptions? DisplayOptions;
@@ -31,12 +35,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateDefaultFilterDropDownControlOptions(
+            Pulumi.AwsNative.QuickSight.TemplateCommitMode? commitMode,
+
             Outputs.TemplateDropDownControlDisplayOptions? displayOptions,
 
             Outputs.TemplateFilterSelectableValues? selectableValues,
 
             Pulumi.AwsNative.QuickSight.TemplateSheetControlListType? type)
         {
+            CommitMode = commitMode;
             DisplayOptions = displayOptions;
             SelectableValues = selectableValues;
             Type = type;

@@ -1780,11 +1780,13 @@ _utilities.register(
   "classes": {
    "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:Database": "Database",
+   "aws-native:glue:Job": "Job",
    "aws-native:glue:Registry": "Registry",
    "aws-native:glue:Schema": "Schema",
    "aws-native:glue:SchemaVersion": "SchemaVersion",
    "aws-native:glue:SchemaVersionMetadata": "SchemaVersionMetadata",
-   "aws-native:glue:Trigger": "Trigger"
+   "aws-native:glue:Trigger": "Trigger",
+   "aws-native:glue:UsageProfile": "UsageProfile"
   }
  },
  {
@@ -2619,6 +2621,7 @@ _utilities.register(
    "aws-native:quicksight:Dashboard": "Dashboard",
    "aws-native:quicksight:DataSet": "DataSet",
    "aws-native:quicksight:DataSource": "DataSource",
+   "aws-native:quicksight:Folder": "Folder",
    "aws-native:quicksight:RefreshSchedule": "RefreshSchedule",
    "aws-native:quicksight:Template": "Template",
    "aws-native:quicksight:Theme": "Theme",
@@ -2910,7 +2913,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.secretsmanager",
   "classes": {
    "aws-native:secretsmanager:ResourcePolicy": "ResourcePolicy",
-   "aws-native:secretsmanager:Secret": "Secret"
+   "aws-native:secretsmanager:Secret": "Secret",
+   "aws-native:secretsmanager:SecretTargetAttachment": "SecretTargetAttachment"
   }
  },
  {

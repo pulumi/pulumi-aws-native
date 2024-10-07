@@ -2171,6 +2171,171 @@ func (in *analysisColumnRolePtr) ToAnalysisColumnRolePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisColumnRolePtrOutput)
 }
 
+type AnalysisCommitMode string
+
+const (
+	AnalysisCommitModeAuto   = AnalysisCommitMode("AUTO")
+	AnalysisCommitModeManual = AnalysisCommitMode("MANUAL")
+)
+
+func (AnalysisCommitMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisCommitMode)(nil)).Elem()
+}
+
+func (e AnalysisCommitMode) ToAnalysisCommitModeOutput() AnalysisCommitModeOutput {
+	return pulumi.ToOutput(e).(AnalysisCommitModeOutput)
+}
+
+func (e AnalysisCommitMode) ToAnalysisCommitModeOutputWithContext(ctx context.Context) AnalysisCommitModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisCommitModeOutput)
+}
+
+func (e AnalysisCommitMode) ToAnalysisCommitModePtrOutput() AnalysisCommitModePtrOutput {
+	return e.ToAnalysisCommitModePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisCommitMode) ToAnalysisCommitModePtrOutputWithContext(ctx context.Context) AnalysisCommitModePtrOutput {
+	return AnalysisCommitMode(e).ToAnalysisCommitModeOutputWithContext(ctx).ToAnalysisCommitModePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisCommitMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisCommitMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisCommitMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisCommitMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisCommitModeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisCommitModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisCommitMode)(nil)).Elem()
+}
+
+func (o AnalysisCommitModeOutput) ToAnalysisCommitModeOutput() AnalysisCommitModeOutput {
+	return o
+}
+
+func (o AnalysisCommitModeOutput) ToAnalysisCommitModeOutputWithContext(ctx context.Context) AnalysisCommitModeOutput {
+	return o
+}
+
+func (o AnalysisCommitModeOutput) ToAnalysisCommitModePtrOutput() AnalysisCommitModePtrOutput {
+	return o.ToAnalysisCommitModePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisCommitModeOutput) ToAnalysisCommitModePtrOutputWithContext(ctx context.Context) AnalysisCommitModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisCommitMode) *AnalysisCommitMode {
+		return &v
+	}).(AnalysisCommitModePtrOutput)
+}
+
+func (o AnalysisCommitModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisCommitModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisCommitMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisCommitModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisCommitModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisCommitMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisCommitModePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisCommitModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisCommitMode)(nil)).Elem()
+}
+
+func (o AnalysisCommitModePtrOutput) ToAnalysisCommitModePtrOutput() AnalysisCommitModePtrOutput {
+	return o
+}
+
+func (o AnalysisCommitModePtrOutput) ToAnalysisCommitModePtrOutputWithContext(ctx context.Context) AnalysisCommitModePtrOutput {
+	return o
+}
+
+func (o AnalysisCommitModePtrOutput) Elem() AnalysisCommitModeOutput {
+	return o.ApplyT(func(v *AnalysisCommitMode) AnalysisCommitMode {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisCommitMode
+		return ret
+	}).(AnalysisCommitModeOutput)
+}
+
+func (o AnalysisCommitModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisCommitModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisCommitMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisCommitModeInput is an input type that accepts values of the AnalysisCommitMode enum
+// A concrete instance of `AnalysisCommitModeInput` can be one of the following:
+//
+//	AnalysisCommitModeAuto
+//	AnalysisCommitModeManual
+type AnalysisCommitModeInput interface {
+	pulumi.Input
+
+	ToAnalysisCommitModeOutput() AnalysisCommitModeOutput
+	ToAnalysisCommitModeOutputWithContext(context.Context) AnalysisCommitModeOutput
+}
+
+var analysisCommitModePtrType = reflect.TypeOf((**AnalysisCommitMode)(nil)).Elem()
+
+type AnalysisCommitModePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisCommitModePtrOutput() AnalysisCommitModePtrOutput
+	ToAnalysisCommitModePtrOutputWithContext(context.Context) AnalysisCommitModePtrOutput
+}
+
+type analysisCommitModePtr string
+
+func AnalysisCommitModePtr(v string) AnalysisCommitModePtrInput {
+	return (*analysisCommitModePtr)(&v)
+}
+
+func (*analysisCommitModePtr) ElementType() reflect.Type {
+	return analysisCommitModePtrType
+}
+
+func (in *analysisCommitModePtr) ToAnalysisCommitModePtrOutput() AnalysisCommitModePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisCommitModePtrOutput)
+}
+
+func (in *analysisCommitModePtr) ToAnalysisCommitModePtrOutputWithContext(ctx context.Context) AnalysisCommitModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisCommitModePtrOutput)
+}
+
 type AnalysisComparisonMethod string
 
 const (
@@ -22080,6 +22245,171 @@ func (in *dashboardColumnRolePtr) ToDashboardColumnRolePtrOutput() DashboardColu
 
 func (in *dashboardColumnRolePtr) ToDashboardColumnRolePtrOutputWithContext(ctx context.Context) DashboardColumnRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardColumnRolePtrOutput)
+}
+
+type DashboardCommitMode string
+
+const (
+	DashboardCommitModeAuto   = DashboardCommitMode("AUTO")
+	DashboardCommitModeManual = DashboardCommitMode("MANUAL")
+)
+
+func (DashboardCommitMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCommitMode)(nil)).Elem()
+}
+
+func (e DashboardCommitMode) ToDashboardCommitModeOutput() DashboardCommitModeOutput {
+	return pulumi.ToOutput(e).(DashboardCommitModeOutput)
+}
+
+func (e DashboardCommitMode) ToDashboardCommitModeOutputWithContext(ctx context.Context) DashboardCommitModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardCommitModeOutput)
+}
+
+func (e DashboardCommitMode) ToDashboardCommitModePtrOutput() DashboardCommitModePtrOutput {
+	return e.ToDashboardCommitModePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardCommitMode) ToDashboardCommitModePtrOutputWithContext(ctx context.Context) DashboardCommitModePtrOutput {
+	return DashboardCommitMode(e).ToDashboardCommitModeOutputWithContext(ctx).ToDashboardCommitModePtrOutputWithContext(ctx)
+}
+
+func (e DashboardCommitMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardCommitMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardCommitMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardCommitMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardCommitModeOutput struct{ *pulumi.OutputState }
+
+func (DashboardCommitModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardCommitMode)(nil)).Elem()
+}
+
+func (o DashboardCommitModeOutput) ToDashboardCommitModeOutput() DashboardCommitModeOutput {
+	return o
+}
+
+func (o DashboardCommitModeOutput) ToDashboardCommitModeOutputWithContext(ctx context.Context) DashboardCommitModeOutput {
+	return o
+}
+
+func (o DashboardCommitModeOutput) ToDashboardCommitModePtrOutput() DashboardCommitModePtrOutput {
+	return o.ToDashboardCommitModePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardCommitModeOutput) ToDashboardCommitModePtrOutputWithContext(ctx context.Context) DashboardCommitModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCommitMode) *DashboardCommitMode {
+		return &v
+	}).(DashboardCommitModePtrOutput)
+}
+
+func (o DashboardCommitModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardCommitModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardCommitMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardCommitModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardCommitModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardCommitMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardCommitModePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardCommitModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardCommitMode)(nil)).Elem()
+}
+
+func (o DashboardCommitModePtrOutput) ToDashboardCommitModePtrOutput() DashboardCommitModePtrOutput {
+	return o
+}
+
+func (o DashboardCommitModePtrOutput) ToDashboardCommitModePtrOutputWithContext(ctx context.Context) DashboardCommitModePtrOutput {
+	return o
+}
+
+func (o DashboardCommitModePtrOutput) Elem() DashboardCommitModeOutput {
+	return o.ApplyT(func(v *DashboardCommitMode) DashboardCommitMode {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardCommitMode
+		return ret
+	}).(DashboardCommitModeOutput)
+}
+
+func (o DashboardCommitModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardCommitModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardCommitMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardCommitModeInput is an input type that accepts values of the DashboardCommitMode enum
+// A concrete instance of `DashboardCommitModeInput` can be one of the following:
+//
+//	DashboardCommitModeAuto
+//	DashboardCommitModeManual
+type DashboardCommitModeInput interface {
+	pulumi.Input
+
+	ToDashboardCommitModeOutput() DashboardCommitModeOutput
+	ToDashboardCommitModeOutputWithContext(context.Context) DashboardCommitModeOutput
+}
+
+var dashboardCommitModePtrType = reflect.TypeOf((**DashboardCommitMode)(nil)).Elem()
+
+type DashboardCommitModePtrInput interface {
+	pulumi.Input
+
+	ToDashboardCommitModePtrOutput() DashboardCommitModePtrOutput
+	ToDashboardCommitModePtrOutputWithContext(context.Context) DashboardCommitModePtrOutput
+}
+
+type dashboardCommitModePtr string
+
+func DashboardCommitModePtr(v string) DashboardCommitModePtrInput {
+	return (*dashboardCommitModePtr)(&v)
+}
+
+func (*dashboardCommitModePtr) ElementType() reflect.Type {
+	return dashboardCommitModePtrType
+}
+
+func (in *dashboardCommitModePtr) ToDashboardCommitModePtrOutput() DashboardCommitModePtrOutput {
+	return pulumi.ToOutput(in).(DashboardCommitModePtrOutput)
+}
+
+func (in *dashboardCommitModePtr) ToDashboardCommitModePtrOutputWithContext(ctx context.Context) DashboardCommitModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardCommitModePtrOutput)
 }
 
 type DashboardComparisonMethod string
@@ -42929,6 +43259,336 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
 }
 
+type FolderSharingModel string
+
+const (
+	FolderSharingModelAccount   = FolderSharingModel("ACCOUNT")
+	FolderSharingModelNamespace = FolderSharingModel("NAMESPACE")
+)
+
+func (FolderSharingModel) ElementType() reflect.Type {
+	return reflect.TypeOf((*FolderSharingModel)(nil)).Elem()
+}
+
+func (e FolderSharingModel) ToFolderSharingModelOutput() FolderSharingModelOutput {
+	return pulumi.ToOutput(e).(FolderSharingModelOutput)
+}
+
+func (e FolderSharingModel) ToFolderSharingModelOutputWithContext(ctx context.Context) FolderSharingModelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FolderSharingModelOutput)
+}
+
+func (e FolderSharingModel) ToFolderSharingModelPtrOutput() FolderSharingModelPtrOutput {
+	return e.ToFolderSharingModelPtrOutputWithContext(context.Background())
+}
+
+func (e FolderSharingModel) ToFolderSharingModelPtrOutputWithContext(ctx context.Context) FolderSharingModelPtrOutput {
+	return FolderSharingModel(e).ToFolderSharingModelOutputWithContext(ctx).ToFolderSharingModelPtrOutputWithContext(ctx)
+}
+
+func (e FolderSharingModel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FolderSharingModel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FolderSharingModel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FolderSharingModel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FolderSharingModelOutput struct{ *pulumi.OutputState }
+
+func (FolderSharingModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FolderSharingModel)(nil)).Elem()
+}
+
+func (o FolderSharingModelOutput) ToFolderSharingModelOutput() FolderSharingModelOutput {
+	return o
+}
+
+func (o FolderSharingModelOutput) ToFolderSharingModelOutputWithContext(ctx context.Context) FolderSharingModelOutput {
+	return o
+}
+
+func (o FolderSharingModelOutput) ToFolderSharingModelPtrOutput() FolderSharingModelPtrOutput {
+	return o.ToFolderSharingModelPtrOutputWithContext(context.Background())
+}
+
+func (o FolderSharingModelOutput) ToFolderSharingModelPtrOutputWithContext(ctx context.Context) FolderSharingModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FolderSharingModel) *FolderSharingModel {
+		return &v
+	}).(FolderSharingModelPtrOutput)
+}
+
+func (o FolderSharingModelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FolderSharingModelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FolderSharingModel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FolderSharingModelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FolderSharingModelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FolderSharingModel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FolderSharingModelPtrOutput struct{ *pulumi.OutputState }
+
+func (FolderSharingModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FolderSharingModel)(nil)).Elem()
+}
+
+func (o FolderSharingModelPtrOutput) ToFolderSharingModelPtrOutput() FolderSharingModelPtrOutput {
+	return o
+}
+
+func (o FolderSharingModelPtrOutput) ToFolderSharingModelPtrOutputWithContext(ctx context.Context) FolderSharingModelPtrOutput {
+	return o
+}
+
+func (o FolderSharingModelPtrOutput) Elem() FolderSharingModelOutput {
+	return o.ApplyT(func(v *FolderSharingModel) FolderSharingModel {
+		if v != nil {
+			return *v
+		}
+		var ret FolderSharingModel
+		return ret
+	}).(FolderSharingModelOutput)
+}
+
+func (o FolderSharingModelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FolderSharingModelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FolderSharingModel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FolderSharingModelInput is an input type that accepts values of the FolderSharingModel enum
+// A concrete instance of `FolderSharingModelInput` can be one of the following:
+//
+//	FolderSharingModelAccount
+//	FolderSharingModelNamespace
+type FolderSharingModelInput interface {
+	pulumi.Input
+
+	ToFolderSharingModelOutput() FolderSharingModelOutput
+	ToFolderSharingModelOutputWithContext(context.Context) FolderSharingModelOutput
+}
+
+var folderSharingModelPtrType = reflect.TypeOf((**FolderSharingModel)(nil)).Elem()
+
+type FolderSharingModelPtrInput interface {
+	pulumi.Input
+
+	ToFolderSharingModelPtrOutput() FolderSharingModelPtrOutput
+	ToFolderSharingModelPtrOutputWithContext(context.Context) FolderSharingModelPtrOutput
+}
+
+type folderSharingModelPtr string
+
+func FolderSharingModelPtr(v string) FolderSharingModelPtrInput {
+	return (*folderSharingModelPtr)(&v)
+}
+
+func (*folderSharingModelPtr) ElementType() reflect.Type {
+	return folderSharingModelPtrType
+}
+
+func (in *folderSharingModelPtr) ToFolderSharingModelPtrOutput() FolderSharingModelPtrOutput {
+	return pulumi.ToOutput(in).(FolderSharingModelPtrOutput)
+}
+
+func (in *folderSharingModelPtr) ToFolderSharingModelPtrOutputWithContext(ctx context.Context) FolderSharingModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FolderSharingModelPtrOutput)
+}
+
+type FolderType string
+
+const (
+	FolderTypeShared     = FolderType("SHARED")
+	FolderTypeRestricted = FolderType("RESTRICTED")
+)
+
+func (FolderType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FolderType)(nil)).Elem()
+}
+
+func (e FolderType) ToFolderTypeOutput() FolderTypeOutput {
+	return pulumi.ToOutput(e).(FolderTypeOutput)
+}
+
+func (e FolderType) ToFolderTypeOutputWithContext(ctx context.Context) FolderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FolderTypeOutput)
+}
+
+func (e FolderType) ToFolderTypePtrOutput() FolderTypePtrOutput {
+	return e.ToFolderTypePtrOutputWithContext(context.Background())
+}
+
+func (e FolderType) ToFolderTypePtrOutputWithContext(ctx context.Context) FolderTypePtrOutput {
+	return FolderType(e).ToFolderTypeOutputWithContext(ctx).ToFolderTypePtrOutputWithContext(ctx)
+}
+
+func (e FolderType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FolderType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FolderType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FolderType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FolderTypeOutput struct{ *pulumi.OutputState }
+
+func (FolderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FolderType)(nil)).Elem()
+}
+
+func (o FolderTypeOutput) ToFolderTypeOutput() FolderTypeOutput {
+	return o
+}
+
+func (o FolderTypeOutput) ToFolderTypeOutputWithContext(ctx context.Context) FolderTypeOutput {
+	return o
+}
+
+func (o FolderTypeOutput) ToFolderTypePtrOutput() FolderTypePtrOutput {
+	return o.ToFolderTypePtrOutputWithContext(context.Background())
+}
+
+func (o FolderTypeOutput) ToFolderTypePtrOutputWithContext(ctx context.Context) FolderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FolderType) *FolderType {
+		return &v
+	}).(FolderTypePtrOutput)
+}
+
+func (o FolderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FolderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FolderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FolderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FolderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FolderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FolderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FolderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FolderType)(nil)).Elem()
+}
+
+func (o FolderTypePtrOutput) ToFolderTypePtrOutput() FolderTypePtrOutput {
+	return o
+}
+
+func (o FolderTypePtrOutput) ToFolderTypePtrOutputWithContext(ctx context.Context) FolderTypePtrOutput {
+	return o
+}
+
+func (o FolderTypePtrOutput) Elem() FolderTypeOutput {
+	return o.ApplyT(func(v *FolderType) FolderType {
+		if v != nil {
+			return *v
+		}
+		var ret FolderType
+		return ret
+	}).(FolderTypeOutput)
+}
+
+func (o FolderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FolderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FolderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FolderTypeInput is an input type that accepts values of the FolderType enum
+// A concrete instance of `FolderTypeInput` can be one of the following:
+//
+//	FolderTypeShared
+//	FolderTypeRestricted
+type FolderTypeInput interface {
+	pulumi.Input
+
+	ToFolderTypeOutput() FolderTypeOutput
+	ToFolderTypeOutputWithContext(context.Context) FolderTypeOutput
+}
+
+var folderTypePtrType = reflect.TypeOf((**FolderType)(nil)).Elem()
+
+type FolderTypePtrInput interface {
+	pulumi.Input
+
+	ToFolderTypePtrOutput() FolderTypePtrOutput
+	ToFolderTypePtrOutputWithContext(context.Context) FolderTypePtrOutput
+}
+
+type folderTypePtr string
+
+func FolderTypePtr(v string) FolderTypePtrInput {
+	return (*folderTypePtr)(&v)
+}
+
+func (*folderTypePtr) ElementType() reflect.Type {
+	return folderTypePtrType
+}
+
+func (in *folderTypePtr) ToFolderTypePtrOutput() FolderTypePtrOutput {
+	return pulumi.ToOutput(in).(FolderTypePtrOutput)
+}
+
+func (in *folderTypePtr) ToFolderTypePtrOutputWithContext(ctx context.Context) FolderTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FolderTypePtrOutput)
+}
+
 // The type of refresh that a dataset undergoes. Valid values are as follows:
 //
 // - `FULL_REFRESH` : A complete refresh of a dataset.
@@ -45607,6 +46267,171 @@ func (in *templateColumnRolePtr) ToTemplateColumnRolePtrOutput() TemplateColumnR
 
 func (in *templateColumnRolePtr) ToTemplateColumnRolePtrOutputWithContext(ctx context.Context) TemplateColumnRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateColumnRolePtrOutput)
+}
+
+type TemplateCommitMode string
+
+const (
+	TemplateCommitModeAuto   = TemplateCommitMode("AUTO")
+	TemplateCommitModeManual = TemplateCommitMode("MANUAL")
+)
+
+func (TemplateCommitMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCommitMode)(nil)).Elem()
+}
+
+func (e TemplateCommitMode) ToTemplateCommitModeOutput() TemplateCommitModeOutput {
+	return pulumi.ToOutput(e).(TemplateCommitModeOutput)
+}
+
+func (e TemplateCommitMode) ToTemplateCommitModeOutputWithContext(ctx context.Context) TemplateCommitModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateCommitModeOutput)
+}
+
+func (e TemplateCommitMode) ToTemplateCommitModePtrOutput() TemplateCommitModePtrOutput {
+	return e.ToTemplateCommitModePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateCommitMode) ToTemplateCommitModePtrOutputWithContext(ctx context.Context) TemplateCommitModePtrOutput {
+	return TemplateCommitMode(e).ToTemplateCommitModeOutputWithContext(ctx).ToTemplateCommitModePtrOutputWithContext(ctx)
+}
+
+func (e TemplateCommitMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateCommitMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateCommitMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateCommitMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateCommitModeOutput struct{ *pulumi.OutputState }
+
+func (TemplateCommitModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCommitMode)(nil)).Elem()
+}
+
+func (o TemplateCommitModeOutput) ToTemplateCommitModeOutput() TemplateCommitModeOutput {
+	return o
+}
+
+func (o TemplateCommitModeOutput) ToTemplateCommitModeOutputWithContext(ctx context.Context) TemplateCommitModeOutput {
+	return o
+}
+
+func (o TemplateCommitModeOutput) ToTemplateCommitModePtrOutput() TemplateCommitModePtrOutput {
+	return o.ToTemplateCommitModePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCommitModeOutput) ToTemplateCommitModePtrOutputWithContext(ctx context.Context) TemplateCommitModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateCommitMode) *TemplateCommitMode {
+		return &v
+	}).(TemplateCommitModePtrOutput)
+}
+
+func (o TemplateCommitModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateCommitModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateCommitMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateCommitModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCommitModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateCommitMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateCommitModePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateCommitModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCommitMode)(nil)).Elem()
+}
+
+func (o TemplateCommitModePtrOutput) ToTemplateCommitModePtrOutput() TemplateCommitModePtrOutput {
+	return o
+}
+
+func (o TemplateCommitModePtrOutput) ToTemplateCommitModePtrOutputWithContext(ctx context.Context) TemplateCommitModePtrOutput {
+	return o
+}
+
+func (o TemplateCommitModePtrOutput) Elem() TemplateCommitModeOutput {
+	return o.ApplyT(func(v *TemplateCommitMode) TemplateCommitMode {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateCommitMode
+		return ret
+	}).(TemplateCommitModeOutput)
+}
+
+func (o TemplateCommitModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateCommitModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateCommitMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateCommitModeInput is an input type that accepts values of the TemplateCommitMode enum
+// A concrete instance of `TemplateCommitModeInput` can be one of the following:
+//
+//	TemplateCommitModeAuto
+//	TemplateCommitModeManual
+type TemplateCommitModeInput interface {
+	pulumi.Input
+
+	ToTemplateCommitModeOutput() TemplateCommitModeOutput
+	ToTemplateCommitModeOutputWithContext(context.Context) TemplateCommitModeOutput
+}
+
+var templateCommitModePtrType = reflect.TypeOf((**TemplateCommitMode)(nil)).Elem()
+
+type TemplateCommitModePtrInput interface {
+	pulumi.Input
+
+	ToTemplateCommitModePtrOutput() TemplateCommitModePtrOutput
+	ToTemplateCommitModePtrOutputWithContext(context.Context) TemplateCommitModePtrOutput
+}
+
+type templateCommitModePtr string
+
+func TemplateCommitModePtr(v string) TemplateCommitModePtrInput {
+	return (*templateCommitModePtr)(&v)
+}
+
+func (*templateCommitModePtr) ElementType() reflect.Type {
+	return templateCommitModePtrType
+}
+
+func (in *templateCommitModePtr) ToTemplateCommitModePtrOutput() TemplateCommitModePtrOutput {
+	return pulumi.ToOutput(in).(TemplateCommitModePtrOutput)
+}
+
+func (in *templateCommitModePtr) ToTemplateCommitModePtrOutputWithContext(ctx context.Context) TemplateCommitModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateCommitModePtrOutput)
 }
 
 type TemplateComparisonMethod string
@@ -67164,6 +67989,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorFillTypePtrInput)(nil)).Elem(), AnalysisColorFillType("DISCRETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnRoleInput)(nil)).Elem(), AnalysisColumnRole("DIMENSION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnRolePtrInput)(nil)).Elem(), AnalysisColumnRole("DIMENSION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCommitModeInput)(nil)).Elem(), AnalysisCommitMode("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCommitModePtrInput)(nil)).Elem(), AnalysisCommitMode("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisComparisonMethodInput)(nil)).Elem(), AnalysisComparisonMethod("DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisComparisonMethodPtrInput)(nil)).Elem(), AnalysisComparisonMethod("DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisConditionalFormattingIconDisplayOptionInput)(nil)).Elem(), AnalysisConditionalFormattingIconDisplayOption("ICON_ONLY"))
@@ -67402,6 +68229,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardColorFillTypePtrInput)(nil)).Elem(), DashboardColorFillType("DISCRETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardColumnRoleInput)(nil)).Elem(), DashboardColumnRole("DIMENSION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardColumnRolePtrInput)(nil)).Elem(), DashboardColumnRole("DIMENSION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCommitModeInput)(nil)).Elem(), DashboardCommitMode("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCommitModePtrInput)(nil)).Elem(), DashboardCommitMode("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComparisonMethodInput)(nil)).Elem(), DashboardComparisonMethod("DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComparisonMethodPtrInput)(nil)).Elem(), DashboardComparisonMethod("DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardConditionalFormattingIconDisplayOptionInput)(nil)).Elem(), DashboardConditionalFormattingIconDisplayOption("ICON_ONLY"))
@@ -67647,6 +68476,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceStarburstProductTypePtrInput)(nil)).Elem(), DataSourceStarburstProductType("GALAXY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FolderSharingModelInput)(nil)).Elem(), FolderSharingModel("ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FolderSharingModelPtrInput)(nil)).Elem(), FolderSharingModel("ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FolderTypeInput)(nil)).Elem(), FolderType("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FolderTypePtrInput)(nil)).Elem(), FolderType("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapRefreshTypeInput)(nil)).Elem(), RefreshScheduleMapRefreshType("FULL_REFRESH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapRefreshTypePtrInput)(nil)).Elem(), RefreshScheduleMapRefreshType("FULL_REFRESH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE15"))
@@ -67679,6 +68512,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColorFillTypePtrInput)(nil)).Elem(), TemplateColorFillType("DISCRETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnRoleInput)(nil)).Elem(), TemplateColumnRole("DIMENSION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnRolePtrInput)(nil)).Elem(), TemplateColumnRole("DIMENSION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCommitModeInput)(nil)).Elem(), TemplateCommitMode("AUTO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCommitModePtrInput)(nil)).Elem(), TemplateCommitMode("AUTO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateComparisonMethodInput)(nil)).Elem(), TemplateComparisonMethod("DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateComparisonMethodPtrInput)(nil)).Elem(), TemplateComparisonMethod("DIFFERENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateConditionalFormattingIconDisplayOptionInput)(nil)).Elem(), TemplateConditionalFormattingIconDisplayOption("ICON_ONLY"))
@@ -67954,6 +68789,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisColorFillTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnRoleOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnRolePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisCommitModeOutput{})
+	pulumi.RegisterOutputType(AnalysisCommitModePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisComparisonMethodOutput{})
 	pulumi.RegisterOutputType(AnalysisComparisonMethodPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisConditionalFormattingIconDisplayOptionOutput{})
@@ -68192,6 +69029,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardColorFillTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardColumnRoleOutput{})
 	pulumi.RegisterOutputType(DashboardColumnRolePtrOutput{})
+	pulumi.RegisterOutputType(DashboardCommitModeOutput{})
+	pulumi.RegisterOutputType(DashboardCommitModePtrOutput{})
 	pulumi.RegisterOutputType(DashboardComparisonMethodOutput{})
 	pulumi.RegisterOutputType(DashboardComparisonMethodPtrOutput{})
 	pulumi.RegisterOutputType(DashboardConditionalFormattingIconDisplayOptionOutput{})
@@ -68443,6 +69282,10 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceStarburstProductTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(FolderSharingModelOutput{})
+	pulumi.RegisterOutputType(FolderSharingModelPtrOutput{})
+	pulumi.RegisterOutputType(FolderTypeOutput{})
+	pulumi.RegisterOutputType(FolderTypePtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapRefreshTypeOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapRefreshTypePtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput{})
@@ -68475,6 +69318,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateColorFillTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateColumnRoleOutput{})
 	pulumi.RegisterOutputType(TemplateColumnRolePtrOutput{})
+	pulumi.RegisterOutputType(TemplateCommitModeOutput{})
+	pulumi.RegisterOutputType(TemplateCommitModePtrOutput{})
 	pulumi.RegisterOutputType(TemplateComparisonMethodOutput{})
 	pulumi.RegisterOutputType(TemplateComparisonMethodPtrOutput{})
 	pulumi.RegisterOutputType(TemplateConditionalFormattingIconDisplayOptionOutput{})

@@ -58,13 +58,31 @@ namespace Pulumi.AwsNative.IoT
     public sealed class GetDomainConfigurationResult
     {
         /// <summary>
+        /// An enumerated string that speciﬁes the application-layer protocol.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        public readonly Pulumi.AwsNative.IoT.DomainConfigurationApplicationProtocol? ApplicationProtocol;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the domain configuration.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// An enumerated string that speciﬁes the authentication type.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        public readonly Pulumi.AwsNative.IoT.DomainConfigurationAuthenticationType? AuthenticationType;
+        /// <summary>
         /// An object that specifies the authorization service for a domain.
         /// </summary>
         public readonly Outputs.DomainConfigurationAuthorizerConfig? AuthorizerConfig;
+        /// <summary>
+        /// An object that speciﬁes the client certificate conﬁguration for a domain.
+        /// 
+        /// &gt; This property isn't available in China.
+        /// </summary>
+        public readonly Outputs.DomainConfigurationClientCertificateConfig? ClientCertificateConfig;
         /// <summary>
         /// The status to which the domain configuration should be updated.
         /// 
@@ -102,9 +120,15 @@ namespace Pulumi.AwsNative.IoT
 
         [OutputConstructor]
         private GetDomainConfigurationResult(
+            Pulumi.AwsNative.IoT.DomainConfigurationApplicationProtocol? applicationProtocol,
+
             string? arn,
 
+            Pulumi.AwsNative.IoT.DomainConfigurationAuthenticationType? authenticationType,
+
             Outputs.DomainConfigurationAuthorizerConfig? authorizerConfig,
+
+            Outputs.DomainConfigurationClientCertificateConfig? clientCertificateConfig,
 
             Pulumi.AwsNative.IoT.DomainConfigurationStatus? domainConfigurationStatus,
 
@@ -118,8 +142,11 @@ namespace Pulumi.AwsNative.IoT
 
             Outputs.DomainConfigurationTlsConfig? tlsConfig)
         {
+            ApplicationProtocol = applicationProtocol;
             Arn = arn;
+            AuthenticationType = authenticationType;
             AuthorizerConfig = authorizerConfig;
+            ClientCertificateConfig = clientCertificateConfig;
             DomainConfigurationStatus = domainConfigurationStatus;
             DomainType = domainType;
             ServerCertificateConfig = serverCertificateConfig;

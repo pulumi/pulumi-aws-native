@@ -303,6 +303,77 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
+    /// An enumerated string that speciﬁes the application-layer protocol.
+    /// 
+    /// &gt; This property isn't available in China.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainConfigurationApplicationProtocol : IEquatable<DomainConfigurationApplicationProtocol>
+    {
+        private readonly string _value;
+
+        private DomainConfigurationApplicationProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainConfigurationApplicationProtocol SecureMqtt { get; } = new DomainConfigurationApplicationProtocol("SECURE_MQTT");
+        public static DomainConfigurationApplicationProtocol MqttWss { get; } = new DomainConfigurationApplicationProtocol("MQTT_WSS");
+        public static DomainConfigurationApplicationProtocol Https { get; } = new DomainConfigurationApplicationProtocol("HTTPS");
+        public static DomainConfigurationApplicationProtocol Default { get; } = new DomainConfigurationApplicationProtocol("DEFAULT");
+
+        public static bool operator ==(DomainConfigurationApplicationProtocol left, DomainConfigurationApplicationProtocol right) => left.Equals(right);
+        public static bool operator !=(DomainConfigurationApplicationProtocol left, DomainConfigurationApplicationProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(DomainConfigurationApplicationProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainConfigurationApplicationProtocol other && Equals(other);
+        public bool Equals(DomainConfigurationApplicationProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// An enumerated string that speciﬁes the authentication type.
+    /// 
+    /// &gt; This property isn't available in China.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainConfigurationAuthenticationType : IEquatable<DomainConfigurationAuthenticationType>
+    {
+        private readonly string _value;
+
+        private DomainConfigurationAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainConfigurationAuthenticationType AwsX509 { get; } = new DomainConfigurationAuthenticationType("AWS_X509");
+        public static DomainConfigurationAuthenticationType CustomAuth { get; } = new DomainConfigurationAuthenticationType("CUSTOM_AUTH");
+        public static DomainConfigurationAuthenticationType AwsSigv4 { get; } = new DomainConfigurationAuthenticationType("AWS_SIGV4");
+        public static DomainConfigurationAuthenticationType CustomAuthX509 { get; } = new DomainConfigurationAuthenticationType("CUSTOM_AUTH_X509");
+        public static DomainConfigurationAuthenticationType Default { get; } = new DomainConfigurationAuthenticationType("DEFAULT");
+
+        public static bool operator ==(DomainConfigurationAuthenticationType left, DomainConfigurationAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(DomainConfigurationAuthenticationType left, DomainConfigurationAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainConfigurationAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainConfigurationAuthenticationType other && Equals(other);
+        public bool Equals(DomainConfigurationAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of service delivered by the domain.
     /// </summary>
     [EnumType]

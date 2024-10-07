@@ -15,15 +15,9 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     /// </summary>
     public sealed class UsagePlanThrottleSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
-        /// </summary>
         [Input("burstLimit")]
         public Input<int>? BurstLimit { get; set; }
 
-        /// <summary>
-        /// The API target request rate limit.
-        /// </summary>
         [Input("rateLimit")]
         public Input<double>? RateLimit { get; set; }
 

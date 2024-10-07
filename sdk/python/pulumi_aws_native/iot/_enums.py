@@ -14,6 +14,8 @@ __all__ = [
     'CertificateStatus',
     'CustomMetricMetricType',
     'DimensionType',
+    'DomainConfigurationApplicationProtocol',
+    'DomainConfigurationAuthenticationType',
     'DomainConfigurationDomainType',
     'DomainConfigurationServerCertificateSummaryServerCertificateStatus',
     'DomainConfigurationServiceType',
@@ -127,6 +129,31 @@ class DimensionType(str, Enum):
     Specifies the type of the dimension.
     """
     TOPIC_FILTER = "TOPIC_FILTER"
+
+
+class DomainConfigurationApplicationProtocol(str, Enum):
+    """
+    An enumerated string that speciﬁes the application-layer protocol.
+
+    > This property isn't available in China.
+    """
+    SECURE_MQTT = "SECURE_MQTT"
+    MQTT_WSS = "MQTT_WSS"
+    HTTPS = "HTTPS"
+    DEFAULT = "DEFAULT"
+
+
+class DomainConfigurationAuthenticationType(str, Enum):
+    """
+    An enumerated string that speciﬁes the authentication type.
+
+    > This property isn't available in China.
+    """
+    AWS_X509 = "AWS_X509"
+    CUSTOM_AUTH = "CUSTOM_AUTH"
+    AWS_SIGV4 = "AWS_SIGV4"
+    CUSTOM_AUTH_X509 = "CUSTOM_AUTH_X509"
+    DEFAULT = "DEFAULT"
 
 
 class DomainConfigurationDomainType(str, Enum):

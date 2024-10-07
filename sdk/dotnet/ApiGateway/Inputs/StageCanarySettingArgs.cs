@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    /// <summary>
-    /// Configuration settings of a canary deployment.
-    /// </summary>
     public sealed class StageCanarySettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

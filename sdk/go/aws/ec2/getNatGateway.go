@@ -35,7 +35,7 @@ type LookupNatGatewayArgs struct {
 type LookupNatGatewayResult struct {
 	// The ID of the NAT gateway.
 	NatGatewayId *string `pulumi:"natGatewayId"`
-	// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+	// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
 	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
 	// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
 	//   ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
@@ -94,7 +94,7 @@ func (o LookupNatGatewayResultOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
 func (o LookupNatGatewayResultOutput) SecondaryAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.SecondaryAllocationIds }).(pulumi.StringArrayOutput)
 }

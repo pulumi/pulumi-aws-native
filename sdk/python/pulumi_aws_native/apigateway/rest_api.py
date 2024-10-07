@@ -35,7 +35,7 @@ class RestApiArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RestApi resource.
-        :param pulumi.Input[str] api_key_source_type: The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        :param pulumi.Input[str] api_key_source_type: The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] binary_media_types: The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
         :param Any body: An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
                
@@ -43,9 +43,9 @@ class RestApiArgs:
         :param pulumi.Input['RestApiS3LocationArgs'] body_s3_location: The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
         :param pulumi.Input[str] clone_from: The ID of the RestApi that you want to clone from.
         :param pulumi.Input[str] description: The description of the RestApi.
-        :param pulumi.Input[bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        :param pulumi.Input[bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         :param pulumi.Input['RestApiEndpointConfigurationArgs'] endpoint_configuration: A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
-        :param pulumi.Input[bool] fail_on_warnings: A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+        :param pulumi.Input[bool] fail_on_warnings: A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         :param pulumi.Input[int] minimum_compression_size: A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
         :param pulumi.Input[str] mode: This property applies only when you use OpenAPI to define your REST API. The ``Mode`` determines how API Gateway handles resource updates.
                 Valid values are ``overwrite`` or ``merge``. 
@@ -54,11 +54,11 @@ class RestApiArgs:
                 If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is ``overwrite``. For REST APIs created after March 29, 2021, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. 
                 Use the default mode to define top-level ``RestApi`` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
         :param pulumi.Input[str] name: The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
         :param Any policy: A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         if api_key_source_type is not None:
             pulumi.set(__self__, "api_key_source_type", api_key_source_type)
@@ -95,7 +95,7 @@ class RestApiArgs:
     @pulumi.getter(name="apiKeySourceType")
     def api_key_source_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
         """
         return pulumi.get(self, "api_key_source_type")
 
@@ -169,7 +169,7 @@ class RestApiArgs:
     @pulumi.getter(name="disableExecuteApiEndpoint")
     def disable_execute_api_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
@@ -193,7 +193,7 @@ class RestApiArgs:
     @pulumi.getter(name="failOnWarnings")
     def fail_on_warnings(self) -> Optional[pulumi.Input[bool]]:
         """
-        A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+        A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         """
         return pulumi.get(self, "fail_on_warnings")
 
@@ -246,7 +246,7 @@ class RestApiArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+        Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
         """
         return pulumi.get(self, "parameters")
 
@@ -272,7 +272,7 @@ class RestApiArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         return pulumi.get(self, "tags")
 
@@ -704,7 +704,7 @@ class RestApi(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_key_source_type: The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        :param pulumi.Input[str] api_key_source_type: The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] binary_media_types: The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
         :param Any body: An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
                
@@ -712,9 +712,9 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict']] body_s3_location: The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
         :param pulumi.Input[str] clone_from: The ID of the RestApi that you want to clone from.
         :param pulumi.Input[str] description: The description of the RestApi.
-        :param pulumi.Input[bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        :param pulumi.Input[bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         :param pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']] endpoint_configuration: A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
-        :param pulumi.Input[bool] fail_on_warnings: A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+        :param pulumi.Input[bool] fail_on_warnings: A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         :param pulumi.Input[int] minimum_compression_size: A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
         :param pulumi.Input[str] mode: This property applies only when you use OpenAPI to define your REST API. The ``Mode`` determines how API Gateway handles resource updates.
                 Valid values are ``overwrite`` or ``merge``. 
@@ -723,11 +723,11 @@ class RestApi(pulumi.CustomResource):
                 If you don't specify this property, a default value is chosen. For REST APIs created before March 29, 2021, the default is ``overwrite``. For REST APIs created after March 29, 2021, the new API definition takes precedence, but any container types such as endpoint configurations and binary media types are merged with the existing API. 
                 Use the default mode to define top-level ``RestApi`` properties in addition to using OpenAPI. Generally, it's preferred to use API Gateway's OpenAPI extensions to model these properties.
         :param pulumi.Input[str] name: The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
         :param Any policy: A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         ...
     @overload
@@ -1236,7 +1236,7 @@ class RestApi(pulumi.CustomResource):
     @pulumi.getter(name="apiKeySourceType")
     def api_key_source_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
         """
         return pulumi.get(self, "api_key_source_type")
 
@@ -1286,7 +1286,7 @@ class RestApi(pulumi.CustomResource):
     @pulumi.getter(name="disableExecuteApiEndpoint")
     def disable_execute_api_endpoint(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
@@ -1302,7 +1302,7 @@ class RestApi(pulumi.CustomResource):
     @pulumi.getter(name="failOnWarnings")
     def fail_on_warnings(self) -> pulumi.Output[Optional[bool]]:
         """
-        A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+        A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         """
         return pulumi.get(self, "fail_on_warnings")
 
@@ -1339,7 +1339,7 @@ class RestApi(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+        Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
         """
         return pulumi.get(self, "parameters")
 
@@ -1373,7 +1373,7 @@ class RestApi(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         return pulumi.get(self, "tags")
 

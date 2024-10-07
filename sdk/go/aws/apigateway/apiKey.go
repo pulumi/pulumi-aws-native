@@ -84,20 +84,20 @@ type ApiKey struct {
 
 	// The ID for the API key. For example: `abc123` .
 	ApiKeyId pulumi.StringOutput `pulumi:"apiKeyId"`
-	// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+	// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
 	CustomerId pulumi.StringPtrOutput `pulumi:"customerId"`
 	// The description of the ApiKey.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether the ApiKey can be used by callers.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
 	GenerateDistinctId pulumi.BoolPtrOutput `pulumi:"generateDistinctId"`
 	// A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys ApiKeyStageKeyArrayOutput `pulumi:"stageKeys"`
-	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies a value of the API key.
 	Value pulumi.StringPtrOutput `pulumi:"value"`
@@ -149,20 +149,20 @@ func (ApiKeyState) ElementType() reflect.Type {
 }
 
 type apiKeyArgs struct {
-	// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+	// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
 	CustomerId *string `pulumi:"customerId"`
 	// The description of the ApiKey.
 	Description *string `pulumi:"description"`
 	// Specifies whether the ApiKey can be used by callers.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
 	GenerateDistinctId *bool `pulumi:"generateDistinctId"`
 	// A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	Name *string `pulumi:"name"`
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys []ApiKeyStageKey `pulumi:"stageKeys"`
-	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies a value of the API key.
 	Value *string `pulumi:"value"`
@@ -170,20 +170,20 @@ type apiKeyArgs struct {
 
 // The set of arguments for constructing a ApiKey resource.
 type ApiKeyArgs struct {
-	// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+	// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
 	CustomerId pulumi.StringPtrInput
 	// The description of the ApiKey.
 	Description pulumi.StringPtrInput
 	// Specifies whether the ApiKey can be used by callers.
 	Enabled pulumi.BoolPtrInput
-	// Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+	// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
 	GenerateDistinctId pulumi.BoolPtrInput
 	// A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	Name pulumi.StringPtrInput
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys ApiKeyStageKeyArrayInput
-	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags aws.TagArrayInput
 	// Specifies a value of the API key.
 	Value pulumi.StringPtrInput
@@ -231,7 +231,7 @@ func (o ApiKeyOutput) ApiKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKeyId }).(pulumi.StringOutput)
 }
 
-// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
 func (o ApiKeyOutput) CustomerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.CustomerId }).(pulumi.StringPtrOutput)
 }
@@ -246,7 +246,7 @@ func (o ApiKeyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether (“true“) or not (“false“) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
 func (o ApiKeyOutput) GenerateDistinctId() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.BoolPtrOutput { return v.GenerateDistinctId }).(pulumi.BoolPtrOutput)
 }
@@ -263,7 +263,7 @@ func (o ApiKeyOutput) StageKeys() ApiKeyStageKeyArrayOutput {
 	return o.ApplyT(func(v *ApiKey) ApiKeyStageKeyArrayOutput { return v.StageKeys }).(ApiKeyStageKeyArrayOutput)
 }
 
-// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with “aws:“. The tag value can be up to 256 characters.
+// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 func (o ApiKeyOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ApiKey) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CapabilityDirection = {
+    Inbound: "INBOUND",
+    Outbound: "OUTBOUND",
+} as const;
+
+export type CapabilityDirection = (typeof CapabilityDirection)[keyof typeof CapabilityDirection];
+
 export const CapabilityType = {
     Edi: "edi",
 } as const;
@@ -107,9 +114,23 @@ export type ProfileLogging = (typeof ProfileLogging)[keyof typeof ProfileLogging
 export const TransformerFileFormat = {
     Xml: "XML",
     Json: "JSON",
+    NotUsed: "NOT_USED",
 } as const;
 
 export type TransformerFileFormat = (typeof TransformerFileFormat)[keyof typeof TransformerFileFormat];
+
+export const TransformerFromFormat = {
+    X12: "X12",
+} as const;
+
+export type TransformerFromFormat = (typeof TransformerFromFormat)[keyof typeof TransformerFromFormat];
+
+export const TransformerMappingTemplateLanguage = {
+    Xslt: "XSLT",
+    Jsonata: "JSONATA",
+} as const;
+
+export type TransformerMappingTemplateLanguage = (typeof TransformerMappingTemplateLanguage)[keyof typeof TransformerMappingTemplateLanguage];
 
 export const TransformerStatus = {
     Active: "active",
@@ -117,6 +138,12 @@ export const TransformerStatus = {
 } as const;
 
 export type TransformerStatus = (typeof TransformerStatus)[keyof typeof TransformerStatus];
+
+export const TransformerToFormat = {
+    X12: "X12",
+} as const;
+
+export type TransformerToFormat = (typeof TransformerToFormat)[keyof typeof TransformerToFormat];
 
 export const TransformerX12TransactionSet = {
     X12110: "X12_110",

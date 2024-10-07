@@ -49,7 +49,7 @@ class GetRequestValidatorResult:
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> Optional[bool]:
         """
-        A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+        A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
         """
         return pulumi.get(self, "validate_request_parameters")
 

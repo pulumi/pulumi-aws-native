@@ -31,7 +31,7 @@ type LookupApiKeyArgs struct {
 type LookupApiKeyResult struct {
 	// The ID for the API key. For example: `abc123` .
 	ApiKeyId *string `pulumi:"apiKeyId"`
-	// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+	// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
 	CustomerId *string `pulumi:"customerId"`
 	// The description of the ApiKey.
 	Description *string `pulumi:"description"`
@@ -39,7 +39,7 @@ type LookupApiKeyResult struct {
 	Enabled *bool `pulumi:"enabled"`
 	// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 	StageKeys []ApiKeyStageKey `pulumi:"stageKeys"`
-	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -90,7 +90,7 @@ func (o LookupApiKeyResultOutput) ApiKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.ApiKeyId }).(pulumi.StringPtrOutput)
 }
 
-// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
 func (o LookupApiKeyResultOutput) CustomerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.CustomerId }).(pulumi.StringPtrOutput)
 }
@@ -110,7 +110,7 @@ func (o LookupApiKeyResultOutput) StageKeys() ApiKeyStageKeyArrayOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) []ApiKeyStageKey { return v.StageKeys }).(ApiKeyStageKeyArrayOutput)
 }
 
-// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with “aws:“. The tag value can be up to 256 characters.
+// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 func (o LookupApiKeyResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

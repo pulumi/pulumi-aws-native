@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<bool?> ValidateRequestBody { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+        /// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
         /// </summary>
         [Output("validateRequestParameters")]
         public Output<bool?> ValidateRequestParameters { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<bool>? ValidateRequestBody { get; set; }
 
         /// <summary>
-        /// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+        /// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
         /// </summary>
         [Input("validateRequestParameters")]
         public Input<bool>? ValidateRequestParameters { get; set; }

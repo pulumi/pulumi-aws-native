@@ -70,7 +70,7 @@ class GetStageResult:
     @pulumi.getter(name="cacheClusterEnabled")
     def cache_cluster_enabled(self) -> Optional[bool]:
         """
-        Specifies whether a cache cluster is enabled for the stage.
+        Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
@@ -78,7 +78,7 @@ class GetStageResult:
     @pulumi.getter(name="cacheClusterSize")
     def cache_cluster_size(self) -> Optional[str]:
         """
-        The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+        The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
         """
         return pulumi.get(self, "cache_cluster_size")
 
@@ -126,7 +126,7 @@ class GetStageResult:
     @pulumi.getter(name="methodSettings")
     def method_settings(self) -> Optional[Sequence['outputs.StageMethodSetting']]:
         """
-        A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\\*/\\*`` for overriding all methods in the stage.
+        A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\\*/\\*` for overriding all methods in the stage.
         """
         return pulumi.get(self, "method_settings")
 

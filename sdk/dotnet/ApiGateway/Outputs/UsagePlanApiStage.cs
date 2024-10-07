@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
-    /// <summary>
-    /// API stage name of the associated API stage in a usage plan.
-    /// </summary>
     [OutputType]
     public sealed class UsagePlanApiStage
     {

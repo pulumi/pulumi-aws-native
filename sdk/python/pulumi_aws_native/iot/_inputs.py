@@ -19,6 +19,7 @@ __all__ = [
     'BillingGroupPropertiesPropertiesArgs',
     'CaCertificateRegistrationConfigArgs',
     'DomainConfigurationAuthorizerConfigArgs',
+    'DomainConfigurationClientCertificateConfigArgs',
     'DomainConfigurationServerCertificateConfigArgs',
     'DomainConfigurationTlsConfigArgs',
     'FleetMetricAggregationTypeArgs',
@@ -600,6 +601,33 @@ class DomainConfigurationAuthorizerConfigArgs:
     @default_authorizer_name.setter
     def default_authorizer_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_authorizer_name", value)
+
+
+@pulumi.input_type
+class DomainConfigurationClientCertificateConfigArgs:
+    def __init__(__self__, *,
+                 client_certificate_callback_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_certificate_callback_arn: The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+               
+               > This property isn't available in China.
+        """
+        if client_certificate_callback_arn is not None:
+            pulumi.set(__self__, "client_certificate_callback_arn", client_certificate_callback_arn)
+
+    @property
+    @pulumi.getter(name="clientCertificateCallbackArn")
+    def client_certificate_callback_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
+
+        > This property isn't available in China.
+        """
+        return pulumi.get(self, "client_certificate_callback_arn")
+
+    @client_certificate_callback_arn.setter
+    def client_certificate_callback_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_callback_arn", value)
 
 
 @pulumi.input_type

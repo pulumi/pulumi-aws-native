@@ -61,16 +61,18 @@ namespace Pulumi.AwsNative.B2bi
         /// Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
         /// </summary>
         public readonly string? CreatedAt;
-        /// <summary>
-        /// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-        /// </summary>
         public readonly Outputs.TransformerEdiTypeProperties? EdiType;
-        /// <summary>
-        /// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-        /// </summary>
         public readonly Pulumi.AwsNative.B2bi.TransformerFileFormat? FileFormat;
         /// <summary>
-        /// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        /// Returns a structure that contains the format options for the transformation.
+        /// </summary>
+        public readonly Outputs.TransformerInputConversion? InputConversion;
+        /// <summary>
+        /// Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+        /// </summary>
+        public readonly Outputs.TransformerMapping? Mapping;
+        /// <summary>
+        /// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         /// </summary>
         public readonly string? MappingTemplate;
         /// <summary>
@@ -82,9 +84,17 @@ namespace Pulumi.AwsNative.B2bi
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        /// Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+        /// </summary>
+        public readonly Outputs.TransformerOutputConversion? OutputConversion;
+        /// <summary>
+        /// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         /// </summary>
         public readonly string? SampleDocument;
+        /// <summary>
+        /// Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+        /// </summary>
+        public readonly Outputs.TransformerSampleDocuments? SampleDocuments;
         /// <summary>
         /// Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
         /// </summary>
@@ -110,13 +120,21 @@ namespace Pulumi.AwsNative.B2bi
 
             Pulumi.AwsNative.B2bi.TransformerFileFormat? fileFormat,
 
+            Outputs.TransformerInputConversion? inputConversion,
+
+            Outputs.TransformerMapping? mapping,
+
             string? mappingTemplate,
 
             string? modifiedAt,
 
             string? name,
 
+            Outputs.TransformerOutputConversion? outputConversion,
+
             string? sampleDocument,
+
+            Outputs.TransformerSampleDocuments? sampleDocuments,
 
             Pulumi.AwsNative.B2bi.TransformerStatus? status,
 
@@ -129,10 +147,14 @@ namespace Pulumi.AwsNative.B2bi
             CreatedAt = createdAt;
             EdiType = ediType;
             FileFormat = fileFormat;
+            InputConversion = inputConversion;
+            Mapping = mapping;
             MappingTemplate = mappingTemplate;
             ModifiedAt = modifiedAt;
             Name = name;
+            OutputConversion = outputConversion;
             SampleDocument = sampleDocument;
+            SampleDocuments = sampleDocuments;
             Status = status;
             Tags = tags;
             TransformerArn = transformerArn;

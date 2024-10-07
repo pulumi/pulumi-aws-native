@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<bool?> ApiKeyRequired { get; private set; } = null!;
 
         /// <summary>
-        /// A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+        /// A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         /// </summary>
         [Output("authorizationScopes")]
         public Output<ImmutableArray<string>> AuthorizationScopes { get; private set; } = null!;
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+        /// The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         /// </summary>
         [Output("authorizerId")]
         public Output<string?> AuthorizerId { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> HttpMethod { get; private set; } = null!;
 
         /// <summary>
-        /// Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        /// Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         /// </summary>
         [Output("integration")]
         public Output<Outputs.MethodIntegration?> Integration { get; private set; } = null!;
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<ImmutableArray<Outputs.MethodResponse>> MethodResponses { get; private set; } = null!;
 
         /// <summary>
-        /// A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+        /// A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         /// </summary>
         [Output("operationName")]
         public Output<string?> OperationName { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<ImmutableDictionary<string, string>?> RequestModels { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
         [Output("requestParameters")]
         public Output<ImmutableDictionary<string, Union<bool, string>>?> RequestParameters { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<string>? _authorizationScopes;
 
         /// <summary>
-        /// A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+        /// A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         /// </summary>
         public InputList<string> AuthorizationScopes
         {
@@ -171,7 +171,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? AuthorizationType { get; set; }
 
         /// <summary>
-        /// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+        /// The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         /// </summary>
         [Input("authorizerId")]
         public Input<string>? AuthorizerId { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string> HttpMethod { get; set; } = null!;
 
         /// <summary>
-        /// Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        /// Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         /// </summary>
         [Input("integration")]
         public Input<Inputs.MethodIntegrationArgs>? Integration { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         /// <summary>
-        /// A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+        /// A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         /// </summary>
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputMap<Union<bool, string>>? _requestParameters;
 
         /// <summary>
-        /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
         public InputMap<Union<bool, string>> RequestParameters
         {

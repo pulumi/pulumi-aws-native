@@ -101,6 +101,13 @@ export const AnalysisColumnRole = {
 
 export type AnalysisColumnRole = (typeof AnalysisColumnRole)[keyof typeof AnalysisColumnRole];
 
+export const AnalysisCommitMode = {
+    Auto: "AUTO",
+    Manual: "MANUAL",
+} as const;
+
+export type AnalysisCommitMode = (typeof AnalysisCommitMode)[keyof typeof AnalysisCommitMode];
+
 export const AnalysisComparisonMethod = {
     Difference: "DIFFERENCE",
     PercentDifference: "PERCENT_DIFFERENCE",
@@ -1071,6 +1078,13 @@ export const DashboardColumnRole = {
 } as const;
 
 export type DashboardColumnRole = (typeof DashboardColumnRole)[keyof typeof DashboardColumnRole];
+
+export const DashboardCommitMode = {
+    Auto: "AUTO",
+    Manual: "MANUAL",
+} as const;
+
+export type DashboardCommitMode = (typeof DashboardCommitMode)[keyof typeof DashboardCommitMode];
 
 export const DashboardComparisonMethod = {
     Difference: "DIFFERENCE",
@@ -2157,6 +2171,20 @@ export const DataSourceType = {
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
+export const FolderSharingModel = {
+    Account: "ACCOUNT",
+    Namespace: "NAMESPACE",
+} as const;
+
+export type FolderSharingModel = (typeof FolderSharingModel)[keyof typeof FolderSharingModel];
+
+export const FolderType = {
+    Shared: "SHARED",
+    Restricted: "RESTRICTED",
+} as const;
+
+export type FolderType = (typeof FolderType)[keyof typeof FolderType];
+
 export const RefreshScheduleMapRefreshType = {
     FullRefresh: "FULL_REFRESH",
     IncrementalRefresh: "INCREMENTAL_REFRESH",
@@ -2293,6 +2321,13 @@ export const TemplateColumnRole = {
 } as const;
 
 export type TemplateColumnRole = (typeof TemplateColumnRole)[keyof typeof TemplateColumnRole];
+
+export const TemplateCommitMode = {
+    Auto: "AUTO",
+    Manual: "MANUAL",
+} as const;
+
+export type TemplateCommitMode = (typeof TemplateCommitMode)[keyof typeof TemplateCommitMode];
 
 export const TemplateComparisonMethod = {
     Difference: "DIFFERENCE",

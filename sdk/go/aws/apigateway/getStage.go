@@ -33,9 +33,9 @@ type LookupStageArgs struct {
 type LookupStageResult struct {
 	// Access log settings, including the access log format and access log destination ARN.
 	AccessLogSetting *StageAccessLogSetting `pulumi:"accessLogSetting"`
-	// Specifies whether a cache cluster is enabled for the stage.
+	// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
-	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+	// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
 	// Settings for the canary deployment in this stage.
 	CanarySetting *StageCanarySetting `pulumi:"canarySetting"`
@@ -47,7 +47,7 @@ type LookupStageResult struct {
 	Description *string `pulumi:"description"`
 	// The version of the associated API documentation.
 	DocumentationVersion *string `pulumi:"documentationVersion"`
-	// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
+	// A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*/\*` for overriding all methods in the stage.
 	MethodSettings []StageMethodSetting `pulumi:"methodSettings"`
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -106,12 +106,12 @@ func (o LookupStageResultOutput) AccessLogSetting() StageAccessLogSettingPtrOutp
 	return o.ApplyT(func(v LookupStageResult) *StageAccessLogSetting { return v.AccessLogSetting }).(StageAccessLogSettingPtrOutput)
 }
 
-// Specifies whether a cache cluster is enabled for the stage.
+// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
 func (o LookupStageResultOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupStageResult) *bool { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
 func (o LookupStageResultOutput) CacheClusterSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStageResult) *string { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
 }
@@ -141,7 +141,7 @@ func (o LookupStageResultOutput) DocumentationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStageResult) *string { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
 }
 
-// A map that defines the method settings for a Stage resource. Keys (designated as “/{method_setting_key“ below) are method paths defined as “{resource_path}/{http_method}“ for an individual method override, or “/\*/\*“ for overriding all methods in the stage.
+// A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*/\*` for overriding all methods in the stage.
 func (o LookupStageResultOutput) MethodSettings() StageMethodSettingArrayOutput {
 	return o.ApplyT(func(v LookupStageResult) []StageMethodSetting { return v.MethodSettings }).(StageMethodSettingArrayOutput)
 }

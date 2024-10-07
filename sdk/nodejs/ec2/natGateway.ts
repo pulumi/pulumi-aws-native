@@ -61,7 +61,7 @@ export class NatGateway extends pulumi.CustomResource {
      */
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
     /**
-     * Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+     * Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
      */
     public readonly secondaryAllocationIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -147,7 +147,7 @@ export interface NatGatewayArgs {
      */
     privateIpAddress?: pulumi.Input<string>;
     /**
-     * Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+     * Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
      */
     secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

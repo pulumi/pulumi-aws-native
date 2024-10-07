@@ -108,6 +108,35 @@ export const DimensionType = {
  */
 export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
 
+export const DomainConfigurationApplicationProtocol = {
+    SecureMqtt: "SECURE_MQTT",
+    MqttWss: "MQTT_WSS",
+    Https: "HTTPS",
+    Default: "DEFAULT",
+} as const;
+
+/**
+ * An enumerated string that speciﬁes the application-layer protocol.
+ *
+ * > This property isn't available in China.
+ */
+export type DomainConfigurationApplicationProtocol = (typeof DomainConfigurationApplicationProtocol)[keyof typeof DomainConfigurationApplicationProtocol];
+
+export const DomainConfigurationAuthenticationType = {
+    AwsX509: "AWS_X509",
+    CustomAuth: "CUSTOM_AUTH",
+    AwsSigv4: "AWS_SIGV4",
+    CustomAuthX509: "CUSTOM_AUTH_X509",
+    Default: "DEFAULT",
+} as const;
+
+/**
+ * An enumerated string that speciﬁes the authentication type.
+ *
+ * > This property isn't available in China.
+ */
+export type DomainConfigurationAuthenticationType = (typeof DomainConfigurationAuthenticationType)[keyof typeof DomainConfigurationAuthenticationType];
+
 export const DomainConfigurationDomainType = {
     Endpoint: "ENDPOINT",
     AwsManaged: "AWS_MANAGED",

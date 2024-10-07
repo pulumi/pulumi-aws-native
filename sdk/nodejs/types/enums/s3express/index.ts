@@ -10,3 +10,15 @@ export const DirectoryBucketDataRedundancy = {
  * Specifies the number of Availability Zone that's used for redundancy for the bucket.
  */
 export type DirectoryBucketDataRedundancy = (typeof DirectoryBucketDataRedundancy)[keyof typeof DirectoryBucketDataRedundancy];
+
+export const DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm = {
+    Awskms: "aws:kms",
+    Aes256: "AES256",
+} as const;
+
+/**
+ * Server-side encryption algorithm to use for the default encryption.
+ *
+ * > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
+ */
+export type DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm = (typeof DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm)[keyof typeof DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm];

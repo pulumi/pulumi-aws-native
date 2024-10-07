@@ -27,13 +27,31 @@ export interface GetDomainConfigurationArgs {
 
 export interface GetDomainConfigurationResult {
     /**
+     * An enumerated string that speciﬁes the application-layer protocol.
+     *
+     * > This property isn't available in China.
+     */
+    readonly applicationProtocol?: enums.iot.DomainConfigurationApplicationProtocol;
+    /**
      * The Amazon Resource Name (ARN) of the domain configuration.
      */
     readonly arn?: string;
     /**
+     * An enumerated string that speciﬁes the authentication type.
+     *
+     * > This property isn't available in China.
+     */
+    readonly authenticationType?: enums.iot.DomainConfigurationAuthenticationType;
+    /**
      * An object that specifies the authorization service for a domain.
      */
     readonly authorizerConfig?: outputs.iot.DomainConfigurationAuthorizerConfig;
+    /**
+     * An object that speciﬁes the client certificate conﬁguration for a domain.
+     *
+     * > This property isn't available in China.
+     */
+    readonly clientCertificateConfig?: outputs.iot.DomainConfigurationClientCertificateConfig;
     /**
      * The status to which the domain configuration should be updated.
      *

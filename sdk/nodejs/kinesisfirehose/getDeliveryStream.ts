@@ -20,7 +20,7 @@ export function getDeliveryStream(args: GetDeliveryStreamArgs, opts?: pulumi.Inv
 
 export interface GetDeliveryStreamArgs {
     /**
-     * The name of the delivery stream.
+     * The name of the Firehose stream.
      */
     deliveryStreamName: string;
 }
@@ -87,11 +87,11 @@ export interface GetDeliveryStreamResult {
      */
     readonly splunkDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration;
     /**
-     * A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
+     * A set of tags to assign to the Firehose stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the Firehose stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
      *
-     * You can specify up to 50 tags when creating a delivery stream.
+     * You can specify up to 50 tags when creating a Firehose stream.
      *
-     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose delivery streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
      *
      * *AccessDeniedException*
      *
@@ -110,7 +110,7 @@ export function getDeliveryStreamOutput(args: GetDeliveryStreamOutputArgs, opts?
 
 export interface GetDeliveryStreamOutputArgs {
     /**
-     * The name of the delivery stream.
+     * The name of the Firehose stream.
      */
     deliveryStreamName: pulumi.Input<string>;
 }

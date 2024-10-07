@@ -174,9 +174,181 @@ func (in *directoryBucketDataRedundancyPtr) ToDirectoryBucketDataRedundancyPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketDataRedundancyPtrOutput)
 }
 
+// Server-side encryption algorithm to use for the default encryption.
+//
+// > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
+type DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm string
+
+const (
+	DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmAwskms = DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms")
+	DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmAes256 = DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("AES256")
+)
+
+func (DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm)(nil)).Elem()
+}
+
+func (e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return pulumi.ToOutput(e).(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput)
+}
+
+func (e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutputWithContext(ctx context.Context) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput)
+}
+
+func (e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return e.ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx context.Context) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm(e).ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutputWithContext(ctx).ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm)(nil)).Elem()
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return o
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutputWithContext(ctx context.Context) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return o
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return o.ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx context.Context) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) *DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm {
+		return &v
+	}).(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput)
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm)(nil)).Elem()
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx context.Context) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) Elem() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput {
+	return o.ApplyT(func(v *DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm
+		return ret
+	}).(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput)
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmInput is an input type that accepts values of the DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm enum
+// A concrete instance of `DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmInput` can be one of the following:
+//
+//	DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmAwskms
+//	DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmAes256
+type DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput
+	ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutputWithContext(context.Context) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput
+}
+
+var directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrType = reflect.TypeOf((**DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm)(nil)).Elem()
+
+type DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput
+	ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(context.Context) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput
+}
+
+type directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtr string
+
+func DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtr(v string) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrInput {
+	return (*directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtr)(&v)
+}
+
+func (*directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtr) ElementType() reflect.Type {
+	return directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrType
+}
+
+func (in *directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtr) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput() DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput)
+}
+
+func (in *directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtr) ToDirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutputWithContext(ctx context.Context) DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDataRedundancyInput)(nil)).Elem(), DirectoryBucketDataRedundancy("SingleAvailabilityZone"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDataRedundancyPtrInput)(nil)).Elem(), DirectoryBucketDataRedundancy("SingleAvailabilityZone"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
 	pulumi.RegisterOutputType(DirectoryBucketDataRedundancyOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketDataRedundancyPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput{})
 }

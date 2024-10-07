@@ -631,7 +631,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public partial class RestApi : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        /// The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
         /// </summary>
         [Output("apiKeySourceType")]
         public Output<string?> ApiKeySourceType { get; private set; } = null!;
@@ -669,7 +669,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        /// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         /// </summary>
         [Output("disableExecuteApiEndpoint")]
         public Output<bool?> DisableExecuteApiEndpoint { get; private set; } = null!;
@@ -681,7 +681,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<Outputs.RestApiEndpointConfiguration?> EndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+        /// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         /// </summary>
         [Output("failOnWarnings")]
         public Output<bool?> FailOnWarnings { get; private set; } = null!;
@@ -710,7 +710,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+        /// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -736,7 +736,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> RootResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -787,7 +787,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class RestApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+        /// The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
         /// </summary>
         [Input("apiKeySourceType")]
         public Input<string>? ApiKeySourceType { get; set; }
@@ -831,7 +831,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        /// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         /// </summary>
         [Input("disableExecuteApiEndpoint")]
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
@@ -843,7 +843,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<Inputs.RestApiEndpointConfigurationArgs>? EndpointConfiguration { get; set; }
 
         /// <summary>
-        /// A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+        /// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         /// </summary>
         [Input("failOnWarnings")]
         public Input<bool>? FailOnWarnings { get; set; }
@@ -875,7 +875,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+        /// Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -895,7 +895,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

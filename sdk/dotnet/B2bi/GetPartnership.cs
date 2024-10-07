@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.B2bi
         /// </summary>
         public readonly ImmutableArray<string> Capabilities;
         /// <summary>
+        /// Contains the details for an Outbound EDI capability.
+        /// </summary>
+        public readonly Outputs.PartnershipCapabilityOptions? CapabilityOptions;
+        /// <summary>
         /// Returns a timestamp for creation date and time of the partnership.
         /// </summary>
         public readonly string? CreatedAt;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.B2bi
         private GetPartnershipResult(
             ImmutableArray<string> capabilities,
 
+            Outputs.PartnershipCapabilityOptions? capabilityOptions,
+
             string? createdAt,
 
             string? modifiedAt,
@@ -109,6 +115,7 @@ namespace Pulumi.AwsNative.B2bi
             string? tradingPartnerId)
         {
             Capabilities = capabilities;
+            CapabilityOptions = capabilityOptions;
             CreatedAt = createdAt;
             ModifiedAt = modifiedAt;
             Name = name;

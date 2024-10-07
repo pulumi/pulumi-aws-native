@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'DirectoryBucketDataRedundancy',
+    'DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm',
 ]
 
 
@@ -14,3 +15,13 @@ class DirectoryBucketDataRedundancy(str, Enum):
     Specifies the number of Availability Zone that's used for redundancy for the bucket.
     """
     SINGLE_AVAILABILITY_ZONE = "SingleAvailabilityZone"
+
+
+class DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm(str, Enum):
+    """
+    Server-side encryption algorithm to use for the default encryption.
+
+    > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
+    """
+    AWSKMS = "aws:kms"
+    AES256 = "AES256"

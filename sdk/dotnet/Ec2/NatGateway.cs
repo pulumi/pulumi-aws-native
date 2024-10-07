@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> PrivateIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
         /// </summary>
         [Output("secondaryAllocationIds")]
         public Output<ImmutableArray<string>> SecondaryAllocationIds { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<string>? _secondaryAllocationIds;
 
         /// <summary>
-        /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
         /// </summary>
         public InputList<string> SecondaryAllocationIds
         {

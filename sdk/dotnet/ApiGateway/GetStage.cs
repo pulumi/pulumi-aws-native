@@ -74,11 +74,11 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly Outputs.StageAccessLogSetting? AccessLogSetting;
         /// <summary>
-        /// Specifies whether a cache cluster is enabled for the stage.
+        /// Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         /// </summary>
         public readonly bool? CacheClusterEnabled;
         /// <summary>
-        /// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html).
+        /// The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
         /// </summary>
         public readonly string? CacheClusterSize;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? DocumentationVersion;
         /// <summary>
-        /// A map that defines the method settings for a Stage resource. Keys (designated as ``/{method_setting_key`` below) are method paths defined as ``{resource_path}/{http_method}`` for an individual method override, or ``/\*/\*`` for overriding all methods in the stage.
+        /// A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\*/\*` for overriding all methods in the stage.
         /// </summary>
         public readonly ImmutableArray<Outputs.StageMethodSetting> MethodSettings;
         /// <summary>

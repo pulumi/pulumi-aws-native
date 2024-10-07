@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.B2bi.Inputs
 
     public sealed class CapabilityEdiConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("capabilityDirection")]
+        public Input<Pulumi.AwsNative.B2bi.CapabilityDirection>? CapabilityDirection { get; set; }
+
         [Input("inputLocation", required: true)]
         public Input<Inputs.CapabilityS3LocationArgs> InputLocation { get; set; } = null!;
 

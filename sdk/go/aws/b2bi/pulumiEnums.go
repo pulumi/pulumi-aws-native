@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CapabilityDirection string
+
+const (
+	CapabilityDirectionInbound  = CapabilityDirection("INBOUND")
+	CapabilityDirectionOutbound = CapabilityDirection("OUTBOUND")
+)
+
+func (CapabilityDirection) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityDirection)(nil)).Elem()
+}
+
+func (e CapabilityDirection) ToCapabilityDirectionOutput() CapabilityDirectionOutput {
+	return pulumi.ToOutput(e).(CapabilityDirectionOutput)
+}
+
+func (e CapabilityDirection) ToCapabilityDirectionOutputWithContext(ctx context.Context) CapabilityDirectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapabilityDirectionOutput)
+}
+
+func (e CapabilityDirection) ToCapabilityDirectionPtrOutput() CapabilityDirectionPtrOutput {
+	return e.ToCapabilityDirectionPtrOutputWithContext(context.Background())
+}
+
+func (e CapabilityDirection) ToCapabilityDirectionPtrOutputWithContext(ctx context.Context) CapabilityDirectionPtrOutput {
+	return CapabilityDirection(e).ToCapabilityDirectionOutputWithContext(ctx).ToCapabilityDirectionPtrOutputWithContext(ctx)
+}
+
+func (e CapabilityDirection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapabilityDirection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapabilityDirection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapabilityDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapabilityDirectionOutput struct{ *pulumi.OutputState }
+
+func (CapabilityDirectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityDirection)(nil)).Elem()
+}
+
+func (o CapabilityDirectionOutput) ToCapabilityDirectionOutput() CapabilityDirectionOutput {
+	return o
+}
+
+func (o CapabilityDirectionOutput) ToCapabilityDirectionOutputWithContext(ctx context.Context) CapabilityDirectionOutput {
+	return o
+}
+
+func (o CapabilityDirectionOutput) ToCapabilityDirectionPtrOutput() CapabilityDirectionPtrOutput {
+	return o.ToCapabilityDirectionPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityDirectionOutput) ToCapabilityDirectionPtrOutputWithContext(ctx context.Context) CapabilityDirectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityDirection) *CapabilityDirection {
+		return &v
+	}).(CapabilityDirectionPtrOutput)
+}
+
+func (o CapabilityDirectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapabilityDirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapabilityDirection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapabilityDirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityDirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapabilityDirection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapabilityDirectionPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityDirectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityDirection)(nil)).Elem()
+}
+
+func (o CapabilityDirectionPtrOutput) ToCapabilityDirectionPtrOutput() CapabilityDirectionPtrOutput {
+	return o
+}
+
+func (o CapabilityDirectionPtrOutput) ToCapabilityDirectionPtrOutputWithContext(ctx context.Context) CapabilityDirectionPtrOutput {
+	return o
+}
+
+func (o CapabilityDirectionPtrOutput) Elem() CapabilityDirectionOutput {
+	return o.ApplyT(func(v *CapabilityDirection) CapabilityDirection {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityDirection
+		return ret
+	}).(CapabilityDirectionOutput)
+}
+
+func (o CapabilityDirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapabilityDirection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapabilityDirectionInput is an input type that accepts values of the CapabilityDirection enum
+// A concrete instance of `CapabilityDirectionInput` can be one of the following:
+//
+//	CapabilityDirectionInbound
+//	CapabilityDirectionOutbound
+type CapabilityDirectionInput interface {
+	pulumi.Input
+
+	ToCapabilityDirectionOutput() CapabilityDirectionOutput
+	ToCapabilityDirectionOutputWithContext(context.Context) CapabilityDirectionOutput
+}
+
+var capabilityDirectionPtrType = reflect.TypeOf((**CapabilityDirection)(nil)).Elem()
+
+type CapabilityDirectionPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityDirectionPtrOutput() CapabilityDirectionPtrOutput
+	ToCapabilityDirectionPtrOutputWithContext(context.Context) CapabilityDirectionPtrOutput
+}
+
+type capabilityDirectionPtr string
+
+func CapabilityDirectionPtr(v string) CapabilityDirectionPtrInput {
+	return (*capabilityDirectionPtr)(&v)
+}
+
+func (*capabilityDirectionPtr) ElementType() reflect.Type {
+	return capabilityDirectionPtrType
+}
+
+func (in *capabilityDirectionPtr) ToCapabilityDirectionPtrOutput() CapabilityDirectionPtrOutput {
+	return pulumi.ToOutput(in).(CapabilityDirectionPtrOutput)
+}
+
+func (in *capabilityDirectionPtr) ToCapabilityDirectionPtrOutputWithContext(ctx context.Context) CapabilityDirectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapabilityDirectionPtrOutput)
+}
+
 type CapabilityType string
 
 const (
@@ -821,8 +986,9 @@ func (in *profileLoggingPtr) ToProfileLoggingPtrOutputWithContext(ctx context.Co
 type TransformerFileFormat string
 
 const (
-	TransformerFileFormatXml  = TransformerFileFormat("XML")
-	TransformerFileFormatJson = TransformerFileFormat("JSON")
+	TransformerFileFormatXml     = TransformerFileFormat("XML")
+	TransformerFileFormatJson    = TransformerFileFormat("JSON")
+	TransformerFileFormatNotUsed = TransformerFileFormat("NOT_USED")
 )
 
 func (TransformerFileFormat) ElementType() reflect.Type {
@@ -949,6 +1115,7 @@ func (o TransformerFileFormatPtrOutput) ToStringPtrOutputWithContext(ctx context
 //
 //	TransformerFileFormatXml
 //	TransformerFileFormatJson
+//	TransformerFileFormatNotUsed
 type TransformerFileFormatInput interface {
 	pulumi.Input
 
@@ -981,6 +1148,334 @@ func (in *transformerFileFormatPtr) ToTransformerFileFormatPtrOutput() Transform
 
 func (in *transformerFileFormatPtr) ToTransformerFileFormatPtrOutputWithContext(ctx context.Context) TransformerFileFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TransformerFileFormatPtrOutput)
+}
+
+type TransformerFromFormat string
+
+const (
+	TransformerFromFormatX12 = TransformerFromFormat("X12")
+)
+
+func (TransformerFromFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerFromFormat)(nil)).Elem()
+}
+
+func (e TransformerFromFormat) ToTransformerFromFormatOutput() TransformerFromFormatOutput {
+	return pulumi.ToOutput(e).(TransformerFromFormatOutput)
+}
+
+func (e TransformerFromFormat) ToTransformerFromFormatOutputWithContext(ctx context.Context) TransformerFromFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerFromFormatOutput)
+}
+
+func (e TransformerFromFormat) ToTransformerFromFormatPtrOutput() TransformerFromFormatPtrOutput {
+	return e.ToTransformerFromFormatPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerFromFormat) ToTransformerFromFormatPtrOutputWithContext(ctx context.Context) TransformerFromFormatPtrOutput {
+	return TransformerFromFormat(e).ToTransformerFromFormatOutputWithContext(ctx).ToTransformerFromFormatPtrOutputWithContext(ctx)
+}
+
+func (e TransformerFromFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerFromFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerFromFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerFromFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerFromFormatOutput struct{ *pulumi.OutputState }
+
+func (TransformerFromFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerFromFormat)(nil)).Elem()
+}
+
+func (o TransformerFromFormatOutput) ToTransformerFromFormatOutput() TransformerFromFormatOutput {
+	return o
+}
+
+func (o TransformerFromFormatOutput) ToTransformerFromFormatOutputWithContext(ctx context.Context) TransformerFromFormatOutput {
+	return o
+}
+
+func (o TransformerFromFormatOutput) ToTransformerFromFormatPtrOutput() TransformerFromFormatPtrOutput {
+	return o.ToTransformerFromFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerFromFormatOutput) ToTransformerFromFormatPtrOutputWithContext(ctx context.Context) TransformerFromFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerFromFormat) *TransformerFromFormat {
+		return &v
+	}).(TransformerFromFormatPtrOutput)
+}
+
+func (o TransformerFromFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerFromFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerFromFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerFromFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerFromFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerFromFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerFromFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerFromFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerFromFormat)(nil)).Elem()
+}
+
+func (o TransformerFromFormatPtrOutput) ToTransformerFromFormatPtrOutput() TransformerFromFormatPtrOutput {
+	return o
+}
+
+func (o TransformerFromFormatPtrOutput) ToTransformerFromFormatPtrOutputWithContext(ctx context.Context) TransformerFromFormatPtrOutput {
+	return o
+}
+
+func (o TransformerFromFormatPtrOutput) Elem() TransformerFromFormatOutput {
+	return o.ApplyT(func(v *TransformerFromFormat) TransformerFromFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerFromFormat
+		return ret
+	}).(TransformerFromFormatOutput)
+}
+
+func (o TransformerFromFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerFromFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerFromFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerFromFormatInput is an input type that accepts values of the TransformerFromFormat enum
+// A concrete instance of `TransformerFromFormatInput` can be one of the following:
+//
+//	TransformerFromFormatX12
+type TransformerFromFormatInput interface {
+	pulumi.Input
+
+	ToTransformerFromFormatOutput() TransformerFromFormatOutput
+	ToTransformerFromFormatOutputWithContext(context.Context) TransformerFromFormatOutput
+}
+
+var transformerFromFormatPtrType = reflect.TypeOf((**TransformerFromFormat)(nil)).Elem()
+
+type TransformerFromFormatPtrInput interface {
+	pulumi.Input
+
+	ToTransformerFromFormatPtrOutput() TransformerFromFormatPtrOutput
+	ToTransformerFromFormatPtrOutputWithContext(context.Context) TransformerFromFormatPtrOutput
+}
+
+type transformerFromFormatPtr string
+
+func TransformerFromFormatPtr(v string) TransformerFromFormatPtrInput {
+	return (*transformerFromFormatPtr)(&v)
+}
+
+func (*transformerFromFormatPtr) ElementType() reflect.Type {
+	return transformerFromFormatPtrType
+}
+
+func (in *transformerFromFormatPtr) ToTransformerFromFormatPtrOutput() TransformerFromFormatPtrOutput {
+	return pulumi.ToOutput(in).(TransformerFromFormatPtrOutput)
+}
+
+func (in *transformerFromFormatPtr) ToTransformerFromFormatPtrOutputWithContext(ctx context.Context) TransformerFromFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerFromFormatPtrOutput)
+}
+
+type TransformerMappingTemplateLanguage string
+
+const (
+	TransformerMappingTemplateLanguageXslt    = TransformerMappingTemplateLanguage("XSLT")
+	TransformerMappingTemplateLanguageJsonata = TransformerMappingTemplateLanguage("JSONATA")
+)
+
+func (TransformerMappingTemplateLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerMappingTemplateLanguage)(nil)).Elem()
+}
+
+func (e TransformerMappingTemplateLanguage) ToTransformerMappingTemplateLanguageOutput() TransformerMappingTemplateLanguageOutput {
+	return pulumi.ToOutput(e).(TransformerMappingTemplateLanguageOutput)
+}
+
+func (e TransformerMappingTemplateLanguage) ToTransformerMappingTemplateLanguageOutputWithContext(ctx context.Context) TransformerMappingTemplateLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerMappingTemplateLanguageOutput)
+}
+
+func (e TransformerMappingTemplateLanguage) ToTransformerMappingTemplateLanguagePtrOutput() TransformerMappingTemplateLanguagePtrOutput {
+	return e.ToTransformerMappingTemplateLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e TransformerMappingTemplateLanguage) ToTransformerMappingTemplateLanguagePtrOutputWithContext(ctx context.Context) TransformerMappingTemplateLanguagePtrOutput {
+	return TransformerMappingTemplateLanguage(e).ToTransformerMappingTemplateLanguageOutputWithContext(ctx).ToTransformerMappingTemplateLanguagePtrOutputWithContext(ctx)
+}
+
+func (e TransformerMappingTemplateLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerMappingTemplateLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerMappingTemplateLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerMappingTemplateLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerMappingTemplateLanguageOutput struct{ *pulumi.OutputState }
+
+func (TransformerMappingTemplateLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerMappingTemplateLanguage)(nil)).Elem()
+}
+
+func (o TransformerMappingTemplateLanguageOutput) ToTransformerMappingTemplateLanguageOutput() TransformerMappingTemplateLanguageOutput {
+	return o
+}
+
+func (o TransformerMappingTemplateLanguageOutput) ToTransformerMappingTemplateLanguageOutputWithContext(ctx context.Context) TransformerMappingTemplateLanguageOutput {
+	return o
+}
+
+func (o TransformerMappingTemplateLanguageOutput) ToTransformerMappingTemplateLanguagePtrOutput() TransformerMappingTemplateLanguagePtrOutput {
+	return o.ToTransformerMappingTemplateLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o TransformerMappingTemplateLanguageOutput) ToTransformerMappingTemplateLanguagePtrOutputWithContext(ctx context.Context) TransformerMappingTemplateLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerMappingTemplateLanguage) *TransformerMappingTemplateLanguage {
+		return &v
+	}).(TransformerMappingTemplateLanguagePtrOutput)
+}
+
+func (o TransformerMappingTemplateLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerMappingTemplateLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerMappingTemplateLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerMappingTemplateLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerMappingTemplateLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerMappingTemplateLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerMappingTemplateLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerMappingTemplateLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerMappingTemplateLanguage)(nil)).Elem()
+}
+
+func (o TransformerMappingTemplateLanguagePtrOutput) ToTransformerMappingTemplateLanguagePtrOutput() TransformerMappingTemplateLanguagePtrOutput {
+	return o
+}
+
+func (o TransformerMappingTemplateLanguagePtrOutput) ToTransformerMappingTemplateLanguagePtrOutputWithContext(ctx context.Context) TransformerMappingTemplateLanguagePtrOutput {
+	return o
+}
+
+func (o TransformerMappingTemplateLanguagePtrOutput) Elem() TransformerMappingTemplateLanguageOutput {
+	return o.ApplyT(func(v *TransformerMappingTemplateLanguage) TransformerMappingTemplateLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerMappingTemplateLanguage
+		return ret
+	}).(TransformerMappingTemplateLanguageOutput)
+}
+
+func (o TransformerMappingTemplateLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerMappingTemplateLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerMappingTemplateLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerMappingTemplateLanguageInput is an input type that accepts values of the TransformerMappingTemplateLanguage enum
+// A concrete instance of `TransformerMappingTemplateLanguageInput` can be one of the following:
+//
+//	TransformerMappingTemplateLanguageXslt
+//	TransformerMappingTemplateLanguageJsonata
+type TransformerMappingTemplateLanguageInput interface {
+	pulumi.Input
+
+	ToTransformerMappingTemplateLanguageOutput() TransformerMappingTemplateLanguageOutput
+	ToTransformerMappingTemplateLanguageOutputWithContext(context.Context) TransformerMappingTemplateLanguageOutput
+}
+
+var transformerMappingTemplateLanguagePtrType = reflect.TypeOf((**TransformerMappingTemplateLanguage)(nil)).Elem()
+
+type TransformerMappingTemplateLanguagePtrInput interface {
+	pulumi.Input
+
+	ToTransformerMappingTemplateLanguagePtrOutput() TransformerMappingTemplateLanguagePtrOutput
+	ToTransformerMappingTemplateLanguagePtrOutputWithContext(context.Context) TransformerMappingTemplateLanguagePtrOutput
+}
+
+type transformerMappingTemplateLanguagePtr string
+
+func TransformerMappingTemplateLanguagePtr(v string) TransformerMappingTemplateLanguagePtrInput {
+	return (*transformerMappingTemplateLanguagePtr)(&v)
+}
+
+func (*transformerMappingTemplateLanguagePtr) ElementType() reflect.Type {
+	return transformerMappingTemplateLanguagePtrType
+}
+
+func (in *transformerMappingTemplateLanguagePtr) ToTransformerMappingTemplateLanguagePtrOutput() TransformerMappingTemplateLanguagePtrOutput {
+	return pulumi.ToOutput(in).(TransformerMappingTemplateLanguagePtrOutput)
+}
+
+func (in *transformerMappingTemplateLanguagePtr) ToTransformerMappingTemplateLanguagePtrOutputWithContext(ctx context.Context) TransformerMappingTemplateLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerMappingTemplateLanguagePtrOutput)
 }
 
 type TransformerStatus string
@@ -1146,6 +1641,169 @@ func (in *transformerStatusPtr) ToTransformerStatusPtrOutput() TransformerStatus
 
 func (in *transformerStatusPtr) ToTransformerStatusPtrOutputWithContext(ctx context.Context) TransformerStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TransformerStatusPtrOutput)
+}
+
+type TransformerToFormat string
+
+const (
+	TransformerToFormatX12 = TransformerToFormat("X12")
+)
+
+func (TransformerToFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerToFormat)(nil)).Elem()
+}
+
+func (e TransformerToFormat) ToTransformerToFormatOutput() TransformerToFormatOutput {
+	return pulumi.ToOutput(e).(TransformerToFormatOutput)
+}
+
+func (e TransformerToFormat) ToTransformerToFormatOutputWithContext(ctx context.Context) TransformerToFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerToFormatOutput)
+}
+
+func (e TransformerToFormat) ToTransformerToFormatPtrOutput() TransformerToFormatPtrOutput {
+	return e.ToTransformerToFormatPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerToFormat) ToTransformerToFormatPtrOutputWithContext(ctx context.Context) TransformerToFormatPtrOutput {
+	return TransformerToFormat(e).ToTransformerToFormatOutputWithContext(ctx).ToTransformerToFormatPtrOutputWithContext(ctx)
+}
+
+func (e TransformerToFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerToFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerToFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerToFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerToFormatOutput struct{ *pulumi.OutputState }
+
+func (TransformerToFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerToFormat)(nil)).Elem()
+}
+
+func (o TransformerToFormatOutput) ToTransformerToFormatOutput() TransformerToFormatOutput {
+	return o
+}
+
+func (o TransformerToFormatOutput) ToTransformerToFormatOutputWithContext(ctx context.Context) TransformerToFormatOutput {
+	return o
+}
+
+func (o TransformerToFormatOutput) ToTransformerToFormatPtrOutput() TransformerToFormatPtrOutput {
+	return o.ToTransformerToFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerToFormatOutput) ToTransformerToFormatPtrOutputWithContext(ctx context.Context) TransformerToFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerToFormat) *TransformerToFormat {
+		return &v
+	}).(TransformerToFormatPtrOutput)
+}
+
+func (o TransformerToFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerToFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerToFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerToFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerToFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerToFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerToFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerToFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerToFormat)(nil)).Elem()
+}
+
+func (o TransformerToFormatPtrOutput) ToTransformerToFormatPtrOutput() TransformerToFormatPtrOutput {
+	return o
+}
+
+func (o TransformerToFormatPtrOutput) ToTransformerToFormatPtrOutputWithContext(ctx context.Context) TransformerToFormatPtrOutput {
+	return o
+}
+
+func (o TransformerToFormatPtrOutput) Elem() TransformerToFormatOutput {
+	return o.ApplyT(func(v *TransformerToFormat) TransformerToFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerToFormat
+		return ret
+	}).(TransformerToFormatOutput)
+}
+
+func (o TransformerToFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerToFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerToFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerToFormatInput is an input type that accepts values of the TransformerToFormat enum
+// A concrete instance of `TransformerToFormatInput` can be one of the following:
+//
+//	TransformerToFormatX12
+type TransformerToFormatInput interface {
+	pulumi.Input
+
+	ToTransformerToFormatOutput() TransformerToFormatOutput
+	ToTransformerToFormatOutputWithContext(context.Context) TransformerToFormatOutput
+}
+
+var transformerToFormatPtrType = reflect.TypeOf((**TransformerToFormat)(nil)).Elem()
+
+type TransformerToFormatPtrInput interface {
+	pulumi.Input
+
+	ToTransformerToFormatPtrOutput() TransformerToFormatPtrOutput
+	ToTransformerToFormatPtrOutputWithContext(context.Context) TransformerToFormatPtrOutput
+}
+
+type transformerToFormatPtr string
+
+func TransformerToFormatPtr(v string) TransformerToFormatPtrInput {
+	return (*transformerToFormatPtr)(&v)
+}
+
+func (*transformerToFormatPtr) ElementType() reflect.Type {
+	return transformerToFormatPtrType
+}
+
+func (in *transformerToFormatPtr) ToTransformerToFormatPtrOutput() TransformerToFormatPtrOutput {
+	return pulumi.ToOutput(in).(TransformerToFormatPtrOutput)
+}
+
+func (in *transformerToFormatPtr) ToTransformerToFormatPtrOutputWithContext(ctx context.Context) TransformerToFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerToFormatPtrOutput)
 }
 
 type TransformerX12TransactionSet string
@@ -1629,6 +2287,8 @@ func (in *transformerX12VersionPtr) ToTransformerX12VersionPtrOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityDirectionInput)(nil)).Elem(), CapabilityDirection("INBOUND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityDirectionPtrInput)(nil)).Elem(), CapabilityDirection("INBOUND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityTypeInput)(nil)).Elem(), CapabilityType("edi"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityTypePtrInput)(nil)).Elem(), CapabilityType("edi"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12TransactionSetInput)(nil)).Elem(), CapabilityX12TransactionSet("X12_110"))
@@ -1639,12 +2299,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileLoggingPtrInput)(nil)).Elem(), ProfileLogging("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFileFormatInput)(nil)).Elem(), TransformerFileFormat("XML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFileFormatPtrInput)(nil)).Elem(), TransformerFileFormat("XML"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFromFormatInput)(nil)).Elem(), TransformerFromFormat("X12"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerFromFormatPtrInput)(nil)).Elem(), TransformerFromFormat("X12"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerMappingTemplateLanguageInput)(nil)).Elem(), TransformerMappingTemplateLanguage("XSLT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerMappingTemplateLanguagePtrInput)(nil)).Elem(), TransformerMappingTemplateLanguage("XSLT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerStatusInput)(nil)).Elem(), TransformerStatus("active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerStatusPtrInput)(nil)).Elem(), TransformerStatus("active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerToFormatInput)(nil)).Elem(), TransformerToFormat("X12"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerToFormatPtrInput)(nil)).Elem(), TransformerToFormat("X12"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12TransactionSetInput)(nil)).Elem(), TransformerX12TransactionSet("X12_110"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12TransactionSetPtrInput)(nil)).Elem(), TransformerX12TransactionSet("X12_110"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12VersionInput)(nil)).Elem(), TransformerX12Version("VERSION_4010"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12VersionPtrInput)(nil)).Elem(), TransformerX12Version("VERSION_4010"))
+	pulumi.RegisterOutputType(CapabilityDirectionOutput{})
+	pulumi.RegisterOutputType(CapabilityDirectionPtrOutput{})
 	pulumi.RegisterOutputType(CapabilityTypeOutput{})
 	pulumi.RegisterOutputType(CapabilityTypePtrOutput{})
 	pulumi.RegisterOutputType(CapabilityX12TransactionSetOutput{})
@@ -1655,8 +2323,14 @@ func init() {
 	pulumi.RegisterOutputType(ProfileLoggingPtrOutput{})
 	pulumi.RegisterOutputType(TransformerFileFormatOutput{})
 	pulumi.RegisterOutputType(TransformerFileFormatPtrOutput{})
+	pulumi.RegisterOutputType(TransformerFromFormatOutput{})
+	pulumi.RegisterOutputType(TransformerFromFormatPtrOutput{})
+	pulumi.RegisterOutputType(TransformerMappingTemplateLanguageOutput{})
+	pulumi.RegisterOutputType(TransformerMappingTemplateLanguagePtrOutput{})
 	pulumi.RegisterOutputType(TransformerStatusOutput{})
 	pulumi.RegisterOutputType(TransformerStatusPtrOutput{})
+	pulumi.RegisterOutputType(TransformerToFormatOutput{})
+	pulumi.RegisterOutputType(TransformerToFormatPtrOutput{})
 	pulumi.RegisterOutputType(TransformerX12TransactionSetOutput{})
 	pulumi.RegisterOutputType(TransformerX12TransactionSetPtrOutput{})
 	pulumi.RegisterOutputType(TransformerX12VersionOutput{})

@@ -5,15 +5,24 @@
 from enum import Enum
 
 __all__ = [
+    'CapabilityDirection',
     'CapabilityType',
     'CapabilityX12TransactionSet',
     'CapabilityX12Version',
     'ProfileLogging',
     'TransformerFileFormat',
+    'TransformerFromFormat',
+    'TransformerMappingTemplateLanguage',
     'TransformerStatus',
+    'TransformerToFormat',
     'TransformerX12TransactionSet',
     'TransformerX12Version',
 ]
+
+
+class CapabilityDirection(str, Enum):
+    INBOUND = "INBOUND"
+    OUTBOUND = "OUTBOUND"
 
 
 class CapabilityType(str, Enum):
@@ -113,11 +122,25 @@ class ProfileLogging(str, Enum):
 class TransformerFileFormat(str, Enum):
     XML = "XML"
     JSON = "JSON"
+    NOT_USED = "NOT_USED"
+
+
+class TransformerFromFormat(str, Enum):
+    X12 = "X12"
+
+
+class TransformerMappingTemplateLanguage(str, Enum):
+    XSLT = "XSLT"
+    JSONATA = "JSONATA"
 
 
 class TransformerStatus(str, Enum):
     ACTIVE = "active"
     INACTIVE = "inactive"
+
+
+class TransformerToFormat(str, Enum):
+    X12 = "X12"
 
 
 class TransformerX12TransactionSet(str, Enum):

@@ -35,8 +35,8 @@ class CrawlerArgs:
         :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
         :param pulumi.Input['CrawlerTargetsArgs'] targets: A collection of targets to crawl.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
-        :param pulumi.Input[str] configuration: Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
-        :param pulumi.Input[str] crawler_security_configuration: The name of the SecurityConfiguration structure to be used by this crawler.
+        :param pulumi.Input[str] configuration: Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
+        :param pulumi.Input[str] crawler_security_configuration: The name of the `SecurityConfiguration` structure to be used by this crawler.
         :param pulumi.Input[str] database_name: The name of the database in which the crawler's output is stored.
         :param pulumi.Input[str] description: A description of the crawler.
         :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
@@ -118,7 +118,7 @@ class CrawlerArgs:
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+        Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
         """
         return pulumi.get(self, "configuration")
 
@@ -130,7 +130,7 @@ class CrawlerArgs:
     @pulumi.getter(name="crawlerSecurityConfiguration")
     def crawler_security_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SecurityConfiguration structure to be used by this crawler.
+        The name of the `SecurityConfiguration` structure to be used by this crawler.
         """
         return pulumi.get(self, "crawler_security_configuration")
 
@@ -277,8 +277,8 @@ class Crawler(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
-        :param pulumi.Input[str] configuration: Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
-        :param pulumi.Input[str] crawler_security_configuration: The name of the SecurityConfiguration structure to be used by this crawler.
+        :param pulumi.Input[str] configuration: Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
+        :param pulumi.Input[str] crawler_security_configuration: The name of the `SecurityConfiguration` structure to be used by this crawler.
         :param pulumi.Input[str] database_name: The name of the database in which the crawler's output is stored.
         :param pulumi.Input[str] description: A description of the crawler.
         :param pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']] lake_formation_configuration: Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
@@ -360,6 +360,7 @@ class Crawler(pulumi.CustomResource):
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Crawler, __self__).__init__(
@@ -384,6 +385,7 @@ class Crawler(pulumi.CustomResource):
 
         __props__ = CrawlerArgs.__new__(CrawlerArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["classifiers"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["crawler_security_configuration"] = None
@@ -401,6 +403,11 @@ class Crawler(pulumi.CustomResource):
         return Crawler(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
+
+    @property
     @pulumi.getter
     def classifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -412,7 +419,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional[str]]:
         """
-        Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
+        Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
         """
         return pulumi.get(self, "configuration")
 
@@ -420,7 +427,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter(name="crawlerSecurityConfiguration")
     def crawler_security_configuration(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the SecurityConfiguration structure to be used by this crawler.
+        The name of the `SecurityConfiguration` structure to be used by this crawler.
         """
         return pulumi.get(self, "crawler_security_configuration")
 

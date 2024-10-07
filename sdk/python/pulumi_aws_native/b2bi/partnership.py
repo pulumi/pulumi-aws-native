@@ -8,37 +8,54 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['PartnershipArgs', 'Partnership']
 
 @pulumi.input_type
 class PartnershipArgs:
     def __init__(__self__, *,
+                 capabilities: pulumi.Input[Sequence[pulumi.Input[str]]],
                  email: pulumi.Input[str],
                  profile_id: pulumi.Input[str],
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capability_options: Optional[pulumi.Input['PartnershipCapabilityOptionsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Partnership resource.
-        :param pulumi.Input[str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: Returns one or more capabilities associated with this partnership.
+        :param pulumi.Input[str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
+        :param pulumi.Input['PartnershipCapabilityOptionsArgs'] capability_options: Contains the details for an Outbound EDI capability.
         :param pulumi.Input[str] name: Returns the name of the partnership.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
+        pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "profile_id", profile_id)
-        if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+        if capability_options is not None:
+            pulumi.set(__self__, "capability_options", capability_options)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if phone is not None:
             pulumi.set(__self__, "phone", phone)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Returns one or more capabilities associated with this partnership.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "capabilities", value)
 
     @property
     @pulumi.getter
@@ -62,16 +79,16 @@ class PartnershipArgs:
         pulumi.set(self, "profile_id", value)
 
     @property
-    @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="capabilityOptions")
+    def capability_options(self) -> Optional[pulumi.Input['PartnershipCapabilityOptionsArgs']]:
         """
-        Returns one or more capabilities associated with this partnership.
+        Contains the details for an Outbound EDI capability.
         """
-        return pulumi.get(self, "capabilities")
+        return pulumi.get(self, "capability_options")
 
-    @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "capabilities", value)
+    @capability_options.setter
+    def capability_options(self, value: Optional[pulumi.Input['PartnershipCapabilityOptionsArgs']]):
+        pulumi.set(self, "capability_options", value)
 
     @property
     @pulumi.getter
@@ -113,6 +130,7 @@ class Partnership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capability_options: Optional[pulumi.Input[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict']]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
@@ -125,6 +143,7 @@ class Partnership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: Returns one or more capabilities associated with this partnership.
+        :param pulumi.Input[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict']] capability_options: Contains the details for an Outbound EDI capability.
         :param pulumi.Input[str] name: Returns the name of the partnership.
         :param pulumi.Input[str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
@@ -154,6 +173,7 @@ class Partnership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capability_options: Optional[pulumi.Input[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict']]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
@@ -168,7 +188,10 @@ class Partnership(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PartnershipArgs.__new__(PartnershipArgs)
 
+            if capabilities is None and not opts.urn:
+                raise TypeError("Missing required property 'capabilities'")
             __props__.__dict__["capabilities"] = capabilities
+            __props__.__dict__["capability_options"] = capability_options
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
@@ -208,6 +231,7 @@ class Partnership(pulumi.CustomResource):
         __props__ = PartnershipArgs.__new__(PartnershipArgs)
 
         __props__.__dict__["capabilities"] = None
+        __props__.__dict__["capability_options"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["email"] = None
         __props__.__dict__["modified_at"] = None
@@ -222,11 +246,19 @@ class Partnership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def capabilities(self) -> pulumi.Output[Sequence[str]]:
         """
         Returns one or more capabilities associated with this partnership.
         """
         return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="capabilityOptions")
+    def capability_options(self) -> pulumi.Output[Optional['outputs.PartnershipCapabilityOptions']]:
+        """
+        Contains the details for an Outbound EDI capability.
+        """
+        return pulumi.get(self, "capability_options")
 
     @property
     @pulumi.getter(name="createdAt")

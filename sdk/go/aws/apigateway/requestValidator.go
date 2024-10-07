@@ -24,7 +24,7 @@ type RequestValidator struct {
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody pulumi.BoolPtrOutput `pulumi:"validateRequestBody"`
-	// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+	// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
 	ValidateRequestParameters pulumi.BoolPtrOutput `pulumi:"validateRequestParameters"`
 }
 
@@ -82,7 +82,7 @@ type requestValidatorArgs struct {
 	RestApiId string `pulumi:"restApiId"`
 	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
-	// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+	// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
 	ValidateRequestParameters *bool `pulumi:"validateRequestParameters"`
 }
 
@@ -94,7 +94,7 @@ type RequestValidatorArgs struct {
 	RestApiId pulumi.StringInput
 	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody pulumi.BoolPtrInput
-	// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+	// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
 	ValidateRequestParameters pulumi.BoolPtrInput
 }
 
@@ -155,7 +155,7 @@ func (o RequestValidatorOutput) ValidateRequestBody() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.BoolPtrOutput { return v.ValidateRequestBody }).(pulumi.BoolPtrOutput)
 }
 
-// A Boolean flag to indicate whether to validate request parameters (“true“) or not (“false“).
+// A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
 func (o RequestValidatorOutput) ValidateRequestParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.BoolPtrOutput { return v.ValidateRequestParameters }).(pulumi.BoolPtrOutput)
 }

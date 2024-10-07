@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardFilterDateTimePickerControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The visibility configurationof the Apply button on a `DateTimePickerControl` .
+        /// </summary>
+        [Input("commitMode")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardCommitMode>? CommitMode { get; set; }
+
+        /// <summary>
         /// The display options of a control.
         /// </summary>
         [Input("displayOptions")]

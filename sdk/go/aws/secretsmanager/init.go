@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourcePolicy{}
 	case "aws-native:secretsmanager:Secret":
 		r = &Secret{}
+	case "aws-native:secretsmanager:SecretTargetAttachment":
+		r = &SecretTargetAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

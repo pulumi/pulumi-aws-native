@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamBufferingHintsArgs>? BufferingHints { get; set; }
 
         /// <summary>
-        /// The Amazon CloudWatch logging options for your delivery stream.
+        /// The Amazon CloudWatch logging options for your Firehose stream.
         /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs>? S3BackupConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        /// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }

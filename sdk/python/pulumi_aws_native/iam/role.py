@@ -332,6 +332,216 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_aws_native as aws_native
 
+        my_job_role = aws_native.iam.Role("myJobRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["glue.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        my_job = aws_native.glue.Job("myJob",
+            command={
+                "name": "glueetl",
+                "script_location": "s3://<your-S3-script-uri>",
+            },
+            default_arguments={
+                "--job-bookmark-option": "job-bookmark-enable",
+            },
+            execution_property={
+                "max_concurrent_runs": 2,
+            },
+            max_retries=0,
+            name="cf-job1",
+            role=my_job_role.id)
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_job_role = aws_native.iam.Role("myJobRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["glue.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        my_job = aws_native.glue.Job("myJob",
+            command={
+                "name": "glueetl",
+                "script_location": "s3://<your-S3-script-uri>",
+            },
+            default_arguments={
+                "--job-bookmark-option": "job-bookmark-enable",
+            },
+            execution_property={
+                "max_concurrent_runs": 2,
+            },
+            max_retries=0,
+            name="cf-job1",
+            role=my_job_role.id)
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_job_trigger_role = aws_native.iam.Role("myJobTriggerRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["glue.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        my_job = aws_native.glue.Job("myJob",
+            name="MyJobTriggerJob",
+            log_uri="wikiData",
+            role=my_job_trigger_role.id,
+            command={
+                "name": "glueetl",
+                "script_location": "s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py",
+            },
+            default_arguments={
+                "--job-bookmark-option": "job-bookmark-enable",
+            },
+            max_retries=0)
+        my_job_trigger = aws_native.glue.Trigger("myJobTrigger",
+            name="MyJobTrigger",
+            type="CONDITIONAL",
+            description="Description for a conditional job trigger",
+            actions=[{
+                "job_name": my_job.id,
+                "arguments": {
+                    "__job_bookmark_option": "job-bookmark-enable",
+                },
+            }],
+            predicate={
+                "conditions": [{
+                    "logical_operator": "EQUALS",
+                    "job_name": my_job.id,
+                    "state": "SUCCEEDED",
+                }],
+            })
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_job_trigger_role = aws_native.iam.Role("myJobTriggerRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["glue.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        my_job = aws_native.glue.Job("myJob",
+            name="MyJobTriggerJob",
+            log_uri="wikiData",
+            role=my_job_trigger_role.id,
+            command={
+                "name": "glueetl",
+                "script_location": "s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py",
+            },
+            default_arguments={
+                "--job-bookmark-option": "job-bookmark-enable",
+            },
+            max_retries=0)
+        my_job_trigger = aws_native.glue.Trigger("myJobTrigger",
+            name="MyJobTrigger",
+            type="CONDITIONAL",
+            description="Description for a conditional job trigger",
+            actions=[{
+                "job_name": my_job.id,
+                "arguments": {
+                    "__job_bookmark_option": "job-bookmark-enable",
+                },
+            }],
+            predicate={
+                "conditions": [{
+                    "logical_operator": "EQUALS",
+                    "job_name": my_job.id,
+                    "state": "SUCCEEDED",
+                }],
+            })
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
         amazon_grafana_workspace_iam_role = aws_native.iam.Role("amazonGrafanaWorkspaceIAMRole",
             managed_policy_arns=["arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"],
             assume_role_policy_document={
@@ -665,6 +875,216 @@ class Role(pulumi.CustomResource):
                 "bucket": "MyBucketName",
                 "key": "MyScriptFiles.zip",
                 "role_arn": iam_role.arn,
+            })
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_job_role = aws_native.iam.Role("myJobRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["glue.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        my_job = aws_native.glue.Job("myJob",
+            command={
+                "name": "glueetl",
+                "script_location": "s3://<your-S3-script-uri>",
+            },
+            default_arguments={
+                "--job-bookmark-option": "job-bookmark-enable",
+            },
+            execution_property={
+                "max_concurrent_runs": 2,
+            },
+            max_retries=0,
+            name="cf-job1",
+            role=my_job_role.id)
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_job_role = aws_native.iam.Role("myJobRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["glue.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        my_job = aws_native.glue.Job("myJob",
+            command={
+                "name": "glueetl",
+                "script_location": "s3://<your-S3-script-uri>",
+            },
+            default_arguments={
+                "--job-bookmark-option": "job-bookmark-enable",
+            },
+            execution_property={
+                "max_concurrent_runs": 2,
+            },
+            max_retries=0,
+            name="cf-job1",
+            role=my_job_role.id)
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_job_trigger_role = aws_native.iam.Role("myJobTriggerRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["glue.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        my_job = aws_native.glue.Job("myJob",
+            name="MyJobTriggerJob",
+            log_uri="wikiData",
+            role=my_job_trigger_role.id,
+            command={
+                "name": "glueetl",
+                "script_location": "s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py",
+            },
+            default_arguments={
+                "--job-bookmark-option": "job-bookmark-enable",
+            },
+            max_retries=0)
+        my_job_trigger = aws_native.glue.Trigger("myJobTrigger",
+            name="MyJobTrigger",
+            type="CONDITIONAL",
+            description="Description for a conditional job trigger",
+            actions=[{
+                "job_name": my_job.id,
+                "arguments": {
+                    "__job_bookmark_option": "job-bookmark-enable",
+                },
+            }],
+            predicate={
+                "conditions": [{
+                    "logical_operator": "EQUALS",
+                    "job_name": my_job.id,
+                    "state": "SUCCEEDED",
+                }],
+            })
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        my_job_trigger_role = aws_native.iam.Role("myJobTriggerRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["glue.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        my_job = aws_native.glue.Job("myJob",
+            name="MyJobTriggerJob",
+            log_uri="wikiData",
+            role=my_job_trigger_role.id,
+            command={
+                "name": "glueetl",
+                "script_location": "s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py",
+            },
+            default_arguments={
+                "--job-bookmark-option": "job-bookmark-enable",
+            },
+            max_retries=0)
+        my_job_trigger = aws_native.glue.Trigger("myJobTrigger",
+            name="MyJobTrigger",
+            type="CONDITIONAL",
+            description="Description for a conditional job trigger",
+            actions=[{
+                "job_name": my_job.id,
+                "arguments": {
+                    "__job_bookmark_option": "job-bookmark-enable",
+                },
+            }],
+            predicate={
+                "conditions": [{
+                    "logical_operator": "EQUALS",
+                    "job_name": my_job.id,
+                    "state": "SUCCEEDED",
+                }],
             })
 
         ```

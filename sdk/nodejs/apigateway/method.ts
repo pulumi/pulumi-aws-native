@@ -42,7 +42,7 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly apiKeyRequired!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+     * A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
      */
     public readonly authorizationScopes!: pulumi.Output<string[] | undefined>;
     /**
@@ -51,7 +51,7 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly authorizationType!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+     * The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
      */
     public readonly authorizerId!: pulumi.Output<string | undefined>;
     /**
@@ -59,7 +59,7 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly httpMethod!: pulumi.Output<string>;
     /**
-     * Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+     * Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
      */
     public readonly integration!: pulumi.Output<outputs.apigateway.MethodIntegration | undefined>;
     /**
@@ -67,7 +67,7 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly methodResponses!: pulumi.Output<outputs.apigateway.MethodResponse[] | undefined>;
     /**
-     * A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+     * A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
      */
     public readonly operationName!: pulumi.Output<string | undefined>;
     /**
@@ -75,7 +75,7 @@ export class Method extends pulumi.CustomResource {
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+     * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
      */
     public readonly requestParameters!: pulumi.Output<{[key: string]: boolean | string} | undefined>;
     /**
@@ -155,7 +155,7 @@ export interface MethodArgs {
      */
     apiKeyRequired?: pulumi.Input<boolean>;
     /**
-     * A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+     * A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -164,7 +164,7 @@ export interface MethodArgs {
      */
     authorizationType?: pulumi.Input<string>;
     /**
-     * The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+     * The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
      */
     authorizerId?: pulumi.Input<string>;
     /**
@@ -172,7 +172,7 @@ export interface MethodArgs {
      */
     httpMethod: pulumi.Input<string>;
     /**
-     * Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+     * Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
      */
     integration?: pulumi.Input<inputs.apigateway.MethodIntegrationArgs>;
     /**
@@ -180,7 +180,7 @@ export interface MethodArgs {
      */
     methodResponses?: pulumi.Input<pulumi.Input<inputs.apigateway.MethodResponseArgs>[]>;
     /**
-     * A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+     * A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
      */
     operationName?: pulumi.Input<string>;
     /**
@@ -188,7 +188,7 @@ export interface MethodArgs {
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+     * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
      */
     requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean | string>}>;
     /**

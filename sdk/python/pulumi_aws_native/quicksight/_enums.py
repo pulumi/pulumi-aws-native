@@ -18,6 +18,7 @@ __all__ = [
     'AnalysisCategoryFilterSelectAllOptions',
     'AnalysisColorFillType',
     'AnalysisColumnRole',
+    'AnalysisCommitMode',
     'AnalysisComparisonMethod',
     'AnalysisConditionalFormattingIconDisplayOption',
     'AnalysisConditionalFormattingIconSetType',
@@ -137,6 +138,7 @@ __all__ = [
     'DashboardCategoryFilterSelectAllOptions',
     'DashboardColorFillType',
     'DashboardColumnRole',
+    'DashboardCommitMode',
     'DashboardComparisonMethod',
     'DashboardConditionalFormattingIconDisplayOption',
     'DashboardConditionalFormattingIconSetType',
@@ -262,6 +264,8 @@ __all__ = [
     'DataSourceResourceStatus',
     'DataSourceStarburstProductType',
     'DataSourceType',
+    'FolderSharingModel',
+    'FolderType',
     'RefreshScheduleMapRefreshType',
     'RefreshScheduleMapScheduleFrequencyPropertiesInterval',
     'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek',
@@ -278,6 +282,7 @@ __all__ = [
     'TemplateCategoryFilterSelectAllOptions',
     'TemplateColorFillType',
     'TemplateColumnRole',
+    'TemplateCommitMode',
     'TemplateComparisonMethod',
     'TemplateConditionalFormattingIconDisplayOption',
     'TemplateConditionalFormattingIconSetType',
@@ -483,6 +488,11 @@ class AnalysisColorFillType(str, Enum):
 class AnalysisColumnRole(str, Enum):
     DIMENSION = "DIMENSION"
     MEASURE = "MEASURE"
+
+
+class AnalysisCommitMode(str, Enum):
+    AUTO = "AUTO"
+    MANUAL = "MANUAL"
 
 
 class AnalysisComparisonMethod(str, Enum):
@@ -1216,6 +1226,11 @@ class DashboardColorFillType(str, Enum):
 class DashboardColumnRole(str, Enum):
     DIMENSION = "DIMENSION"
     MEASURE = "MEASURE"
+
+
+class DashboardCommitMode(str, Enum):
+    AUTO = "AUTO"
+    MANUAL = "MANUAL"
 
 
 class DashboardComparisonMethod(str, Enum):
@@ -2053,6 +2068,16 @@ class DataSourceType(str, Enum):
     GLUE = "GLUE"
 
 
+class FolderSharingModel(str, Enum):
+    ACCOUNT = "ACCOUNT"
+    NAMESPACE = "NAMESPACE"
+
+
+class FolderType(str, Enum):
+    SHARED = "SHARED"
+    RESTRICTED = "RESTRICTED"
+
+
 class RefreshScheduleMapRefreshType(str, Enum):
     """
     The type of refresh that a dataset undergoes. Valid values are as follows:
@@ -2156,6 +2181,11 @@ class TemplateColorFillType(str, Enum):
 class TemplateColumnRole(str, Enum):
     DIMENSION = "DIMENSION"
     MEASURE = "MEASURE"
+
+
+class TemplateCommitMode(str, Enum):
+    AUTO = "AUTO"
+    MANUAL = "MANUAL"
 
 
 class TemplateComparisonMethod(str, Enum):

@@ -10,6 +10,182 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// TThe type of predefined worker that is allocated when a job runs.
+type JobWorkerType string
+
+const (
+	JobWorkerTypeStandard = JobWorkerType("Standard")
+	JobWorkerTypeG1x      = JobWorkerType("G.1X")
+	JobWorkerTypeG2x      = JobWorkerType("G.2X")
+	JobWorkerTypeG025x    = JobWorkerType("G.025X")
+	JobWorkerTypeG4x      = JobWorkerType("G.4X")
+	JobWorkerTypeG8x      = JobWorkerType("G.8X")
+	JobWorkerTypeZ2x      = JobWorkerType("Z.2X")
+)
+
+func (JobWorkerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobWorkerType)(nil)).Elem()
+}
+
+func (e JobWorkerType) ToJobWorkerTypeOutput() JobWorkerTypeOutput {
+	return pulumi.ToOutput(e).(JobWorkerTypeOutput)
+}
+
+func (e JobWorkerType) ToJobWorkerTypeOutputWithContext(ctx context.Context) JobWorkerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobWorkerTypeOutput)
+}
+
+func (e JobWorkerType) ToJobWorkerTypePtrOutput() JobWorkerTypePtrOutput {
+	return e.ToJobWorkerTypePtrOutputWithContext(context.Background())
+}
+
+func (e JobWorkerType) ToJobWorkerTypePtrOutputWithContext(ctx context.Context) JobWorkerTypePtrOutput {
+	return JobWorkerType(e).ToJobWorkerTypeOutputWithContext(ctx).ToJobWorkerTypePtrOutputWithContext(ctx)
+}
+
+func (e JobWorkerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobWorkerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobWorkerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobWorkerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobWorkerTypeOutput struct{ *pulumi.OutputState }
+
+func (JobWorkerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobWorkerType)(nil)).Elem()
+}
+
+func (o JobWorkerTypeOutput) ToJobWorkerTypeOutput() JobWorkerTypeOutput {
+	return o
+}
+
+func (o JobWorkerTypeOutput) ToJobWorkerTypeOutputWithContext(ctx context.Context) JobWorkerTypeOutput {
+	return o
+}
+
+func (o JobWorkerTypeOutput) ToJobWorkerTypePtrOutput() JobWorkerTypePtrOutput {
+	return o.ToJobWorkerTypePtrOutputWithContext(context.Background())
+}
+
+func (o JobWorkerTypeOutput) ToJobWorkerTypePtrOutputWithContext(ctx context.Context) JobWorkerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobWorkerType) *JobWorkerType {
+		return &v
+	}).(JobWorkerTypePtrOutput)
+}
+
+func (o JobWorkerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobWorkerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobWorkerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobWorkerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobWorkerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobWorkerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobWorkerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (JobWorkerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobWorkerType)(nil)).Elem()
+}
+
+func (o JobWorkerTypePtrOutput) ToJobWorkerTypePtrOutput() JobWorkerTypePtrOutput {
+	return o
+}
+
+func (o JobWorkerTypePtrOutput) ToJobWorkerTypePtrOutputWithContext(ctx context.Context) JobWorkerTypePtrOutput {
+	return o
+}
+
+func (o JobWorkerTypePtrOutput) Elem() JobWorkerTypeOutput {
+	return o.ApplyT(func(v *JobWorkerType) JobWorkerType {
+		if v != nil {
+			return *v
+		}
+		var ret JobWorkerType
+		return ret
+	}).(JobWorkerTypeOutput)
+}
+
+func (o JobWorkerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobWorkerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobWorkerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobWorkerTypeInput is an input type that accepts values of the JobWorkerType enum
+// A concrete instance of `JobWorkerTypeInput` can be one of the following:
+//
+//	JobWorkerTypeStandard
+//	JobWorkerTypeG1x
+//	JobWorkerTypeG2x
+//	JobWorkerTypeG025x
+//	JobWorkerTypeG4x
+//	JobWorkerTypeG8x
+//	JobWorkerTypeZ2x
+type JobWorkerTypeInput interface {
+	pulumi.Input
+
+	ToJobWorkerTypeOutput() JobWorkerTypeOutput
+	ToJobWorkerTypeOutputWithContext(context.Context) JobWorkerTypeOutput
+}
+
+var jobWorkerTypePtrType = reflect.TypeOf((**JobWorkerType)(nil)).Elem()
+
+type JobWorkerTypePtrInput interface {
+	pulumi.Input
+
+	ToJobWorkerTypePtrOutput() JobWorkerTypePtrOutput
+	ToJobWorkerTypePtrOutputWithContext(context.Context) JobWorkerTypePtrOutput
+}
+
+type jobWorkerTypePtr string
+
+func JobWorkerTypePtr(v string) JobWorkerTypePtrInput {
+	return (*jobWorkerTypePtr)(&v)
+}
+
+func (*jobWorkerTypePtr) ElementType() reflect.Type {
+	return jobWorkerTypePtrType
+}
+
+func (in *jobWorkerTypePtr) ToJobWorkerTypePtrOutput() JobWorkerTypePtrOutput {
+	return pulumi.ToOutput(in).(JobWorkerTypePtrOutput)
+}
+
+func (in *jobWorkerTypePtr) ToJobWorkerTypePtrOutputWithContext(ctx context.Context) JobWorkerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobWorkerTypePtrOutput)
+}
+
 // Compatibility setting for the schema.
 type SchemaCompatibility string
 
@@ -357,10 +533,14 @@ func (in *schemaDataFormatPtr) ToSchemaDataFormatPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobWorkerTypeInput)(nil)).Elem(), JobWorkerType("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobWorkerTypePtrInput)(nil)).Elem(), JobWorkerType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityInput)(nil)).Elem(), SchemaCompatibility("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityPtrInput)(nil)).Elem(), SchemaCompatibility("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatPtrInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
+	pulumi.RegisterOutputType(JobWorkerTypeOutput{})
+	pulumi.RegisterOutputType(JobWorkerTypePtrOutput{})
 	pulumi.RegisterOutputType(SchemaCompatibilityOutput{})
 	pulumi.RegisterOutputType(SchemaCompatibilityPtrOutput{})
 	pulumi.RegisterOutputType(SchemaDataFormatOutput{})

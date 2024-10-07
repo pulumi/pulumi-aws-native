@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.B2bi
         public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
 
         /// <summary>
+        /// Contains the details for an Outbound EDI capability.
+        /// </summary>
+        [Output("capabilityOptions")]
+        public Output<Outputs.PartnershipCapabilityOptions?> CapabilityOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Returns a timestamp for creation date and time of the partnership.
         /// </summary>
         [Output("createdAt")]
@@ -126,7 +132,7 @@ namespace Pulumi.AwsNative.B2bi
 
     public sealed class PartnershipArgs : global::Pulumi.ResourceArgs
     {
-        [Input("capabilities")]
+        [Input("capabilities", required: true)]
         private InputList<string>? _capabilities;
 
         /// <summary>
@@ -137,6 +143,12 @@ namespace Pulumi.AwsNative.B2bi
             get => _capabilities ?? (_capabilities = new InputList<string>());
             set => _capabilities = value;
         }
+
+        /// <summary>
+        /// Contains the details for an Outbound EDI capability.
+        /// </summary>
+        [Input("capabilityOptions")]
+        public Input<Inputs.PartnershipCapabilityOptionsArgs>? CapabilityOptions { get; set; }
 
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;

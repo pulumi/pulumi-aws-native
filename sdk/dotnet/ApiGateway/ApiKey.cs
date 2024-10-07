@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> ApiKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+        /// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
         /// </summary>
         [Output("customerId")]
         public Output<string?> CustomerId { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+        /// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
         /// </summary>
         [Output("generateDistinctId")]
         public Output<bool?> GenerateDistinctId { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<ImmutableArray<Outputs.ApiKeyStageKey>> StageKeys { get; private set; } = null!;
 
         /// <summary>
-        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+        /// An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
         /// </summary>
         [Input("customerId")]
         public Input<string>? CustomerId { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+        /// Specifies whether ( `true` ) or not ( `false` ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
         /// </summary>
         [Input("generateDistinctId")]
         public Input<bool>? GenerateDistinctId { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

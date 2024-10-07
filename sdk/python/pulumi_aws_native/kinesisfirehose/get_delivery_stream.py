@@ -167,11 +167,11 @@ class GetDeliveryStreamResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
+        A set of tags to assign to the Firehose stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the Firehose stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
 
-        You can specify up to 50 tags when creating a delivery stream.
+        You can specify up to 50 tags when creating a Firehose stream.
 
-        If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose delivery streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+        If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
 
         *AccessDeniedException*
 
@@ -208,7 +208,7 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
 
 
-    :param str delivery_stream_name: The name of the delivery stream.
+    :param str delivery_stream_name: The name of the Firehose stream.
     """
     __args__ = dict()
     __args__['deliveryStreamName'] = delivery_stream_name
@@ -237,6 +237,6 @@ def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]]
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
 
 
-    :param str delivery_stream_name: The name of the delivery stream.
+    :param str delivery_stream_name: The name of the Firehose stream.
     """
     ...

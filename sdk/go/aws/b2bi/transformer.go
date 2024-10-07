@@ -18,19 +18,25 @@ type Transformer struct {
 	pulumi.CustomResourceState
 
 	// Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-	EdiType TransformerEdiTypePropertiesOutput `pulumi:"ediType"`
-	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-	FileFormat TransformerFileFormatOutput `pulumi:"fileFormat"`
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
-	MappingTemplate pulumi.StringOutput `pulumi:"mappingTemplate"`
+	CreatedAt  pulumi.StringOutput                   `pulumi:"createdAt"`
+	EdiType    TransformerEdiTypePropertiesPtrOutput `pulumi:"ediType"`
+	FileFormat TransformerFileFormatPtrOutput        `pulumi:"fileFormat"`
+	// Returns a structure that contains the format options for the transformation.
+	InputConversion TransformerInputConversionPtrOutput `pulumi:"inputConversion"`
+	// Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+	Mapping TransformerMappingPtrOutput `pulumi:"mapping"`
+	// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
+	MappingTemplate pulumi.StringPtrOutput `pulumi:"mappingTemplate"`
 	// Returns a timestamp representing the date and time for the most recent change for the transformer object.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// Returns the descriptive name for the transformer.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+	OutputConversion TransformerOutputConversionPtrOutput `pulumi:"outputConversion"`
+	// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
 	SampleDocument pulumi.StringPtrOutput `pulumi:"sampleDocument"`
+	// Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+	SampleDocuments TransformerSampleDocumentsPtrOutput `pulumi:"sampleDocuments"`
 	// Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
 	Status TransformerStatusOutput `pulumi:"status"`
 	// A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
@@ -48,15 +54,6 @@ func NewTransformer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EdiType == nil {
-		return nil, errors.New("invalid value for required argument 'EdiType'")
-	}
-	if args.FileFormat == nil {
-		return nil, errors.New("invalid value for required argument 'FileFormat'")
-	}
-	if args.MappingTemplate == nil {
-		return nil, errors.New("invalid value for required argument 'MappingTemplate'")
-	}
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
@@ -93,16 +90,22 @@ func (TransformerState) ElementType() reflect.Type {
 }
 
 type transformerArgs struct {
-	// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-	EdiType TransformerEdiTypeProperties `pulumi:"ediType"`
-	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-	FileFormat TransformerFileFormat `pulumi:"fileFormat"`
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
-	MappingTemplate string `pulumi:"mappingTemplate"`
+	EdiType    *TransformerEdiTypeProperties `pulumi:"ediType"`
+	FileFormat *TransformerFileFormat        `pulumi:"fileFormat"`
+	// Returns a structure that contains the format options for the transformation.
+	InputConversion *TransformerInputConversion `pulumi:"inputConversion"`
+	// Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+	Mapping *TransformerMapping `pulumi:"mapping"`
+	// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
+	MappingTemplate *string `pulumi:"mappingTemplate"`
 	// Returns the descriptive name for the transformer.
 	Name *string `pulumi:"name"`
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+	OutputConversion *TransformerOutputConversion `pulumi:"outputConversion"`
+	// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
 	SampleDocument *string `pulumi:"sampleDocument"`
+	// Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+	SampleDocuments *TransformerSampleDocuments `pulumi:"sampleDocuments"`
 	// Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
 	Status TransformerStatus `pulumi:"status"`
 	// A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
@@ -111,16 +114,22 @@ type transformerArgs struct {
 
 // The set of arguments for constructing a Transformer resource.
 type TransformerArgs struct {
-	// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-	EdiType TransformerEdiTypePropertiesInput
-	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-	FileFormat TransformerFileFormatInput
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
-	MappingTemplate pulumi.StringInput
+	EdiType    TransformerEdiTypePropertiesPtrInput
+	FileFormat TransformerFileFormatPtrInput
+	// Returns a structure that contains the format options for the transformation.
+	InputConversion TransformerInputConversionPtrInput
+	// Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+	Mapping TransformerMappingPtrInput
+	// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
+	MappingTemplate pulumi.StringPtrInput
 	// Returns the descriptive name for the transformer.
 	Name pulumi.StringPtrInput
-	// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+	// Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+	OutputConversion TransformerOutputConversionPtrInput
+	// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
 	SampleDocument pulumi.StringPtrInput
+	// Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+	SampleDocuments TransformerSampleDocumentsPtrInput
 	// Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
 	Status TransformerStatusInput
 	// A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
@@ -169,19 +178,27 @@ func (o TransformerOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Transformer) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-func (o TransformerOutput) EdiType() TransformerEdiTypePropertiesOutput {
-	return o.ApplyT(func(v *Transformer) TransformerEdiTypePropertiesOutput { return v.EdiType }).(TransformerEdiTypePropertiesOutput)
+func (o TransformerOutput) EdiType() TransformerEdiTypePropertiesPtrOutput {
+	return o.ApplyT(func(v *Transformer) TransformerEdiTypePropertiesPtrOutput { return v.EdiType }).(TransformerEdiTypePropertiesPtrOutput)
 }
 
-// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-func (o TransformerOutput) FileFormat() TransformerFileFormatOutput {
-	return o.ApplyT(func(v *Transformer) TransformerFileFormatOutput { return v.FileFormat }).(TransformerFileFormatOutput)
+func (o TransformerOutput) FileFormat() TransformerFileFormatPtrOutput {
+	return o.ApplyT(func(v *Transformer) TransformerFileFormatPtrOutput { return v.FileFormat }).(TransformerFileFormatPtrOutput)
 }
 
-// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
-func (o TransformerOutput) MappingTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v *Transformer) pulumi.StringOutput { return v.MappingTemplate }).(pulumi.StringOutput)
+// Returns a structure that contains the format options for the transformation.
+func (o TransformerOutput) InputConversion() TransformerInputConversionPtrOutput {
+	return o.ApplyT(func(v *Transformer) TransformerInputConversionPtrOutput { return v.InputConversion }).(TransformerInputConversionPtrOutput)
+}
+
+// Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+func (o TransformerOutput) Mapping() TransformerMappingPtrOutput {
+	return o.ApplyT(func(v *Transformer) TransformerMappingPtrOutput { return v.Mapping }).(TransformerMappingPtrOutput)
+}
+
+// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
+func (o TransformerOutput) MappingTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Transformer) pulumi.StringPtrOutput { return v.MappingTemplate }).(pulumi.StringPtrOutput)
 }
 
 // Returns a timestamp representing the date and time for the most recent change for the transformer object.
@@ -194,9 +211,19 @@ func (o TransformerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Transformer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+// Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+func (o TransformerOutput) OutputConversion() TransformerOutputConversionPtrOutput {
+	return o.ApplyT(func(v *Transformer) TransformerOutputConversionPtrOutput { return v.OutputConversion }).(TransformerOutputConversionPtrOutput)
+}
+
+// This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
 func (o TransformerOutput) SampleDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Transformer) pulumi.StringPtrOutput { return v.SampleDocument }).(pulumi.StringPtrOutput)
+}
+
+// Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+func (o TransformerOutput) SampleDocuments() TransformerSampleDocumentsPtrOutput {
+	return o.ApplyT(func(v *Transformer) TransformerSampleDocumentsPtrOutput { return v.SampleDocuments }).(TransformerSampleDocumentsPtrOutput)
 }
 
 // Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .

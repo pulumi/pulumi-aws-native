@@ -2,6 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const JobWorkerType = {
+    Standard: "Standard",
+    G1x: "G.1X",
+    G2x: "G.2X",
+    G025x: "G.025X",
+    G4x: "G.4X",
+    G8x: "G.8X",
+    Z2x: "Z.2X",
+} as const;
+
+/**
+ * TThe type of predefined worker that is allocated when a job runs.
+ */
+export type JobWorkerType = (typeof JobWorkerType)[keyof typeof JobWorkerType];
+
 export const SchemaCompatibility = {
     None: "NONE",
     Disabled: "DISABLED",

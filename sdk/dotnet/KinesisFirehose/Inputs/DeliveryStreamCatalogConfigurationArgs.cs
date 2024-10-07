@@ -13,9 +13,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
     public sealed class DeliveryStreamCatalogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Glue catalog ARN indentifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
-        /// 
-        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
         /// </summary>
         [Input("catalogArn")]
         public Input<string>? CatalogArn { get; set; }

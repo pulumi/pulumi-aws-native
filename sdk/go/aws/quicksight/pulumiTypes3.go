@@ -13,6 +13,398 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTableConfiguration struct {
+	// The field options for a table visual.
+	FieldOptions *TemplateTableFieldOptions `pulumi:"fieldOptions"`
+	// The field wells of the visual.
+	FieldWells *TemplateTableFieldWells `pulumi:"fieldWells"`
+	// The paginated report options for a table visual.
+	PaginatedReportOptions *TemplateTablePaginatedReportOptions `pulumi:"paginatedReportOptions"`
+	// The sort configuration for a `TableVisual` .
+	SortConfiguration *TemplateTableSortConfiguration `pulumi:"sortConfiguration"`
+	// A collection of inline visualizations to display within a chart.
+	TableInlineVisualizations []TemplateTableInlineVisualization `pulumi:"tableInlineVisualizations"`
+	// The table options for a table visual.
+	TableOptions *TemplateTableOptions `pulumi:"tableOptions"`
+	// The total options for a table visual.
+	TotalOptions *TemplateTotalOptions `pulumi:"totalOptions"`
+}
+
+// TemplateTableConfigurationInput is an input type that accepts TemplateTableConfigurationArgs and TemplateTableConfigurationOutput values.
+// You can construct a concrete instance of `TemplateTableConfigurationInput` via:
+//
+//	TemplateTableConfigurationArgs{...}
+type TemplateTableConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateTableConfigurationOutput() TemplateTableConfigurationOutput
+	ToTemplateTableConfigurationOutputWithContext(context.Context) TemplateTableConfigurationOutput
+}
+
+type TemplateTableConfigurationArgs struct {
+	// The field options for a table visual.
+	FieldOptions TemplateTableFieldOptionsPtrInput `pulumi:"fieldOptions"`
+	// The field wells of the visual.
+	FieldWells TemplateTableFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The paginated report options for a table visual.
+	PaginatedReportOptions TemplateTablePaginatedReportOptionsPtrInput `pulumi:"paginatedReportOptions"`
+	// The sort configuration for a `TableVisual` .
+	SortConfiguration TemplateTableSortConfigurationPtrInput `pulumi:"sortConfiguration"`
+	// A collection of inline visualizations to display within a chart.
+	TableInlineVisualizations TemplateTableInlineVisualizationArrayInput `pulumi:"tableInlineVisualizations"`
+	// The table options for a table visual.
+	TableOptions TemplateTableOptionsPtrInput `pulumi:"tableOptions"`
+	// The total options for a table visual.
+	TotalOptions TemplateTotalOptionsPtrInput `pulumi:"totalOptions"`
+}
+
+func (TemplateTableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableConfiguration)(nil)).Elem()
+}
+
+func (i TemplateTableConfigurationArgs) ToTemplateTableConfigurationOutput() TemplateTableConfigurationOutput {
+	return i.ToTemplateTableConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateTableConfigurationArgs) ToTemplateTableConfigurationOutputWithContext(ctx context.Context) TemplateTableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConfigurationOutput)
+}
+
+func (i TemplateTableConfigurationArgs) ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput {
+	return i.ToTemplateTableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableConfigurationArgs) ToTemplateTableConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConfigurationOutput).ToTemplateTableConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateTableConfigurationPtrInput is an input type that accepts TemplateTableConfigurationArgs, TemplateTableConfigurationPtr and TemplateTableConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateTableConfigurationPtrInput` via:
+//
+//	        TemplateTableConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput
+	ToTemplateTableConfigurationPtrOutputWithContext(context.Context) TemplateTableConfigurationPtrOutput
+}
+
+type templateTableConfigurationPtrType TemplateTableConfigurationArgs
+
+func TemplateTableConfigurationPtr(v *TemplateTableConfigurationArgs) TemplateTableConfigurationPtrInput {
+	return (*templateTableConfigurationPtrType)(v)
+}
+
+func (*templateTableConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableConfiguration)(nil)).Elem()
+}
+
+func (i *templateTableConfigurationPtrType) ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput {
+	return i.ToTemplateTableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableConfigurationPtrType) ToTemplateTableConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConfigurationPtrOutput)
+}
+
+type TemplateTableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationOutput() TemplateTableConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationOutputWithContext(ctx context.Context) TemplateTableConfigurationOutput {
+	return o
+}
+
+func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput {
+	return o.ToTemplateTableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableConfiguration) *TemplateTableConfiguration {
+		return &v
+	}).(TemplateTableConfigurationPtrOutput)
+}
+
+// The field options for a table visual.
+func (o TemplateTableConfigurationOutput) FieldOptions() TemplateTableFieldOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableFieldOptions { return v.FieldOptions }).(TemplateTableFieldOptionsPtrOutput)
+}
+
+// The field wells of the visual.
+func (o TemplateTableConfigurationOutput) FieldWells() TemplateTableFieldWellsPtrOutput {
+	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableFieldWells { return v.FieldWells }).(TemplateTableFieldWellsPtrOutput)
+}
+
+// The paginated report options for a table visual.
+func (o TemplateTableConfigurationOutput) PaginatedReportOptions() TemplateTablePaginatedReportOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTablePaginatedReportOptions {
+		return v.PaginatedReportOptions
+	}).(TemplateTablePaginatedReportOptionsPtrOutput)
+}
+
+// The sort configuration for a `TableVisual` .
+func (o TemplateTableConfigurationOutput) SortConfiguration() TemplateTableSortConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableSortConfiguration { return v.SortConfiguration }).(TemplateTableSortConfigurationPtrOutput)
+}
+
+// A collection of inline visualizations to display within a chart.
+func (o TemplateTableConfigurationOutput) TableInlineVisualizations() TemplateTableInlineVisualizationArrayOutput {
+	return o.ApplyT(func(v TemplateTableConfiguration) []TemplateTableInlineVisualization {
+		return v.TableInlineVisualizations
+	}).(TemplateTableInlineVisualizationArrayOutput)
+}
+
+// The table options for a table visual.
+func (o TemplateTableConfigurationOutput) TableOptions() TemplateTableOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableOptions { return v.TableOptions }).(TemplateTableOptionsPtrOutput)
+}
+
+// The total options for a table visual.
+func (o TemplateTableConfigurationOutput) TotalOptions() TemplateTotalOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTotalOptions { return v.TotalOptions }).(TemplateTotalOptionsPtrOutput)
+}
+
+type TemplateTableConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableConfiguration)(nil)).Elem()
+}
+
+func (o TemplateTableConfigurationPtrOutput) ToTemplateTableConfigurationPtrOutput() TemplateTableConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableConfigurationPtrOutput) ToTemplateTableConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateTableConfigurationPtrOutput) Elem() TemplateTableConfigurationOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) TemplateTableConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableConfiguration
+		return ret
+	}).(TemplateTableConfigurationOutput)
+}
+
+// The field options for a table visual.
+func (o TemplateTableConfigurationPtrOutput) FieldOptions() TemplateTableFieldOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableFieldOptions {
+		if v == nil {
+			return nil
+		}
+		return v.FieldOptions
+	}).(TemplateTableFieldOptionsPtrOutput)
+}
+
+// The field wells of the visual.
+func (o TemplateTableConfigurationPtrOutput) FieldWells() TemplateTableFieldWellsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableFieldWells {
+		if v == nil {
+			return nil
+		}
+		return v.FieldWells
+	}).(TemplateTableFieldWellsPtrOutput)
+}
+
+// The paginated report options for a table visual.
+func (o TemplateTableConfigurationPtrOutput) PaginatedReportOptions() TemplateTablePaginatedReportOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTablePaginatedReportOptions {
+		if v == nil {
+			return nil
+		}
+		return v.PaginatedReportOptions
+	}).(TemplateTablePaginatedReportOptionsPtrOutput)
+}
+
+// The sort configuration for a `TableVisual` .
+func (o TemplateTableConfigurationPtrOutput) SortConfiguration() TemplateTableSortConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableSortConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SortConfiguration
+	}).(TemplateTableSortConfigurationPtrOutput)
+}
+
+// A collection of inline visualizations to display within a chart.
+func (o TemplateTableConfigurationPtrOutput) TableInlineVisualizations() TemplateTableInlineVisualizationArrayOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) []TemplateTableInlineVisualization {
+		if v == nil {
+			return nil
+		}
+		return v.TableInlineVisualizations
+	}).(TemplateTableInlineVisualizationArrayOutput)
+}
+
+// The table options for a table visual.
+func (o TemplateTableConfigurationPtrOutput) TableOptions() TemplateTableOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableOptions {
+		if v == nil {
+			return nil
+		}
+		return v.TableOptions
+	}).(TemplateTableOptionsPtrOutput)
+}
+
+// The total options for a table visual.
+func (o TemplateTableConfigurationPtrOutput) TotalOptions() TemplateTotalOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTotalOptions {
+		if v == nil {
+			return nil
+		}
+		return v.TotalOptions
+	}).(TemplateTotalOptionsPtrOutput)
+}
+
+type TemplateTableFieldCustomIconContent struct {
+	// The icon set type (link) of the custom icon content for table URL link content.
+	Icon *TemplateTableFieldIconSetType `pulumi:"icon"`
+}
+
+// TemplateTableFieldCustomIconContentInput is an input type that accepts TemplateTableFieldCustomIconContentArgs and TemplateTableFieldCustomIconContentOutput values.
+// You can construct a concrete instance of `TemplateTableFieldCustomIconContentInput` via:
+//
+//	TemplateTableFieldCustomIconContentArgs{...}
+type TemplateTableFieldCustomIconContentInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldCustomIconContentOutput() TemplateTableFieldCustomIconContentOutput
+	ToTemplateTableFieldCustomIconContentOutputWithContext(context.Context) TemplateTableFieldCustomIconContentOutput
+}
+
+type TemplateTableFieldCustomIconContentArgs struct {
+	// The icon set type (link) of the custom icon content for table URL link content.
+	Icon TemplateTableFieldIconSetTypePtrInput `pulumi:"icon"`
+}
+
+func (TemplateTableFieldCustomIconContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldCustomIconContent)(nil)).Elem()
+}
+
+func (i TemplateTableFieldCustomIconContentArgs) ToTemplateTableFieldCustomIconContentOutput() TemplateTableFieldCustomIconContentOutput {
+	return i.ToTemplateTableFieldCustomIconContentOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldCustomIconContentArgs) ToTemplateTableFieldCustomIconContentOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomIconContentOutput)
+}
+
+func (i TemplateTableFieldCustomIconContentArgs) ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput {
+	return i.ToTemplateTableFieldCustomIconContentPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTableFieldCustomIconContentArgs) ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomIconContentOutput).ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx)
+}
+
+// TemplateTableFieldCustomIconContentPtrInput is an input type that accepts TemplateTableFieldCustomIconContentArgs, TemplateTableFieldCustomIconContentPtr and TemplateTableFieldCustomIconContentPtrOutput values.
+// You can construct a concrete instance of `TemplateTableFieldCustomIconContentPtrInput` via:
+//
+//	        TemplateTableFieldCustomIconContentArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateTableFieldCustomIconContentPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput
+	ToTemplateTableFieldCustomIconContentPtrOutputWithContext(context.Context) TemplateTableFieldCustomIconContentPtrOutput
+}
+
+type templateTableFieldCustomIconContentPtrType TemplateTableFieldCustomIconContentArgs
+
+func TemplateTableFieldCustomIconContentPtr(v *TemplateTableFieldCustomIconContentArgs) TemplateTableFieldCustomIconContentPtrInput {
+	return (*templateTableFieldCustomIconContentPtrType)(v)
+}
+
+func (*templateTableFieldCustomIconContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldCustomIconContent)(nil)).Elem()
+}
+
+func (i *templateTableFieldCustomIconContentPtrType) ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput {
+	return i.ToTemplateTableFieldCustomIconContentPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTableFieldCustomIconContentPtrType) ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableFieldCustomIconContentPtrOutput)
+}
+
+type TemplateTableFieldCustomIconContentOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldCustomIconContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableFieldCustomIconContent)(nil)).Elem()
+}
+
+func (o TemplateTableFieldCustomIconContentOutput) ToTemplateTableFieldCustomIconContentOutput() TemplateTableFieldCustomIconContentOutput {
+	return o
+}
+
+func (o TemplateTableFieldCustomIconContentOutput) ToTemplateTableFieldCustomIconContentOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentOutput {
+	return o
+}
+
+func (o TemplateTableFieldCustomIconContentOutput) ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput {
+	return o.ToTemplateTableFieldCustomIconContentPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTableFieldCustomIconContentOutput) ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTableFieldCustomIconContent) *TemplateTableFieldCustomIconContent {
+		return &v
+	}).(TemplateTableFieldCustomIconContentPtrOutput)
+}
+
+// The icon set type (link) of the custom icon content for table URL link content.
+func (o TemplateTableFieldCustomIconContentOutput) Icon() TemplateTableFieldIconSetTypePtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldCustomIconContent) *TemplateTableFieldIconSetType { return v.Icon }).(TemplateTableFieldIconSetTypePtrOutput)
+}
+
+type TemplateTableFieldCustomIconContentPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableFieldCustomIconContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTableFieldCustomIconContent)(nil)).Elem()
+}
+
+func (o TemplateTableFieldCustomIconContentPtrOutput) ToTemplateTableFieldCustomIconContentPtrOutput() TemplateTableFieldCustomIconContentPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldCustomIconContentPtrOutput) ToTemplateTableFieldCustomIconContentPtrOutputWithContext(ctx context.Context) TemplateTableFieldCustomIconContentPtrOutput {
+	return o
+}
+
+func (o TemplateTableFieldCustomIconContentPtrOutput) Elem() TemplateTableFieldCustomIconContentOutput {
+	return o.ApplyT(func(v *TemplateTableFieldCustomIconContent) TemplateTableFieldCustomIconContent {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTableFieldCustomIconContent
+		return ret
+	}).(TemplateTableFieldCustomIconContentOutput)
+}
+
+// The icon set type (link) of the custom icon content for table URL link content.
+func (o TemplateTableFieldCustomIconContentPtrOutput) Icon() TemplateTableFieldIconSetTypePtrOutput {
+	return o.ApplyT(func(v *TemplateTableFieldCustomIconContent) *TemplateTableFieldIconSetType {
+		if v == nil {
+			return nil
+		}
+		return v.Icon
+	}).(TemplateTableFieldIconSetTypePtrOutput)
+}
+
 type TemplateTableFieldCustomTextContent struct {
 	// The font configuration of the custom text content for the table URL link content.
 	FontConfiguration TemplateFontConfiguration `pulumi:"fontConfiguration"`
@@ -19903,6 +20295,10 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConfigurationInput)(nil)).Elem(), TemplateTableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConfigurationPtrInput)(nil)).Elem(), TemplateTableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomIconContentInput)(nil)).Elem(), TemplateTableFieldCustomIconContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomIconContentPtrInput)(nil)).Elem(), TemplateTableFieldCustomIconContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomTextContentInput)(nil)).Elem(), TemplateTableFieldCustomTextContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomTextContentPtrInput)(nil)).Elem(), TemplateTableFieldCustomTextContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldImageConfigurationInput)(nil)).Elem(), TemplateTableFieldImageConfigurationArgs{})
@@ -20117,6 +20513,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTableConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateTableConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldCustomIconContentOutput{})
+	pulumi.RegisterOutputType(TemplateTableFieldCustomIconContentPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldCustomTextContentOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldCustomTextContentPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldImageConfigurationOutput{})

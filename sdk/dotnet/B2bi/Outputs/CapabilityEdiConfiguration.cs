@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class CapabilityEdiConfiguration
     {
+        public readonly Pulumi.AwsNative.B2bi.CapabilityDirection? CapabilityDirection;
         public readonly Outputs.CapabilityS3Location InputLocation;
         public readonly Outputs.CapabilityS3Location OutputLocation;
         public readonly string TransformerId;
@@ -20,6 +21,8 @@ namespace Pulumi.AwsNative.B2bi.Outputs
 
         [OutputConstructor]
         private CapabilityEdiConfiguration(
+            Pulumi.AwsNative.B2bi.CapabilityDirection? capabilityDirection,
+
             Outputs.CapabilityS3Location inputLocation,
 
             Outputs.CapabilityS3Location outputLocation,
@@ -28,6 +31,7 @@ namespace Pulumi.AwsNative.B2bi.Outputs
 
             Outputs.CapabilityEdiTypeProperties type)
         {
+            CapabilityDirection = capabilityDirection;
             InputLocation = inputLocation;
             OutputLocation = outputLocation;
             TransformerId = transformerId;

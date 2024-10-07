@@ -16,13 +16,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
     [OutputType]
     public sealed class UsagePlanThrottleSettings
     {
-        /// <summary>
-        /// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
-        /// </summary>
         public readonly int? BurstLimit;
-        /// <summary>
-        /// The API target request rate limit.
-        /// </summary>
         public readonly double? RateLimit;
 
         [OutputConstructor]

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
         /// <summary>
-        /// The Amazon CloudWatch logging options for your delivery stream.
+        /// The Amazon CloudWatch logging options for your Firehose stream.
         /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration;
         /// <summary>
-        /// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+        /// The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
         /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode? S3BackupMode;
 

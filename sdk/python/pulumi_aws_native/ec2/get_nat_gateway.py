@@ -48,7 +48,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Optional[Sequence[str]]:
         """
-        Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.
+        Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
         """
         return pulumi.get(self, "secondary_allocation_ids")
 

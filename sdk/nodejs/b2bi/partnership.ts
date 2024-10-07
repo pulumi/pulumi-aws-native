@@ -40,7 +40,11 @@ export class Partnership extends pulumi.CustomResource {
     /**
      * Returns one or more capabilities associated with this partnership.
      */
-    public readonly capabilities!: pulumi.Output<string[] | undefined>;
+    public readonly capabilities!: pulumi.Output<string[]>;
+    /**
+     * Contains the details for an Outbound EDI capability.
+     */
+    public readonly capabilityOptions!: pulumi.Output<outputs.b2bi.PartnershipCapabilityOptions | undefined>;
     /**
      * Returns a timestamp for creation date and time of the partnership.
      */
@@ -87,6 +91,9 @@ export class Partnership extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.capabilities === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'capabilities'");
+            }
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
@@ -94,6 +101,7 @@ export class Partnership extends pulumi.CustomResource {
                 throw new Error("Missing required property 'profileId'");
             }
             resourceInputs["capabilities"] = args ? args.capabilities : undefined;
+            resourceInputs["capabilityOptions"] = args ? args.capabilityOptions : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["phone"] = args ? args.phone : undefined;
@@ -106,6 +114,7 @@ export class Partnership extends pulumi.CustomResource {
             resourceInputs["tradingPartnerId"] = undefined /*out*/;
         } else {
             resourceInputs["capabilities"] = undefined /*out*/;
+            resourceInputs["capabilityOptions"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
@@ -131,7 +140,11 @@ export interface PartnershipArgs {
     /**
      * Returns one or more capabilities associated with this partnership.
      */
-    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    capabilities: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Contains the details for an Outbound EDI capability.
+     */
+    capabilityOptions?: pulumi.Input<inputs.b2bi.PartnershipCapabilityOptionsArgs>;
     email: pulumi.Input<string>;
     /**
      * Returns the name of the partnership.

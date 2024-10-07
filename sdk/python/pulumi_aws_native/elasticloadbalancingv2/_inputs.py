@@ -186,11 +186,10 @@ class ListenerAttributeArgs:
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        Information about a listener attribute.
         :param pulumi.Input[str] key: The name of the attribute.
-               
-               The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
-               
-               - `tcp.idle_timeout.seconds` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+                The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+                 +   ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
         :param pulumi.Input[str] value: The value of the attribute.
         """
         if key is not None:
@@ -203,10 +202,8 @@ class ListenerAttributeArgs:
     def key(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the attribute.
-
-        The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
-
-        - `tcp.idle_timeout.seconds` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+         The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+          +   ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
         """
         return pulumi.get(self, "key")
 

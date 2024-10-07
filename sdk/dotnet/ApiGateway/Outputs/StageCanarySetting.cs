@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
-    /// <summary>
-    /// Configuration settings of a canary deployment.
-    /// </summary>
     [OutputType]
     public sealed class StageCanarySetting
     {

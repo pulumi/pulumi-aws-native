@@ -15,6 +15,11 @@ export const getSecret: typeof import("./getSecret").getSecret = null as any;
 export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
 utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
 
+export { GetSecretTargetAttachmentArgs, GetSecretTargetAttachmentResult, GetSecretTargetAttachmentOutputArgs } from "./getSecretTargetAttachment";
+export const getSecretTargetAttachment: typeof import("./getSecretTargetAttachment").getSecretTargetAttachment = null as any;
+export const getSecretTargetAttachmentOutput: typeof import("./getSecretTargetAttachment").getSecretTargetAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getSecretTargetAttachment","getSecretTargetAttachmentOutput"], () => require("./getSecretTargetAttachment"));
+
 export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
@@ -25,6 +30,11 @@ export type Secret = import("./secret").Secret;
 export const Secret: typeof import("./secret").Secret = null as any;
 utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
 
+export { SecretTargetAttachmentArgs } from "./secretTargetAttachment";
+export type SecretTargetAttachment = import("./secretTargetAttachment").SecretTargetAttachment;
+export const SecretTargetAttachment: typeof import("./secretTargetAttachment").SecretTargetAttachment = null as any;
+utilities.lazyLoad(exports, ["SecretTargetAttachment"], () => require("./secretTargetAttachment"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -34,6 +44,8 @@ const _module = {
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:secretsmanager:Secret":
                 return new Secret(name, <any>undefined, { urn })
+            case "aws-native:secretsmanager:SecretTargetAttachment":
+                return new SecretTargetAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

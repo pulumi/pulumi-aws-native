@@ -41,18 +41,20 @@ export class Transformer extends pulumi.CustomResource {
      * Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly ediType!: pulumi.Output<outputs.b2bi.TransformerEdiTypeProperties | undefined>;
+    public readonly fileFormat!: pulumi.Output<enums.b2bi.TransformerFileFormat | undefined>;
     /**
-     * Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+     * Returns a structure that contains the format options for the transformation.
      */
-    public readonly ediType!: pulumi.Output<outputs.b2bi.TransformerEdiTypeProperties>;
+    public readonly inputConversion!: pulumi.Output<outputs.b2bi.TransformerInputConversion | undefined>;
     /**
-     * Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+     * Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
      */
-    public readonly fileFormat!: pulumi.Output<enums.b2bi.TransformerFileFormat>;
+    public readonly mapping!: pulumi.Output<outputs.b2bi.TransformerMapping | undefined>;
     /**
-     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
-    public readonly mappingTemplate!: pulumi.Output<string>;
+    public readonly mappingTemplate!: pulumi.Output<string | undefined>;
     /**
      * Returns a timestamp representing the date and time for the most recent change for the transformer object.
      */
@@ -62,9 +64,17 @@ export class Transformer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     * Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+     */
+    public readonly outputConversion!: pulumi.Output<outputs.b2bi.TransformerOutputConversion | undefined>;
+    /**
+     * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
     public readonly sampleDocument!: pulumi.Output<string | undefined>;
+    /**
+     * Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+     */
+    public readonly sampleDocuments!: pulumi.Output<outputs.b2bi.TransformerSampleDocuments | undefined>;
     /**
      * Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
      */
@@ -93,23 +103,18 @@ export class Transformer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ediType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ediType'");
-            }
-            if ((!args || args.fileFormat === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fileFormat'");
-            }
-            if ((!args || args.mappingTemplate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'mappingTemplate'");
-            }
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
             resourceInputs["ediType"] = args ? args.ediType : undefined;
             resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
+            resourceInputs["inputConversion"] = args ? args.inputConversion : undefined;
+            resourceInputs["mapping"] = args ? args.mapping : undefined;
             resourceInputs["mappingTemplate"] = args ? args.mappingTemplate : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputConversion"] = args ? args.outputConversion : undefined;
             resourceInputs["sampleDocument"] = args ? args.sampleDocument : undefined;
+            resourceInputs["sampleDocuments"] = args ? args.sampleDocuments : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -120,10 +125,14 @@ export class Transformer extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ediType"] = undefined /*out*/;
             resourceInputs["fileFormat"] = undefined /*out*/;
+            resourceInputs["inputConversion"] = undefined /*out*/;
+            resourceInputs["mapping"] = undefined /*out*/;
             resourceInputs["mappingTemplate"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputConversion"] = undefined /*out*/;
             resourceInputs["sampleDocument"] = undefined /*out*/;
+            resourceInputs["sampleDocuments"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transformerArn"] = undefined /*out*/;
@@ -138,26 +147,36 @@ export class Transformer extends pulumi.CustomResource {
  * The set of arguments for constructing a Transformer resource.
  */
 export interface TransformerArgs {
+    ediType?: pulumi.Input<inputs.b2bi.TransformerEdiTypePropertiesArgs>;
+    fileFormat?: pulumi.Input<enums.b2bi.TransformerFileFormat>;
     /**
-     * Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+     * Returns a structure that contains the format options for the transformation.
      */
-    ediType: pulumi.Input<inputs.b2bi.TransformerEdiTypePropertiesArgs>;
+    inputConversion?: pulumi.Input<inputs.b2bi.TransformerInputConversionArgs>;
     /**
-     * Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
+     * Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
      */
-    fileFormat: pulumi.Input<enums.b2bi.TransformerFileFormat>;
+    mapping?: pulumi.Input<inputs.b2bi.TransformerMappingArgs>;
     /**
-     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
-    mappingTemplate: pulumi.Input<string>;
+    mappingTemplate?: pulumi.Input<string>;
     /**
      * Returns the descriptive name for the transformer.
      */
     name?: pulumi.Input<string>;
     /**
-     * Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+     * Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+     */
+    outputConversion?: pulumi.Input<inputs.b2bi.TransformerOutputConversionArgs>;
+    /**
+     * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
      */
     sampleDocument?: pulumi.Input<string>;
+    /**
+     * Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+     */
+    sampleDocuments?: pulumi.Input<inputs.b2bi.TransformerSampleDocumentsArgs>;
     /**
      * Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
      */

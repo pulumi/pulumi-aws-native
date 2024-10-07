@@ -38,13 +38,31 @@ export class DomainConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * An enumerated string that speciﬁes the application-layer protocol.
+     *
+     * > This property isn't available in China.
+     */
+    public readonly applicationProtocol!: pulumi.Output<enums.iot.DomainConfigurationApplicationProtocol | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the domain configuration.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * An enumerated string that speciﬁes the authentication type.
+     *
+     * > This property isn't available in China.
+     */
+    public readonly authenticationType!: pulumi.Output<enums.iot.DomainConfigurationAuthenticationType | undefined>;
+    /**
      * An object that specifies the authorization service for a domain.
      */
     public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
+    /**
+     * An object that speciﬁes the client certificate conﬁguration for a domain.
+     *
+     * > This property isn't available in China.
+     */
+    public readonly clientCertificateConfig!: pulumi.Output<outputs.iot.DomainConfigurationClientCertificateConfig | undefined>;
     /**
      * The name of the domain configuration. This value must be unique to a region.
      */
@@ -113,7 +131,10 @@ export class DomainConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["applicationProtocol"] = args ? args.applicationProtocol : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["authorizerConfig"] = args ? args.authorizerConfig : undefined;
+            resourceInputs["clientCertificateConfig"] = args ? args.clientCertificateConfig : undefined;
             resourceInputs["domainConfigurationName"] = args ? args.domainConfigurationName : undefined;
             resourceInputs["domainConfigurationStatus"] = args ? args.domainConfigurationStatus : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
@@ -127,8 +148,11 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["domainType"] = undefined /*out*/;
             resourceInputs["serverCertificates"] = undefined /*out*/;
         } else {
+            resourceInputs["applicationProtocol"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authenticationType"] = undefined /*out*/;
             resourceInputs["authorizerConfig"] = undefined /*out*/;
+            resourceInputs["clientCertificateConfig"] = undefined /*out*/;
             resourceInputs["domainConfigurationName"] = undefined /*out*/;
             resourceInputs["domainConfigurationStatus"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
@@ -153,9 +177,27 @@ export class DomainConfiguration extends pulumi.CustomResource {
  */
 export interface DomainConfigurationArgs {
     /**
+     * An enumerated string that speciﬁes the application-layer protocol.
+     *
+     * > This property isn't available in China.
+     */
+    applicationProtocol?: pulumi.Input<enums.iot.DomainConfigurationApplicationProtocol>;
+    /**
+     * An enumerated string that speciﬁes the authentication type.
+     *
+     * > This property isn't available in China.
+     */
+    authenticationType?: pulumi.Input<enums.iot.DomainConfigurationAuthenticationType>;
+    /**
      * An object that specifies the authorization service for a domain.
      */
     authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfigArgs>;
+    /**
+     * An object that speciﬁes the client certificate conﬁguration for a domain.
+     *
+     * > This property isn't available in China.
+     */
+    clientCertificateConfig?: pulumi.Input<inputs.iot.DomainConfigurationClientCertificateConfigArgs>;
     /**
      * The name of the domain configuration. This value must be unique to a region.
      */

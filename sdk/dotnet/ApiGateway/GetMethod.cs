@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly bool? ApiKeyRequired;
         /// <summary>
-        /// A list of authorization scopes configured on the method. The scopes are used with a ``COGNITO_USER_POOLS`` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
+        /// A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
         /// </summary>
         public readonly ImmutableArray<string> AuthorizationScopes;
         /// <summary>
@@ -95,11 +95,11 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? AuthorizationType;
         /// <summary>
-        /// The identifier of an authorizer to use on this method. The method's authorization type must be ``CUSTOM`` or ``COGNITO_USER_POOLS``.
+        /// The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         /// </summary>
         public readonly string? AuthorizerId;
         /// <summary>
-        /// Represents an ``HTTP``, ``HTTP_PROXY``, ``AWS``, ``AWS_PROXY``, or Mock integration.
+        /// Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
         /// </summary>
         public readonly Outputs.MethodIntegration? Integration;
         /// <summary>
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly ImmutableArray<Outputs.MethodResponse> MethodResponses;
         /// <summary>
-        /// A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
+        /// A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         /// </summary>
         public readonly string? OperationName;
         /// <summary>
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RequestModels;
         /// <summary>
-        /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
         public readonly ImmutableDictionary<string, Union<bool, string>>? RequestParameters;
         /// <summary>

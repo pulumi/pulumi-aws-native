@@ -16,29 +16,21 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
         /// <summary>
         /// Configuration describing where the destination Apache Iceberg Tables are persisted.
-        /// 
-        /// Amazon Data Firehose is in preview release and is subject to change.
         /// </summary>
         public readonly Outputs.DeliveryStreamCatalogConfiguration CatalogConfiguration;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         /// <summary>
         /// Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
-        /// 
-        /// Amazon Data Firehose is in preview release and is subject to change.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeliveryStreamDestinationTableConfiguration> DestinationTableConfigurationList;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly Outputs.DeliveryStreamRetryOptions? RetryOptions;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
-        /// 
-        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
-        /// 
-        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
         /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamIcebergDestinationConfigurations3BackupMode? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;

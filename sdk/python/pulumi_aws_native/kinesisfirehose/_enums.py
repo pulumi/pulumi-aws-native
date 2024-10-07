@@ -124,7 +124,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat(str, Enu
 
 class DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode(str, Enum):
     """
-    The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+    The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
@@ -140,9 +140,7 @@ class DeliveryStreamHttpEndpointRequestConfigurationContentEncoding(str, Enum):
 
 class DeliveryStreamIcebergDestinationConfigurations3BackupMode(str, Enum):
     """
-    Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` for preview.
-
-    Amazon Data Firehose is in preview release and is subject to change.
+    Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
     """
     ALL_DATA = "AllData"
     FAILED_DATA_ONLY = "FailedDataOnly"
@@ -162,7 +160,7 @@ class DeliveryStreamProcessorType(str, Enum):
 
 class DeliveryStreamRedshiftDestinationConfigurationS3BackupMode(str, Enum):
     """
-    The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+    The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
@@ -206,10 +204,10 @@ class DeliveryStreamSplunkDestinationConfigurationHecEndpointType(str, Enum):
 
 class DeliveryStreamType(str, Enum):
     """
-    The delivery stream type. This can be one of the following values:
+    The Firehose stream type. This can be one of the following values:
 
-    - `DirectPut` : Provider applications access the delivery stream directly.
-    - `KinesisStreamAsSource` : The delivery stream uses a Kinesis data stream as a source.
+    - `DirectPut` : Provider applications access the Firehose stream directly.
+    - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
     """
     DIRECT_PUT = "DirectPut"
     KINESIS_STREAM_AS_SOURCE = "KinesisStreamAsSource"

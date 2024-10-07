@@ -23,7 +23,7 @@ class RequestValidatorArgs:
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[str] name: The name of this RequestValidator
         :param pulumi.Input[bool] validate_request_body: A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
-        :param pulumi.Input[bool] validate_request_parameters: A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+        :param pulumi.Input[bool] validate_request_parameters: A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         if name is not None:
@@ -73,7 +73,7 @@ class RequestValidatorArgs:
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> Optional[pulumi.Input[bool]]:
         """
-        A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+        A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
         """
         return pulumi.get(self, "validate_request_parameters")
 
@@ -100,7 +100,7 @@ class RequestValidator(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of this RequestValidator
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[bool] validate_request_body: A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
-        :param pulumi.Input[bool] validate_request_parameters: A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+        :param pulumi.Input[bool] validate_request_parameters: A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
         """
         ...
     @overload
@@ -213,7 +213,7 @@ class RequestValidator(pulumi.CustomResource):
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> pulumi.Output[Optional[bool]]:
         """
-        A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+        A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
         """
         return pulumi.get(self, "validate_request_parameters")
 

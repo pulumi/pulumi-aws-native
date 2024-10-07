@@ -16,8 +16,9 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
     public sealed class MethodIntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how to handle response payload content type conversions. Supported values are ``CONVERT_TO_BINARY`` and ``CONVERT_TO_TEXT``, with the following behaviors:
-        ///  If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        /// Specifies how to handle response payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT` , with the following behaviors:
+        /// 
+        /// If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         /// </summary>
         [Input("contentHandling")]
         public Input<Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseContentHandling>? ContentHandling { get; set; }
@@ -26,7 +27,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         private InputMap<string>? _responseParameters;
 
         /// <summary>
-        /// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of ``method.response.header.{name}``, where ``name`` is a valid and unique header name. The mapped non-static value must match the pattern of ``integration.response.header.{name}`` or ``integration.response.body.{JSON-expression}``, where ``name`` is a valid and unique response header name and ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.
+        /// A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of `method.response.header.{name}` , where `name` is a valid and unique header name. The mapped non-static value must match the pattern of `integration.response.header.{name}` or `integration.response.body.{JSON-expression}` , where `name` is a valid and unique response header name and `JSON-expression` is a valid JSON expression without the `$` prefix.
         /// </summary>
         public InputMap<string> ResponseParameters
         {
@@ -47,7 +48,7 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         }
 
         /// <summary>
-        /// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the ``.+`` regex to match error response. However, make sure that the error response does not contain any newline (``\n``) character in such cases. If the back end is an LAMlong function, the LAMlong function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
+        /// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the `.+` regex to match error response. However, make sure that the error response does not contain any newline ( `\n` ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
         /// </summary>
         [Input("selectionPattern")]
         public Input<string>? SelectionPattern { get; set; }

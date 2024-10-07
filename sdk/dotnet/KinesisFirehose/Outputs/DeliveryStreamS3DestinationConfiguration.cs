@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
         /// <summary>
-        /// The CloudWatch logging options for your delivery stream.
+        /// The CloudWatch logging options for your Firehose stream.
         /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         /// <summary>

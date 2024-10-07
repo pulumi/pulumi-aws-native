@@ -19,69 +19,50 @@ __all__ = ['TransformerArgs', 'Transformer']
 @pulumi.input_type
 class TransformerArgs:
     def __init__(__self__, *,
-                 edi_type: pulumi.Input['TransformerEdiTypePropertiesArgs'],
-                 file_format: pulumi.Input['TransformerFileFormat'],
-                 mapping_template: pulumi.Input[str],
                  status: pulumi.Input['TransformerStatus'],
+                 edi_type: Optional[pulumi.Input['TransformerEdiTypePropertiesArgs']] = None,
+                 file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
+                 input_conversion: Optional[pulumi.Input['TransformerInputConversionArgs']] = None,
+                 mapping: Optional[pulumi.Input['TransformerMappingArgs']] = None,
+                 mapping_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_conversion: Optional[pulumi.Input['TransformerOutputConversionArgs']] = None,
                  sample_document: Optional[pulumi.Input[str]] = None,
+                 sample_documents: Optional[pulumi.Input['TransformerSampleDocumentsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Transformer resource.
-        :param pulumi.Input['TransformerEdiTypePropertiesArgs'] edi_type: Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-        :param pulumi.Input['TransformerFileFormat'] file_format: Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-        :param pulumi.Input[str] mapping_template: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
         :param pulumi.Input['TransformerStatus'] status: Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
+        :param pulumi.Input['TransformerInputConversionArgs'] input_conversion: Returns a structure that contains the format options for the transformation.
+        :param pulumi.Input['TransformerMappingArgs'] mapping: Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+        :param pulumi.Input[str] mapping_template: This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         :param pulumi.Input[str] name: Returns the descriptive name for the transformer.
-        :param pulumi.Input[str] sample_document: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        :param pulumi.Input['TransformerOutputConversionArgs'] output_conversion: Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+        :param pulumi.Input[str] sample_document: This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
+        :param pulumi.Input['TransformerSampleDocumentsArgs'] sample_documents: Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
-        pulumi.set(__self__, "edi_type", edi_type)
-        pulumi.set(__self__, "file_format", file_format)
-        pulumi.set(__self__, "mapping_template", mapping_template)
         pulumi.set(__self__, "status", status)
+        if edi_type is not None:
+            pulumi.set(__self__, "edi_type", edi_type)
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
+        if input_conversion is not None:
+            pulumi.set(__self__, "input_conversion", input_conversion)
+        if mapping is not None:
+            pulumi.set(__self__, "mapping", mapping)
+        if mapping_template is not None:
+            pulumi.set(__self__, "mapping_template", mapping_template)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if output_conversion is not None:
+            pulumi.set(__self__, "output_conversion", output_conversion)
         if sample_document is not None:
             pulumi.set(__self__, "sample_document", sample_document)
+        if sample_documents is not None:
+            pulumi.set(__self__, "sample_documents", sample_documents)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="ediType")
-    def edi_type(self) -> pulumi.Input['TransformerEdiTypePropertiesArgs']:
-        """
-        Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-        """
-        return pulumi.get(self, "edi_type")
-
-    @edi_type.setter
-    def edi_type(self, value: pulumi.Input['TransformerEdiTypePropertiesArgs']):
-        pulumi.set(self, "edi_type", value)
-
-    @property
-    @pulumi.getter(name="fileFormat")
-    def file_format(self) -> pulumi.Input['TransformerFileFormat']:
-        """
-        Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-        """
-        return pulumi.get(self, "file_format")
-
-    @file_format.setter
-    def file_format(self, value: pulumi.Input['TransformerFileFormat']):
-        pulumi.set(self, "file_format", value)
-
-    @property
-    @pulumi.getter(name="mappingTemplate")
-    def mapping_template(self) -> pulumi.Input[str]:
-        """
-        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
-        """
-        return pulumi.get(self, "mapping_template")
-
-    @mapping_template.setter
-    def mapping_template(self, value: pulumi.Input[str]):
-        pulumi.set(self, "mapping_template", value)
 
     @property
     @pulumi.getter
@@ -96,6 +77,60 @@ class TransformerArgs:
         pulumi.set(self, "status", value)
 
     @property
+    @pulumi.getter(name="ediType")
+    def edi_type(self) -> Optional[pulumi.Input['TransformerEdiTypePropertiesArgs']]:
+        return pulumi.get(self, "edi_type")
+
+    @edi_type.setter
+    def edi_type(self, value: Optional[pulumi.Input['TransformerEdiTypePropertiesArgs']]):
+        pulumi.set(self, "edi_type", value)
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional[pulumi.Input['TransformerFileFormat']]:
+        return pulumi.get(self, "file_format")
+
+    @file_format.setter
+    def file_format(self, value: Optional[pulumi.Input['TransformerFileFormat']]):
+        pulumi.set(self, "file_format", value)
+
+    @property
+    @pulumi.getter(name="inputConversion")
+    def input_conversion(self) -> Optional[pulumi.Input['TransformerInputConversionArgs']]:
+        """
+        Returns a structure that contains the format options for the transformation.
+        """
+        return pulumi.get(self, "input_conversion")
+
+    @input_conversion.setter
+    def input_conversion(self, value: Optional[pulumi.Input['TransformerInputConversionArgs']]):
+        pulumi.set(self, "input_conversion", value)
+
+    @property
+    @pulumi.getter
+    def mapping(self) -> Optional[pulumi.Input['TransformerMappingArgs']]:
+        """
+        Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+        """
+        return pulumi.get(self, "mapping")
+
+    @mapping.setter
+    def mapping(self, value: Optional[pulumi.Input['TransformerMappingArgs']]):
+        pulumi.set(self, "mapping", value)
+
+    @property
+    @pulumi.getter(name="mappingTemplate")
+    def mapping_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
+        """
+        return pulumi.get(self, "mapping_template")
+
+    @mapping_template.setter
+    def mapping_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mapping_template", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -108,16 +143,40 @@ class TransformerArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outputConversion")
+    def output_conversion(self) -> Optional[pulumi.Input['TransformerOutputConversionArgs']]:
+        """
+        Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+        """
+        return pulumi.get(self, "output_conversion")
+
+    @output_conversion.setter
+    def output_conversion(self, value: Optional[pulumi.Input['TransformerOutputConversionArgs']]):
+        pulumi.set(self, "output_conversion", value)
+
+    @property
     @pulumi.getter(name="sampleDocument")
     def sample_document(self) -> Optional[pulumi.Input[str]]:
         """
-        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         """
         return pulumi.get(self, "sample_document")
 
     @sample_document.setter
     def sample_document(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sample_document", value)
+
+    @property
+    @pulumi.getter(name="sampleDocuments")
+    def sample_documents(self) -> Optional[pulumi.Input['TransformerSampleDocumentsArgs']]:
+        """
+        Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+        """
+        return pulumi.get(self, "sample_documents")
+
+    @sample_documents.setter
+    def sample_documents(self, value: Optional[pulumi.Input['TransformerSampleDocumentsArgs']]):
+        pulumi.set(self, "sample_documents", value)
 
     @property
     @pulumi.getter
@@ -139,9 +198,13 @@ class Transformer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  edi_type: Optional[pulumi.Input[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
                  file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
+                 input_conversion: Optional[pulumi.Input[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']]] = None,
+                 mapping: Optional[pulumi.Input[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']]] = None,
                  mapping_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_conversion: Optional[pulumi.Input[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']]] = None,
                  sample_document: Optional[pulumi.Input[str]] = None,
+                 sample_documents: Optional[pulumi.Input[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']]] = None,
                  status: Optional[pulumi.Input['TransformerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -150,11 +213,13 @@ class Transformer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']] edi_type: Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-        :param pulumi.Input['TransformerFileFormat'] file_format: Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-        :param pulumi.Input[str] mapping_template: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        :param pulumi.Input[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']] input_conversion: Returns a structure that contains the format options for the transformation.
+        :param pulumi.Input[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']] mapping: Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+        :param pulumi.Input[str] mapping_template: This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         :param pulumi.Input[str] name: Returns the descriptive name for the transformer.
-        :param pulumi.Input[str] sample_document: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        :param pulumi.Input[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']] output_conversion: Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+        :param pulumi.Input[str] sample_document: This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
+        :param pulumi.Input[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']] sample_documents: Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
         :param pulumi.Input['TransformerStatus'] status: Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
@@ -184,9 +249,13 @@ class Transformer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  edi_type: Optional[pulumi.Input[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
                  file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
+                 input_conversion: Optional[pulumi.Input[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']]] = None,
+                 mapping: Optional[pulumi.Input[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']]] = None,
                  mapping_template: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_conversion: Optional[pulumi.Input[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']]] = None,
                  sample_document: Optional[pulumi.Input[str]] = None,
+                 sample_documents: Optional[pulumi.Input[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']]] = None,
                  status: Optional[pulumi.Input['TransformerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -198,17 +267,15 @@ class Transformer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TransformerArgs.__new__(TransformerArgs)
 
-            if edi_type is None and not opts.urn:
-                raise TypeError("Missing required property 'edi_type'")
             __props__.__dict__["edi_type"] = edi_type
-            if file_format is None and not opts.urn:
-                raise TypeError("Missing required property 'file_format'")
             __props__.__dict__["file_format"] = file_format
-            if mapping_template is None and not opts.urn:
-                raise TypeError("Missing required property 'mapping_template'")
+            __props__.__dict__["input_conversion"] = input_conversion
+            __props__.__dict__["mapping"] = mapping
             __props__.__dict__["mapping_template"] = mapping_template
             __props__.__dict__["name"] = name
+            __props__.__dict__["output_conversion"] = output_conversion
             __props__.__dict__["sample_document"] = sample_document
+            __props__.__dict__["sample_documents"] = sample_documents
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
@@ -242,10 +309,14 @@ class Transformer(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["edi_type"] = None
         __props__.__dict__["file_format"] = None
+        __props__.__dict__["input_conversion"] = None
+        __props__.__dict__["mapping"] = None
         __props__.__dict__["mapping_template"] = None
         __props__.__dict__["modified_at"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["output_conversion"] = None
         __props__.__dict__["sample_document"] = None
+        __props__.__dict__["sample_documents"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transformer_arn"] = None
@@ -262,25 +333,35 @@ class Transformer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ediType")
-    def edi_type(self) -> pulumi.Output['outputs.TransformerEdiTypeProperties']:
-        """
-        Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
-        """
+    def edi_type(self) -> pulumi.Output[Optional['outputs.TransformerEdiTypeProperties']]:
         return pulumi.get(self, "edi_type")
 
     @property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> pulumi.Output['TransformerFileFormat']:
-        """
-        Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
-        """
+    def file_format(self) -> pulumi.Output[Optional['TransformerFileFormat']]:
         return pulumi.get(self, "file_format")
 
     @property
-    @pulumi.getter(name="mappingTemplate")
-    def mapping_template(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="inputConversion")
+    def input_conversion(self) -> pulumi.Output[Optional['outputs.TransformerInputConversion']]:
         """
-        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        Returns a structure that contains the format options for the transformation.
+        """
+        return pulumi.get(self, "input_conversion")
+
+    @property
+    @pulumi.getter
+    def mapping(self) -> pulumi.Output[Optional['outputs.TransformerMapping']]:
+        """
+        Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+        """
+        return pulumi.get(self, "mapping")
+
+    @property
+    @pulumi.getter(name="mappingTemplate")
+    def mapping_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         """
         return pulumi.get(self, "mapping_template")
 
@@ -301,12 +382,28 @@ class Transformer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outputConversion")
+    def output_conversion(self) -> pulumi.Output[Optional['outputs.TransformerOutputConversion']]:
+        """
+        Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+        """
+        return pulumi.get(self, "output_conversion")
+
+    @property
     @pulumi.getter(name="sampleDocument")
     def sample_document(self) -> pulumi.Output[Optional[str]]:
         """
-        Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
+        This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         """
         return pulumi.get(self, "sample_document")
+
+    @property
+    @pulumi.getter(name="sampleDocuments")
+    def sample_documents(self) -> pulumi.Output[Optional['outputs.TransformerSampleDocuments']]:
+        """
+        Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+        """
+        return pulumi.get(self, "sample_documents")
 
     @property
     @pulumi.getter

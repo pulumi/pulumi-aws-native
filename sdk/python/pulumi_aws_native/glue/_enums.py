@@ -5,9 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'JobWorkerType',
     'SchemaCompatibility',
     'SchemaDataFormat',
 ]
+
+
+class JobWorkerType(str, Enum):
+    """
+    TThe type of predefined worker that is allocated when a job runs.
+    """
+    STANDARD = "Standard"
+    G1X = "G.1X"
+    G2X = "G.2X"
+    G025X = "G.025X"
+    G4X = "G.4X"
+    G8X = "G.8X"
+    Z2X = "Z.2X"
 
 
 class SchemaCompatibility(str, Enum):

@@ -437,7 +437,7 @@ export class RestApi extends pulumi.CustomResource {
     }
 
     /**
-     * The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+     * The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
      */
     public readonly apiKeySourceType!: pulumi.Output<string | undefined>;
     /**
@@ -463,7 +463,7 @@ export class RestApi extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+     * Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
      */
     public readonly disableExecuteApiEndpoint!: pulumi.Output<boolean | undefined>;
     /**
@@ -471,7 +471,7 @@ export class RestApi extends pulumi.CustomResource {
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration | undefined>;
     /**
-     * A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+     * A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
      */
     public readonly failOnWarnings!: pulumi.Output<boolean | undefined>;
     /**
@@ -492,7 +492,7 @@ export class RestApi extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+     * Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -510,7 +510,7 @@ export class RestApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
     /**
-     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -571,7 +571,7 @@ export class RestApi extends pulumi.CustomResource {
  */
 export interface RestApiArgs {
     /**
-     * The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
+     * The source of the API key for metering requests according to a usage plan. Valid values are: `HEADER` to read the API key from the `X-API-Key` header of a request. `AUTHORIZER` to read the API key from the `UsageIdentifierKey` from a custom authorizer.
      */
     apiKeySourceType?: pulumi.Input<string>;
     /**
@@ -597,7 +597,7 @@ export interface RestApiArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+     * Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
      */
     disableExecuteApiEndpoint?: pulumi.Input<boolean>;
     /**
@@ -605,7 +605,7 @@ export interface RestApiArgs {
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfigurationArgs>;
     /**
-     * A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
+     * A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
      */
     failOnWarnings?: pulumi.Input<boolean>;
     /**
@@ -626,7 +626,7 @@ export interface RestApiArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
+     * Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set `ignore=documentation` as a `parameters` value, as in the AWS CLI command of `aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'` .
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -636,7 +636,7 @@ export interface RestApiArgs {
      */
     policy?: any;
     /**
-     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -51,7 +51,7 @@ export class RequestValidator extends pulumi.CustomResource {
      */
     public readonly validateRequestBody!: pulumi.Output<boolean | undefined>;
     /**
-     * A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+     * A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
      */
     public readonly validateRequestParameters!: pulumi.Output<boolean | undefined>;
 
@@ -105,7 +105,7 @@ export interface RequestValidatorArgs {
      */
     validateRequestBody?: pulumi.Input<boolean>;
     /**
-     * A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
+     * A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
      */
     validateRequestParameters?: pulumi.Input<boolean>;
 }

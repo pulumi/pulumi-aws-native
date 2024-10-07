@@ -52,7 +52,7 @@ class GetApiKeyResult:
     @pulumi.getter(name="customerId")
     def customer_id(self) -> Optional[str]:
         """
-        An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+        An AWS Marketplace customer identifier, when integrating with the AWS SaaS Marketplace.
         """
         return pulumi.get(self, "customer_id")
 
@@ -84,7 +84,7 @@ class GetApiKeyResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         return pulumi.get(self, "tags")
 

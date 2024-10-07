@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -33,10 +36,8 @@ export interface GetDirectoryBucketResult {
     readonly availabilityZoneName?: string;
     /**
      * Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::DirectoryBucket` for more information about the expected schema for this property.
      */
-    readonly bucketEncryption?: any;
+    readonly bucketEncryption?: outputs.s3express.DirectoryBucketBucketEncryption;
 }
 /**
  * Resource Type definition for AWS::S3Express::DirectoryBucket.
