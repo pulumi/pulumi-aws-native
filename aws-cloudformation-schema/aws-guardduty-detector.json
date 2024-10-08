@@ -5,8 +5,9 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
   },
   "properties" : {
     "FindingPublishingFrequency" : {
@@ -20,6 +21,7 @@
     },
     "Features" : {
       "type" : "array",
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/CFNFeatureConfiguration"
       }
@@ -29,6 +31,7 @@
     },
     "Tags" : {
       "type" : "array",
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/TagItem"
       }
@@ -129,6 +132,7 @@
         },
         "AdditionalConfiguration" : {
           "type" : "array",
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/CFNFeatureAdditionalConfiguration"
           }
@@ -159,13 +163,13 @@
       "permissions" : [ "guardduty:CreateDetector", "guardduty:GetDetector", "guardduty:TagResource", "iam:CreateServiceLinkedRole", "iam:GetRole" ]
     },
     "read" : {
-      "permissions" : [ "guardduty:GetDetector" ]
+      "permissions" : [ "guardduty:GetDetector", "guardduty:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "guardduty:ListDetectors", "guardduty:DeleteDetector", "guardduty:GetDetector" ]
     },
     "update" : {
-      "permissions" : [ "guardduty:UpdateDetector", "guardduty:GetDetector", "guardduty:ListDetectors", "iam:CreateServiceLinkedRole", "iam:GetRole" ]
+      "permissions" : [ "guardduty:UpdateDetector", "guardduty:GetDetector", "guardduty:ListDetectors", "iam:CreateServiceLinkedRole", "iam:GetRole", "guardduty:TagResource", "guardduty:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "guardduty:ListDetectors" ]
