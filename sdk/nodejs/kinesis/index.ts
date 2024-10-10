@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { GetStreamArgs, GetStreamResult, GetStreamOutputArgs } from "./getStream";
 export const getStream: typeof import("./getStream").getStream = null as any;
 export const getStreamOutput: typeof import("./getStream").getStreamOutput = null as any;
 utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { StreamArgs } from "./stream";
 export type Stream = import("./stream").Stream;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:kinesis:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:kinesis:Stream":
                 return new Stream(name, <any>undefined, { urn })
             default:

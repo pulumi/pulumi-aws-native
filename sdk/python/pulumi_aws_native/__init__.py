@@ -2096,6 +2096,7 @@ _utilities.register(
   "mod": "kinesis",
   "fqn": "pulumi_aws_native.kinesis",
   "classes": {
+   "aws-native:kinesis:ResourcePolicy": "ResourcePolicy",
    "aws-native:kinesis:Stream": "Stream"
   }
  },
