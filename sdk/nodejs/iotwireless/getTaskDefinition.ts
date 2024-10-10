@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Creates a gateway task definition.
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getTaskDefinition", {
         "id": args.id,
@@ -63,7 +62,10 @@ export interface GetTaskDefinitionResult {
  * Creates a gateway task definition.
  */
 export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getTaskDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iotwireless:getTaskDefinition", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetTaskDefinitionOutputArgs {

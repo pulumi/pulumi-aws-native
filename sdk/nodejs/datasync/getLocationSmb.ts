@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationSMB.
  */
 export function getLocationSmb(args: GetLocationSmbArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationSmbResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationSmb", {
         "locationArn": args.locationArn,
@@ -59,7 +58,10 @@ export interface GetLocationSmbResult {
  * Resource schema for AWS::DataSync::LocationSMB.
  */
 export function getLocationSmbOutput(args: GetLocationSmbOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationSmbResult> {
-    return pulumi.output(args).apply((a: any) => getLocationSmb(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationSmb", {
+        "locationArn": args.locationArn,
+    }, opts);
 }
 
 export interface GetLocationSmbOutputArgs {

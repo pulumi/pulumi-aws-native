@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
  */
 export function getTransitGatewayMulticastGroupMember(args: GetTransitGatewayMulticastGroupMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastGroupMemberResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTransitGatewayMulticastGroupMember", {
         "groupIpAddress": args.groupIpAddress,
@@ -66,7 +65,12 @@ export interface GetTransitGatewayMulticastGroupMemberResult {
  * The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
  */
 export function getTransitGatewayMulticastGroupMemberOutput(args: GetTransitGatewayMulticastGroupMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastGroupMemberResult> {
-    return pulumi.output(args).apply((a: any) => getTransitGatewayMulticastGroupMember(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayMulticastGroupMember", {
+        "groupIpAddress": args.groupIpAddress,
+        "networkInterfaceId": args.networkInterfaceId,
+        "transitGatewayMulticastDomainId": args.transitGatewayMulticastDomainId,
+    }, opts);
 }
 
 export interface GetTransitGatewayMulticastGroupMemberOutputArgs {

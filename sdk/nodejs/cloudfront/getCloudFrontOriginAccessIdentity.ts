@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
  */
 export function getCloudFrontOriginAccessIdentity(args: GetCloudFrontOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFrontOriginAccessIdentityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", {
         "id": args.id,
@@ -43,7 +42,10 @@ export interface GetCloudFrontOriginAccessIdentityResult {
  * Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
  */
 export function getCloudFrontOriginAccessIdentityOutput(args: GetCloudFrontOriginAccessIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFrontOriginAccessIdentityResult> {
-    return pulumi.output(args).apply((a: any) => getCloudFrontOriginAccessIdentity(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetCloudFrontOriginAccessIdentityOutputArgs {

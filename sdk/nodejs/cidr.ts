@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function cidr(args: CidrArgs, opts?: pulumi.InvokeOptions): Promise<CidrResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:index:cidr", {
         "cidrBits": args.cidrBits,
@@ -24,7 +23,12 @@ export interface CidrResult {
     readonly subnets: string[];
 }
 export function cidrOutput(args: CidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<CidrResult> {
-    return pulumi.output(args).apply((a: any) => cidr(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:index:cidr", {
+        "cidrBits": args.cidrBits,
+        "count": args.count,
+        "ipBlock": args.ipBlock,
+    }, opts);
 }
 
 export interface CidrOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
  */
 export function getEndpointAuthorization(args: GetEndpointAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointAuthorizationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshift:getEndpointAuthorization", {
         "account": args.account,
@@ -69,7 +68,11 @@ export interface GetEndpointAuthorizationResult {
  * Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
  */
 export function getEndpointAuthorizationOutput(args: GetEndpointAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointAuthorizationResult> {
-    return pulumi.output(args).apply((a: any) => getEndpointAuthorization(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:redshift:getEndpointAuthorization", {
+        "account": args.account,
+        "clusterIdentifier": args.clusterIdentifier,
+    }, opts);
 }
 
 export interface GetEndpointAuthorizationOutputArgs {

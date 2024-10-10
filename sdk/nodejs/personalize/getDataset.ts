@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Personalize::Dataset.
  */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:personalize:getDataset", {
         "datasetArn": args.datasetArn,
@@ -39,7 +38,10 @@ export interface GetDatasetResult {
  * Resource schema for AWS::Personalize::Dataset.
  */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
-    return pulumi.output(args).apply((a: any) => getDataset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:personalize:getDataset", {
+        "datasetArn": args.datasetArn,
+    }, opts);
 }
 
 export interface GetDatasetOutputArgs {

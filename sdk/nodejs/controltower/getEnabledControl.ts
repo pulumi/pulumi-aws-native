@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Enables a control on a specified target.
  */
 export function getEnabledControl(args: GetEnabledControlArgs, opts?: pulumi.InvokeOptions): Promise<GetEnabledControlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:controltower:getEnabledControl", {
         "controlIdentifier": args.controlIdentifier,
@@ -44,7 +43,11 @@ export interface GetEnabledControlResult {
  * Enables a control on a specified target.
  */
 export function getEnabledControlOutput(args: GetEnabledControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnabledControlResult> {
-    return pulumi.output(args).apply((a: any) => getEnabledControl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:controltower:getEnabledControl", {
+        "controlIdentifier": args.controlIdentifier,
+        "targetIdentifier": args.targetIdentifier,
+    }, opts);
 }
 
 export interface GetEnabledControlOutputArgs {

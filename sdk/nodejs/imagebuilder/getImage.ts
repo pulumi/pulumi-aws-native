@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::ImageBuilder::Image
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:imagebuilder:getImage", {
         "arn": args.arn,
@@ -48,7 +47,10 @@ export interface GetImageResult {
  * Resource schema for AWS::ImageBuilder::Image
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply((a: any) => getImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getImage", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetImageOutputArgs {

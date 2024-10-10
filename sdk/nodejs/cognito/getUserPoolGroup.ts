@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::UserPoolGroup
  */
 export function getUserPoolGroup(args: GetUserPoolGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolGroup", {
         "groupName": args.groupName,
@@ -49,7 +48,11 @@ export interface GetUserPoolGroupResult {
  * Resource Type definition for AWS::Cognito::UserPoolGroup
  */
 export function getUserPoolGroupOutput(args: GetUserPoolGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolGroupResult> {
-    return pulumi.output(args).apply((a: any) => getUserPoolGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolGroup", {
+        "groupName": args.groupName,
+        "userPoolId": args.userPoolId,
+    }, opts);
 }
 
 export interface GetUserPoolGroupOutputArgs {

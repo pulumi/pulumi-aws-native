@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
  */
 export function getResolverDnssecConfig(args: GetResolverDnssecConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverDnssecConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getResolverDnssecConfig", {
         "id": args.id,
@@ -43,7 +42,10 @@ export interface GetResolverDnssecConfigResult {
  * Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
  */
 export function getResolverDnssecConfigOutput(args: GetResolverDnssecConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverDnssecConfigResult> {
-    return pulumi.output(args).apply((a: any) => getResolverDnssecConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:route53resolver:getResolverDnssecConfig", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetResolverDnssecConfigOutputArgs {

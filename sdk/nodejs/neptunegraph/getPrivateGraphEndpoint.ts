@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.
  */
 export function getPrivateGraphEndpoint(args: GetPrivateGraphEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateGraphEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:neptunegraph:getPrivateGraphEndpoint", {
         "privateGraphEndpointIdentifier": args.privateGraphEndpointIdentifier,
@@ -40,7 +39,10 @@ export interface GetPrivateGraphEndpointResult {
  * The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.
  */
 export function getPrivateGraphEndpointOutput(args: GetPrivateGraphEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateGraphEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getPrivateGraphEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:neptunegraph:getPrivateGraphEndpoint", {
+        "privateGraphEndpointIdentifier": args.privateGraphEndpointIdentifier,
+    }, opts);
 }
 
 export interface GetPrivateGraphEndpointOutputArgs {

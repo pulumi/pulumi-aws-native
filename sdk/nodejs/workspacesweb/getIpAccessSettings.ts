@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
  */
 export function getIpAccessSettings(args: GetIpAccessSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetIpAccessSettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesweb:getIpAccessSettings", {
         "ipAccessSettingsArn": args.ipAccessSettingsArn,
@@ -59,7 +58,10 @@ export interface GetIpAccessSettingsResult {
  * Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
  */
 export function getIpAccessSettingsOutput(args: GetIpAccessSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAccessSettingsResult> {
-    return pulumi.output(args).apply((a: any) => getIpAccessSettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getIpAccessSettings", {
+        "ipAccessSettingsArn": args.ipAccessSettingsArn,
+    }, opts);
 }
 
 export interface GetIpAccessSettingsOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Bedrock::Flow Resource Type
  */
 export function getFlow(args: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:bedrock:getFlow", {
         "arn": args.arn,
@@ -89,7 +88,10 @@ export interface GetFlowResult {
  * Definition of AWS::Bedrock::Flow Resource Type
  */
 export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
-    return pulumi.output(args).apply((a: any) => getFlow(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:bedrock:getFlow", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetFlowOutputArgs {

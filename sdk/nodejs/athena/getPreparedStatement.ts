@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Athena::PreparedStatement
  */
 export function getPreparedStatement(args: GetPreparedStatementArgs, opts?: pulumi.InvokeOptions): Promise<GetPreparedStatementResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:athena:getPreparedStatement", {
         "statementName": args.statementName,
@@ -41,7 +40,11 @@ export interface GetPreparedStatementResult {
  * Resource schema for AWS::Athena::PreparedStatement
  */
 export function getPreparedStatementOutput(args: GetPreparedStatementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreparedStatementResult> {
-    return pulumi.output(args).apply((a: any) => getPreparedStatement(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:athena:getPreparedStatement", {
+        "statementName": args.statementName,
+        "workGroup": args.workGroup,
+    }, opts);
 }
 
 export interface GetPreparedStatementOutputArgs {

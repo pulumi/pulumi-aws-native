@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
  */
 export function getDimension(args: GetDimensionArgs, opts?: pulumi.InvokeOptions): Promise<GetDimensionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getDimension", {
         "name": args.name,
@@ -43,7 +42,10 @@ export interface GetDimensionResult {
  * A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
  */
 export function getDimensionOutput(args: GetDimensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDimensionResult> {
-    return pulumi.output(args).apply((a: any) => getDimension(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iot:getDimension", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetDimensionOutputArgs {

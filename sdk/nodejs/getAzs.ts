@@ -6,7 +6,6 @@ import * as utilities from "./utilities";
 
 export function getAzs(args?: GetAzsArgs, opts?: pulumi.InvokeOptions): Promise<GetAzsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:index:getAzs", {
         "region": args.region,
@@ -21,7 +20,11 @@ export interface GetAzsResult {
     readonly azs: string[];
 }
 export function getAzsOutput(args?: GetAzsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzsResult> {
-    return pulumi.output(args).apply((a: any) => getAzs(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:index:getAzs", {
+        "region": args.region,
+    }, opts);
 }
 
 export interface GetAzsOutputArgs {

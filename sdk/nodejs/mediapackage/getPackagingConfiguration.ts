@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaPackage::PackagingConfiguration
  */
 export function getPackagingConfiguration(args: GetPackagingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPackagingConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackage:getPackagingConfiguration", {
         "id": args.id,
@@ -59,7 +58,10 @@ export interface GetPackagingConfigurationResult {
  * Resource schema for AWS::MediaPackage::PackagingConfiguration
  */
 export function getPackagingConfigurationOutput(args: GetPackagingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackagingConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getPackagingConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediapackage:getPackagingConfiguration", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetPackagingConfigurationOutputArgs {

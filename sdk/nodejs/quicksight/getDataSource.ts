@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of the AWS::QuickSight::DataSource Resource Type.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:quicksight:getDataSource", {
         "awsAccountId": args.awsAccountId,
@@ -92,7 +91,11 @@ export interface GetDataSourceResult {
  * Definition of the AWS::QuickSight::DataSource Resource Type.
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
-    return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:quicksight:getDataSource", {
+        "awsAccountId": args.awsAccountId,
+        "dataSourceId": args.dataSourceId,
+    }, opts);
 }
 
 export interface GetDataSourceOutputArgs {

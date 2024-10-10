@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
  */
 export function getGameSessionQueue(args: GetGameSessionQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetGameSessionQueueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getGameSessionQueue", {
         "name": args.name,
@@ -67,7 +66,10 @@ export interface GetGameSessionQueueResult {
  * The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
  */
 export function getGameSessionQueueOutput(args: GetGameSessionQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameSessionQueueResult> {
-    return pulumi.output(args).apply((a: any) => getGameSessionQueue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:gamelift:getGameSessionQueue", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetGameSessionQueueOutputArgs {

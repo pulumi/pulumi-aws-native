@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
  */
 export function getUserProfile(args: GetUserProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetUserProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getUserProfile", {
         "domainId": args.domainId,
@@ -53,7 +52,11 @@ export interface GetUserProfileResult {
  * A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
  */
 export function getUserProfileOutput(args: GetUserProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileResult> {
-    return pulumi.output(args).apply((a: any) => getUserProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datazone:getUserProfile", {
+        "domainId": args.domainId,
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetUserProfileOutputArgs {

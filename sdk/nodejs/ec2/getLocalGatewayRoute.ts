@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Describes a route for a local gateway route table.
  */
 export function getLocalGatewayRoute(args: GetLocalGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getLocalGatewayRoute", {
         "destinationCidrBlock": args.destinationCidrBlock,
@@ -49,7 +48,11 @@ export interface GetLocalGatewayRouteResult {
  * Describes a route for a local gateway route table.
  */
 export function getLocalGatewayRouteOutput(args: GetLocalGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteResult> {
-    return pulumi.output(args).apply((a: any) => getLocalGatewayRoute(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getLocalGatewayRoute", {
+        "destinationCidrBlock": args.destinationCidrBlock,
+        "localGatewayRouteTableId": args.localGatewayRouteTableId,
+    }, opts);
 }
 
 export interface GetLocalGatewayRouteOutputArgs {

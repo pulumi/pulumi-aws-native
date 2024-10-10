@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::EC2::TransitGatewayPeeringAttachment type
  */
 export function getTransitGatewayPeeringAttachment(args: GetTransitGatewayPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayPeeringAttachmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTransitGatewayPeeringAttachment", {
         "transitGatewayAttachmentId": args.transitGatewayAttachmentId,
@@ -51,7 +50,10 @@ export interface GetTransitGatewayPeeringAttachmentResult {
  * The AWS::EC2::TransitGatewayPeeringAttachment type
  */
 export function getTransitGatewayPeeringAttachmentOutput(args: GetTransitGatewayPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayPeeringAttachmentResult> {
-    return pulumi.output(args).apply((a: any) => getTransitGatewayPeeringAttachment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayPeeringAttachment", {
+        "transitGatewayAttachmentId": args.transitGatewayAttachmentId,
+    }, opts);
 }
 
 export interface GetTransitGatewayPeeringAttachmentOutputArgs {

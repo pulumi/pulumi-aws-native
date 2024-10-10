@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
  */
 export function getLocation(args: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getLocation", {
         "locationName": args.locationName,
@@ -39,7 +38,10 @@ export interface GetLocationResult {
  * The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
  */
 export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
-    return pulumi.output(args).apply((a: any) => getLocation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:gamelift:getLocation", {
+        "locationName": args.locationName,
+    }, opts);
 }
 
 export interface GetLocationOutputArgs {

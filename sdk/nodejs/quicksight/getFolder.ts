@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of the AWS::QuickSight::Folder Resource Type.
  */
 export function getFolder(args: GetFolderArgs, opts?: pulumi.InvokeOptions): Promise<GetFolderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:quicksight:getFolder", {
         "awsAccountId": args.awsAccountId,
@@ -54,7 +53,11 @@ export interface GetFolderResult {
  * Definition of the AWS::QuickSight::Folder Resource Type.
  */
 export function getFolderOutput(args: GetFolderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFolderResult> {
-    return pulumi.output(args).apply((a: any) => getFolder(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:quicksight:getFolder", {
+        "awsAccountId": args.awsAccountId,
+        "folderId": args.folderId,
+    }, opts);
 }
 
 export interface GetFolderOutputArgs {

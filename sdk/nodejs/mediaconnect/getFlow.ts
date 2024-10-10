@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaConnect::Flow
  */
 export function getFlow(args: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconnect:getFlow", {
         "flowArn": args.flowArn,
@@ -67,7 +66,10 @@ export interface GetFlowResult {
  * Resource schema for AWS::MediaConnect::Flow
  */
 export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
-    return pulumi.output(args).apply((a: any) => getFlow(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediaconnect:getFlow", {
+        "flowArn": args.flowArn,
+    }, opts);
 }
 
 export interface GetFlowOutputArgs {

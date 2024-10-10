@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::BackupGateway::Hypervisor Resource Type
  */
 export function getHypervisor(args: GetHypervisorArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervisorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:backupgateway:getHypervisor", {
         "hypervisorArn": args.hypervisorArn,
@@ -36,7 +35,10 @@ export interface GetHypervisorResult {
  * Definition of AWS::BackupGateway::Hypervisor Resource Type
  */
 export function getHypervisorOutput(args: GetHypervisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervisorResult> {
-    return pulumi.output(args).apply((a: any) => getHypervisor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:backupgateway:getHypervisor", {
+        "hypervisorArn": args.hypervisorArn,
+    }, opts);
 }
 
 export interface GetHypervisorOutputArgs {

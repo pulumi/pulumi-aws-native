@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Deadline::Monitor Resource Type
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:deadline:getMonitor", {
         "arn": args.arn,
@@ -58,7 +57,10 @@ export interface GetMonitorResult {
  * Definition of AWS::Deadline::Monitor Resource Type
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:deadline:getMonitor", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetMonitorOutputArgs {

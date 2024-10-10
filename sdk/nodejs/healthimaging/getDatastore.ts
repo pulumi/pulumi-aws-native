@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::HealthImaging::Datastore Resource Type
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:healthimaging:getDatastore", {
         "datastoreId": args.datastoreId,
@@ -51,7 +50,10 @@ export interface GetDatastoreResult {
  * Definition of AWS::HealthImaging::Datastore Resource Type
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
-    return pulumi.output(args).apply((a: any) => getDatastore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:healthimaging:getDatastore", {
+        "datastoreId": args.datastoreId,
+    }, opts);
 }
 
 export interface GetDatastoreOutputArgs {

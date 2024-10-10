@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::SpotFleet
  */
 export function getSpotFleet(args: GetSpotFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetSpotFleetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSpotFleet", {
         "id": args.id,
@@ -39,7 +38,10 @@ export interface GetSpotFleetResult {
  * Resource Type definition for AWS::EC2::SpotFleet
  */
 export function getSpotFleetOutput(args: GetSpotFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpotFleetResult> {
-    return pulumi.output(args).apply((a: any) => getSpotFleet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getSpotFleet", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetSpotFleetOutputArgs {

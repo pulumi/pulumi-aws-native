@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
  */
 export function getVpcEndpointConnectionNotification(args: GetVpcEndpointConnectionNotificationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointConnectionNotificationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpcEndpointConnectionNotification", {
         "vpcEndpointConnectionNotificationId": args.vpcEndpointConnectionNotificationId,
@@ -40,7 +39,10 @@ export interface GetVpcEndpointConnectionNotificationResult {
  * Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
  */
 export function getVpcEndpointConnectionNotificationOutput(args: GetVpcEndpointConnectionNotificationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointConnectionNotificationResult> {
-    return pulumi.output(args).apply((a: any) => getVpcEndpointConnectionNotification(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcEndpointConnectionNotification", {
+        "vpcEndpointConnectionNotificationId": args.vpcEndpointConnectionNotificationId,
+    }, opts);
 }
 
 export interface GetVpcEndpointConnectionNotificationOutputArgs {
