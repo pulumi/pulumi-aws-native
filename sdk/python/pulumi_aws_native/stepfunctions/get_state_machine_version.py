@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_state_machine_version(arn: Optional[str] = None,
     return AwaitableGetStateMachineVersionResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'))
-
-
-@_utilities.lift_output_func(get_state_machine_version)
 def get_state_machine_version_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStateMachineVersionResult]:
     """
@@ -80,4 +82,10 @@ def get_state_machine_version_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:stepfunctions:getStateMachineVersion', __args__, opts=opts, typ=GetStateMachineVersionResult)
+    return __ret__.apply(lambda __response__: GetStateMachineVersionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description')))

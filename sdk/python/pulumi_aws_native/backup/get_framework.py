@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -144,9 +149,6 @@ def get_framework(framework_arn: Optional[str] = None,
         framework_description=pulumi.get(__ret__, 'framework_description'),
         framework_status=pulumi.get(__ret__, 'framework_status'),
         framework_tags=pulumi.get(__ret__, 'framework_tags'))
-
-
-@_utilities.lift_output_func(get_framework)
 def get_framework_output(framework_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:
     """
@@ -155,4 +157,15 @@ def get_framework_output(framework_arn: Optional[pulumi.Input[str]] = None,
 
     :param str framework_arn: An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
     """
-    ...
+    __args__ = dict()
+    __args__['frameworkArn'] = framework_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getFramework', __args__, opts=opts, typ=GetFrameworkResult)
+    return __ret__.apply(lambda __response__: GetFrameworkResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        deployment_status=pulumi.get(__response__, 'deployment_status'),
+        framework_arn=pulumi.get(__response__, 'framework_arn'),
+        framework_controls=pulumi.get(__response__, 'framework_controls'),
+        framework_description=pulumi.get(__response__, 'framework_description'),
+        framework_status=pulumi.get(__response__, 'framework_status'),
+        framework_tags=pulumi.get(__response__, 'framework_tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -124,9 +129,6 @@ def get_code_signing_config(code_signing_config_arn: Optional[str] = None,
         code_signing_policies=pulumi.get(__ret__, 'code_signing_policies'),
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_code_signing_config)
 def get_code_signing_config_output(code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
@@ -135,4 +137,14 @@ def get_code_signing_config_output(code_signing_config_arn: Optional[pulumi.Inpu
 
     :param str code_signing_config_arn: A unique Arn for CodeSigningConfig resource
     """
-    ...
+    __args__ = dict()
+    __args__['codeSigningConfigArn'] = code_signing_config_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getCodeSigningConfig', __args__, opts=opts, typ=GetCodeSigningConfigResult)
+    return __ret__.apply(lambda __response__: GetCodeSigningConfigResult(
+        allowed_publishers=pulumi.get(__response__, 'allowed_publishers'),
+        code_signing_config_arn=pulumi.get(__response__, 'code_signing_config_arn'),
+        code_signing_config_id=pulumi.get(__response__, 'code_signing_config_id'),
+        code_signing_policies=pulumi.get(__response__, 'code_signing_policies'),
+        description=pulumi.get(__response__, 'description'),
+        tags=pulumi.get(__response__, 'tags')))

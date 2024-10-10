@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -134,9 +139,6 @@ def get_workspace(workspace_id: Optional[str] = None,
         s3_location=pulumi.get(__ret__, 's3_location'),
         tags=pulumi.get(__ret__, 'tags'),
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(workspace_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
@@ -145,4 +147,15 @@ def get_workspace_output(workspace_id: Optional[pulumi.Input[str]] = None,
 
     :param str workspace_id: The ID of the workspace.
     """
-    ...
+    __args__ = dict()
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iottwinmaker:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_date_time=pulumi.get(__response__, 'creation_date_time'),
+        description=pulumi.get(__response__, 'description'),
+        role=pulumi.get(__response__, 'role'),
+        s3_location=pulumi.get(__response__, 's3_location'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_date_time=pulumi.get(__response__, 'update_date_time')))

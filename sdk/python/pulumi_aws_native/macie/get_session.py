@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -96,9 +101,6 @@ def get_session(aws_account_id: Optional[str] = None,
         finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
         service_role=pulumi.get(__ret__, 'service_role'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_session)
 def get_session_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSessionResult]:
     """
@@ -107,4 +109,12 @@ def get_session_output(aws_account_id: Optional[pulumi.Input[str]] = None,
 
     :param str aws_account_id: AWS account ID of customer
     """
-    ...
+    __args__ = dict()
+    __args__['awsAccountId'] = aws_account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:macie:getSession', __args__, opts=opts, typ=GetSessionResult)
+    return __ret__.apply(lambda __response__: GetSessionResult(
+        aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        finding_publishing_frequency=pulumi.get(__response__, 'finding_publishing_frequency'),
+        service_role=pulumi.get(__response__, 'service_role'),
+        status=pulumi.get(__response__, 'status')))

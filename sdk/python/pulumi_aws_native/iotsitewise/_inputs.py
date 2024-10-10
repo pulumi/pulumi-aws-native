@@ -4,41 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AccessPolicyIamRoleArgs',
+    'AccessPolicyIamRoleArgsDict',
     'AccessPolicyIamUserArgs',
+    'AccessPolicyIamUserArgsDict',
     'AccessPolicyIdentityArgs',
+    'AccessPolicyIdentityArgsDict',
     'AccessPolicyPortalArgs',
+    'AccessPolicyPortalArgsDict',
     'AccessPolicyProjectArgs',
+    'AccessPolicyProjectArgsDict',
     'AccessPolicyResourceArgs',
+    'AccessPolicyResourceArgsDict',
     'AccessPolicyUserArgs',
+    'AccessPolicyUserArgsDict',
     'AlarmsPropertiesArgs',
+    'AlarmsPropertiesArgsDict',
     'AssetHierarchyArgs',
+    'AssetHierarchyArgsDict',
     'AssetModelAttributeArgs',
+    'AssetModelAttributeArgsDict',
     'AssetModelCompositeModelArgs',
+    'AssetModelCompositeModelArgsDict',
     'AssetModelExpressionVariableArgs',
+    'AssetModelExpressionVariableArgsDict',
     'AssetModelHierarchyArgs',
+    'AssetModelHierarchyArgsDict',
     'AssetModelMetricWindowArgs',
+    'AssetModelMetricWindowArgsDict',
     'AssetModelMetricArgs',
+    'AssetModelMetricArgsDict',
     'AssetModelPropertyPathDefinitionArgs',
+    'AssetModelPropertyPathDefinitionArgsDict',
     'AssetModelPropertyTypeArgs',
+    'AssetModelPropertyTypeArgsDict',
     'AssetModelPropertyArgs',
+    'AssetModelPropertyArgsDict',
     'AssetModelTransformArgs',
+    'AssetModelTransformArgsDict',
     'AssetModelTumblingWindowArgs',
+    'AssetModelTumblingWindowArgsDict',
     'AssetModelVariableValueArgs',
+    'AssetModelVariableValueArgsDict',
     'AssetPropertyArgs',
+    'AssetPropertyArgsDict',
     'GatewayCapabilitySummaryArgs',
+    'GatewayCapabilitySummaryArgsDict',
     'GatewayGreengrassV2Args',
+    'GatewayGreengrassV2ArgsDict',
     'GatewayGreengrassArgs',
+    'GatewayGreengrassArgsDict',
     'GatewayPlatformArgs',
+    'GatewayPlatformArgsDict',
     'GatewaySiemensIeArgs',
+    'GatewaySiemensIeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccessPolicyIamRoleArgsDict(TypedDict):
+        """
+        Contains information for an IAM role identity in an access policy.
+        """
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM role.
+        """
+elif False:
+    AccessPolicyIamRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessPolicyIamRoleArgs:
@@ -64,6 +110,18 @@ class AccessPolicyIamRoleArgs:
         pulumi.set(self, "arn", value)
 
 
+if not MYPY:
+    class AccessPolicyIamUserArgsDict(TypedDict):
+        """
+        Contains information for an IAM user identity in an access policy.
+        """
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM user.
+        """
+elif False:
+    AccessPolicyIamUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessPolicyIamUserArgs:
     def __init__(__self__, *,
@@ -87,6 +145,26 @@ class AccessPolicyIamUserArgs:
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
 
+
+if not MYPY:
+    class AccessPolicyIdentityArgsDict(TypedDict):
+        """
+        The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+        """
+        iam_role: NotRequired[pulumi.Input['AccessPolicyIamRoleArgsDict']]
+        """
+        An IAM role identity.
+        """
+        iam_user: NotRequired[pulumi.Input['AccessPolicyIamUserArgsDict']]
+        """
+        An IAM user identity.
+        """
+        user: NotRequired[pulumi.Input['AccessPolicyUserArgsDict']]
+        """
+        An IAM Identity Center user identity.
+        """
+elif False:
+    AccessPolicyIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessPolicyIdentityArgs:
@@ -144,6 +222,18 @@ class AccessPolicyIdentityArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class AccessPolicyPortalArgsDict(TypedDict):
+        """
+        A portal resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the portal.
+        """
+elif False:
+    AccessPolicyPortalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessPolicyPortalArgs:
     def __init__(__self__, *,
@@ -168,6 +258,18 @@ class AccessPolicyPortalArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class AccessPolicyProjectArgsDict(TypedDict):
+        """
+        A project resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the project.
+        """
+elif False:
+    AccessPolicyProjectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessPolicyProjectArgs:
     def __init__(__self__, *,
@@ -191,6 +293,22 @@ class AccessPolicyProjectArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class AccessPolicyResourceArgsDict(TypedDict):
+        """
+        The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+        """
+        portal: NotRequired[pulumi.Input['AccessPolicyPortalArgsDict']]
+        """
+        Identifies an AWS IoT SiteWise Monitor portal.
+        """
+        project: NotRequired[pulumi.Input['AccessPolicyProjectArgsDict']]
+        """
+        Identifies a specific AWS IoT SiteWise Monitor project.
+        """
+elif False:
+    AccessPolicyResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessPolicyResourceArgs:
@@ -232,6 +350,18 @@ class AccessPolicyResourceArgs:
         pulumi.set(self, "project", value)
 
 
+if not MYPY:
+    class AccessPolicyUserArgsDict(TypedDict):
+        """
+        Contains information for a user identity in an access policy.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The AWS SSO ID of the user.
+        """
+elif False:
+    AccessPolicyUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccessPolicyUserArgs:
     def __init__(__self__, *,
@@ -255,6 +385,22 @@ class AccessPolicyUserArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class AlarmsPropertiesArgsDict(TypedDict):
+        """
+        Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+        """
+        alarm_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
+        """
+        notification_lambda_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
+        """
+elif False:
+    AlarmsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlarmsPropertiesArgs:
@@ -295,6 +441,30 @@ class AlarmsPropertiesArgs:
     def notification_lambda_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "notification_lambda_arn", value)
 
+
+if not MYPY:
+    class AssetHierarchyArgsDict(TypedDict):
+        """
+        A hierarchy specifies allowed parent/child asset relationships.
+        """
+        child_asset_id: pulumi.Input[str]
+        """
+        The ID of the child asset to be associated.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        String-friendly customer provided external ID
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Customer provided actual UUID for property
+        """
+        logical_id: NotRequired[pulumi.Input[str]]
+        """
+        The LogicalID of a hierarchy in the parent asset's model.
+        """
+elif False:
+    AssetHierarchyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetHierarchyArgs:
@@ -367,6 +537,15 @@ class AssetHierarchyArgs:
         pulumi.set(self, "logical_id", value)
 
 
+if not MYPY:
+    class AssetModelAttributeArgsDict(TypedDict):
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see [Updating attribute values](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html) in the *AWS IoT SiteWise User Guide* .
+        """
+elif False:
+    AssetModelAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssetModelAttributeArgs:
     def __init__(__self__, *,
@@ -389,6 +568,50 @@ class AssetModelAttributeArgs:
     def default_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_value", value)
 
+
+if not MYPY:
+    class AssetModelCompositeModelArgsDict(TypedDict):
+        """
+        Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
+        """
+        name: pulumi.Input[str]
+        """
+        A unique, friendly name for the asset composite model.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the composite model. For alarm composite models, this type is AWS/ALARM
+        """
+        composed_asset_model_id: NotRequired[pulumi.Input[str]]
+        """
+        The component model ID for which the composite model is composed of
+        """
+        composite_model_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgsDict']]]]
+        """
+        The property definitions of the asset model. You can specify up to 200 properties per asset model.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the asset composite model.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        The External ID of the composite model
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The Actual ID of the composite model
+        """
+        parent_asset_model_composite_model_external_id: NotRequired[pulumi.Input[str]]
+        """
+        The parent composite model External ID
+        """
+        path: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The path of the composite model. This is only for derived composite models
+        """
+elif False:
+    AssetModelCompositeModelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetModelCompositeModelArgs:
@@ -540,6 +763,19 @@ class AssetModelCompositeModelArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class AssetModelExpressionVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The friendly name of the variable to be used in the expression.
+        """
+        value: pulumi.Input['AssetModelVariableValueArgsDict']
+        """
+        The variable that identifies an asset property from which to use values.
+        """
+elif False:
+    AssetModelExpressionVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssetModelExpressionVariableArgs:
     def __init__(__self__, *,
@@ -576,6 +812,34 @@ class AssetModelExpressionVariableArgs:
     def value(self, value: pulumi.Input['AssetModelVariableValueArgs']):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AssetModelHierarchyArgsDict(TypedDict):
+        """
+        Contains information about an asset model hierarchy.
+        """
+        child_asset_model_id: pulumi.Input[str]
+        """
+        The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the asset model hierarchy.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        Customer provided external ID for hierarchy
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Customer provided actual ID for hierarchy
+        """
+        logical_id: NotRequired[pulumi.Input[str]]
+        """
+        Customer provided logical ID for hierarchy.
+        """
+elif False:
+    AssetModelHierarchyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetModelHierarchyArgs:
@@ -663,6 +927,18 @@ class AssetModelHierarchyArgs:
         pulumi.set(self, "logical_id", value)
 
 
+if not MYPY:
+    class AssetModelMetricWindowArgsDict(TypedDict):
+        """
+        Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
+        """
+        tumbling: NotRequired[pulumi.Input['AssetModelTumblingWindowArgsDict']]
+        """
+        The tumbling time interval window.
+        """
+elif False:
+    AssetModelMetricWindowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssetModelMetricWindowArgs:
     def __init__(__self__, *,
@@ -686,6 +962,23 @@ class AssetModelMetricWindowArgs:
     def tumbling(self, value: Optional[pulumi.Input['AssetModelTumblingWindowArgs']]):
         pulumi.set(self, "tumbling", value)
 
+
+if not MYPY:
+    class AssetModelMetricArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
+        """
+        variables: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgsDict']]]
+        """
+        The list of variables used in the expression.
+        """
+        window: pulumi.Input['AssetModelMetricWindowArgsDict']
+        """
+        The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
+        """
+elif False:
+    AssetModelMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetModelMetricArgs:
@@ -739,6 +1032,18 @@ class AssetModelMetricArgs:
         pulumi.set(self, "window", value)
 
 
+if not MYPY:
+    class AssetModelPropertyPathDefinitionArgsDict(TypedDict):
+        """
+        The definition for property path which is used to reference properties in transforms/metrics
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the property
+        """
+elif False:
+    AssetModelPropertyPathDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssetModelPropertyPathDefinitionArgs:
     def __init__(__self__, *,
@@ -761,6 +1066,30 @@ class AssetModelPropertyPathDefinitionArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class AssetModelPropertyTypeArgsDict(TypedDict):
+        """
+        Contains a property type, which can be one of attribute, measurement, metric, or transform.
+        """
+        type_name: pulumi.Input['AssetModelTypeName']
+        """
+        The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
+        """
+        attribute: NotRequired[pulumi.Input['AssetModelAttributeArgsDict']]
+        """
+        Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
+        """
+        metric: NotRequired[pulumi.Input['AssetModelMetricArgsDict']]
+        """
+        Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
+        """
+        transform: NotRequired[pulumi.Input['AssetModelTransformArgsDict']]
+        """
+        Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
+        """
+elif False:
+    AssetModelPropertyTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetModelPropertyTypeArgs:
@@ -832,6 +1161,46 @@ class AssetModelPropertyTypeArgs:
     def transform(self, value: Optional[pulumi.Input['AssetModelTransformArgs']]):
         pulumi.set(self, "transform", value)
 
+
+if not MYPY:
+    class AssetModelPropertyArgsDict(TypedDict):
+        """
+        Contains information about an asset model property.
+        """
+        data_type: pulumi.Input['AssetModelDataType']
+        """
+        The data type of the asset model property.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the asset model property.
+        """
+        type: pulumi.Input['AssetModelPropertyTypeArgsDict']
+        """
+        The property type
+        """
+        data_type_spec: NotRequired[pulumi.Input['AssetModelDataTypeSpec']]
+        """
+        The data type of the structure for this property.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        The External ID of the Asset Model Property
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Asset Model Property
+        """
+        logical_id: NotRequired[pulumi.Input[str]]
+        """
+        Customer provided Logical ID for property.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        The unit of the asset model property, such as Newtons or RPM.
+        """
+elif False:
+    AssetModelPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetModelPropertyArgs:
@@ -966,6 +1335,19 @@ class AssetModelPropertyArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class AssetModelTransformArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
+        """
+        variables: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgsDict']]]
+        """
+        The list of variables used in the expression.
+        """
+elif False:
+    AssetModelTransformArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssetModelTransformArgs:
     def __init__(__self__, *,
@@ -1002,6 +1384,48 @@ class AssetModelTransformArgs:
     def variables(self, value: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]]):
         pulumi.set(self, "variables", value)
 
+
+if not MYPY:
+    class AssetModelTumblingWindowArgsDict(TypedDict):
+        """
+        Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval for the tumbling window. The interval time must be between 1 minute and 1 week.
+
+        AWS IoT SiteWise computes the `1w` interval the end of Sunday at midnight each week (UTC), the `1d` interval at the end of each day at midnight (UTC), the `1h` interval at the end of each hour, and so on.
+
+        When AWS IoT SiteWise aggregates data points for metric computations, the start of each interval is exclusive and the end of each interval is inclusive. AWS IoT SiteWise places the computed data point at the end of the interval.
+        """
+        offset: NotRequired[pulumi.Input[str]]
+        """
+        The offset for the tumbling window. The `offset` parameter accepts the following:
+
+        - The offset time.
+
+        For example, if you specify `18h` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+
+        - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+        - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+        - The ISO 8601 format.
+
+        For example, if you specify `PT18H` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+
+        - If you create the metric before or at 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) on the day when you create the metric.
+        - If you create the metric after 6 PM (UTC), you get the first aggregation result at 6 PM (UTC) the next day.
+        - The 24-hour clock.
+
+        For example, if you specify `00:03:00` for `offset` , `5m` for `interval` , and you create the metric at 2 PM (UTC), you get the first aggregation result at 2:03 PM (UTC). You get the second aggregation result at 2:08 PM (UTC).
+        - The offset time zone.
+
+        For example, if you specify `2021-07-23T18:00-08` for `offset` and `1d` for `interval` , AWS IoT SiteWise aggregates data in one of the following ways:
+
+        - If you create the metric before or at 6 PM (PST), you get the first aggregation result at 6 PM (PST) on the day when you create the metric.
+        - If you create the metric after 6 PM (PST), you get the first aggregation result at 6 PM (PST) the next day.
+        """
+elif False:
+    AssetModelTumblingWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetModelTumblingWindowArgs:
@@ -1093,6 +1517,41 @@ class AssetModelTumblingWindowArgs:
     def offset(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "offset", value)
 
+
+if not MYPY:
+    class AssetModelVariableValueArgsDict(TypedDict):
+        hierarchy_external_id: NotRequired[pulumi.Input[str]]
+        """
+        The External ID of the hierarchy that is trying to be referenced
+        """
+        hierarchy_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the hierarchy that is trying to be referenced
+        """
+        hierarchy_logical_id: NotRequired[pulumi.Input[str]]
+        """
+        The `LogicalID` of the hierarchy to query for the `PropertyLogicalID` .
+
+        You use a `hierarchyLogicalID` instead of a model ID because you can have several hierarchies using the same model and therefore the same property. For example, you might have separately grouped assets that come from the same asset model. For more information, see [Defining relationships between asset models (hierarchies)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html) in the *AWS IoT SiteWise User Guide* .
+        """
+        property_external_id: NotRequired[pulumi.Input[str]]
+        """
+        The External ID of the property that is trying to be referenced
+        """
+        property_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the property that is trying to be referenced
+        """
+        property_logical_id: NotRequired[pulumi.Input[str]]
+        """
+        The `LogicalID` of the property that is being referenced.
+        """
+        property_path: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgsDict']]]]
+        """
+        The path of the property that is trying to be referenced
+        """
+elif False:
+    AssetModelVariableValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetModelVariableValueArgs:
@@ -1217,6 +1676,38 @@ class AssetModelVariableValueArgs:
         pulumi.set(self, "property_path", value)
 
 
+if not MYPY:
+    class AssetPropertyArgsDict(TypedDict):
+        """
+        The asset property's definition, alias, unit, and notification state.
+        """
+        alias: NotRequired[pulumi.Input[str]]
+        """
+        The property alias that identifies the property.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        String-friendly customer provided external ID
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Customer provided actual UUID for property
+        """
+        logical_id: NotRequired[pulumi.Input[str]]
+        """
+        Customer provided ID for property.
+        """
+        notification_state: NotRequired[pulumi.Input['AssetPropertyNotificationState']]
+        """
+        The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+        """
+elif False:
+    AssetPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssetPropertyArgs:
     def __init__(__self__, *,
@@ -1321,6 +1812,22 @@ class AssetPropertyArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class GatewayCapabilitySummaryArgsDict(TypedDict):
+        """
+        Contains a summary of a gateway capability configuration.
+        """
+        capability_namespace: pulumi.Input[str]
+        """
+        The namespace of the capability configuration. For example, if you configure OPC-UA sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace `iotsitewise:opcuacollector:version` , where `version` is a number such as `1` .
+        """
+        capability_configuration: NotRequired[pulumi.Input[str]]
+        """
+        The JSON document that defines the configuration for the gateway capability. For more information, see [Configuring data sources (CLI)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli) in the *AWS IoT SiteWise User Guide* .
+        """
+elif False:
+    GatewayCapabilitySummaryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GatewayCapabilitySummaryArgs:
     def __init__(__self__, *,
@@ -1360,6 +1867,18 @@ class GatewayCapabilitySummaryArgs:
         pulumi.set(self, "capability_configuration", value)
 
 
+if not MYPY:
+    class GatewayGreengrassV2ArgsDict(TypedDict):
+        """
+        Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
+        """
+        core_device_thing_name: pulumi.Input[str]
+        """
+        The name of the CoreDevice in GreenGrass V2.
+        """
+elif False:
+    GatewayGreengrassV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GatewayGreengrassV2Args:
     def __init__(__self__, *,
@@ -1383,6 +1902,18 @@ class GatewayGreengrassV2Args:
         pulumi.set(self, "core_device_thing_name", value)
 
 
+if not MYPY:
+    class GatewayGreengrassArgsDict(TypedDict):
+        """
+        Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
+        """
+        group_arn: pulumi.Input[str]
+        """
+        The ARN of the Greengrass group.
+        """
+elif False:
+    GatewayGreengrassArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GatewayGreengrassArgs:
     def __init__(__self__, *,
@@ -1405,6 +1936,26 @@ class GatewayGreengrassArgs:
     def group_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_arn", value)
 
+
+if not MYPY:
+    class GatewayPlatformArgsDict(TypedDict):
+        """
+        Contains a gateway's platform information.
+        """
+        greengrass: NotRequired[pulumi.Input['GatewayGreengrassArgsDict']]
+        """
+        A gateway that runs on AWS IoT Greengrass V1.
+        """
+        greengrass_v2: NotRequired[pulumi.Input['GatewayGreengrassV2ArgsDict']]
+        """
+        A gateway that runs on AWS IoT Greengrass V2.
+        """
+        siemens_ie: NotRequired[pulumi.Input['GatewaySiemensIeArgsDict']]
+        """
+        A gateway that runs on Siemens Industrial Edge.
+        """
+elif False:
+    GatewayPlatformArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayPlatformArgs:
@@ -1461,6 +2012,18 @@ class GatewayPlatformArgs:
     def siemens_ie(self, value: Optional[pulumi.Input['GatewaySiemensIeArgs']]):
         pulumi.set(self, "siemens_ie", value)
 
+
+if not MYPY:
+    class GatewaySiemensIeArgsDict(TypedDict):
+        """
+        Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+        """
+        iot_core_thing_name: pulumi.Input[str]
+        """
+        The name of the IoT Core Thing.
+        """
+elif False:
+    GatewaySiemensIeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewaySiemensIeArgs:

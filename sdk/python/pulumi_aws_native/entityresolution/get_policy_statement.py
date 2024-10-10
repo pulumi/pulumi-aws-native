@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -103,9 +108,6 @@ def get_policy_statement(arn: Optional[str] = None,
         condition=pulumi.get(__ret__, 'condition'),
         effect=pulumi.get(__ret__, 'effect'),
         principal=pulumi.get(__ret__, 'principal'))
-
-
-@_utilities.lift_output_func(get_policy_statement)
 def get_policy_statement_output(arn: Optional[pulumi.Input[str]] = None,
                                 statement_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStatementResult]:
@@ -116,4 +118,13 @@ def get_policy_statement_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
     :param str statement_id: A statement identifier that differentiates the statement from others in the same policy.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['statementId'] = statement_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:entityresolution:getPolicyStatement', __args__, opts=opts, typ=GetPolicyStatementResult)
+    return __ret__.apply(lambda __response__: GetPolicyStatementResult(
+        action=pulumi.get(__response__, 'action'),
+        condition=pulumi.get(__response__, 'condition'),
+        effect=pulumi.get(__response__, 'effect'),
+        principal=pulumi.get(__response__, 'principal')))

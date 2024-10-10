@@ -4,17 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CloudFormationProvisionedProductProvisioningParameterArgs',
+    'CloudFormationProvisionedProductProvisioningParameterArgsDict',
     'CloudFormationProvisionedProductProvisioningPreferencesArgs',
+    'CloudFormationProvisionedProductProvisioningPreferencesArgsDict',
     'ServiceActionDefinitionParameterArgs',
+    'ServiceActionDefinitionParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CloudFormationProvisionedProductProvisioningParameterArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The parameter key.
+        """
+        value: pulumi.Input[str]
+        """
+        The parameter value.
+        """
+elif False:
+    CloudFormationProvisionedProductProvisioningParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudFormationProvisionedProductProvisioningParameterArgs:
@@ -52,6 +75,83 @@ class CloudFormationProvisionedProductProvisioningParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict):
+        stack_set_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more AWS accounts where the provisioned product will be available.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+
+        If no values are specified, the default value is all acounts from the `STACKSET` constraint.
+        """
+        stack_set_failure_tolerance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+
+        The default value is `0` if no value is specified.
+        """
+        stack_set_failure_tolerance_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
+
+        When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
+        """
+        stack_set_max_concurrency_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
+
+        Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+        """
+        stack_set_max_concurrency_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percentage of accounts in which to perform this operation at one time.
+
+        When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as `1` instead.
+
+        Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
+        """
+        stack_set_operation_type: NotRequired[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]
+        """
+        Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        - **CREATE** - Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+        - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
+        - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
+        """
+        stack_set_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more AWS Regions where the provisioned product will be available.
+
+        Applicable only to a `CFN_STACKSET` provisioned product type.
+
+        The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+
+        If no values are specified, the default value is all Regions from the `STACKSET` constraint.
+        """
+elif False:
+    CloudFormationProvisionedProductProvisioningPreferencesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CloudFormationProvisionedProductProvisioningPreferencesArgs:
@@ -259,6 +359,19 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
     def stack_set_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "stack_set_regions", value)
 
+
+if not MYPY:
+    class ServiceActionDefinitionParameterArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The parameter key.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the parameter.
+        """
+elif False:
+    ServiceActionDefinitionParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceActionDefinitionParameterArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -187,9 +192,6 @@ def get_composite_alarm(alarm_name: Optional[str] = None,
         insufficient_data_actions=pulumi.get(__ret__, 'insufficient_data_actions'),
         ok_actions=pulumi.get(__ret__, 'ok_actions'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_composite_alarm)
 def get_composite_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCompositeAlarmResult]:
     """
@@ -198,4 +200,19 @@ def get_composite_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
 
     :param str alarm_name: The name of the Composite Alarm
     """
-    ...
+    __args__ = dict()
+    __args__['alarmName'] = alarm_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getCompositeAlarm', __args__, opts=opts, typ=GetCompositeAlarmResult)
+    return __ret__.apply(lambda __response__: GetCompositeAlarmResult(
+        actions_enabled=pulumi.get(__response__, 'actions_enabled'),
+        actions_suppressor=pulumi.get(__response__, 'actions_suppressor'),
+        actions_suppressor_extension_period=pulumi.get(__response__, 'actions_suppressor_extension_period'),
+        actions_suppressor_wait_period=pulumi.get(__response__, 'actions_suppressor_wait_period'),
+        alarm_actions=pulumi.get(__response__, 'alarm_actions'),
+        alarm_description=pulumi.get(__response__, 'alarm_description'),
+        alarm_rule=pulumi.get(__response__, 'alarm_rule'),
+        arn=pulumi.get(__response__, 'arn'),
+        insufficient_data_actions=pulumi.get(__response__, 'insufficient_data_actions'),
+        ok_actions=pulumi.get(__response__, 'ok_actions'),
+        tags=pulumi.get(__response__, 'tags')))

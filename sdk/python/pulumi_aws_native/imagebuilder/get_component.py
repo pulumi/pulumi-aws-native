@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -83,9 +88,6 @@ def get_component(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         encrypted=pulumi.get(__ret__, 'encrypted'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_component)
 def get_component_output(arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
     """
@@ -94,4 +96,11 @@ def get_component_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the component.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getComponent', __args__, opts=opts, typ=GetComponentResult)
+    return __ret__.apply(lambda __response__: GetComponentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        type=pulumi.get(__response__, 'type')))

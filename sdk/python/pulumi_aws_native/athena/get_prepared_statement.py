@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -72,9 +77,6 @@ def get_prepared_statement(statement_name: Optional[str] = None,
     return AwaitableGetPreparedStatementResult(
         description=pulumi.get(__ret__, 'description'),
         query_statement=pulumi.get(__ret__, 'query_statement'))
-
-
-@_utilities.lift_output_func(get_prepared_statement)
 def get_prepared_statement_output(statement_name: Optional[pulumi.Input[str]] = None,
                                   work_group: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPreparedStatementResult]:
@@ -85,4 +87,11 @@ def get_prepared_statement_output(statement_name: Optional[pulumi.Input[str]] = 
     :param str statement_name: The name of the prepared statement.
     :param str work_group: The name of the workgroup to which the prepared statement belongs.
     """
-    ...
+    __args__ = dict()
+    __args__['statementName'] = statement_name
+    __args__['workGroup'] = work_group
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getPreparedStatement', __args__, opts=opts, typ=GetPreparedStatementResult)
+    return __ret__.apply(lambda __response__: GetPreparedStatementResult(
+        description=pulumi.get(__response__, 'description'),
+        query_statement=pulumi.get(__response__, 'query_statement')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -106,9 +111,6 @@ def get_group(group_name: Optional[str] = None,
         managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
         path=pulumi.get(__ret__, 'path'),
         policies=pulumi.get(__ret__, 'policies'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
@@ -122,4 +124,12 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
              If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
              Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}``.
     """
-    ...
+    __args__ = dict()
+    __args__['groupName'] = group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        managed_policy_arns=pulumi.get(__response__, 'managed_policy_arns'),
+        path=pulumi.get(__response__, 'path'),
+        policies=pulumi.get(__response__, 'policies')))

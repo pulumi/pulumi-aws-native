@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -137,9 +142,6 @@ def get_template(aws_account_id: Optional[str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_template)
 def get_template_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                         template_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
@@ -150,4 +152,16 @@ def get_template_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     :param str aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
     :param str template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
     """
-    ...
+    __args__ = dict()
+    __args__['awsAccountId'] = aws_account_id
+    __args__['templateId'] = template_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getTemplate', __args__, opts=opts, typ=GetTemplateResult)
+    return __ret__.apply(lambda __response__: GetTemplateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        name=pulumi.get(__response__, 'name'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

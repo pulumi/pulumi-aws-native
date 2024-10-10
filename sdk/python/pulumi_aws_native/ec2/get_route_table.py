@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -71,9 +76,6 @@ def get_route_table(route_table_id: Optional[str] = None,
     return AwaitableGetRouteTableResult(
         route_table_id=pulumi.get(__ret__, 'route_table_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_route_table)
 def get_route_table_output(route_table_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
     """
@@ -83,4 +85,10 @@ def get_route_table_output(route_table_id: Optional[pulumi.Input[str]] = None,
 
     :param str route_table_id: The ID of the route table.
     """
-    ...
+    __args__ = dict()
+    __args__['routeTableId'] = route_table_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult)
+    return __ret__.apply(lambda __response__: GetRouteTableResult(
+        route_table_id=pulumi.get(__response__, 'route_table_id'),
+        tags=pulumi.get(__response__, 'tags')))

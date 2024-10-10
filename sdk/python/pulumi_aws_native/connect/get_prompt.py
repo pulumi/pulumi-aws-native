@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -109,9 +114,6 @@ def get_prompt(prompt_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         prompt_arn=pulumi.get(__ret__, 'prompt_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_prompt)
 def get_prompt_output(prompt_arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptResult]:
     """
@@ -120,4 +122,13 @@ def get_prompt_output(prompt_arn: Optional[pulumi.Input[str]] = None,
 
     :param str prompt_arn: The Amazon Resource Name (ARN) for the prompt.
     """
-    ...
+    __args__ = dict()
+    __args__['promptArn'] = prompt_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getPrompt', __args__, opts=opts, typ=GetPromptResult)
+    return __ret__.apply(lambda __response__: GetPromptResult(
+        description=pulumi.get(__response__, 'description'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        name=pulumi.get(__response__, 'name'),
+        prompt_arn=pulumi.get(__response__, 'prompt_arn'),
+        tags=pulumi.get(__response__, 'tags')))

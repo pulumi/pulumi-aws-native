@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -165,9 +170,6 @@ def get_service_level_objective(arn: Optional[str] = None,
         request_based_sli=pulumi.get(__ret__, 'request_based_sli'),
         sli=pulumi.get(__ret__, 'sli'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_service_level_objective)
 def get_service_level_objective_output(arn: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelObjectiveResult]:
     """
@@ -176,4 +178,17 @@ def get_service_level_objective_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of this SLO.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:applicationsignals:getServiceLevelObjective', __args__, opts=opts, typ=GetServiceLevelObjectiveResult)
+    return __ret__.apply(lambda __response__: GetServiceLevelObjectiveResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        description=pulumi.get(__response__, 'description'),
+        evaluation_type=pulumi.get(__response__, 'evaluation_type'),
+        goal=pulumi.get(__response__, 'goal'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        request_based_sli=pulumi.get(__response__, 'request_based_sli'),
+        sli=pulumi.get(__response__, 'sli'),
+        tags=pulumi.get(__response__, 'tags')))

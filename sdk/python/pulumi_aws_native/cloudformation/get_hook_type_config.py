@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -97,9 +102,6 @@ def get_hook_type_config(configuration_arn: Optional[str] = None,
         configuration_arn=pulumi.get(__ret__, 'configuration_arn'),
         type_arn=pulumi.get(__ret__, 'type_arn'),
         type_name=pulumi.get(__ret__, 'type_name'))
-
-
-@_utilities.lift_output_func(get_hook_type_config)
 def get_hook_type_config_output(configuration_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHookTypeConfigResult]:
     """
@@ -108,4 +110,12 @@ def get_hook_type_config_output(configuration_arn: Optional[pulumi.Input[str]] =
 
     :param str configuration_arn: The Amazon Resource Name (ARN) for the configuration data, in this account and region.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationArn'] = configuration_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getHookTypeConfig', __args__, opts=opts, typ=GetHookTypeConfigResult)
+    return __ret__.apply(lambda __response__: GetHookTypeConfigResult(
+        configuration=pulumi.get(__response__, 'configuration'),
+        configuration_arn=pulumi.get(__response__, 'configuration_arn'),
+        type_arn=pulumi.get(__response__, 'type_arn'),
+        type_name=pulumi.get(__response__, 'type_name')))

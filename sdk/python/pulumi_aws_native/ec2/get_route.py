@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -205,9 +210,6 @@ def get_route(cidr_block: Optional[str] = None,
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
         vpc_peering_connection_id=pulumi.get(__ret__, 'vpc_peering_connection_id'))
-
-
-@_utilities.lift_output_func(get_route)
 def get_route_output(cidr_block: Optional[pulumi.Input[str]] = None,
                      route_table_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
@@ -220,4 +222,21 @@ def get_route_output(cidr_block: Optional[pulumi.Input[str]] = None,
     :param str cidr_block: The IPv4 CIDR block.
     :param str route_table_id: The ID of the route table for the route.
     """
-    ...
+    __args__ = dict()
+    __args__['cidrBlock'] = cidr_block
+    __args__['routeTableId'] = route_table_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getRoute', __args__, opts=opts, typ=GetRouteResult)
+    return __ret__.apply(lambda __response__: GetRouteResult(
+        carrier_gateway_id=pulumi.get(__response__, 'carrier_gateway_id'),
+        cidr_block=pulumi.get(__response__, 'cidr_block'),
+        core_network_arn=pulumi.get(__response__, 'core_network_arn'),
+        egress_only_internet_gateway_id=pulumi.get(__response__, 'egress_only_internet_gateway_id'),
+        gateway_id=pulumi.get(__response__, 'gateway_id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        local_gateway_id=pulumi.get(__response__, 'local_gateway_id'),
+        nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
+        network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        vpc_endpoint_id=pulumi.get(__response__, 'vpc_endpoint_id'),
+        vpc_peering_connection_id=pulumi.get(__response__, 'vpc_peering_connection_id')))

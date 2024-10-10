@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_vpc_connector(vpc_connector_arn: Optional[str] = None,
     return AwaitableGetVpcConnectorResult(
         vpc_connector_arn=pulumi.get(__ret__, 'vpc_connector_arn'),
         vpc_connector_revision=pulumi.get(__ret__, 'vpc_connector_revision'))
-
-
-@_utilities.lift_output_func(get_vpc_connector)
 def get_vpc_connector_output(vpc_connector_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcConnectorResult]:
     """
@@ -80,4 +82,10 @@ def get_vpc_connector_output(vpc_connector_arn: Optional[pulumi.Input[str]] = No
 
     :param str vpc_connector_arn: The Amazon Resource Name (ARN) of this VPC connector.
     """
-    ...
+    __args__ = dict()
+    __args__['vpcConnectorArn'] = vpc_connector_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apprunner:getVpcConnector', __args__, opts=opts, typ=GetVpcConnectorResult)
+    return __ret__.apply(lambda __response__: GetVpcConnectorResult(
+        vpc_connector_arn=pulumi.get(__response__, 'vpc_connector_arn'),
+        vpc_connector_revision=pulumi.get(__response__, 'vpc_connector_revision')))

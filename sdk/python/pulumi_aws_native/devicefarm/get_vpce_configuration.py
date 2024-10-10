@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -126,9 +131,6 @@ def get_vpce_configuration(arn: Optional[str] = None,
         vpce_configuration_description=pulumi.get(__ret__, 'vpce_configuration_description'),
         vpce_configuration_name=pulumi.get(__ret__, 'vpce_configuration_name'),
         vpce_service_name=pulumi.get(__ret__, 'vpce_service_name'))
-
-
-@_utilities.lift_output_func(get_vpce_configuration)
 def get_vpce_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpceConfigurationResult]:
     """
@@ -137,4 +139,14 @@ def get_vpce_configuration_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the VPC endpoint. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:devicefarm:getVpceConfiguration', __args__, opts=opts, typ=GetVpceConfigurationResult)
+    return __ret__.apply(lambda __response__: GetVpceConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        service_dns_name=pulumi.get(__response__, 'service_dns_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpce_configuration_description=pulumi.get(__response__, 'vpce_configuration_description'),
+        vpce_configuration_name=pulumi.get(__response__, 'vpce_configuration_name'),
+        vpce_service_name=pulumi.get(__response__, 'vpce_service_name')))

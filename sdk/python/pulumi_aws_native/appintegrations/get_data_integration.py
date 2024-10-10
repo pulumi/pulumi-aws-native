@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -136,9 +141,6 @@ def get_data_integration(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         object_configuration=pulumi.get(__ret__, 'object_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_data_integration)
 def get_data_integration_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataIntegrationResult]:
     """
@@ -147,4 +149,15 @@ def get_data_integration_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The unique identifer of the data integration.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:appintegrations:getDataIntegration', __args__, opts=opts, typ=GetDataIntegrationResult)
+    return __ret__.apply(lambda __response__: GetDataIntegrationResult(
+        data_integration_arn=pulumi.get(__response__, 'data_integration_arn'),
+        description=pulumi.get(__response__, 'description'),
+        file_configuration=pulumi.get(__response__, 'file_configuration'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        object_configuration=pulumi.get(__response__, 'object_configuration'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_connector(connector_arn: Optional[str] = None,
 
     return AwaitableGetConnectorResult(
         connector_arn=pulumi.get(__ret__, 'connector_arn'))
-
-
-@_utilities.lift_output_func(get_connector)
 def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
@@ -67,4 +69,9 @@ def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
 
     :param str connector_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
     """
-    ...
+    __args__ = dict()
+    __args__['connectorArn'] = connector_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:pcaconnectorad:getConnector', __args__, opts=opts, typ=GetConnectorResult)
+    return __ret__.apply(lambda __response__: GetConnectorResult(
+        connector_arn=pulumi.get(__response__, 'connector_arn')))

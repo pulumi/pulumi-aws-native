@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -154,9 +159,6 @@ def get_evaluation_form(evaluation_form_arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         title=pulumi.get(__ret__, 'title'))
-
-
-@_utilities.lift_output_func(get_evaluation_form)
 def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEvaluationFormResult]:
     """
@@ -165,4 +167,16 @@ def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[str]] 
 
     :param str evaluation_form_arn: The Amazon Resource Name (ARN) of the evaluation form.
     """
-    ...
+    __args__ = dict()
+    __args__['evaluationFormArn'] = evaluation_form_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getEvaluationForm', __args__, opts=opts, typ=GetEvaluationFormResult)
+    return __ret__.apply(lambda __response__: GetEvaluationFormResult(
+        description=pulumi.get(__response__, 'description'),
+        evaluation_form_arn=pulumi.get(__response__, 'evaluation_form_arn'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        items=pulumi.get(__response__, 'items'),
+        scoring_strategy=pulumi.get(__response__, 'scoring_strategy'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        title=pulumi.get(__response__, 'title')))

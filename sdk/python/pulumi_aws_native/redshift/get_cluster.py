@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -620,9 +625,6 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         snapshot_copy_retention_period=pulumi.get(__ret__, 'snapshot_copy_retention_period'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -631,4 +633,51 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
     """
-    ...
+    __args__ = dict()
+    __args__['clusterIdentifier'] = cluster_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        allow_version_upgrade=pulumi.get(__response__, 'allow_version_upgrade'),
+        aqua_configuration_status=pulumi.get(__response__, 'aqua_configuration_status'),
+        automated_snapshot_retention_period=pulumi.get(__response__, 'automated_snapshot_retention_period'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        availability_zone_relocation=pulumi.get(__response__, 'availability_zone_relocation'),
+        availability_zone_relocation_status=pulumi.get(__response__, 'availability_zone_relocation_status'),
+        cluster_namespace_arn=pulumi.get(__response__, 'cluster_namespace_arn'),
+        cluster_parameter_group_name=pulumi.get(__response__, 'cluster_parameter_group_name'),
+        cluster_security_groups=pulumi.get(__response__, 'cluster_security_groups'),
+        cluster_type=pulumi.get(__response__, 'cluster_type'),
+        cluster_version=pulumi.get(__response__, 'cluster_version'),
+        defer_maintenance_end_time=pulumi.get(__response__, 'defer_maintenance_end_time'),
+        defer_maintenance_identifier=pulumi.get(__response__, 'defer_maintenance_identifier'),
+        defer_maintenance_start_time=pulumi.get(__response__, 'defer_maintenance_start_time'),
+        destination_region=pulumi.get(__response__, 'destination_region'),
+        elastic_ip=pulumi.get(__response__, 'elastic_ip'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        enhanced_vpc_routing=pulumi.get(__response__, 'enhanced_vpc_routing'),
+        hsm_client_certificate_identifier=pulumi.get(__response__, 'hsm_client_certificate_identifier'),
+        hsm_configuration_identifier=pulumi.get(__response__, 'hsm_configuration_identifier'),
+        iam_roles=pulumi.get(__response__, 'iam_roles'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        logging_properties=pulumi.get(__response__, 'logging_properties'),
+        maintenance_track_name=pulumi.get(__response__, 'maintenance_track_name'),
+        manual_snapshot_retention_period=pulumi.get(__response__, 'manual_snapshot_retention_period'),
+        master_password_secret_arn=pulumi.get(__response__, 'master_password_secret_arn'),
+        master_password_secret_kms_key_id=pulumi.get(__response__, 'master_password_secret_kms_key_id'),
+        multi_az=pulumi.get(__response__, 'multi_az'),
+        namespace_resource_policy=pulumi.get(__response__, 'namespace_resource_policy'),
+        node_type=pulumi.get(__response__, 'node_type'),
+        number_of_nodes=pulumi.get(__response__, 'number_of_nodes'),
+        port=pulumi.get(__response__, 'port'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        resource_action=pulumi.get(__response__, 'resource_action'),
+        revision_target=pulumi.get(__response__, 'revision_target'),
+        rotate_encryption_key=pulumi.get(__response__, 'rotate_encryption_key'),
+        snapshot_copy_grant_name=pulumi.get(__response__, 'snapshot_copy_grant_name'),
+        snapshot_copy_manual=pulumi.get(__response__, 'snapshot_copy_manual'),
+        snapshot_copy_retention_period=pulumi.get(__response__, 'snapshot_copy_retention_period'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

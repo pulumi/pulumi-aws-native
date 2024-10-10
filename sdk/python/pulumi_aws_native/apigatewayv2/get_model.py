@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -113,9 +118,6 @@ def get_model(api_id: Optional[str] = None,
         model_id=pulumi.get(__ret__, 'model_id'),
         name=pulumi.get(__ret__, 'name'),
         schema=pulumi.get(__ret__, 'schema'))
-
-
-@_utilities.lift_output_func(get_model)
 def get_model_output(api_id: Optional[pulumi.Input[str]] = None,
                      model_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
@@ -126,4 +128,14 @@ def get_model_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str api_id: The API identifier.
     :param str model_id: The model ID.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['modelId'] = model_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getModel', __args__, opts=opts, typ=GetModelResult)
+    return __ret__.apply(lambda __response__: GetModelResult(
+        content_type=pulumi.get(__response__, 'content_type'),
+        description=pulumi.get(__response__, 'description'),
+        model_id=pulumi.get(__response__, 'model_id'),
+        name=pulumi.get(__response__, 'name'),
+        schema=pulumi.get(__response__, 'schema')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -177,9 +182,6 @@ def get_namespace(namespace_name: Optional[str] = None,
         namespace=pulumi.get(__ret__, 'namespace'),
         namespace_resource_policy=pulumi.get(__ret__, 'namespace_resource_policy'),
         snapshot_copy_configurations=pulumi.get(__ret__, 'snapshot_copy_configurations'))
-
-
-@_utilities.lift_output_func(get_namespace)
 def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
@@ -188,4 +190,18 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
 
     :param str namespace_name: A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:redshiftserverless:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
+    return __ret__.apply(lambda __response__: GetNamespaceResult(
+        admin_password_secret_kms_key_id=pulumi.get(__response__, 'admin_password_secret_kms_key_id'),
+        admin_username=pulumi.get(__response__, 'admin_username'),
+        db_name=pulumi.get(__response__, 'db_name'),
+        default_iam_role_arn=pulumi.get(__response__, 'default_iam_role_arn'),
+        iam_roles=pulumi.get(__response__, 'iam_roles'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        log_exports=pulumi.get(__response__, 'log_exports'),
+        namespace=pulumi.get(__response__, 'namespace'),
+        namespace_resource_policy=pulumi.get(__response__, 'namespace_resource_policy'),
+        snapshot_copy_configurations=pulumi.get(__response__, 'snapshot_copy_configurations')))

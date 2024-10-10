@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -126,9 +131,6 @@ def get_scaling_policy(arn: Optional[str] = None,
         policy_type=pulumi.get(__ret__, 'policy_type'),
         step_scaling_policy_configuration=pulumi.get(__ret__, 'step_scaling_policy_configuration'),
         target_tracking_scaling_policy_configuration=pulumi.get(__ret__, 'target_tracking_scaling_policy_configuration'))
-
-
-@_utilities.lift_output_func(get_scaling_policy)
 def get_scaling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                               scalable_dimension: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPolicyResult]:
@@ -163,4 +165,13 @@ def get_scaling_policy_output(arn: Optional[pulumi.Input[str]] = None,
              +   ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
              +   ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['scalableDimension'] = scalable_dimension
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:applicationautoscaling:getScalingPolicy', __args__, opts=opts, typ=GetScalingPolicyResult)
+    return __ret__.apply(lambda __response__: GetScalingPolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        policy_type=pulumi.get(__response__, 'policy_type'),
+        step_scaling_policy_configuration=pulumi.get(__response__, 'step_scaling_policy_configuration'),
+        target_tracking_scaling_policy_configuration=pulumi.get(__response__, 'target_tracking_scaling_policy_configuration')))

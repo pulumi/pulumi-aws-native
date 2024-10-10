@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_schema_version(version_id: Optional[str] = None,
 
     return AwaitableGetSchemaVersionResult(
         version_id=pulumi.get(__ret__, 'version_id'))
-
-
-@_utilities.lift_output_func(get_schema_version)
 def get_schema_version_output(version_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaVersionResult]:
     """
@@ -67,4 +69,9 @@ def get_schema_version_output(version_id: Optional[pulumi.Input[str]] = None,
 
     :param str version_id: Represents the version ID associated with the schema version.
     """
-    ...
+    __args__ = dict()
+    __args__['versionId'] = version_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getSchemaVersion', __args__, opts=opts, typ=GetSchemaVersionResult)
+    return __ret__.apply(lambda __response__: GetSchemaVersionResult(
+        version_id=pulumi.get(__response__, 'version_id')))

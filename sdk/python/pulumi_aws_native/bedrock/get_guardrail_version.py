@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -85,9 +90,6 @@ def get_guardrail_version(guardrail_id: Optional[str] = None,
         guardrail_arn=pulumi.get(__ret__, 'guardrail_arn'),
         guardrail_id=pulumi.get(__ret__, 'guardrail_id'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_guardrail_version)
 def get_guardrail_version_output(guardrail_id: Optional[pulumi.Input[str]] = None,
                                  version: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuardrailVersionResult]:
@@ -98,4 +100,12 @@ def get_guardrail_version_output(guardrail_id: Optional[pulumi.Input[str]] = Non
     :param str guardrail_id: Unique id for the guardrail
     :param str version: Guardrail version
     """
-    ...
+    __args__ = dict()
+    __args__['guardrailId'] = guardrail_id
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getGuardrailVersion', __args__, opts=opts, typ=GetGuardrailVersionResult)
+    return __ret__.apply(lambda __response__: GetGuardrailVersionResult(
+        guardrail_arn=pulumi.get(__response__, 'guardrail_arn'),
+        guardrail_id=pulumi.get(__response__, 'guardrail_id'),
+        version=pulumi.get(__response__, 'version')))

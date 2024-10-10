@@ -4,16 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'StreamEncryptionArgs',
+    'StreamEncryptionArgsDict',
     'StreamModeDetailsArgs',
+    'StreamModeDetailsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class StreamEncryptionArgsDict(TypedDict):
+        """
+        When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
+        """
+        encryption_type: pulumi.Input['StreamEncryptionEncryptionType']
+        """
+        The encryption type to use. The only valid value is KMS. 
+        """
+        key_id: pulumi.Input[str]
+        """
+        The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
+        """
+elif False:
+    StreamEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamEncryptionArgs:
@@ -52,6 +77,18 @@ class StreamEncryptionArgs:
     def key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_id", value)
 
+
+if not MYPY:
+    class StreamModeDetailsArgsDict(TypedDict):
+        """
+        When specified, enables or updates the mode of stream. Default is PROVISIONED.
+        """
+        stream_mode: pulumi.Input['StreamModeDetailsStreamMode']
+        """
+        The mode of the stream
+        """
+elif False:
+    StreamModeDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamModeDetailsArgs:

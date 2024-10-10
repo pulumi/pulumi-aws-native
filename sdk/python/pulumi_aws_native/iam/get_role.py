@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -190,9 +195,6 @@ def get_role(role_name: Optional[str] = None,
         policies=pulumi.get(__ret__, 'policies'),
         role_id=pulumi.get(__ret__, 'role_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_role)
 def get_role_output(role_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
     """
@@ -210,4 +212,17 @@ def get_role_output(role_name: Optional[pulumi.Input[str]] = None,
            
            > Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using `Fn::Join` and `AWS::Region` to create a Region-specific name, as in the following example: `{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}` .
     """
-    ...
+    __args__ = dict()
+    __args__['roleName'] = role_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getRole', __args__, opts=opts, typ=GetRoleResult)
+    return __ret__.apply(lambda __response__: GetRoleResult(
+        arn=pulumi.get(__response__, 'arn'),
+        assume_role_policy_document=pulumi.get(__response__, 'assume_role_policy_document'),
+        description=pulumi.get(__response__, 'description'),
+        managed_policy_arns=pulumi.get(__response__, 'managed_policy_arns'),
+        max_session_duration=pulumi.get(__response__, 'max_session_duration'),
+        permissions_boundary=pulumi.get(__response__, 'permissions_boundary'),
+        policies=pulumi.get(__response__, 'policies'),
+        role_id=pulumi.get(__response__, 'role_id'),
+        tags=pulumi.get(__response__, 'tags')))

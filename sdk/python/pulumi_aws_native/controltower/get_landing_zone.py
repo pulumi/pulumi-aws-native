@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -151,9 +156,6 @@ def get_landing_zone(landing_zone_identifier: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_landing_zone)
 def get_landing_zone_output(landing_zone_identifier: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLandingZoneResult]:
     """
@@ -162,4 +164,16 @@ def get_landing_zone_output(landing_zone_identifier: Optional[pulumi.Input[str]]
 
     :param str landing_zone_identifier: The unique identifier of the landing zone.
     """
-    ...
+    __args__ = dict()
+    __args__['landingZoneIdentifier'] = landing_zone_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:controltower:getLandingZone', __args__, opts=opts, typ=GetLandingZoneResult)
+    return __ret__.apply(lambda __response__: GetLandingZoneResult(
+        arn=pulumi.get(__response__, 'arn'),
+        drift_status=pulumi.get(__response__, 'drift_status'),
+        landing_zone_identifier=pulumi.get(__response__, 'landing_zone_identifier'),
+        latest_available_version=pulumi.get(__response__, 'latest_available_version'),
+        manifest=pulumi.get(__response__, 'manifest'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

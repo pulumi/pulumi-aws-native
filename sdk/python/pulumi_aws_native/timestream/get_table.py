@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -127,9 +132,6 @@ def get_table(database_name: Optional[str] = None,
         retention_properties=pulumi.get(__ret__, 'retention_properties'),
         schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_table)
 def get_table_output(database_name: Optional[pulumi.Input[str]] = None,
                      table_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
@@ -140,4 +142,15 @@ def get_table_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str database_name: The name for the database which the table to be created belongs to.
     :param str table_name: The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseName'] = database_name
+    __args__['tableName'] = table_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:timestream:getTable', __args__, opts=opts, typ=GetTableResult)
+    return __ret__.apply(lambda __response__: GetTableResult(
+        arn=pulumi.get(__response__, 'arn'),
+        magnetic_store_write_properties=pulumi.get(__response__, 'magnetic_store_write_properties'),
+        name=pulumi.get(__response__, 'name'),
+        retention_properties=pulumi.get(__response__, 'retention_properties'),
+        schema=pulumi.get(__response__, 'schema'),
+        tags=pulumi.get(__response__, 'tags')))

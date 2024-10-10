@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -191,9 +196,6 @@ def get_prompt(arn: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'),
         variants=pulumi.get(__ret__, 'variants'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_prompt)
 def get_prompt_output(arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptResult]:
     """
@@ -202,4 +204,19 @@ def get_prompt_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN of a prompt resource possibly with a version
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getPrompt', __args__, opts=opts, typ=GetPromptResult)
+    return __ret__.apply(lambda __response__: GetPromptResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        customer_encryption_key_arn=pulumi.get(__response__, 'customer_encryption_key_arn'),
+        default_variant=pulumi.get(__response__, 'default_variant'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        variants=pulumi.get(__response__, 'variants'),
+        version=pulumi.get(__response__, 'version')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -175,9 +180,6 @@ def get_repository_creation_template(prefix: Optional[str] = None,
         repository_policy=pulumi.get(__ret__, 'repository_policy'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_repository_creation_template)
 def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
     """
@@ -186,4 +188,18 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] 
 
     :param str prefix: The prefix use to match the repository name and apply the template.
     """
-    ...
+    __args__ = dict()
+    __args__['prefix'] = prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ecr:getRepositoryCreationTemplate', __args__, opts=opts, typ=GetRepositoryCreationTemplateResult)
+    return __ret__.apply(lambda __response__: GetRepositoryCreationTemplateResult(
+        applied_for=pulumi.get(__response__, 'applied_for'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        custom_role_arn=pulumi.get(__response__, 'custom_role_arn'),
+        description=pulumi.get(__response__, 'description'),
+        encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
+        image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
+        lifecycle_policy=pulumi.get(__response__, 'lifecycle_policy'),
+        repository_policy=pulumi.get(__response__, 'repository_policy'),
+        resource_tags=pulumi.get(__response__, 'resource_tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

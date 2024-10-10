@@ -4,58 +4,120 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'FirewallPolicyActionDefinitionArgs',
+    'FirewallPolicyActionDefinitionArgsDict',
     'FirewallPolicyCustomActionArgs',
+    'FirewallPolicyCustomActionArgsDict',
     'FirewallPolicyDimensionArgs',
+    'FirewallPolicyDimensionArgsDict',
     'FirewallPolicyIpSetArgs',
+    'FirewallPolicyIpSetArgsDict',
     'FirewallPolicyPolicyVariablesPropertiesArgs',
+    'FirewallPolicyPolicyVariablesPropertiesArgsDict',
     'FirewallPolicyPublishMetricActionArgs',
+    'FirewallPolicyPublishMetricActionArgsDict',
     'FirewallPolicyStatefulEngineOptionsArgs',
+    'FirewallPolicyStatefulEngineOptionsArgsDict',
     'FirewallPolicyStatefulRuleGroupOverrideArgs',
+    'FirewallPolicyStatefulRuleGroupOverrideArgsDict',
     'FirewallPolicyStatefulRuleGroupReferenceArgs',
+    'FirewallPolicyStatefulRuleGroupReferenceArgsDict',
     'FirewallPolicyStatelessRuleGroupReferenceArgs',
+    'FirewallPolicyStatelessRuleGroupReferenceArgsDict',
     'FirewallPolicyArgs',
+    'FirewallPolicyArgsDict',
     'FirewallSubnetMappingArgs',
+    'FirewallSubnetMappingArgsDict',
     'LoggingConfigurationLogDestinationConfigArgs',
+    'LoggingConfigurationLogDestinationConfigArgsDict',
     'LoggingConfigurationArgs',
+    'LoggingConfigurationArgsDict',
     'RuleGroupActionDefinitionArgs',
+    'RuleGroupActionDefinitionArgsDict',
     'RuleGroupAddressArgs',
+    'RuleGroupAddressArgsDict',
     'RuleGroupCustomActionArgs',
+    'RuleGroupCustomActionArgsDict',
     'RuleGroupDimensionArgs',
+    'RuleGroupDimensionArgsDict',
     'RuleGroupHeaderArgs',
+    'RuleGroupHeaderArgsDict',
     'RuleGroupIpSetReferenceArgs',
+    'RuleGroupIpSetReferenceArgsDict',
     'RuleGroupIpSetArgs',
+    'RuleGroupIpSetArgsDict',
     'RuleGroupMatchAttributesArgs',
+    'RuleGroupMatchAttributesArgsDict',
     'RuleGroupPortRangeArgs',
+    'RuleGroupPortRangeArgsDict',
     'RuleGroupPortSetArgs',
+    'RuleGroupPortSetArgsDict',
     'RuleGroupPublishMetricActionArgs',
+    'RuleGroupPublishMetricActionArgsDict',
     'RuleGroupReferenceSetsArgs',
+    'RuleGroupReferenceSetsArgsDict',
     'RuleGroupRuleDefinitionArgs',
+    'RuleGroupRuleDefinitionArgsDict',
     'RuleGroupRuleOptionArgs',
+    'RuleGroupRuleOptionArgsDict',
     'RuleGroupRuleVariablesArgs',
+    'RuleGroupRuleVariablesArgsDict',
     'RuleGroupRulesSourceListArgs',
+    'RuleGroupRulesSourceListArgsDict',
     'RuleGroupRulesSourceArgs',
+    'RuleGroupRulesSourceArgsDict',
     'RuleGroupStatefulRuleOptionsArgs',
+    'RuleGroupStatefulRuleOptionsArgsDict',
     'RuleGroupStatefulRuleArgs',
+    'RuleGroupStatefulRuleArgsDict',
     'RuleGroupStatelessRulesAndCustomActionsArgs',
+    'RuleGroupStatelessRulesAndCustomActionsArgsDict',
     'RuleGroupStatelessRuleArgs',
+    'RuleGroupStatelessRuleArgsDict',
     'RuleGroupTcpFlagFieldArgs',
+    'RuleGroupTcpFlagFieldArgsDict',
     'RuleGroupArgs',
+    'RuleGroupArgsDict',
     'TlsInspectionConfigurationAddressArgs',
+    'TlsInspectionConfigurationAddressArgsDict',
     'TlsInspectionConfigurationPortRangeArgs',
+    'TlsInspectionConfigurationPortRangeArgsDict',
     'TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs',
+    'TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgsDict',
     'TlsInspectionConfigurationServerCertificateConfigurationArgs',
+    'TlsInspectionConfigurationServerCertificateConfigurationArgsDict',
     'TlsInspectionConfigurationServerCertificateScopeArgs',
+    'TlsInspectionConfigurationServerCertificateScopeArgsDict',
     'TlsInspectionConfigurationServerCertificateArgs',
+    'TlsInspectionConfigurationServerCertificateArgsDict',
     'TlsInspectionConfigurationTlsInspectionConfigurationArgs',
+    'TlsInspectionConfigurationTlsInspectionConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FirewallPolicyActionDefinitionArgsDict(TypedDict):
+        publish_metric_action: NotRequired[pulumi.Input['FirewallPolicyPublishMetricActionArgsDict']]
+        """
+        Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+
+        You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
+        """
+elif False:
+    FirewallPolicyActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyActionDefinitionArgs:
@@ -83,6 +145,19 @@ class FirewallPolicyActionDefinitionArgs:
     def publish_metric_action(self, value: Optional[pulumi.Input['FirewallPolicyPublishMetricActionArgs']]):
         pulumi.set(self, "publish_metric_action", value)
 
+
+if not MYPY:
+    class FirewallPolicyCustomActionArgsDict(TypedDict):
+        action_definition: pulumi.Input['FirewallPolicyActionDefinitionArgsDict']
+        """
+        The custom action associated with the action name.
+        """
+        action_name: pulumi.Input[str]
+        """
+        The descriptive name of the custom action. You can't change the name of a custom action after you create it.
+        """
+elif False:
+    FirewallPolicyCustomActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyCustomActionArgs:
@@ -121,6 +196,15 @@ class FirewallPolicyCustomActionArgs:
         pulumi.set(self, "action_name", value)
 
 
+if not MYPY:
+    class FirewallPolicyDimensionArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        The value to use in the custom metric dimension.
+        """
+elif False:
+    FirewallPolicyDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyDimensionArgs:
     def __init__(__self__, *,
@@ -142,6 +226,15 @@ class FirewallPolicyDimensionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class FirewallPolicyIpSetArgsDict(TypedDict):
+        definition: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of IP addresses and address ranges, in CIDR notation.
+        """
+elif False:
+    FirewallPolicyIpSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyIpSetArgs:
@@ -166,6 +259,15 @@ class FirewallPolicyIpSetArgs:
         pulumi.set(self, "definition", value)
 
 
+if not MYPY:
+    class FirewallPolicyPolicyVariablesPropertiesArgsDict(TypedDict):
+        """
+        Contains variables that you can use to override default Suricata settings in your firewall policy.
+        """
+        rule_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['FirewallPolicyIpSetArgsDict']]]]
+elif False:
+    FirewallPolicyPolicyVariablesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyPolicyVariablesPropertiesArgs:
     def __init__(__self__, *,
@@ -186,6 +288,12 @@ class FirewallPolicyPolicyVariablesPropertiesArgs:
         pulumi.set(self, "rule_variables", value)
 
 
+if not MYPY:
+    class FirewallPolicyPublishMetricActionArgsDict(TypedDict):
+        dimensions: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgsDict']]]
+elif False:
+    FirewallPolicyPublishMetricActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyPublishMetricActionArgs:
     def __init__(__self__, *,
@@ -201,6 +309,23 @@ class FirewallPolicyPublishMetricActionArgs:
     def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]):
         pulumi.set(self, "dimensions", value)
 
+
+if not MYPY:
+    class FirewallPolicyStatefulEngineOptionsArgsDict(TypedDict):
+        rule_order: NotRequired[pulumi.Input['FirewallPolicyRuleOrder']]
+        """
+        Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+        """
+        stream_exception_policy: NotRequired[pulumi.Input['FirewallPolicyStreamExceptionPolicy']]
+        """
+        Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
+
+        - `DROP` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. This is the default behavior.
+        - `CONTINUE` - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to `drop http` traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
+        - `REJECT` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
+        """
+elif False:
+    FirewallPolicyStatefulEngineOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyStatefulEngineOptionsArgs:
@@ -249,6 +374,15 @@ class FirewallPolicyStatefulEngineOptionsArgs:
         pulumi.set(self, "stream_exception_policy", value)
 
 
+if not MYPY:
+    class FirewallPolicyStatefulRuleGroupOverrideArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input['FirewallPolicyOverrideAction']]
+        """
+        The action that changes the rule group from `DROP` to `ALERT` . This only applies to managed rule groups.
+        """
+elif False:
+    FirewallPolicyStatefulRuleGroupOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyStatefulRuleGroupOverrideArgs:
     def __init__(__self__, *,
@@ -271,6 +405,27 @@ class FirewallPolicyStatefulRuleGroupOverrideArgs:
     def action(self, value: Optional[pulumi.Input['FirewallPolicyOverrideAction']]):
         pulumi.set(self, "action", value)
 
+
+if not MYPY:
+    class FirewallPolicyStatefulRuleGroupReferenceArgsDict(TypedDict):
+        resource_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the stateful rule group.
+        """
+        override: NotRequired[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgsDict']]
+        """
+        The action that allows the policy owner to override the behavior of the rule group within a policy.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
+
+        Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+
+        You can change the priority settings of your rule groups at any time. To make it easier to insert rule groups later, number them so there's a wide range in between, for example use 100, 200, and so on.
+        """
+elif False:
+    FirewallPolicyStatefulRuleGroupReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyStatefulRuleGroupReferenceArgs:
@@ -334,6 +489,19 @@ class FirewallPolicyStatefulRuleGroupReferenceArgs:
         pulumi.set(self, "priority", value)
 
 
+if not MYPY:
+    class FirewallPolicyStatelessRuleGroupReferenceArgsDict(TypedDict):
+        priority: pulumi.Input[int]
+        """
+        An integer setting that indicates the order in which to run the stateless rule groups in a single `FirewallPolicy` . Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
+        """
+        resource_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the stateless rule group.
+        """
+elif False:
+    FirewallPolicyStatelessRuleGroupReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyStatelessRuleGroupReferenceArgs:
     def __init__(__self__, *,
@@ -370,6 +538,64 @@ class FirewallPolicyStatelessRuleGroupReferenceArgs:
     def resource_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_arn", value)
 
+
+if not MYPY:
+    class FirewallPolicyArgsDict(TypedDict):
+        stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The actions to take on a packet if it doesn't match any of the stateless rules in the policy. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+
+        You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+
+        For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+        """
+        stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy. If you want non-matching fragmented packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe` .
+
+        You must specify one of the standard actions: `aws:pass` , `aws:drop` , or `aws:forward_to_sfe` . In addition, you can specify custom actions that are compatible with your standard section choice.
+
+        For example, you could specify `["aws:pass"]` or you could specify `["aws:pass", "customActionName"]` . For information about compatibility, see the custom action descriptions.
+        """
+        policy_variables: NotRequired[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgsDict']]
+        """
+        Contains variables that you can use to override default Suricata settings in your firewall policy.
+        """
+        stateful_default_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The default actions to take on a packet that doesn't match any stateful rules. The stateful default action is optional, and is only valid when using the strict rule order.
+
+        Valid values of the stateful default action:
+
+        - aws:drop_strict
+        - aws:drop_established
+        - aws:alert_strict
+        - aws:alert_established
+
+        For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+        """
+        stateful_engine_options: NotRequired[pulumi.Input['FirewallPolicyStatefulEngineOptionsArgsDict']]
+        """
+        Additional options governing how Network Firewall handles stateful rules. The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
+        """
+        stateful_rule_group_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgsDict']]]]
+        """
+        References to the stateful rule groups that are used in the policy. These define the inspection criteria in stateful rules.
+        """
+        stateless_custom_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgsDict']]]]
+        """
+        The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting. You name each custom action that you define, and then you can use it by name in your default actions specifications.
+        """
+        stateless_rule_group_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgsDict']]]]
+        """
+        References to the stateless rule groups that are used in the policy. These define the matching criteria in stateless rules.
+        """
+        tls_inspection_configuration_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the TLS inspection configuration.
+        """
+elif False:
+    FirewallPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyArgs:
@@ -554,6 +780,19 @@ class FirewallPolicyArgs:
         pulumi.set(self, "tls_inspection_configuration_arn", value)
 
 
+if not MYPY:
+    class FirewallSubnetMappingArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        A SubnetId.
+        """
+        ip_address_type: NotRequired[pulumi.Input[str]]
+        """
+        A IPAddressType
+        """
+elif False:
+    FirewallSubnetMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallSubnetMappingArgs:
     def __init__(__self__, *,
@@ -591,6 +830,27 @@ class FirewallSubnetMappingArgs:
     def ip_address_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address_type", value)
 
+
+if not MYPY:
+    class LoggingConfigurationLogDestinationConfigArgsDict(TypedDict):
+        log_destination: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        A key-value pair to configure the logDestinations.
+        """
+        log_destination_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogDestinationType']
+        """
+        The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Firehose delivery stream.
+        """
+        log_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogType']
+        """
+        The type of log to record. You can record the following types of logs from your Network Firewall stateful engine.
+
+        - `ALERT` - Logs for traffic that matches your stateful rules and that have an action that sends an alert. A stateful rule sends alerts for the rule actions DROP, ALERT, and REJECT. For more information, see the `StatefulRule` property.
+        - `FLOW` - Standard network traffic flow logs. The stateful rules engine records flow logs for all network traffic that it receives. Each flow log record captures the network flow for a specific standard stateless rule group.
+        - `TLS` - Logs for events that are related to TLS inspection. For more information, see [Inspecting SSL/TLS traffic with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-configurations.html) in the *Network Firewall Developer Guide* .
+        """
+elif False:
+    LoggingConfigurationLogDestinationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoggingConfigurationLogDestinationConfigArgs:
@@ -652,6 +912,15 @@ class LoggingConfigurationLogDestinationConfigArgs:
         pulumi.set(self, "log_type", value)
 
 
+if not MYPY:
+    class LoggingConfigurationArgsDict(TypedDict):
+        log_destination_configs: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgsDict']]]
+        """
+        Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
+        """
+elif False:
+    LoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoggingConfigurationArgs:
     def __init__(__self__, *,
@@ -673,6 +942,17 @@ class LoggingConfigurationArgs:
     def log_destination_configs(self, value: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]):
         pulumi.set(self, "log_destination_configs", value)
 
+
+if not MYPY:
+    class RuleGroupActionDefinitionArgsDict(TypedDict):
+        publish_metric_action: NotRequired[pulumi.Input['RuleGroupPublishMetricActionArgsDict']]
+        """
+        Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+
+        You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
+        """
+elif False:
+    RuleGroupActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupActionDefinitionArgs:
@@ -700,6 +980,24 @@ class RuleGroupActionDefinitionArgs:
     def publish_metric_action(self, value: Optional[pulumi.Input['RuleGroupPublishMetricActionArgs']]):
         pulumi.set(self, "publish_metric_action", value)
 
+
+if not MYPY:
+    class RuleGroupAddressArgsDict(TypedDict):
+        address_definition: pulumi.Input[str]
+        """
+        Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+
+        Examples:
+
+        - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+        - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+        - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+        - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+
+        For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+        """
+elif False:
+    RuleGroupAddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupAddressArgs:
@@ -741,6 +1039,19 @@ class RuleGroupAddressArgs:
         pulumi.set(self, "address_definition", value)
 
 
+if not MYPY:
+    class RuleGroupCustomActionArgsDict(TypedDict):
+        action_definition: pulumi.Input['RuleGroupActionDefinitionArgsDict']
+        """
+        The custom action associated with the action name.
+        """
+        action_name: pulumi.Input[str]
+        """
+        The descriptive name of the custom action. You can't change the name of a custom action after you create it.
+        """
+elif False:
+    RuleGroupCustomActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupCustomActionArgs:
     def __init__(__self__, *,
@@ -778,6 +1089,15 @@ class RuleGroupCustomActionArgs:
         pulumi.set(self, "action_name", value)
 
 
+if not MYPY:
+    class RuleGroupDimensionArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        The value to use in the custom metric dimension.
+        """
+elif False:
+    RuleGroupDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupDimensionArgs:
     def __init__(__self__, *,
@@ -799,6 +1119,57 @@ class RuleGroupDimensionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RuleGroupHeaderArgsDict(TypedDict):
+        destination: pulumi.Input[str]
+        """
+        The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY` .
+
+        Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+
+        Examples:
+
+        - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+        - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+        - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+        - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+
+        For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+        """
+        destination_port: pulumi.Input[str]
+        """
+        The destination port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
+        """
+        direction: pulumi.Input['RuleGroupHeaderDirection']
+        """
+        The direction of traffic flow to inspect. If set to `ANY` , the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to `FORWARD` , the inspection only matches traffic going from the source to the destination.
+        """
+        protocol: pulumi.Input['RuleGroupHeaderProtocol']
+        """
+        The protocol to inspect for. To specify all, you can use `IP` , because all traffic on AWS and on the internet is IP.
+        """
+        source: pulumi.Input[str]
+        """
+        The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY` .
+
+        Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+
+        Examples:
+
+        - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+        - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+        - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+        - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+
+        For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+        """
+        source_port: pulumi.Input[str]
+        """
+        The source port to inspect for. You can specify an individual port, for example `1994` and you can specify a port range, for example `1990:1994` . To match with any port, specify `ANY` .
+        """
+elif False:
+    RuleGroupHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupHeaderArgs:
@@ -941,6 +1312,12 @@ class RuleGroupHeaderArgs:
         pulumi.set(self, "source_port", value)
 
 
+if not MYPY:
+    class RuleGroupIpSetReferenceArgsDict(TypedDict):
+        reference_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    RuleGroupIpSetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupIpSetReferenceArgs:
     def __init__(__self__, *,
@@ -958,6 +1335,12 @@ class RuleGroupIpSetReferenceArgs:
         pulumi.set(self, "reference_arn", value)
 
 
+if not MYPY:
+    class RuleGroupIpSetArgsDict(TypedDict):
+        definition: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    RuleGroupIpSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupIpSetArgs:
     def __init__(__self__, *,
@@ -974,6 +1357,39 @@ class RuleGroupIpSetArgs:
     def definition(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "definition", value)
 
+
+if not MYPY:
+    class RuleGroupMatchAttributesArgsDict(TypedDict):
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgsDict']]]]
+        """
+        The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+
+        You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgsDict']]]]
+        """
+        The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        """
+        source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgsDict']]]]
+        """
+        The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+
+        You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        """
+        sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgsDict']]]]
+        """
+        The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
+        """
+        tcp_flags: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgsDict']]]]
+        """
+        The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
+        """
+elif False:
+    RuleGroupMatchAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupMatchAttributesArgs:
@@ -1086,6 +1502,19 @@ class RuleGroupMatchAttributesArgs:
         pulumi.set(self, "tcp_flags", value)
 
 
+if not MYPY:
+    class RuleGroupPortRangeArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
+        """
+        to_port: pulumi.Input[int]
+        """
+        The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
+        """
+elif False:
+    RuleGroupPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupPortRangeArgs:
     def __init__(__self__, *,
@@ -1123,6 +1552,12 @@ class RuleGroupPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
+if not MYPY:
+    class RuleGroupPortSetArgsDict(TypedDict):
+        definition: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    RuleGroupPortSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupPortSetArgs:
     def __init__(__self__, *,
@@ -1140,6 +1575,12 @@ class RuleGroupPortSetArgs:
         pulumi.set(self, "definition", value)
 
 
+if not MYPY:
+    class RuleGroupPublishMetricActionArgsDict(TypedDict):
+        dimensions: pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgsDict']]]
+elif False:
+    RuleGroupPublishMetricActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupPublishMetricActionArgs:
     def __init__(__self__, *,
@@ -1155,6 +1596,15 @@ class RuleGroupPublishMetricActionArgs:
     def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]):
         pulumi.set(self, "dimensions", value)
 
+
+if not MYPY:
+    class RuleGroupReferenceSetsArgsDict(TypedDict):
+        ip_set_references: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetReferenceArgsDict']]]]
+        """
+        The IP set references to use in the stateful rule group.
+        """
+elif False:
+    RuleGroupReferenceSetsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupReferenceSetsArgs:
@@ -1178,6 +1628,31 @@ class RuleGroupReferenceSetsArgs:
     def ip_set_references(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetReferenceArgs']]]]):
         pulumi.set(self, "ip_set_references", value)
 
+
+if not MYPY:
+    class RuleGroupRuleDefinitionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action and you can add custom actions.
+
+        > Network Firewall only forwards a packet for stateful rule inspection if you specify `aws:forward_to_sfe` for a rule that the packet matches, or if the packet doesn't match any stateless rule and you specify `aws:forward_to_sfe` for the `StatelessDefaultActions` setting for the `FirewallPolicy` . 
+
+        For every rule, you must specify exactly one of the following standard actions.
+
+        - *aws:pass* - Discontinues all inspection of the packet and permits it to go to its intended destination.
+        - *aws:drop* - Discontinues all inspection of the packet and blocks it from going to its intended destination.
+        - *aws:forward_to_sfe* - Discontinues stateless inspection of the packet and forwards it to the stateful rule engine for inspection.
+
+        Additionally, you can specify a custom action. To do this, you define a custom action by name and type, then provide the name you've assigned to the action in this `Actions` setting.
+
+        To provide more than one action in this setting, separate the settings with a comma. For example, if you have a publish metrics custom action that you've named `MyMetricsAction` , then you could specify the standard action `aws:pass` combined with the custom action using `["aws:pass", "MyMetricsAction"]` .
+        """
+        match_attributes: pulumi.Input['RuleGroupMatchAttributesArgsDict']
+        """
+        Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags.
+        """
+elif False:
+    RuleGroupRuleDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleDefinitionArgs:
@@ -1240,6 +1715,19 @@ class RuleGroupRuleDefinitionArgs:
         pulumi.set(self, "match_attributes", value)
 
 
+if not MYPY:
+    class RuleGroupRuleOptionArgsDict(TypedDict):
+        keyword: pulumi.Input[str]
+        """
+        The Suricata rule option keywords. For Network Firewall , the keyword signature ID (sid) is required in the format `sid:112233` . The sid must be unique within the rule group. For information about Suricata rule option keywords, see [Rule options](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options) .
+        """
+        settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The Suricata rule option settings. Settings have zero or more values, and the number of possible settings and required settings depends on the keyword. The format for Settings is `number` . For information about Suricata rule option settings, see [Rule options](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html#rule-options) .
+        """
+elif False:
+    RuleGroupRuleOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleOptionArgs:
     def __init__(__self__, *,
@@ -1277,6 +1765,19 @@ class RuleGroupRuleOptionArgs:
     def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "settings", value)
 
+
+if not MYPY:
+    class RuleGroupRuleVariablesArgsDict(TypedDict):
+        ip_sets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupIpSetArgsDict']]]]
+        """
+        A list of IP addresses and address ranges, in CIDR notation.
+        """
+        port_sets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupPortSetArgsDict']]]]
+        """
+        A list of port ranges.
+        """
+elif False:
+    RuleGroupRuleVariablesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleVariablesArgs:
@@ -1316,6 +1817,26 @@ class RuleGroupRuleVariablesArgs:
     def port_sets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupPortSetArgs']]]]):
         pulumi.set(self, "port_sets", value)
 
+
+if not MYPY:
+    class RuleGroupRulesSourceListArgsDict(TypedDict):
+        generated_rules_type: pulumi.Input['RuleGroupGeneratedRulesType']
+        """
+        Whether you want to allow or deny access to the domains in your target list.
+        """
+        target_types: pulumi.Input[Sequence[pulumi.Input['RuleGroupTargetType']]]
+        """
+        The types of targets to inspect for. Valid values are `TLS_SNI` and `HTTP_HOST` .
+        """
+        targets: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The domains that you want to inspect for in your traffic flows. Valid domain specifications are the following:
+
+        - Explicit names. For example, `abc.example.com` matches only the domain `abc.example.com` .
+        - Names that use a domain wildcard, which you indicate with an initial ' `.` '. For example, `.example.com` matches `example.com` and matches all subdomains of `example.com` , such as `abc.example.com` and `www.example.com` .
+        """
+elif False:
+    RuleGroupRulesSourceListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRulesSourceListArgs:
@@ -1374,6 +1895,31 @@ class RuleGroupRulesSourceListArgs:
     def targets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "targets", value)
 
+
+if not MYPY:
+    class RuleGroupRulesSourceArgsDict(TypedDict):
+        rules_source_list: NotRequired[pulumi.Input['RuleGroupRulesSourceListArgsDict']]
+        """
+        Stateful inspection criteria for a domain list rule group.
+        """
+        rules_string: NotRequired[pulumi.Input[str]]
+        """
+        Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an open-source threat detection framework that includes a standard rule-based language for network traffic inspection.
+
+        These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
+
+        > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
+        """
+        stateful_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgsDict']]]]
+        """
+        An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+        """
+        stateless_rules_and_custom_actions: NotRequired[pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgsDict']]
+        """
+        Stateless inspection criteria to be used in a stateless rule group.
+        """
+elif False:
+    RuleGroupRulesSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRulesSourceArgs:
@@ -1454,6 +2000,15 @@ class RuleGroupRulesSourceArgs:
         pulumi.set(self, "stateless_rules_and_custom_actions", value)
 
 
+if not MYPY:
+    class RuleGroupStatefulRuleOptionsArgsDict(TypedDict):
+        rule_order: NotRequired[pulumi.Input['RuleGroupRuleOrder']]
+        """
+        Indicates how to manage the order of the rule evaluation for the rule group. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
+        """
+elif False:
+    RuleGroupStatefulRuleOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupStatefulRuleOptionsArgs:
     def __init__(__self__, *,
@@ -1476,6 +2031,35 @@ class RuleGroupStatefulRuleOptionsArgs:
     def rule_order(self, value: Optional[pulumi.Input['RuleGroupRuleOrder']]):
         pulumi.set(self, "rule_order", value)
 
+
+if not MYPY:
+    class RuleGroupStatefulRuleArgsDict(TypedDict):
+        action: pulumi.Input['RuleGroupStatefulRuleAction']
+        """
+        Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow.
+
+        The actions for a stateful rule are defined as follows:
+
+        - *PASS* - Permits the packets to go to the intended destination.
+        - *DROP* - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+        - *REJECT* - Drops traffic that matches the conditions of the stateful rule and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. `REJECT` is available only for TCP traffic.
+        - *ALERT* - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+
+        You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP` .
+        - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
+
+        `REJECT` isn't currently available for use with IMAP and FTP protocols.
+        """
+        header: pulumi.Input['RuleGroupHeaderArgsDict']
+        """
+        The stateful inspection criteria for this rule, used to inspect traffic flows.
+        """
+        rule_options: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgsDict']]]
+        """
+        Additional settings for a stateful rule, provided as keywords and settings.
+        """
+elif False:
+    RuleGroupStatefulRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupStatefulRuleArgs:
@@ -1553,6 +2137,19 @@ class RuleGroupStatefulRuleArgs:
         pulumi.set(self, "rule_options", value)
 
 
+if not MYPY:
+    class RuleGroupStatelessRulesAndCustomActionsArgsDict(TypedDict):
+        stateless_rules: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgsDict']]]
+        """
+        Defines the set of stateless rules for use in a stateless rule group.
+        """
+        custom_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgsDict']]]]
+        """
+        Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
+        """
+elif False:
+    RuleGroupStatelessRulesAndCustomActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupStatelessRulesAndCustomActionsArgs:
     def __init__(__self__, *,
@@ -1590,6 +2187,23 @@ class RuleGroupStatelessRulesAndCustomActionsArgs:
     def custom_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]]):
         pulumi.set(self, "custom_actions", value)
 
+
+if not MYPY:
+    class RuleGroupStatelessRuleArgsDict(TypedDict):
+        priority: pulumi.Input[int]
+        """
+        Indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. Network Firewall evaluates the rules in a rule group starting with the lowest priority setting. You must ensure that the priority settings are unique for the rule group.
+
+        Each stateless rule group uses exactly one `StatelessRulesAndCustomActions` object, and each `StatelessRulesAndCustomActions` contains exactly one `StatelessRules` object. To ensure unique priority settings for your rule groups, set unique priorities for the stateless rules that you define inside any single `StatelessRules` object.
+
+        You can change the priority settings of your rules at any time. To make it easier to insert rules later, number them so there's a wide range in between, for example use 100, 200, and so on.
+        """
+        rule_definition: pulumi.Input['RuleGroupRuleDefinitionArgsDict']
+        """
+        Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
+        """
+elif False:
+    RuleGroupStatelessRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupStatelessRuleArgs:
@@ -1635,6 +2249,24 @@ class RuleGroupStatelessRuleArgs:
     def rule_definition(self, value: pulumi.Input['RuleGroupRuleDefinitionArgs']):
         pulumi.set(self, "rule_definition", value)
 
+
+if not MYPY:
+    class RuleGroupTcpFlagFieldArgsDict(TypedDict):
+        flags: pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]
+        """
+        Used in conjunction with the `Masks` setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the `Masks` setting.
+
+        For the flags that are specified in the masks setting, the following must be true for the packet to match:
+
+        - The ones that are set in this flags setting must be set in the packet.
+        - The ones that are not set in this flags setting must also not be set in the packet.
+        """
+        masks: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]]
+        """
+        The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.
+        """
+elif False:
+    RuleGroupTcpFlagFieldArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupTcpFlagFieldArgs:
@@ -1683,6 +2315,27 @@ class RuleGroupTcpFlagFieldArgs:
     def masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]]):
         pulumi.set(self, "masks", value)
 
+
+if not MYPY:
+    class RuleGroupArgsDict(TypedDict):
+        rules_source: pulumi.Input['RuleGroupRulesSourceArgsDict']
+        """
+        The stateful rules or stateless rules for the rule group.
+        """
+        reference_sets: NotRequired[pulumi.Input['RuleGroupReferenceSetsArgsDict']]
+        """
+        The reference sets for the stateful rule group.
+        """
+        rule_variables: NotRequired[pulumi.Input['RuleGroupRuleVariablesArgsDict']]
+        """
+        Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups.
+        """
+        stateful_rule_options: NotRequired[pulumi.Input['RuleGroupStatefulRuleOptionsArgsDict']]
+        """
+        Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
+        """
+elif False:
+    RuleGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupArgs:
@@ -1754,6 +2407,24 @@ class RuleGroupArgs:
         pulumi.set(self, "stateful_rule_options", value)
 
 
+if not MYPY:
+    class TlsInspectionConfigurationAddressArgsDict(TypedDict):
+        address_definition: pulumi.Input[str]
+        """
+        Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4 and IPv6.
+
+        Examples:
+
+        - To configure Network Firewall to inspect for the IP address 192.0.2.44, specify `192.0.2.44/32` .
+        - To configure Network Firewall to inspect for IP addresses from 192.0.2.0 to 192.0.2.255, specify `192.0.2.0/24` .
+        - To configure Network Firewall to inspect for the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify `1111:0000:0000:0000:0000:0000:0000:0111/128` .
+        - To configure Network Firewall to inspect for IP addresses from 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify `1111:0000:0000:0000:0000:0000:0000:0000/64` .
+
+        For more information about CIDR notation, see the Wikipedia entry [Classless Inter-Domain Routing](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+        """
+elif False:
+    TlsInspectionConfigurationAddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TlsInspectionConfigurationAddressArgs:
     def __init__(__self__, *,
@@ -1794,6 +2465,19 @@ class TlsInspectionConfigurationAddressArgs:
         pulumi.set(self, "address_definition", value)
 
 
+if not MYPY:
+    class TlsInspectionConfigurationPortRangeArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        The lower limit of the port range. This must be less than or equal to the `ToPort` specification.
+        """
+        to_port: pulumi.Input[int]
+        """
+        The upper limit of the port range. This must be greater than or equal to the `FromPort` specification.
+        """
+elif False:
+    TlsInspectionConfigurationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TlsInspectionConfigurationPortRangeArgs:
     def __init__(__self__, *,
@@ -1831,6 +2515,16 @@ class TlsInspectionConfigurationPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
+if not MYPY:
+    class TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgsDict(TypedDict):
+        """
+        When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+        """
+        revoked_status_action: NotRequired[pulumi.Input['TlsInspectionConfigurationRevokedStatusAction']]
+        unknown_status_action: NotRequired[pulumi.Input['TlsInspectionConfigurationUnknownStatusAction']]
+elif False:
+    TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs:
     def __init__(__self__, *,
@@ -1862,6 +2556,36 @@ class TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRe
     def unknown_status_action(self, value: Optional[pulumi.Input['TlsInspectionConfigurationUnknownStatusAction']]):
         pulumi.set(self, "unknown_status_action", value)
 
+
+if not MYPY:
+    class TlsInspectionConfigurationServerCertificateConfigurationArgsDict(TypedDict):
+        certificate_authority_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the imported certificate authority (CA) certificate within AWS Certificate Manager (ACM) to use for outbound SSL/TLS inspection.
+
+        The following limitations apply:
+
+        - You can use CA certificates that you imported into ACM, but you can't generate CA certificates with ACM.
+        - You can't use certificates issued by AWS Private Certificate Authority .
+
+        For more information about configuring certificates for outbound inspection, see [Using SSL/TLS certificates with certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
+
+        For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+        """
+        check_certificate_revocation_status: NotRequired[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgsDict']]
+        """
+        When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateScopeArgsDict']]]]
+        """
+        A list of scopes.
+        """
+        server_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateArgsDict']]]]
+        """
+        The list of server certificates to use for inbound SSL/TLS inspection.
+        """
+elif False:
+    TlsInspectionConfigurationServerCertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TlsInspectionConfigurationServerCertificateConfigurationArgs:
@@ -1951,6 +2675,38 @@ class TlsInspectionConfigurationServerCertificateConfigurationArgs:
     def server_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateArgs']]]]):
         pulumi.set(self, "server_certificates", value)
 
+
+if not MYPY:
+    class TlsInspectionConfigurationServerCertificateScopeArgsDict(TypedDict):
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgsDict']]]]
+        """
+        The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.
+
+        You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgsDict']]]]
+        """
+        The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+        matches with any destination address.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
+        (IANA). Network Firewall currently supports only TCP.
+        """
+        source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgsDict']]]]
+        """
+        The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.
+
+        You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
+        """
+        sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgsDict']]]]
+        """
+        The source IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+        matches with any source address.
+        """
+elif False:
+    TlsInspectionConfigurationServerCertificateScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TlsInspectionConfigurationServerCertificateScopeArgs:
@@ -2053,6 +2809,15 @@ class TlsInspectionConfigurationServerCertificateScopeArgs:
         pulumi.set(self, "sources", value)
 
 
+if not MYPY:
+    class TlsInspectionConfigurationServerCertificateArgsDict(TypedDict):
+        resource_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the AWS Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+        """
+elif False:
+    TlsInspectionConfigurationServerCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TlsInspectionConfigurationServerCertificateArgs:
     def __init__(__self__, *,
@@ -2075,6 +2840,15 @@ class TlsInspectionConfigurationServerCertificateArgs:
     def resource_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_arn", value)
 
+
+if not MYPY:
+    class TlsInspectionConfigurationTlsInspectionConfigurationArgsDict(TypedDict):
+        server_certificate_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgsDict']]]]
+        """
+        Lists the server certificate configurations that are associated with the TLS configuration.
+        """
+elif False:
+    TlsInspectionConfigurationTlsInspectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TlsInspectionConfigurationTlsInspectionConfigurationArgs:

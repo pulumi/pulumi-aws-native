@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -123,9 +128,6 @@ def get_listener(arn: Optional[str] = None,
         service_arn=pulumi.get(__ret__, 'service_arn'),
         service_id=pulumi.get(__ret__, 'service_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_listener)
 def get_listener_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
@@ -134,4 +136,14 @@ def get_listener_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the listener.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getListener', __args__, opts=opts, typ=GetListenerResult)
+    return __ret__.apply(lambda __response__: GetListenerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        default_action=pulumi.get(__response__, 'default_action'),
+        id=pulumi.get(__response__, 'id'),
+        service_arn=pulumi.get(__response__, 'service_arn'),
+        service_id=pulumi.get(__response__, 'service_id'),
+        tags=pulumi.get(__response__, 'tags')))
