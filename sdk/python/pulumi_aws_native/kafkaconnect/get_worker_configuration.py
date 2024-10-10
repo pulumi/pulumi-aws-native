@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -83,9 +88,6 @@ def get_worker_configuration(worker_configuration_arn: Optional[str] = None,
         revision=pulumi.get(__ret__, 'revision'),
         tags=pulumi.get(__ret__, 'tags'),
         worker_configuration_arn=pulumi.get(__ret__, 'worker_configuration_arn'))
-
-
-@_utilities.lift_output_func(get_worker_configuration)
 def get_worker_configuration_output(worker_configuration_arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
     """
@@ -94,4 +96,11 @@ def get_worker_configuration_output(worker_configuration_arn: Optional[pulumi.In
 
     :param str worker_configuration_arn: The Amazon Resource Name (ARN) of the custom configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['workerConfigurationArn'] = worker_configuration_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:kafkaconnect:getWorkerConfiguration', __args__, opts=opts, typ=GetWorkerConfigurationResult)
+    return __ret__.apply(lambda __response__: GetWorkerConfigurationResult(
+        revision=pulumi.get(__response__, 'revision'),
+        tags=pulumi.get(__response__, 'tags'),
+        worker_configuration_arn=pulumi.get(__response__, 'worker_configuration_arn')))

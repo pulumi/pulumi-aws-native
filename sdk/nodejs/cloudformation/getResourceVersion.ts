@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A resource that has been registered in the CloudFormation Registry.
  */
 export function getResourceVersion(args: GetResourceVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getResourceVersion", {
         "arn": args.arn,
@@ -61,7 +60,10 @@ export interface GetResourceVersionResult {
  * A resource that has been registered in the CloudFormation Registry.
  */
 export function getResourceVersionOutput(args: GetResourceVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceVersionResult> {
-    return pulumi.output(args).apply((a: any) => getResourceVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudformation:getResourceVersion", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetResourceVersionOutputArgs {

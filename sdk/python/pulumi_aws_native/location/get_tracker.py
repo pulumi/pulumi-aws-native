@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -197,9 +202,6 @@ def get_tracker(tracker_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tracker_arn=pulumi.get(__ret__, 'tracker_arn'),
         update_time=pulumi.get(__ret__, 'update_time'))
-
-
-@_utilities.lift_output_func(get_tracker)
 def get_tracker_output(tracker_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerResult]:
     """
@@ -214,4 +216,19 @@ def get_tracker_output(tracker_name: Optional[pulumi.Input[str]] = None,
            - Must be a unique tracker resource name.
            - No spaces allowed. For example, `ExampleTracker` .
     """
-    ...
+    __args__ = dict()
+    __args__['trackerName'] = tracker_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:location:getTracker', __args__, opts=opts, typ=GetTrackerResult)
+    return __ret__.apply(lambda __response__: GetTrackerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        create_time=pulumi.get(__response__, 'create_time'),
+        description=pulumi.get(__response__, 'description'),
+        event_bridge_enabled=pulumi.get(__response__, 'event_bridge_enabled'),
+        kms_key_enable_geospatial_queries=pulumi.get(__response__, 'kms_key_enable_geospatial_queries'),
+        position_filtering=pulumi.get(__response__, 'position_filtering'),
+        pricing_plan=pulumi.get(__response__, 'pricing_plan'),
+        pricing_plan_data_source=pulumi.get(__response__, 'pricing_plan_data_source'),
+        tags=pulumi.get(__response__, 'tags'),
+        tracker_arn=pulumi.get(__response__, 'tracker_arn'),
+        update_time=pulumi.get(__response__, 'update_time')))

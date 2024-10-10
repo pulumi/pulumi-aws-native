@@ -4,18 +4,50 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'MonitorHealthEventsConfigArgs',
+    'MonitorHealthEventsConfigArgsDict',
     'MonitorInternetMeasurementsLogDeliveryArgs',
+    'MonitorInternetMeasurementsLogDeliveryArgsDict',
     'MonitorLocalHealthEventsConfigArgs',
+    'MonitorLocalHealthEventsConfigArgsDict',
     'MonitorS3ConfigArgs',
+    'MonitorS3ConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MonitorHealthEventsConfigArgsDict(TypedDict):
+        availability_local_health_events_config: NotRequired[pulumi.Input['MonitorLocalHealthEventsConfigArgsDict']]
+        """
+        The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local availability issue.
+        """
+        availability_score_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The health event threshold percentage set for availability scores. When the overall availability score is at or below this percentage, Internet Monitor creates a health event.
+        """
+        performance_local_health_events_config: NotRequired[pulumi.Input['MonitorLocalHealthEventsConfigArgsDict']]
+        """
+        The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance issue.
+        """
+        performance_score_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The health event threshold percentage set for performance scores. When the overall performance score is at or below this percentage, Internet Monitor creates a health event.
+        """
+elif False:
+    MonitorHealthEventsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorHealthEventsConfigArgs:
@@ -88,6 +120,15 @@ class MonitorHealthEventsConfigArgs:
         pulumi.set(self, "performance_score_threshold", value)
 
 
+if not MYPY:
+    class MonitorInternetMeasurementsLogDeliveryArgsDict(TypedDict):
+        s3_config: NotRequired[pulumi.Input['MonitorS3ConfigArgsDict']]
+        """
+        The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
+        """
+elif False:
+    MonitorInternetMeasurementsLogDeliveryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorInternetMeasurementsLogDeliveryArgs:
     def __init__(__self__, *,
@@ -110,6 +151,25 @@ class MonitorInternetMeasurementsLogDeliveryArgs:
     def s3_config(self, value: Optional[pulumi.Input['MonitorS3ConfigArgs']]):
         pulumi.set(self, "s3_config", value)
 
+
+if not MYPY:
+    class MonitorLocalHealthEventsConfigArgsDict(TypedDict):
+        health_score_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The health event threshold percentage set for a local health score.
+        """
+        min_traffic_impact: NotRequired[pulumi.Input[float]]
+        """
+        The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a threshold is crossed for a local health score.
+
+        If you don't set a minimum traffic impact threshold, the default value is 0.01%.
+        """
+        status: NotRequired[pulumi.Input['MonitorLocalHealthEventsConfigStatus']]
+        """
+        The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be `ENABLED` or `DISABLED` .
+        """
+elif False:
+    MonitorLocalHealthEventsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorLocalHealthEventsConfigArgs:
@@ -169,6 +229,23 @@ class MonitorLocalHealthEventsConfigArgs:
     def status(self, value: Optional[pulumi.Input['MonitorLocalHealthEventsConfigStatus']]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class MonitorS3ConfigArgsDict(TypedDict):
+        bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon S3 bucket name for internet measurements publishing.
+        """
+        bucket_prefix: NotRequired[pulumi.Input[str]]
+        """
+        An optional Amazon S3 bucket prefix for internet measurements publishing.
+        """
+        log_delivery_status: NotRequired[pulumi.Input['MonitorS3ConfigLogDeliveryStatus']]
+        """
+        The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket. The delivery status is `ENABLED` if you choose to deliver internet measurements to an S3 bucket, and `DISABLED` otherwise.
+        """
+elif False:
+    MonitorS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorS3ConfigArgs:

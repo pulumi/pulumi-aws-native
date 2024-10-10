@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -108,9 +113,6 @@ def get_image(arn: Optional[str] = None,
         image_id=pulumi.get(__ret__, 'image_id'),
         image_uri=pulumi.get(__ret__, 'image_uri'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_image)
 def get_image_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
@@ -119,4 +121,13 @@ def get_image_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the image.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getImage', __args__, opts=opts, typ=GetImageResult)
+    return __ret__.apply(lambda __response__: GetImageResult(
+        arn=pulumi.get(__response__, 'arn'),
+        execution_role=pulumi.get(__response__, 'execution_role'),
+        image_id=pulumi.get(__response__, 'image_id'),
+        image_uri=pulumi.get(__response__, 'image_uri'),
+        name=pulumi.get(__response__, 'name')))

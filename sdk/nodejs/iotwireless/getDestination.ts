@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Destination's resource schema demonstrating some basic constructs and validation rules.
  */
 export function getDestination(args: GetDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetDestinationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getDestination", {
         "name": args.name,
@@ -55,7 +54,10 @@ export interface GetDestinationResult {
  * Destination's resource schema demonstrating some basic constructs and validation rules.
  */
 export function getDestinationOutput(args: GetDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDestinationResult> {
-    return pulumi.output(args).apply((a: any) => getDestination(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iotwireless:getDestination", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetDestinationOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -123,9 +128,6 @@ def get_instance(instance_arn: Optional[str] = None,
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_instance)
 def get_instance_output(instance_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
@@ -134,4 +136,14 @@ def get_instance_output(instance_arn: Optional[pulumi.Input[str]] = None,
 
     :param str instance_arn: The SSO Instance ARN that is returned upon creation of the Identity Center (SSO) Instance
     """
-    ...
+    __args__ = dict()
+    __args__['instanceArn'] = instance_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sso:getInstance', __args__, opts=opts, typ=GetInstanceResult)
+    return __ret__.apply(lambda __response__: GetInstanceResult(
+        identity_store_id=pulumi.get(__response__, 'identity_store_id'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        name=pulumi.get(__response__, 'name'),
+        owner_account_id=pulumi.get(__response__, 'owner_account_id'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

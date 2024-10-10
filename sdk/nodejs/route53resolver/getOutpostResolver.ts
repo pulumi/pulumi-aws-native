@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53Resolver::OutpostResolver.
  */
 export function getOutpostResolver(args: GetOutpostResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostResolverResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getOutpostResolver", {
         "id": args.id,
@@ -75,7 +74,10 @@ export interface GetOutpostResolverResult {
  * Resource schema for AWS::Route53Resolver::OutpostResolver.
  */
 export function getOutpostResolverOutput(args: GetOutpostResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostResolverResult> {
-    return pulumi.output(args).apply((a: any) => getOutpostResolver(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:route53resolver:getOutpostResolver", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetOutpostResolverOutputArgs {

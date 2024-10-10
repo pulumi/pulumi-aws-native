@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *  For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
  */
 export function getManagedPolicy(args: GetManagedPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getManagedPolicy", {
         "policyArn": args.policyArn,
@@ -68,7 +67,10 @@ export interface GetManagedPolicyResult {
  *  For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
  */
 export function getManagedPolicyOutput(args: GetManagedPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getManagedPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iam:getManagedPolicy", {
+        "policyArn": args.policyArn,
+    }, opts);
 }
 
 export interface GetManagedPolicyOutputArgs {

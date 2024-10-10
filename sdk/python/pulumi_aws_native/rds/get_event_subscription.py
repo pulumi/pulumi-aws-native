@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -120,9 +125,6 @@ def get_event_subscription(subscription_name: Optional[str] = None,
         source_ids=pulumi.get(__ret__, 'source_ids'),
         source_type=pulumi.get(__ret__, 'source_type'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_event_subscription)
 def get_event_subscription_output(subscription_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
@@ -132,4 +134,13 @@ def get_event_subscription_output(subscription_name: Optional[pulumi.Input[str]]
     :param str subscription_name: The name of the subscription.
             Constraints: The name must be less than 255 characters.
     """
-    ...
+    __args__ = dict()
+    __args__['subscriptionName'] = subscription_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getEventSubscription', __args__, opts=opts, typ=GetEventSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetEventSubscriptionResult(
+        enabled=pulumi.get(__response__, 'enabled'),
+        event_categories=pulumi.get(__response__, 'event_categories'),
+        source_ids=pulumi.get(__response__, 'source_ids'),
+        source_type=pulumi.get(__response__, 'source_type'),
+        tags=pulumi.get(__response__, 'tags')))

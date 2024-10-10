@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * An label for fraud detector.
  */
 export function getLabel(args: GetLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:frauddetector:getLabel", {
         "arn": args.arn,
@@ -51,7 +50,10 @@ export interface GetLabelResult {
  * An label for fraud detector.
  */
 export function getLabelOutput(args: GetLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelResult> {
-    return pulumi.output(args).apply((a: any) => getLabel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:frauddetector:getLabel", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetLabelOutputArgs {

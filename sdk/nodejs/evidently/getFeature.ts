@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Evidently::Feature.
  */
 export function getFeature(args: GetFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetFeatureResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:evidently:getFeature", {
         "arn": args.arn,
@@ -65,7 +64,10 @@ export interface GetFeatureResult {
  * Resource Type definition for AWS::Evidently::Feature.
  */
 export function getFeatureOutput(args: GetFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeatureResult> {
-    return pulumi.output(args).apply((a: any) => getFeature(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:evidently:getFeature", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetFeatureOutputArgs {

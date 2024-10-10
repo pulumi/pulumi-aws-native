@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaTailor::PlaybackConfiguration
  */
 export function getPlaybackConfiguration(args: GetPlaybackConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaybackConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediatailor:getPlaybackConfiguration", {
         "name": args.name,
@@ -99,7 +98,10 @@ export interface GetPlaybackConfigurationResult {
  * Resource schema for AWS::MediaTailor::PlaybackConfiguration
  */
 export function getPlaybackConfigurationOutput(args: GetPlaybackConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaybackConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getPlaybackConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediatailor:getPlaybackConfiguration", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetPlaybackConfigurationOutputArgs {

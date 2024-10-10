@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  * > If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVolume", {
         "volumeId": args.volumeId,
@@ -148,7 +147,10 @@ export interface GetVolumeResult {
  * > If you set a deletion policy that creates a snapshot, all tags on the volume are included in the snapshot.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getVolume", {
+        "volumeId": args.volumeId,
+    }, opts);
 }
 
 export interface GetVolumeOutputArgs {

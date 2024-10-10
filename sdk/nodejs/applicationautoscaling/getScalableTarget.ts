@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *   If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
  */
 export function getScalableTarget(args: GetScalableTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetScalableTargetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:applicationautoscaling:getScalableTarget", {
         "resourceId": args.resourceId,
@@ -106,7 +105,12 @@ export interface GetScalableTargetResult {
  *   If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
  */
 export function getScalableTargetOutput(args: GetScalableTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalableTargetResult> {
-    return pulumi.output(args).apply((a: any) => getScalableTarget(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:applicationautoscaling:getScalableTarget", {
+        "resourceId": args.resourceId,
+        "scalableDimension": args.scalableDimension,
+        "serviceNamespace": args.serviceNamespace,
+    }, opts);
 }
 
 export interface GetScalableTargetOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -72,9 +77,6 @@ def get_documentation_part(documentation_part_id: Optional[str] = None,
     return AwaitableGetDocumentationPartResult(
         documentation_part_id=pulumi.get(__ret__, 'documentation_part_id'),
         properties=pulumi.get(__ret__, 'properties'))
-
-
-@_utilities.lift_output_func(get_documentation_part)
 def get_documentation_part_output(documentation_part_id: Optional[pulumi.Input[str]] = None,
                                   rest_api_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationPartResult]:
@@ -85,4 +87,11 @@ def get_documentation_part_output(documentation_part_id: Optional[pulumi.Input[s
     :param str documentation_part_id: The ID for the documentation part.
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
-    ...
+    __args__ = dict()
+    __args__['documentationPartId'] = documentation_part_id
+    __args__['restApiId'] = rest_api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getDocumentationPart', __args__, opts=opts, typ=GetDocumentationPartResult)
+    return __ret__.apply(lambda __response__: GetDocumentationPartResult(
+        documentation_part_id=pulumi.get(__response__, 'documentation_part_id'),
+        properties=pulumi.get(__response__, 'properties')))

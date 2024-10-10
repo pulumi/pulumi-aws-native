@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -136,9 +141,6 @@ def get_endpoint(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
@@ -147,4 +149,15 @@ def get_endpoint_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the endpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:s3outposts:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
+    return __ret__.apply(lambda __response__: GetEndpointResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cidr_block=pulumi.get(__response__, 'cidr_block'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        failed_reason=pulumi.get(__response__, 'failed_reason'),
+        id=pulumi.get(__response__, 'id'),
+        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        status=pulumi.get(__response__, 'status')))

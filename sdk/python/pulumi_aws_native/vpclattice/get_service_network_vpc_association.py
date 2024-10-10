@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -175,9 +180,6 @@ def get_service_network_vpc_association(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_service_network_vpc_association)
 def get_service_network_vpc_association_output(arn: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkVpcAssociationResult]:
     """
@@ -186,4 +188,18 @@ def get_service_network_vpc_association_output(arn: Optional[pulumi.Input[str]] 
 
     :param str arn: The Amazon Resource Name (ARN) of the association between the service network and the VPC.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getServiceNetworkVpcAssociation', __args__, opts=opts, typ=GetServiceNetworkVpcAssociationResult)
+    return __ret__.apply(lambda __response__: GetServiceNetworkVpcAssociationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        service_network_arn=pulumi.get(__response__, 'service_network_arn'),
+        service_network_id=pulumi.get(__response__, 'service_network_id'),
+        service_network_name=pulumi.get(__response__, 'service_network_name'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

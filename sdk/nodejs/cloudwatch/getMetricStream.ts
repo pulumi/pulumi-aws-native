@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for Metric Stream
  */
 export function getMetricStream(args: GetMetricStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricStreamResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudwatch:getMetricStream", {
         "name": args.name,
@@ -75,7 +74,10 @@ export interface GetMetricStreamResult {
  * Resource Type definition for Metric Stream
  */
 export function getMetricStreamOutput(args: GetMetricStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricStreamResult> {
-    return pulumi.output(args).apply((a: any) => getMetricStream(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudwatch:getMetricStream", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetMetricStreamOutputArgs {

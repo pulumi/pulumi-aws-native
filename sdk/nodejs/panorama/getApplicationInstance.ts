@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Creates an application instance and deploys it to a device.
  */
 export function getApplicationInstance(args: GetApplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:panorama:getApplicationInstance", {
         "applicationInstanceId": args.applicationInstanceId,
@@ -67,7 +66,10 @@ export interface GetApplicationInstanceResult {
  * Creates an application instance and deploys it to a device.
  */
 export function getApplicationInstanceOutput(args: GetApplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:panorama:getApplicationInstance", {
+        "applicationInstanceId": args.applicationInstanceId,
+    }, opts);
 }
 
 export interface GetApplicationInstanceOutputArgs {

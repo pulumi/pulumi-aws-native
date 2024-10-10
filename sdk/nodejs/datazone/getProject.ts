@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getProject", {
         "domainId": args.domainId,
@@ -65,7 +64,11 @@ export interface GetProjectResult {
  * Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply((a: any) => getProject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datazone:getProject", {
+        "domainId": args.domainId,
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetProjectOutputArgs {

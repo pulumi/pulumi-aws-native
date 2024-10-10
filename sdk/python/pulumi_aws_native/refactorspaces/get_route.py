@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -102,9 +107,6 @@ def get_route(application_identifier: Optional[str] = None,
         path_resource_to_id=pulumi.get(__ret__, 'path_resource_to_id'),
         route_identifier=pulumi.get(__ret__, 'route_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_route)
 def get_route_output(application_identifier: Optional[pulumi.Input[str]] = None,
                      environment_identifier: Optional[pulumi.Input[str]] = None,
                      route_identifier: Optional[pulumi.Input[str]] = None,
@@ -117,4 +119,14 @@ def get_route_output(application_identifier: Optional[pulumi.Input[str]] = None,
     :param str environment_identifier: The unique identifier of the environment.
     :param str route_identifier: The unique identifier of the route.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationIdentifier'] = application_identifier
+    __args__['environmentIdentifier'] = environment_identifier
+    __args__['routeIdentifier'] = route_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:refactorspaces:getRoute', __args__, opts=opts, typ=GetRouteResult)
+    return __ret__.apply(lambda __response__: GetRouteResult(
+        arn=pulumi.get(__response__, 'arn'),
+        path_resource_to_id=pulumi.get(__response__, 'path_resource_to_id'),
+        route_identifier=pulumi.get(__response__, 'route_identifier'),
+        tags=pulumi.get(__response__, 'tags')))

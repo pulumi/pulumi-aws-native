@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Represents a table that can be associated with collaborations
  */
 export function getConfiguredTable(args: GetConfiguredTableArgs, opts?: pulumi.InvokeOptions): Promise<GetConfiguredTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cleanrooms:getConfiguredTable", {
         "configuredTableIdentifier": args.configuredTableIdentifier,
@@ -61,7 +60,10 @@ export interface GetConfiguredTableResult {
  * Represents a table that can be associated with collaborations
  */
 export function getConfiguredTableOutput(args: GetConfiguredTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfiguredTableResult> {
-    return pulumi.output(args).apply((a: any) => getConfiguredTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getConfiguredTable", {
+        "configuredTableIdentifier": args.configuredTableIdentifier,
+    }, opts);
 }
 
 export interface GetConfiguredTableOutputArgs {

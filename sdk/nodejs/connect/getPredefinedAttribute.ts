@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::PredefinedAttribute
  */
 export function getPredefinedAttribute(args: GetPredefinedAttributeArgs, opts?: pulumi.InvokeOptions): Promise<GetPredefinedAttributeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getPredefinedAttribute", {
         "instanceArn": args.instanceArn,
@@ -48,7 +47,11 @@ export interface GetPredefinedAttributeResult {
  * Resource Type definition for AWS::Connect::PredefinedAttribute
  */
 export function getPredefinedAttributeOutput(args: GetPredefinedAttributeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredefinedAttributeResult> {
-    return pulumi.output(args).apply((a: any) => getPredefinedAttribute(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getPredefinedAttribute", {
+        "instanceArn": args.instanceArn,
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetPredefinedAttributeOutputArgs {

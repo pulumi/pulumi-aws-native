@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -83,9 +88,6 @@ def get_location_efs(location_arn: Optional[str] = None,
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_location_efs)
 def get_location_efs_output(location_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationEfsResult]:
     """
@@ -94,4 +96,11 @@ def get_location_efs_output(location_arn: Optional[pulumi.Input[str]] = None,
 
     :param str location_arn: The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
     """
-    ...
+    __args__ = dict()
+    __args__['locationArn'] = location_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationEfs', __args__, opts=opts, typ=GetLocationEfsResult)
+    return __ret__.apply(lambda __response__: GetLocationEfsResult(
+        location_arn=pulumi.get(__response__, 'location_arn'),
+        location_uri=pulumi.get(__response__, 'location_uri'),
+        tags=pulumi.get(__response__, 'tags')))

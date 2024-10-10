@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -136,9 +141,6 @@ def get_streaming_image(streaming_image_id: Optional[str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         platform=pulumi.get(__ret__, 'platform'),
         streaming_image_id=pulumi.get(__ret__, 'streaming_image_id'))
-
-
-@_utilities.lift_output_func(get_streaming_image)
 def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[str]] = None,
                                studio_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingImageResult]:
@@ -149,4 +151,16 @@ def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[str]] =
     :param str streaming_image_id: The unique identifier for the streaming image resource.
     :param str studio_id: <p>The studioId. </p>
     """
-    ...
+    __args__ = dict()
+    __args__['streamingImageId'] = streaming_image_id
+    __args__['studioId'] = studio_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getStreamingImage', __args__, opts=opts, typ=GetStreamingImageResult)
+    return __ret__.apply(lambda __response__: GetStreamingImageResult(
+        description=pulumi.get(__response__, 'description'),
+        encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
+        eula_ids=pulumi.get(__response__, 'eula_ids'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        platform=pulumi.get(__response__, 'platform'),
+        streaming_image_id=pulumi.get(__response__, 'streaming_image_id')))

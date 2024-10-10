@@ -4,17 +4,46 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GroupPolicyArgs',
+    'GroupPolicyArgsDict',
     'RolePolicyArgs',
+    'RolePolicyArgsDict',
     'UserLoginProfileArgs',
+    'UserLoginProfileArgsDict',
     'UserPolicyArgs',
+    'UserPolicyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GroupPolicyArgsDict(TypedDict):
+        """
+        Contains information about an attached policy.
+         An attached policy is a managed policy that has been attached to a user, group, or role.
+         For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+        """
+        policy_document: Any
+        """
+        The policy document.
+        """
+        policy_name: pulumi.Input[str]
+        """
+        The friendly name (not ARN) identifying the policy.
+        """
+elif False:
+    GroupPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupPolicyArgs:
@@ -56,6 +85,24 @@ class GroupPolicyArgs:
         pulumi.set(self, "policy_name", value)
 
 
+if not MYPY:
+    class RolePolicyArgsDict(TypedDict):
+        """
+        Contains information about an attached policy.
+         An attached policy is a managed policy that has been attached to a user, group, or role.
+         For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+        """
+        policy_document: Any
+        """
+        The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
+        """
+        policy_name: pulumi.Input[str]
+        """
+        The friendly name (not ARN) identifying the policy.
+        """
+elif False:
+    RolePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RolePolicyArgs:
     def __init__(__self__, *,
@@ -96,6 +143,22 @@ class RolePolicyArgs:
         pulumi.set(self, "policy_name", value)
 
 
+if not MYPY:
+    class UserLoginProfileArgsDict(TypedDict):
+        """
+        Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
+        """
+        password: pulumi.Input[str]
+        """
+        The user's password.
+        """
+        password_reset_required: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the user is required to set a new password on next sign-in.
+        """
+elif False:
+    UserLoginProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserLoginProfileArgs:
     def __init__(__self__, *,
@@ -134,6 +197,24 @@ class UserLoginProfileArgs:
     def password_reset_required(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "password_reset_required", value)
 
+
+if not MYPY:
+    class UserPolicyArgsDict(TypedDict):
+        """
+        Contains information about an attached policy.
+         An attached policy is a managed policy that has been attached to a user, group, or role.
+         For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+        """
+        policy_document: Any
+        """
+        The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
+        """
+        policy_name: pulumi.Input[str]
+        """
+        The friendly name (not ARN) identifying the policy.
+        """
+elif False:
+    UserPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPolicyArgs:

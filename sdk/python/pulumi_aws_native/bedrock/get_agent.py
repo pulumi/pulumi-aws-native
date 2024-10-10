@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -345,9 +350,6 @@ def get_agent(agent_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         test_alias_tags=pulumi.get(__ret__, 'test_alias_tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_agent)
 def get_agent_output(agent_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentResult]:
     """
@@ -356,4 +358,30 @@ def get_agent_output(agent_id: Optional[pulumi.Input[str]] = None,
 
     :param str agent_id: Identifier for a resource.
     """
-    ...
+    __args__ = dict()
+    __args__['agentId'] = agent_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getAgent', __args__, opts=opts, typ=GetAgentResult)
+    return __ret__.apply(lambda __response__: GetAgentResult(
+        action_groups=pulumi.get(__response__, 'action_groups'),
+        agent_arn=pulumi.get(__response__, 'agent_arn'),
+        agent_id=pulumi.get(__response__, 'agent_id'),
+        agent_name=pulumi.get(__response__, 'agent_name'),
+        agent_resource_role_arn=pulumi.get(__response__, 'agent_resource_role_arn'),
+        agent_status=pulumi.get(__response__, 'agent_status'),
+        agent_version=pulumi.get(__response__, 'agent_version'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        customer_encryption_key_arn=pulumi.get(__response__, 'customer_encryption_key_arn'),
+        description=pulumi.get(__response__, 'description'),
+        failure_reasons=pulumi.get(__response__, 'failure_reasons'),
+        foundation_model=pulumi.get(__response__, 'foundation_model'),
+        guardrail_configuration=pulumi.get(__response__, 'guardrail_configuration'),
+        idle_session_ttl_in_seconds=pulumi.get(__response__, 'idle_session_ttl_in_seconds'),
+        instruction=pulumi.get(__response__, 'instruction'),
+        knowledge_bases=pulumi.get(__response__, 'knowledge_bases'),
+        prepared_at=pulumi.get(__response__, 'prepared_at'),
+        prompt_override_configuration=pulumi.get(__response__, 'prompt_override_configuration'),
+        recommended_actions=pulumi.get(__response__, 'recommended_actions'),
+        tags=pulumi.get(__response__, 'tags'),
+        test_alias_tags=pulumi.get(__response__, 'test_alias_tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

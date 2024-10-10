@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -150,9 +155,6 @@ def get_capability(capability_id: Optional[str] = None,
         modified_at=pulumi.get(__ret__, 'modified_at'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_capability)
 def get_capability_output(capability_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapabilityResult]:
     """
@@ -161,4 +163,16 @@ def get_capability_output(capability_id: Optional[pulumi.Input[str]] = None,
 
     :param str capability_id: Returns a system-assigned unique identifier for the capability.
     """
-    ...
+    __args__ = dict()
+    __args__['capabilityId'] = capability_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:b2bi:getCapability', __args__, opts=opts, typ=GetCapabilityResult)
+    return __ret__.apply(lambda __response__: GetCapabilityResult(
+        capability_arn=pulumi.get(__response__, 'capability_arn'),
+        capability_id=pulumi.get(__response__, 'capability_id'),
+        configuration=pulumi.get(__response__, 'configuration'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        instructions_documents=pulumi.get(__response__, 'instructions_documents'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

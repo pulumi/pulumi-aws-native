@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -116,9 +121,6 @@ def get_resource_set(id: Optional[str] = None,
         resource_type_list=pulumi.get(__ret__, 'resource_type_list'),
         resources=pulumi.get(__ret__, 'resources'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_resource_set)
 def get_resource_set_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSetResult]:
     """
@@ -127,4 +129,14 @@ def get_resource_set_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:fms:getResourceSet', __args__, opts=opts, typ=GetResourceSetResult)
+    return __ret__.apply(lambda __response__: GetResourceSetResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        resource_type_list=pulumi.get(__response__, 'resource_type_list'),
+        resources=pulumi.get(__response__, 'resources'),
+        tags=pulumi.get(__response__, 'tags')))

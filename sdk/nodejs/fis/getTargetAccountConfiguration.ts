@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::FIS::TargetAccountConfiguration
  */
 export function getTargetAccountConfiguration(args: GetTargetAccountConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetAccountConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:fis:getTargetAccountConfiguration", {
         "accountId": args.accountId,
@@ -41,7 +40,11 @@ export interface GetTargetAccountConfigurationResult {
  * Resource schema for AWS::FIS::TargetAccountConfiguration
  */
 export function getTargetAccountConfigurationOutput(args: GetTargetAccountConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetAccountConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getTargetAccountConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:fis:getTargetAccountConfiguration", {
+        "accountId": args.accountId,
+        "experimentTemplateId": args.experimentTemplateId,
+    }, opts);
 }
 
 export interface GetTargetAccountConfigurationOutputArgs {

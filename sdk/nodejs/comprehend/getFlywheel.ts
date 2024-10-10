@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
  */
 export function getFlywheel(args: GetFlywheelArgs, opts?: pulumi.InvokeOptions): Promise<GetFlywheelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:comprehend:getFlywheel", {
         "arn": args.arn,
@@ -51,7 +50,10 @@ export interface GetFlywheelResult {
  * The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
  */
 export function getFlywheelOutput(args: GetFlywheelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlywheelResult> {
-    return pulumi.output(args).apply((a: any) => getFlywheel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:comprehend:getFlywheel", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetFlywheelOutputArgs {

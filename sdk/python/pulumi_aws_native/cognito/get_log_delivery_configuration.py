@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -70,9 +75,6 @@ def get_log_delivery_configuration(id: Optional[str] = None,
     return AwaitableGetLogDeliveryConfigurationResult(
         id=pulumi.get(__ret__, 'id'),
         log_configurations=pulumi.get(__ret__, 'log_configurations'))
-
-
-@_utilities.lift_output_func(get_log_delivery_configuration)
 def get_log_delivery_configuration_output(id: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogDeliveryConfigurationResult]:
     """
@@ -81,4 +83,10 @@ def get_log_delivery_configuration_output(id: Optional[pulumi.Input[str]] = None
 
     :param str id: A user pool ID, for example `us-east-1_EXAMPLE` .
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getLogDeliveryConfiguration', __args__, opts=opts, typ=GetLogDeliveryConfigurationResult)
+    return __ret__.apply(lambda __response__: GetLogDeliveryConfigurationResult(
+        id=pulumi.get(__response__, 'id'),
+        log_configurations=pulumi.get(__response__, 'log_configurations')))

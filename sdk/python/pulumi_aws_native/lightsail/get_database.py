@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -135,9 +140,6 @@ def get_database(relational_database_name: Optional[str] = None,
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(relational_database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
@@ -146,4 +148,15 @@ def get_database_output(relational_database_name: Optional[pulumi.Input[str]] = 
 
     :param str relational_database_name: The name to use for your new Lightsail database resource.
     """
-    ...
+    __args__ = dict()
+    __args__['relationalDatabaseName'] = relational_database_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        backup_retention=pulumi.get(__response__, 'backup_retention'),
+        ca_certificate_identifier=pulumi.get(__response__, 'ca_certificate_identifier'),
+        database_arn=pulumi.get(__response__, 'database_arn'),
+        preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        tags=pulumi.get(__response__, 'tags')))

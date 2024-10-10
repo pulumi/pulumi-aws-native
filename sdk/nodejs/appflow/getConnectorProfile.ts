@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppFlow::ConnectorProfile
  */
 export function getConnectorProfile(args: GetConnectorProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appflow:getConnectorProfile", {
         "connectorProfileName": args.connectorProfileName,
@@ -43,7 +42,10 @@ export interface GetConnectorProfileResult {
  * Resource Type definition for AWS::AppFlow::ConnectorProfile
  */
 export function getConnectorProfileOutput(args: GetConnectorProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorProfileResult> {
-    return pulumi.output(args).apply((a: any) => getConnectorProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:appflow:getConnectorProfile", {
+        "connectorProfileName": args.connectorProfileName,
+    }, opts);
 }
 
 export interface GetConnectorProfileOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -169,9 +174,6 @@ def get_permission_set(instance_arn: Optional[str] = None,
         relay_state_type=pulumi.get(__ret__, 'relay_state_type'),
         session_duration=pulumi.get(__ret__, 'session_duration'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_permission_set)
 def get_permission_set_output(instance_arn: Optional[pulumi.Input[str]] = None,
                               permission_set_arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionSetResult]:
@@ -182,4 +184,18 @@ def get_permission_set_output(instance_arn: Optional[pulumi.Input[str]] = None,
     :param str instance_arn: The sso instance arn that the permission set is owned.
     :param str permission_set_arn: The permission set that the policy will be attached to
     """
-    ...
+    __args__ = dict()
+    __args__['instanceArn'] = instance_arn
+    __args__['permissionSetArn'] = permission_set_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sso:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult)
+    return __ret__.apply(lambda __response__: GetPermissionSetResult(
+        customer_managed_policy_references=pulumi.get(__response__, 'customer_managed_policy_references'),
+        description=pulumi.get(__response__, 'description'),
+        inline_policy=pulumi.get(__response__, 'inline_policy'),
+        managed_policies=pulumi.get(__response__, 'managed_policies'),
+        permission_set_arn=pulumi.get(__response__, 'permission_set_arn'),
+        permissions_boundary=pulumi.get(__response__, 'permissions_boundary'),
+        relay_state_type=pulumi.get(__response__, 'relay_state_type'),
+        session_duration=pulumi.get(__response__, 'session_duration'),
+        tags=pulumi.get(__response__, 'tags')))

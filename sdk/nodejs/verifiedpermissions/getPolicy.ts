@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::VerifiedPermissions::Policy Resource Type
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:verifiedpermissions:getPolicy", {
         "policyId": args.policyId,
@@ -51,7 +50,11 @@ export interface GetPolicyResult {
  * Definition of AWS::VerifiedPermissions::Policy Resource Type
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:verifiedpermissions:getPolicy", {
+        "policyId": args.policyId,
+        "policyStoreId": args.policyStoreId,
+    }, opts);
 }
 
 export interface GetPolicyOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
  */
 export function getModelQualityJobDefinition(args: GetModelQualityJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelQualityJobDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getModelQualityJobDefinition", {
         "jobDefinitionArn": args.jobDefinitionArn,
@@ -36,7 +35,10 @@ export interface GetModelQualityJobDefinitionResult {
  * Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
  */
 export function getModelQualityJobDefinitionOutput(args: GetModelQualityJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelQualityJobDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getModelQualityJobDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getModelQualityJobDefinition", {
+        "jobDefinitionArn": args.jobDefinitionArn,
+    }, opts);
 }
 
 export interface GetModelQualityJobDefinitionOutputArgs {

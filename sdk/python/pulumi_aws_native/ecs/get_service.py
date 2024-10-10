@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -292,9 +297,6 @@ def get_service(cluster: Optional[str] = None,
         service_registries=pulumi.get(__ret__, 'service_registries'),
         tags=pulumi.get(__ret__, 'tags'),
         task_definition=pulumi.get(__ret__, 'task_definition'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
                        service_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
@@ -307,4 +309,26 @@ def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
     :param str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
     :param str service_arn: Not currently supported in AWS CloudFormation .
     """
-    ...
+    __args__ = dict()
+    __args__['cluster'] = cluster
+    __args__['serviceArn'] = service_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        capacity_provider_strategy=pulumi.get(__response__, 'capacity_provider_strategy'),
+        deployment_configuration=pulumi.get(__response__, 'deployment_configuration'),
+        desired_count=pulumi.get(__response__, 'desired_count'),
+        enable_ecs_managed_tags=pulumi.get(__response__, 'enable_ecs_managed_tags'),
+        enable_execute_command=pulumi.get(__response__, 'enable_execute_command'),
+        health_check_grace_period_seconds=pulumi.get(__response__, 'health_check_grace_period_seconds'),
+        load_balancers=pulumi.get(__response__, 'load_balancers'),
+        name=pulumi.get(__response__, 'name'),
+        network_configuration=pulumi.get(__response__, 'network_configuration'),
+        placement_constraints=pulumi.get(__response__, 'placement_constraints'),
+        placement_strategies=pulumi.get(__response__, 'placement_strategies'),
+        platform_version=pulumi.get(__response__, 'platform_version'),
+        propagate_tags=pulumi.get(__response__, 'propagate_tags'),
+        service_arn=pulumi.get(__response__, 'service_arn'),
+        service_registries=pulumi.get(__response__, 'service_registries'),
+        tags=pulumi.get(__response__, 'tags'),
+        task_definition=pulumi.get(__response__, 'task_definition')))

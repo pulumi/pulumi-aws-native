@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -191,9 +196,6 @@ def get_queue(arn: Optional[str] = None,
         required_file_system_location_names=pulumi.get(__ret__, 'required_file_system_location_names'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_queue)
 def get_queue_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
@@ -202,4 +204,19 @@ def get_queue_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the queue.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getQueue', __args__, opts=opts, typ=GetQueueResult)
+    return __ret__.apply(lambda __response__: GetQueueResult(
+        allowed_storage_profile_ids=pulumi.get(__response__, 'allowed_storage_profile_ids'),
+        arn=pulumi.get(__response__, 'arn'),
+        default_budget_action=pulumi.get(__response__, 'default_budget_action'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        job_attachment_settings=pulumi.get(__response__, 'job_attachment_settings'),
+        job_run_as_user=pulumi.get(__response__, 'job_run_as_user'),
+        queue_id=pulumi.get(__response__, 'queue_id'),
+        required_file_system_location_names=pulumi.get(__response__, 'required_file_system_location_names'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
  */
 export function getSubnetNetworkAclAssociation(args: GetSubnetNetworkAclAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetNetworkAclAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSubnetNetworkAclAssociation", {
         "associationId": args.associationId,
@@ -32,7 +31,10 @@ export interface GetSubnetNetworkAclAssociationResult {
  * Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
  */
 export function getSubnetNetworkAclAssociationOutput(args: GetSubnetNetworkAclAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetNetworkAclAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getSubnetNetworkAclAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getSubnetNetworkAclAssociation", {
+        "associationId": args.associationId,
+    }, opts);
 }
 
 export interface GetSubnetNetworkAclAssociationOutputArgs {

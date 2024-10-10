@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -176,9 +181,6 @@ def get_influx_db_instance(id: Optional[str] = None,
         secondary_availability_zone=pulumi.get(__ret__, 'secondary_availability_zone'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_influx_db_instance)
 def get_influx_db_instance_output(id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfluxDbInstanceResult]:
     """
@@ -187,4 +189,18 @@ def get_influx_db_instance_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The service generated unique identifier for InfluxDB instance.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:timestream:getInfluxDbInstance', __args__, opts=opts, typ=GetInfluxDbInstanceResult)
+    return __ret__.apply(lambda __response__: GetInfluxDbInstanceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        db_parameter_group_identifier=pulumi.get(__response__, 'db_parameter_group_identifier'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        influx_auth_parameters_secret_arn=pulumi.get(__response__, 'influx_auth_parameters_secret_arn'),
+        log_delivery_configuration=pulumi.get(__response__, 'log_delivery_configuration'),
+        secondary_availability_zone=pulumi.get(__response__, 'secondary_availability_zone'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

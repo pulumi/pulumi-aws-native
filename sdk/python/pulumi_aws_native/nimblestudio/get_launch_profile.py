@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -128,9 +133,6 @@ def get_launch_profile(launch_profile_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         stream_configuration=pulumi.get(__ret__, 'stream_configuration'),
         studio_component_ids=pulumi.get(__ret__, 'studio_component_ids'))
-
-
-@_utilities.lift_output_func(get_launch_profile)
 def get_launch_profile_output(launch_profile_id: Optional[pulumi.Input[str]] = None,
                               studio_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchProfileResult]:
@@ -141,4 +143,15 @@ def get_launch_profile_output(launch_profile_id: Optional[pulumi.Input[str]] = N
     :param str launch_profile_id: The unique identifier for the launch profile resource.
     :param str studio_id: <p>The studio ID. </p>
     """
-    ...
+    __args__ = dict()
+    __args__['launchProfileId'] = launch_profile_id
+    __args__['studioId'] = studio_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getLaunchProfile', __args__, opts=opts, typ=GetLaunchProfileResult)
+    return __ret__.apply(lambda __response__: GetLaunchProfileResult(
+        description=pulumi.get(__response__, 'description'),
+        launch_profile_id=pulumi.get(__response__, 'launch_profile_id'),
+        launch_profile_protocol_versions=pulumi.get(__response__, 'launch_profile_protocol_versions'),
+        name=pulumi.get(__response__, 'name'),
+        stream_configuration=pulumi.get(__response__, 'stream_configuration'),
+        studio_component_ids=pulumi.get(__response__, 'studio_component_ids')))

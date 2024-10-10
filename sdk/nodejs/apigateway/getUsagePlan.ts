@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
  */
 export function getUsagePlan(args: GetUsagePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetUsagePlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getUsagePlan", {
         "id": args.id,
@@ -61,7 +60,10 @@ export interface GetUsagePlanResult {
  *  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
  */
 export function getUsagePlanOutput(args: GetUsagePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsagePlanResult> {
-    return pulumi.output(args).apply((a: any) => getUsagePlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigateway:getUsagePlan", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetUsagePlanOutputArgs {

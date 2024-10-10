@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -162,9 +167,6 @@ def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[str] = None
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_ipam_resource_discovery)
 def get_ipam_resource_discovery_output(ipam_resource_discovery_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamResourceDiscoveryResult]:
     """
@@ -173,4 +175,17 @@ def get_ipam_resource_discovery_output(ipam_resource_discovery_id: Optional[pulu
 
     :param str ipam_resource_discovery_id: Id of the IPAM Pool.
     """
-    ...
+    __args__ = dict()
+    __args__['ipamResourceDiscoveryId'] = ipam_resource_discovery_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpamResourceDiscovery', __args__, opts=opts, typ=GetIpamResourceDiscoveryResult)
+    return __ret__.apply(lambda __response__: GetIpamResourceDiscoveryResult(
+        description=pulumi.get(__response__, 'description'),
+        ipam_resource_discovery_arn=pulumi.get(__response__, 'ipam_resource_discovery_arn'),
+        ipam_resource_discovery_id=pulumi.get(__response__, 'ipam_resource_discovery_id'),
+        ipam_resource_discovery_region=pulumi.get(__response__, 'ipam_resource_discovery_region'),
+        is_default=pulumi.get(__response__, 'is_default'),
+        operating_regions=pulumi.get(__response__, 'operating_regions'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

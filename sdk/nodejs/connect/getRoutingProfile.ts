@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::RoutingProfile
  */
 export function getRoutingProfile(args: GetRoutingProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getRoutingProfile", {
         "routingProfileArn": args.routingProfileArn,
@@ -67,7 +66,10 @@ export interface GetRoutingProfileResult {
  * Resource Type definition for AWS::Connect::RoutingProfile
  */
 export function getRoutingProfileOutput(args: GetRoutingProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingProfileResult> {
-    return pulumi.output(args).apply((a: any) => getRoutingProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getRoutingProfile", {
+        "routingProfileArn": args.routingProfileArn,
+    }, opts);
 }
 
 export interface GetRoutingProfileOutputArgs {

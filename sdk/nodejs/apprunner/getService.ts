@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::AppRunner::Service resource specifies an AppRunner Service.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apprunner:getService", {
         "serviceArn": args.serviceArn,
@@ -67,7 +66,10 @@ export interface GetServiceResult {
  * The AWS::AppRunner::Service resource specifies an AppRunner Service.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apprunner:getService", {
+        "serviceArn": args.serviceArn,
+    }, opts);
 }
 
 export interface GetServiceOutputArgs {

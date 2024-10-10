@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -114,9 +119,6 @@ def get_nat_gateway(nat_gateway_id: Optional[str] = None,
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_nat_gateway)
 def get_nat_gateway_output(nat_gateway_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
@@ -128,4 +130,13 @@ def get_nat_gateway_output(nat_gateway_id: Optional[pulumi.Input[str]] = None,
 
     :param str nat_gateway_id: The ID of the NAT gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['natGatewayId'] = nat_gateway_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
+    return __ret__.apply(lambda __response__: GetNatGatewayResult(
+        nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
+        secondary_allocation_ids=pulumi.get(__response__, 'secondary_allocation_ids'),
+        secondary_private_ip_address_count=pulumi.get(__response__, 'secondary_private_ip_address_count'),
+        secondary_private_ip_addresses=pulumi.get(__response__, 'secondary_private_ip_addresses'),
+        tags=pulumi.get(__response__, 'tags')))

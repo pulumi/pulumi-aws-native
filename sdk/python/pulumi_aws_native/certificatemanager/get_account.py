@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -70,9 +75,6 @@ def get_account(account_id: Optional[str] = None,
     return AwaitableGetAccountResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         expiry_events_configuration=pulumi.get(__ret__, 'expiry_events_configuration'))
-
-
-@_utilities.lift_output_func(get_account)
 def get_account_output(account_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
@@ -81,4 +83,10 @@ def get_account_output(account_id: Optional[pulumi.Input[str]] = None,
 
     :param str account_id: ID of the AWS account that owns the certificate.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:certificatemanager:getAccount', __args__, opts=opts, typ=GetAccountResult)
+    return __ret__.apply(lambda __response__: GetAccountResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        expiry_events_configuration=pulumi.get(__response__, 'expiry_events_configuration')))

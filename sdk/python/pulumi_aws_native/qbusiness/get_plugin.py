@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -192,9 +197,6 @@ def get_plugin(application_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_plugin)
 def get_plugin_output(application_id: Optional[pulumi.Input[str]] = None,
                       plugin_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPluginResult]:
@@ -205,4 +207,20 @@ def get_plugin_output(application_id: Optional[pulumi.Input[str]] = None,
     :param str application_id: The identifier of the application that will contain the plugin.
     :param str plugin_id: The identifier of the plugin.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationId'] = application_id
+    __args__['pluginId'] = plugin_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getPlugin', __args__, opts=opts, typ=GetPluginResult)
+    return __ret__.apply(lambda __response__: GetPluginResult(
+        auth_configuration=pulumi.get(__response__, 'auth_configuration'),
+        build_status=pulumi.get(__response__, 'build_status'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        custom_plugin_configuration=pulumi.get(__response__, 'custom_plugin_configuration'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        plugin_arn=pulumi.get(__response__, 'plugin_arn'),
+        plugin_id=pulumi.get(__response__, 'plugin_id'),
+        server_url=pulumi.get(__response__, 'server_url'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

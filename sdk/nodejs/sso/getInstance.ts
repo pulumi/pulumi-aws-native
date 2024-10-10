@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for Identity Center (SSO) Instance
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sso:getInstance", {
         "instanceArn": args.instanceArn,
@@ -55,7 +54,10 @@ export interface GetInstanceResult {
  * Resource Type definition for Identity Center (SSO) Instance
  */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sso:getInstance", {
+        "instanceArn": args.instanceArn,
+    }, opts);
 }
 
 export interface GetInstanceOutputArgs {

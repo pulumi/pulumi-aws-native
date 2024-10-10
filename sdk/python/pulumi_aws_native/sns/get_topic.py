@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -211,9 +216,6 @@ def get_topic(topic_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topic_arn=pulumi.get(__ret__, 'topic_arn'),
         tracing_config=pulumi.get(__ret__, 'tracing_config'))
-
-
-@_utilities.lift_output_func(get_topic)
 def get_topic_output(topic_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
@@ -224,4 +226,19 @@ def get_topic_output(topic_arn: Optional[pulumi.Input[str]] = None,
 
     :param str topic_arn: Returns the ARN of an Amazon SNS topic.
     """
-    ...
+    __args__ = dict()
+    __args__['topicArn'] = topic_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sns:getTopic', __args__, opts=opts, typ=GetTopicResult)
+    return __ret__.apply(lambda __response__: GetTopicResult(
+        archive_policy=pulumi.get(__response__, 'archive_policy'),
+        content_based_deduplication=pulumi.get(__response__, 'content_based_deduplication'),
+        data_protection_policy=pulumi.get(__response__, 'data_protection_policy'),
+        delivery_status_logging=pulumi.get(__response__, 'delivery_status_logging'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        kms_master_key_id=pulumi.get(__response__, 'kms_master_key_id'),
+        signature_version=pulumi.get(__response__, 'signature_version'),
+        subscription=pulumi.get(__response__, 'subscription'),
+        tags=pulumi.get(__response__, 'tags'),
+        topic_arn=pulumi.get(__response__, 'topic_arn'),
+        tracing_config=pulumi.get(__response__, 'tracing_config')))

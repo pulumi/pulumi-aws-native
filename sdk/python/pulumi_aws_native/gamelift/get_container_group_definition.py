@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -83,9 +88,6 @@ def get_container_group_definition(name: Optional[str] = None,
         container_group_definition_arn=pulumi.get(__ret__, 'container_group_definition_arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_container_group_definition)
 def get_container_group_definition_output(name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerGroupDefinitionResult]:
     """
@@ -94,4 +96,11 @@ def get_container_group_definition_output(name: Optional[pulumi.Input[str]] = No
 
     :param str name: A descriptive label for the container group definition.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getContainerGroupDefinition', __args__, opts=opts, typ=GetContainerGroupDefinitionResult)
+    return __ret__.apply(lambda __response__: GetContainerGroupDefinitionResult(
+        container_group_definition_arn=pulumi.get(__response__, 'container_group_definition_arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        tags=pulumi.get(__response__, 'tags')))

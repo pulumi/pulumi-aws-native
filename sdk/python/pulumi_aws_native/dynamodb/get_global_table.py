@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -218,9 +223,6 @@ def get_global_table(table_name: Optional[str] = None,
         time_to_live_specification=pulumi.get(__ret__, 'time_to_live_specification'),
         write_on_demand_throughput_settings=pulumi.get(__ret__, 'write_on_demand_throughput_settings'),
         write_provisioned_throughput_settings=pulumi.get(__ret__, 'write_provisioned_throughput_settings'))
-
-
-@_utilities.lift_output_func(get_global_table)
 def get_global_table_output(table_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalTableResult]:
     """
@@ -231,4 +233,20 @@ def get_global_table_output(table_name: Optional[pulumi.Input[str]] = None,
            
            > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
-    ...
+    __args__ = dict()
+    __args__['tableName'] = table_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:dynamodb:getGlobalTable', __args__, opts=opts, typ=GetGlobalTableResult)
+    return __ret__.apply(lambda __response__: GetGlobalTableResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attribute_definitions=pulumi.get(__response__, 'attribute_definitions'),
+        billing_mode=pulumi.get(__response__, 'billing_mode'),
+        global_secondary_indexes=pulumi.get(__response__, 'global_secondary_indexes'),
+        replicas=pulumi.get(__response__, 'replicas'),
+        sse_specification=pulumi.get(__response__, 'sse_specification'),
+        stream_arn=pulumi.get(__response__, 'stream_arn'),
+        stream_specification=pulumi.get(__response__, 'stream_specification'),
+        table_id=pulumi.get(__response__, 'table_id'),
+        time_to_live_specification=pulumi.get(__response__, 'time_to_live_specification'),
+        write_on_demand_throughput_settings=pulumi.get(__response__, 'write_on_demand_throughput_settings'),
+        write_provisioned_throughput_settings=pulumi.get(__response__, 'write_provisioned_throughput_settings')))

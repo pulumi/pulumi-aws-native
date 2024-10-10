@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -96,9 +101,6 @@ def get_cell(cell_name: Optional[str] = None,
         cells=pulumi.get(__ret__, 'cells'),
         parent_readiness_scopes=pulumi.get(__ret__, 'parent_readiness_scopes'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_cell)
 def get_cell_output(cell_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCellResult]:
     """
@@ -107,4 +109,12 @@ def get_cell_output(cell_name: Optional[pulumi.Input[str]] = None,
 
     :param str cell_name: The name of the cell to create.
     """
-    ...
+    __args__ = dict()
+    __args__['cellName'] = cell_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoveryreadiness:getCell', __args__, opts=opts, typ=GetCellResult)
+    return __ret__.apply(lambda __response__: GetCellResult(
+        cell_arn=pulumi.get(__response__, 'cell_arn'),
+        cells=pulumi.get(__response__, 'cells'),
+        parent_readiness_scopes=pulumi.get(__response__, 'parent_readiness_scopes'),
+        tags=pulumi.get(__response__, 'tags')))

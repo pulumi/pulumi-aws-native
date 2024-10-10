@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *  You only need to learn how to sign HTTP requests if you intend to create them manually. When you use the [](https://docs.aws.amazon.com/cli/) or one of the [SDKs](https://docs.aws.amazon.com/tools/) to make requests to AWS, these tools automatically sign the requests for you, with the access key that you specify when you configure the tools. When you use these tools, you don't have to sign requests yourself.
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ecs:getTaskDefinition", {
         "taskDefinitionArn": args.taskDefinitionArn,
@@ -55,7 +54,10 @@ export interface GetTaskDefinitionResult {
  *  You only need to learn how to sign HTTP requests if you intend to create them manually. When you use the [](https://docs.aws.amazon.com/cli/) or one of the [SDKs](https://docs.aws.amazon.com/tools/) to make requests to AWS, these tools automatically sign the requests for you, with the access key that you specify when you configure the tools. When you use these tools, you don't have to sign requests yourself.
  */
 export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getTaskDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ecs:getTaskDefinition", {
+        "taskDefinitionArn": args.taskDefinitionArn,
+    }, opts);
 }
 
 export interface GetTaskDefinitionOutputArgs {

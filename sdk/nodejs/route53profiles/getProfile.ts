@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Route53Profiles::Profile
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53profiles:getProfile", {
         "id": args.id,
@@ -47,7 +46,10 @@ export interface GetProfileResult {
  * Resource Type definition for AWS::Route53Profiles::Profile
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:route53profiles:getProfile", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetProfileOutputArgs {

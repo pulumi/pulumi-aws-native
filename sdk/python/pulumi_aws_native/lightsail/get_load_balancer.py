@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -135,9 +140,6 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
         session_stickiness_lb_cookie_duration_seconds=pulumi.get(__ret__, 'session_stickiness_lb_cookie_duration_seconds'),
         tags=pulumi.get(__ret__, 'tags'),
         tls_policy_name=pulumi.get(__ret__, 'tls_policy_name'))
-
-
-@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
@@ -146,4 +148,15 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
 
     :param str load_balancer_name: The name of your load balancer.
     """
-    ...
+    __args__ = dict()
+    __args__['loadBalancerName'] = load_balancer_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
+    return __ret__.apply(lambda __response__: GetLoadBalancerResult(
+        attached_instances=pulumi.get(__response__, 'attached_instances'),
+        health_check_path=pulumi.get(__response__, 'health_check_path'),
+        load_balancer_arn=pulumi.get(__response__, 'load_balancer_arn'),
+        session_stickiness_enabled=pulumi.get(__response__, 'session_stickiness_enabled'),
+        session_stickiness_lb_cookie_duration_seconds=pulumi.get(__response__, 'session_stickiness_lb_cookie_duration_seconds'),
+        tags=pulumi.get(__response__, 'tags'),
+        tls_policy_name=pulumi.get(__response__, 'tls_policy_name')))

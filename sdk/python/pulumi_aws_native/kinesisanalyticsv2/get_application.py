@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -124,9 +129,6 @@ def get_application(application_name: Optional[str] = None,
         runtime_environment=pulumi.get(__ret__, 'runtime_environment'),
         service_execution_role=pulumi.get(__ret__, 'service_execution_role'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -135,4 +137,14 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
 
     :param str application_name: The name of the application.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationName'] = application_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:kinesisanalyticsv2:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        application_configuration=pulumi.get(__response__, 'application_configuration'),
+        application_description=pulumi.get(__response__, 'application_description'),
+        application_maintenance_configuration=pulumi.get(__response__, 'application_maintenance_configuration'),
+        runtime_environment=pulumi.get(__response__, 'runtime_environment'),
+        service_execution_role=pulumi.get(__response__, 'service_execution_role'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::CapacityReservation
  */
 export function getCapacityReservation(args: GetCapacityReservationArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getCapacityReservation", {
         "id": args.id,
@@ -70,7 +69,10 @@ export interface GetCapacityReservationResult {
  * Resource Type definition for AWS::EC2::CapacityReservation
  */
 export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
-    return pulumi.output(args).apply((a: any) => getCapacityReservation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getCapacityReservation", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetCapacityReservationOutputArgs {

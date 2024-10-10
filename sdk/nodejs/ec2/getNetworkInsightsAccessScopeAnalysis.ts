@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
  */
 export function getNetworkInsightsAccessScopeAnalysis(args: GetNetworkInsightsAccessScopeAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsAccessScopeAnalysisResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNetworkInsightsAccessScopeAnalysis", {
         "networkInsightsAccessScopeAnalysisId": args.networkInsightsAccessScopeAnalysisId,
@@ -67,7 +66,10 @@ export interface GetNetworkInsightsAccessScopeAnalysisResult {
  * Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
  */
 export function getNetworkInsightsAccessScopeAnalysisOutput(args: GetNetworkInsightsAccessScopeAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsAccessScopeAnalysisResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkInsightsAccessScopeAnalysis(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getNetworkInsightsAccessScopeAnalysis", {
+        "networkInsightsAccessScopeAnalysisId": args.networkInsightsAccessScopeAnalysisId,
+    }, opts);
 }
 
 export interface GetNetworkInsightsAccessScopeAnalysisOutputArgs {

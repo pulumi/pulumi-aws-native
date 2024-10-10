@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
  */
 export function getUserPoolRiskConfigurationAttachment(args: GetUserPoolRiskConfigurationAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolRiskConfigurationAttachmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolRiskConfigurationAttachment", {
         "clientId": args.clientId,
@@ -48,7 +47,11 @@ export interface GetUserPoolRiskConfigurationAttachmentResult {
  * Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
  */
 export function getUserPoolRiskConfigurationAttachmentOutput(args: GetUserPoolRiskConfigurationAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolRiskConfigurationAttachmentResult> {
-    return pulumi.output(args).apply((a: any) => getUserPoolRiskConfigurationAttachment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolRiskConfigurationAttachment", {
+        "clientId": args.clientId,
+        "userPoolId": args.userPoolId,
+    }, opts);
 }
 
 export interface GetUserPoolRiskConfigurationAttachmentOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaTailor::SourceLocation Resource Type
  */
 export function getSourceLocation(args: GetSourceLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceLocationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediatailor:getSourceLocation", {
         "sourceLocationName": args.sourceLocationName,
@@ -55,7 +54,10 @@ export interface GetSourceLocationResult {
  * Definition of AWS::MediaTailor::SourceLocation Resource Type
  */
 export function getSourceLocationOutput(args: GetSourceLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceLocationResult> {
-    return pulumi.output(args).apply((a: any) => getSourceLocation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediatailor:getSourceLocation", {
+        "sourceLocationName": args.sourceLocationName,
+    }, opts);
 }
 
 export interface GetSourceLocationOutputArgs {

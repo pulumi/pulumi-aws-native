@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -162,9 +167,6 @@ def get_wireless_gateway(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         thing_arn=pulumi.get(__ret__, 'thing_arn'),
         thing_name=pulumi.get(__ret__, 'thing_name'))
-
-
-@_utilities.lift_output_func(get_wireless_gateway)
 def get_wireless_gateway_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWirelessGatewayResult]:
     """
@@ -173,4 +175,17 @@ def get_wireless_gateway_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Id for Wireless Gateway. Returned upon successful create.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getWirelessGateway', __args__, opts=opts, typ=GetWirelessGatewayResult)
+    return __ret__.apply(lambda __response__: GetWirelessGatewayResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_uplink_received_at=pulumi.get(__response__, 'last_uplink_received_at'),
+        lo_ra_wan=pulumi.get(__response__, 'lo_ra_wan'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        thing_arn=pulumi.get(__response__, 'thing_arn'),
+        thing_name=pulumi.get(__response__, 'thing_name')))

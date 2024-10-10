@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
  */
 export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAliasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lex:getBotAlias", {
         "botAliasId": args.botAliasId,
@@ -72,7 +71,11 @@ export interface GetBotAliasResult {
  * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
  */
 export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAliasResult> {
-    return pulumi.output(args).apply((a: any) => getBotAlias(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lex:getBotAlias", {
+        "botAliasId": args.botAliasId,
+        "botId": args.botId,
+    }, opts);
 }
 
 export interface GetBotAliasOutputArgs {

@@ -4,94 +4,193 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ConfigurationSetDashboardOptionsArgs',
+    'ConfigurationSetDashboardOptionsArgsDict',
     'ConfigurationSetDeliveryOptionsArgs',
+    'ConfigurationSetDeliveryOptionsArgsDict',
     'ConfigurationSetEventDestinationCloudWatchDestinationArgs',
+    'ConfigurationSetEventDestinationCloudWatchDestinationArgsDict',
     'ConfigurationSetEventDestinationDimensionConfigurationArgs',
+    'ConfigurationSetEventDestinationDimensionConfigurationArgsDict',
     'ConfigurationSetEventDestinationEventBridgeDestinationArgs',
+    'ConfigurationSetEventDestinationEventBridgeDestinationArgsDict',
     'ConfigurationSetEventDestinationEventDestinationArgs',
+    'ConfigurationSetEventDestinationEventDestinationArgsDict',
     'ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs',
+    'ConfigurationSetEventDestinationKinesisFirehoseDestinationArgsDict',
     'ConfigurationSetEventDestinationSnsDestinationArgs',
+    'ConfigurationSetEventDestinationSnsDestinationArgsDict',
     'ConfigurationSetGuardianOptionsArgs',
+    'ConfigurationSetGuardianOptionsArgsDict',
     'ConfigurationSetReputationOptionsArgs',
+    'ConfigurationSetReputationOptionsArgsDict',
     'ConfigurationSetSendingOptionsArgs',
+    'ConfigurationSetSendingOptionsArgsDict',
     'ConfigurationSetSuppressionOptionsArgs',
+    'ConfigurationSetSuppressionOptionsArgsDict',
     'ConfigurationSetTrackingOptionsArgs',
+    'ConfigurationSetTrackingOptionsArgsDict',
     'ConfigurationSetVdmOptionsArgs',
+    'ConfigurationSetVdmOptionsArgsDict',
     'ContactListTopicArgs',
+    'ContactListTopicArgsDict',
     'EmailIdentityConfigurationSetAttributesArgs',
+    'EmailIdentityConfigurationSetAttributesArgsDict',
     'EmailIdentityDkimAttributesArgs',
+    'EmailIdentityDkimAttributesArgsDict',
     'EmailIdentityDkimSigningAttributesArgs',
+    'EmailIdentityDkimSigningAttributesArgsDict',
     'EmailIdentityFeedbackAttributesArgs',
+    'EmailIdentityFeedbackAttributesArgsDict',
     'EmailIdentityMailFromAttributesArgs',
+    'EmailIdentityMailFromAttributesArgsDict',
     'MailManagerArchiveArchiveRetentionPropertiesArgs',
+    'MailManagerArchiveArchiveRetentionPropertiesArgsDict',
     'MailManagerIngressPointIngressPointConfiguration0PropertiesArgs',
+    'MailManagerIngressPointIngressPointConfiguration0PropertiesArgsDict',
     'MailManagerIngressPointIngressPointConfiguration1PropertiesArgs',
+    'MailManagerIngressPointIngressPointConfiguration1PropertiesArgsDict',
     'MailManagerRelayNoAuthenticationArgs',
+    'MailManagerRelayNoAuthenticationArgsDict',
     'MailManagerRelayRelayAuthentication0PropertiesArgs',
+    'MailManagerRelayRelayAuthentication0PropertiesArgsDict',
     'MailManagerRelayRelayAuthentication1PropertiesArgs',
+    'MailManagerRelayRelayAuthentication1PropertiesArgsDict',
     'MailManagerRuleSetAddHeaderActionArgs',
+    'MailManagerRuleSetAddHeaderActionArgsDict',
     'MailManagerRuleSetAnalysisArgs',
+    'MailManagerRuleSetAnalysisArgsDict',
     'MailManagerRuleSetArchiveActionArgs',
+    'MailManagerRuleSetArchiveActionArgsDict',
     'MailManagerRuleSetDeliverToMailboxActionArgs',
+    'MailManagerRuleSetDeliverToMailboxActionArgsDict',
     'MailManagerRuleSetDropActionArgs',
+    'MailManagerRuleSetDropActionArgsDict',
     'MailManagerRuleSetRelayActionArgs',
+    'MailManagerRuleSetRelayActionArgsDict',
     'MailManagerRuleSetReplaceRecipientActionArgs',
+    'MailManagerRuleSetReplaceRecipientActionArgsDict',
     'MailManagerRuleSetRuleAction0PropertiesArgs',
+    'MailManagerRuleSetRuleAction0PropertiesArgsDict',
     'MailManagerRuleSetRuleAction1PropertiesArgs',
+    'MailManagerRuleSetRuleAction1PropertiesArgsDict',
     'MailManagerRuleSetRuleAction2PropertiesArgs',
+    'MailManagerRuleSetRuleAction2PropertiesArgsDict',
     'MailManagerRuleSetRuleAction3PropertiesArgs',
+    'MailManagerRuleSetRuleAction3PropertiesArgsDict',
     'MailManagerRuleSetRuleAction4PropertiesArgs',
+    'MailManagerRuleSetRuleAction4PropertiesArgsDict',
     'MailManagerRuleSetRuleAction5PropertiesArgs',
+    'MailManagerRuleSetRuleAction5PropertiesArgsDict',
     'MailManagerRuleSetRuleAction6PropertiesArgs',
+    'MailManagerRuleSetRuleAction6PropertiesArgsDict',
     'MailManagerRuleSetRuleAction7PropertiesArgs',
+    'MailManagerRuleSetRuleAction7PropertiesArgsDict',
     'MailManagerRuleSetRuleBooleanExpressionArgs',
+    'MailManagerRuleSetRuleBooleanExpressionArgsDict',
     'MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs',
+    'MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgsDict',
     'MailManagerRuleSetRuleCondition0PropertiesArgs',
+    'MailManagerRuleSetRuleCondition0PropertiesArgsDict',
     'MailManagerRuleSetRuleCondition1PropertiesArgs',
+    'MailManagerRuleSetRuleCondition1PropertiesArgsDict',
     'MailManagerRuleSetRuleCondition2PropertiesArgs',
+    'MailManagerRuleSetRuleCondition2PropertiesArgsDict',
     'MailManagerRuleSetRuleCondition3PropertiesArgs',
+    'MailManagerRuleSetRuleCondition3PropertiesArgsDict',
     'MailManagerRuleSetRuleCondition4PropertiesArgs',
+    'MailManagerRuleSetRuleCondition4PropertiesArgsDict',
     'MailManagerRuleSetRuleCondition5PropertiesArgs',
+    'MailManagerRuleSetRuleCondition5PropertiesArgsDict',
     'MailManagerRuleSetRuleDmarcExpressionArgs',
+    'MailManagerRuleSetRuleDmarcExpressionArgsDict',
     'MailManagerRuleSetRuleIpExpressionArgs',
+    'MailManagerRuleSetRuleIpExpressionArgsDict',
     'MailManagerRuleSetRuleIpToEvaluatePropertiesArgs',
+    'MailManagerRuleSetRuleIpToEvaluatePropertiesArgsDict',
     'MailManagerRuleSetRuleNumberExpressionArgs',
+    'MailManagerRuleSetRuleNumberExpressionArgsDict',
     'MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs',
+    'MailManagerRuleSetRuleNumberToEvaluatePropertiesArgsDict',
     'MailManagerRuleSetRuleStringExpressionArgs',
+    'MailManagerRuleSetRuleStringExpressionArgsDict',
     'MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs',
+    'MailManagerRuleSetRuleStringToEvaluate0PropertiesArgsDict',
     'MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs',
+    'MailManagerRuleSetRuleStringToEvaluate1PropertiesArgsDict',
     'MailManagerRuleSetRuleVerdictExpressionArgs',
+    'MailManagerRuleSetRuleVerdictExpressionArgsDict',
     'MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs',
+    'MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgsDict',
     'MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs',
+    'MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgsDict',
     'MailManagerRuleSetRuleArgs',
+    'MailManagerRuleSetRuleArgsDict',
     'MailManagerRuleSetS3ActionArgs',
+    'MailManagerRuleSetS3ActionArgsDict',
     'MailManagerRuleSetSendActionArgs',
+    'MailManagerRuleSetSendActionArgsDict',
     'MailManagerTrafficPolicyIngressAnalysisArgs',
+    'MailManagerTrafficPolicyIngressAnalysisArgsDict',
     'MailManagerTrafficPolicyIngressBooleanExpressionArgs',
+    'MailManagerTrafficPolicyIngressBooleanExpressionArgsDict',
     'MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs',
+    'MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgsDict',
     'MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs',
+    'MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgsDict',
     'MailManagerTrafficPolicyIngressIpv4ExpressionArgs',
+    'MailManagerTrafficPolicyIngressIpv4ExpressionArgsDict',
     'MailManagerTrafficPolicyIngressStringExpressionArgs',
+    'MailManagerTrafficPolicyIngressStringExpressionArgsDict',
     'MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs',
+    'MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgsDict',
     'MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs',
+    'MailManagerTrafficPolicyIngressTlsProtocolExpressionArgsDict',
     'MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs',
+    'MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgsDict',
     'MailManagerTrafficPolicyPolicyCondition0PropertiesArgs',
+    'MailManagerTrafficPolicyPolicyCondition0PropertiesArgsDict',
     'MailManagerTrafficPolicyPolicyCondition1PropertiesArgs',
+    'MailManagerTrafficPolicyPolicyCondition1PropertiesArgsDict',
     'MailManagerTrafficPolicyPolicyCondition2PropertiesArgs',
+    'MailManagerTrafficPolicyPolicyCondition2PropertiesArgsDict',
     'MailManagerTrafficPolicyPolicyCondition3PropertiesArgs',
+    'MailManagerTrafficPolicyPolicyCondition3PropertiesArgsDict',
     'MailManagerTrafficPolicyPolicyStatementArgs',
+    'MailManagerTrafficPolicyPolicyStatementArgsDict',
     'TemplateArgs',
+    'TemplateArgsDict',
     'VdmAttributesDashboardAttributesArgs',
+    'VdmAttributesDashboardAttributesArgsDict',
     'VdmAttributesGuardianAttributesArgs',
+    'VdmAttributesGuardianAttributesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationSetDashboardOptionsArgsDict(TypedDict):
+        """
+        Preferences regarding the Dashboard feature.
+        """
+        engagement_metrics: pulumi.Input[str]
+        """
+        Whether emails sent with this configuration set have engagement tracking enabled.
+        """
+elif False:
+    ConfigurationSetDashboardOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetDashboardOptionsArgs:
@@ -115,6 +214,22 @@ class ConfigurationSetDashboardOptionsArgs:
     def engagement_metrics(self, value: pulumi.Input[str]):
         pulumi.set(self, "engagement_metrics", value)
 
+
+if not MYPY:
+    class ConfigurationSetDeliveryOptionsArgsDict(TypedDict):
+        """
+        An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+        """
+        sending_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the dedicated IP pool to associate with the configuration set.
+        """
+        tls_policy: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
+        """
+elif False:
+    ConfigurationSetDeliveryOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:
@@ -156,6 +271,18 @@ class ConfigurationSetDeliveryOptionsArgs:
         pulumi.set(self, "tls_policy", value)
 
 
+if not MYPY:
+    class ConfigurationSetEventDestinationCloudWatchDestinationArgsDict(TypedDict):
+        """
+        An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+        """
+        dimension_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgsDict']]]]
+        """
+        A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+        """
+elif False:
+    ConfigurationSetEventDestinationCloudWatchDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationSetEventDestinationCloudWatchDestinationArgs:
     def __init__(__self__, *,
@@ -179,6 +306,26 @@ class ConfigurationSetEventDestinationCloudWatchDestinationArgs:
     def dimension_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationDimensionConfigurationArgs']]]]):
         pulumi.set(self, "dimension_configurations", value)
 
+
+if not MYPY:
+    class ConfigurationSetEventDestinationDimensionConfigurationArgsDict(TypedDict):
+        """
+        A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+        """
+        default_dimension_value: pulumi.Input[str]
+        """
+        The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email.
+        """
+        dimension_name: pulumi.Input[str]
+        """
+        The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        """
+        dimension_value_source: pulumi.Input[str]
+        """
+        The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. To use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, specify messageTag. To use your own email headers, specify emailHeader. To put a custom tag on any link included in your email, specify linkTag.
+        """
+elif False:
+    ConfigurationSetEventDestinationDimensionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetEventDestinationDimensionConfigurationArgs:
@@ -233,6 +380,18 @@ class ConfigurationSetEventDestinationDimensionConfigurationArgs:
         pulumi.set(self, "dimension_value_source", value)
 
 
+if not MYPY:
+    class ConfigurationSetEventDestinationEventBridgeDestinationArgsDict(TypedDict):
+        """
+        An object that contains Event bus ARN associated with the event bridge destination.
+        """
+        event_bus_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+        """
+elif False:
+    ConfigurationSetEventDestinationEventBridgeDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationSetEventDestinationEventBridgeDestinationArgs:
     def __init__(__self__, *,
@@ -255,6 +414,39 @@ class ConfigurationSetEventDestinationEventBridgeDestinationArgs:
     def event_bus_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "event_bus_arn", value)
 
+
+if not MYPY:
+    class ConfigurationSetEventDestinationEventDestinationArgsDict(TypedDict):
+        matching_event_types: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
+        """
+        cloud_watch_destination: NotRequired[pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgsDict']]
+        """
+        An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        """
+        event_bridge_destination: NotRequired[pulumi.Input['ConfigurationSetEventDestinationEventBridgeDestinationArgsDict']]
+        """
+        An object that contains Event bus ARN associated with the event bridge destination.
+        """
+        kinesis_firehose_destination: NotRequired[pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgsDict']]
+        """
+        An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the event destination set.
+        """
+        sns_destination: NotRequired[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgsDict']]
+        """
+        An object that contains SNS topic ARN associated event destination.
+        """
+elif False:
+    ConfigurationSetEventDestinationEventDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetEventDestinationEventDestinationArgs:
@@ -374,6 +566,22 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
         pulumi.set(self, "sns_destination", value)
 
 
+if not MYPY:
+    class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgsDict(TypedDict):
+        """
+        An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+        """
+        delivery_stream_arn: pulumi.Input[str]
+        """
+        The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
+        """
+        iam_role_arn: pulumi.Input[str]
+        """
+        The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+        """
+elif False:
+    ConfigurationSetEventDestinationKinesisFirehoseDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
     def __init__(__self__, *,
@@ -412,6 +620,20 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
         pulumi.set(self, "iam_role_arn", value)
 
 
+if not MYPY:
+    class ConfigurationSetEventDestinationSnsDestinationArgsDict(TypedDict):
+        """
+        An object that contains SNS topic ARN associated event destination.
+        """
+        topic_arn: pulumi.Input[str]
+        """
+        The ARN of the Amazon SNS topic for email sending events. You can find the ARN of a topic by using the [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html) Amazon SNS operation.
+
+        For more information about Amazon SNS topics, see the [Amazon SNS Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) .
+        """
+elif False:
+    ConfigurationSetEventDestinationSnsDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationSetEventDestinationSnsDestinationArgs:
     def __init__(__self__, *,
@@ -439,6 +661,18 @@ class ConfigurationSetEventDestinationSnsDestinationArgs:
         pulumi.set(self, "topic_arn", value)
 
 
+if not MYPY:
+    class ConfigurationSetGuardianOptionsArgsDict(TypedDict):
+        """
+        Preferences regarding the Guardian feature.
+        """
+        optimized_shared_delivery: pulumi.Input[str]
+        """
+        Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+        """
+elif False:
+    ConfigurationSetGuardianOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationSetGuardianOptionsArgs:
     def __init__(__self__, *,
@@ -461,6 +695,18 @@ class ConfigurationSetGuardianOptionsArgs:
     def optimized_shared_delivery(self, value: pulumi.Input[str]):
         pulumi.set(self, "optimized_shared_delivery", value)
 
+
+if not MYPY:
+    class ConfigurationSetReputationOptionsArgsDict(TypedDict):
+        """
+        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+        """
+        reputation_metrics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
+        """
+elif False:
+    ConfigurationSetReputationOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetReputationOptionsArgs:
@@ -486,6 +732,18 @@ class ConfigurationSetReputationOptionsArgs:
         pulumi.set(self, "reputation_metrics_enabled", value)
 
 
+if not MYPY:
+    class ConfigurationSetSendingOptionsArgsDict(TypedDict):
+        """
+        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        """
+        sending_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` , email sending is enabled for the configuration set. If `false` , email sending is disabled for the configuration set.
+        """
+elif False:
+    ConfigurationSetSendingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationSetSendingOptionsArgs:
     def __init__(__self__, *,
@@ -509,6 +767,18 @@ class ConfigurationSetSendingOptionsArgs:
     def sending_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "sending_enabled", value)
 
+
+if not MYPY:
+    class ConfigurationSetSuppressionOptionsArgsDict(TypedDict):
+        """
+        An object that contains information about the suppression list preferences for your account.
+        """
+        suppressed_reasons: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        """
+elif False:
+    ConfigurationSetSuppressionOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetSuppressionOptionsArgs:
@@ -534,6 +804,18 @@ class ConfigurationSetSuppressionOptionsArgs:
         pulumi.set(self, "suppressed_reasons", value)
 
 
+if not MYPY:
+    class ConfigurationSetTrackingOptionsArgsDict(TypedDict):
+        """
+        An object that defines the open and click tracking options for emails that you send using the configuration set.
+        """
+        custom_redirect_domain: NotRequired[pulumi.Input[str]]
+        """
+        The domain to use for tracking open and click events.
+        """
+elif False:
+    ConfigurationSetTrackingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
@@ -557,6 +839,22 @@ class ConfigurationSetTrackingOptionsArgs:
     def custom_redirect_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_redirect_domain", value)
 
+
+if not MYPY:
+    class ConfigurationSetVdmOptionsArgsDict(TypedDict):
+        """
+        An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+        """
+        dashboard_options: NotRequired[pulumi.Input['ConfigurationSetDashboardOptionsArgsDict']]
+        """
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        """
+        guardian_options: NotRequired[pulumi.Input['ConfigurationSetGuardianOptionsArgsDict']]
+        """
+        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        """
+elif False:
+    ConfigurationSetVdmOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetVdmOptionsArgs:
@@ -597,6 +895,27 @@ class ConfigurationSetVdmOptionsArgs:
     def guardian_options(self, value: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']]):
         pulumi.set(self, "guardian_options", value)
 
+
+if not MYPY:
+    class ContactListTopicArgsDict(TypedDict):
+        default_subscription_status: pulumi.Input[str]
+        """
+        The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
+        """
+        display_name: pulumi.Input[str]
+        """
+        The display name of the topic.
+        """
+        topic_name: pulumi.Input[str]
+        """
+        The name of the topic.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the topic.
+        """
+elif False:
+    ContactListTopicArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContactListTopicArgs:
@@ -666,6 +985,18 @@ class ContactListTopicArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class EmailIdentityConfigurationSetAttributesArgsDict(TypedDict):
+        """
+        Used to associate a configuration set with an email identity.
+        """
+        configuration_set_name: NotRequired[pulumi.Input[str]]
+        """
+        The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        """
+elif False:
+    EmailIdentityConfigurationSetAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailIdentityConfigurationSetAttributesArgs:
     def __init__(__self__, *,
@@ -690,6 +1021,18 @@ class EmailIdentityConfigurationSetAttributesArgs:
         pulumi.set(self, "configuration_set_name", value)
 
 
+if not MYPY:
+    class EmailIdentityDkimAttributesArgsDict(TypedDict):
+        """
+        Used to enable or disable DKIM authentication for an email identity.
+        """
+        signing_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Sets the DKIM signing configuration for the identity. When you set this value true, then the messages that are sent from the identity are signed using DKIM. If you set this value to false, your messages are sent without DKIM signing.
+        """
+elif False:
+    EmailIdentityDkimAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailIdentityDkimAttributesArgs:
     def __init__(__self__, *,
@@ -713,6 +1056,26 @@ class EmailIdentityDkimAttributesArgs:
     def signing_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "signing_enabled", value)
 
+
+if not MYPY:
+    class EmailIdentityDkimSigningAttributesArgsDict(TypedDict):
+        """
+        If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for Easy DKIM.
+        """
+        domain_signing_private_key: NotRequired[pulumi.Input[str]]
+        """
+        [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+        """
+        domain_signing_selector: NotRequired[pulumi.Input[str]]
+        """
+        [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+        """
+        next_signing_key_length: NotRequired[pulumi.Input[str]]
+        """
+        [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+        """
+elif False:
+    EmailIdentityDkimSigningAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EmailIdentityDkimSigningAttributesArgs:
@@ -770,6 +1133,18 @@ class EmailIdentityDkimSigningAttributesArgs:
         pulumi.set(self, "next_signing_key_length", value)
 
 
+if not MYPY:
+    class EmailIdentityFeedbackAttributesArgsDict(TypedDict):
+        """
+        Used to enable or disable feedback forwarding for an identity.
+        """
+        email_forwarding_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If the value is true, you receive email notifications when bounce or complaint events occur
+        """
+elif False:
+    EmailIdentityFeedbackAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailIdentityFeedbackAttributesArgs:
     def __init__(__self__, *,
@@ -793,6 +1168,22 @@ class EmailIdentityFeedbackAttributesArgs:
     def email_forwarding_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "email_forwarding_enabled", value)
 
+
+if not MYPY:
+    class EmailIdentityMailFromAttributesArgsDict(TypedDict):
+        """
+        Used to enable or disable the custom Mail-From domain configuration for an email identity.
+        """
+        behavior_on_mx_failure: NotRequired[pulumi.Input[str]]
+        """
+        The action to take if the required MX record isn't found when you send an email. When you set this value to UseDefaultValue , the mail is sent using amazonses.com as the MAIL FROM domain. When you set this value to RejectMessage , the Amazon SES API v2 returns a MailFromDomainNotVerified error, and doesn't attempt to deliver the email.
+        """
+        mail_from_domain: NotRequired[pulumi.Input[str]]
+        """
+        The custom MAIL FROM domain that you want the verified identity to use
+        """
+elif False:
+    EmailIdentityMailFromAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EmailIdentityMailFromAttributesArgs:
@@ -834,6 +1225,12 @@ class EmailIdentityMailFromAttributesArgs:
         pulumi.set(self, "mail_from_domain", value)
 
 
+if not MYPY:
+    class MailManagerArchiveArchiveRetentionPropertiesArgsDict(TypedDict):
+        retention_period: pulumi.Input['MailManagerArchiveRetentionPeriod']
+elif False:
+    MailManagerArchiveArchiveRetentionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerArchiveArchiveRetentionPropertiesArgs:
     def __init__(__self__, *,
@@ -849,6 +1246,12 @@ class MailManagerArchiveArchiveRetentionPropertiesArgs:
     def retention_period(self, value: pulumi.Input['MailManagerArchiveRetentionPeriod']):
         pulumi.set(self, "retention_period", value)
 
+
+if not MYPY:
+    class MailManagerIngressPointIngressPointConfiguration0PropertiesArgsDict(TypedDict):
+        smtp_password: pulumi.Input[str]
+elif False:
+    MailManagerIngressPointIngressPointConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerIngressPointIngressPointConfiguration0PropertiesArgs:
@@ -866,6 +1269,12 @@ class MailManagerIngressPointIngressPointConfiguration0PropertiesArgs:
         pulumi.set(self, "smtp_password", value)
 
 
+if not MYPY:
+    class MailManagerIngressPointIngressPointConfiguration1PropertiesArgsDict(TypedDict):
+        secret_arn: pulumi.Input[str]
+elif False:
+    MailManagerIngressPointIngressPointConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerIngressPointIngressPointConfiguration1PropertiesArgs:
     def __init__(__self__, *,
@@ -882,11 +1291,23 @@ class MailManagerIngressPointIngressPointConfiguration1PropertiesArgs:
         pulumi.set(self, "secret_arn", value)
 
 
+if not MYPY:
+    class MailManagerRelayNoAuthenticationArgsDict(TypedDict):
+        pass
+elif False:
+    MailManagerRelayNoAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRelayNoAuthenticationArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class MailManagerRelayRelayAuthentication0PropertiesArgsDict(TypedDict):
+        secret_arn: pulumi.Input[str]
+elif False:
+    MailManagerRelayRelayAuthentication0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRelayRelayAuthentication0PropertiesArgs:
@@ -904,6 +1325,12 @@ class MailManagerRelayRelayAuthentication0PropertiesArgs:
         pulumi.set(self, "secret_arn", value)
 
 
+if not MYPY:
+    class MailManagerRelayRelayAuthentication1PropertiesArgsDict(TypedDict):
+        no_authentication: pulumi.Input['MailManagerRelayNoAuthenticationArgsDict']
+elif False:
+    MailManagerRelayRelayAuthentication1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRelayRelayAuthentication1PropertiesArgs:
     def __init__(__self__, *,
@@ -919,6 +1346,13 @@ class MailManagerRelayRelayAuthentication1PropertiesArgs:
     def no_authentication(self, value: pulumi.Input['MailManagerRelayNoAuthenticationArgs']):
         pulumi.set(self, "no_authentication", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetAddHeaderActionArgsDict(TypedDict):
+        header_name: pulumi.Input[str]
+        header_value: pulumi.Input[str]
+elif False:
+    MailManagerRuleSetAddHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetAddHeaderActionArgs:
@@ -947,6 +1381,13 @@ class MailManagerRuleSetAddHeaderActionArgs:
         pulumi.set(self, "header_value", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetAnalysisArgsDict(TypedDict):
+        analyzer: pulumi.Input[str]
+        result_field: pulumi.Input[str]
+elif False:
+    MailManagerRuleSetAnalysisArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetAnalysisArgs:
     def __init__(__self__, *,
@@ -973,6 +1414,13 @@ class MailManagerRuleSetAnalysisArgs:
     def result_field(self, value: pulumi.Input[str]):
         pulumi.set(self, "result_field", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetArchiveActionArgsDict(TypedDict):
+        target_archive: pulumi.Input[str]
+        action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+elif False:
+    MailManagerRuleSetArchiveActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetArchiveActionArgs:
@@ -1001,6 +1449,14 @@ class MailManagerRuleSetArchiveActionArgs:
     def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
         pulumi.set(self, "action_failure_policy", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetDeliverToMailboxActionArgsDict(TypedDict):
+        mailbox_arn: pulumi.Input[str]
+        role_arn: pulumi.Input[str]
+        action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+elif False:
+    MailManagerRuleSetDeliverToMailboxActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetDeliverToMailboxActionArgs:
@@ -1041,11 +1497,25 @@ class MailManagerRuleSetDeliverToMailboxActionArgs:
         pulumi.set(self, "action_failure_policy", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetDropActionArgsDict(TypedDict):
+        pass
+elif False:
+    MailManagerRuleSetDropActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetDropActionArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class MailManagerRuleSetRelayActionArgsDict(TypedDict):
+        relay: pulumi.Input[str]
+        action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+        mail_from: NotRequired[pulumi.Input['MailManagerRuleSetMailFrom']]
+elif False:
+    MailManagerRuleSetRelayActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRelayActionArgs:
@@ -1087,6 +1557,12 @@ class MailManagerRuleSetRelayActionArgs:
         pulumi.set(self, "mail_from", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetReplaceRecipientActionArgsDict(TypedDict):
+        replace_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    MailManagerRuleSetReplaceRecipientActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetReplaceRecipientActionArgs:
     def __init__(__self__, *,
@@ -1104,6 +1580,12 @@ class MailManagerRuleSetReplaceRecipientActionArgs:
         pulumi.set(self, "replace_with", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleAction0PropertiesArgsDict(TypedDict):
+        drop: pulumi.Input['MailManagerRuleSetDropActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleAction0PropertiesArgs:
     def __init__(__self__, *,
@@ -1119,6 +1601,12 @@ class MailManagerRuleSetRuleAction0PropertiesArgs:
     def drop(self, value: pulumi.Input['MailManagerRuleSetDropActionArgs']):
         pulumi.set(self, "drop", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleAction1PropertiesArgsDict(TypedDict):
+        relay: pulumi.Input['MailManagerRuleSetRelayActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleAction1PropertiesArgs:
@@ -1136,6 +1624,12 @@ class MailManagerRuleSetRuleAction1PropertiesArgs:
         pulumi.set(self, "relay", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleAction2PropertiesArgsDict(TypedDict):
+        archive: pulumi.Input['MailManagerRuleSetArchiveActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleAction2PropertiesArgs:
     def __init__(__self__, *,
@@ -1151,6 +1645,12 @@ class MailManagerRuleSetRuleAction2PropertiesArgs:
     def archive(self, value: pulumi.Input['MailManagerRuleSetArchiveActionArgs']):
         pulumi.set(self, "archive", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleAction3PropertiesArgsDict(TypedDict):
+        write_to_s3: pulumi.Input['MailManagerRuleSetS3ActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleAction3PropertiesArgs:
@@ -1168,6 +1668,12 @@ class MailManagerRuleSetRuleAction3PropertiesArgs:
         pulumi.set(self, "write_to_s3", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleAction4PropertiesArgsDict(TypedDict):
+        send: pulumi.Input['MailManagerRuleSetSendActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleAction4PropertiesArgs:
     def __init__(__self__, *,
@@ -1183,6 +1689,12 @@ class MailManagerRuleSetRuleAction4PropertiesArgs:
     def send(self, value: pulumi.Input['MailManagerRuleSetSendActionArgs']):
         pulumi.set(self, "send", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleAction5PropertiesArgsDict(TypedDict):
+        add_header: pulumi.Input['MailManagerRuleSetAddHeaderActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleAction5PropertiesArgs:
@@ -1200,6 +1712,12 @@ class MailManagerRuleSetRuleAction5PropertiesArgs:
         pulumi.set(self, "add_header", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleAction6PropertiesArgsDict(TypedDict):
+        replace_recipient: pulumi.Input['MailManagerRuleSetReplaceRecipientActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleAction6PropertiesArgs:
     def __init__(__self__, *,
@@ -1216,6 +1734,12 @@ class MailManagerRuleSetRuleAction6PropertiesArgs:
         pulumi.set(self, "replace_recipient", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleAction7PropertiesArgsDict(TypedDict):
+        deliver_to_mailbox: pulumi.Input['MailManagerRuleSetDeliverToMailboxActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleAction7PropertiesArgs:
     def __init__(__self__, *,
@@ -1231,6 +1755,13 @@ class MailManagerRuleSetRuleAction7PropertiesArgs:
     def deliver_to_mailbox(self, value: pulumi.Input['MailManagerRuleSetDeliverToMailboxActionArgs']):
         pulumi.set(self, "deliver_to_mailbox", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleBooleanExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input['MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgsDict']
+        operator: pulumi.Input['MailManagerRuleSetRuleBooleanOperator']
+elif False:
+    MailManagerRuleSetRuleBooleanExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleBooleanExpressionArgs:
@@ -1259,6 +1790,12 @@ class MailManagerRuleSetRuleBooleanExpressionArgs:
         pulumi.set(self, "operator", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgsDict(TypedDict):
+        attribute: pulumi.Input['MailManagerRuleSetRuleBooleanEmailAttribute']
+elif False:
+    MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs:
     def __init__(__self__, *,
@@ -1274,6 +1811,12 @@ class MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs:
     def attribute(self, value: pulumi.Input['MailManagerRuleSetRuleBooleanEmailAttribute']):
         pulumi.set(self, "attribute", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleCondition0PropertiesArgsDict(TypedDict):
+        boolean_expression: pulumi.Input['MailManagerRuleSetRuleBooleanExpressionArgsDict']
+elif False:
+    MailManagerRuleSetRuleCondition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleCondition0PropertiesArgs:
@@ -1291,6 +1834,12 @@ class MailManagerRuleSetRuleCondition0PropertiesArgs:
         pulumi.set(self, "boolean_expression", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleCondition1PropertiesArgsDict(TypedDict):
+        string_expression: pulumi.Input['MailManagerRuleSetRuleStringExpressionArgsDict']
+elif False:
+    MailManagerRuleSetRuleCondition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleCondition1PropertiesArgs:
     def __init__(__self__, *,
@@ -1306,6 +1855,12 @@ class MailManagerRuleSetRuleCondition1PropertiesArgs:
     def string_expression(self, value: pulumi.Input['MailManagerRuleSetRuleStringExpressionArgs']):
         pulumi.set(self, "string_expression", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleCondition2PropertiesArgsDict(TypedDict):
+        number_expression: pulumi.Input['MailManagerRuleSetRuleNumberExpressionArgsDict']
+elif False:
+    MailManagerRuleSetRuleCondition2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleCondition2PropertiesArgs:
@@ -1323,6 +1878,12 @@ class MailManagerRuleSetRuleCondition2PropertiesArgs:
         pulumi.set(self, "number_expression", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleCondition3PropertiesArgsDict(TypedDict):
+        ip_expression: pulumi.Input['MailManagerRuleSetRuleIpExpressionArgsDict']
+elif False:
+    MailManagerRuleSetRuleCondition3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleCondition3PropertiesArgs:
     def __init__(__self__, *,
@@ -1338,6 +1899,12 @@ class MailManagerRuleSetRuleCondition3PropertiesArgs:
     def ip_expression(self, value: pulumi.Input['MailManagerRuleSetRuleIpExpressionArgs']):
         pulumi.set(self, "ip_expression", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleCondition4PropertiesArgsDict(TypedDict):
+        verdict_expression: pulumi.Input['MailManagerRuleSetRuleVerdictExpressionArgsDict']
+elif False:
+    MailManagerRuleSetRuleCondition4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleCondition4PropertiesArgs:
@@ -1355,6 +1922,12 @@ class MailManagerRuleSetRuleCondition4PropertiesArgs:
         pulumi.set(self, "verdict_expression", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleCondition5PropertiesArgsDict(TypedDict):
+        dmarc_expression: pulumi.Input['MailManagerRuleSetRuleDmarcExpressionArgsDict']
+elif False:
+    MailManagerRuleSetRuleCondition5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleCondition5PropertiesArgs:
     def __init__(__self__, *,
@@ -1370,6 +1943,13 @@ class MailManagerRuleSetRuleCondition5PropertiesArgs:
     def dmarc_expression(self, value: pulumi.Input['MailManagerRuleSetRuleDmarcExpressionArgs']):
         pulumi.set(self, "dmarc_expression", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleDmarcExpressionArgsDict(TypedDict):
+        operator: pulumi.Input['MailManagerRuleSetRuleDmarcOperator']
+        values: pulumi.Input[Sequence[pulumi.Input['MailManagerRuleSetRuleDmarcPolicy']]]
+elif False:
+    MailManagerRuleSetRuleDmarcExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleDmarcExpressionArgs:
@@ -1397,6 +1977,14 @@ class MailManagerRuleSetRuleDmarcExpressionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input['MailManagerRuleSetRuleDmarcPolicy']]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleIpExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input['MailManagerRuleSetRuleIpToEvaluatePropertiesArgsDict']
+        operator: pulumi.Input['MailManagerRuleSetRuleIpOperator']
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    MailManagerRuleSetRuleIpExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleIpExpressionArgs:
@@ -1436,6 +2024,12 @@ class MailManagerRuleSetRuleIpExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleIpToEvaluatePropertiesArgsDict(TypedDict):
+        attribute: pulumi.Input['MailManagerRuleSetRuleIpEmailAttribute']
+elif False:
+    MailManagerRuleSetRuleIpToEvaluatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleIpToEvaluatePropertiesArgs:
     def __init__(__self__, *,
@@ -1451,6 +2045,14 @@ class MailManagerRuleSetRuleIpToEvaluatePropertiesArgs:
     def attribute(self, value: pulumi.Input['MailManagerRuleSetRuleIpEmailAttribute']):
         pulumi.set(self, "attribute", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleNumberExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input['MailManagerRuleSetRuleNumberToEvaluatePropertiesArgsDict']
+        operator: pulumi.Input['MailManagerRuleSetRuleNumberOperator']
+        value: pulumi.Input[float]
+elif False:
+    MailManagerRuleSetRuleNumberExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleNumberExpressionArgs:
@@ -1490,6 +2092,12 @@ class MailManagerRuleSetRuleNumberExpressionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleNumberToEvaluatePropertiesArgsDict(TypedDict):
+        attribute: pulumi.Input['MailManagerRuleSetRuleNumberEmailAttribute']
+elif False:
+    MailManagerRuleSetRuleNumberToEvaluatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs:
     def __init__(__self__, *,
@@ -1505,6 +2113,14 @@ class MailManagerRuleSetRuleNumberToEvaluatePropertiesArgs:
     def attribute(self, value: pulumi.Input['MailManagerRuleSetRuleNumberEmailAttribute']):
         pulumi.set(self, "attribute", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleStringExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input[Union['MailManagerRuleSetRuleStringToEvaluate0PropertiesArgsDict', 'MailManagerRuleSetRuleStringToEvaluate1PropertiesArgsDict']]
+        operator: pulumi.Input['MailManagerRuleSetRuleStringOperator']
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    MailManagerRuleSetRuleStringExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleStringExpressionArgs:
@@ -1544,6 +2160,12 @@ class MailManagerRuleSetRuleStringExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleStringToEvaluate0PropertiesArgsDict(TypedDict):
+        attribute: pulumi.Input['MailManagerRuleSetRuleStringEmailAttribute']
+elif False:
+    MailManagerRuleSetRuleStringToEvaluate0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs:
     def __init__(__self__, *,
@@ -1560,6 +2182,12 @@ class MailManagerRuleSetRuleStringToEvaluate0PropertiesArgs:
         pulumi.set(self, "attribute", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleStringToEvaluate1PropertiesArgsDict(TypedDict):
+        mime_header_attribute: pulumi.Input[str]
+elif False:
+    MailManagerRuleSetRuleStringToEvaluate1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs:
     def __init__(__self__, *,
@@ -1575,6 +2203,14 @@ class MailManagerRuleSetRuleStringToEvaluate1PropertiesArgs:
     def mime_header_attribute(self, value: pulumi.Input[str]):
         pulumi.set(self, "mime_header_attribute", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleVerdictExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input[Union['MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgsDict', 'MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgsDict']]
+        operator: pulumi.Input['MailManagerRuleSetRuleVerdictOperator']
+        values: pulumi.Input[Sequence[pulumi.Input['MailManagerRuleSetRuleVerdict']]]
+elif False:
+    MailManagerRuleSetRuleVerdictExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleVerdictExpressionArgs:
@@ -1614,6 +2250,12 @@ class MailManagerRuleSetRuleVerdictExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgsDict(TypedDict):
+        attribute: pulumi.Input['MailManagerRuleSetRuleVerdictAttribute']
+elif False:
+    MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs:
     def __init__(__self__, *,
@@ -1630,6 +2272,12 @@ class MailManagerRuleSetRuleVerdictToEvaluate0PropertiesArgs:
         pulumi.set(self, "attribute", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgsDict(TypedDict):
+        analysis: pulumi.Input['MailManagerRuleSetAnalysisArgsDict']
+elif False:
+    MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs:
     def __init__(__self__, *,
@@ -1645,6 +2293,27 @@ class MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs:
     def analysis(self, value: pulumi.Input['MailManagerRuleSetAnalysisArgs']):
         pulumi.set(self, "analysis", value)
 
+
+if not MYPY:
+    class MailManagerRuleSetRuleArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgsDict', 'MailManagerRuleSetRuleAction1PropertiesArgsDict', 'MailManagerRuleSetRuleAction2PropertiesArgsDict', 'MailManagerRuleSetRuleAction3PropertiesArgsDict', 'MailManagerRuleSetRuleAction4PropertiesArgsDict', 'MailManagerRuleSetRuleAction5PropertiesArgsDict', 'MailManagerRuleSetRuleAction6PropertiesArgsDict', 'MailManagerRuleSetRuleAction7PropertiesArgsDict']]]]
+        """
+        The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgsDict', 'MailManagerRuleSetRuleCondition1PropertiesArgsDict', 'MailManagerRuleSetRuleCondition2PropertiesArgsDict', 'MailManagerRuleSetRuleCondition3PropertiesArgsDict', 'MailManagerRuleSetRuleCondition4PropertiesArgsDict', 'MailManagerRuleSetRuleCondition5PropertiesArgsDict']]]]]
+        """
+        The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The user-friendly name of the rule.
+        """
+        unless: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgsDict', 'MailManagerRuleSetRuleCondition1PropertiesArgsDict', 'MailManagerRuleSetRuleCondition2PropertiesArgsDict', 'MailManagerRuleSetRuleCondition3PropertiesArgsDict', 'MailManagerRuleSetRuleCondition4PropertiesArgsDict', 'MailManagerRuleSetRuleCondition5PropertiesArgsDict']]]]]
+        """
+        The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
+        """
+elif False:
+    MailManagerRuleSetRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerRuleSetRuleArgs:
@@ -1716,6 +2385,16 @@ class MailManagerRuleSetRuleArgs:
         pulumi.set(self, "unless", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetS3ActionArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        s3_bucket: pulumi.Input[str]
+        action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+        s3_prefix: NotRequired[pulumi.Input[str]]
+        s3_sse_kms_key_id: NotRequired[pulumi.Input[str]]
+elif False:
+    MailManagerRuleSetS3ActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetS3ActionArgs:
     def __init__(__self__, *,
@@ -1779,6 +2458,13 @@ class MailManagerRuleSetS3ActionArgs:
         pulumi.set(self, "s3_sse_kms_key_id", value)
 
 
+if not MYPY:
+    class MailManagerRuleSetSendActionArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+elif False:
+    MailManagerRuleSetSendActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerRuleSetSendActionArgs:
     def __init__(__self__, *,
@@ -1807,6 +2493,13 @@ class MailManagerRuleSetSendActionArgs:
         pulumi.set(self, "action_failure_policy", value)
 
 
+if not MYPY:
+    class MailManagerTrafficPolicyIngressAnalysisArgsDict(TypedDict):
+        analyzer: pulumi.Input[str]
+        result_field: pulumi.Input[str]
+elif False:
+    MailManagerTrafficPolicyIngressAnalysisArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressAnalysisArgs:
     def __init__(__self__, *,
@@ -1833,6 +2526,13 @@ class MailManagerTrafficPolicyIngressAnalysisArgs:
     def result_field(self, value: pulumi.Input[str]):
         pulumi.set(self, "result_field", value)
 
+
+if not MYPY:
+    class MailManagerTrafficPolicyIngressBooleanExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input['MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgsDict']
+        operator: pulumi.Input['MailManagerTrafficPolicyIngressBooleanOperator']
+elif False:
+    MailManagerTrafficPolicyIngressBooleanExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressBooleanExpressionArgs:
@@ -1861,6 +2561,12 @@ class MailManagerTrafficPolicyIngressBooleanExpressionArgs:
         pulumi.set(self, "operator", value)
 
 
+if not MYPY:
+    class MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgsDict(TypedDict):
+        analysis: pulumi.Input['MailManagerTrafficPolicyIngressAnalysisArgsDict']
+elif False:
+    MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs:
     def __init__(__self__, *,
@@ -1877,6 +2583,12 @@ class MailManagerTrafficPolicyIngressBooleanToEvaluatePropertiesArgs:
         pulumi.set(self, "analysis", value)
 
 
+if not MYPY:
+    class MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgsDict(TypedDict):
+        attribute: pulumi.Input['MailManagerTrafficPolicyIngressIpv4Attribute']
+elif False:
+    MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs:
     def __init__(__self__, *,
@@ -1892,6 +2604,14 @@ class MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgs:
     def attribute(self, value: pulumi.Input['MailManagerTrafficPolicyIngressIpv4Attribute']):
         pulumi.set(self, "attribute", value)
 
+
+if not MYPY:
+    class MailManagerTrafficPolicyIngressIpv4ExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input['MailManagerTrafficPolicyIngressIpToEvaluatePropertiesArgsDict']
+        operator: pulumi.Input['MailManagerTrafficPolicyIngressIpOperator']
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    MailManagerTrafficPolicyIngressIpv4ExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressIpv4ExpressionArgs:
@@ -1931,6 +2651,14 @@ class MailManagerTrafficPolicyIngressIpv4ExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class MailManagerTrafficPolicyIngressStringExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input['MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgsDict']
+        operator: pulumi.Input['MailManagerTrafficPolicyIngressStringOperator']
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    MailManagerTrafficPolicyIngressStringExpressionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressStringExpressionArgs:
     def __init__(__self__, *,
@@ -1969,6 +2697,12 @@ class MailManagerTrafficPolicyIngressStringExpressionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgsDict(TypedDict):
+        attribute: pulumi.Input['MailManagerTrafficPolicyIngressStringEmailAttribute']
+elif False:
+    MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs:
     def __init__(__self__, *,
@@ -1984,6 +2718,14 @@ class MailManagerTrafficPolicyIngressStringToEvaluatePropertiesArgs:
     def attribute(self, value: pulumi.Input['MailManagerTrafficPolicyIngressStringEmailAttribute']):
         pulumi.set(self, "attribute", value)
 
+
+if not MYPY:
+    class MailManagerTrafficPolicyIngressTlsProtocolExpressionArgsDict(TypedDict):
+        evaluate: pulumi.Input['MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgsDict']
+        operator: pulumi.Input['MailManagerTrafficPolicyIngressTlsProtocolOperator']
+        value: pulumi.Input['MailManagerTrafficPolicyIngressTlsProtocolAttribute']
+elif False:
+    MailManagerTrafficPolicyIngressTlsProtocolExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs:
@@ -2023,6 +2765,12 @@ class MailManagerTrafficPolicyIngressTlsProtocolExpressionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgsDict(TypedDict):
+        attribute: pulumi.Input['MailManagerTrafficPolicyIngressTlsAttribute']
+elif False:
+    MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs:
     def __init__(__self__, *,
@@ -2038,6 +2786,12 @@ class MailManagerTrafficPolicyIngressTlsProtocolToEvaluatePropertiesArgs:
     def attribute(self, value: pulumi.Input['MailManagerTrafficPolicyIngressTlsAttribute']):
         pulumi.set(self, "attribute", value)
 
+
+if not MYPY:
+    class MailManagerTrafficPolicyPolicyCondition0PropertiesArgsDict(TypedDict):
+        string_expression: pulumi.Input['MailManagerTrafficPolicyIngressStringExpressionArgsDict']
+elif False:
+    MailManagerTrafficPolicyPolicyCondition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerTrafficPolicyPolicyCondition0PropertiesArgs:
@@ -2055,6 +2809,12 @@ class MailManagerTrafficPolicyPolicyCondition0PropertiesArgs:
         pulumi.set(self, "string_expression", value)
 
 
+if not MYPY:
+    class MailManagerTrafficPolicyPolicyCondition1PropertiesArgsDict(TypedDict):
+        ip_expression: pulumi.Input['MailManagerTrafficPolicyIngressIpv4ExpressionArgsDict']
+elif False:
+    MailManagerTrafficPolicyPolicyCondition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerTrafficPolicyPolicyCondition1PropertiesArgs:
     def __init__(__self__, *,
@@ -2070,6 +2830,12 @@ class MailManagerTrafficPolicyPolicyCondition1PropertiesArgs:
     def ip_expression(self, value: pulumi.Input['MailManagerTrafficPolicyIngressIpv4ExpressionArgs']):
         pulumi.set(self, "ip_expression", value)
 
+
+if not MYPY:
+    class MailManagerTrafficPolicyPolicyCondition2PropertiesArgsDict(TypedDict):
+        tls_expression: pulumi.Input['MailManagerTrafficPolicyIngressTlsProtocolExpressionArgsDict']
+elif False:
+    MailManagerTrafficPolicyPolicyCondition2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerTrafficPolicyPolicyCondition2PropertiesArgs:
@@ -2087,6 +2853,12 @@ class MailManagerTrafficPolicyPolicyCondition2PropertiesArgs:
         pulumi.set(self, "tls_expression", value)
 
 
+if not MYPY:
+    class MailManagerTrafficPolicyPolicyCondition3PropertiesArgsDict(TypedDict):
+        boolean_expression: pulumi.Input['MailManagerTrafficPolicyIngressBooleanExpressionArgsDict']
+elif False:
+    MailManagerTrafficPolicyPolicyCondition3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MailManagerTrafficPolicyPolicyCondition3PropertiesArgs:
     def __init__(__self__, *,
@@ -2102,6 +2874,19 @@ class MailManagerTrafficPolicyPolicyCondition3PropertiesArgs:
     def boolean_expression(self, value: pulumi.Input['MailManagerTrafficPolicyIngressBooleanExpressionArgs']):
         pulumi.set(self, "boolean_expression", value)
 
+
+if not MYPY:
+    class MailManagerTrafficPolicyPolicyStatementArgsDict(TypedDict):
+        action: pulumi.Input['MailManagerTrafficPolicyAcceptAction']
+        """
+        The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+        """
+        conditions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyCondition0PropertiesArgsDict', 'MailManagerTrafficPolicyPolicyCondition1PropertiesArgsDict', 'MailManagerTrafficPolicyPolicyCondition2PropertiesArgsDict', 'MailManagerTrafficPolicyPolicyCondition3PropertiesArgsDict']]]]
+        """
+        The list of conditions to apply to incoming messages for filtering email traffic.
+        """
+elif False:
+    MailManagerTrafficPolicyPolicyStatementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MailManagerTrafficPolicyPolicyStatementArgs:
@@ -2139,6 +2924,30 @@ class MailManagerTrafficPolicyPolicyStatementArgs:
     def conditions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyCondition0PropertiesArgs', 'MailManagerTrafficPolicyPolicyCondition1PropertiesArgs', 'MailManagerTrafficPolicyPolicyCondition2PropertiesArgs', 'MailManagerTrafficPolicyPolicyCondition3PropertiesArgs']]]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class TemplateArgsDict(TypedDict):
+        """
+        The content of the email, composed of a subject line, an HTML part, and a text-only part
+        """
+        subject_part: pulumi.Input[str]
+        """
+        The subject line of the email.
+        """
+        html_part: NotRequired[pulumi.Input[str]]
+        """
+        The HTML body of the email.
+        """
+        template_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the template.
+        """
+        text_part: NotRequired[pulumi.Input[str]]
+        """
+        The email body that is visible to recipients whose email clients do not display HTML content.
+        """
+elif False:
+    TemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TemplateArgs:
@@ -2211,6 +3020,18 @@ class TemplateArgs:
         pulumi.set(self, "text_part", value)
 
 
+if not MYPY:
+    class VdmAttributesDashboardAttributesArgsDict(TypedDict):
+        """
+        Preferences regarding the Dashboard feature.
+        """
+        engagement_metrics: NotRequired[pulumi.Input[str]]
+        """
+        Whether emails sent from this account have engagement tracking enabled.
+        """
+elif False:
+    VdmAttributesDashboardAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VdmAttributesDashboardAttributesArgs:
     def __init__(__self__, *,
@@ -2234,6 +3055,18 @@ class VdmAttributesDashboardAttributesArgs:
     def engagement_metrics(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engagement_metrics", value)
 
+
+if not MYPY:
+    class VdmAttributesGuardianAttributesArgsDict(TypedDict):
+        """
+        Preferences regarding the Guardian feature.
+        """
+        optimized_shared_delivery: NotRequired[pulumi.Input[str]]
+        """
+        Whether emails sent from this account have optimized delivery algorithm enabled.
+        """
+elif False:
+    VdmAttributesGuardianAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VdmAttributesGuardianAttributesArgs:

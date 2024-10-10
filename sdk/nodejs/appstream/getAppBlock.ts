@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppStream::AppBlock
  */
 export function getAppBlock(args: GetAppBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetAppBlockResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appstream:getAppBlock", {
         "arn": args.arn,
@@ -36,7 +35,10 @@ export interface GetAppBlockResult {
  * Resource Type definition for AWS::AppStream::AppBlock
  */
 export function getAppBlockOutput(args: GetAppBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppBlockResult> {
-    return pulumi.output(args).apply((a: any) => getAppBlock(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:appstream:getAppBlock", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetAppBlockOutputArgs {

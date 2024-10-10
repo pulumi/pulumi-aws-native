@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -71,9 +76,6 @@ def get_role_policy(policy_name: Optional[str] = None,
 
     return AwaitableGetRolePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-
-
-@_utilities.lift_output_func(get_role_policy)
 def get_role_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                            role_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolePolicyResult]:
@@ -89,4 +91,10 @@ def get_role_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     :param str role_name: The name of the role to associate the policy with.
             This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
     """
-    ...
+    __args__ = dict()
+    __args__['policyName'] = policy_name
+    __args__['roleName'] = role_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getRolePolicy', __args__, opts=opts, typ=GetRolePolicyResult)
+    return __ret__.apply(lambda __response__: GetRolePolicyResult(
+        policy_document=pulumi.get(__response__, 'policy_document')))

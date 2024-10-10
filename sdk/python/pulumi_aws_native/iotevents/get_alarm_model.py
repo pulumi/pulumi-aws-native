@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -138,9 +143,6 @@ def get_alarm_model(alarm_model_name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         severity=pulumi.get(__ret__, 'severity'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_alarm_model)
 def get_alarm_model_output(alarm_model_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlarmModelResult]:
     """
@@ -149,4 +151,15 @@ def get_alarm_model_output(alarm_model_name: Optional[pulumi.Input[str]] = None,
 
     :param str alarm_model_name: The name of the alarm model.
     """
-    ...
+    __args__ = dict()
+    __args__['alarmModelName'] = alarm_model_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iotevents:getAlarmModel', __args__, opts=opts, typ=GetAlarmModelResult)
+    return __ret__.apply(lambda __response__: GetAlarmModelResult(
+        alarm_capabilities=pulumi.get(__response__, 'alarm_capabilities'),
+        alarm_event_actions=pulumi.get(__response__, 'alarm_event_actions'),
+        alarm_model_description=pulumi.get(__response__, 'alarm_model_description'),
+        alarm_rule=pulumi.get(__response__, 'alarm_rule'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        severity=pulumi.get(__response__, 'severity'),
+        tags=pulumi.get(__response__, 'tags')))

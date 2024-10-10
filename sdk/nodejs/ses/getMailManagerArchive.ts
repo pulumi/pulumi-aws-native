@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::SES::MailManagerArchive Resource Type
  */
 export function getMailManagerArchive(args: GetMailManagerArchiveArgs, opts?: pulumi.InvokeOptions): Promise<GetMailManagerArchiveResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getMailManagerArchive", {
         "archiveId": args.archiveId,
@@ -58,7 +57,10 @@ export interface GetMailManagerArchiveResult {
  * Definition of AWS::SES::MailManagerArchive Resource Type
  */
 export function getMailManagerArchiveOutput(args: GetMailManagerArchiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerArchiveResult> {
-    return pulumi.output(args).apply((a: any) => getMailManagerArchive(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerArchive", {
+        "archiveId": args.archiveId,
+    }, opts);
 }
 
 export interface GetMailManagerArchiveOutputArgs {

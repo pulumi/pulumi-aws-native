@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -136,9 +141,6 @@ def get_ip_access_settings(ip_access_settings_arn: Optional[str] = None,
         ip_access_settings_arn=pulumi.get(__ret__, 'ip_access_settings_arn'),
         ip_rules=pulumi.get(__ret__, 'ip_rules'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_ip_access_settings)
 def get_ip_access_settings_output(ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAccessSettingsResult]:
     """
@@ -147,4 +149,15 @@ def get_ip_access_settings_output(ip_access_settings_arn: Optional[pulumi.Input[
 
     :param str ip_access_settings_arn: The ARN of the IP access settings resource.
     """
-    ...
+    __args__ = dict()
+    __args__['ipAccessSettingsArn'] = ip_access_settings_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getIpAccessSettings', __args__, opts=opts, typ=GetIpAccessSettingsResult)
+    return __ret__.apply(lambda __response__: GetIpAccessSettingsResult(
+        associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        ip_access_settings_arn=pulumi.get(__response__, 'ip_access_settings_arn'),
+        ip_rules=pulumi.get(__response__, 'ip_rules'),
+        tags=pulumi.get(__response__, 'tags')))

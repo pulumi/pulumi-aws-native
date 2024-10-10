@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -174,9 +179,6 @@ def get_scheduled_query(arn: Optional[str] = None,
         sq_scheduled_query_execution_role_arn=pulumi.get(__ret__, 'sq_scheduled_query_execution_role_arn'),
         sq_target_configuration=pulumi.get(__ret__, 'sq_target_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_scheduled_query)
 def get_scheduled_query_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryResult]:
     """
@@ -185,4 +187,18 @@ def get_scheduled_query_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The `ARN` of the scheduled query.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:timestream:getScheduledQuery', __args__, opts=opts, typ=GetScheduledQueryResult)
+    return __ret__.apply(lambda __response__: GetScheduledQueryResult(
+        arn=pulumi.get(__response__, 'arn'),
+        sq_error_report_configuration=pulumi.get(__response__, 'sq_error_report_configuration'),
+        sq_kms_key_id=pulumi.get(__response__, 'sq_kms_key_id'),
+        sq_name=pulumi.get(__response__, 'sq_name'),
+        sq_notification_configuration=pulumi.get(__response__, 'sq_notification_configuration'),
+        sq_query_string=pulumi.get(__response__, 'sq_query_string'),
+        sq_schedule_configuration=pulumi.get(__response__, 'sq_schedule_configuration'),
+        sq_scheduled_query_execution_role_arn=pulumi.get(__response__, 'sq_scheduled_query_execution_role_arn'),
+        sq_target_configuration=pulumi.get(__response__, 'sq_target_configuration'),
+        tags=pulumi.get(__response__, 'tags')))

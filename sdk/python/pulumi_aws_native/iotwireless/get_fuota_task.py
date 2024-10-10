@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -214,9 +219,6 @@ def get_fuota_task(id: Optional[str] = None,
         lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_fuota_task)
 def get_fuota_task_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFuotaTaskResult]:
     """
@@ -225,4 +227,21 @@ def get_fuota_task_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: FUOTA task id. Returned after successful create.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getFuotaTask', __args__, opts=opts, typ=GetFuotaTaskResult)
+    return __ret__.apply(lambda __response__: GetFuotaTaskResult(
+        arn=pulumi.get(__response__, 'arn'),
+        associate_multicast_group=pulumi.get(__response__, 'associate_multicast_group'),
+        associate_wireless_device=pulumi.get(__response__, 'associate_wireless_device'),
+        description=pulumi.get(__response__, 'description'),
+        disassociate_multicast_group=pulumi.get(__response__, 'disassociate_multicast_group'),
+        disassociate_wireless_device=pulumi.get(__response__, 'disassociate_wireless_device'),
+        firmware_update_image=pulumi.get(__response__, 'firmware_update_image'),
+        firmware_update_role=pulumi.get(__response__, 'firmware_update_role'),
+        fuota_task_status=pulumi.get(__response__, 'fuota_task_status'),
+        id=pulumi.get(__response__, 'id'),
+        lo_ra_wan=pulumi.get(__response__, 'lo_ra_wan'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -230,9 +235,6 @@ def get_component_type(component_type_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
-
-
-@_utilities.lift_output_func(get_component_type)
 def get_component_type_output(component_type_id: Optional[pulumi.Input[str]] = None,
                               workspace_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentTypeResult]:
@@ -243,4 +245,23 @@ def get_component_type_output(component_type_id: Optional[pulumi.Input[str]] = N
     :param str component_type_id: The ID of the component type.
     :param str workspace_id: The ID of the workspace that contains the component type.
     """
-    ...
+    __args__ = dict()
+    __args__['componentTypeId'] = component_type_id
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iottwinmaker:getComponentType', __args__, opts=opts, typ=GetComponentTypeResult)
+    return __ret__.apply(lambda __response__: GetComponentTypeResult(
+        arn=pulumi.get(__response__, 'arn'),
+        composite_component_types=pulumi.get(__response__, 'composite_component_types'),
+        creation_date_time=pulumi.get(__response__, 'creation_date_time'),
+        description=pulumi.get(__response__, 'description'),
+        extends_from=pulumi.get(__response__, 'extends_from'),
+        functions=pulumi.get(__response__, 'functions'),
+        is_abstract=pulumi.get(__response__, 'is_abstract'),
+        is_schema_initialized=pulumi.get(__response__, 'is_schema_initialized'),
+        is_singleton=pulumi.get(__response__, 'is_singleton'),
+        property_definitions=pulumi.get(__response__, 'property_definitions'),
+        property_groups=pulumi.get(__response__, 'property_groups'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_date_time=pulumi.get(__response__, 'update_date_time')))

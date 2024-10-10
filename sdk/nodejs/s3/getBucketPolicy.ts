@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *   +   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
  */
 export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3:getBucketPolicy", {
         "bucket": args.bucket,
@@ -46,7 +45,10 @@ export interface GetBucketPolicyResult {
  *   +   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
  */
 export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBucketPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:s3:getBucketPolicy", {
+        "bucket": args.bucket,
+    }, opts);
 }
 
 export interface GetBucketPolicyOutputArgs {

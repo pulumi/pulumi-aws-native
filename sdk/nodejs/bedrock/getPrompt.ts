@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Bedrock::Prompt Resource Type
  */
 export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Promise<GetPromptResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:bedrock:getPrompt", {
         "arn": args.arn,
@@ -78,7 +77,10 @@ export interface GetPromptResult {
  * Definition of AWS::Bedrock::Prompt Resource Type
  */
 export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptResult> {
-    return pulumi.output(args).apply((a: any) => getPrompt(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:bedrock:getPrompt", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetPromptOutputArgs {

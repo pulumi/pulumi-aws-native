@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::KeyValueStore
  */
 export function getKeyValueStore(args: GetKeyValueStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueStoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getKeyValueStore", {
         "name": args.name,
@@ -44,7 +43,10 @@ export interface GetKeyValueStoreResult {
  * Resource Type definition for AWS::CloudFront::KeyValueStore
  */
 export function getKeyValueStoreOutput(args: GetKeyValueStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueStoreResult> {
-    return pulumi.output(args).apply((a: any) => getKeyValueStore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getKeyValueStore", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetKeyValueStoreOutputArgs {

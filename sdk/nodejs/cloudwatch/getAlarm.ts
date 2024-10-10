@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *  When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
  */
 export function getAlarm(args: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudwatch:getAlarm", {
         "alarmName": args.alarmName,
@@ -137,7 +136,10 @@ export interface GetAlarmResult {
  *  When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
  */
 export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
-    return pulumi.output(args).apply((a: any) => getAlarm(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudwatch:getAlarm", {
+        "alarmName": args.alarmName,
+    }, opts);
 }
 
 export interface GetAlarmOutputArgs {

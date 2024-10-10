@@ -4,15 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'NotificationRuleTargetArgs',
+    'NotificationRuleTargetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class NotificationRuleTargetArgsDict(TypedDict):
+        target_address: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the AWS Chatbot topic or AWS Chatbot client.
+        """
+        target_type: pulumi.Input[str]
+        """
+        The target type. Can be an Amazon Simple Notification Service topic or AWS Chatbot client.
+
+        - Amazon Simple Notification Service topics are specified as `SNS` .
+        - AWS Chatbot clients are specified as `AWSChatbotSlack` .
+        - AWS Chatbot clients for Microsoft Teams are specified as `AWSChatbotMicrosoftTeams` .
+        """
+elif False:
+    NotificationRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationRuleTargetArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -224,12 +229,27 @@ def get_crawler(id: Optional[str] = None,
         table_prefix=pulumi.get(__ret__, 'table_prefix'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
-
-
-@_utilities.lift_output_func(get_crawler)
 def get_crawler_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrawlerResult]:
     """
     Resource Type definition for AWS::Glue::Crawler
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getCrawler', __args__, opts=opts, typ=GetCrawlerResult)
+    return __ret__.apply(lambda __response__: GetCrawlerResult(
+        classifiers=pulumi.get(__response__, 'classifiers'),
+        configuration=pulumi.get(__response__, 'configuration'),
+        crawler_security_configuration=pulumi.get(__response__, 'crawler_security_configuration'),
+        database_name=pulumi.get(__response__, 'database_name'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        lake_formation_configuration=pulumi.get(__response__, 'lake_formation_configuration'),
+        recrawl_policy=pulumi.get(__response__, 'recrawl_policy'),
+        role=pulumi.get(__response__, 'role'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        schema_change_policy=pulumi.get(__response__, 'schema_change_policy'),
+        table_prefix=pulumi.get(__response__, 'table_prefix'),
+        tags=pulumi.get(__response__, 'tags'),
+        targets=pulumi.get(__response__, 'targets')))

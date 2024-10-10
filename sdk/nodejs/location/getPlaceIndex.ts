@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Location::PlaceIndex Resource Type
  */
 export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:location:getPlaceIndex", {
         "indexName": args.indexName,
@@ -75,7 +74,10 @@ export interface GetPlaceIndexResult {
  * Definition of AWS::Location::PlaceIndex Resource Type
  */
 export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
-    return pulumi.output(args).apply((a: any) => getPlaceIndex(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:location:getPlaceIndex", {
+        "indexName": args.indexName,
+    }, opts);
 }
 
 export interface GetPlaceIndexOutputArgs {

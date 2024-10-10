@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * A resource schema representing a Lake Formation Tag.
  */
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lakeformation:getTag", {
         "tagKey": args.tagKey,
@@ -32,7 +31,10 @@ export interface GetTagResult {
  * A resource schema representing a Lake Formation Tag.
  */
 export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
-    return pulumi.output(args).apply((a: any) => getTag(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lakeformation:getTag", {
+        "tagKey": args.tagKey,
+    }, opts);
 }
 
 export interface GetTagOutputArgs {

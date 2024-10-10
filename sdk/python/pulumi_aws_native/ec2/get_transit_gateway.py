@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -212,9 +217,6 @@ def get_transit_gateway(id: Optional[str] = None,
         transit_gateway_arn=pulumi.get(__ret__, 'transit_gateway_arn'),
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
         vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))
-
-
-@_utilities.lift_output_func(get_transit_gateway)
 def get_transit_gateway_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayResult]:
     """
@@ -223,4 +225,21 @@ def get_transit_gateway_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the transit gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGateway', __args__, opts=opts, typ=GetTransitGatewayResult)
+    return __ret__.apply(lambda __response__: GetTransitGatewayResult(
+        association_default_route_table_id=pulumi.get(__response__, 'association_default_route_table_id'),
+        auto_accept_shared_attachments=pulumi.get(__response__, 'auto_accept_shared_attachments'),
+        default_route_table_association=pulumi.get(__response__, 'default_route_table_association'),
+        default_route_table_propagation=pulumi.get(__response__, 'default_route_table_propagation'),
+        description=pulumi.get(__response__, 'description'),
+        dns_support=pulumi.get(__response__, 'dns_support'),
+        id=pulumi.get(__response__, 'id'),
+        propagation_default_route_table_id=pulumi.get(__response__, 'propagation_default_route_table_id'),
+        security_group_referencing_support=pulumi.get(__response__, 'security_group_referencing_support'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_arn=pulumi.get(__response__, 'transit_gateway_arn'),
+        transit_gateway_cidr_blocks=pulumi.get(__response__, 'transit_gateway_cidr_blocks'),
+        vpn_ecmp_support=pulumi.get(__response__, 'vpn_ecmp_support')))

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *  For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide*.
  */
 export function getScalingPolicy(args: GetScalingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:applicationautoscaling:getScalingPolicy", {
         "arn": args.arn,
@@ -80,7 +79,11 @@ export interface GetScalingPolicyResult {
  *  For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide*.
  */
 export function getScalingPolicyOutput(args: GetScalingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getScalingPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:applicationautoscaling:getScalingPolicy", {
+        "arn": args.arn,
+        "scalableDimension": args.scalableDimension,
+    }, opts);
 }
 
 export interface GetScalingPolicyOutputArgs {

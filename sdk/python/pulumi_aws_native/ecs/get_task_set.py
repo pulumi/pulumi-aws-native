@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -101,9 +106,6 @@ def get_task_set(cluster: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         scale=pulumi.get(__ret__, 'scale'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_task_set)
 def get_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
                         id: Optional[pulumi.Input[str]] = None,
                         service: Optional[pulumi.Input[str]] = None,
@@ -116,4 +118,13 @@ def get_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
     :param str id: The ID of the task set.
     :param str service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
     """
-    ...
+    __args__ = dict()
+    __args__['cluster'] = cluster
+    __args__['id'] = id
+    __args__['service'] = service
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getTaskSet', __args__, opts=opts, typ=GetTaskSetResult)
+    return __ret__.apply(lambda __response__: GetTaskSetResult(
+        id=pulumi.get(__response__, 'id'),
+        scale=pulumi.get(__response__, 'scale'),
+        tags=pulumi.get(__response__, 'tags')))

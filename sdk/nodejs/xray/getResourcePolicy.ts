@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * This schema provides construct and validation rules for AWS-XRay Resource Policy resource parameters.
  */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:xray:getResourcePolicy", {
         "policyName": args.policyName,
@@ -32,7 +31,10 @@ export interface GetResourcePolicyResult {
  * This schema provides construct and validation rules for AWS-XRay Resource Policy resource parameters.
  */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getResourcePolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:xray:getResourcePolicy", {
+        "policyName": args.policyName,
+    }, opts);
 }
 
 export interface GetResourcePolicyOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -97,9 +102,6 @@ def get_insight(insight_arn: Optional[str] = None,
         group_by_attribute=pulumi.get(__ret__, 'group_by_attribute'),
         insight_arn=pulumi.get(__ret__, 'insight_arn'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_insight)
 def get_insight_output(insight_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInsightResult]:
     """
@@ -108,4 +110,12 @@ def get_insight_output(insight_arn: Optional[pulumi.Input[str]] = None,
 
     :param str insight_arn: The ARN of a Security Hub insight
     """
-    ...
+    __args__ = dict()
+    __args__['insightArn'] = insight_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getInsight', __args__, opts=opts, typ=GetInsightResult)
+    return __ret__.apply(lambda __response__: GetInsightResult(
+        filters=pulumi.get(__response__, 'filters'),
+        group_by_attribute=pulumi.get(__response__, 'group_by_attribute'),
+        insight_arn=pulumi.get(__response__, 'insight_arn'),
+        name=pulumi.get(__response__, 'name')))

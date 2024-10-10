@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -149,9 +154,6 @@ def get_dataset(dataset_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         triggers=pulumi.get(__ret__, 'triggers'),
         versioning_configuration=pulumi.get(__ret__, 'versioning_configuration'))
-
-
-@_utilities.lift_output_func(get_dataset)
 def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
@@ -160,4 +162,16 @@ def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
 
     :param str dataset_name: The name of the dataset.
     """
-    ...
+    __args__ = dict()
+    __args__['datasetName'] = dataset_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iotanalytics:getDataset', __args__, opts=opts, typ=GetDatasetResult)
+    return __ret__.apply(lambda __response__: GetDatasetResult(
+        actions=pulumi.get(__response__, 'actions'),
+        content_delivery_rules=pulumi.get(__response__, 'content_delivery_rules'),
+        id=pulumi.get(__response__, 'id'),
+        late_data_rules=pulumi.get(__response__, 'late_data_rules'),
+        retention_period=pulumi.get(__response__, 'retention_period'),
+        tags=pulumi.get(__response__, 'tags'),
+        triggers=pulumi.get(__response__, 'triggers'),
+        versioning_configuration=pulumi.get(__response__, 'versioning_configuration')))

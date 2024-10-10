@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -82,9 +87,6 @@ def get_public_type_version(public_type_arn: Optional[str] = None,
         public_type_arn=pulumi.get(__ret__, 'public_type_arn'),
         publisher_id=pulumi.get(__ret__, 'publisher_id'),
         type_version_arn=pulumi.get(__ret__, 'type_version_arn'))
-
-
-@_utilities.lift_output_func(get_public_type_version)
 def get_public_type_version_output(public_type_arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicTypeVersionResult]:
     """
@@ -93,4 +95,11 @@ def get_public_type_version_output(public_type_arn: Optional[pulumi.Input[str]] 
 
     :param str public_type_arn: The Amazon Resource Number (ARN) assigned to the public extension upon publication
     """
-    ...
+    __args__ = dict()
+    __args__['publicTypeArn'] = public_type_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getPublicTypeVersion', __args__, opts=opts, typ=GetPublicTypeVersionResult)
+    return __ret__.apply(lambda __response__: GetPublicTypeVersionResult(
+        public_type_arn=pulumi.get(__response__, 'public_type_arn'),
+        publisher_id=pulumi.get(__response__, 'publisher_id'),
+        type_version_arn=pulumi.get(__response__, 'type_version_arn')))

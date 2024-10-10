@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Macie FindingsFilter resource schema.
  */
 export function getFindingsFilter(args: GetFindingsFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFindingsFilterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:macie:getFindingsFilter", {
         "id": args.id,
@@ -63,7 +62,10 @@ export interface GetFindingsFilterResult {
  * Macie FindingsFilter resource schema.
  */
 export function getFindingsFilterOutput(args: GetFindingsFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingsFilterResult> {
-    return pulumi.output(args).apply((a: any) => getFindingsFilter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:macie:getFindingsFilter", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetFindingsFilterOutputArgs {

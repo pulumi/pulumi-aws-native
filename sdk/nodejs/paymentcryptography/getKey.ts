@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::PaymentCryptography::Key Resource Type
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:paymentcryptography:getKey", {
         "keyIdentifier": args.keyIdentifier,
@@ -56,7 +55,10 @@ export interface GetKeyResult {
  * Definition of AWS::PaymentCryptography::Key Resource Type
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    return pulumi.output(args).apply((a: any) => getKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:paymentcryptography:getKey", {
+        "keyIdentifier": args.keyIdentifier,
+    }, opts);
 }
 
 export interface GetKeyOutputArgs {

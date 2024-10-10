@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaTailor::Channel Resource Type
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediatailor:getChannel", {
         "channelName": args.channelName,
@@ -63,7 +62,10 @@ export interface GetChannelResult {
  * Definition of AWS::MediaTailor::Channel Resource Type
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediatailor:getChannel", {
+        "channelName": args.channelName,
+    }, opts);
 }
 
 export interface GetChannelOutputArgs {

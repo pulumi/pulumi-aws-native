@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
  */
 export function getOriginEndpointPolicy(args: GetOriginEndpointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginEndpointPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackagev2:getOriginEndpointPolicy", {
         "channelGroupName": args.channelGroupName,
@@ -44,7 +43,12 @@ export interface GetOriginEndpointPolicyResult {
  * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
  */
 export function getOriginEndpointPolicyOutput(args: GetOriginEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getOriginEndpointPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediapackagev2:getOriginEndpointPolicy", {
+        "channelGroupName": args.channelGroupName,
+        "channelName": args.channelName,
+        "originEndpointName": args.originEndpointName,
+    }, opts);
 }
 
 export interface GetOriginEndpointPolicyOutputArgs {

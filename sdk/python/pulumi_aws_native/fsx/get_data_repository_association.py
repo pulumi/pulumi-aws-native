@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -120,9 +125,6 @@ def get_data_repository_association(association_id: Optional[str] = None,
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         s3=pulumi.get(__ret__, 's3'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_data_repository_association)
 def get_data_repository_association_output(association_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataRepositoryAssociationResult]:
     """
@@ -134,4 +136,13 @@ def get_data_repository_association_output(association_id: Optional[pulumi.Input
            
            Example: `dra-abcdef0123456789d`
     """
-    ...
+    __args__ = dict()
+    __args__['associationId'] = association_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:fsx:getDataRepositoryAssociation', __args__, opts=opts, typ=GetDataRepositoryAssociationResult)
+    return __ret__.apply(lambda __response__: GetDataRepositoryAssociationResult(
+        association_id=pulumi.get(__response__, 'association_id'),
+        imported_file_chunk_size=pulumi.get(__response__, 'imported_file_chunk_size'),
+        resource_arn=pulumi.get(__response__, 'resource_arn'),
+        s3=pulumi.get(__response__, 's3'),
+        tags=pulumi.get(__response__, 'tags')))

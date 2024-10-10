@@ -4,34 +4,74 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ListenerDefaultActionArgs',
+    'ListenerDefaultActionArgsDict',
     'ListenerFixedResponseArgs',
+    'ListenerFixedResponseArgsDict',
     'ListenerForwardArgs',
+    'ListenerForwardArgsDict',
     'ListenerWeightedTargetGroupArgs',
+    'ListenerWeightedTargetGroupArgsDict',
     'RuleActionArgs',
+    'RuleActionArgsDict',
     'RuleFixedResponseArgs',
+    'RuleFixedResponseArgsDict',
     'RuleForwardArgs',
+    'RuleForwardArgsDict',
     'RuleHeaderMatchTypeArgs',
+    'RuleHeaderMatchTypeArgsDict',
     'RuleHeaderMatchArgs',
+    'RuleHeaderMatchArgsDict',
     'RuleHttpMatchArgs',
+    'RuleHttpMatchArgsDict',
     'RuleMatchArgs',
+    'RuleMatchArgsDict',
     'RulePathMatchTypeArgs',
+    'RulePathMatchTypeArgsDict',
     'RulePathMatchArgs',
+    'RulePathMatchArgsDict',
     'RuleWeightedTargetGroupArgs',
+    'RuleWeightedTargetGroupArgsDict',
     'ServiceDnsEntryArgs',
+    'ServiceDnsEntryArgsDict',
     'ServiceNetworkServiceAssociationDnsEntryArgs',
+    'ServiceNetworkServiceAssociationDnsEntryArgsDict',
     'TargetGroupConfigArgs',
+    'TargetGroupConfigArgsDict',
     'TargetGroupHealthCheckConfigArgs',
+    'TargetGroupHealthCheckConfigArgsDict',
     'TargetGroupMatcherArgs',
+    'TargetGroupMatcherArgsDict',
     'TargetGroupTargetArgs',
+    'TargetGroupTargetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ListenerDefaultActionArgsDict(TypedDict):
+        fixed_response: NotRequired[pulumi.Input['ListenerFixedResponseArgsDict']]
+        """
+        Describes an action that returns a custom HTTP response.
+        """
+        forward: NotRequired[pulumi.Input['ListenerForwardArgsDict']]
+        """
+        Describes a forward action. You can use forward actions to route requests to one or more target groups.
+        """
+elif False:
+    ListenerDefaultActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ListenerDefaultActionArgs:
@@ -72,6 +112,15 @@ class ListenerDefaultActionArgs:
         pulumi.set(self, "forward", value)
 
 
+if not MYPY:
+    class ListenerFixedResponseArgsDict(TypedDict):
+        status_code: pulumi.Input[int]
+        """
+        The HTTP response code.
+        """
+elif False:
+    ListenerFixedResponseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ListenerFixedResponseArgs:
     def __init__(__self__, *,
@@ -93,6 +142,17 @@ class ListenerFixedResponseArgs:
     def status_code(self, value: pulumi.Input[int]):
         pulumi.set(self, "status_code", value)
 
+
+if not MYPY:
+    class ListenerForwardArgsDict(TypedDict):
+        target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerWeightedTargetGroupArgsDict']]]
+        """
+        The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+
+        The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of the traffic goes to that target group.
+        """
+elif False:
+    ListenerForwardArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ListenerForwardArgs:
@@ -119,6 +179,19 @@ class ListenerForwardArgs:
     def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerWeightedTargetGroupArgs']]]):
         pulumi.set(self, "target_groups", value)
 
+
+if not MYPY:
+    class ListenerWeightedTargetGroupArgsDict(TypedDict):
+        target_group_identifier: pulumi.Input[str]
+        """
+        The ID of the target group.
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.
+        """
+elif False:
+    ListenerWeightedTargetGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ListenerWeightedTargetGroupArgs:
@@ -157,6 +230,19 @@ class ListenerWeightedTargetGroupArgs:
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
+
+if not MYPY:
+    class RuleActionArgsDict(TypedDict):
+        fixed_response: NotRequired[pulumi.Input['RuleFixedResponseArgsDict']]
+        """
+        The fixed response action. The rule returns a custom HTTP response.
+        """
+        forward: NotRequired[pulumi.Input['RuleForwardArgsDict']]
+        """
+        The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        """
+elif False:
+    RuleActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleActionArgs:
@@ -197,6 +283,15 @@ class RuleActionArgs:
         pulumi.set(self, "forward", value)
 
 
+if not MYPY:
+    class RuleFixedResponseArgsDict(TypedDict):
+        status_code: pulumi.Input[int]
+        """
+        The HTTP response code.
+        """
+elif False:
+    RuleFixedResponseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleFixedResponseArgs:
     def __init__(__self__, *,
@@ -218,6 +313,17 @@ class RuleFixedResponseArgs:
     def status_code(self, value: pulumi.Input[int]):
         pulumi.set(self, "status_code", value)
 
+
+if not MYPY:
+    class RuleForwardArgsDict(TypedDict):
+        target_groups: pulumi.Input[Sequence[pulumi.Input['RuleWeightedTargetGroupArgsDict']]]
+        """
+        The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+
+        The default value is 1. This means that if only one target group is provided, there is no need to set the weight; 100% of the traffic goes to that target group.
+        """
+elif False:
+    RuleForwardArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleForwardArgs:
@@ -244,6 +350,23 @@ class RuleForwardArgs:
     def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['RuleWeightedTargetGroupArgs']]]):
         pulumi.set(self, "target_groups", value)
 
+
+if not MYPY:
+    class RuleHeaderMatchTypeArgsDict(TypedDict):
+        contains: NotRequired[pulumi.Input[str]]
+        """
+        A contains type match.
+        """
+        exact: NotRequired[pulumi.Input[str]]
+        """
+        An exact type match.
+        """
+        prefix: NotRequired[pulumi.Input[str]]
+        """
+        A prefix type match. Matches the value with the prefix.
+        """
+elif False:
+    RuleHeaderMatchTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleHeaderMatchTypeArgs:
@@ -300,6 +423,23 @@ class RuleHeaderMatchTypeArgs:
         pulumi.set(self, "prefix", value)
 
 
+if not MYPY:
+    class RuleHeaderMatchArgsDict(TypedDict):
+        match: pulumi.Input['RuleHeaderMatchTypeArgsDict']
+        """
+        The header match type.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the header.
+        """
+        case_sensitive: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the match is case sensitive.
+        """
+elif False:
+    RuleHeaderMatchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleHeaderMatchArgs:
     def __init__(__self__, *,
@@ -352,6 +492,23 @@ class RuleHeaderMatchArgs:
     def case_sensitive(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "case_sensitive", value)
 
+
+if not MYPY:
+    class RuleHttpMatchArgsDict(TypedDict):
+        header_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleHeaderMatchArgsDict']]]]
+        """
+        The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        """
+        method: NotRequired[pulumi.Input['RuleHttpMatchMethod']]
+        """
+        The HTTP method type.
+        """
+        path_match: NotRequired[pulumi.Input['RulePathMatchArgsDict']]
+        """
+        The path match.
+        """
+elif False:
+    RuleHttpMatchArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleHttpMatchArgs:
@@ -408,6 +565,15 @@ class RuleHttpMatchArgs:
         pulumi.set(self, "path_match", value)
 
 
+if not MYPY:
+    class RuleMatchArgsDict(TypedDict):
+        http_match: pulumi.Input['RuleHttpMatchArgsDict']
+        """
+        The HTTP criteria that a rule must match.
+        """
+elif False:
+    RuleMatchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleMatchArgs:
     def __init__(__self__, *,
@@ -429,6 +595,19 @@ class RuleMatchArgs:
     def http_match(self, value: pulumi.Input['RuleHttpMatchArgs']):
         pulumi.set(self, "http_match", value)
 
+
+if not MYPY:
+    class RulePathMatchTypeArgsDict(TypedDict):
+        exact: NotRequired[pulumi.Input[str]]
+        """
+        An exact match of the path.
+        """
+        prefix: NotRequired[pulumi.Input[str]]
+        """
+        A prefix match of the path.
+        """
+elif False:
+    RulePathMatchTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RulePathMatchTypeArgs:
@@ -469,6 +648,19 @@ class RulePathMatchTypeArgs:
         pulumi.set(self, "prefix", value)
 
 
+if not MYPY:
+    class RulePathMatchArgsDict(TypedDict):
+        match: pulumi.Input['RulePathMatchTypeArgsDict']
+        """
+        The type of path match.
+        """
+        case_sensitive: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the match is case sensitive.
+        """
+elif False:
+    RulePathMatchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RulePathMatchArgs:
     def __init__(__self__, *,
@@ -507,6 +699,19 @@ class RulePathMatchArgs:
         pulumi.set(self, "case_sensitive", value)
 
 
+if not MYPY:
+    class RuleWeightedTargetGroupArgsDict(TypedDict):
+        target_group_identifier: pulumi.Input[str]
+        """
+        The ID of the target group.
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.
+        """
+elif False:
+    RuleWeightedTargetGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleWeightedTargetGroupArgs:
     def __init__(__self__, *,
@@ -544,6 +749,19 @@ class RuleWeightedTargetGroupArgs:
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
+
+if not MYPY:
+    class ServiceDnsEntryArgsDict(TypedDict):
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        The domain name of the service.
+        """
+        hosted_zone_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the hosted zone.
+        """
+elif False:
+    ServiceDnsEntryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceDnsEntryArgs:
@@ -584,6 +802,19 @@ class ServiceDnsEntryArgs:
         pulumi.set(self, "hosted_zone_id", value)
 
 
+if not MYPY:
+    class ServiceNetworkServiceAssociationDnsEntryArgsDict(TypedDict):
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        The domain name of the service.
+        """
+        hosted_zone_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the hosted zone.
+        """
+elif False:
+    ServiceNetworkServiceAssociationDnsEntryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceNetworkServiceAssociationDnsEntryArgs:
     def __init__(__self__, *,
@@ -622,6 +853,39 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
     def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hosted_zone_id", value)
 
+
+if not MYPY:
+    class TargetGroupConfigArgsDict(TypedDict):
+        health_check: NotRequired[pulumi.Input['TargetGroupHealthCheckConfigArgsDict']]
+        """
+        The health check configuration. Not supported if the target group type is `LAMBDA` or `ALB` .
+        """
+        ip_address_type: NotRequired[pulumi.Input['TargetGroupConfigIpAddressType']]
+        """
+        The type of IP address used for the target group. Supported only if the target group type is `IP` . The default is `IPV4` .
+        """
+        lambda_event_structure_version: NotRequired[pulumi.Input['TargetGroupConfigLambdaEventStructureVersion']]
+        """
+        The version of the event structure that your Lambda function receives. Supported only if the target group type is `LAMBDA` . The default is `V1` .
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the targets are listening. For HTTP, the default is 80. For HTTPS, the default is 443. Not supported if the target group type is `LAMBDA` .
+        """
+        protocol: NotRequired[pulumi.Input['TargetGroupConfigProtocol']]
+        """
+        The protocol to use for routing traffic to the targets. The default is the protocol of the target group. Not supported if the target group type is `LAMBDA` .
+        """
+        protocol_version: NotRequired[pulumi.Input['TargetGroupConfigProtocolVersion']]
+        """
+        The protocol version. The default is `HTTP1` . Not supported if the target group type is `LAMBDA` .
+        """
+        vpc_identifier: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the VPC. Not supported if the target group type is `LAMBDA` .
+        """
+elif False:
+    TargetGroupConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetGroupConfigArgs:
@@ -741,6 +1005,51 @@ class TargetGroupConfigArgs:
     def vpc_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_identifier", value)
 
+
+if not MYPY:
+    class TargetGroupHealthCheckConfigArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether health checking is enabled.
+        """
+        health_check_interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+        """
+        health_check_timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
+        """
+        healthy_threshold_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+        """
+        matcher: NotRequired[pulumi.Input['TargetGroupMatcherArgsDict']]
+        """
+        The codes to use when checking for a successful response from a target.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The destination for health checks on the targets. If the protocol version is `HTTP/1.1` or `HTTP/2` , specify a valid URI (for example, `/path?query` ). The default path is `/` . Health checks are not supported if the protocol version is `gRPC` , however, you can choose `HTTP/1.1` or `HTTP/2` and specify a valid URI.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+        """
+        protocol: NotRequired[pulumi.Input['TargetGroupHealthCheckConfigProtocol']]
+        """
+        The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS` . The default is `HTTP` .
+        """
+        protocol_version: NotRequired[pulumi.Input['TargetGroupHealthCheckConfigProtocolVersion']]
+        """
+        The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2` .
+        """
+        unhealthy_threshold_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+        """
+elif False:
+    TargetGroupHealthCheckConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetGroupHealthCheckConfigArgs:
@@ -909,6 +1218,15 @@ class TargetGroupHealthCheckConfigArgs:
         pulumi.set(self, "unhealthy_threshold_count", value)
 
 
+if not MYPY:
+    class TargetGroupMatcherArgsDict(TypedDict):
+        http_code: pulumi.Input[str]
+        """
+        The HTTP code to use when checking for a successful response from a target.
+        """
+elif False:
+    TargetGroupMatcherArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TargetGroupMatcherArgs:
     def __init__(__self__, *,
@@ -930,6 +1248,19 @@ class TargetGroupMatcherArgs:
     def http_code(self, value: pulumi.Input[str]):
         pulumi.set(self, "http_code", value)
 
+
+if not MYPY:
+    class TargetGroupTargetArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the target. If the target group type is `INSTANCE` , this is an instance ID. If the target group type is `IP` , this is an IP address. If the target group type is `LAMBDA` , this is the ARN of a Lambda function. If the target group type is `ALB` , this is the ARN of an Application Load Balancer.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
+elif False:
+    TargetGroupTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TargetGroupTargetArgs:

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Deadline::Queue Resource Type
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:deadline:getQueue", {
         "arn": args.arn,
@@ -77,7 +76,10 @@ export interface GetQueueResult {
  * Definition of AWS::Deadline::Queue Resource Type
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
-    return pulumi.output(args).apply((a: any) => getQueue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:deadline:getQueue", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetQueueOutputArgs {

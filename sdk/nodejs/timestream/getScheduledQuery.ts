@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
  */
 export function getScheduledQuery(args: GetScheduledQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:timestream:getScheduledQuery", {
         "arn": args.arn,
@@ -71,7 +70,10 @@ export interface GetScheduledQueryResult {
  * The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
  */
 export function getScheduledQueryOutput(args: GetScheduledQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryResult> {
-    return pulumi.output(args).apply((a: any) => getScheduledQuery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:timestream:getScheduledQuery", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetScheduledQueryOutputArgs {

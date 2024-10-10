@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -102,9 +107,6 @@ def get_component_version(arn: Optional[str] = None,
         component_name=pulumi.get(__ret__, 'component_name'),
         component_version=pulumi.get(__ret__, 'component_version'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_component_version)
 def get_component_version_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentVersionResult]:
     """
@@ -113,4 +115,12 @@ def get_component_version_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the component version.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:greengrassv2:getComponentVersion', __args__, opts=opts, typ=GetComponentVersionResult)
+    return __ret__.apply(lambda __response__: GetComponentVersionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        component_name=pulumi.get(__response__, 'component_name'),
+        component_version=pulumi.get(__response__, 'component_version'),
+        tags=pulumi.get(__response__, 'tags')))

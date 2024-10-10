@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTTwinMaker::Scene
  */
 export function getScene(args: GetSceneArgs, opts?: pulumi.InvokeOptions): Promise<GetSceneResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iottwinmaker:getScene", {
         "sceneId": args.sceneId,
@@ -69,7 +68,11 @@ export interface GetSceneResult {
  * Resource schema for AWS::IoTTwinMaker::Scene
  */
 export function getSceneOutput(args: GetSceneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSceneResult> {
-    return pulumi.output(args).apply((a: any) => getScene(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iottwinmaker:getScene", {
+        "sceneId": args.sceneId,
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetSceneOutputArgs {

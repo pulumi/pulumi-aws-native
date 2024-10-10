@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -73,9 +78,6 @@ def get_vpn_connection(vpn_connection_id: Optional[str] = None,
     return AwaitableGetVpnConnectionResult(
         tags=pulumi.get(__ret__, 'tags'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
-
-
-@_utilities.lift_output_func(get_vpn_connection)
 def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
@@ -87,4 +89,10 @@ def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[str]] = N
 
     :param str vpn_connection_id: The ID of the VPN connection.
     """
-    ...
+    __args__ = dict()
+    __args__['vpnConnectionId'] = vpn_connection_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult)
+    return __ret__.apply(lambda __response__: GetVpnConnectionResult(
+        tags=pulumi.get(__response__, 'tags'),
+        vpn_connection_id=pulumi.get(__response__, 'vpn_connection_id')))

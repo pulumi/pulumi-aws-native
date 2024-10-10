@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:internetmonitor:getMonitor", {
         "monitorName": args.monitorName,
@@ -93,7 +92,10 @@ export interface GetMonitorResult {
  * Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:internetmonitor:getMonitor", {
+        "monitorName": args.monitorName,
+    }, opts);
 }
 
 export interface GetMonitorOutputArgs {

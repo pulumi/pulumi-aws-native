@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:acmpca:getCertificate", {
         "arn": args.arn,
@@ -41,7 +40,11 @@ export interface GetCertificateResult {
  * The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:acmpca:getCertificate", {
+        "arn": args.arn,
+        "certificateAuthorityArn": args.certificateAuthorityArn,
+    }, opts);
 }
 
 export interface GetCertificateOutputArgs {

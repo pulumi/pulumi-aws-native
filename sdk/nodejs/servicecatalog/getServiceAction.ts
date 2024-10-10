@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Schema for AWS::ServiceCatalog::ServiceAction
  */
 export function getServiceAction(args: GetServiceActionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceActionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getServiceAction", {
         "id": args.id,
@@ -51,7 +50,10 @@ export interface GetServiceActionResult {
  * Resource Schema for AWS::ServiceCatalog::ServiceAction
  */
 export function getServiceActionOutput(args: GetServiceActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceActionResult> {
-    return pulumi.output(args).apply((a: any) => getServiceAction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:servicecatalog:getServiceAction", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetServiceActionOutputArgs {

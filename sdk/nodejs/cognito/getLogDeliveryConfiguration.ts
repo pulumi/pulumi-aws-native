@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
  */
 export function getLogDeliveryConfiguration(args: GetLogDeliveryConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getLogDeliveryConfiguration", {
         "id": args.id,
@@ -39,7 +38,10 @@ export interface GetLogDeliveryConfigurationResult {
  * Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
  */
 export function getLogDeliveryConfigurationOutput(args: GetLogDeliveryConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDeliveryConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getLogDeliveryConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cognito:getLogDeliveryConfiguration", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetLogDeliveryConfigurationOutputArgs {

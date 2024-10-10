@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -112,9 +117,6 @@ def get_permission(arn: Optional[str] = None,
         permission_type=pulumi.get(__ret__, 'permission_type'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_permission)
 def get_permission_output(arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionResult]:
     """
@@ -123,4 +125,13 @@ def get_permission_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the new permission.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ram:getPermission', __args__, opts=opts, typ=GetPermissionResult)
+    return __ret__.apply(lambda __response__: GetPermissionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        is_resource_type_default=pulumi.get(__response__, 'is_resource_type_default'),
+        permission_type=pulumi.get(__response__, 'permission_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

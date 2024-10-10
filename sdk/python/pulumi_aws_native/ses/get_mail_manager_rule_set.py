@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -111,9 +116,6 @@ def get_mail_manager_rule_set(rule_set_id: Optional[str] = None,
         rule_set_name=pulumi.get(__ret__, 'rule_set_name'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_mail_manager_rule_set)
 def get_mail_manager_rule_set_output(rule_set_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerRuleSetResult]:
     """
@@ -122,4 +124,13 @@ def get_mail_manager_rule_set_output(rule_set_id: Optional[pulumi.Input[str]] = 
 
     :param str rule_set_id: The identifier of the rule set.
     """
-    ...
+    __args__ = dict()
+    __args__['ruleSetId'] = rule_set_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerRuleSet', __args__, opts=opts, typ=GetMailManagerRuleSetResult)
+    return __ret__.apply(lambda __response__: GetMailManagerRuleSetResult(
+        rule_set_arn=pulumi.get(__response__, 'rule_set_arn'),
+        rule_set_id=pulumi.get(__response__, 'rule_set_id'),
+        rule_set_name=pulumi.get(__response__, 'rule_set_name'),
+        rules=pulumi.get(__response__, 'rules'),
+        tags=pulumi.get(__response__, 'tags')))

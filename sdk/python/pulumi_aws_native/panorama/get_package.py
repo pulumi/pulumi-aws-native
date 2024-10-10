@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -110,9 +115,6 @@ def get_package(package_id: Optional[str] = None,
         package_id=pulumi.get(__ret__, 'package_id'),
         storage_location=pulumi.get(__ret__, 'storage_location'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_package)
 def get_package_output(package_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
     """
@@ -121,4 +123,13 @@ def get_package_output(package_id: Optional[pulumi.Input[str]] = None,
 
     :param str package_id: The package's ID.
     """
-    ...
+    __args__ = dict()
+    __args__['packageId'] = package_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:panorama:getPackage', __args__, opts=opts, typ=GetPackageResult)
+    return __ret__.apply(lambda __response__: GetPackageResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        package_id=pulumi.get(__response__, 'package_id'),
+        storage_location=pulumi.get(__response__, 'storage_location'),
+        tags=pulumi.get(__response__, 'tags')))

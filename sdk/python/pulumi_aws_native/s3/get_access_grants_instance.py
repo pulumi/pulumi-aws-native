@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -82,9 +87,6 @@ def get_access_grants_instance(access_grants_instance_arn: Optional[str] = None,
         access_grants_instance_arn=pulumi.get(__ret__, 'access_grants_instance_arn'),
         access_grants_instance_id=pulumi.get(__ret__, 'access_grants_instance_id'),
         identity_center_arn=pulumi.get(__ret__, 'identity_center_arn'))
-
-
-@_utilities.lift_output_func(get_access_grants_instance)
 def get_access_grants_instance_output(access_grants_instance_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessGrantsInstanceResult]:
     """
@@ -93,4 +95,11 @@ def get_access_grants_instance_output(access_grants_instance_arn: Optional[pulum
 
     :param str access_grants_instance_arn: The Amazon Resource Name (ARN) of the specified Access Grants instance.
     """
-    ...
+    __args__ = dict()
+    __args__['accessGrantsInstanceArn'] = access_grants_instance_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getAccessGrantsInstance', __args__, opts=opts, typ=GetAccessGrantsInstanceResult)
+    return __ret__.apply(lambda __response__: GetAccessGrantsInstanceResult(
+        access_grants_instance_arn=pulumi.get(__response__, 'access_grants_instance_arn'),
+        access_grants_instance_id=pulumi.get(__response__, 'access_grants_instance_id'),
+        identity_center_arn=pulumi.get(__response__, 'identity_center_arn')))

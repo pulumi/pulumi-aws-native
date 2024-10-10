@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *  This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
  */
 export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getPermission", {
         "functionName": args.functionName,
@@ -43,7 +42,11 @@ export interface GetPermissionResult {
  *  This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
  */
 export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
-    return pulumi.output(args).apply((a: any) => getPermission(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lambda:getPermission", {
+        "functionName": args.functionName,
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetPermissionOutputArgs {

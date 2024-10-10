@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -82,9 +87,6 @@ def get_build(build_id: Optional[str] = None,
         build_id=pulumi.get(__ret__, 'build_id'),
         name=pulumi.get(__ret__, 'name'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_build)
 def get_build_output(build_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildResult]:
     """
@@ -93,4 +95,11 @@ def get_build_output(build_id: Optional[pulumi.Input[str]] = None,
 
     :param str build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
     """
-    ...
+    __args__ = dict()
+    __args__['buildId'] = build_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getBuild', __args__, opts=opts, typ=GetBuildResult)
+    return __ret__.apply(lambda __response__: GetBuildResult(
+        build_id=pulumi.get(__response__, 'build_id'),
+        name=pulumi.get(__response__, 'name'),
+        version=pulumi.get(__response__, 'version')))

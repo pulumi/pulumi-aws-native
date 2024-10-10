@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::SecurityProfile
  */
 export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getSecurityProfile", {
         "securityProfileArn": args.securityProfileArn,
@@ -75,7 +74,10 @@ export interface GetSecurityProfileResult {
  * Resource Type definition for AWS::Connect::SecurityProfile
  */
 export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityProfileResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getSecurityProfile", {
+        "securityProfileArn": args.securityProfileArn,
+    }, opts);
 }
 
 export interface GetSecurityProfileOutputArgs {

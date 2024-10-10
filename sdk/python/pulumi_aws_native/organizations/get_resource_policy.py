@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -98,9 +103,6 @@ def get_resource_policy(id: Optional[str] = None,
         content=pulumi.get(__ret__, 'content'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_resource_policy)
 def get_resource_policy_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
@@ -109,4 +111,12 @@ def get_resource_policy_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The unique identifier (ID) associated with this resource policy.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:organizations:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult)
+    return __ret__.apply(lambda __response__: GetResourcePolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        content=pulumi.get(__response__, 'content'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))

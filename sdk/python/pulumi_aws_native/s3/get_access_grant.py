@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -149,9 +154,6 @@ def get_access_grant(access_grant_id: Optional[str] = None,
         grant_scope=pulumi.get(__ret__, 'grant_scope'),
         grantee=pulumi.get(__ret__, 'grantee'),
         permission=pulumi.get(__ret__, 'permission'))
-
-
-@_utilities.lift_output_func(get_access_grant)
 def get_access_grant_output(access_grant_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessGrantResult]:
     """
@@ -160,4 +162,16 @@ def get_access_grant_output(access_grant_id: Optional[pulumi.Input[str]] = None,
 
     :param str access_grant_id: The ID assigned to this access grant.
     """
-    ...
+    __args__ = dict()
+    __args__['accessGrantId'] = access_grant_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getAccessGrant', __args__, opts=opts, typ=GetAccessGrantResult)
+    return __ret__.apply(lambda __response__: GetAccessGrantResult(
+        access_grant_arn=pulumi.get(__response__, 'access_grant_arn'),
+        access_grant_id=pulumi.get(__response__, 'access_grant_id'),
+        access_grants_location_configuration=pulumi.get(__response__, 'access_grants_location_configuration'),
+        access_grants_location_id=pulumi.get(__response__, 'access_grants_location_id'),
+        application_arn=pulumi.get(__response__, 'application_arn'),
+        grant_scope=pulumi.get(__response__, 'grant_scope'),
+        grantee=pulumi.get(__response__, 'grantee'),
+        permission=pulumi.get(__response__, 'permission')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -254,9 +259,6 @@ def get_ipam_pool(ipam_pool_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_message=pulumi.get(__ret__, 'state_message'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_ipam_pool)
 def get_ipam_pool_output(ipam_pool_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPoolResult]:
     """
@@ -265,4 +267,24 @@ def get_ipam_pool_output(ipam_pool_id: Optional[pulumi.Input[str]] = None,
 
     :param str ipam_pool_id: Id of the IPAM Pool.
     """
-    ...
+    __args__ = dict()
+    __args__['ipamPoolId'] = ipam_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpamPool', __args__, opts=opts, typ=GetIpamPoolResult)
+    return __ret__.apply(lambda __response__: GetIpamPoolResult(
+        allocation_default_netmask_length=pulumi.get(__response__, 'allocation_default_netmask_length'),
+        allocation_max_netmask_length=pulumi.get(__response__, 'allocation_max_netmask_length'),
+        allocation_min_netmask_length=pulumi.get(__response__, 'allocation_min_netmask_length'),
+        allocation_resource_tags=pulumi.get(__response__, 'allocation_resource_tags'),
+        arn=pulumi.get(__response__, 'arn'),
+        auto_import=pulumi.get(__response__, 'auto_import'),
+        description=pulumi.get(__response__, 'description'),
+        ipam_arn=pulumi.get(__response__, 'ipam_arn'),
+        ipam_pool_id=pulumi.get(__response__, 'ipam_pool_id'),
+        ipam_scope_arn=pulumi.get(__response__, 'ipam_scope_arn'),
+        ipam_scope_type=pulumi.get(__response__, 'ipam_scope_type'),
+        pool_depth=pulumi.get(__response__, 'pool_depth'),
+        provisioned_cidrs=pulumi.get(__response__, 'provisioned_cidrs'),
+        state=pulumi.get(__response__, 'state'),
+        state_message=pulumi.get(__response__, 'state_message'),
+        tags=pulumi.get(__response__, 'tags')))

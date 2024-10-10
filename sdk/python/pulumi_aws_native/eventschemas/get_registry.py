@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -83,9 +88,6 @@ def get_registry(registry_arn: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         registry_arn=pulumi.get(__ret__, 'registry_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_registry)
 def get_registry_output(registry_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
     """
@@ -94,4 +96,11 @@ def get_registry_output(registry_arn: Optional[pulumi.Input[str]] = None,
 
     :param str registry_arn: The ARN of the registry.
     """
-    ...
+    __args__ = dict()
+    __args__['registryArn'] = registry_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:eventschemas:getRegistry', __args__, opts=opts, typ=GetRegistryResult)
+    return __ret__.apply(lambda __response__: GetRegistryResult(
+        description=pulumi.get(__response__, 'description'),
+        registry_arn=pulumi.get(__response__, 'registry_arn'),
+        tags=pulumi.get(__response__, 'tags')))

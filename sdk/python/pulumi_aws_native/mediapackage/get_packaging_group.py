@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -96,9 +101,6 @@ def get_packaging_group(id: Optional[str] = None,
         authorization=pulumi.get(__ret__, 'authorization'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         egress_access_logs=pulumi.get(__ret__, 'egress_access_logs'))
-
-
-@_utilities.lift_output_func(get_packaging_group)
 def get_packaging_group_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackagingGroupResult]:
     """
@@ -107,4 +109,12 @@ def get_packaging_group_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the PackagingGroup.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackage:getPackagingGroup', __args__, opts=opts, typ=GetPackagingGroupResult)
+    return __ret__.apply(lambda __response__: GetPackagingGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        authorization=pulumi.get(__response__, 'authorization'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        egress_access_logs=pulumi.get(__response__, 'egress_access_logs')))

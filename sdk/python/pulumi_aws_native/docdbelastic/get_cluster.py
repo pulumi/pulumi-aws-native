@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -189,12 +194,24 @@ def get_cluster(cluster_arn: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     The AWS::DocDBElastic::Cluster Amazon DocumentDB (with MongoDB compatibility) Elastic Scale resource describes a Cluster
     """
-    ...
+    __args__ = dict()
+    __args__['clusterArn'] = cluster_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:docdbelastic:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
+        cluster_arn=pulumi.get(__response__, 'cluster_arn'),
+        cluster_endpoint=pulumi.get(__response__, 'cluster_endpoint'),
+        preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        shard_capacity=pulumi.get(__response__, 'shard_capacity'),
+        shard_count=pulumi.get(__response__, 'shard_count'),
+        shard_instance_count=pulumi.get(__response__, 'shard_instance_count'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

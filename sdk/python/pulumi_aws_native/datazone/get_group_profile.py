@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -99,9 +104,6 @@ def get_group_profile(domain_id: Optional[str] = None,
         group_name=pulumi.get(__ret__, 'group_name'),
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_group_profile)
 def get_group_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
                              id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupProfileResult]:
@@ -112,4 +114,13 @@ def get_group_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
     :param str domain_id: The identifier of the Amazon DataZone domain in which the group profile is created.
     :param str id: The ID of the Amazon DataZone group profile.
     """
-    ...
+    __args__ = dict()
+    __args__['domainId'] = domain_id
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getGroupProfile', __args__, opts=opts, typ=GetGroupProfileResult)
+    return __ret__.apply(lambda __response__: GetGroupProfileResult(
+        domain_id=pulumi.get(__response__, 'domain_id'),
+        group_name=pulumi.get(__response__, 'group_name'),
+        id=pulumi.get(__response__, 'id'),
+        status=pulumi.get(__response__, 'status')))

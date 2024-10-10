@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -97,9 +102,6 @@ def get_dataset(name: Optional[str] = None,
         format_options=pulumi.get(__ret__, 'format_options'),
         input=pulumi.get(__ret__, 'input'),
         path_options=pulumi.get(__ret__, 'path_options'))
-
-
-@_utilities.lift_output_func(get_dataset)
 def get_dataset_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
@@ -108,4 +110,12 @@ def get_dataset_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Dataset name
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getDataset', __args__, opts=opts, typ=GetDatasetResult)
+    return __ret__.apply(lambda __response__: GetDatasetResult(
+        format=pulumi.get(__response__, 'format'),
+        format_options=pulumi.get(__response__, 'format_options'),
+        input=pulumi.get(__response__, 'input'),
+        path_options=pulumi.get(__response__, 'path_options')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Create and manage wireless gateways, including LoRa gateways.
  */
 export function getWirelessGateway(args: GetWirelessGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetWirelessGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getWirelessGateway", {
         "id": args.id,
@@ -67,7 +66,10 @@ export interface GetWirelessGatewayResult {
  * Create and manage wireless gateways, including LoRa gateways.
  */
 export function getWirelessGatewayOutput(args: GetWirelessGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWirelessGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getWirelessGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iotwireless:getWirelessGateway", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetWirelessGatewayOutputArgs {

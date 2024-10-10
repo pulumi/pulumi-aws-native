@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -110,9 +115,6 @@ def get_project(project_arn: Optional[str] = None,
         project_id=pulumi.get(__ret__, 'project_id'),
         project_status=pulumi.get(__ret__, 'project_status'),
         service_catalog_provisioned_product_details=pulumi.get(__ret__, 'service_catalog_provisioned_product_details'))
-
-
-@_utilities.lift_output_func(get_project)
 def get_project_output(project_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
@@ -121,4 +123,13 @@ def get_project_output(project_arn: Optional[pulumi.Input[str]] = None,
 
     :param str project_arn: The Amazon Resource Name (ARN) of the project.
     """
-    ...
+    __args__ = dict()
+    __args__['projectArn'] = project_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getProject', __args__, opts=opts, typ=GetProjectResult)
+    return __ret__.apply(lambda __response__: GetProjectResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        project_arn=pulumi.get(__response__, 'project_arn'),
+        project_id=pulumi.get(__response__, 'project_id'),
+        project_status=pulumi.get(__response__, 'project_status'),
+        service_catalog_provisioned_product_details=pulumi.get(__response__, 'service_catalog_provisioned_product_details')))

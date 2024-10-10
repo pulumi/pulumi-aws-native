@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codepipeline:getPipeline", {
         "name": args.name,
@@ -75,7 +74,10 @@ export interface GetPipelineResult {
  * The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:codepipeline:getPipeline", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetPipelineOutputArgs {

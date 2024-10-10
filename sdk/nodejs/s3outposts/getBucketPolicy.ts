@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS::S3Outposts::BucketPolicy
  */
 export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3outposts:getBucketPolicy", {
         "bucket": args.bucket,
@@ -34,7 +33,10 @@ export interface GetBucketPolicyResult {
  * Resource Type Definition for AWS::S3Outposts::BucketPolicy
  */
 export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getBucketPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:s3outposts:getBucketPolicy", {
+        "bucket": args.bucket,
+    }, opts);
 }
 
 export interface GetBucketPolicyOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_studio_lifecycle_config(studio_lifecycle_config_name: Optional[str] = No
 
     return AwaitableGetStudioLifecycleConfigResult(
         studio_lifecycle_config_arn=pulumi.get(__ret__, 'studio_lifecycle_config_arn'))
-
-
-@_utilities.lift_output_func(get_studio_lifecycle_config)
 def get_studio_lifecycle_config_output(studio_lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioLifecycleConfigResult]:
     """
@@ -67,4 +69,9 @@ def get_studio_lifecycle_config_output(studio_lifecycle_config_name: Optional[pu
 
     :param str studio_lifecycle_config_name: The name of the Amazon SageMaker Studio Lifecycle Configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['studioLifecycleConfigName'] = studio_lifecycle_config_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getStudioLifecycleConfig', __args__, opts=opts, typ=GetStudioLifecycleConfigResult)
+    return __ret__.apply(lambda __response__: GetStudioLifecycleConfigResult(
+        studio_lifecycle_config_arn=pulumi.get(__response__, 'studio_lifecycle_config_arn')))

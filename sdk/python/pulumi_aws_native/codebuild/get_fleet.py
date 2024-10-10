@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -219,9 +224,6 @@ def get_fleet(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         overflow_behavior=pulumi.get(__ret__, 'overflow_behavior'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_fleet)
 def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
@@ -230,4 +232,18 @@ def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the compute fleet.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:codebuild:getFleet', __args__, opts=opts, typ=GetFleetResult)
+    return __ret__.apply(lambda __response__: GetFleetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        base_capacity=pulumi.get(__response__, 'base_capacity'),
+        compute_type=pulumi.get(__response__, 'compute_type'),
+        environment_type=pulumi.get(__response__, 'environment_type'),
+        fleet_service_role=pulumi.get(__response__, 'fleet_service_role'),
+        fleet_vpc_config=pulumi.get(__response__, 'fleet_vpc_config'),
+        image_id=pulumi.get(__response__, 'image_id'),
+        name=pulumi.get(__response__, 'name'),
+        overflow_behavior=pulumi.get(__response__, 'overflow_behavior'),
+        tags=pulumi.get(__response__, 'tags')))

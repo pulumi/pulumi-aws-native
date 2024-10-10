@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -167,9 +172,6 @@ def get_assessment(assessment_id: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_assessment)
 def get_assessment_output(assessment_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
     """
@@ -178,4 +180,17 @@ def get_assessment_output(assessment_id: Optional[pulumi.Input[str]] = None,
 
     :param str assessment_id: The unique identifier for the assessment.
     """
-    ...
+    __args__ = dict()
+    __args__['assessmentId'] = assessment_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:auditmanager:getAssessment', __args__, opts=opts, typ=GetAssessmentResult)
+    return __ret__.apply(lambda __response__: GetAssessmentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        assessment_id=pulumi.get(__response__, 'assessment_id'),
+        assessment_reports_destination=pulumi.get(__response__, 'assessment_reports_destination'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        delegations=pulumi.get(__response__, 'delegations'),
+        roles=pulumi.get(__response__, 'roles'),
+        scope=pulumi.get(__response__, 'scope'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

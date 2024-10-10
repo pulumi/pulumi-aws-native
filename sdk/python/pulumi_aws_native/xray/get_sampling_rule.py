@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -114,9 +119,6 @@ def get_sampling_rule(rule_arn: Optional[str] = None,
         sampling_rule_record=pulumi.get(__ret__, 'sampling_rule_record'),
         sampling_rule_update=pulumi.get(__ret__, 'sampling_rule_update'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_sampling_rule)
 def get_sampling_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamplingRuleResult]:
     """
@@ -125,4 +127,14 @@ def get_sampling_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
 
     :param str rule_arn: The sampling rule ARN that was created or updated.
     """
-    ...
+    __args__ = dict()
+    __args__['ruleArn'] = rule_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:xray:getSamplingRule', __args__, opts=opts, typ=GetSamplingRuleResult)
+    return __ret__.apply(lambda __response__: GetSamplingRuleResult(
+        rule_arn=pulumi.get(__response__, 'rule_arn'),
+        rule_name=pulumi.get(__response__, 'rule_name'),
+        sampling_rule=pulumi.get(__response__, 'sampling_rule'),
+        sampling_rule_record=pulumi.get(__response__, 'sampling_rule_record'),
+        sampling_rule_update=pulumi.get(__response__, 'sampling_rule_update'),
+        tags=pulumi.get(__response__, 'tags')))

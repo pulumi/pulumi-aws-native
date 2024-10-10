@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -136,9 +141,6 @@ def get_verified_access_trust_provider(verified_access_trust_provider_id: Option
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
         tags=pulumi.get(__ret__, 'tags'),
         verified_access_trust_provider_id=pulumi.get(__ret__, 'verified_access_trust_provider_id'))
-
-
-@_utilities.lift_output_func(get_verified_access_trust_provider)
 def get_verified_access_trust_provider_output(verified_access_trust_provider_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVerifiedAccessTrustProviderResult]:
     """
@@ -147,4 +149,15 @@ def get_verified_access_trust_provider_output(verified_access_trust_provider_id:
 
     :param str verified_access_trust_provider_id: The ID of the Amazon Web Services Verified Access trust provider.
     """
-    ...
+    __args__ = dict()
+    __args__['verifiedAccessTrustProviderId'] = verified_access_trust_provider_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVerifiedAccessTrustProvider', __args__, opts=opts, typ=GetVerifiedAccessTrustProviderResult)
+    return __ret__.apply(lambda __response__: GetVerifiedAccessTrustProviderResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        description=pulumi.get(__response__, 'description'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        oidc_options=pulumi.get(__response__, 'oidc_options'),
+        sse_specification=pulumi.get(__response__, 'sse_specification'),
+        tags=pulumi.get(__response__, 'tags'),
+        verified_access_trust_provider_id=pulumi.get(__response__, 'verified_access_trust_provider_id')))

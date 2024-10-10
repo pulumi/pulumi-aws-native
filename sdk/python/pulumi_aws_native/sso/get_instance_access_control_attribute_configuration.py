@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -70,9 +75,6 @@ def get_instance_access_control_attribute_configuration(instance_arn: Optional[s
     return AwaitableGetInstanceAccessControlAttributeConfigurationResult(
         access_control_attributes=pulumi.get(__ret__, 'access_control_attributes'),
         instance_access_control_attribute_configuration=pulumi.get(__ret__, 'instance_access_control_attribute_configuration'))
-
-
-@_utilities.lift_output_func(get_instance_access_control_attribute_configuration)
 def get_instance_access_control_attribute_configuration_output(instance_arn: Optional[pulumi.Input[str]] = None,
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceAccessControlAttributeConfigurationResult]:
     """
@@ -81,4 +83,10 @@ def get_instance_access_control_attribute_configuration_output(instance_arn: Opt
 
     :param str instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
     """
-    ...
+    __args__ = dict()
+    __args__['instanceArn'] = instance_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sso:getInstanceAccessControlAttributeConfiguration', __args__, opts=opts, typ=GetInstanceAccessControlAttributeConfigurationResult)
+    return __ret__.apply(lambda __response__: GetInstanceAccessControlAttributeConfigurationResult(
+        access_control_attributes=pulumi.get(__response__, 'access_control_attributes'),
+        instance_access_control_attribute_configuration=pulumi.get(__response__, 'instance_access_control_attribute_configuration')))

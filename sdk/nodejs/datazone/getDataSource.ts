@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getDataSource", {
         "domainId": args.domainId,
@@ -100,7 +99,11 @@ export interface GetDataSourceResult {
  * A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
-    return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datazone:getDataSource", {
+        "domainId": args.domainId,
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetDataSourceOutputArgs {

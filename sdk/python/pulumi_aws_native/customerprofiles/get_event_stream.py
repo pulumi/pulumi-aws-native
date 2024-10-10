@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -114,9 +119,6 @@ def get_event_stream(domain_name: Optional[str] = None,
         event_stream_arn=pulumi.get(__ret__, 'event_stream_arn'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_event_stream)
 def get_event_stream_output(domain_name: Optional[pulumi.Input[str]] = None,
                             event_stream_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventStreamResult]:
@@ -127,4 +129,14 @@ def get_event_stream_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: The unique name of the domain.
     :param str event_stream_name: The name of the event stream.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['eventStreamName'] = event_stream_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getEventStream', __args__, opts=opts, typ=GetEventStreamResult)
+    return __ret__.apply(lambda __response__: GetEventStreamResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        destination_details=pulumi.get(__response__, 'destination_details'),
+        event_stream_arn=pulumi.get(__response__, 'event_stream_arn'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

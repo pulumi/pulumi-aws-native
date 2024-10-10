@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Omics::VariantStore Resource Type
  */
 export function getVariantStore(args: GetVariantStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetVariantStoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:omics:getVariantStore", {
         "name": args.name,
@@ -63,7 +62,10 @@ export interface GetVariantStoreResult {
  * Definition of AWS::Omics::VariantStore Resource Type
  */
 export function getVariantStoreOutput(args: GetVariantStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariantStoreResult> {
-    return pulumi.output(args).apply((a: any) => getVariantStore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:omics:getVariantStore", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetVariantStoreOutputArgs {

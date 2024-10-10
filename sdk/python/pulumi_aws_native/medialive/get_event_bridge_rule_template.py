@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -175,9 +180,6 @@ def get_event_bridge_rule_template(identifier: Optional[str] = None,
         identifier=pulumi.get(__ret__, 'identifier'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_event_bridge_rule_template)
 def get_event_bridge_rule_template_output(identifier: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventBridgeRuleTemplateResult]:
     """
@@ -186,4 +188,18 @@ def get_event_bridge_rule_template_output(identifier: Optional[pulumi.Input[str]
 
     :param str identifier: Placeholder documentation for __string
     """
-    ...
+    __args__ = dict()
+    __args__['identifier'] = identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getEventBridgeRuleTemplate', __args__, opts=opts, typ=GetEventBridgeRuleTemplateResult)
+    return __ret__.apply(lambda __response__: GetEventBridgeRuleTemplateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        event_targets=pulumi.get(__response__, 'event_targets'),
+        event_type=pulumi.get(__response__, 'event_type'),
+        group_id=pulumi.get(__response__, 'group_id'),
+        id=pulumi.get(__response__, 'id'),
+        identifier=pulumi.get(__response__, 'identifier'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        name=pulumi.get(__response__, 'name')))

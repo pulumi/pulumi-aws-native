@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
  */
 export function getStage(args: GetStageArgs, opts?: pulumi.InvokeOptions): Promise<GetStageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getStage", {
         "restApiId": args.restApiId,
@@ -84,7 +83,11 @@ export interface GetStageResult {
  * The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
  */
 export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStageResult> {
-    return pulumi.output(args).apply((a: any) => getStage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigateway:getStage", {
+        "restApiId": args.restApiId,
+        "stageName": args.stageName,
+    }, opts);
 }
 
 export interface GetStageOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTTwinMaker::Workspace
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iottwinmaker:getWorkspace", {
         "workspaceId": args.workspaceId,
@@ -56,7 +55,10 @@ export interface GetWorkspaceResult {
  * Resource schema for AWS::IoTTwinMaker::Workspace
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iottwinmaker:getWorkspace", {
+        "workspaceId": args.workspaceId,
+    }, opts);
 }
 
 export interface GetWorkspaceOutputArgs {

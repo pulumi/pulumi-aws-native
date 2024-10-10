@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_gateway_route_table_association(gateway_id: Optional[str] = None,
     return AwaitableGetGatewayRouteTableAssociationResult(
         association_id=pulumi.get(__ret__, 'association_id'),
         route_table_id=pulumi.get(__ret__, 'route_table_id'))
-
-
-@_utilities.lift_output_func(get_gateway_route_table_association)
 def get_gateway_route_table_association_output(gateway_id: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayRouteTableAssociationResult]:
     """
@@ -80,4 +82,10 @@ def get_gateway_route_table_association_output(gateway_id: Optional[pulumi.Input
 
     :param str gateway_id: The ID of the gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['gatewayId'] = gateway_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getGatewayRouteTableAssociation', __args__, opts=opts, typ=GetGatewayRouteTableAssociationResult)
+    return __ret__.apply(lambda __response__: GetGatewayRouteTableAssociationResult(
+        association_id=pulumi.get(__response__, 'association_id'),
+        route_table_id=pulumi.get(__response__, 'route_table_id')))

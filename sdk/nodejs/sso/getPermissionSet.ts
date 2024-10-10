@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for SSO PermissionSet
  */
 export function getPermissionSet(args: GetPermissionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sso:getPermissionSet", {
         "instanceArn": args.instanceArn,
@@ -76,7 +75,11 @@ export interface GetPermissionSetResult {
  * Resource Type definition for SSO PermissionSet
  */
 export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionSetResult> {
-    return pulumi.output(args).apply((a: any) => getPermissionSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sso:getPermissionSet", {
+        "instanceArn": args.instanceArn,
+        "permissionSetArn": args.permissionSetArn,
+    }, opts);
 }
 
 export interface GetPermissionSetOutputArgs {

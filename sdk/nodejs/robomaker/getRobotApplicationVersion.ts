@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
  */
 export function getRobotApplicationVersion(args: GetRobotApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotApplicationVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:robomaker:getRobotApplicationVersion", {
         "arn": args.arn,
@@ -36,7 +35,10 @@ export interface GetRobotApplicationVersionResult {
  * AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
  */
 export function getRobotApplicationVersionOutput(args: GetRobotApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotApplicationVersionResult> {
-    return pulumi.output(args).apply((a: any) => getRobotApplicationVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:robomaker:getRobotApplicationVersion", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetRobotApplicationVersionOutputArgs {

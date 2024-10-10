@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Schema of AWS::EC2::IPAMPoolCidr Type
  */
 export function getIpamPoolCidr(args: GetIpamPoolCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPoolCidrResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getIpamPoolCidr", {
         "ipamPoolCidrId": args.ipamPoolCidrId,
@@ -41,7 +40,11 @@ export interface GetIpamPoolCidrResult {
  * Resource Schema of AWS::EC2::IPAMPoolCidr Type
  */
 export function getIpamPoolCidrOutput(args: GetIpamPoolCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPoolCidrResult> {
-    return pulumi.output(args).apply((a: any) => getIpamPoolCidr(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getIpamPoolCidr", {
+        "ipamPoolCidrId": args.ipamPoolCidrId,
+        "ipamPoolId": args.ipamPoolId,
+    }, opts);
 }
 
 export interface GetIpamPoolCidrOutputArgs {

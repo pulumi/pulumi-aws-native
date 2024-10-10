@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -72,9 +77,6 @@ def get_auth_policy(resource_identifier: Optional[str] = None,
     return AwaitableGetAuthPolicyResult(
         policy=pulumi.get(__ret__, 'policy'),
         state=pulumi.get(__ret__, 'state'))
-
-
-@_utilities.lift_output_func(get_auth_policy)
 def get_auth_policy_output(resource_identifier: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthPolicyResult]:
     """
@@ -83,4 +85,10 @@ def get_auth_policy_output(resource_identifier: Optional[pulumi.Input[str]] = No
 
     :param str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceIdentifier'] = resource_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getAuthPolicy', __args__, opts=opts, typ=GetAuthPolicyResult)
+    return __ret__.apply(lambda __response__: GetAuthPolicyResult(
+        policy=pulumi.get(__response__, 'policy'),
+        state=pulumi.get(__response__, 'state')))

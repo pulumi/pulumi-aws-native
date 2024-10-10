@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -120,9 +125,6 @@ def get_filter(detector_id: Optional[str] = None,
         finding_criteria=pulumi.get(__ret__, 'finding_criteria'),
         rank=pulumi.get(__ret__, 'rank'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_filter)
 def get_filter_output(detector_id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFilterResult]:
@@ -136,4 +138,14 @@ def get_filter_output(detector_id: Optional[pulumi.Input[str]] = None,
            Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
     :param str name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
     """
-    ...
+    __args__ = dict()
+    __args__['detectorId'] = detector_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:guardduty:getFilter', __args__, opts=opts, typ=GetFilterResult)
+    return __ret__.apply(lambda __response__: GetFilterResult(
+        action=pulumi.get(__response__, 'action'),
+        description=pulumi.get(__response__, 'description'),
+        finding_criteria=pulumi.get(__response__, 'finding_criteria'),
+        rank=pulumi.get(__response__, 'rank'),
+        tags=pulumi.get(__response__, 'tags')))

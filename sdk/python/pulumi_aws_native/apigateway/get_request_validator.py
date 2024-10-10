@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -85,9 +90,6 @@ def get_request_validator(request_validator_id: Optional[str] = None,
         request_validator_id=pulumi.get(__ret__, 'request_validator_id'),
         validate_request_body=pulumi.get(__ret__, 'validate_request_body'),
         validate_request_parameters=pulumi.get(__ret__, 'validate_request_parameters'))
-
-
-@_utilities.lift_output_func(get_request_validator)
 def get_request_validator_output(request_validator_id: Optional[pulumi.Input[str]] = None,
                                  rest_api_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRequestValidatorResult]:
@@ -98,4 +100,12 @@ def get_request_validator_output(request_validator_id: Optional[pulumi.Input[str
     :param str request_validator_id: The ID for the request validator. For example: `abc123` .
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
-    ...
+    __args__ = dict()
+    __args__['requestValidatorId'] = request_validator_id
+    __args__['restApiId'] = rest_api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getRequestValidator', __args__, opts=opts, typ=GetRequestValidatorResult)
+    return __ret__.apply(lambda __response__: GetRequestValidatorResult(
+        request_validator_id=pulumi.get(__response__, 'request_validator_id'),
+        validate_request_body=pulumi.get(__response__, 'validate_request_body'),
+        validate_request_parameters=pulumi.get(__response__, 'validate_request_parameters')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -130,9 +135,6 @@ def get_configured_table(configured_table_identifier: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_configured_table)
 def get_configured_table_output(configured_table_identifier: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfiguredTableResult]:
     """
@@ -143,4 +145,14 @@ def get_configured_table_output(configured_table_identifier: Optional[pulumi.Inp
            
            Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
     """
-    ...
+    __args__ = dict()
+    __args__['configuredTableIdentifier'] = configured_table_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getConfiguredTable', __args__, opts=opts, typ=GetConfiguredTableResult)
+    return __ret__.apply(lambda __response__: GetConfiguredTableResult(
+        analysis_rules=pulumi.get(__response__, 'analysis_rules'),
+        arn=pulumi.get(__response__, 'arn'),
+        configured_table_identifier=pulumi.get(__response__, 'configured_table_identifier'),
+        description=pulumi.get(__response__, 'description'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

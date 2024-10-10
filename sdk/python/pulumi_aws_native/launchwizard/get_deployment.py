@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -136,9 +141,6 @@ def get_deployment(arn: Optional[str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_deployment)
 def get_deployment_output(arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
@@ -147,4 +149,15 @@ def get_deployment_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN of the LaunchWizard deployment
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:launchwizard:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
+    return __ret__.apply(lambda __response__: GetDeploymentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        deleted_at=pulumi.get(__response__, 'deleted_at'),
+        deployment_id=pulumi.get(__response__, 'deployment_id'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

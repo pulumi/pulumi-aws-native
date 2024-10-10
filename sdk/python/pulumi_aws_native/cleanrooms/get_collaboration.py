@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -115,9 +120,6 @@ def get_collaboration(collaboration_identifier: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_collaboration)
 def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollaborationResult]:
     """
@@ -128,4 +130,13 @@ def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[str
            
            Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
     """
-    ...
+    __args__ = dict()
+    __args__['collaborationIdentifier'] = collaboration_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getCollaboration', __args__, opts=opts, typ=GetCollaborationResult)
+    return __ret__.apply(lambda __response__: GetCollaborationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        collaboration_identifier=pulumi.get(__response__, 'collaboration_identifier'),
+        description=pulumi.get(__response__, 'description'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

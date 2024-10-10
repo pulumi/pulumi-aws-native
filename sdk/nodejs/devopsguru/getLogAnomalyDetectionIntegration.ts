@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
  */
 export function getLogAnomalyDetectionIntegration(args: GetLogAnomalyDetectionIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnomalyDetectionIntegrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:devopsguru:getLogAnomalyDetectionIntegration", {
         "accountId": args.accountId,
@@ -32,7 +31,10 @@ export interface GetLogAnomalyDetectionIntegrationResult {
  * This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
  */
 export function getLogAnomalyDetectionIntegrationOutput(args: GetLogAnomalyDetectionIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnomalyDetectionIntegrationResult> {
-    return pulumi.output(args).apply((a: any) => getLogAnomalyDetectionIntegration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:devopsguru:getLogAnomalyDetectionIntegration", {
+        "accountId": args.accountId,
+    }, opts);
 }
 
 export interface GetLogAnomalyDetectionIntegrationOutputArgs {

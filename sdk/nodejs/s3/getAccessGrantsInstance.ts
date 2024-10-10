@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
  */
 export function getAccessGrantsInstance(args: GetAccessGrantsInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessGrantsInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3:getAccessGrantsInstance", {
         "accessGrantsInstanceArn": args.accessGrantsInstanceArn,
@@ -40,7 +39,10 @@ export interface GetAccessGrantsInstanceResult {
  * The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
  */
 export function getAccessGrantsInstanceOutput(args: GetAccessGrantsInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessGrantsInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getAccessGrantsInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:s3:getAccessGrantsInstance", {
+        "accessGrantsInstanceArn": args.accessGrantsInstanceArn,
+    }, opts);
 }
 
 export interface GetAccessGrantsInstanceOutputArgs {

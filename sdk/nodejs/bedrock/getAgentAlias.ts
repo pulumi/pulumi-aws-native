@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Bedrock::AgentAlias Resource Type
  */
 export function getAgentAlias(args: GetAgentAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentAliasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:bedrock:getAgentAlias", {
         "agentAliasId": args.agentAliasId,
@@ -85,7 +84,11 @@ export interface GetAgentAliasResult {
  * Definition of AWS::Bedrock::AgentAlias Resource Type
  */
 export function getAgentAliasOutput(args: GetAgentAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentAliasResult> {
-    return pulumi.output(args).apply((a: any) => getAgentAlias(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:bedrock:getAgentAlias", {
+        "agentAliasId": args.agentAliasId,
+        "agentId": args.agentId,
+    }, opts);
 }
 
 export interface GetAgentAliasOutputArgs {

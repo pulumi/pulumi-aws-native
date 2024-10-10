@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
  */
 export function getMatchmakingConfiguration(args: GetMatchmakingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMatchmakingConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getMatchmakingConfiguration", {
         "name": args.name,
@@ -99,7 +98,10 @@ export interface GetMatchmakingConfigurationResult {
  * The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
  */
 export function getMatchmakingConfigurationOutput(args: GetMatchmakingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchmakingConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getMatchmakingConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:gamelift:getMatchmakingConfiguration", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetMatchmakingConfigurationOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -197,9 +202,6 @@ def get_detector(arn: Optional[str] = None,
         rule_execution_mode=pulumi.get(__ret__, 'rule_execution_mode'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_detector)
 def get_detector_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
     """
@@ -208,4 +210,19 @@ def get_detector_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the detector.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getDetector', __args__, opts=opts, typ=GetDetectorResult)
+    return __ret__.apply(lambda __response__: GetDetectorResult(
+        arn=pulumi.get(__response__, 'arn'),
+        associated_models=pulumi.get(__response__, 'associated_models'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        description=pulumi.get(__response__, 'description'),
+        detector_version_id=pulumi.get(__response__, 'detector_version_id'),
+        detector_version_status=pulumi.get(__response__, 'detector_version_status'),
+        event_type=pulumi.get(__response__, 'event_type'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        rule_execution_mode=pulumi.get(__response__, 'rule_execution_mode'),
+        rules=pulumi.get(__response__, 'rules'),
+        tags=pulumi.get(__response__, 'tags')))

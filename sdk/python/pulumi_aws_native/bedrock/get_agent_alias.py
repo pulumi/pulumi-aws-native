@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -187,9 +192,6 @@ def get_agent_alias(agent_alias_id: Optional[str] = None,
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_agent_alias)
 def get_agent_alias_output(agent_alias_id: Optional[pulumi.Input[str]] = None,
                            agent_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentAliasResult]:
@@ -200,4 +202,19 @@ def get_agent_alias_output(agent_alias_id: Optional[pulumi.Input[str]] = None,
     :param str agent_alias_id: Id for an Agent Alias generated at the server side.
     :param str agent_id: Identifier for a resource.
     """
-    ...
+    __args__ = dict()
+    __args__['agentAliasId'] = agent_alias_id
+    __args__['agentId'] = agent_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getAgentAlias', __args__, opts=opts, typ=GetAgentAliasResult)
+    return __ret__.apply(lambda __response__: GetAgentAliasResult(
+        agent_alias_arn=pulumi.get(__response__, 'agent_alias_arn'),
+        agent_alias_history_events=pulumi.get(__response__, 'agent_alias_history_events'),
+        agent_alias_id=pulumi.get(__response__, 'agent_alias_id'),
+        agent_alias_name=pulumi.get(__response__, 'agent_alias_name'),
+        agent_alias_status=pulumi.get(__response__, 'agent_alias_status'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        routing_configuration=pulumi.get(__response__, 'routing_configuration'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -188,9 +193,6 @@ def get_instance_profile(instance_profile_arn: Optional[str] = None,
         subnet_group_identifier=pulumi.get(__ret__, 'subnet_group_identifier'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
-
-
-@_utilities.lift_output_func(get_instance_profile)
 def get_instance_profile_output(instance_profile_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
@@ -199,4 +201,19 @@ def get_instance_profile_output(instance_profile_arn: Optional[pulumi.Input[str]
 
     :param str instance_profile_arn: The property describes an ARN of the instance profile.
     """
-    ...
+    __args__ = dict()
+    __args__['instanceProfileArn'] = instance_profile_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:dms:getInstanceProfile', __args__, opts=opts, typ=GetInstanceProfileResult)
+    return __ret__.apply(lambda __response__: GetInstanceProfileResult(
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        description=pulumi.get(__response__, 'description'),
+        instance_profile_arn=pulumi.get(__response__, 'instance_profile_arn'),
+        instance_profile_creation_time=pulumi.get(__response__, 'instance_profile_creation_time'),
+        instance_profile_name=pulumi.get(__response__, 'instance_profile_name'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        network_type=pulumi.get(__response__, 'network_type'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        subnet_group_identifier=pulumi.get(__response__, 'subnet_group_identifier'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_security_groups=pulumi.get(__response__, 'vpc_security_groups')))

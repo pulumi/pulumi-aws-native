@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_product_subscription(product_subscription_arn: Optional[str] = None,
 
     return AwaitableGetProductSubscriptionResult(
         product_subscription_arn=pulumi.get(__ret__, 'product_subscription_arn'))
-
-
-@_utilities.lift_output_func(get_product_subscription)
 def get_product_subscription_output(product_subscription_arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductSubscriptionResult]:
     """
@@ -67,4 +69,9 @@ def get_product_subscription_output(product_subscription_arn: Optional[pulumi.In
 
     :param str product_subscription_arn: The ARN of the product subscription for the account
     """
-    ...
+    __args__ = dict()
+    __args__['productSubscriptionArn'] = product_subscription_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getProductSubscription', __args__, opts=opts, typ=GetProductSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetProductSubscriptionResult(
+        product_subscription_arn=pulumi.get(__response__, 'product_subscription_arn')))

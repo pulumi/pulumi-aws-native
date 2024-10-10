@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -165,9 +170,6 @@ def get_listener(listener_arn: Optional[str] = None,
         port=pulumi.get(__ret__, 'port'),
         protocol=pulumi.get(__ret__, 'protocol'),
         ssl_policy=pulumi.get(__ret__, 'ssl_policy'))
-
-
-@_utilities.lift_output_func(get_listener)
 def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
@@ -176,4 +178,17 @@ def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
 
     :param str listener_arn: The Amazon Resource Name (ARN) of the listener.
     """
-    ...
+    __args__ = dict()
+    __args__['listenerArn'] = listener_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancingv2:getListener', __args__, opts=opts, typ=GetListenerResult)
+    return __ret__.apply(lambda __response__: GetListenerResult(
+        alpn_policy=pulumi.get(__response__, 'alpn_policy'),
+        certificates=pulumi.get(__response__, 'certificates'),
+        default_actions=pulumi.get(__response__, 'default_actions'),
+        listener_arn=pulumi.get(__response__, 'listener_arn'),
+        listener_attributes=pulumi.get(__response__, 'listener_attributes'),
+        mutual_authentication=pulumi.get(__response__, 'mutual_authentication'),
+        port=pulumi.get(__response__, 'port'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        ssl_policy=pulumi.get(__response__, 'ssl_policy')))

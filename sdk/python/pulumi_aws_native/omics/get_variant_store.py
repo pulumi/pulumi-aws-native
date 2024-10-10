@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -148,9 +153,6 @@ def get_variant_store(name: Optional[str] = None,
         store_arn=pulumi.get(__ret__, 'store_arn'),
         store_size_bytes=pulumi.get(__ret__, 'store_size_bytes'),
         update_time=pulumi.get(__ret__, 'update_time'))
-
-
-@_utilities.lift_output_func(get_variant_store)
 def get_variant_store_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariantStoreResult]:
     """
@@ -159,4 +161,16 @@ def get_variant_store_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: A name for the store.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:omics:getVariantStore', __args__, opts=opts, typ=GetVariantStoreResult)
+    return __ret__.apply(lambda __response__: GetVariantStoreResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        status=pulumi.get(__response__, 'status'),
+        status_message=pulumi.get(__response__, 'status_message'),
+        store_arn=pulumi.get(__response__, 'store_arn'),
+        store_size_bytes=pulumi.get(__response__, 'store_size_bytes'),
+        update_time=pulumi.get(__response__, 'update_time')))

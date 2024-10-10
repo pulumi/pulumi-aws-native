@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -111,9 +116,6 @@ def get_tls_inspection_configuration(tls_inspection_configuration_arn: Optional[
         tls_inspection_configuration=pulumi.get(__ret__, 'tls_inspection_configuration'),
         tls_inspection_configuration_arn=pulumi.get(__ret__, 'tls_inspection_configuration_arn'),
         tls_inspection_configuration_id=pulumi.get(__ret__, 'tls_inspection_configuration_id'))
-
-
-@_utilities.lift_output_func(get_tls_inspection_configuration)
 def get_tls_inspection_configuration_output(tls_inspection_configuration_arn: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTlsInspectionConfigurationResult]:
     """
@@ -122,4 +124,13 @@ def get_tls_inspection_configuration_output(tls_inspection_configuration_arn: Op
 
     :param str tls_inspection_configuration_arn: The Amazon Resource Name (ARN) of the TLS inspection configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['tlsInspectionConfigurationArn'] = tls_inspection_configuration_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getTlsInspectionConfiguration', __args__, opts=opts, typ=GetTlsInspectionConfigurationResult)
+    return __ret__.apply(lambda __response__: GetTlsInspectionConfigurationResult(
+        description=pulumi.get(__response__, 'description'),
+        tags=pulumi.get(__response__, 'tags'),
+        tls_inspection_configuration=pulumi.get(__response__, 'tls_inspection_configuration'),
+        tls_inspection_configuration_arn=pulumi.get(__response__, 'tls_inspection_configuration_arn'),
+        tls_inspection_configuration_id=pulumi.get(__response__, 'tls_inspection_configuration_id')))

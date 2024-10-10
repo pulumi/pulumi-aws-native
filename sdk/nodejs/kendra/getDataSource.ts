@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Kendra DataSource
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kendra:getDataSource", {
         "id": args.id,
@@ -94,7 +93,11 @@ export interface GetDataSourceResult {
  * Kendra DataSource
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
-    return pulumi.output(args).apply((a: any) => getDataSource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:kendra:getDataSource", {
+        "id": args.id,
+        "indexId": args.indexId,
+    }, opts);
 }
 
 export interface GetDataSourceOutputArgs {

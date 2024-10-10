@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -124,9 +129,6 @@ def get_rule(rule_arn: Optional[str] = None,
         publish_status=pulumi.get(__ret__, 'publish_status'),
         rule_arn=pulumi.get(__ret__, 'rule_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_rule)
 def get_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
@@ -135,4 +137,14 @@ def get_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
 
     :param str rule_arn: The Amazon Resource Name (ARN) of the rule.
     """
-    ...
+    __args__ = dict()
+    __args__['ruleArn'] = rule_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getRule', __args__, opts=opts, typ=GetRuleResult)
+    return __ret__.apply(lambda __response__: GetRuleResult(
+        actions=pulumi.get(__response__, 'actions'),
+        function=pulumi.get(__response__, 'function'),
+        name=pulumi.get(__response__, 'name'),
+        publish_status=pulumi.get(__response__, 'publish_status'),
+        rule_arn=pulumi.get(__response__, 'rule_arn'),
+        tags=pulumi.get(__response__, 'tags')))

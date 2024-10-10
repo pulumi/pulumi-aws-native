@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::QBusiness::WebExperience Resource Type
  */
 export function getWebExperience(args: GetWebExperienceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebExperienceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:qbusiness:getWebExperience", {
         "applicationId": args.applicationId,
@@ -90,7 +89,11 @@ export interface GetWebExperienceResult {
  * Definition of AWS::QBusiness::WebExperience Resource Type
  */
 export function getWebExperienceOutput(args: GetWebExperienceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebExperienceResult> {
-    return pulumi.output(args).apply((a: any) => getWebExperience(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:qbusiness:getWebExperience", {
+        "applicationId": args.applicationId,
+        "webExperienceId": args.webExperienceId,
+    }, opts);
 }
 
 export interface GetWebExperienceOutputArgs {

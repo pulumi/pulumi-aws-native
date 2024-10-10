@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Deadline::QueueEnvironment Resource Type
  */
 export function getQueueEnvironment(args: GetQueueEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:deadline:getQueueEnvironment", {
         "farmId": args.farmId,
@@ -61,7 +60,12 @@ export interface GetQueueEnvironmentResult {
  * Definition of AWS::Deadline::QueueEnvironment Resource Type
  */
 export function getQueueEnvironmentOutput(args: GetQueueEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getQueueEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:deadline:getQueueEnvironment", {
+        "farmId": args.farmId,
+        "queueEnvironmentId": args.queueEnvironmentId,
+        "queueId": args.queueId,
+    }, opts);
 }
 
 export interface GetQueueEnvironmentOutputArgs {

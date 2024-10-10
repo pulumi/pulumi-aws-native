@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::APS::Scraper
  */
 export function getScraper(args: GetScraperArgs, opts?: pulumi.InvokeOptions): Promise<GetScraperResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:aps:getScraper", {
         "arn": args.arn,
@@ -47,7 +46,10 @@ export interface GetScraperResult {
  * Resource Type definition for AWS::APS::Scraper
  */
 export function getScraperOutput(args: GetScraperOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScraperResult> {
-    return pulumi.output(args).apply((a: any) => getScraper(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:aps:getScraper", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetScraperOutputArgs {

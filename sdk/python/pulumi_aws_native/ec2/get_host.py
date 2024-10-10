@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -95,9 +100,6 @@ def get_host(host_id: Optional[str] = None,
         host_id=pulumi.get(__ret__, 'host_id'),
         host_maintenance=pulumi.get(__ret__, 'host_maintenance'),
         host_recovery=pulumi.get(__ret__, 'host_recovery'))
-
-
-@_utilities.lift_output_func(get_host)
 def get_host_output(host_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostResult]:
     """
@@ -106,4 +108,12 @@ def get_host_output(host_id: Optional[pulumi.Input[str]] = None,
 
     :param str host_id: ID of the host created.
     """
-    ...
+    __args__ = dict()
+    __args__['hostId'] = host_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getHost', __args__, opts=opts, typ=GetHostResult)
+    return __ret__.apply(lambda __response__: GetHostResult(
+        auto_placement=pulumi.get(__response__, 'auto_placement'),
+        host_id=pulumi.get(__response__, 'host_id'),
+        host_maintenance=pulumi.get(__response__, 'host_maintenance'),
+        host_recovery=pulumi.get(__response__, 'host_recovery')))

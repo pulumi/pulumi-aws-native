@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -133,9 +138,6 @@ def get_channel(arn: Optional[str] = None,
         ingest_endpoints=pulumi.get(__ret__, 'ingest_endpoints'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_channel)
 def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
@@ -144,4 +146,15 @@ def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackagev2:getChannel', __args__, opts=opts, typ=GetChannelResult)
+    return __ret__.apply(lambda __response__: GetChannelResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        ingest_endpoint_urls=pulumi.get(__response__, 'ingest_endpoint_urls'),
+        ingest_endpoints=pulumi.get(__response__, 'ingest_endpoints'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        tags=pulumi.get(__response__, 'tags')))

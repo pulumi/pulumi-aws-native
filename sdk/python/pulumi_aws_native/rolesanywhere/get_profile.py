@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -202,9 +207,6 @@ def get_profile(profile_id: Optional[str] = None,
         role_arns=pulumi.get(__ret__, 'role_arns'),
         session_policy=pulumi.get(__ret__, 'session_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_profile)
 def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
@@ -213,4 +215,20 @@ def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
 
     :param str profile_id: The unique primary identifier of the Profile
     """
-    ...
+    __args__ = dict()
+    __args__['profileId'] = profile_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:rolesanywhere:getProfile', __args__, opts=opts, typ=GetProfileResult)
+    return __ret__.apply(lambda __response__: GetProfileResult(
+        accept_role_session_name=pulumi.get(__response__, 'accept_role_session_name'),
+        attribute_mappings=pulumi.get(__response__, 'attribute_mappings'),
+        duration_seconds=pulumi.get(__response__, 'duration_seconds'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        managed_policy_arns=pulumi.get(__response__, 'managed_policy_arns'),
+        name=pulumi.get(__response__, 'name'),
+        profile_arn=pulumi.get(__response__, 'profile_arn'),
+        profile_id=pulumi.get(__response__, 'profile_id'),
+        require_instance_properties=pulumi.get(__response__, 'require_instance_properties'),
+        role_arns=pulumi.get(__response__, 'role_arns'),
+        session_policy=pulumi.get(__response__, 'session_policy'),
+        tags=pulumi.get(__response__, 'tags')))

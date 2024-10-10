@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -124,9 +129,6 @@ def get_lifecycle_hook(auto_scaling_group_name: Optional[str] = None,
         notification_metadata=pulumi.get(__ret__, 'notification_metadata'),
         notification_target_arn=pulumi.get(__ret__, 'notification_target_arn'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-
-
-@_utilities.lift_output_func(get_lifecycle_hook)
 def get_lifecycle_hook_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                               lifecycle_hook_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLifecycleHookResult]:
@@ -137,4 +139,15 @@ def get_lifecycle_hook_output(auto_scaling_group_name: Optional[pulumi.Input[str
     :param str auto_scaling_group_name: The name of the Auto Scaling group for the lifecycle hook.
     :param str lifecycle_hook_name: The name of the lifecycle hook.
     """
-    ...
+    __args__ = dict()
+    __args__['autoScalingGroupName'] = auto_scaling_group_name
+    __args__['lifecycleHookName'] = lifecycle_hook_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getLifecycleHook', __args__, opts=opts, typ=GetLifecycleHookResult)
+    return __ret__.apply(lambda __response__: GetLifecycleHookResult(
+        default_result=pulumi.get(__response__, 'default_result'),
+        heartbeat_timeout=pulumi.get(__response__, 'heartbeat_timeout'),
+        lifecycle_transition=pulumi.get(__response__, 'lifecycle_transition'),
+        notification_metadata=pulumi.get(__response__, 'notification_metadata'),
+        notification_target_arn=pulumi.get(__response__, 'notification_target_arn'),
+        role_arn=pulumi.get(__response__, 'role_arn')))

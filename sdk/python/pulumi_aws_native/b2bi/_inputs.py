@@ -4,34 +4,67 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CapabilityConfigurationPropertiesArgs',
+    'CapabilityConfigurationPropertiesArgsDict',
     'CapabilityEdiConfigurationArgs',
+    'CapabilityEdiConfigurationArgsDict',
     'CapabilityEdiTypePropertiesArgs',
+    'CapabilityEdiTypePropertiesArgsDict',
     'CapabilityS3LocationArgs',
+    'CapabilityS3LocationArgsDict',
     'CapabilityX12DetailsArgs',
+    'CapabilityX12DetailsArgsDict',
     'PartnershipCapabilityOptionsArgs',
+    'PartnershipCapabilityOptionsArgsDict',
     'PartnershipOutboundEdiOptionsPropertiesArgs',
+    'PartnershipOutboundEdiOptionsPropertiesArgsDict',
     'PartnershipX12DelimitersArgs',
+    'PartnershipX12DelimitersArgsDict',
     'PartnershipX12EnvelopeArgs',
+    'PartnershipX12EnvelopeArgsDict',
     'PartnershipX12FunctionalGroupHeadersArgs',
+    'PartnershipX12FunctionalGroupHeadersArgsDict',
     'PartnershipX12InterchangeControlHeadersArgs',
+    'PartnershipX12InterchangeControlHeadersArgsDict',
     'PartnershipX12OutboundEdiHeadersArgs',
+    'PartnershipX12OutboundEdiHeadersArgsDict',
     'TransformerEdiTypePropertiesArgs',
+    'TransformerEdiTypePropertiesArgsDict',
     'TransformerFormatOptionsPropertiesArgs',
+    'TransformerFormatOptionsPropertiesArgsDict',
     'TransformerInputConversionArgs',
+    'TransformerInputConversionArgsDict',
     'TransformerMappingArgs',
+    'TransformerMappingArgsDict',
     'TransformerOutputConversionArgs',
+    'TransformerOutputConversionArgsDict',
     'TransformerSampleDocumentKeysArgs',
+    'TransformerSampleDocumentKeysArgsDict',
     'TransformerSampleDocumentsArgs',
+    'TransformerSampleDocumentsArgsDict',
     'TransformerX12DetailsArgs',
+    'TransformerX12DetailsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CapabilityConfigurationPropertiesArgsDict(TypedDict):
+        edi: pulumi.Input['CapabilityEdiConfigurationArgsDict']
+elif False:
+    CapabilityConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapabilityConfigurationPropertiesArgs:
@@ -48,6 +81,16 @@ class CapabilityConfigurationPropertiesArgs:
     def edi(self, value: pulumi.Input['CapabilityEdiConfigurationArgs']):
         pulumi.set(self, "edi", value)
 
+
+if not MYPY:
+    class CapabilityEdiConfigurationArgsDict(TypedDict):
+        input_location: pulumi.Input['CapabilityS3LocationArgsDict']
+        output_location: pulumi.Input['CapabilityS3LocationArgsDict']
+        transformer_id: pulumi.Input[str]
+        type: pulumi.Input['CapabilityEdiTypePropertiesArgsDict']
+        capability_direction: NotRequired[pulumi.Input['CapabilityDirection']]
+elif False:
+    CapabilityEdiConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapabilityEdiConfigurationArgs:
@@ -110,6 +153,12 @@ class CapabilityEdiConfigurationArgs:
         pulumi.set(self, "capability_direction", value)
 
 
+if not MYPY:
+    class CapabilityEdiTypePropertiesArgsDict(TypedDict):
+        x12_details: pulumi.Input['CapabilityX12DetailsArgsDict']
+elif False:
+    CapabilityEdiTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapabilityEdiTypePropertiesArgs:
     def __init__(__self__, *,
@@ -125,6 +174,13 @@ class CapabilityEdiTypePropertiesArgs:
     def x12_details(self, value: pulumi.Input['CapabilityX12DetailsArgs']):
         pulumi.set(self, "x12_details", value)
 
+
+if not MYPY:
+    class CapabilityS3LocationArgsDict(TypedDict):
+        bucket_name: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+elif False:
+    CapabilityS3LocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CapabilityS3LocationArgs:
@@ -155,6 +211,13 @@ class CapabilityS3LocationArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class CapabilityX12DetailsArgsDict(TypedDict):
+        transaction_set: NotRequired[pulumi.Input['CapabilityX12TransactionSet']]
+        version: NotRequired[pulumi.Input['CapabilityX12Version']]
+elif False:
+    CapabilityX12DetailsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapabilityX12DetailsArgs:
     def __init__(__self__, *,
@@ -184,6 +247,15 @@ class CapabilityX12DetailsArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class PartnershipCapabilityOptionsArgsDict(TypedDict):
+        outbound_edi: NotRequired[pulumi.Input['PartnershipOutboundEdiOptionsPropertiesArgsDict']]
+        """
+        A structure that contains the outbound EDI options.
+        """
+elif False:
+    PartnershipCapabilityOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartnershipCapabilityOptionsArgs:
     def __init__(__self__, *,
@@ -207,6 +279,12 @@ class PartnershipCapabilityOptionsArgs:
         pulumi.set(self, "outbound_edi", value)
 
 
+if not MYPY:
+    class PartnershipOutboundEdiOptionsPropertiesArgsDict(TypedDict):
+        x12: pulumi.Input['PartnershipX12EnvelopeArgsDict']
+elif False:
+    PartnershipOutboundEdiOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartnershipOutboundEdiOptionsPropertiesArgs:
     def __init__(__self__, *,
@@ -222,6 +300,14 @@ class PartnershipOutboundEdiOptionsPropertiesArgs:
     def x12(self, value: pulumi.Input['PartnershipX12EnvelopeArgs']):
         pulumi.set(self, "x12", value)
 
+
+if not MYPY:
+    class PartnershipX12DelimitersArgsDict(TypedDict):
+        component_separator: NotRequired[pulumi.Input[str]]
+        data_element_separator: NotRequired[pulumi.Input[str]]
+        segment_terminator: NotRequired[pulumi.Input[str]]
+elif False:
+    PartnershipX12DelimitersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartnershipX12DelimitersArgs:
@@ -264,6 +350,12 @@ class PartnershipX12DelimitersArgs:
         pulumi.set(self, "segment_terminator", value)
 
 
+if not MYPY:
+    class PartnershipX12EnvelopeArgsDict(TypedDict):
+        common: NotRequired[pulumi.Input['PartnershipX12OutboundEdiHeadersArgsDict']]
+elif False:
+    PartnershipX12EnvelopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartnershipX12EnvelopeArgs:
     def __init__(__self__, *,
@@ -280,6 +372,14 @@ class PartnershipX12EnvelopeArgs:
     def common(self, value: Optional[pulumi.Input['PartnershipX12OutboundEdiHeadersArgs']]):
         pulumi.set(self, "common", value)
 
+
+if not MYPY:
+    class PartnershipX12FunctionalGroupHeadersArgsDict(TypedDict):
+        application_receiver_code: NotRequired[pulumi.Input[str]]
+        application_sender_code: NotRequired[pulumi.Input[str]]
+        responsible_agency_code: NotRequired[pulumi.Input[str]]
+elif False:
+    PartnershipX12FunctionalGroupHeadersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartnershipX12FunctionalGroupHeadersArgs:
@@ -321,6 +421,18 @@ class PartnershipX12FunctionalGroupHeadersArgs:
     def responsible_agency_code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "responsible_agency_code", value)
 
+
+if not MYPY:
+    class PartnershipX12InterchangeControlHeadersArgsDict(TypedDict):
+        acknowledgment_requested_code: NotRequired[pulumi.Input[str]]
+        receiver_id: NotRequired[pulumi.Input[str]]
+        receiver_id_qualifier: NotRequired[pulumi.Input[str]]
+        repetition_separator: NotRequired[pulumi.Input[str]]
+        sender_id: NotRequired[pulumi.Input[str]]
+        sender_id_qualifier: NotRequired[pulumi.Input[str]]
+        usage_indicator_code: NotRequired[pulumi.Input[str]]
+elif False:
+    PartnershipX12InterchangeControlHeadersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartnershipX12InterchangeControlHeadersArgs:
@@ -411,6 +523,15 @@ class PartnershipX12InterchangeControlHeadersArgs:
         pulumi.set(self, "usage_indicator_code", value)
 
 
+if not MYPY:
+    class PartnershipX12OutboundEdiHeadersArgsDict(TypedDict):
+        delimiters: NotRequired[pulumi.Input['PartnershipX12DelimitersArgsDict']]
+        functional_group_headers: NotRequired[pulumi.Input['PartnershipX12FunctionalGroupHeadersArgsDict']]
+        interchange_control_headers: NotRequired[pulumi.Input['PartnershipX12InterchangeControlHeadersArgsDict']]
+        validate_edi: NotRequired[pulumi.Input[bool]]
+elif False:
+    PartnershipX12OutboundEdiHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartnershipX12OutboundEdiHeadersArgs:
     def __init__(__self__, *,
@@ -464,6 +585,12 @@ class PartnershipX12OutboundEdiHeadersArgs:
         pulumi.set(self, "validate_edi", value)
 
 
+if not MYPY:
+    class TransformerEdiTypePropertiesArgsDict(TypedDict):
+        x12_details: pulumi.Input['TransformerX12DetailsArgsDict']
+elif False:
+    TransformerEdiTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformerEdiTypePropertiesArgs:
     def __init__(__self__, *,
@@ -480,6 +607,12 @@ class TransformerEdiTypePropertiesArgs:
         pulumi.set(self, "x12_details", value)
 
 
+if not MYPY:
+    class TransformerFormatOptionsPropertiesArgsDict(TypedDict):
+        x12: pulumi.Input['TransformerX12DetailsArgsDict']
+elif False:
+    TransformerFormatOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformerFormatOptionsPropertiesArgs:
     def __init__(__self__, *,
@@ -495,6 +628,13 @@ class TransformerFormatOptionsPropertiesArgs:
     def x12(self, value: pulumi.Input['TransformerX12DetailsArgs']):
         pulumi.set(self, "x12", value)
 
+
+if not MYPY:
+    class TransformerInputConversionArgsDict(TypedDict):
+        from_format: pulumi.Input['TransformerFromFormat']
+        format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
+elif False:
+    TransformerInputConversionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformerInputConversionArgs:
@@ -524,6 +664,13 @@ class TransformerInputConversionArgs:
         pulumi.set(self, "format_options", value)
 
 
+if not MYPY:
+    class TransformerMappingArgsDict(TypedDict):
+        template_language: pulumi.Input['TransformerMappingTemplateLanguage']
+        template: NotRequired[pulumi.Input[str]]
+elif False:
+    TransformerMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformerMappingArgs:
     def __init__(__self__, *,
@@ -552,6 +699,13 @@ class TransformerMappingArgs:
         pulumi.set(self, "template", value)
 
 
+if not MYPY:
+    class TransformerOutputConversionArgsDict(TypedDict):
+        to_format: pulumi.Input['TransformerToFormat']
+        format_options: NotRequired[pulumi.Input['TransformerFormatOptionsPropertiesArgsDict']]
+elif False:
+    TransformerOutputConversionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformerOutputConversionArgs:
     def __init__(__self__, *,
@@ -579,6 +733,13 @@ class TransformerOutputConversionArgs:
     def format_options(self, value: Optional[pulumi.Input['TransformerFormatOptionsPropertiesArgs']]):
         pulumi.set(self, "format_options", value)
 
+
+if not MYPY:
+    class TransformerSampleDocumentKeysArgsDict(TypedDict):
+        input: NotRequired[pulumi.Input[str]]
+        output: NotRequired[pulumi.Input[str]]
+elif False:
+    TransformerSampleDocumentKeysArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformerSampleDocumentKeysArgs:
@@ -609,6 +770,13 @@ class TransformerSampleDocumentKeysArgs:
         pulumi.set(self, "output", value)
 
 
+if not MYPY:
+    class TransformerSampleDocumentsArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        keys: pulumi.Input[Sequence[pulumi.Input['TransformerSampleDocumentKeysArgsDict']]]
+elif False:
+    TransformerSampleDocumentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformerSampleDocumentsArgs:
     def __init__(__self__, *,
@@ -635,6 +803,13 @@ class TransformerSampleDocumentsArgs:
     def keys(self, value: pulumi.Input[Sequence[pulumi.Input['TransformerSampleDocumentKeysArgs']]]):
         pulumi.set(self, "keys", value)
 
+
+if not MYPY:
+    class TransformerX12DetailsArgsDict(TypedDict):
+        transaction_set: NotRequired[pulumi.Input['TransformerX12TransactionSet']]
+        version: NotRequired[pulumi.Input['TransformerX12Version']]
+elif False:
+    TransformerX12DetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformerX12DetailsArgs:

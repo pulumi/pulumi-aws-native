@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for StateMachineAlias
  */
 export function getStateMachineAlias(args: GetStateMachineAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineAliasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:stepfunctions:getStateMachineAlias", {
         "arn": args.arn,
@@ -47,7 +46,10 @@ export interface GetStateMachineAliasResult {
  * Resource schema for StateMachineAlias
  */
 export function getStateMachineAliasOutput(args: GetStateMachineAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineAliasResult> {
-    return pulumi.output(args).apply((a: any) => getStateMachineAlias(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:stepfunctions:getStateMachineAlias", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetStateMachineAliasOutputArgs {

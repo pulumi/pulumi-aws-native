@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getIntegration(args: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getIntegration", {
         "apiId": args.apiId,
@@ -108,7 +107,11 @@ export interface GetIntegrationResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
-    return pulumi.output(args).apply((a: any) => getIntegration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigatewayv2:getIntegration", {
+        "apiId": args.apiId,
+        "integrationId": args.integrationId,
+    }, opts);
 }
 
 export interface GetIntegrationOutputArgs {

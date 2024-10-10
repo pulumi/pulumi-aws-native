@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -178,9 +183,6 @@ def get_studio_component(studio_component_id: Optional[str] = None,
         secure_initialization_role_arn=pulumi.get(__ret__, 'secure_initialization_role_arn'),
         studio_component_id=pulumi.get(__ret__, 'studio_component_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_studio_component)
 def get_studio_component_output(studio_component_id: Optional[pulumi.Input[str]] = None,
                                 studio_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioComponentResult]:
@@ -191,4 +193,19 @@ def get_studio_component_output(studio_component_id: Optional[pulumi.Input[str]]
     :param str studio_component_id: The unique identifier for the studio component resource.
     :param str studio_id: <p>The studio ID. </p>
     """
-    ...
+    __args__ = dict()
+    __args__['studioComponentId'] = studio_component_id
+    __args__['studioId'] = studio_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getStudioComponent', __args__, opts=opts, typ=GetStudioComponentResult)
+    return __ret__.apply(lambda __response__: GetStudioComponentResult(
+        configuration=pulumi.get(__response__, 'configuration'),
+        description=pulumi.get(__response__, 'description'),
+        ec2_security_group_ids=pulumi.get(__response__, 'ec2_security_group_ids'),
+        initialization_scripts=pulumi.get(__response__, 'initialization_scripts'),
+        name=pulumi.get(__response__, 'name'),
+        runtime_role_arn=pulumi.get(__response__, 'runtime_role_arn'),
+        script_parameters=pulumi.get(__response__, 'script_parameters'),
+        secure_initialization_role_arn=pulumi.get(__response__, 'secure_initialization_role_arn'),
+        studio_component_id=pulumi.get(__response__, 'studio_component_id'),
+        type=pulumi.get(__response__, 'type')))

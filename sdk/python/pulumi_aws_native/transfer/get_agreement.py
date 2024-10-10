@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -165,9 +170,6 @@ def get_agreement(agreement_id: Optional[str] = None,
         partner_profile_id=pulumi.get(__ret__, 'partner_profile_id'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_agreement)
 def get_agreement_output(agreement_id: Optional[pulumi.Input[str]] = None,
                          server_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgreementResult]:
@@ -178,4 +180,18 @@ def get_agreement_output(agreement_id: Optional[pulumi.Input[str]] = None,
     :param str agreement_id: A unique identifier for the agreement.
     :param str server_id: A unique identifier for the server.
     """
-    ...
+    __args__ = dict()
+    __args__['agreementId'] = agreement_id
+    __args__['serverId'] = server_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:transfer:getAgreement', __args__, opts=opts, typ=GetAgreementResult)
+    return __ret__.apply(lambda __response__: GetAgreementResult(
+        access_role=pulumi.get(__response__, 'access_role'),
+        agreement_id=pulumi.get(__response__, 'agreement_id'),
+        arn=pulumi.get(__response__, 'arn'),
+        base_directory=pulumi.get(__response__, 'base_directory'),
+        description=pulumi.get(__response__, 'description'),
+        local_profile_id=pulumi.get(__response__, 'local_profile_id'),
+        partner_profile_id=pulumi.get(__response__, 'partner_profile_id'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

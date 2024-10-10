@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -174,9 +179,6 @@ def get_transit_gateway_peering(peering_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_peering_attachment_id=pulumi.get(__ret__, 'transit_gateway_peering_attachment_id'))
-
-
-@_utilities.lift_output_func(get_transit_gateway_peering)
 def get_transit_gateway_peering_output(peering_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayPeeringResult]:
     """
@@ -185,4 +187,18 @@ def get_transit_gateway_peering_output(peering_id: Optional[pulumi.Input[str]] =
 
     :param str peering_id: The Id of the transit gateway peering
     """
-    ...
+    __args__ = dict()
+    __args__['peeringId'] = peering_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getTransitGatewayPeering', __args__, opts=opts, typ=GetTransitGatewayPeeringResult)
+    return __ret__.apply(lambda __response__: GetTransitGatewayPeeringResult(
+        core_network_arn=pulumi.get(__response__, 'core_network_arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        edge_location=pulumi.get(__response__, 'edge_location'),
+        owner_account_id=pulumi.get(__response__, 'owner_account_id'),
+        peering_id=pulumi.get(__response__, 'peering_id'),
+        peering_type=pulumi.get(__response__, 'peering_type'),
+        resource_arn=pulumi.get(__response__, 'resource_arn'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_peering_attachment_id=pulumi.get(__response__, 'transit_gateway_peering_attachment_id')))

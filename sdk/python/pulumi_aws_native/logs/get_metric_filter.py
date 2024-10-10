@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -75,9 +80,6 @@ def get_metric_filter(filter_name: Optional[str] = None,
     return AwaitableGetMetricFilterResult(
         filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
         metric_transformations=pulumi.get(__ret__, 'metric_transformations'))
-
-
-@_utilities.lift_output_func(get_metric_filter)
 def get_metric_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
                              log_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricFilterResult]:
@@ -89,4 +91,11 @@ def get_metric_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
     :param str filter_name: The name of the metric filter.
     :param str log_group_name: The name of an existing log group that you want to associate with this metric filter.
     """
-    ...
+    __args__ = dict()
+    __args__['filterName'] = filter_name
+    __args__['logGroupName'] = log_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getMetricFilter', __args__, opts=opts, typ=GetMetricFilterResult)
+    return __ret__.apply(lambda __response__: GetMetricFilterResult(
+        filter_pattern=pulumi.get(__response__, 'filter_pattern'),
+        metric_transformations=pulumi.get(__response__, 'metric_transformations')))

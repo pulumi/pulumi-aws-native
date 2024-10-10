@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
  */
 export function getInternetGateway(args: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getInternetGateway", {
         "internetGatewayId": args.internetGatewayId,
@@ -39,7 +38,10 @@ export interface GetInternetGatewayResult {
  * Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
  */
 export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getInternetGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getInternetGateway", {
+        "internetGatewayId": args.internetGatewayId,
+    }, opts);
 }
 
 export interface GetInternetGatewayOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
  */
 export function getDbCluster(args: GetDbClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDbClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:neptune:getDbCluster", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
@@ -107,7 +106,10 @@ export interface GetDbClusterResult {
  * The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
  */
 export function getDbClusterOutput(args: GetDbClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbClusterResult> {
-    return pulumi.output(args).apply((a: any) => getDbCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:neptune:getDbCluster", {
+        "dbClusterIdentifier": args.dbClusterIdentifier,
+    }, opts);
 }
 
 export interface GetDbClusterOutputArgs {

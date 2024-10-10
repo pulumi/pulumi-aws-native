@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -182,9 +187,6 @@ def get_method(http_method: Optional[str] = None,
         request_models=pulumi.get(__ret__, 'request_models'),
         request_parameters=pulumi.get(__ret__, 'request_parameters'),
         request_validator_id=pulumi.get(__ret__, 'request_validator_id'))
-
-
-@_utilities.lift_output_func(get_method)
 def get_method_output(http_method: Optional[pulumi.Input[str]] = None,
                       resource_id: Optional[pulumi.Input[str]] = None,
                       rest_api_id: Optional[pulumi.Input[str]] = None,
@@ -197,4 +199,20 @@ def get_method_output(http_method: Optional[pulumi.Input[str]] = None,
     :param str resource_id: The Resource identifier for the MethodResponse resource.
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
-    ...
+    __args__ = dict()
+    __args__['httpMethod'] = http_method
+    __args__['resourceId'] = resource_id
+    __args__['restApiId'] = rest_api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getMethod', __args__, opts=opts, typ=GetMethodResult)
+    return __ret__.apply(lambda __response__: GetMethodResult(
+        api_key_required=pulumi.get(__response__, 'api_key_required'),
+        authorization_scopes=pulumi.get(__response__, 'authorization_scopes'),
+        authorization_type=pulumi.get(__response__, 'authorization_type'),
+        authorizer_id=pulumi.get(__response__, 'authorizer_id'),
+        integration=pulumi.get(__response__, 'integration'),
+        method_responses=pulumi.get(__response__, 'method_responses'),
+        operation_name=pulumi.get(__response__, 'operation_name'),
+        request_models=pulumi.get(__response__, 'request_models'),
+        request_parameters=pulumi.get(__response__, 'request_parameters'),
+        request_validator_id=pulumi.get(__response__, 'request_validator_id')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -227,9 +232,6 @@ def get_cluster(name: Optional[str] = None,
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         version=pulumi.get(__ret__, 'version'),
         zonal_shift_config=pulumi.get(__ret__, 'zonal_shift_config'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -238,4 +240,22 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The unique name to give to your cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        access_config=pulumi.get(__response__, 'access_config'),
+        arn=pulumi.get(__response__, 'arn'),
+        certificate_authority_data=pulumi.get(__response__, 'certificate_authority_data'),
+        cluster_security_group_id=pulumi.get(__response__, 'cluster_security_group_id'),
+        encryption_config_key_arn=pulumi.get(__response__, 'encryption_config_key_arn'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        logging=pulumi.get(__response__, 'logging'),
+        open_id_connect_issuer_url=pulumi.get(__response__, 'open_id_connect_issuer_url'),
+        resources_vpc_config=pulumi.get(__response__, 'resources_vpc_config'),
+        tags=pulumi.get(__response__, 'tags'),
+        upgrade_policy=pulumi.get(__response__, 'upgrade_policy'),
+        version=pulumi.get(__response__, 'version'),
+        zonal_shift_config=pulumi.get(__response__, 'zonal_shift_config')))

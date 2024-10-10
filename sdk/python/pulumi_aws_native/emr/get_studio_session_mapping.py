@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -63,9 +68,6 @@ def get_studio_session_mapping(identity_name: Optional[str] = None,
 
     return AwaitableGetStudioSessionMappingResult(
         session_policy_arn=pulumi.get(__ret__, 'session_policy_arn'))
-
-
-@_utilities.lift_output_func(get_studio_session_mapping)
 def get_studio_session_mapping_output(identity_name: Optional[pulumi.Input[str]] = None,
                                       identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
                                       studio_id: Optional[pulumi.Input[str]] = None,
@@ -78,4 +80,11 @@ def get_studio_session_mapping_output(identity_name: Optional[pulumi.Input[str]]
     :param 'StudioSessionMappingIdentityType' identity_type: Specifies whether the identity to map to the Studio is a user or a group.
     :param str studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
     """
-    ...
+    __args__ = dict()
+    __args__['identityName'] = identity_name
+    __args__['identityType'] = identity_type
+    __args__['studioId'] = studio_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:emr:getStudioSessionMapping', __args__, opts=opts, typ=GetStudioSessionMappingResult)
+    return __ret__.apply(lambda __response__: GetStudioSessionMappingResult(
+        session_policy_arn=pulumi.get(__response__, 'session_policy_arn')))

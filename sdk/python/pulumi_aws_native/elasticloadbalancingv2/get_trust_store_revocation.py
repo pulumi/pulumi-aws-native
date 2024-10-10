@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -73,9 +78,6 @@ def get_trust_store_revocation(revocation_id: Optional[int] = None,
     return AwaitableGetTrustStoreRevocationResult(
         revocation_id=pulumi.get(__ret__, 'revocation_id'),
         trust_store_revocations=pulumi.get(__ret__, 'trust_store_revocations'))
-
-
-@_utilities.lift_output_func(get_trust_store_revocation)
 def get_trust_store_revocation_output(revocation_id: Optional[pulumi.Input[int]] = None,
                                       trust_store_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustStoreRevocationResult]:
@@ -86,4 +88,11 @@ def get_trust_store_revocation_output(revocation_id: Optional[pulumi.Input[int]]
     :param int revocation_id: The ID associated with the revocation.
     :param str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
     """
-    ...
+    __args__ = dict()
+    __args__['revocationId'] = revocation_id
+    __args__['trustStoreArn'] = trust_store_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancingv2:getTrustStoreRevocation', __args__, opts=opts, typ=GetTrustStoreRevocationResult)
+    return __ret__.apply(lambda __response__: GetTrustStoreRevocationResult(
+        revocation_id=pulumi.get(__response__, 'revocation_id'),
+        trust_store_revocations=pulumi.get(__response__, 'trust_store_revocations')))

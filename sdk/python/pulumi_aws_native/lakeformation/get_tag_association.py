@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -72,9 +77,6 @@ def get_tag_association(resource_identifier: Optional[str] = None,
     return AwaitableGetTagAssociationResult(
         resource_identifier=pulumi.get(__ret__, 'resource_identifier'),
         tags_identifier=pulumi.get(__ret__, 'tags_identifier'))
-
-
-@_utilities.lift_output_func(get_tag_association)
 def get_tag_association_output(resource_identifier: Optional[pulumi.Input[str]] = None,
                                tags_identifier: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagAssociationResult]:
@@ -85,4 +87,11 @@ def get_tag_association_output(resource_identifier: Optional[pulumi.Input[str]] 
     :param str resource_identifier: Unique string identifying the resource. Used as primary identifier, which ideally should be a string
     :param str tags_identifier: Unique string identifying the resource's tags. Used as primary identifier, which ideally should be a string
     """
-    ...
+    __args__ = dict()
+    __args__['resourceIdentifier'] = resource_identifier
+    __args__['tagsIdentifier'] = tags_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lakeformation:getTagAssociation', __args__, opts=opts, typ=GetTagAssociationResult)
+    return __ret__.apply(lambda __response__: GetTagAssociationResult(
+        resource_identifier=pulumi.get(__response__, 'resource_identifier'),
+        tags_identifier=pulumi.get(__response__, 'tags_identifier')))

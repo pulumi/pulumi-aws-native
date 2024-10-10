@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -175,9 +180,6 @@ def get_container(service_name: Optional[str] = None,
         scale=pulumi.get(__ret__, 'scale'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_container)
 def get_container_output(service_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerResult]:
     """
@@ -186,4 +188,18 @@ def get_container_output(service_name: Optional[pulumi.Input[str]] = None,
 
     :param str service_name: The name for the container service.
     """
-    ...
+    __args__ = dict()
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getContainer', __args__, opts=opts, typ=GetContainerResult)
+    return __ret__.apply(lambda __response__: GetContainerResult(
+        container_arn=pulumi.get(__response__, 'container_arn'),
+        container_service_deployment=pulumi.get(__response__, 'container_service_deployment'),
+        is_disabled=pulumi.get(__response__, 'is_disabled'),
+        power=pulumi.get(__response__, 'power'),
+        principal_arn=pulumi.get(__response__, 'principal_arn'),
+        private_registry_access=pulumi.get(__response__, 'private_registry_access'),
+        public_domain_names=pulumi.get(__response__, 'public_domain_names'),
+        scale=pulumi.get(__response__, 'scale'),
+        tags=pulumi.get(__response__, 'tags'),
+        url=pulumi.get(__response__, 'url')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -153,9 +158,6 @@ def get_calculated_attribute_definition(calculated_attribute_name: Optional[str]
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         statistic=pulumi.get(__ret__, 'statistic'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_calculated_attribute_definition)
 def get_calculated_attribute_definition_output(calculated_attribute_name: Optional[pulumi.Input[str]] = None,
                                                domain_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCalculatedAttributeDefinitionResult]:
@@ -166,4 +168,17 @@ def get_calculated_attribute_definition_output(calculated_attribute_name: Option
     :param str calculated_attribute_name: The name of an attribute defined in a profile object type.
     :param str domain_name: The unique name of the domain.
     """
-    ...
+    __args__ = dict()
+    __args__['calculatedAttributeName'] = calculated_attribute_name
+    __args__['domainName'] = domain_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getCalculatedAttributeDefinition', __args__, opts=opts, typ=GetCalculatedAttributeDefinitionResult)
+    return __ret__.apply(lambda __response__: GetCalculatedAttributeDefinitionResult(
+        attribute_details=pulumi.get(__response__, 'attribute_details'),
+        conditions=pulumi.get(__response__, 'conditions'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        statistic=pulumi.get(__response__, 'statistic'),
+        tags=pulumi.get(__response__, 'tags')))

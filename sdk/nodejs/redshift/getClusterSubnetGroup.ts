@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Specifies an Amazon Redshift subnet group.
  */
 export function getClusterSubnetGroup(args: GetClusterSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSubnetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshift:getClusterSubnetGroup", {
         "clusterSubnetGroupName": args.clusterSubnetGroupName,
@@ -40,7 +39,10 @@ export interface GetClusterSubnetGroupResult {
  * Specifies an Amazon Redshift subnet group.
  */
 export function getClusterSubnetGroupOutput(args: GetClusterSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSubnetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getClusterSubnetGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:redshift:getClusterSubnetGroup", {
+        "clusterSubnetGroupName": args.clusterSubnetGroupName,
+    }, opts);
 }
 
 export interface GetClusterSubnetGroupOutputArgs {

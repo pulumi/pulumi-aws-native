@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DMS::DataProvider
  */
 export function getDataProvider(args: GetDataProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetDataProviderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dms:getDataProvider", {
         "dataProviderArn": args.dataProviderArn,
@@ -59,7 +58,10 @@ export interface GetDataProviderResult {
  * Resource schema for AWS::DMS::DataProvider
  */
 export function getDataProviderOutput(args: GetDataProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataProviderResult> {
-    return pulumi.output(args).apply((a: any) => getDataProvider(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:dms:getDataProvider", {
+        "dataProviderArn": args.dataProviderArn,
+    }, opts);
 }
 
 export interface GetDataProviderOutputArgs {

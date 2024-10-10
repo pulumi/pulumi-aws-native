@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *  Tags aren't supported for this resource.
  */
 export function getDelegatedAdmin(args: GetDelegatedAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedAdminResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securityhub:getDelegatedAdmin", {
         "delegatedAdminIdentifier": args.delegatedAdminIdentifier,
@@ -45,7 +44,10 @@ export interface GetDelegatedAdminResult {
  *  Tags aren't supported for this resource.
  */
 export function getDelegatedAdminOutput(args: GetDelegatedAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedAdminResult> {
-    return pulumi.output(args).apply((a: any) => getDelegatedAdmin(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:securityhub:getDelegatedAdmin", {
+        "delegatedAdminIdentifier": args.delegatedAdminIdentifier,
+    }, opts);
 }
 
 export interface GetDelegatedAdminOutputArgs {

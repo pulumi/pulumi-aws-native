@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
  */
 export function getProactiveEngagement(args: GetProactiveEngagementArgs, opts?: pulumi.InvokeOptions): Promise<GetProactiveEngagementResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:shield:getProactiveEngagement", {
         "accountId": args.accountId,
@@ -45,7 +44,10 @@ export interface GetProactiveEngagementResult {
  * Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
  */
 export function getProactiveEngagementOutput(args: GetProactiveEngagementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveEngagementResult> {
-    return pulumi.output(args).apply((a: any) => getProactiveEngagement(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:shield:getProactiveEngagement", {
+        "accountId": args.accountId,
+    }, opts);
 }
 
 export interface GetProactiveEngagementOutputArgs {

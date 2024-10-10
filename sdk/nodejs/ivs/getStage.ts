@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Definition for type AWS::IVS::Stage.
  */
 export function getStage(args: GetStageArgs, opts?: pulumi.InvokeOptions): Promise<GetStageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ivs:getStage", {
         "arn": args.arn,
@@ -48,7 +47,10 @@ export interface GetStageResult {
  * Resource Definition for type AWS::IVS::Stage.
  */
 export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStageResult> {
-    return pulumi.output(args).apply((a: any) => getStage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ivs:getStage", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetStageOutputArgs {

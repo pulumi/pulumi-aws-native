@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -124,9 +129,6 @@ def get_dataflow_endpoint_group(id: Optional[str] = None,
         endpoint_details=pulumi.get(__ret__, 'endpoint_details'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_dataflow_endpoint_group)
 def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataflowEndpointGroupResult]:
     """
@@ -135,4 +137,14 @@ def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: UUID of a dataflow endpoint group.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:groundstation:getDataflowEndpointGroup', __args__, opts=opts, typ=GetDataflowEndpointGroupResult)
+    return __ret__.apply(lambda __response__: GetDataflowEndpointGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        contact_post_pass_duration_seconds=pulumi.get(__response__, 'contact_post_pass_duration_seconds'),
+        contact_pre_pass_duration_seconds=pulumi.get(__response__, 'contact_pre_pass_duration_seconds'),
+        endpoint_details=pulumi.get(__response__, 'endpoint_details'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -337,9 +342,6 @@ def get_job(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         worker_type=pulumi.get(__ret__, 'worker_type'))
-
-
-@_utilities.lift_output_func(get_job)
 def get_job_output(name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
@@ -348,4 +350,30 @@ def get_job_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name you assign to the job definition
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getJob', __args__, opts=opts, typ=GetJobResult)
+    return __ret__.apply(lambda __response__: GetJobResult(
+        allocated_capacity=pulumi.get(__response__, 'allocated_capacity'),
+        command=pulumi.get(__response__, 'command'),
+        connections=pulumi.get(__response__, 'connections'),
+        default_arguments=pulumi.get(__response__, 'default_arguments'),
+        description=pulumi.get(__response__, 'description'),
+        execution_class=pulumi.get(__response__, 'execution_class'),
+        execution_property=pulumi.get(__response__, 'execution_property'),
+        glue_version=pulumi.get(__response__, 'glue_version'),
+        job_mode=pulumi.get(__response__, 'job_mode'),
+        job_run_queuing_enabled=pulumi.get(__response__, 'job_run_queuing_enabled'),
+        log_uri=pulumi.get(__response__, 'log_uri'),
+        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
+        max_capacity=pulumi.get(__response__, 'max_capacity'),
+        max_retries=pulumi.get(__response__, 'max_retries'),
+        non_overridable_arguments=pulumi.get(__response__, 'non_overridable_arguments'),
+        notification_property=pulumi.get(__response__, 'notification_property'),
+        number_of_workers=pulumi.get(__response__, 'number_of_workers'),
+        role=pulumi.get(__response__, 'role'),
+        security_configuration=pulumi.get(__response__, 'security_configuration'),
+        tags=pulumi.get(__response__, 'tags'),
+        timeout=pulumi.get(__response__, 'timeout'),
+        worker_type=pulumi.get(__response__, 'worker_type')))

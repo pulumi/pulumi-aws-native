@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -96,9 +101,6 @@ def get_mail_manager_addon_instance(addon_instance_id: Optional[str] = None,
         addon_instance_id=pulumi.get(__ret__, 'addon_instance_id'),
         addon_name=pulumi.get(__ret__, 'addon_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_mail_manager_addon_instance)
 def get_mail_manager_addon_instance_output(addon_instance_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerAddonInstanceResult]:
     """
@@ -107,4 +109,12 @@ def get_mail_manager_addon_instance_output(addon_instance_id: Optional[pulumi.In
 
     :param str addon_instance_id: The unique ID of the Add On instance.
     """
-    ...
+    __args__ = dict()
+    __args__['addonInstanceId'] = addon_instance_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerAddonInstance', __args__, opts=opts, typ=GetMailManagerAddonInstanceResult)
+    return __ret__.apply(lambda __response__: GetMailManagerAddonInstanceResult(
+        addon_instance_arn=pulumi.get(__response__, 'addon_instance_arn'),
+        addon_instance_id=pulumi.get(__response__, 'addon_instance_id'),
+        addon_name=pulumi.get(__response__, 'addon_name'),
+        tags=pulumi.get(__response__, 'tags')))

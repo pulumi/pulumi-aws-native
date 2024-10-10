@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -70,9 +75,6 @@ def get_profile_association(id: Optional[str] = None,
     return AwaitableGetProfileAssociationResult(
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_profile_association)
 def get_profile_association_output(id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileAssociationResult]:
     """
@@ -81,4 +83,10 @@ def get_profile_association_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Primary Identifier for  Profile Association
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:route53profiles:getProfileAssociation', __args__, opts=opts, typ=GetProfileAssociationResult)
+    return __ret__.apply(lambda __response__: GetProfileAssociationResult(
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))

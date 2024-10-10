@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *  For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide*.
  */
 export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getLaunchTemplate", {
         "launchTemplateId": args.launchTemplateId,
@@ -54,7 +53,10 @@ export interface GetLaunchTemplateResult {
  *  For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide*.
  */
 export function getLaunchTemplateOutput(args: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getLaunchTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getLaunchTemplate", {
+        "launchTemplateId": args.launchTemplateId,
+    }, opts);
 }
 
 export interface GetLaunchTemplateOutputArgs {

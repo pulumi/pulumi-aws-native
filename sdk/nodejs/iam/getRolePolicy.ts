@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *  For information about the maximum number of inline policies that you can embed with a role, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
  */
 export function getRolePolicy(args: GetRolePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRolePolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getRolePolicy", {
         "policyName": args.policyName,
@@ -52,7 +51,11 @@ export interface GetRolePolicyResult {
  *  For information about the maximum number of inline policies that you can embed with a role, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
  */
 export function getRolePolicyOutput(args: GetRolePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getRolePolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iam:getRolePolicy", {
+        "policyName": args.policyName,
+        "roleName": args.roleName,
+    }, opts);
 }
 
 export interface GetRolePolicyOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -189,9 +194,6 @@ def get_pipeline(pipeline_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_service=pulumi.get(__ret__, 'vpc_endpoint_service'),
         vpc_endpoints=pulumi.get(__ret__, 'vpc_endpoints'))
-
-
-@_utilities.lift_output_func(get_pipeline)
 def get_pipeline_output(pipeline_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
     """
@@ -200,4 +202,19 @@ def get_pipeline_output(pipeline_arn: Optional[pulumi.Input[str]] = None,
 
     :param str pipeline_arn: The Amazon Resource Name (ARN) of the pipeline.
     """
-    ...
+    __args__ = dict()
+    __args__['pipelineArn'] = pipeline_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:osis:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
+    return __ret__.apply(lambda __response__: GetPipelineResult(
+        buffer_options=pulumi.get(__response__, 'buffer_options'),
+        encryption_at_rest_options=pulumi.get(__response__, 'encryption_at_rest_options'),
+        ingest_endpoint_urls=pulumi.get(__response__, 'ingest_endpoint_urls'),
+        log_publishing_options=pulumi.get(__response__, 'log_publishing_options'),
+        max_units=pulumi.get(__response__, 'max_units'),
+        min_units=pulumi.get(__response__, 'min_units'),
+        pipeline_arn=pulumi.get(__response__, 'pipeline_arn'),
+        pipeline_configuration_body=pulumi.get(__response__, 'pipeline_configuration_body'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_endpoint_service=pulumi.get(__response__, 'vpc_endpoint_service'),
+        vpc_endpoints=pulumi.get(__response__, 'vpc_endpoints')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
  */
 export function getAccountPolicy(args: GetAccountPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getAccountPolicy", {
         "accountId": args.accountId,
@@ -63,7 +62,12 @@ export interface GetAccountPolicyResult {
  * The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
  */
 export function getAccountPolicyOutput(args: GetAccountPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getAccountPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:logs:getAccountPolicy", {
+        "accountId": args.accountId,
+        "policyName": args.policyName,
+        "policyType": args.policyType,
+    }, opts);
 }
 
 export interface GetAccountPolicyOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -59,9 +64,6 @@ def get_member_invitation(graph_arn: Optional[str] = None,
 
     return AwaitableGetMemberInvitationResult(
         member_email_address=pulumi.get(__ret__, 'member_email_address'))
-
-
-@_utilities.lift_output_func(get_member_invitation)
 def get_member_invitation_output(graph_arn: Optional[pulumi.Input[str]] = None,
                                  member_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMemberInvitationResult]:
@@ -72,4 +74,10 @@ def get_member_invitation_output(graph_arn: Optional[pulumi.Input[str]] = None,
     :param str graph_arn: The ARN of the graph to which the member account will be invited
     :param str member_id: The AWS account ID to be invited to join the graph as a member
     """
-    ...
+    __args__ = dict()
+    __args__['graphArn'] = graph_arn
+    __args__['memberId'] = member_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:detective:getMemberInvitation', __args__, opts=opts, typ=GetMemberInvitationResult)
+    return __ret__.apply(lambda __response__: GetMemberInvitationResult(
+        member_email_address=pulumi.get(__response__, 'member_email_address')))

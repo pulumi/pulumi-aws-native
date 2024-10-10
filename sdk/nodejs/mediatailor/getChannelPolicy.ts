@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaTailor::ChannelPolicy Resource Type
  */
 export function getChannelPolicy(args: GetChannelPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediatailor:getChannelPolicy", {
         "channelName": args.channelName,
@@ -34,7 +33,10 @@ export interface GetChannelPolicyResult {
  * Definition of AWS::MediaTailor::ChannelPolicy Resource Type
  */
 export function getChannelPolicyOutput(args: GetChannelPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getChannelPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediatailor:getChannelPolicy", {
+        "channelName": args.channelName,
+    }, opts);
 }
 
 export interface GetChannelPolicyOutputArgs {

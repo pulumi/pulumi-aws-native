@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *  For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSubnet", {
         "subnetId": args.subnetId,
@@ -79,7 +78,10 @@ export interface GetSubnetResult {
  *  For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
  */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
-    return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getSubnet", {
+        "subnetId": args.subnetId,
+    }, opts);
 }
 
 export interface GetSubnetOutputArgs {

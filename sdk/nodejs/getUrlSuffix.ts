@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getUrlSuffix(opts?: pulumi.InvokeOptions): Promise<GetUrlSuffixResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:index:getUrlSuffix", {
     }, opts);
@@ -15,5 +14,7 @@ export interface GetUrlSuffixResult {
     readonly urlSuffix: string;
 }
 export function getUrlSuffixOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUrlSuffixResult> {
-    return pulumi.output(getUrlSuffix(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:index:getUrlSuffix", {
+    }, opts);
 }

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IdentityStore::Group
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:identitystore:getGroup", {
         "groupId": args.groupId,
@@ -45,7 +44,11 @@ export interface GetGroupResult {
  * Resource Type definition for AWS::IdentityStore::Group
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:identitystore:getGroup", {
+        "groupId": args.groupId,
+        "identityStoreId": args.identityStoreId,
+    }, opts);
 }
 
 export interface GetGroupOutputArgs {

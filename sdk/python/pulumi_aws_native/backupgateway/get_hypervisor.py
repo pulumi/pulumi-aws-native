@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_hypervisor(hypervisor_arn: Optional[str] = None,
     return AwaitableGetHypervisorResult(
         host=pulumi.get(__ret__, 'host'),
         hypervisor_arn=pulumi.get(__ret__, 'hypervisor_arn'))
-
-
-@_utilities.lift_output_func(get_hypervisor)
 def get_hypervisor_output(hypervisor_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHypervisorResult]:
     """
@@ -80,4 +82,10 @@ def get_hypervisor_output(hypervisor_arn: Optional[pulumi.Input[str]] = None,
 
     :param str hypervisor_arn: Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
     """
-    ...
+    __args__ = dict()
+    __args__['hypervisorArn'] = hypervisor_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:backupgateway:getHypervisor', __args__, opts=opts, typ=GetHypervisorResult)
+    return __ret__.apply(lambda __response__: GetHypervisorResult(
+        host=pulumi.get(__response__, 'host'),
+        hypervisor_arn=pulumi.get(__response__, 'hypervisor_arn')))

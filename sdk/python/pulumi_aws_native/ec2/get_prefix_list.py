@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -163,9 +168,6 @@ def get_prefix_list(prefix_list_id: Optional[str] = None,
         prefix_list_name=pulumi.get(__ret__, 'prefix_list_name'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_prefix_list)
 def get_prefix_list_output(prefix_list_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListResult]:
     """
@@ -174,4 +176,17 @@ def get_prefix_list_output(prefix_list_id: Optional[pulumi.Input[str]] = None,
 
     :param str prefix_list_id: Id of Prefix List.
     """
-    ...
+    __args__ = dict()
+    __args__['prefixListId'] = prefix_list_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getPrefixList', __args__, opts=opts, typ=GetPrefixListResult)
+    return __ret__.apply(lambda __response__: GetPrefixListResult(
+        address_family=pulumi.get(__response__, 'address_family'),
+        arn=pulumi.get(__response__, 'arn'),
+        entries=pulumi.get(__response__, 'entries'),
+        max_entries=pulumi.get(__response__, 'max_entries'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        prefix_list_id=pulumi.get(__response__, 'prefix_list_id'),
+        prefix_list_name=pulumi.get(__response__, 'prefix_list_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

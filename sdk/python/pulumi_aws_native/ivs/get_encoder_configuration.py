@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -70,9 +75,6 @@ def get_encoder_configuration(arn: Optional[str] = None,
     return AwaitableGetEncoderConfigurationResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_encoder_configuration)
 def get_encoder_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncoderConfigurationResult]:
     """
@@ -81,4 +83,10 @@ def get_encoder_configuration_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Encoder configuration identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getEncoderConfiguration', __args__, opts=opts, typ=GetEncoderConfigurationResult)
+    return __ret__.apply(lambda __response__: GetEncoderConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Creates an evaluation form for the specified CON instance.
  */
 export function getEvaluationForm(args: GetEvaluationFormArgs, opts?: pulumi.InvokeOptions): Promise<GetEvaluationFormResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getEvaluationForm", {
         "evaluationFormArn": args.evaluationFormArn,
@@ -67,7 +66,10 @@ export interface GetEvaluationFormResult {
  * Creates an evaluation form for the specified CON instance.
  */
 export function getEvaluationFormOutput(args: GetEvaluationFormOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEvaluationFormResult> {
-    return pulumi.output(args).apply((a: any) => getEvaluationForm(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getEvaluationForm", {
+        "evaluationFormArn": args.evaluationFormArn,
+    }, opts);
 }
 
 export interface GetEvaluationFormOutputArgs {

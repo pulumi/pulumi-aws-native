@@ -4,49 +4,100 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ApplicationAttachmentsConfigurationArgs',
+    'ApplicationAttachmentsConfigurationArgsDict',
     'ApplicationAutoSubscriptionConfigurationArgs',
+    'ApplicationAutoSubscriptionConfigurationArgsDict',
     'ApplicationEncryptionConfigurationArgs',
+    'ApplicationEncryptionConfigurationArgsDict',
     'ApplicationPersonalizationConfigurationArgs',
+    'ApplicationPersonalizationConfigurationArgsDict',
     'ApplicationQAppsConfigurationArgs',
+    'ApplicationQAppsConfigurationArgsDict',
     'DataSourceDocumentAttributeConditionArgs',
+    'DataSourceDocumentAttributeConditionArgsDict',
     'DataSourceDocumentAttributeTargetArgs',
+    'DataSourceDocumentAttributeTargetArgsDict',
     'DataSourceDocumentAttributeValue0PropertiesArgs',
+    'DataSourceDocumentAttributeValue0PropertiesArgsDict',
     'DataSourceDocumentAttributeValue1PropertiesArgs',
+    'DataSourceDocumentAttributeValue1PropertiesArgsDict',
     'DataSourceDocumentAttributeValue2PropertiesArgs',
+    'DataSourceDocumentAttributeValue2PropertiesArgsDict',
     'DataSourceDocumentAttributeValue3PropertiesArgs',
+    'DataSourceDocumentAttributeValue3PropertiesArgsDict',
     'DataSourceDocumentEnrichmentConfigurationArgs',
+    'DataSourceDocumentEnrichmentConfigurationArgsDict',
     'DataSourceHookConfigurationArgs',
+    'DataSourceHookConfigurationArgsDict',
     'DataSourceInlineDocumentEnrichmentConfigurationArgs',
+    'DataSourceInlineDocumentEnrichmentConfigurationArgsDict',
     'DataSourceVpcConfigurationArgs',
+    'DataSourceVpcConfigurationArgsDict',
     'IndexCapacityConfigurationArgs',
+    'IndexCapacityConfigurationArgsDict',
     'IndexDocumentAttributeConfigurationArgs',
+    'IndexDocumentAttributeConfigurationArgsDict',
     'PluginApiSchema0PropertiesArgs',
+    'PluginApiSchema0PropertiesArgsDict',
     'PluginApiSchema1PropertiesArgs',
+    'PluginApiSchema1PropertiesArgsDict',
     'PluginAuthConfiguration0PropertiesArgs',
+    'PluginAuthConfiguration0PropertiesArgsDict',
     'PluginAuthConfiguration1PropertiesArgs',
+    'PluginAuthConfiguration1PropertiesArgsDict',
     'PluginAuthConfiguration2PropertiesArgs',
+    'PluginAuthConfiguration2PropertiesArgsDict',
     'PluginBasicAuthConfigurationArgs',
+    'PluginBasicAuthConfigurationArgsDict',
     'PluginCustomPluginConfigurationArgs',
+    'PluginCustomPluginConfigurationArgsDict',
     'PluginNoAuthConfigurationArgs',
+    'PluginNoAuthConfigurationArgsDict',
     'PluginOAuth2ClientCredentialConfigurationArgs',
+    'PluginOAuth2ClientCredentialConfigurationArgsDict',
     'PluginS3Args',
+    'PluginS3ArgsDict',
     'RetrieverConfiguration0PropertiesArgs',
+    'RetrieverConfiguration0PropertiesArgsDict',
     'RetrieverConfiguration1PropertiesArgs',
+    'RetrieverConfiguration1PropertiesArgsDict',
     'RetrieverKendraIndexConfigurationArgs',
+    'RetrieverKendraIndexConfigurationArgsDict',
     'RetrieverNativeIndexConfigurationArgs',
+    'RetrieverNativeIndexConfigurationArgsDict',
     'WebExperienceIdentityProviderConfiguration0PropertiesArgs',
+    'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict',
     'WebExperienceIdentityProviderConfiguration1PropertiesArgs',
+    'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict',
     'WebExperienceOpenIdConnectProviderConfigurationArgs',
+    'WebExperienceOpenIdConnectProviderConfigurationArgsDict',
     'WebExperienceSamlProviderConfigurationArgs',
+    'WebExperienceSamlProviderConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationAttachmentsConfigurationArgsDict(TypedDict):
+        attachments_control_mode: pulumi.Input['ApplicationAttachmentsControlMode']
+        """
+        Status information about whether file upload functionality is activated or deactivated for your end user.
+        """
+elif False:
+    ApplicationAttachmentsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationAttachmentsConfigurationArgs:
@@ -69,6 +120,19 @@ class ApplicationAttachmentsConfigurationArgs:
     def attachments_control_mode(self, value: pulumi.Input['ApplicationAttachmentsControlMode']):
         pulumi.set(self, "attachments_control_mode", value)
 
+
+if not MYPY:
+    class ApplicationAutoSubscriptionConfigurationArgsDict(TypedDict):
+        auto_subscribe: pulumi.Input['ApplicationAutoSubscriptionStatus']
+        """
+        Describes whether automatic subscriptions are enabled for an Amazon Q Business application using IAM identity federation for user management.
+        """
+        default_subscription_type: NotRequired[pulumi.Input['ApplicationSubscriptionType']]
+        """
+        Describes the default subscription type assigned to an Amazon Q Business application using IAM identity federation for user management. If the value for `autoSubscribe` is set to `ENABLED` you must select a value for this field.
+        """
+elif False:
+    ApplicationAutoSubscriptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationAutoSubscriptionConfigurationArgs:
@@ -108,6 +172,15 @@ class ApplicationAutoSubscriptionConfigurationArgs:
         pulumi.set(self, "default_subscription_type", value)
 
 
+if not MYPY:
+    class ApplicationEncryptionConfigurationArgsDict(TypedDict):
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+        """
+elif False:
+    ApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationEncryptionConfigurationArgs:
     def __init__(__self__, *,
@@ -131,6 +204,15 @@ class ApplicationEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
+if not MYPY:
+    class ApplicationPersonalizationConfigurationArgsDict(TypedDict):
+        personalization_control_mode: pulumi.Input['ApplicationPersonalizationControlMode']
+        """
+        An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.
+        """
+elif False:
+    ApplicationPersonalizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationPersonalizationConfigurationArgs:
     def __init__(__self__, *,
@@ -153,6 +235,15 @@ class ApplicationPersonalizationConfigurationArgs:
         pulumi.set(self, "personalization_control_mode", value)
 
 
+if not MYPY:
+    class ApplicationQAppsConfigurationArgsDict(TypedDict):
+        q_apps_control_mode: pulumi.Input['ApplicationQAppsControlMode']
+        """
+        Status information about whether end users can create and use Amazon Q Apps in the web experience.
+        """
+elif False:
+    ApplicationQAppsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationQAppsConfigurationArgs:
     def __init__(__self__, *,
@@ -174,6 +265,31 @@ class ApplicationQAppsConfigurationArgs:
     def q_apps_control_mode(self, value: pulumi.Input['ApplicationQAppsControlMode']):
         pulumi.set(self, "q_apps_control_mode", value)
 
+
+if not MYPY:
+    class DataSourceDocumentAttributeConditionArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The identifier of the document attribute used for the condition.
+
+        For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+
+        Amazon Q Business currently doesn't support `_document_body` as an attribute key used for the condition.
+        """
+        operator: pulumi.Input['DataSourceDocumentEnrichmentConditionOperator']
+        """
+        The identifier of the document attribute used for the condition.
+
+        For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.
+
+        Amazon Q Business currently does not support `_document_body` as an attribute key used for the condition.
+        """
+        value: NotRequired[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgsDict', 'DataSourceDocumentAttributeValue1PropertiesArgsDict', 'DataSourceDocumentAttributeValue2PropertiesArgsDict', 'DataSourceDocumentAttributeValue3PropertiesArgsDict']]]
+        """
+        The value of a document attribute. You can only provide one value for a document attribute.
+        """
+elif False:
+    DataSourceDocumentAttributeConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceDocumentAttributeConditionArgs:
@@ -244,6 +360,23 @@ class DataSourceDocumentAttributeConditionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class DataSourceDocumentAttributeTargetArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+        """
+        attribute_value_operator: NotRequired[pulumi.Input['DataSourceAttributeValueOperator']]
+        """
+        `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE` .
+        """
+        value: NotRequired[pulumi.Input[Union['DataSourceDocumentAttributeValue0PropertiesArgsDict', 'DataSourceDocumentAttributeValue1PropertiesArgsDict', 'DataSourceDocumentAttributeValue2PropertiesArgsDict', 'DataSourceDocumentAttributeValue3PropertiesArgsDict']]]
+        """
+        The value of a document attribute. You can only provide one value for a document attribute.
+        """
+elif False:
+    DataSourceDocumentAttributeTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceDocumentAttributeTargetArgs:
     def __init__(__self__, *,
@@ -298,6 +431,12 @@ class DataSourceDocumentAttributeTargetArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class DataSourceDocumentAttributeValue0PropertiesArgsDict(TypedDict):
+        string_value: pulumi.Input[str]
+elif False:
+    DataSourceDocumentAttributeValue0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceDocumentAttributeValue0PropertiesArgs:
     def __init__(__self__, *,
@@ -313,6 +452,12 @@ class DataSourceDocumentAttributeValue0PropertiesArgs:
     def string_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "string_value", value)
 
+
+if not MYPY:
+    class DataSourceDocumentAttributeValue1PropertiesArgsDict(TypedDict):
+        string_list_value: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    DataSourceDocumentAttributeValue1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceDocumentAttributeValue1PropertiesArgs:
@@ -330,6 +475,12 @@ class DataSourceDocumentAttributeValue1PropertiesArgs:
         pulumi.set(self, "string_list_value", value)
 
 
+if not MYPY:
+    class DataSourceDocumentAttributeValue2PropertiesArgsDict(TypedDict):
+        long_value: pulumi.Input[float]
+elif False:
+    DataSourceDocumentAttributeValue2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceDocumentAttributeValue2PropertiesArgs:
     def __init__(__self__, *,
@@ -346,6 +497,12 @@ class DataSourceDocumentAttributeValue2PropertiesArgs:
         pulumi.set(self, "long_value", value)
 
 
+if not MYPY:
+    class DataSourceDocumentAttributeValue3PropertiesArgsDict(TypedDict):
+        date_value: pulumi.Input[str]
+elif False:
+    DataSourceDocumentAttributeValue3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceDocumentAttributeValue3PropertiesArgs:
     def __init__(__self__, *,
@@ -361,6 +518,23 @@ class DataSourceDocumentAttributeValue3PropertiesArgs:
     def date_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "date_value", value)
 
+
+if not MYPY:
+    class DataSourceDocumentEnrichmentConfigurationArgsDict(TypedDict):
+        inline_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceInlineDocumentEnrichmentConfigurationArgsDict']]]]
+        """
+        Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
+        """
+        post_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
+        """
+        Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        """
+        pre_extraction_hook_configuration: NotRequired[pulumi.Input['DataSourceHookConfigurationArgsDict']]
+        """
+        Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        """
+elif False:
+    DataSourceDocumentEnrichmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceDocumentEnrichmentConfigurationArgs:
@@ -416,6 +590,29 @@ class DataSourceDocumentEnrichmentConfigurationArgs:
     def pre_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceHookConfigurationArgs']]):
         pulumi.set(self, "pre_extraction_hook_configuration", value)
 
+
+if not MYPY:
+    class DataSourceHookConfigurationArgsDict(TypedDict):
+        invocation_condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
+        """
+        The condition used for when a Lambda function should be invoked.
+
+        For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
+        """
+        lambda_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
+        """
+        s3_bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
+        """
+elif False:
+    DataSourceHookConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceHookConfigurationArgs:
@@ -492,6 +689,23 @@ class DataSourceHookConfigurationArgs:
         pulumi.set(self, "s3_bucket_name", value)
 
 
+if not MYPY:
+    class DataSourceInlineDocumentEnrichmentConfigurationArgsDict(TypedDict):
+        condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
+        """
+        Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
+        """
+        document_content_operator: NotRequired[pulumi.Input['DataSourceDocumentContentOperator']]
+        """
+        `TRUE` to delete content if the condition used for the target attribute is met.
+        """
+        target: NotRequired[pulumi.Input['DataSourceDocumentAttributeTargetArgsDict']]
+        """
+        Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
+        """
+elif False:
+    DataSourceInlineDocumentEnrichmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceInlineDocumentEnrichmentConfigurationArgs:
     def __init__(__self__, *,
@@ -547,6 +761,19 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
         pulumi.set(self, "target", value)
 
 
+if not MYPY:
+    class DataSourceVpcConfigurationArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of identifiers of security groups within your Amazon VPC. The security groups should enable Amazon Q Business to connect to the data source.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.
+        """
+elif False:
+    DataSourceVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceVpcConfigurationArgs:
     def __init__(__self__, *,
@@ -584,6 +811,15 @@ class DataSourceVpcConfigurationArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
+if not MYPY:
+    class IndexCapacityConfigurationArgsDict(TypedDict):
+        units: NotRequired[pulumi.Input[float]]
+        """
+        The number of storage units configured for an Amazon Q Business index.
+        """
+elif False:
+    IndexCapacityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IndexCapacityConfigurationArgs:
     def __init__(__self__, *,
@@ -606,6 +842,23 @@ class IndexCapacityConfigurationArgs:
     def units(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "units", value)
 
+
+if not MYPY:
+    class IndexDocumentAttributeConfigurationArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the document attribute.
+        """
+        search: NotRequired[pulumi.Input['QBusinessIndexStatus']]
+        """
+        Information about whether the document attribute can be used by an end user to search for information on their web experience.
+        """
+        type: NotRequired[pulumi.Input['IndexAttributeType']]
+        """
+        The type of document attribute.
+        """
+elif False:
+    IndexDocumentAttributeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IndexDocumentAttributeConfigurationArgs:
@@ -662,6 +915,12 @@ class IndexDocumentAttributeConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class PluginApiSchema0PropertiesArgsDict(TypedDict):
+        payload: pulumi.Input[str]
+elif False:
+    PluginApiSchema0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PluginApiSchema0PropertiesArgs:
     def __init__(__self__, *,
@@ -677,6 +936,12 @@ class PluginApiSchema0PropertiesArgs:
     def payload(self, value: pulumi.Input[str]):
         pulumi.set(self, "payload", value)
 
+
+if not MYPY:
+    class PluginApiSchema1PropertiesArgsDict(TypedDict):
+        s3: pulumi.Input['PluginS3ArgsDict']
+elif False:
+    PluginApiSchema1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PluginApiSchema1PropertiesArgs:
@@ -694,6 +959,12 @@ class PluginApiSchema1PropertiesArgs:
         pulumi.set(self, "s3", value)
 
 
+if not MYPY:
+    class PluginAuthConfiguration0PropertiesArgsDict(TypedDict):
+        basic_auth_configuration: pulumi.Input['PluginBasicAuthConfigurationArgsDict']
+elif False:
+    PluginAuthConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PluginAuthConfiguration0PropertiesArgs:
     def __init__(__self__, *,
@@ -709,6 +980,12 @@ class PluginAuthConfiguration0PropertiesArgs:
     def basic_auth_configuration(self, value: pulumi.Input['PluginBasicAuthConfigurationArgs']):
         pulumi.set(self, "basic_auth_configuration", value)
 
+
+if not MYPY:
+    class PluginAuthConfiguration1PropertiesArgsDict(TypedDict):
+        o_auth2_client_credential_configuration: pulumi.Input['PluginOAuth2ClientCredentialConfigurationArgsDict']
+elif False:
+    PluginAuthConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PluginAuthConfiguration1PropertiesArgs:
@@ -726,6 +1003,12 @@ class PluginAuthConfiguration1PropertiesArgs:
         pulumi.set(self, "o_auth2_client_credential_configuration", value)
 
 
+if not MYPY:
+    class PluginAuthConfiguration2PropertiesArgsDict(TypedDict):
+        no_auth_configuration: pulumi.Input['PluginNoAuthConfigurationArgsDict']
+elif False:
+    PluginAuthConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PluginAuthConfiguration2PropertiesArgs:
     def __init__(__self__, *,
@@ -741,6 +1024,13 @@ class PluginAuthConfiguration2PropertiesArgs:
     def no_auth_configuration(self, value: pulumi.Input['PluginNoAuthConfigurationArgs']):
         pulumi.set(self, "no_auth_configuration", value)
 
+
+if not MYPY:
+    class PluginBasicAuthConfigurationArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        secret_arn: pulumi.Input[str]
+elif False:
+    PluginBasicAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PluginBasicAuthConfigurationArgs:
@@ -768,6 +1058,23 @@ class PluginBasicAuthConfigurationArgs:
     def secret_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_arn", value)
 
+
+if not MYPY:
+    class PluginCustomPluginConfigurationArgsDict(TypedDict):
+        api_schema: pulumi.Input[Union['PluginApiSchema0PropertiesArgsDict', 'PluginApiSchema1PropertiesArgsDict']]
+        """
+        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
+        """
+        api_schema_type: pulumi.Input['PluginApiSchemaType']
+        """
+        The type of OpenAPI schema to use.
+        """
+        description: pulumi.Input[str]
+        """
+        A description for your custom plugin configuration.
+        """
+elif False:
+    PluginCustomPluginConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PluginCustomPluginConfigurationArgs:
@@ -821,11 +1128,24 @@ class PluginCustomPluginConfigurationArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class PluginNoAuthConfigurationArgsDict(TypedDict):
+        pass
+elif False:
+    PluginNoAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PluginNoAuthConfigurationArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class PluginOAuth2ClientCredentialConfigurationArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        secret_arn: pulumi.Input[str]
+elif False:
+    PluginOAuth2ClientCredentialConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PluginOAuth2ClientCredentialConfigurationArgs:
@@ -854,6 +1174,13 @@ class PluginOAuth2ClientCredentialConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
 
+if not MYPY:
+    class PluginS3ArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        key: pulumi.Input[str]
+elif False:
+    PluginS3ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PluginS3Args:
     def __init__(__self__, *,
@@ -881,6 +1208,12 @@ class PluginS3Args:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class RetrieverConfiguration0PropertiesArgsDict(TypedDict):
+        native_index_configuration: pulumi.Input['RetrieverNativeIndexConfigurationArgsDict']
+elif False:
+    RetrieverConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RetrieverConfiguration0PropertiesArgs:
     def __init__(__self__, *,
@@ -896,6 +1229,12 @@ class RetrieverConfiguration0PropertiesArgs:
     def native_index_configuration(self, value: pulumi.Input['RetrieverNativeIndexConfigurationArgs']):
         pulumi.set(self, "native_index_configuration", value)
 
+
+if not MYPY:
+    class RetrieverConfiguration1PropertiesArgsDict(TypedDict):
+        kendra_index_configuration: pulumi.Input['RetrieverKendraIndexConfigurationArgsDict']
+elif False:
+    RetrieverConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetrieverConfiguration1PropertiesArgs:
@@ -913,6 +1252,12 @@ class RetrieverConfiguration1PropertiesArgs:
         pulumi.set(self, "kendra_index_configuration", value)
 
 
+if not MYPY:
+    class RetrieverKendraIndexConfigurationArgsDict(TypedDict):
+        index_id: pulumi.Input[str]
+elif False:
+    RetrieverKendraIndexConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RetrieverKendraIndexConfigurationArgs:
     def __init__(__self__, *,
@@ -928,6 +1273,12 @@ class RetrieverKendraIndexConfigurationArgs:
     def index_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "index_id", value)
 
+
+if not MYPY:
+    class RetrieverNativeIndexConfigurationArgsDict(TypedDict):
+        index_id: pulumi.Input[str]
+elif False:
+    RetrieverNativeIndexConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetrieverNativeIndexConfigurationArgs:
@@ -945,6 +1296,12 @@ class RetrieverNativeIndexConfigurationArgs:
         pulumi.set(self, "index_id", value)
 
 
+if not MYPY:
+    class WebExperienceIdentityProviderConfiguration0PropertiesArgsDict(TypedDict):
+        saml_configuration: pulumi.Input['WebExperienceSamlProviderConfigurationArgsDict']
+elif False:
+    WebExperienceIdentityProviderConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebExperienceIdentityProviderConfiguration0PropertiesArgs:
     def __init__(__self__, *,
@@ -961,6 +1318,12 @@ class WebExperienceIdentityProviderConfiguration0PropertiesArgs:
         pulumi.set(self, "saml_configuration", value)
 
 
+if not MYPY:
+    class WebExperienceIdentityProviderConfiguration1PropertiesArgsDict(TypedDict):
+        open_id_connect_configuration: pulumi.Input['WebExperienceOpenIdConnectProviderConfigurationArgsDict']
+elif False:
+    WebExperienceIdentityProviderConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WebExperienceIdentityProviderConfiguration1PropertiesArgs:
     def __init__(__self__, *,
@@ -976,6 +1339,13 @@ class WebExperienceIdentityProviderConfiguration1PropertiesArgs:
     def open_id_connect_configuration(self, value: pulumi.Input['WebExperienceOpenIdConnectProviderConfigurationArgs']):
         pulumi.set(self, "open_id_connect_configuration", value)
 
+
+if not MYPY:
+    class WebExperienceOpenIdConnectProviderConfigurationArgsDict(TypedDict):
+        secrets_arn: pulumi.Input[str]
+        secrets_role: pulumi.Input[str]
+elif False:
+    WebExperienceOpenIdConnectProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebExperienceOpenIdConnectProviderConfigurationArgs:
@@ -1003,6 +1373,12 @@ class WebExperienceOpenIdConnectProviderConfigurationArgs:
     def secrets_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "secrets_role", value)
 
+
+if not MYPY:
+    class WebExperienceSamlProviderConfigurationArgsDict(TypedDict):
+        authentication_url: pulumi.Input[str]
+elif False:
+    WebExperienceSamlProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WebExperienceSamlProviderConfigurationArgs:

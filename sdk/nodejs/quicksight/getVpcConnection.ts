@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of the AWS::QuickSight::VPCConnection Resource Type.
  */
 export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:quicksight:getVpcConnection", {
         "awsAccountId": args.awsAccountId,
@@ -84,7 +83,11 @@ export interface GetVpcConnectionResult {
  * Definition of the AWS::QuickSight::VPCConnection Resource Type.
  */
 export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVpcConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:quicksight:getVpcConnection", {
+        "awsAccountId": args.awsAccountId,
+        "vpcConnectionId": args.vpcConnectionId,
+    }, opts);
 }
 
 export interface GetVpcConnectionOutputArgs {

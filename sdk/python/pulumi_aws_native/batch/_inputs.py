@@ -4,64 +4,273 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ComputeEnvironmentComputeResourcesArgs',
+    'ComputeEnvironmentComputeResourcesArgsDict',
     'ComputeEnvironmentEc2ConfigurationObjectArgs',
+    'ComputeEnvironmentEc2ConfigurationObjectArgsDict',
     'ComputeEnvironmentEksConfigurationArgs',
+    'ComputeEnvironmentEksConfigurationArgsDict',
     'ComputeEnvironmentLaunchTemplateSpecificationArgs',
+    'ComputeEnvironmentLaunchTemplateSpecificationArgsDict',
     'ComputeEnvironmentUpdatePolicyArgs',
+    'ComputeEnvironmentUpdatePolicyArgsDict',
     'JobDefinitionAuthorizationConfigArgs',
+    'JobDefinitionAuthorizationConfigArgsDict',
     'JobDefinitionContainerPropertiesArgs',
+    'JobDefinitionContainerPropertiesArgsDict',
     'JobDefinitionDeviceArgs',
+    'JobDefinitionDeviceArgsDict',
     'JobDefinitionEcsPropertiesArgs',
+    'JobDefinitionEcsPropertiesArgsDict',
     'JobDefinitionEcsTaskPropertiesArgs',
+    'JobDefinitionEcsTaskPropertiesArgsDict',
     'JobDefinitionEfsVolumeConfigurationArgs',
+    'JobDefinitionEfsVolumeConfigurationArgsDict',
     'JobDefinitionEksContainerEnvironmentVariableArgs',
+    'JobDefinitionEksContainerEnvironmentVariableArgsDict',
     'JobDefinitionEksContainerResourceRequirementsArgs',
+    'JobDefinitionEksContainerResourceRequirementsArgsDict',
     'JobDefinitionEksContainerSecurityContextArgs',
+    'JobDefinitionEksContainerSecurityContextArgsDict',
     'JobDefinitionEksContainerVolumeMountArgs',
+    'JobDefinitionEksContainerVolumeMountArgsDict',
     'JobDefinitionEksContainerArgs',
+    'JobDefinitionEksContainerArgsDict',
     'JobDefinitionEksEmptyDirArgs',
+    'JobDefinitionEksEmptyDirArgsDict',
     'JobDefinitionEksHostPathArgs',
+    'JobDefinitionEksHostPathArgsDict',
     'JobDefinitionEksPropertiesArgs',
+    'JobDefinitionEksPropertiesArgsDict',
     'JobDefinitionEksSecretArgs',
+    'JobDefinitionEksSecretArgsDict',
     'JobDefinitionEksVolumeArgs',
+    'JobDefinitionEksVolumeArgsDict',
     'JobDefinitionEnvironmentArgs',
+    'JobDefinitionEnvironmentArgsDict',
     'JobDefinitionEphemeralStorageArgs',
+    'JobDefinitionEphemeralStorageArgsDict',
     'JobDefinitionEvaluateOnExitArgs',
+    'JobDefinitionEvaluateOnExitArgsDict',
     'JobDefinitionFargatePlatformConfigurationArgs',
+    'JobDefinitionFargatePlatformConfigurationArgsDict',
     'JobDefinitionImagePullSecretArgs',
+    'JobDefinitionImagePullSecretArgsDict',
     'JobDefinitionLinuxParametersArgs',
+    'JobDefinitionLinuxParametersArgsDict',
     'JobDefinitionLogConfigurationArgs',
+    'JobDefinitionLogConfigurationArgsDict',
     'JobDefinitionMetadataArgs',
+    'JobDefinitionMetadataArgsDict',
     'JobDefinitionMountPointsArgs',
+    'JobDefinitionMountPointsArgsDict',
     'JobDefinitionNetworkConfigurationArgs',
+    'JobDefinitionNetworkConfigurationArgsDict',
     'JobDefinitionNodePropertiesArgs',
+    'JobDefinitionNodePropertiesArgsDict',
     'JobDefinitionNodeRangePropertyArgs',
+    'JobDefinitionNodeRangePropertyArgsDict',
     'JobDefinitionPodPropertiesArgs',
+    'JobDefinitionPodPropertiesArgsDict',
     'JobDefinitionRepositoryCredentialsArgs',
+    'JobDefinitionRepositoryCredentialsArgsDict',
     'JobDefinitionResourceRequirementArgs',
+    'JobDefinitionResourceRequirementArgsDict',
     'JobDefinitionRetryStrategyArgs',
+    'JobDefinitionRetryStrategyArgsDict',
     'JobDefinitionRuntimePlatformArgs',
+    'JobDefinitionRuntimePlatformArgsDict',
     'JobDefinitionSecretArgs',
+    'JobDefinitionSecretArgsDict',
     'JobDefinitionTaskContainerDependencyArgs',
+    'JobDefinitionTaskContainerDependencyArgsDict',
     'JobDefinitionTaskContainerPropertiesArgs',
+    'JobDefinitionTaskContainerPropertiesArgsDict',
     'JobDefinitionTimeoutArgs',
+    'JobDefinitionTimeoutArgsDict',
     'JobDefinitionTmpfsArgs',
+    'JobDefinitionTmpfsArgsDict',
     'JobDefinitionUlimitArgs',
+    'JobDefinitionUlimitArgsDict',
     'JobDefinitionVolumesHostArgs',
+    'JobDefinitionVolumesHostArgsDict',
     'JobDefinitionVolumesArgs',
+    'JobDefinitionVolumesArgsDict',
     'JobQueueComputeEnvironmentOrderArgs',
+    'JobQueueComputeEnvironmentOrderArgsDict',
     'JobQueueJobStateTimeLimitActionArgs',
+    'JobQueueJobStateTimeLimitActionArgsDict',
     'SchedulingPolicyFairsharePolicyArgs',
+    'SchedulingPolicyFairsharePolicyArgsDict',
     'SchedulingPolicyShareAttributesArgs',
+    'SchedulingPolicyShareAttributesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ComputeEnvironmentComputeResourcesArgsDict(TypedDict):
+        maxv_cpus: pulumi.Input[int]
+        """
+        The maximum number of Amazon EC2 vCPUs that an environment can reach.
+
+        > With `BEST_FIT_PROGRESSIVE` , `SPOT_CAPACITY_OPTIMIZED` and `SPOT_PRICE_CAPACITY_OPTIMIZED` (recommended) strategies using On-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to exceed `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance.
+        """
+        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The VPC subnets where the compute resources are launched. Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+
+        When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        > AWS Batch on Amazon EC2 and AWS Batch on Amazon EKS support Local Zones. For more information, see [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide for Linux Instances* , [Amazon EKS and AWS Local Zones](https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html) in the *Amazon EKS User Guide* and [Amazon ECS clusters in Local Zones, Wavelength Zones, and AWS Outposts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones) in the *Amazon ECS Developer Guide* .
+        > 
+        > AWS Batch on Fargate doesn't currently support Local Zones.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of compute environment: `EC2` , `SPOT` , `FARGATE` , or `FARGATE_SPOT` . For more information, see [Compute environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+
+        If you choose `SPOT` , you must also specify an Amazon EC2 Spot Fleet role with the `spotIamFleetRole` parameter. For more information, see [Amazon EC2 spot fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the *AWS Batch User Guide* .
+
+        When updating compute environment, changing the type of a compute environment requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        When updating the type of a compute environment, changing between `EC2` and `SPOT` or between `FARGATE` and `FARGATE_SPOT` will initiate an infrastructure update, but if you switch between `EC2` and `FARGATE` , AWS CloudFormation will create a new compute environment.
+        """
+        allocation_strategy: NotRequired[pulumi.Input[str]]
+        """
+        The allocation strategy to use for the compute resource if not enough instances of the best fitting instance type can be allocated. This might be because of availability of the instance type in the Region or [Amazon EC2 service limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) . For more information, see [Allocation strategies](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) in the *AWS Batch User Guide* .
+
+        When updating a compute environment, changing the allocation strategy requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* . `BEST_FIT` is not supported when updating a compute environment.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified. 
+
+        - **BEST_FIT (default)** - AWS Batch selects an instance type that best fits the needs of the jobs with a preference for the lowest-cost instance type. If additional instances of the selected instance type aren't available, AWS Batch waits for the additional instances to be available. If there aren't enough instances available, or if the user is reaching [Amazon EC2 service limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) then additional jobs aren't run until the currently running jobs have completed. This allocation strategy keeps costs lower but can limit scaling. If you are using Spot Fleets with `BEST_FIT` then the Spot Fleet IAM role must be specified.
+        - **BEST_FIT_PROGRESSIVE** - AWS Batch will select additional instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types with a lower cost per unit vCPU. If additional instances of the previously selected instance types aren't available, AWS Batch will select new instance types.
+        - **SPOT_CAPACITY_OPTIMIZED** - AWS Batch will select one or more instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types that are less likely to be interrupted. This allocation strategy is only available for Spot Instance compute resources.
+        - **SPOT_PRICE_CAPACITY_OPTIMIZED** - The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price. This allocation strategy is only available for Spot Instance compute resources.
+
+        > We recommend that you use `SPOT_PRICE_CAPACITY_OPTIMIZED` rather than `SPOT_CAPACITY_OPTIMIZED` in most instances.
+
+        With `BEST_FIT_PROGRESSIVE` , `SPOT_CAPACITY_OPTIMIZED` , and `SPOT_PRICE_CAPACITY_OPTIMIZED` allocation strategies using On-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to go above `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance.
+        """
+        bid_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your maximum percentage is 20%, the Spot price must be less than 20% of the current On-Demand price for that Amazon EC2 instance. You always pay the lowest (market) price and never more than your maximum percentage. For most use cases, we recommend leaving this field empty.
+
+        When updating a compute environment, changing the bid percentage requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
+        """
+        desiredv_cpus: NotRequired[pulumi.Input[int]]
+        """
+        The desired number of vCPUS in the compute environment. AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > AWS Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify this parameter for compute environments using Amazon EKS clusters. > When you update the `desiredvCpus` setting, the value must be between the `minvCpus` and `maxvCpus` values.
+        > 
+        > Additionally, the updated `desiredvCpus` value must be greater than or equal to the current `desiredvCpus` value. For more information, see [Troubleshooting AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#error-desired-vcpus-update) in the *AWS Batch User Guide* .
+        """
+        ec2_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentEc2ConfigurationObjectArgsDict']]]]
+        """
+        Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances in the compute environment. If `Ec2Configuration` isn't specified, the default is `ECS_AL2` .
+
+        When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* . To remove the Amazon EC2 configuration and any custom AMI ID specified in `imageIdOverride` , set this value to an empty string.
+
+        One or two values can be provided.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
+        """
+        ec2_key_pair: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon EC2 key pair that's used for instances launched in the compute environment. You can use this key pair to log in to your instances with SSH. To remove the Amazon EC2 key pair, set this value to an empty string.
+
+        When updating a compute environment, changing the Amazon EC2 key pair requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
+        """
+        image_id: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter is overridden by the `imageIdOverride` member of the `Ec2Configuration` structure. To remove the custom AMI ID and use the default AMI ID, set this value to an empty string.
+
+        When updating a compute environment, changing the AMI ID requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
+        instance_role: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. Required for Amazon EC2 instances. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example, `*ecsInstanceRole*` or `arn:aws:iam:: *<aws_account_id>* :instance-profile/ *ecsInstanceRole*` . For more information, see [Amazon ECS instance role](https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html) in the *AWS Batch User Guide* .
+
+        When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
+        """
+        instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The instances types that can be launched. You can specify instance families to launch any instance type within those families (for example, `c5` or `p3` ), or you can specify specific sizes within a family (such as `c5.8xlarge` ). You can also choose `optimal` to select instance types (from the C4, M4, and R4 instance families) that match the demand of your job queues.
+
+        When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment. > Currently, `optimal` uses instance types from the C4, M4, and R4 instance families. In Regions that don't have instance types from those instance families, instance types from the C5, M5, and R5 instance families are used.
+        """
+        launch_template: NotRequired[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationArgsDict']]
+        """
+        The launch template to use for your compute resources. Any other compute resource parameters that you specify in a [CreateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html) API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see [Launch Template Support](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the ** . Removing the launch template from a compute environment will not remove the AMI specified in the launch template. In order to update the AMI specified in a launch template, the `updateToLatestImageVersion` parameter must be set to `true` .
+
+        When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the ** .
+
+        > This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        minv_cpus: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of vCPUs that an environment should maintain (even if the compute environment is `DISABLED` ).
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
+        """
+        placement_group: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon EC2 placement group to associate with your compute resources. If you intend to submit multi-node parallel jobs to your compute environment, you should consider creating a cluster placement group and associate it with your compute resources. This keeps your multi-node parallel job on a logical grouping of instances within a single Availability Zone with high network flow potential. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances* .
+
+        When updating a compute environment, changing the placement group requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The Amazon EC2 security groups that are associated with instances launched in the compute environment. This parameter is required for Fargate compute resources, where it can contain up to 5 security groups. For Fargate compute resources, providing an empty list is handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the security groups from the compute resource.
+
+        When updating a compute environment, changing the Amazon EC2 security groups requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+        """
+        spot_iam_fleet_role: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a `SPOT` compute environment. This role is required if the allocation strategy set to `BEST_FIT` or if the allocation strategy isn't specified. For more information, see [Amazon EC2 spot fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the *AWS Batch User Guide* .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must use the newer *AmazonEC2SpotFleetTaggingRole* managed policy. The previously recommended *AmazonEC2SpotFleetRole* managed policy doesn't have the required permissions to tag Spot Instances. For more information, see [Spot instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag) in the *AWS Batch User Guide* .
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A key-value pair to associate with a resource.
+        """
+        update_to_latest_image_version: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the AMI ID is updated to the latest one that's supported by AWS Batch when the compute environment has an infrastructure update. The default value is `false` .
+
+        > An AMI ID can either be specified in the `imageId` or `imageIdOverride` parameters or be determined by the launch template that's specified in the `launchTemplate` parameter. If an AMI ID is specified any of these ways, this parameter is ignored. For more information about to update AMI IDs during an infrastructure update, see [Updating the AMI ID](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami) in the *AWS Batch User Guide* . 
+
+        When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+        """
+elif False:
+    ComputeEnvironmentComputeResourcesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeEnvironmentComputeResourcesArgs:
@@ -505,6 +714,38 @@ class ComputeEnvironmentComputeResourcesArgs:
         pulumi.set(self, "update_to_latest_image_version", value)
 
 
+if not MYPY:
+    class ComputeEnvironmentEc2ConfigurationObjectArgsDict(TypedDict):
+        image_type: pulumi.Input[str]
+        """
+        The image type to match with the instance type to select an AMI. The supported values are different for `ECS` and `EKS` resources.
+
+        - **ECS** - If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) ( `ECS_AL2` ) is used. If a new image type is specified in an update, but neither an `imageId` nor a `imageIdOverride` parameter is specified, then the latest Amazon ECS optimized AMI for that image type that's supported by AWS Batch is used.
+
+        - **ECS_AL2** - [Amazon Linux 2](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) : Default for all non-GPU instance families.
+        - **ECS_AL2_NVIDIA** - [Amazon Linux 2 (GPU)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami) : Default for all GPU instance families (for example `P4` and `G4` ) and can be used for all non AWS Graviton-based instance types.
+        - **ECS_AL2023** - [Amazon Linux 2023](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) : AWS Batch supports Amazon Linux 2023.
+
+        > Amazon Linux 2023 does not support `A1` instances.
+        - **ECS_AL1** - [Amazon Linux](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami) . Amazon Linux has reached the end-of-life of standard support. For more information, see [Amazon Linux AMI](https://docs.aws.amazon.com/amazon-linux-ami/) .
+        - **EKS** - If the `imageIdOverride` parameter isn't specified, then a recent [Amazon EKS-optimized Amazon Linux AMI](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) ( `EKS_AL2` ) is used. If a new image type is specified in an update, but neither an `imageId` nor a `imageIdOverride` parameter is specified, then the latest Amazon EKS optimized AMI for that image type that AWS Batch supports is used.
+
+        - **EKS_AL2** - [Amazon Linux 2](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all non-GPU instance families.
+        - **EKS_AL2_NVIDIA** - [Amazon Linux 2 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for all GPU instance families (for example, `P4` and `G4` ) and can be used for all non AWS Graviton-based instance types.
+        """
+        image_id_override: NotRequired[pulumi.Input[str]]
+        """
+        The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` set in the `computeResource` object.
+
+        > The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
+        image_kubernetes_version: NotRequired[pulumi.Input[str]]
+        """
+        The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used.
+        """
+elif False:
+    ComputeEnvironmentEc2ConfigurationObjectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeEnvironmentEc2ConfigurationObjectArgs:
     def __init__(__self__, *,
@@ -589,6 +830,19 @@ class ComputeEnvironmentEc2ConfigurationObjectArgs:
         pulumi.set(self, "image_kubernetes_version", value)
 
 
+if not MYPY:
+    class ComputeEnvironmentEksConfigurationArgsDict(TypedDict):
+        eks_cluster_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
+        """
+        kubernetes_namespace: pulumi.Input[str]
+        """
+        The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace. The value can't left empty or null. It must be fewer than 64 characters long, can't be set to `default` , can't start with " `kube-` ," and must match this regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$` . For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation.
+        """
+elif False:
+    ComputeEnvironmentEksConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeEnvironmentEksConfigurationArgs:
     def __init__(__self__, *,
@@ -625,6 +879,29 @@ class ComputeEnvironmentEksConfigurationArgs:
     def kubernetes_namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "kubernetes_namespace", value)
 
+
+if not MYPY:
+    class ComputeEnvironmentLaunchTemplateSpecificationArgsDict(TypedDict):
+        launch_template_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the launch template.
+        """
+        launch_template_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the launch template.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version number of the launch template, `$Latest` , or `$Default` .
+
+        If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
+
+        > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Latest` or `$Default` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* . 
+
+        Default: `$Default` .
+        """
+elif False:
+    ComputeEnvironmentLaunchTemplateSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeEnvironmentLaunchTemplateSpecificationArgs:
@@ -693,6 +970,19 @@ class ComputeEnvironmentLaunchTemplateSpecificationArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class ComputeEnvironmentUpdatePolicyArgsDict(TypedDict):
+        job_execution_timeout_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the job timeout (in minutes) when the compute environment infrastructure is updated. The default value is 30.
+        """
+        terminate_jobs_on_update: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated. The default value is `false` .
+        """
+elif False:
+    ComputeEnvironmentUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeEnvironmentUpdatePolicyArgs:
     def __init__(__self__, *,
@@ -732,6 +1022,19 @@ class ComputeEnvironmentUpdatePolicyArgs:
         pulumi.set(self, "terminate_jobs_on_update", value)
 
 
+if not MYPY:
+    class JobDefinitionAuthorizationConfigArgsDict(TypedDict):
+        access_point_id: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+        """
+        iam: NotRequired[pulumi.Input[str]]
+        """
+        Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+        """
+elif False:
+    JobDefinitionAuthorizationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionAuthorizationConfigArgs:
     def __init__(__self__, *,
@@ -770,6 +1073,129 @@ class JobDefinitionAuthorizationConfigArgs:
     def iam(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "iam", value)
 
+
+if not MYPY:
+    class JobDefinitionContainerPropertiesArgsDict(TypedDict):
+        image: pulumi.Input[str]
+        """
+        Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `*repository-url* / *image* : *tag*` . It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > Docker image architecture must match the processor architecture of the compute resources that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based compute resources. 
+
+        - Images in Amazon ECR Public repositories use the full `registry/repository[:tag]` or `registry/repository[@digest]` naming conventions. For example, `public.ecr.aws/ *registry_alias* / *my-web-app* : *latest*` .
+        - Images in Amazon ECR repositories use the full registry and repository URI (for example, `123456789012.dkr.ecr.<region-name>.amazonaws.com/<repository-name>` ).
+        - Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo` ).
+        - Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent` ).
+        - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
+        """
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
+        """
+        environment: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgsDict']]]]
+        """
+        The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
+        """
+        ephemeral_storage: NotRequired[pulumi.Input['JobDefinitionEphemeralStorageArgsDict']]
+        """
+        The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
+        """
+        execution_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
+        """
+        fargate_platform_configuration: NotRequired[pulumi.Input['JobDefinitionFargatePlatformConfigurationArgsDict']]
+        """
+        The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
+
+        > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+        """
+        job_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. For more information, see [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
+        linux_parameters: NotRequired[pulumi.Input['JobDefinitionLinuxParametersArgsDict']]
+        """
+        Linux-specific modifications that are applied to the container, such as details for device mappings.
+        """
+        log_configuration: NotRequired[pulumi.Input['JobDefinitionLogConfigurationArgsDict']]
+        """
+        The log configuration specification for the container.
+
+        This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . By default, containers use the same logging driver that the Docker daemon uses. However the container might use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+
+        > AWS Batch currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html) data type). 
+
+        This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+
+        > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
+        memory: NotRequired[pulumi.Input[int]]
+        """
+        This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several places. It must be specified for each node at least once.
+        """
+        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgsDict']]]]
+        """
+        The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        """
+        network_configuration: NotRequired[pulumi.Input['JobDefinitionNetworkConfigurationArgsDict']]
+        """
+        The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
+        """
+        privileged: NotRequired[pulumi.Input[bool]]
+        """
+        When this parameter is true, the container is given elevated permissions on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The default value is false.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided, or specified as false.
+        """
+        readonly_root_filesystem: NotRequired[pulumi.Input[bool]]
+        """
+        When this parameter is true, the container is given read-only access to its root file system. This parameter maps to `ReadonlyRootfs` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--read-only` option to `docker run` .
+        """
+        repository_credentials: NotRequired[pulumi.Input['JobDefinitionRepositoryCredentialsArgsDict']]
+        """
+        The private repository authentication credentials to use.
+        """
+        resource_requirements: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgsDict']]]]
+        """
+        The type and amount of resources to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        """
+        runtime_platform: NotRequired[pulumi.Input['JobDefinitionRuntimePlatformArgsDict']]
+        """
+        An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgsDict']]]]
+        """
+        The secrets for the container. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
+        """
+        ulimits: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgsDict']]]]
+        """
+        A list of `ulimits` to set in the container. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The user name to use inside the container. This parameter maps to `User` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--user` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        """
+        vcpus: NotRequired[pulumi.Input[int]]
+        """
+        This parameter is deprecated, use `resourceRequirements` to specify the vCPU requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs running on Amazon EC2 resources, it specifies the number of vCPUs reserved for the job.
+
+        Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The number of vCPUs must be specified but can be specified in several places. You must specify it at least once for each node.
+        """
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgsDict']]]]
+        """
+        A list of data volumes used in a job.
+        """
+elif False:
+    JobDefinitionContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionContainerPropertiesArgs:
@@ -1197,6 +1623,23 @@ class JobDefinitionContainerPropertiesArgs:
         pulumi.set(self, "volumes", value)
 
 
+if not MYPY:
+    class JobDefinitionDeviceArgsDict(TypedDict):
+        container_path: NotRequired[pulumi.Input[str]]
+        """
+        The path inside the container that's used to expose the host device. By default, the `hostPath` value is used.
+        """
+        host_path: NotRequired[pulumi.Input[str]]
+        """
+        The path for the device on the host container instance.
+        """
+        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The explicit permissions to provide to the container for the device. By default, the container has permissions for `read` , `write` , and `mknod` for the device.
+        """
+elif False:
+    JobDefinitionDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionDeviceArgs:
     def __init__(__self__, *,
@@ -1252,6 +1695,17 @@ class JobDefinitionDeviceArgs:
         pulumi.set(self, "permissions", value)
 
 
+if not MYPY:
+    class JobDefinitionEcsPropertiesArgsDict(TypedDict):
+        task_properties: pulumi.Input[Sequence[pulumi.Input['JobDefinitionEcsTaskPropertiesArgsDict']]]
+        """
+        An object that contains the properties for the Amazon ECS task definition of a job.
+
+        > This object is currently limited to one task element. However, the task element can run up to 10 containers.
+        """
+elif False:
+    JobDefinitionEcsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEcsPropertiesArgs:
     def __init__(__self__, *,
@@ -1277,6 +1731,67 @@ class JobDefinitionEcsPropertiesArgs:
     def task_properties(self, value: pulumi.Input[Sequence[pulumi.Input['JobDefinitionEcsTaskPropertiesArgs']]]):
         pulumi.set(self, "task_properties", value)
 
+
+if not MYPY:
+    class JobDefinitionEcsTaskPropertiesArgsDict(TypedDict):
+        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgsDict']]]]
+        """
+        This object is a list of containers.
+        """
+        ephemeral_storage: NotRequired[pulumi.Input['JobDefinitionEphemeralStorageArgsDict']]
+        """
+        The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
+        """
+        execution_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
+        """
+        ipc_mode: NotRequired[pulumi.Input[str]]
+        """
+        The IPC resource namespace to use for the containers in the task. The valid values are `host` , `task` , or `none` .
+
+        If `host` is specified, all containers within the tasks that specified the `host` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance.
+
+        If `task` is specified, all containers within the specified `task` share the same IPC resources.
+
+        If `none` is specified, the IPC resources within the containers of a task are private, and are not shared with other containers in a task or on the container instance.
+
+        If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the Docker run reference.
+        """
+        network_configuration: NotRequired[pulumi.Input['JobDefinitionNetworkConfigurationArgsDict']]
+        """
+        The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
+        """
+        pid_mode: NotRequired[pulumi.Input[str]]
+        """
+        The process namespace to use for the containers in the task. The valid values are `host` or `task` . For example, monitoring sidecars might need `pidMode` to access information about other containers running in the same task.
+
+        If `host` is specified, all containers within the tasks that specified the `host` PID mode on the same container instance share the process namespace with the host Amazon EC2 instance.
+
+        If `task` is specified, all containers within the specified task share the same process namespace.
+
+        If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the Docker run reference.
+        """
+        platform_version: NotRequired[pulumi.Input[str]]
+        """
+        The Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
+        runtime_platform: NotRequired[pulumi.Input['JobDefinitionRuntimePlatformArgsDict']]
+        """
+        An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+        """
+        task_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) that's associated with the Amazon ECS task.
+
+        > This is object is comparable to [ContainerProperties:jobRoleArn](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html) .
+        """
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgsDict']]]]
+        """
+        A list of volumes that are associated with the job.
+        """
+elif False:
+    JobDefinitionEcsTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEcsTaskPropertiesArgs:
@@ -1477,6 +1992,33 @@ class JobDefinitionEcsTaskPropertiesArgs:
         pulumi.set(self, "volumes", value)
 
 
+if not MYPY:
+    class JobDefinitionEfsVolumeConfigurationArgsDict(TypedDict):
+        file_system_id: pulumi.Input[str]
+        """
+        The Amazon EFS file system ID to use.
+        """
+        authorization_config: NotRequired[pulumi.Input['JobDefinitionAuthorizationConfigArgsDict']]
+        """
+        The authorization configuration details for the Amazon EFS file system.
+        """
+        root_directory: NotRequired[pulumi.Input[str]]
+        """
+        The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume is used instead. Specifying `/` has the same effect as omitting this parameter. The maximum length is 4,096 characters.
+
+        > If an EFS access point is specified in the `authorizationConfig` , the root directory parameter must either be omitted or set to `/` , which enforces the path set on the Amazon EFS access point.
+        """
+        transit_encryption: NotRequired[pulumi.Input[str]]
+        """
+        Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide* .
+        """
+        transit_encryption_port: NotRequired[pulumi.Input[int]]
+        """
+        The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If you don't specify a transit encryption port, it uses the port selection strategy that the Amazon EFS mount helper uses. The value must be between 0 and 65,535. For more information, see [EFS mount helper](https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html) in the *Amazon Elastic File System User Guide* .
+        """
+elif False:
+    JobDefinitionEfsVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEfsVolumeConfigurationArgs:
     def __init__(__self__, *,
@@ -1567,6 +2109,19 @@ class JobDefinitionEfsVolumeConfigurationArgs:
         pulumi.set(self, "transit_encryption_port", value)
 
 
+if not MYPY:
+    class JobDefinitionEksContainerEnvironmentVariableArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the environment variable.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the environment variable.
+        """
+elif False:
+    JobDefinitionEksContainerEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksContainerEnvironmentVariableArgs:
     def __init__(__self__, *,
@@ -1604,6 +2159,31 @@ class JobDefinitionEksContainerEnvironmentVariableArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class JobDefinitionEksContainerResourceRequirementsArgsDict(TypedDict):
+        limits: NotRequired[Any]
+        """
+        The type and quantity of the resources to reserve for the container. The values vary based on the `name` that's specified. Resources can be requested using either the `limits` or the `requests` objects.
+
+        - **memory** - The memory hard limit (in MiB) for the container, using whole integers, with a "Mi" suffix. If your container attempts to exceed the memory specified, the container is terminated. You must specify at least 4 MiB of memory for a job. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
+
+        > To maximize your resource utilization, provide your jobs with as much memory as possible for the specific instance type that you are using. To learn how, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
+        - **cpu** - The number of CPUs that's reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both places, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
+        - **nvidia.com/gpu** - The number of GPUs that's reserved for the container. Values must be a whole integer. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
+        """
+        requests: NotRequired[Any]
+        """
+        The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
+
+        - **memory** - The memory hard limit (in MiB) for the container, using whole integers, with a "Mi" suffix. If your container attempts to exceed the memory specified, the container is terminated. You must specify at least 4 MiB of memory for a job. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
+
+        > If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
+        - **cpu** - The number of CPUs that are reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
+        - **nvidia.com/gpu** - The number of GPUs that are reserved for the container. Values must be a whole integer. `nvidia.com/gpu` can be specified in `limits` , `requests` , or both. If `nvidia.com/gpu` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
+        """
+elif False:
+    JobDefinitionEksContainerResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksContainerResourceRequirementsArgs:
@@ -1667,6 +2247,35 @@ class JobDefinitionEksContainerResourceRequirementsArgs:
     def requests(self, value: Optional[Any]):
         pulumi.set(self, "requests", value)
 
+
+if not MYPY:
+    class JobDefinitionEksContainerSecurityContextArgsDict(TypedDict):
+        allow_privilege_escalation: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false` .
+        """
+        privileged: NotRequired[pulumi.Input[bool]]
+        """
+        When this parameter is `true` , the container is given elevated permissions on the host container instance. The level of permissions are similar to the `root` user permissions. The default value is `false` . This parameter maps to `privileged` policy in the [Privileged pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#privileged) in the *Kubernetes documentation* .
+        """
+        read_only_root_filesystem: NotRequired[pulumi.Input[bool]]
+        """
+        When this parameter is `true` , the container is given read-only access to its root file system. The default value is `false` . This parameter maps to `ReadOnlyRootFilesystem` policy in the [Volumes and file systems pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems) in the *Kubernetes documentation* .
+        """
+        run_as_group: NotRequired[pulumi.Input[int]]
+        """
+        When this parameter is specified, the container is run as the specified group ID ( `gid` ). If this parameter isn't specified, the default is the group that's specified in the image metadata. This parameter maps to `RunAsGroup` and `MustRunAs` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
+        """
+        run_as_non_root: NotRequired[pulumi.Input[bool]]
+        """
+        When this parameter is specified, the container is run as a user with a `uid` other than 0. If this parameter isn't specified, so such rule is enforced. This parameter maps to `RunAsUser` and `MustRunAsNonRoot` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
+        """
+        run_as_user: NotRequired[pulumi.Input[int]]
+        """
+        When this parameter is specified, the container is run as the specified user ID ( `uid` ). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to `RunAsUser` and `MustRanAs` policy in the [Users and groups pod security policies](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups) in the *Kubernetes documentation* .
+        """
+elif False:
+    JobDefinitionEksContainerSecurityContextArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksContainerSecurityContextArgs:
@@ -1771,6 +2380,23 @@ class JobDefinitionEksContainerSecurityContextArgs:
         pulumi.set(self, "run_as_user", value)
 
 
+if not MYPY:
+    class JobDefinitionEksContainerVolumeMountArgsDict(TypedDict):
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path on the container where the volume is mounted.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name the volume mount. This must match the name of one of the volumes in the pod.
+        """
+        read_only: NotRequired[pulumi.Input[bool]]
+        """
+        If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
+        """
+elif False:
+    JobDefinitionEksContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksContainerVolumeMountArgs:
     def __init__(__self__, *,
@@ -1825,6 +2451,53 @@ class JobDefinitionEksContainerVolumeMountArgs:
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
 
+
+if not MYPY:
+    class JobDefinitionEksContainerArgsDict(TypedDict):
+        image: pulumi.Input[str]
+        """
+        The Docker image used to start the container.
+        """
+        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of arguments to the entrypoint. If this isn't specified, the `CMD` of the container image is used. This corresponds to the `args` member in the [Entrypoint](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint) portion of the [Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/) in Kubernetes. Environment variable references are expanded using the container's environment.
+
+        If the referenced environment variable doesn't exist, the reference in the command isn't changed. For example, if the reference is to " `$(NAME1)` " and the `NAME1` environment variable doesn't exist, the command string will remain " `$(NAME1)` ." `$$` is replaced with `$` , and the resulting string isn't expanded. For example, `$$(VAR_NAME)` is passed as `$(VAR_NAME)` whether or not the `VAR_NAME` environment variable exists. For more information, see [Dockerfile reference: CMD](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) and [Define a command and arguments for a pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/) in the *Kubernetes documentation* .
+        """
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The entrypoint for the container. This isn't run within a shell. If this isn't specified, the `ENTRYPOINT` of the container image is used. Environment variable references are expanded using the container's environment.
+
+        If the referenced environment variable doesn't exist, the reference in the command isn't changed. For example, if the reference is to " `$(NAME1)` " and the `NAME1` environment variable doesn't exist, the command string will remain " `$(NAME1)` ." `$$` is replaced with `$` and the resulting string isn't expanded. For example, `$$(VAR_NAME)` will be passed as `$(VAR_NAME)` whether or not the `VAR_NAME` environment variable exists. The entrypoint can't be updated. For more information, see [ENTRYPOINT](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint) in the *Dockerfile reference* and [Define a command and arguments for a container](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/) and [Entrypoint](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint) in the *Kubernetes documentation* .
+        """
+        env: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerEnvironmentVariableArgsDict']]]]
+        """
+        The environment variables to pass to a container.
+
+        > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
+        """
+        image_pull_policy: NotRequired[pulumi.Input[str]]
+        """
+        The image pull policy for the container. Supported values are `Always` , `IfNotPresent` , and `Never` . This parameter defaults to `IfNotPresent` . However, if the `:latest` tag is specified, it defaults to `Always` . For more information, see [Updating images](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/containers/images/#updating-images) in the *Kubernetes documentation* .
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the container. If the name isn't specified, the default name " `Default` " is used. Each container in a pod must have a unique name.
+        """
+        resources: NotRequired[pulumi.Input['JobDefinitionEksContainerResourceRequirementsArgsDict']]
+        """
+        The type and amount of resources to assign to a container. The supported resources include `memory` , `cpu` , and `nvidia.com/gpu` . For more information, see [Resource management for pods and containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) in the *Kubernetes documentation* .
+        """
+        security_context: NotRequired[pulumi.Input['JobDefinitionEksContainerSecurityContextArgsDict']]
+        """
+        The security context for a job. For more information, see [Configure a security context for a pod or container](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the *Kubernetes documentation* .
+        """
+        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerVolumeMountArgsDict']]]]
+        """
+        The volume mounts for the container. AWS Batch supports `emptyDir` , `hostPath` , and `secret` volume types. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation* .
+        """
+elif False:
+    JobDefinitionEksContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksContainerArgs:
@@ -1988,6 +2661,22 @@ class JobDefinitionEksContainerArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
+if not MYPY:
+    class JobDefinitionEksEmptyDirArgsDict(TypedDict):
+        medium: NotRequired[pulumi.Input[str]]
+        """
+        The medium to store the volume. The default value is an empty string, which uses the storage of the node.
+
+        - **""** - *(Default)* Use the disk storage of the node.
+        - **"Memory"** - Use the `tmpfs` volume that's backed by the RAM of the node. Contents of the volume are lost when the node reboots, and any storage on the volume counts against the container's memory limit.
+        """
+        size_limit: NotRequired[pulumi.Input[str]]
+        """
+        The maximum size of the volume. By default, there's no maximum size defined.
+        """
+elif False:
+    JobDefinitionEksEmptyDirArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksEmptyDirArgs:
     def __init__(__self__, *,
@@ -2033,6 +2722,15 @@ class JobDefinitionEksEmptyDirArgs:
         pulumi.set(self, "size_limit", value)
 
 
+if not MYPY:
+    class JobDefinitionEksHostPathArgsDict(TypedDict):
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path of the file or directory on the host to mount into containers on the pod.
+        """
+elif False:
+    JobDefinitionEksHostPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksHostPathArgs:
     def __init__(__self__, *,
@@ -2056,6 +2754,15 @@ class JobDefinitionEksHostPathArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class JobDefinitionEksPropertiesArgsDict(TypedDict):
+        pod_properties: NotRequired[pulumi.Input['JobDefinitionPodPropertiesArgsDict']]
+        """
+        The properties for the Kubernetes pod resources of a job.
+        """
+elif False:
+    JobDefinitionEksPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksPropertiesArgs:
     def __init__(__self__, *,
@@ -2078,6 +2785,19 @@ class JobDefinitionEksPropertiesArgs:
     def pod_properties(self, value: Optional[pulumi.Input['JobDefinitionPodPropertiesArgs']]):
         pulumi.set(self, "pod_properties", value)
 
+
+if not MYPY:
+    class JobDefinitionEksSecretArgsDict(TypedDict):
+        secret_name: pulumi.Input[str]
+        """
+        The name of the secret. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
+        """
+        optional: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the secret or the secret's keys must be defined.
+        """
+elif False:
+    JobDefinitionEksSecretArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksSecretArgs:
@@ -2116,6 +2836,27 @@ class JobDefinitionEksSecretArgs:
     def optional(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "optional", value)
 
+
+if not MYPY:
+    class JobDefinitionEksVolumeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
+        """
+        empty_dir: NotRequired[pulumi.Input['JobDefinitionEksEmptyDirArgsDict']]
+        """
+        Specifies the configuration of a Kubernetes `emptyDir` volume. For more information, see [emptyDir](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in the *Kubernetes documentation* .
+        """
+        host_path: NotRequired[pulumi.Input['JobDefinitionEksHostPathArgsDict']]
+        """
+        Specifies the configuration of a Kubernetes `hostPath` volume. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
+        """
+        secret: NotRequired[pulumi.Input['JobDefinitionEksSecretArgsDict']]
+        """
+        Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
+        """
+elif False:
+    JobDefinitionEksVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksVolumeArgs:
@@ -2187,6 +2928,19 @@ class JobDefinitionEksVolumeArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class JobDefinitionEnvironmentArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the environment variable.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the environment variable.
+        """
+elif False:
+    JobDefinitionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEnvironmentArgs:
     def __init__(__self__, *,
@@ -2226,6 +2980,15 @@ class JobDefinitionEnvironmentArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class JobDefinitionEphemeralStorageArgsDict(TypedDict):
+        size_in_gi_b: pulumi.Input[int]
+        """
+        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+        """
+elif False:
+    JobDefinitionEphemeralStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEphemeralStorageArgs:
     def __init__(__self__, *,
@@ -2247,6 +3010,29 @@ class JobDefinitionEphemeralStorageArgs:
     def size_in_gi_b(self, value: pulumi.Input[int]):
         pulumi.set(self, "size_in_gi_b", value)
 
+
+if not MYPY:
+    class JobDefinitionEvaluateOnExitArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Specifies the action to take if all of the specified conditions ( `onStatusReason` , `onReason` , and `onExitCode` ) are met. The values aren't case sensitive.
+        """
+        on_exit_code: NotRequired[pulumi.Input[str]]
+        """
+        Contains a glob pattern to match against the decimal representation of the `ExitCode` returned for a job. The pattern can be up to 512 characters long. It can contain only numbers, and can end with an asterisk (*) so that only the start of the string needs to be an exact match.
+
+        The string can contain up to 512 characters.
+        """
+        on_reason: NotRequired[pulumi.Input[str]]
+        """
+        Contains a glob pattern to match against the `Reason` returned for a job. The pattern can contain up to 512 characters. It can contain letters, numbers, periods (.), colons (:), and white space (including spaces and tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.
+        """
+        on_status_reason: NotRequired[pulumi.Input[str]]
+        """
+        Contains a glob pattern to match against the `StatusReason` returned for a job. The pattern can contain up to 512 characters. It can contain letters, numbers, periods (.), colons (:), and white spaces (including spaces or tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.
+        """
+elif False:
+    JobDefinitionEvaluateOnExitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEvaluateOnExitArgs:
@@ -2322,6 +3108,15 @@ class JobDefinitionEvaluateOnExitArgs:
         pulumi.set(self, "on_status_reason", value)
 
 
+if not MYPY:
+    class JobDefinitionFargatePlatformConfigurationArgsDict(TypedDict):
+        platform_version: NotRequired[pulumi.Input[str]]
+        """
+        The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
+elif False:
+    JobDefinitionFargatePlatformConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionFargatePlatformConfigurationArgs:
     def __init__(__self__, *,
@@ -2345,6 +3140,15 @@ class JobDefinitionFargatePlatformConfigurationArgs:
         pulumi.set(self, "platform_version", value)
 
 
+if not MYPY:
+    class JobDefinitionImagePullSecretArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
+        """
+elif False:
+    JobDefinitionImagePullSecretArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionImagePullSecretArgs:
     def __init__(__self__, *,
@@ -2366,6 +3170,55 @@ class JobDefinitionImagePullSecretArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class JobDefinitionLinuxParametersArgsDict(TypedDict):
+        devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionDeviceArgsDict']]]]
+        """
+        Any of the host devices to expose to the container. This parameter maps to `Devices` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--device` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
+        """
+        init_process_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If true, run an `init` process inside the container that forwards signals and reaps processes. This parameter maps to the `--init` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+        """
+        max_swap: NotRequired[pulumi.Input[int]]
+        """
+        The total amount of swap memory (in MiB) a container can use. This parameter is translated to the `--memory-swap` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) where the value is the sum of the container memory plus the `maxSwap` value. For more information, see [`--memory-swap` details](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details) in the Docker documentation.
+
+        If a `maxSwap` value of `0` is specified, the container doesn't use swap. Accepted values are `0` or any positive integer. If the `maxSwap` parameter is omitted, the container doesn't use the swap configuration for the container instance that it's running on. A `maxSwap` value must be set for the `swappiness` parameter to be used.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
+        """
+        shared_memory_size: NotRequired[pulumi.Input[int]]
+        """
+        The value for the size (in MiB) of the `/dev/shm` volume. This parameter maps to the `--shm-size` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
+        """
+        swappiness: NotRequired[pulumi.Input[int]]
+        """
+        You can use this parameter to tune a container's memory swappiness behavior. A `swappiness` value of `0` causes swapping to not occur unless absolutely necessary. A `swappiness` value of `100` causes pages to be swapped aggressively. Valid values are whole numbers between `0` and `100` . If the `swappiness` parameter isn't specified, a default value of `60` is used. If a value isn't specified for `maxSwap` , then this parameter is ignored. If `maxSwap` is set to 0, the container doesn't use swap. This parameter maps to the `--memory-swappiness` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        Consider the following when you use a per-container swap configuration.
+
+        - Swap space must be enabled and allocated on the container instance for the containers to use.
+
+        > By default, the Amazon ECS optimized AMIs don't have swap enabled. You must enable swap on the instance to use this feature. For more information, see [Instance store swap volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html) in the *Amazon EC2 User Guide for Linux Instances* or [How do I allocate memory to work as swap space in an Amazon EC2 instance by using a swap file?](https://docs.aws.amazon.com/premiumsupport/knowledge-center/ec2-memory-swap-file/)
+        - The swap space parameters are only supported for job definitions using EC2 resources.
+        - If the `maxSwap` and `swappiness` parameters are omitted from a job definition, each container has a default `swappiness` value of 60. Moreover, the total swap usage is limited to two times the memory reservation of the container.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
+        """
+        tmpfs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTmpfsArgsDict']]]]
+        """
+        The container path, mount options, and size (in MiB) of the `tmpfs` mount. This parameter maps to the `--tmpfs` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide this parameter for this resource type.
+        """
+elif False:
+    JobDefinitionLinuxParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionLinuxParametersArgs:
@@ -2510,6 +3363,39 @@ class JobDefinitionLinuxParametersArgs:
         pulumi.set(self, "tmpfs", value)
 
 
+if not MYPY:
+    class JobDefinitionLogConfigurationArgsDict(TypedDict):
+        log_driver: pulumi.Input[str]
+        """
+        The log driver to use for the container. The valid values that are listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
+
+        The supported log drivers are `awslogs` , `fluentd` , `gelf` , `json-file` , `journald` , `logentries` , `syslog` , and `splunk` .
+
+        > Jobs that are running on Fargate resources are restricted to the `awslogs` and `splunk` log drivers. 
+
+        - **awslogs** - Specifies the Amazon CloudWatch Logs logging driver. For more information, see [Using the awslogs log driver](https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html) in the *AWS Batch User Guide* and [Amazon CloudWatch Logs logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/awslogs/) in the Docker documentation.
+        - **fluentd** - Specifies the Fluentd logging driver. For more information including usage and options, see [Fluentd logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/fluentd/) in the *Docker documentation* .
+        - **gelf** - Specifies the Graylog Extended Format (GELF) logging driver. For more information including usage and options, see [Graylog Extended Format logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/gelf/) in the *Docker documentation* .
+        - **journald** - Specifies the journald logging driver. For more information including usage and options, see [Journald logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/journald/) in the *Docker documentation* .
+        - **json-file** - Specifies the JSON file logging driver. For more information including usage and options, see [JSON File logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/json-file/) in the *Docker documentation* .
+        - **splunk** - Specifies the Splunk logging driver. For more information including usage and options, see [Splunk logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/splunk/) in the *Docker documentation* .
+        - **syslog** - Specifies the syslog logging driver. For more information including usage and options, see [Syslog logging driver](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/logging/syslog/) in the *Docker documentation* .
+
+        > If you have a custom driver that's not listed earlier that you want to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you want to have included. However, Amazon Web Services doesn't currently support running modified copies of this software. 
+
+        This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+        """
+        options: NotRequired[Any]
+        """
+        The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+        """
+        secret_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgsDict']]]]
+        """
+        The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
+        """
+elif False:
+    JobDefinitionLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionLogConfigurationArgs:
     def __init__(__self__, *,
@@ -2596,6 +3482,15 @@ class JobDefinitionLogConfigurationArgs:
         pulumi.set(self, "secret_options", value)
 
 
+if not MYPY:
+    class JobDefinitionMetadataArgsDict(TypedDict):
+        labels: NotRequired[Any]
+        """
+        Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+        """
+elif False:
+    JobDefinitionMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionMetadataArgs:
     def __init__(__self__, *,
@@ -2618,6 +3513,23 @@ class JobDefinitionMetadataArgs:
     def labels(self, value: Optional[Any]):
         pulumi.set(self, "labels", value)
 
+
+if not MYPY:
+    class JobDefinitionMountPointsArgsDict(TypedDict):
+        container_path: NotRequired[pulumi.Input[str]]
+        """
+        The path on the container where the host volume is mounted.
+        """
+        read_only: NotRequired[pulumi.Input[bool]]
+        """
+        If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
+        """
+        source_volume: NotRequired[pulumi.Input[str]]
+        """
+        The name of the volume to mount.
+        """
+elif False:
+    JobDefinitionMountPointsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionMountPointsArgs:
@@ -2674,6 +3586,15 @@ class JobDefinitionMountPointsArgs:
         pulumi.set(self, "source_volume", value)
 
 
+if not MYPY:
+    class JobDefinitionNetworkConfigurationArgsDict(TypedDict):
+        assign_public_ip: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether the job has a public IP address. For a job that's running on Fargate resources in a private subnet to send outbound traffic to the internet (for example, to pull container images), the private subnet requires a NAT gateway be attached to route requests to the internet. For more information, see [Amazon ECS task networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide* . The default value is " `DISABLED` ".
+        """
+elif False:
+    JobDefinitionNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionNetworkConfigurationArgs:
     def __init__(__self__, *,
@@ -2696,6 +3617,23 @@ class JobDefinitionNetworkConfigurationArgs:
     def assign_public_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "assign_public_ip", value)
 
+
+if not MYPY:
+    class JobDefinitionNodePropertiesArgsDict(TypedDict):
+        main_node: pulumi.Input[int]
+        """
+        Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
+        """
+        node_range_properties: pulumi.Input[Sequence[pulumi.Input['JobDefinitionNodeRangePropertyArgsDict']]]
+        """
+        A list of node ranges and their properties that are associated with a multi-node parallel job.
+        """
+        num_nodes: pulumi.Input[int]
+        """
+        The number of nodes that are associated with a multi-node parallel job.
+        """
+elif False:
+    JobDefinitionNodePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionNodePropertiesArgs:
@@ -2748,6 +3686,35 @@ class JobDefinitionNodePropertiesArgs:
     def num_nodes(self, value: pulumi.Input[int]):
         pulumi.set(self, "num_nodes", value)
 
+
+if not MYPY:
+    class JobDefinitionNodeRangePropertyArgsDict(TypedDict):
+        target_nodes: pulumi.Input[str]
+        """
+        The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
+        """
+        container: NotRequired[pulumi.Input['JobDefinitionContainerPropertiesArgsDict']]
+        """
+        The container details for the node range.
+        """
+        ecs_properties: NotRequired[pulumi.Input['JobDefinitionEcsPropertiesArgsDict']]
+        """
+        This is an object that represents the properties of the node range for a multi-node parallel job.
+        """
+        eks_properties: NotRequired[pulumi.Input['JobDefinitionEksPropertiesArgsDict']]
+        """
+        This is an object that represents the properties of the node range for a multi-node parallel job.
+        """
+        instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The instance types of the underlying host infrastructure of a multi-node parallel job.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources.
+        > 
+        > In addition, this list object is currently limited to one element.
+        """
+elif False:
+    JobDefinitionNodeRangePropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionNodeRangePropertyArgs:
@@ -2842,6 +3809,50 @@ class JobDefinitionNodeRangePropertyArgs:
     def instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "instance_types", value)
 
+
+if not MYPY:
+    class JobDefinitionPodPropertiesArgsDict(TypedDict):
+        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgsDict']]]]
+        """
+        The properties of the container that's used on the Amazon EKS pod.
+
+        > This object is limited to 10 elements.
+        """
+        dns_policy: NotRequired[pulumi.Input[str]]
+        """
+        The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+
+        Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+        """
+        host_network: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+        """
+        image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgsDict']]]]
+        init_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgsDict']]]]
+        """
+        These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+
+        > This object is limited to 10 elements.
+        """
+        metadata: NotRequired[pulumi.Input['JobDefinitionMetadataArgsDict']]
+        """
+        Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+        """
+        service_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+        """
+        share_process_namespace: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+        """
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgsDict']]]]
+        """
+        Specifies the volumes for a job definition that uses Amazon EKS resources.
+        """
+elif False:
+    JobDefinitionPodPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionPodPropertiesArgs:
@@ -3002,6 +4013,15 @@ class JobDefinitionPodPropertiesArgs:
         pulumi.set(self, "volumes", value)
 
 
+if not MYPY:
+    class JobDefinitionRepositoryCredentialsArgsDict(TypedDict):
+        credentials_parameter: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+        """
+elif False:
+    JobDefinitionRepositoryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionRepositoryCredentialsArgs:
     def __init__(__self__, *,
@@ -3023,6 +4043,56 @@ class JobDefinitionRepositoryCredentialsArgs:
     def credentials_parameter(self, value: pulumi.Input[str]):
         pulumi.set(self, "credentials_parameter", value)
 
+
+if not MYPY:
+    class JobDefinitionResourceRequirementArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of resource to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The quantity of the specified resource to reserve for the container. The values vary based on the `type` specified.
+
+        - **type="GPU"** - The number of physical GPUs to reserve for the container. Make sure that the number of GPUs reserved for all containers in a job doesn't exceed the number of available GPUs on the compute resource that the job is launched on.
+
+        > GPUs aren't available for jobs that are running on Fargate resources.
+        - **type="MEMORY"** - The memory hard limit (in MiB) present to the container. This parameter is supported for jobs that are running on Amazon EC2 resources. If your container attempts to exceed the memory specified, the container is terminated. This parameter maps to `Memory` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--memory` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . You must specify at least 4 MiB of memory for a job. This is required but can be specified in several places for multi-node parallel (MNP) jobs. It must be specified for each node at least once. This parameter maps to `Memory` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--memory` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* . 
+
+        For jobs that are running on Fargate resources, then `value` is the hard limit (in MiB), and must match one of the supported values and the `VCPU` values must be one of the values supported for that memory value.
+
+        - **value = 512** - `VCPU` = 0.25
+        - **value = 1024** - `VCPU` = 0.25 or 0.5
+        - **value = 2048** - `VCPU` = 0.25, 0.5, or 1
+        - **value = 3072** - `VCPU` = 0.5, or 1
+        - **value = 4096** - `VCPU` = 0.5, 1, or 2
+        - **value = 5120, 6144, or 7168** - `VCPU` = 1 or 2
+        - **value = 8192** - `VCPU` = 1, 2, or 4
+        - **value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360** - `VCPU` = 2 or 4
+        - **value = 16384** - `VCPU` = 2, 4, or 8
+        - **value = 17408, 18432, 19456, 21504, 22528, 23552, 25600, 26624, 27648, 29696, or 30720** - `VCPU` = 4
+        - **value = 20480, 24576, or 28672** - `VCPU` = 4 or 8
+        - **value = 36864, 45056, 53248, or 61440** - `VCPU` = 8
+        - **value = 32768, 40960, 49152, or 57344** - `VCPU` = 8 or 16
+        - **value = 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880** - `VCPU` = 16
+        - **type="VCPU"** - The number of vCPUs reserved for the container. This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . Each vCPU is equivalent to 1,024 CPU shares. For Amazon EC2 resources, you must specify at least one vCPU. This is required but can be specified in several places; it must be specified for each node at least once.
+
+        The default for the Fargate On-Demand vCPU resource count quota is 6 vCPUs. For more information about Fargate quotas, see [AWS Fargate quotas](https://docs.aws.amazon.com/general/latest/gr/ecs-service.html#service-quotas-fargate) in the *AWS General Reference* .
+
+        For jobs that are running on Fargate resources, then `value` must match one of the supported values and the `MEMORY` values must be one of the values supported for that `VCPU` value. The supported values are 0.25, 0.5, 1, 2, 4, 8, and 16
+
+        - **value = 0.25** - `MEMORY` = 512, 1024, or 2048
+        - **value = 0.5** - `MEMORY` = 1024, 2048, 3072, or 4096
+        - **value = 1** - `MEMORY` = 2048, 3072, 4096, 5120, 6144, 7168, or 8192
+        - **value = 2** - `MEMORY` = 4096, 5120, 6144, 7168, 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, or 16384
+        - **value = 4** - `MEMORY` = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384, 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720
+        - **value = 8** - `MEMORY` = 16384, 20480, 24576, 28672, 32768, 36864, 40960, 45056, 49152, 53248, 57344, or 61440
+        - **value = 16** - `MEMORY` = 32768, 40960, 49152, 57344, 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880
+        """
+elif False:
+    JobDefinitionResourceRequirementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionResourceRequirementArgs:
@@ -3137,6 +4207,19 @@ class JobDefinitionResourceRequirementArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class JobDefinitionRetryStrategyArgsDict(TypedDict):
+        attempts: NotRequired[pulumi.Input[int]]
+        """
+        The number of times to move a job to the `RUNNABLE` status. You can specify between 1 and 10 attempts. If the value of `attempts` is greater than one, the job is retried on failure the same number of attempts as the value.
+        """
+        evaluate_on_exit: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEvaluateOnExitArgsDict']]]]
+        """
+        Array of up to 5 objects that specify the conditions where jobs are retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. If none of the listed conditions match, then the job is retried.
+        """
+elif False:
+    JobDefinitionRetryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionRetryStrategyArgs:
     def __init__(__self__, *,
@@ -3175,6 +4258,23 @@ class JobDefinitionRetryStrategyArgs:
     def evaluate_on_exit(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEvaluateOnExitArgs']]]]):
         pulumi.set(self, "evaluate_on_exit", value)
 
+
+if not MYPY:
+    class JobDefinitionRuntimePlatformArgsDict(TypedDict):
+        cpu_architecture: NotRequired[pulumi.Input[str]]
+        """
+        The vCPU architecture. The default value is `X86_64` . Valid values are `X86_64` and `ARM64` .
+
+        > This parameter must be set to `X86_64` for Windows containers. > Fargate Spot is not supported for `ARM64` and Windows-based containers on Fargate. A job queue will be blocked if a Fargate `ARM64` or Windows job is submitted to a job queue with only Fargate Spot compute environments. However, you can attach both `FARGATE` and `FARGATE_SPOT` compute environments to the same job queue.
+        """
+        operating_system_family: NotRequired[pulumi.Input[str]]
+        """
+        The operating system for the compute environment. Valid values are: `LINUX` (default), `WINDOWS_SERVER_2019_CORE` , `WINDOWS_SERVER_2019_FULL` , `WINDOWS_SERVER_2022_CORE` , and `WINDOWS_SERVER_2022_FULL` .
+
+        > The following parameters can’t be set for Windows containers: `linuxParameters` , `privileged` , `user` , `ulimits` , `readonlyRootFilesystem` , and `efsVolumeConfiguration` . > The AWS Batch Scheduler checks the compute environments that are attached to the job queue before registering a task definition with Fargate. In this scenario, the job queue is where the job is submitted. If the job requires a Windows container and the first compute environment is `LINUX` , the compute environment is skipped and the next compute environment is checked until a Windows-based compute environment is found. > Fargate Spot is not supported for `ARM64` and Windows-based containers on Fargate. A job queue will be blocked if a Fargate `ARM64` or Windows job is submitted to a job queue with only Fargate Spot compute environments. However, you can attach both `FARGATE` and `FARGATE_SPOT` compute environments to the same job queue.
+        """
+elif False:
+    JobDefinitionRuntimePlatformArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionRuntimePlatformArgs:
@@ -3223,6 +4323,21 @@ class JobDefinitionRuntimePlatformArgs:
         pulumi.set(self, "operating_system_family", value)
 
 
+if not MYPY:
+    class JobDefinitionSecretArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the secret.
+        """
+        value_from: pulumi.Input[str]
+        """
+        The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+
+        > If the AWS Systems Manager Parameter Store parameter exists in the same Region as the job you're launching, then you can use either the full Amazon Resource Name (ARN) or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+        """
+elif False:
+    JobDefinitionSecretArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionSecretArgs:
     def __init__(__self__, *,
@@ -3263,6 +4378,23 @@ class JobDefinitionSecretArgs:
     def value_from(self, value: pulumi.Input[str]):
         pulumi.set(self, "value_from", value)
 
+
+if not MYPY:
+    class JobDefinitionTaskContainerDependencyArgsDict(TypedDict):
+        condition: pulumi.Input[str]
+        """
+        The dependency condition of the container. The following are the available conditions and their behavior:
+
+        - `START` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
+        - `COMPLETE` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
+        - `SUCCESS` - This condition is the same as `COMPLETE` , but it also requires that the container exits with a zero status. This condition can't be set on an essential container.
+        """
+        container_name: pulumi.Input[str]
+        """
+        A unique identifier for the container.
+        """
+elif False:
+    JobDefinitionTaskContainerDependencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionTaskContainerDependencyArgs:
@@ -3308,6 +4440,116 @@ class JobDefinitionTaskContainerDependencyArgs:
     def container_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "container_name", value)
 
+
+if not MYPY:
+    class JobDefinitionTaskContainerPropertiesArgsDict(TypedDict):
+        image: pulumi.Input[str]
+        """
+        The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of the [*docker run*](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+        """
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [Dockerfile reference: CMD](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
+        """
+        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerDependencyArgsDict']]]]
+        """
+        A list of containers that this container depends on.
+        """
+        environment: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgsDict']]]]
+        """
+        The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
+        """
+        essential: NotRequired[pulumi.Input[bool]]
+        """
+        If the essential parameter of a container is marked as `true` , and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the `essential` parameter of a container is marked as false, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
+
+        All jobs must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
+        linux_parameters: NotRequired[pulumi.Input['JobDefinitionLinuxParametersArgsDict']]
+        """
+        Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
+        """
+        log_configuration: NotRequired[pulumi.Input['JobDefinitionLogConfigurationArgsDict']]
+        """
+        The log configuration specification for the container.
+
+        This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+
+        By default, containers use the same logging driver that the Docker daemon uses. However the container can use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the *Docker documentation* .
+
+        > Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the `LogConfiguration` data type). Additional log drivers may be available in future releases of the Amazon ECS container agent. 
+
+        This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version `--format '{{.Server.APIVersion}}'`
+
+        > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
+        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgsDict']]]]
+        """
+        The mount points for data volumes in your container.
+
+        This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the [--volume](https://docs.aws.amazon.com/) option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+
+        Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of a container. The name can be used as a unique identifier to target your `dependsOn` and `Overrides` objects.
+        """
+        privileged: NotRequired[pulumi.Input[bool]]
+        """
+        When this parameter is `true` , the container is given elevated privileges on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+
+        > This parameter is not supported for Windows containers or tasks run on Fargate.
+        """
+        readonly_root_filesystem: NotRequired[pulumi.Input[bool]]
+        """
+        When this parameter is true, the container is given read-only access to its root file system. This parameter maps to `ReadonlyRootfs` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--read-only` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+
+        > This parameter is not supported for Windows containers.
+        """
+        repository_credentials: NotRequired[pulumi.Input['JobDefinitionRepositoryCredentialsArgsDict']]
+        """
+        The private repository authentication credentials to use.
+        """
+        resource_requirements: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgsDict']]]]
+        """
+        The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgsDict']]]]
+        """
+        The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide.
+        """
+        ulimits: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgsDict']]]]
+        """
+        A list of `ulimits` to set in the container. If a `ulimit` value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+
+        Amazon ECS tasks hosted on Fargate use the default resource limit values set by the operating system with the exception of the nofile resource limit parameter which Fargate overrides. The `nofile` resource limit sets a restriction on the number of open files that a container can use. The default `nofile` soft limit is `1024` and the default hard limit is `65535` .
+
+        This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version `--format '{{.Server.APIVersion}}'`
+
+        > This parameter is not supported for Windows containers.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The user to use inside the container. This parameter maps to User in the Create a container section of the Docker Remote API and the --user option to docker run.
+
+        > When running tasks using the `host` network mode, don't run containers using the `root user (UID 0)` . We recommend using a non-root user for better security. 
+
+        You can specify the `user` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.
+
+        - `user`
+        - `user:group`
+        - `uid`
+        - `uid:gid`
+        - `user:gi`
+        - `uid:group`
+
+        > This parameter is not supported for Windows containers.
+        """
+elif False:
+    JobDefinitionTaskContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionTaskContainerPropertiesArgs:
@@ -3653,6 +4895,19 @@ class JobDefinitionTaskContainerPropertiesArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class JobDefinitionTimeoutArgsDict(TypedDict):
+        attempt_duration_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
+
+        For array jobs, the timeout applies to the child jobs, not to the parent array job.
+
+        For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+        """
+elif False:
+    JobDefinitionTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionTimeoutArgs:
     def __init__(__self__, *,
@@ -3683,6 +4938,25 @@ class JobDefinitionTimeoutArgs:
     def attempt_duration_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "attempt_duration_seconds", value)
 
+
+if not MYPY:
+    class JobDefinitionTmpfsArgsDict(TypedDict):
+        container_path: pulumi.Input[str]
+        """
+        The absolute file path in the container where the `tmpfs` volume is mounted.
+        """
+        size: pulumi.Input[int]
+        """
+        The size (in MiB) of the `tmpfs` volume.
+        """
+        mount_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of `tmpfs` volume mount options.
+
+        Valid values: " `defaults` " | " `ro` " | " `rw` " | " `suid` " | " `nosuid` " | " `dev` " | " `nodev` " | " `exec` " | " `noexec` " | " `sync` " | " `async` " | " `dirsync` " | " `remount` " | " `mand` " | " `nomand` " | " `atime` " | " `noatime` " | " `diratime` " | " `nodiratime` " | " `bind` " | " `rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime` " | " `norelatime` " | " `strictatime` " | " `nostrictatime` " | " `mode` " | " `uid` " | " `gid` " | " `nr_inodes` " | " `nr_blocks` " | " `mpol` "
+        """
+elif False:
+    JobDefinitionTmpfsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionTmpfsArgs:
@@ -3741,6 +5015,23 @@ class JobDefinitionTmpfsArgs:
         pulumi.set(self, "mount_options", value)
 
 
+if not MYPY:
+    class JobDefinitionUlimitArgsDict(TypedDict):
+        hard_limit: pulumi.Input[int]
+        """
+        The hard limit for the `ulimit` type.
+        """
+        name: pulumi.Input[str]
+        """
+        The `type` of the `ulimit` . Valid values are: `core` | `cpu` | `data` | `fsize` | `locks` | `memlock` | `msgqueue` | `nice` | `nofile` | `nproc` | `rss` | `rtprio` | `rttime` | `sigpending` | `stack` .
+        """
+        soft_limit: pulumi.Input[int]
+        """
+        The soft limit for the `ulimit` type.
+        """
+elif False:
+    JobDefinitionUlimitArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionUlimitArgs:
     def __init__(__self__, *,
@@ -3793,6 +5084,17 @@ class JobDefinitionUlimitArgs:
         pulumi.set(self, "soft_limit", value)
 
 
+if not MYPY:
+    class JobDefinitionVolumesHostArgsDict(TypedDict):
+        source_path: NotRequired[pulumi.Input[str]]
+        """
+        The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+
+        > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
+        """
+elif False:
+    JobDefinitionVolumesHostArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionVolumesHostArgs:
     def __init__(__self__, *,
@@ -3819,6 +5121,25 @@ class JobDefinitionVolumesHostArgs:
     def source_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_path", value)
 
+
+if not MYPY:
+    class JobDefinitionVolumesArgsDict(TypedDict):
+        efs_volume_configuration: NotRequired[pulumi.Input['JobDefinitionEfsVolumeConfigurationArgsDict']]
+        """
+        This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
+        """
+        host: NotRequired[pulumi.Input['JobDefinitionVolumesHostArgsDict']]
+        """
+        The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
+        """
+elif False:
+    JobDefinitionVolumesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionVolumesArgs:
@@ -3879,6 +5200,19 @@ class JobDefinitionVolumesArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class JobQueueComputeEnvironmentOrderArgsDict(TypedDict):
+        compute_environment: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the compute environment.
+        """
+        order: pulumi.Input[int]
+        """
+        The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower `order` integer value is tried for job placement first.
+        """
+elif False:
+    JobQueueComputeEnvironmentOrderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobQueueComputeEnvironmentOrderArgs:
     def __init__(__self__, *,
@@ -3915,6 +5249,27 @@ class JobQueueComputeEnvironmentOrderArgs:
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class JobQueueJobStateTimeLimitActionArgsDict(TypedDict):
+        action: pulumi.Input['JobQueueJobStateTimeLimitActionAction']
+        """
+        The action to take when a job is at the head of the job queue in the specified state for the specified period of time. The only supported value is `CANCEL` , which will cancel the job.
+        """
+        max_time_seconds: pulumi.Input[int]
+        """
+        The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).
+        """
+        reason: pulumi.Input[str]
+        """
+        The reason to log for the action being taken.
+        """
+        state: pulumi.Input['JobQueueJobStateTimeLimitActionState']
+        """
+        The state of the job needed to trigger the action. The only supported value is `RUNNABLE` .
+        """
+elif False:
+    JobQueueJobStateTimeLimitActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobQueueJobStateTimeLimitActionArgs:
@@ -3983,6 +5338,32 @@ class JobQueueJobStateTimeLimitActionArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class SchedulingPolicyFairsharePolicyArgsDict(TypedDict):
+        """
+        Fair Share Policy for the Job Queue.
+        """
+        compute_reservation: NotRequired[pulumi.Input[float]]
+        """
+        A value used to reserve some of the available maximum vCPU for fair share identifiers that aren't already used.
+
+        The reserved ratio is `( *computeReservation* /100)^ *ActiveFairShares*` where `*ActiveFairShares*` is the number of active fair share identifiers.
+
+        For example, a `computeReservation` value of 50 indicates that AWS Batch reserves 50% of the maximum available vCPU if there's only one fair share identifier. It reserves 25% if there are two fair share identifiers. It reserves 12.5% if there are three fair share identifiers. A `computeReservation` value of 25 indicates that AWS Batch should reserve 25% of the maximum available vCPU if there's only one fair share identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are three fair share identifiers.
+
+        The minimum value is 0 and the maximum value is 99.
+        """
+        share_decay_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates that only current usage is measured. The decay allows for more recently run jobs to have more weight than jobs that ran earlier. The maximum supported value is 604800 (1 week).
+        """
+        share_distribution: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyShareAttributesArgsDict']]]]
+        """
+        List of Share Attributes
+        """
+elif False:
+    SchedulingPolicyFairsharePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchedulingPolicyFairsharePolicyArgs:
     def __init__(__self__, *,
@@ -4050,6 +5431,25 @@ class SchedulingPolicyFairsharePolicyArgs:
     def share_distribution(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyShareAttributesArgs']]]]):
         pulumi.set(self, "share_distribution", value)
 
+
+if not MYPY:
+    class SchedulingPolicyShareAttributesArgsDict(TypedDict):
+        share_identifier: NotRequired[pulumi.Input[str]]
+        """
+        A fair share identifier or fair share identifier prefix. If the string ends with an asterisk (*), this entry specifies the weight factor to use for fair share identifiers that start with that prefix. The list of fair share identifiers in a fair share policy can't overlap. For example, you can't have one that specifies a `shareIdentifier` of `UserA*` and another that specifies a `shareIdentifier` of `UserA-1` .
+
+        There can be no more than 500 fair share identifiers active in a job queue.
+
+        The string is limited to 255 alphanumeric characters, and can be followed by an asterisk (*).
+        """
+        weight_factor: NotRequired[pulumi.Input[float]]
+        """
+        The weight factor for the fair share identifier. The default value is 1.0. A lower value has a higher priority for compute resources. For example, jobs that use a share identifier with a weight factor of 0.125 (1/8) get 8 times the compute resources of jobs that use a share identifier with a weight factor of 1.
+
+        The smallest supported value is 0.0001, and the largest supported value is 999.9999.
+        """
+elif False:
+    SchedulingPolicyShareAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchedulingPolicyShareAttributesArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -70,9 +75,6 @@ def get_origin_access_control(id: Optional[str] = None,
     return AwaitableGetOriginAccessControlResult(
         id=pulumi.get(__ret__, 'id'),
         origin_access_control_config=pulumi.get(__ret__, 'origin_access_control_config'))
-
-
-@_utilities.lift_output_func(get_origin_access_control)
 def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessControlResult]:
     """
@@ -81,4 +83,10 @@ def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The unique identifier of the origin access control.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getOriginAccessControl', __args__, opts=opts, typ=GetOriginAccessControlResult)
+    return __ret__.apply(lambda __response__: GetOriginAccessControlResult(
+        id=pulumi.get(__response__, 'id'),
+        origin_access_control_config=pulumi.get(__response__, 'origin_access_control_config')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -75,9 +80,6 @@ def get_instance_profile(instance_profile_name: Optional[str] = None,
     return AwaitableGetInstanceProfileResult(
         arn=pulumi.get(__ret__, 'arn'),
         roles=pulumi.get(__ret__, 'roles'))
-
-
-@_utilities.lift_output_func(get_instance_profile)
 def get_instance_profile_output(instance_profile_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
@@ -88,4 +90,10 @@ def get_instance_profile_output(instance_profile_name: Optional[pulumi.Input[str
     :param str instance_profile_name: The name of the instance profile to create.
             This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
     """
-    ...
+    __args__ = dict()
+    __args__['instanceProfileName'] = instance_profile_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getInstanceProfile', __args__, opts=opts, typ=GetInstanceProfileResult)
+    return __ret__.apply(lambda __response__: GetInstanceProfileResult(
+        arn=pulumi.get(__response__, 'arn'),
+        roles=pulumi.get(__response__, 'roles')))

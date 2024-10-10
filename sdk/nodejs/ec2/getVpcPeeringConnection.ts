@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCPeeringConnection
  */
 export function getVpcPeeringConnection(args: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpcPeeringConnection", {
         "id": args.id,
@@ -39,7 +38,10 @@ export interface GetVpcPeeringConnectionResult {
  * Resource Type definition for AWS::EC2::VPCPeeringConnection
  */
 export function getVpcPeeringConnectionOutput(args: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVpcPeeringConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcPeeringConnection", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetVpcPeeringConnectionOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Glue::Trigger
  */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getTrigger", {
         "name": args.name,
@@ -57,7 +56,10 @@ export interface GetTriggerResult {
  * Resource Type definition for AWS::Glue::Trigger
  */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
-    return pulumi.output(args).apply((a: any) => getTrigger(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:glue:getTrigger", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetTriggerOutputArgs {

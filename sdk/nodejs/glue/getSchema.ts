@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * This resource represents a schema of Glue Schema Registry.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getSchema", {
         "arn": args.arn,
@@ -55,7 +54,10 @@ export interface GetSchemaResult {
  * This resource represents a schema of Glue Schema Registry.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
-    return pulumi.output(args).apply((a: any) => getSchema(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:glue:getSchema", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetSchemaOutputArgs {

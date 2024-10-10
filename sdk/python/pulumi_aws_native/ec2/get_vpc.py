@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -168,9 +173,6 @@ def get_vpc(vpc_id: Optional[str] = None,
         ipv6_cidr_blocks=pulumi.get(__ret__, 'ipv6_cidr_blocks'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_vpc)
 def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcResult]:
     """
@@ -181,4 +183,17 @@ def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
 
     :param str vpc_id: The ID of the VPC.
     """
-    ...
+    __args__ = dict()
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpc', __args__, opts=opts, typ=GetVpcResult)
+    return __ret__.apply(lambda __response__: GetVpcResult(
+        cidr_block_associations=pulumi.get(__response__, 'cidr_block_associations'),
+        default_network_acl=pulumi.get(__response__, 'default_network_acl'),
+        default_security_group=pulumi.get(__response__, 'default_security_group'),
+        enable_dns_hostnames=pulumi.get(__response__, 'enable_dns_hostnames'),
+        enable_dns_support=pulumi.get(__response__, 'enable_dns_support'),
+        instance_tenancy=pulumi.get(__response__, 'instance_tenancy'),
+        ipv6_cidr_blocks=pulumi.get(__response__, 'ipv6_cidr_blocks'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

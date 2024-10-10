@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_subnet_network_acl_association(association_id: Optional[str] = None,
 
     return AwaitableGetSubnetNetworkAclAssociationResult(
         association_id=pulumi.get(__ret__, 'association_id'))
-
-
-@_utilities.lift_output_func(get_subnet_network_acl_association)
 def get_subnet_network_acl_association_output(association_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetNetworkAclAssociationResult]:
     """
@@ -67,4 +69,9 @@ def get_subnet_network_acl_association_output(association_id: Optional[pulumi.In
 
     :param str association_id: Returns the value of this object's AssociationId property.
     """
-    ...
+    __args__ = dict()
+    __args__['associationId'] = association_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSubnetNetworkAclAssociation', __args__, opts=opts, typ=GetSubnetNetworkAclAssociationResult)
+    return __ret__.apply(lambda __response__: GetSubnetNetworkAclAssociationResult(
+        association_id=pulumi.get(__response__, 'association_id')))

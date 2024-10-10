@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
  */
 export function getDirectoryRegistration(args: GetDirectoryRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryRegistrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pcaconnectorad:getDirectoryRegistration", {
         "directoryRegistrationArn": args.directoryRegistrationArn,
@@ -32,7 +31,10 @@ export interface GetDirectoryRegistrationResult {
  * Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
  */
 export function getDirectoryRegistrationOutput(args: GetDirectoryRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryRegistrationResult> {
-    return pulumi.output(args).apply((a: any) => getDirectoryRegistration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:pcaconnectorad:getDirectoryRegistration", {
+        "directoryRegistrationArn": args.directoryRegistrationArn,
+    }, opts);
 }
 
 export interface GetDirectoryRegistrationOutputArgs {

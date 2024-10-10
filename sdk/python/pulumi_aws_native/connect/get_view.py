@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -163,9 +168,6 @@ def get_view(view_arn: Optional[str] = None,
         view_arn=pulumi.get(__ret__, 'view_arn'),
         view_content_sha256=pulumi.get(__ret__, 'view_content_sha256'),
         view_id=pulumi.get(__ret__, 'view_id'))
-
-
-@_utilities.lift_output_func(get_view)
 def get_view_output(view_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
@@ -174,4 +176,17 @@ def get_view_output(view_arn: Optional[pulumi.Input[str]] = None,
 
     :param str view_arn: The Amazon Resource Name (ARN) of the view.
     """
-    ...
+    __args__ = dict()
+    __args__['viewArn'] = view_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getView', __args__, opts=opts, typ=GetViewResult)
+    return __ret__.apply(lambda __response__: GetViewResult(
+        actions=pulumi.get(__response__, 'actions'),
+        description=pulumi.get(__response__, 'description'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        template=pulumi.get(__response__, 'template'),
+        view_arn=pulumi.get(__response__, 'view_arn'),
+        view_content_sha256=pulumi.get(__response__, 'view_content_sha256'),
+        view_id=pulumi.get(__response__, 'view_id')))

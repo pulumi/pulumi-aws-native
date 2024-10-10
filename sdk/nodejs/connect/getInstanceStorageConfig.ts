@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::InstanceStorageConfig
  */
 export function getInstanceStorageConfig(args: GetInstanceStorageConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceStorageConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getInstanceStorageConfig", {
         "associationId": args.associationId,
@@ -65,7 +64,12 @@ export interface GetInstanceStorageConfigResult {
  * Resource Type definition for AWS::Connect::InstanceStorageConfig
  */
 export function getInstanceStorageConfigOutput(args: GetInstanceStorageConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceStorageConfigResult> {
-    return pulumi.output(args).apply((a: any) => getInstanceStorageConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getInstanceStorageConfig", {
+        "associationId": args.associationId,
+        "instanceArn": args.instanceArn,
+        "resourceType": args.resourceType,
+    }, opts);
 }
 
 export interface GetInstanceStorageConfigOutputArgs {

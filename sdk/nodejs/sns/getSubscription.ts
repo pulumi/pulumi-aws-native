@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SNS::Subscription
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sns:getSubscription", {
         "arn": args.arn,
@@ -68,7 +67,10 @@ export interface GetSubscriptionResult {
  * Resource Type definition for AWS::SNS::Subscription
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sns:getSubscription", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetSubscriptionOutputArgs {

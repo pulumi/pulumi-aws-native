@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Creates an authorizer.
  */
 export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getAuthorizer", {
         "authorizerName": args.authorizerName,
@@ -67,7 +66,10 @@ export interface GetAuthorizerResult {
  * Creates an authorizer.
  */
 export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iot:getAuthorizer", {
+        "authorizerName": args.authorizerName,
+    }, opts);
 }
 
 export interface GetAuthorizerOutputArgs {

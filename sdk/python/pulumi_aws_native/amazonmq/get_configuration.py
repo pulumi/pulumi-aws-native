@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -109,9 +114,6 @@ def get_configuration(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         revision=pulumi.get(__ret__, 'revision'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_configuration)
 def get_configuration_output(id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
@@ -120,4 +122,13 @@ def get_configuration_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the Amazon MQ configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:amazonmq:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
+    return __ret__.apply(lambda __response__: GetConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        revision=pulumi.get(__response__, 'revision'),
+        tags=pulumi.get(__response__, 'tags')))

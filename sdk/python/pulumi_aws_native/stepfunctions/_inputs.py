@@ -4,24 +4,58 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ActivityEncryptionConfigurationArgs',
+    'ActivityEncryptionConfigurationArgsDict',
     'StateMachineAliasDeploymentPreferenceArgs',
+    'StateMachineAliasDeploymentPreferenceArgsDict',
     'StateMachineAliasRoutingConfigurationVersionArgs',
+    'StateMachineAliasRoutingConfigurationVersionArgsDict',
     'StateMachineCloudWatchLogsLogGroupArgs',
+    'StateMachineCloudWatchLogsLogGroupArgsDict',
     'StateMachineDefinitionArgs',
+    'StateMachineDefinitionArgsDict',
     'StateMachineEncryptionConfigurationArgs',
+    'StateMachineEncryptionConfigurationArgsDict',
     'StateMachineLogDestinationArgs',
+    'StateMachineLogDestinationArgsDict',
     'StateMachineLoggingConfigurationArgs',
+    'StateMachineLoggingConfigurationArgsDict',
     'StateMachineS3LocationArgs',
+    'StateMachineS3LocationArgsDict',
     'StateMachineTracingConfigurationArgs',
+    'StateMachineTracingConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActivityEncryptionConfigurationArgsDict(TypedDict):
+        type: pulumi.Input['ActivityEncryptionConfigurationType']
+        """
+        Encryption option for an activity.
+        """
+        kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        """
+elif False:
+    ActivityEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActivityEncryptionConfigurationArgs:
@@ -76,6 +110,36 @@ class ActivityEncryptionConfigurationArgs:
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
 
+
+if not MYPY:
+    class StateMachineAliasDeploymentPreferenceArgsDict(TypedDict):
+        """
+        The settings to enable gradual state machine deployments.
+        """
+        state_machine_version_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the [`AWS::StepFunctions::StateMachineVersion`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html) resource that will be the final version to which the alias points to when the traffic shifting is complete.
+
+        While performing gradual deployments, you can only provide a single state machine version ARN. To explicitly set version weights in a CloudFormation template, use `RoutingConfiguration` instead.
+        """
+        type: pulumi.Input['StateMachineAliasDeploymentPreferenceType']
+        """
+        The type of deployment to perform.
+        """
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
+        """
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        The time in minutes between each traffic shifting increment.
+        """
+        percentage: NotRequired[pulumi.Input[int]]
+        """
+        The percentage of traffic to shift to the new version in each increment.
+        """
+elif False:
+    StateMachineAliasDeploymentPreferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StateMachineAliasDeploymentPreferenceArgs:
@@ -167,6 +231,19 @@ class StateMachineAliasDeploymentPreferenceArgs:
         pulumi.set(self, "percentage", value)
 
 
+if not MYPY:
+    class StateMachineAliasRoutingConfigurationVersionArgsDict(TypedDict):
+        state_machine_version_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
+        """
+        weight: pulumi.Input[int]
+        """
+        The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+        """
+elif False:
+    StateMachineAliasRoutingConfigurationVersionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StateMachineAliasRoutingConfigurationVersionArgs:
     def __init__(__self__, *,
@@ -204,6 +281,15 @@ class StateMachineAliasRoutingConfigurationVersionArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class StateMachineCloudWatchLogsLogGroupArgsDict(TypedDict):
+        log_group_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with `:*`
+        """
+elif False:
+    StateMachineCloudWatchLogsLogGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StateMachineCloudWatchLogsLogGroupArgs:
     def __init__(__self__, *,
@@ -227,11 +313,34 @@ class StateMachineCloudWatchLogsLogGroupArgs:
         pulumi.set(self, "log_group_arn", value)
 
 
+if not MYPY:
+    class StateMachineDefinitionArgsDict(TypedDict):
+        pass
+elif False:
+    StateMachineDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StateMachineDefinitionArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class StateMachineEncryptionConfigurationArgsDict(TypedDict):
+        type: pulumi.Input['StateMachineEncryptionConfigurationType']
+        """
+        Encryption option for a state machine.
+        """
+        kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        """
+elif False:
+    StateMachineEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StateMachineEncryptionConfigurationArgs:
@@ -287,6 +396,15 @@ class StateMachineEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
+if not MYPY:
+    class StateMachineLogDestinationArgsDict(TypedDict):
+        cloud_watch_logs_log_group: NotRequired[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgsDict']]
+        """
+        An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+        """
+elif False:
+    StateMachineLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StateMachineLogDestinationArgs:
     def __init__(__self__, *,
@@ -309,6 +427,23 @@ class StateMachineLogDestinationArgs:
     def cloud_watch_logs_log_group(self, value: Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']]):
         pulumi.set(self, "cloud_watch_logs_log_group", value)
 
+
+if not MYPY:
+    class StateMachineLoggingConfigurationArgsDict(TypedDict):
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgsDict']]]]
+        """
+        An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
+        """
+        include_execution_data: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether execution data is included in your log. When set to `false` , data is excluded.
+        """
+        level: NotRequired[pulumi.Input['StateMachineLoggingConfigurationLevel']]
+        """
+        Defines which category of execution history events are logged.
+        """
+elif False:
+    StateMachineLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StateMachineLoggingConfigurationArgs:
@@ -365,6 +500,23 @@ class StateMachineLoggingConfigurationArgs:
         pulumi.set(self, "level", value)
 
 
+if not MYPY:
+    class StateMachineS3LocationArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        """
+        The name of the S3 bucket where the state machine definition JSON or YAML file is stored.
+        """
+        key: pulumi.Input[str]
+        """
+        The name of the state machine definition file (Amazon S3 object name).
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        For versioning-enabled buckets, a specific version of the state machine definition.
+        """
+elif False:
+    StateMachineS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StateMachineS3LocationArgs:
     def __init__(__self__, *,
@@ -417,6 +569,15 @@ class StateMachineS3LocationArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class StateMachineTracingConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true` , X-Ray tracing is enabled.
+        """
+elif False:
+    StateMachineTracingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StateMachineTracingConfigurationArgs:

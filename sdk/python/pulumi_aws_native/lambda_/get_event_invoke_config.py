@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -91,9 +96,6 @@ def get_event_invoke_config(function_name: Optional[str] = None,
         destination_config=pulumi.get(__ret__, 'destination_config'),
         maximum_event_age_in_seconds=pulumi.get(__ret__, 'maximum_event_age_in_seconds'),
         maximum_retry_attempts=pulumi.get(__ret__, 'maximum_retry_attempts'))
-
-
-@_utilities.lift_output_func(get_event_invoke_config)
 def get_event_invoke_config_output(function_name: Optional[pulumi.Input[str]] = None,
                                    qualifier: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventInvokeConfigResult]:
@@ -104,4 +106,12 @@ def get_event_invoke_config_output(function_name: Optional[pulumi.Input[str]] = 
     :param str function_name: The name of the Lambda function.
     :param str qualifier: The identifier of a version or alias.
     """
-    ...
+    __args__ = dict()
+    __args__['functionName'] = function_name
+    __args__['qualifier'] = qualifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getEventInvokeConfig', __args__, opts=opts, typ=GetEventInvokeConfigResult)
+    return __ret__.apply(lambda __response__: GetEventInvokeConfigResult(
+        destination_config=pulumi.get(__response__, 'destination_config'),
+        maximum_event_age_in_seconds=pulumi.get(__response__, 'maximum_event_age_in_seconds'),
+        maximum_retry_attempts=pulumi.get(__response__, 'maximum_retry_attempts')))

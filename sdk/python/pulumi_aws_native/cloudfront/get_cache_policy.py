@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -83,9 +88,6 @@ def get_cache_policy(id: Optional[str] = None,
         cache_policy_config=pulumi.get(__ret__, 'cache_policy_config'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
-
-
-@_utilities.lift_output_func(get_cache_policy)
 def get_cache_policy_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
@@ -94,4 +96,11 @@ def get_cache_policy_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getCachePolicy', __args__, opts=opts, typ=GetCachePolicyResult)
+    return __ret__.apply(lambda __response__: GetCachePolicyResult(
+        cache_policy_config=pulumi.get(__response__, 'cache_policy_config'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time')))

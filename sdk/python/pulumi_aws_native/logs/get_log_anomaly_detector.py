@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -174,9 +179,6 @@ def get_log_anomaly_detector(anomaly_detector_arn: Optional[str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         last_modified_time_stamp=pulumi.get(__ret__, 'last_modified_time_stamp'),
         log_group_arn_list=pulumi.get(__ret__, 'log_group_arn_list'))
-
-
-@_utilities.lift_output_func(get_log_anomaly_detector)
 def get_log_anomaly_detector_output(anomaly_detector_arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnomalyDetectorResult]:
     """
@@ -185,4 +187,18 @@ def get_log_anomaly_detector_output(anomaly_detector_arn: Optional[pulumi.Input[
 
     :param str anomaly_detector_arn: ARN of LogAnomalyDetector
     """
-    ...
+    __args__ = dict()
+    __args__['anomalyDetectorArn'] = anomaly_detector_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getLogAnomalyDetector', __args__, opts=opts, typ=GetLogAnomalyDetectorResult)
+    return __ret__.apply(lambda __response__: GetLogAnomalyDetectorResult(
+        anomaly_detector_arn=pulumi.get(__response__, 'anomaly_detector_arn'),
+        anomaly_detector_status=pulumi.get(__response__, 'anomaly_detector_status'),
+        anomaly_visibility_time=pulumi.get(__response__, 'anomaly_visibility_time'),
+        creation_time_stamp=pulumi.get(__response__, 'creation_time_stamp'),
+        detector_name=pulumi.get(__response__, 'detector_name'),
+        evaluation_frequency=pulumi.get(__response__, 'evaluation_frequency'),
+        filter_pattern=pulumi.get(__response__, 'filter_pattern'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        last_modified_time_stamp=pulumi.get(__response__, 'last_modified_time_stamp'),
+        log_group_arn_list=pulumi.get(__response__, 'log_group_arn_list')))

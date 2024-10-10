@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * An outcome for rule evaluation.
  */
 export function getOutcome(args: GetOutcomeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutcomeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:frauddetector:getOutcome", {
         "arn": args.arn,
@@ -51,7 +50,10 @@ export interface GetOutcomeResult {
  * An outcome for rule evaluation.
  */
 export function getOutcomeOutput(args: GetOutcomeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutcomeResult> {
-    return pulumi.output(args).apply((a: any) => getOutcome(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:frauddetector:getOutcome", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetOutcomeOutputArgs {

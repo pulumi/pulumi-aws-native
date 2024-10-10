@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -95,9 +100,6 @@ def get_destination(destination_name: Optional[str] = None,
         destination_policy=pulumi.get(__ret__, 'destination_policy'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         target_arn=pulumi.get(__ret__, 'target_arn'))
-
-
-@_utilities.lift_output_func(get_destination)
 def get_destination_output(destination_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDestinationResult]:
     """
@@ -106,4 +108,12 @@ def get_destination_output(destination_name: Optional[pulumi.Input[str]] = None,
 
     :param str destination_name: The name of the destination resource
     """
-    ...
+    __args__ = dict()
+    __args__['destinationName'] = destination_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getDestination', __args__, opts=opts, typ=GetDestinationResult)
+    return __ret__.apply(lambda __response__: GetDestinationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        destination_policy=pulumi.get(__response__, 'destination_policy'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        target_arn=pulumi.get(__response__, 'target_arn')))

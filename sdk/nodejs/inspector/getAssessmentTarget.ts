@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Inspector::AssessmentTarget
  */
 export function getAssessmentTarget(args: GetAssessmentTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentTargetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:inspector:getAssessmentTarget", {
         "arn": args.arn,
@@ -36,7 +35,10 @@ export interface GetAssessmentTargetResult {
  * Resource Type definition for AWS::Inspector::AssessmentTarget
  */
 export function getAssessmentTargetOutput(args: GetAssessmentTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTargetResult> {
-    return pulumi.output(args).apply((a: any) => getAssessmentTarget(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:inspector:getAssessmentTarget", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetAssessmentTargetOutputArgs {

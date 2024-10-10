@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The AWS::SecurityHub::ProductSubscription resource represents a subscription to a service that is allowed to generate findings for your Security Hub account. One product subscription resource is created for each product enabled.
  */
 export function getProductSubscription(args: GetProductSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetProductSubscriptionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securityhub:getProductSubscription", {
         "productSubscriptionArn": args.productSubscriptionArn,
@@ -32,7 +31,10 @@ export interface GetProductSubscriptionResult {
  * The AWS::SecurityHub::ProductSubscription resource represents a subscription to a service that is allowed to generate findings for your Security Hub account. One product subscription resource is created for each product enabled.
  */
 export function getProductSubscriptionOutput(args: GetProductSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductSubscriptionResult> {
-    return pulumi.output(args).apply((a: any) => getProductSubscription(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:securityhub:getProductSubscription", {
+        "productSubscriptionArn": args.productSubscriptionArn,
+    }, opts);
 }
 
 export interface GetProductSubscriptionOutputArgs {

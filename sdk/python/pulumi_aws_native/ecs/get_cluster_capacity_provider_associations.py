@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -71,9 +76,6 @@ def get_cluster_capacity_provider_associations(cluster: Optional[str] = None,
     return AwaitableGetClusterCapacityProviderAssociationsResult(
         capacity_providers=pulumi.get(__ret__, 'capacity_providers'),
         default_capacity_provider_strategy=pulumi.get(__ret__, 'default_capacity_provider_strategy'))
-
-
-@_utilities.lift_output_func(get_cluster_capacity_provider_associations)
 def get_cluster_capacity_provider_associations_output(cluster: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterCapacityProviderAssociationsResult]:
     """
@@ -82,4 +84,10 @@ def get_cluster_capacity_provider_associations_output(cluster: Optional[pulumi.I
 
     :param str cluster: The cluster the capacity provider association is the target of.
     """
-    ...
+    __args__ = dict()
+    __args__['cluster'] = cluster
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getClusterCapacityProviderAssociations', __args__, opts=opts, typ=GetClusterCapacityProviderAssociationsResult)
+    return __ret__.apply(lambda __response__: GetClusterCapacityProviderAssociationsResult(
+        capacity_providers=pulumi.get(__response__, 'capacity_providers'),
+        default_capacity_provider_strategy=pulumi.get(__response__, 'default_capacity_provider_strategy')))

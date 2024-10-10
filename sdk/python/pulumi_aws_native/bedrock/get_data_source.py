@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -194,9 +199,6 @@ def get_data_source(data_source_id: Optional[str] = None,
         server_side_encryption_configuration=pulumi.get(__ret__, 'server_side_encryption_configuration'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         vector_ingestion_configuration=pulumi.get(__ret__, 'vector_ingestion_configuration'))
-
-
-@_utilities.lift_output_func(get_data_source)
 def get_data_source_output(data_source_id: Optional[pulumi.Input[str]] = None,
                            knowledge_base_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
@@ -207,4 +209,20 @@ def get_data_source_output(data_source_id: Optional[pulumi.Input[str]] = None,
     :param str data_source_id: Identifier for a resource.
     :param str knowledge_base_id: The unique identifier of the knowledge base to which to add the data source.
     """
-    ...
+    __args__ = dict()
+    __args__['dataSourceId'] = data_source_id
+    __args__['knowledgeBaseId'] = knowledge_base_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
+    return __ret__.apply(lambda __response__: GetDataSourceResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        data_deletion_policy=pulumi.get(__response__, 'data_deletion_policy'),
+        data_source_configuration=pulumi.get(__response__, 'data_source_configuration'),
+        data_source_id=pulumi.get(__response__, 'data_source_id'),
+        data_source_status=pulumi.get(__response__, 'data_source_status'),
+        description=pulumi.get(__response__, 'description'),
+        failure_reasons=pulumi.get(__response__, 'failure_reasons'),
+        name=pulumi.get(__response__, 'name'),
+        server_side_encryption_configuration=pulumi.get(__response__, 'server_side_encryption_configuration'),
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        vector_ingestion_configuration=pulumi.get(__response__, 'vector_ingestion_configuration')))

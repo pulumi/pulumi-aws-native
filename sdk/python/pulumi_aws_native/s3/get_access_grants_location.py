@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -95,9 +100,6 @@ def get_access_grants_location(access_grants_location_id: Optional[str] = None,
         access_grants_location_id=pulumi.get(__ret__, 'access_grants_location_id'),
         iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
         location_scope=pulumi.get(__ret__, 'location_scope'))
-
-
-@_utilities.lift_output_func(get_access_grants_location)
 def get_access_grants_location_output(access_grants_location_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessGrantsLocationResult]:
     """
@@ -106,4 +108,12 @@ def get_access_grants_location_output(access_grants_location_id: Optional[pulumi
 
     :param str access_grants_location_id: The unique identifier for the specified Access Grants location.
     """
-    ...
+    __args__ = dict()
+    __args__['accessGrantsLocationId'] = access_grants_location_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getAccessGrantsLocation', __args__, opts=opts, typ=GetAccessGrantsLocationResult)
+    return __ret__.apply(lambda __response__: GetAccessGrantsLocationResult(
+        access_grants_location_arn=pulumi.get(__response__, 'access_grants_location_arn'),
+        access_grants_location_id=pulumi.get(__response__, 'access_grants_location_id'),
+        iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
+        location_scope=pulumi.get(__response__, 'location_scope')))

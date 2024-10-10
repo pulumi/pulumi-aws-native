@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -59,9 +64,6 @@ def get_user_pool_ui_customization_attachment(client_id: Optional[str] = None,
 
     return AwaitableGetUserPoolUiCustomizationAttachmentResult(
         css=pulumi.get(__ret__, 'css'))
-
-
-@_utilities.lift_output_func(get_user_pool_ui_customization_attachment)
 def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.Input[str]] = None,
                                                      user_pool_id: Optional[pulumi.Input[str]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolUiCustomizationAttachmentResult]:
@@ -72,4 +74,10 @@ def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.
     :param str client_id: The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
     :param str user_pool_id: The user pool ID for the user pool.
     """
-    ...
+    __args__ = dict()
+    __args__['clientId'] = client_id
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolUiCustomizationAttachment', __args__, opts=opts, typ=GetUserPoolUiCustomizationAttachmentResult)
+    return __ret__.apply(lambda __response__: GetUserPoolUiCustomizationAttachmentResult(
+        css=pulumi.get(__response__, 'css')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaLive::Cluster Resource Type
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:medialive:getCluster", {
         "id": args.id,
@@ -53,7 +52,10 @@ export interface GetClusterResult {
  * Definition of AWS::MediaLive::Cluster Resource Type
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:medialive:getCluster", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetClusterOutputArgs {

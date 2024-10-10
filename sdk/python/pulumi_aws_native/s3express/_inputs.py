@@ -4,17 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DirectoryBucketBucketEncryptionArgs',
+    'DirectoryBucketBucketEncryptionArgsDict',
     'DirectoryBucketServerSideEncryptionByDefaultArgs',
+    'DirectoryBucketServerSideEncryptionByDefaultArgsDict',
     'DirectoryBucketServerSideEncryptionRuleArgs',
+    'DirectoryBucketServerSideEncryptionRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DirectoryBucketBucketEncryptionArgsDict(TypedDict):
+        """
+        Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS).
+        """
+        server_side_encryption_configuration: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketServerSideEncryptionRuleArgsDict']]]
+        """
+        Specifies the default server-side-encryption configuration.
+        """
+elif False:
+    DirectoryBucketBucketEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectoryBucketBucketEncryptionArgs:
@@ -38,6 +60,24 @@ class DirectoryBucketBucketEncryptionArgs:
     def server_side_encryption_configuration(self, value: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketServerSideEncryptionRuleArgs']]]):
         pulumi.set(self, "server_side_encryption_configuration", value)
 
+
+if not MYPY:
+    class DirectoryBucketServerSideEncryptionByDefaultArgsDict(TypedDict):
+        """
+        Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+        """
+        sse_algorithm: pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm']
+        """
+        Server-side encryption algorithm to use for the default encryption.
+
+        > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
+        """
+        kms_master_key_id: NotRequired[pulumi.Input[str]]
+        """
+        AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. This parameter is allowed only if SSEAlgorithm is set to aws:kms. You can specify this parameter with the key ID or the Amazon Resource Name (ARN) of the KMS key
+        """
+elif False:
+    DirectoryBucketServerSideEncryptionByDefaultArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectoryBucketServerSideEncryptionByDefaultArgs:
@@ -81,6 +121,22 @@ class DirectoryBucketServerSideEncryptionByDefaultArgs:
     def kms_master_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
+
+if not MYPY:
+    class DirectoryBucketServerSideEncryptionRuleArgsDict(TypedDict):
+        """
+        Specifies the default server-side encryption configuration.
+        """
+        bucket_key_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Amazon S3 Express One Zone uses an S3 Bucket Key with SSE-KMS and S3 Bucket Key cannot be disabled. It's only allowed to set the BucketKeyEnabled element to true.
+        """
+        server_side_encryption_by_default: NotRequired[pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgsDict']]
+        """
+        Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+        """
+elif False:
+    DirectoryBucketServerSideEncryptionRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectoryBucketServerSideEncryptionRuleArgs:

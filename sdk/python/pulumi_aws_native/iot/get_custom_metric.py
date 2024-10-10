@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -83,9 +88,6 @@ def get_custom_metric(metric_name: Optional[str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         metric_arn=pulumi.get(__ret__, 'metric_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_custom_metric)
 def get_custom_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomMetricResult]:
     """
@@ -94,4 +96,11 @@ def get_custom_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
 
     :param str metric_name: The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
     """
-    ...
+    __args__ = dict()
+    __args__['metricName'] = metric_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getCustomMetric', __args__, opts=opts, typ=GetCustomMetricResult)
+    return __ret__.apply(lambda __response__: GetCustomMetricResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        metric_arn=pulumi.get(__response__, 'metric_arn'),
+        tags=pulumi.get(__response__, 'tags')))

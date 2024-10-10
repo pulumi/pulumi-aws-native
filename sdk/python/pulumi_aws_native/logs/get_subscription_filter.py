@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -105,9 +110,6 @@ def get_subscription_filter(filter_name: Optional[str] = None,
         distribution=pulumi.get(__ret__, 'distribution'),
         filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-
-
-@_utilities.lift_output_func(get_subscription_filter)
 def get_subscription_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
                                    log_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionFilterResult]:
@@ -124,4 +126,13 @@ def get_subscription_filter_output(filter_name: Optional[pulumi.Input[str]] = No
     :param str filter_name: The name of the subscription filter.
     :param str log_group_name: The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
     """
-    ...
+    __args__ = dict()
+    __args__['filterName'] = filter_name
+    __args__['logGroupName'] = log_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getSubscriptionFilter', __args__, opts=opts, typ=GetSubscriptionFilterResult)
+    return __ret__.apply(lambda __response__: GetSubscriptionFilterResult(
+        destination_arn=pulumi.get(__response__, 'destination_arn'),
+        distribution=pulumi.get(__response__, 'distribution'),
+        filter_pattern=pulumi.get(__response__, 'filter_pattern'),
+        role_arn=pulumi.get(__response__, 'role_arn')))

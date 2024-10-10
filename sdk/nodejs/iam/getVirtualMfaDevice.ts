@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::VirtualMFADevice
  */
 export function getVirtualMfaDevice(args: GetVirtualMfaDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMfaDeviceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getVirtualMfaDevice", {
         "serialNumber": args.serialNumber,
@@ -45,7 +44,10 @@ export interface GetVirtualMfaDeviceResult {
  * Resource Type definition for AWS::IAM::VirtualMFADevice
  */
 export function getVirtualMfaDeviceOutput(args: GetVirtualMfaDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMfaDeviceResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualMfaDevice(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iam:getVirtualMfaDevice", {
+        "serialNumber": args.serialNumber,
+    }, opts);
 }
 
 export interface GetVirtualMfaDeviceOutputArgs {

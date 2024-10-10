@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -162,9 +167,6 @@ def get_endpoint_group(endpoint_group_arn: Optional[str] = None,
         port_overrides=pulumi.get(__ret__, 'port_overrides'),
         threshold_count=pulumi.get(__ret__, 'threshold_count'),
         traffic_dial_percentage=pulumi.get(__ret__, 'traffic_dial_percentage'))
-
-
-@_utilities.lift_output_func(get_endpoint_group)
 def get_endpoint_group_output(endpoint_group_arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointGroupResult]:
     """
@@ -173,4 +175,17 @@ def get_endpoint_group_output(endpoint_group_arn: Optional[pulumi.Input[str]] = 
 
     :param str endpoint_group_arn: The Amazon Resource Name (ARN) of the endpoint group
     """
-    ...
+    __args__ = dict()
+    __args__['endpointGroupArn'] = endpoint_group_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:globalaccelerator:getEndpointGroup', __args__, opts=opts, typ=GetEndpointGroupResult)
+    return __ret__.apply(lambda __response__: GetEndpointGroupResult(
+        endpoint_configurations=pulumi.get(__response__, 'endpoint_configurations'),
+        endpoint_group_arn=pulumi.get(__response__, 'endpoint_group_arn'),
+        health_check_interval_seconds=pulumi.get(__response__, 'health_check_interval_seconds'),
+        health_check_path=pulumi.get(__response__, 'health_check_path'),
+        health_check_port=pulumi.get(__response__, 'health_check_port'),
+        health_check_protocol=pulumi.get(__response__, 'health_check_protocol'),
+        port_overrides=pulumi.get(__response__, 'port_overrides'),
+        threshold_count=pulumi.get(__response__, 'threshold_count'),
+        traffic_dial_percentage=pulumi.get(__response__, 'traffic_dial_percentage')))

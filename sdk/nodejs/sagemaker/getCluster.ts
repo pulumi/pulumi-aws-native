@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::Cluster
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getCluster", {
         "clusterArn": args.clusterArn,
@@ -59,7 +58,10 @@ export interface GetClusterResult {
  * Resource Type definition for AWS::SageMaker::Cluster
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getCluster", {
+        "clusterArn": args.clusterArn,
+    }, opts);
 }
 
 export interface GetClusterOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaConnect::BridgeSource
  */
 export function getBridgeSource(args: GetBridgeSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetBridgeSourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconnect:getBridgeSource", {
         "bridgeArn": args.bridgeArn,
@@ -44,7 +43,11 @@ export interface GetBridgeSourceResult {
  * Resource schema for AWS::MediaConnect::BridgeSource
  */
 export function getBridgeSourceOutput(args: GetBridgeSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBridgeSourceResult> {
-    return pulumi.output(args).apply((a: any) => getBridgeSource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediaconnect:getBridgeSource", {
+        "bridgeArn": args.bridgeArn,
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetBridgeSourceOutputArgs {

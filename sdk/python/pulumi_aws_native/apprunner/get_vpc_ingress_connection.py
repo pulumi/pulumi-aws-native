@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -97,9 +102,6 @@ def get_vpc_ingress_connection(vpc_ingress_connection_arn: Optional[str] = None,
         ingress_vpc_configuration=pulumi.get(__ret__, 'ingress_vpc_configuration'),
         status=pulumi.get(__ret__, 'status'),
         vpc_ingress_connection_arn=pulumi.get(__ret__, 'vpc_ingress_connection_arn'))
-
-
-@_utilities.lift_output_func(get_vpc_ingress_connection)
 def get_vpc_ingress_connection_output(vpc_ingress_connection_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIngressConnectionResult]:
     """
@@ -108,4 +110,12 @@ def get_vpc_ingress_connection_output(vpc_ingress_connection_arn: Optional[pulum
 
     :param str vpc_ingress_connection_arn: The Amazon Resource Name (ARN) of the VpcIngressConnection.
     """
-    ...
+    __args__ = dict()
+    __args__['vpcIngressConnectionArn'] = vpc_ingress_connection_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apprunner:getVpcIngressConnection', __args__, opts=opts, typ=GetVpcIngressConnectionResult)
+    return __ret__.apply(lambda __response__: GetVpcIngressConnectionResult(
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        ingress_vpc_configuration=pulumi.get(__response__, 'ingress_vpc_configuration'),
+        status=pulumi.get(__response__, 'status'),
+        vpc_ingress_connection_arn=pulumi.get(__response__, 'vpc_ingress_connection_arn')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IVS::EncoderConfiguration.
  */
 export function getEncoderConfiguration(args: GetEncoderConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetEncoderConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ivs:getEncoderConfiguration", {
         "arn": args.arn,
@@ -39,7 +38,10 @@ export interface GetEncoderConfigurationResult {
  * Resource Type definition for AWS::IVS::EncoderConfiguration.
  */
 export function getEncoderConfigurationOutput(args: GetEncoderConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncoderConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getEncoderConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ivs:getEncoderConfiguration", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetEncoderConfigurationOutputArgs {

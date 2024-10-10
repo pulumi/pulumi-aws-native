@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaPackage::Asset
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackage:getAsset", {
         "id": args.id,
@@ -67,7 +66,10 @@ export interface GetAssetResult {
  * Resource schema for AWS::MediaPackage::Asset
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
-    return pulumi.output(args).apply((a: any) => getAsset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediapackage:getAsset", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetAssetOutputArgs {

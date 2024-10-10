@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::QBusiness::Retriever Resource Type
  */
 export function getRetriever(args: GetRetrieverArgs, opts?: pulumi.InvokeOptions): Promise<GetRetrieverResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:qbusiness:getRetriever", {
         "applicationId": args.applicationId,
@@ -72,7 +71,11 @@ export interface GetRetrieverResult {
  * Definition of AWS::QBusiness::Retriever Resource Type
  */
 export function getRetrieverOutput(args: GetRetrieverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRetrieverResult> {
-    return pulumi.output(args).apply((a: any) => getRetriever(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:qbusiness:getRetriever", {
+        "applicationId": args.applicationId,
+        "retrieverId": args.retrieverId,
+    }, opts);
 }
 
 export interface GetRetrieverOutputArgs {

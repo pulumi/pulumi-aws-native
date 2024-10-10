@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::RefactorSpaces::Service Resource Type
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:refactorspaces:getService", {
         "applicationIdentifier": args.applicationIdentifier,
@@ -53,7 +52,12 @@ export interface GetServiceResult {
  * Definition of AWS::RefactorSpaces::Service Resource Type
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:refactorspaces:getService", {
+        "applicationIdentifier": args.applicationIdentifier,
+        "environmentIdentifier": args.environmentIdentifier,
+        "serviceIdentifier": args.serviceIdentifier,
+    }, opts);
 }
 
 export interface GetServiceOutputArgs {

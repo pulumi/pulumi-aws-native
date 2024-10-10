@@ -4,15 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AssessmentTemplateTagArgs',
+    'AssessmentTemplateTagArgsDict',
     'ResourceGroupTagArgs',
+    'ResourceGroupTagArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssessmentTemplateTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        A tag key.
+        """
+        value: pulumi.Input[str]
+        """
+        A value assigned to a tag key.
+        """
+elif False:
+    AssessmentTemplateTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentTemplateTagArgs:
@@ -50,6 +72,19 @@ class AssessmentTemplateTagArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ResourceGroupTagArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        A tag key.
+        """
+        value: pulumi.Input[str]
+        """
+        A value assigned to a tag key.
+        """
+elif False:
+    ResourceGroupTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceGroupTagArgs:

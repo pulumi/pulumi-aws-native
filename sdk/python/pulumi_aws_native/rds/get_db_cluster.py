@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -805,9 +810,6 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-
-
-@_utilities.lift_output_func(get_db_cluster)
 def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterResult]:
     """
@@ -839,4 +841,52 @@ def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = N
             Example: ``my-cluster1`` 
             Valid for: Aurora DB clusters and Multi-AZ DB clusters
     """
-    ...
+    __args__ = dict()
+    __args__['dbClusterIdentifier'] = db_cluster_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbCluster', __args__, opts=opts, typ=GetDbClusterResult)
+    return __ret__.apply(lambda __response__: GetDbClusterResult(
+        allocated_storage=pulumi.get(__response__, 'allocated_storage'),
+        associated_roles=pulumi.get(__response__, 'associated_roles'),
+        auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
+        backtrack_window=pulumi.get(__response__, 'backtrack_window'),
+        backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
+        copy_tags_to_snapshot=pulumi.get(__response__, 'copy_tags_to_snapshot'),
+        db_cluster_arn=pulumi.get(__response__, 'db_cluster_arn'),
+        db_cluster_instance_class=pulumi.get(__response__, 'db_cluster_instance_class'),
+        db_cluster_parameter_group_name=pulumi.get(__response__, 'db_cluster_parameter_group_name'),
+        db_cluster_resource_id=pulumi.get(__response__, 'db_cluster_resource_id'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
+        domain=pulumi.get(__response__, 'domain'),
+        domain_iam_role_name=pulumi.get(__response__, 'domain_iam_role_name'),
+        enable_cloudwatch_logs_exports=pulumi.get(__response__, 'enable_cloudwatch_logs_exports'),
+        enable_global_write_forwarding=pulumi.get(__response__, 'enable_global_write_forwarding'),
+        enable_http_endpoint=pulumi.get(__response__, 'enable_http_endpoint'),
+        enable_iam_database_authentication=pulumi.get(__response__, 'enable_iam_database_authentication'),
+        enable_local_write_forwarding=pulumi.get(__response__, 'enable_local_write_forwarding'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        engine=pulumi.get(__response__, 'engine'),
+        engine_lifecycle_support=pulumi.get(__response__, 'engine_lifecycle_support'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        global_cluster_identifier=pulumi.get(__response__, 'global_cluster_identifier'),
+        iops=pulumi.get(__response__, 'iops'),
+        manage_master_user_password=pulumi.get(__response__, 'manage_master_user_password'),
+        master_user_secret=pulumi.get(__response__, 'master_user_secret'),
+        master_username=pulumi.get(__response__, 'master_username'),
+        monitoring_interval=pulumi.get(__response__, 'monitoring_interval'),
+        monitoring_role_arn=pulumi.get(__response__, 'monitoring_role_arn'),
+        network_type=pulumi.get(__response__, 'network_type'),
+        performance_insights_enabled=pulumi.get(__response__, 'performance_insights_enabled'),
+        performance_insights_kms_key_id=pulumi.get(__response__, 'performance_insights_kms_key_id'),
+        performance_insights_retention_period=pulumi.get(__response__, 'performance_insights_retention_period'),
+        port=pulumi.get(__response__, 'port'),
+        preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        read_endpoint=pulumi.get(__response__, 'read_endpoint'),
+        replication_source_identifier=pulumi.get(__response__, 'replication_source_identifier'),
+        scaling_configuration=pulumi.get(__response__, 'scaling_configuration'),
+        serverless_v2_scaling_configuration=pulumi.get(__response__, 'serverless_v2_scaling_configuration'),
+        storage_throughput=pulumi.get(__response__, 'storage_throughput'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
  */
 export function getDbSubnetGroup(args: GetDbSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDbSubnetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDbSubnetGroup", {
         "dbSubnetGroupName": args.dbSubnetGroupName,
@@ -47,7 +46,10 @@ export interface GetDbSubnetGroupResult {
  *  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
  */
 export function getDbSubnetGroupOutput(args: GetDbSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbSubnetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDbSubnetGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:rds:getDbSubnetGroup", {
+        "dbSubnetGroupName": args.dbSubnetGroupName,
+    }, opts);
 }
 
 export interface GetDbSubnetGroupOutputArgs {

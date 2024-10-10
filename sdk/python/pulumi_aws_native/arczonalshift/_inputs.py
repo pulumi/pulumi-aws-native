@@ -4,16 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ZonalAutoshiftConfigurationControlConditionArgs',
+    'ZonalAutoshiftConfigurationControlConditionArgsDict',
     'ZonalAutoshiftConfigurationPracticeRunConfigurationArgs',
+    'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ZonalAutoshiftConfigurationControlConditionArgsDict(TypedDict):
+        alarm_identifier: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) for an Amazon CloudWatch alarm that you specify as a control condition for a practice run.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is `CLOUDWATCH` .
+        """
+elif False:
+    ZonalAutoshiftConfigurationControlConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ZonalAutoshiftConfigurationControlConditionArgs:
@@ -51,6 +73,31 @@ class ZonalAutoshiftConfigurationControlConditionArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict(TypedDict):
+        outcome_alarms: pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgsDict']]]
+        """
+        The alarm that you specify to monitor the health of your application during practice runs. When the outcome alarm goes into an `ALARM` state, the practice run is ended and the outcome is set to `FAILED` .
+        """
+        blocked_dates: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of one or more dates that you can specify when AWS does not start practice runs for a resource. Dates are in UTC.
+
+        Specify blocked dates in the format `YYYY-MM-DD` , separated by spaces.
+        """
+        blocked_windows: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
+
+        Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
+        """
+        blocking_alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ZonalAutoshiftConfigurationControlConditionArgsDict']]]]
+        """
+        An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
+        """
+elif False:
+    ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ZonalAutoshiftConfigurationPracticeRunConfigurationArgs:

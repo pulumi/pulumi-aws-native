@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Represents a table that can be queried within a collaboration
  */
 export function getConfiguredTableAssociation(args: GetConfiguredTableAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfiguredTableAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cleanrooms:getConfiguredTableAssociation", {
         "configuredTableAssociationIdentifier": args.configuredTableAssociationIdentifier,
@@ -66,7 +65,11 @@ export interface GetConfiguredTableAssociationResult {
  * Represents a table that can be queried within a collaboration
  */
 export function getConfiguredTableAssociationOutput(args: GetConfiguredTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfiguredTableAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getConfiguredTableAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getConfiguredTableAssociation", {
+        "configuredTableAssociationIdentifier": args.configuredTableAssociationIdentifier,
+        "membershipIdentifier": args.membershipIdentifier,
+    }, opts);
 }
 
 export interface GetConfiguredTableAssociationOutputArgs {

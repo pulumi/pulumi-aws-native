@@ -4,15 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'FleetVpcConfigArgs',
+    'FleetVpcConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FleetVpcConfigArgsDict(TypedDict):
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of one or more security groups IDs in your Amazon VPC.
+        """
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of one or more subnet IDs in your Amazon VPC.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Amazon VPC.
+        """
+elif False:
+    FleetVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetVpcConfigArgs:

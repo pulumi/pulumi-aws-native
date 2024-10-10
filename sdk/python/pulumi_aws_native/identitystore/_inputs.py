@@ -4,14 +4,34 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GroupMembershipMemberIdArgs',
+    'GroupMembershipMemberIdArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GroupMembershipMemberIdArgsDict(TypedDict):
+        """
+        An object containing the identifier of a group member.
+        """
+        user_id: pulumi.Input[str]
+        """
+        The identifier for a user in the identity store.
+        """
+elif False:
+    GroupMembershipMemberIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupMembershipMemberIdArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -58,9 +63,6 @@ def get_access_point_policy(object_lambda_access_point: Optional[str] = None,
 
     return AwaitableGetAccessPointPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-
-
-@_utilities.lift_output_func(get_access_point_policy)
 def get_access_point_policy_output(object_lambda_access_point: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointPolicyResult]:
     """
@@ -69,4 +71,9 @@ def get_access_point_policy_output(object_lambda_access_point: Optional[pulumi.I
 
     :param str object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
     """
-    ...
+    __args__ = dict()
+    __args__['objectLambdaAccessPoint'] = object_lambda_access_point
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:s3objectlambda:getAccessPointPolicy', __args__, opts=opts, typ=GetAccessPointPolicyResult)
+    return __ret__.apply(lambda __response__: GetAccessPointPolicyResult(
+        policy_document=pulumi.get(__response__, 'policy_document')))

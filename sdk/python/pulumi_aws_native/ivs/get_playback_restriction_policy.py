@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -122,9 +127,6 @@ def get_playback_restriction_policy(arn: Optional[str] = None,
         enable_strict_origin_enforcement=pulumi.get(__ret__, 'enable_strict_origin_enforcement'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_playback_restriction_policy)
 def get_playback_restriction_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaybackRestrictionPolicyResult]:
     """
@@ -133,4 +135,14 @@ def get_playback_restriction_policy_output(arn: Optional[pulumi.Input[str]] = No
 
     :param str arn: Playback-restriction-policy identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getPlaybackRestrictionPolicy', __args__, opts=opts, typ=GetPlaybackRestrictionPolicyResult)
+    return __ret__.apply(lambda __response__: GetPlaybackRestrictionPolicyResult(
+        allowed_countries=pulumi.get(__response__, 'allowed_countries'),
+        allowed_origins=pulumi.get(__response__, 'allowed_origins'),
+        arn=pulumi.get(__response__, 'arn'),
+        enable_strict_origin_enforcement=pulumi.get(__response__, 'enable_strict_origin_enforcement'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

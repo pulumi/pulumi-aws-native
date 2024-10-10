@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_model_quality_job_definition(job_definition_arn: Optional[str] = None,
     return AwaitableGetModelQualityJobDefinitionResult(
         creation_time=pulumi.get(__ret__, 'creation_time'),
         job_definition_arn=pulumi.get(__ret__, 'job_definition_arn'))
-
-
-@_utilities.lift_output_func(get_model_quality_job_definition)
 def get_model_quality_job_definition_output(job_definition_arn: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelQualityJobDefinitionResult]:
     """
@@ -80,4 +82,10 @@ def get_model_quality_job_definition_output(job_definition_arn: Optional[pulumi.
 
     :param str job_definition_arn: The Amazon Resource Name (ARN) of job definition.
     """
-    ...
+    __args__ = dict()
+    __args__['jobDefinitionArn'] = job_definition_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getModelQualityJobDefinition', __args__, opts=opts, typ=GetModelQualityJobDefinitionResult)
+    return __ret__.apply(lambda __response__: GetModelQualityJobDefinitionResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        job_definition_arn=pulumi.get(__response__, 'job_definition_arn')))

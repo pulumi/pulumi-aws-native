@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -94,9 +99,6 @@ def get_custom_plugin(custom_plugin_arn: Optional[str] = None,
         file_description=pulumi.get(__ret__, 'file_description'),
         revision=pulumi.get(__ret__, 'revision'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_custom_plugin)
 def get_custom_plugin_output(custom_plugin_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
@@ -105,4 +107,12 @@ def get_custom_plugin_output(custom_plugin_arn: Optional[pulumi.Input[str]] = No
 
     :param str custom_plugin_arn: The Amazon Resource Name (ARN) of the custom plugin to use.
     """
-    ...
+    __args__ = dict()
+    __args__['customPluginArn'] = custom_plugin_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:kafkaconnect:getCustomPlugin', __args__, opts=opts, typ=GetCustomPluginResult)
+    return __ret__.apply(lambda __response__: GetCustomPluginResult(
+        custom_plugin_arn=pulumi.get(__response__, 'custom_plugin_arn'),
+        file_description=pulumi.get(__response__, 'file_description'),
+        revision=pulumi.get(__response__, 'revision'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
  */
 export function getGlobalNetwork(args: GetGlobalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getGlobalNetwork", {
         "id": args.id,
@@ -55,7 +54,10 @@ export interface GetGlobalNetworkResult {
  * The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
  */
 export function getGlobalNetworkOutput(args: GetGlobalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:networkmanager:getGlobalNetwork", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetGlobalNetworkOutputArgs {

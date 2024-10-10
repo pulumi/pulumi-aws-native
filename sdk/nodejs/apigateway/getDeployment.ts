@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getDeployment", {
         "deploymentId": args.deploymentId,
@@ -41,7 +40,11 @@ export interface GetDeploymentResult {
  * The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
-    return pulumi.output(args).apply((a: any) => getDeployment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigateway:getDeployment", {
+        "deploymentId": args.deploymentId,
+        "restApiId": args.restApiId,
+    }, opts);
 }
 
 export interface GetDeploymentOutputArgs {

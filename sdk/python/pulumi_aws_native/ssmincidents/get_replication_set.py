@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -97,9 +102,6 @@ def get_replication_set(arn: Optional[str] = None,
         deletion_protected=pulumi.get(__ret__, 'deletion_protected'),
         regions=pulumi.get(__ret__, 'regions'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_replication_set)
 def get_replication_set_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationSetResult]:
     """
@@ -108,4 +110,12 @@ def get_replication_set_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the ReplicationSet.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ssmincidents:getReplicationSet', __args__, opts=opts, typ=GetReplicationSetResult)
+    return __ret__.apply(lambda __response__: GetReplicationSetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        deletion_protected=pulumi.get(__response__, 'deletion_protected'),
+        regions=pulumi.get(__response__, 'regions'),
+        tags=pulumi.get(__response__, 'tags')))

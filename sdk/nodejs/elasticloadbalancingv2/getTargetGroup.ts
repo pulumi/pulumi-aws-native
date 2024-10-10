@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
  */
 export function getTargetGroup(args: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticloadbalancingv2:getTargetGroup", {
         "targetGroupArn": args.targetGroupArn,
@@ -95,7 +94,10 @@ export interface GetTargetGroupResult {
  * Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
  */
 export function getTargetGroupOutput(args: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getTargetGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:elasticloadbalancingv2:getTargetGroup", {
+        "targetGroupArn": args.targetGroupArn,
+    }, opts);
 }
 
 export interface GetTargetGroupOutputArgs {

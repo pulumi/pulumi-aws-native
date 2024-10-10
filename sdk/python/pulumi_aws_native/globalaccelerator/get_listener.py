@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -97,9 +102,6 @@ def get_listener(listener_arn: Optional[str] = None,
         listener_arn=pulumi.get(__ret__, 'listener_arn'),
         port_ranges=pulumi.get(__ret__, 'port_ranges'),
         protocol=pulumi.get(__ret__, 'protocol'))
-
-
-@_utilities.lift_output_func(get_listener)
 def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
@@ -108,4 +110,12 @@ def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
 
     :param str listener_arn: The Amazon Resource Name (ARN) of the listener.
     """
-    ...
+    __args__ = dict()
+    __args__['listenerArn'] = listener_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:globalaccelerator:getListener', __args__, opts=opts, typ=GetListenerResult)
+    return __ret__.apply(lambda __response__: GetListenerResult(
+        client_affinity=pulumi.get(__response__, 'client_affinity'),
+        listener_arn=pulumi.get(__response__, 'listener_arn'),
+        port_ranges=pulumi.get(__response__, 'port_ranges'),
+        protocol=pulumi.get(__response__, 'protocol')))

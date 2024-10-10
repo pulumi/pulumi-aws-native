@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Athena::WorkGroup
  */
 export function getWorkGroup(args: GetWorkGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:athena:getWorkGroup", {
         "name": args.name,
@@ -51,7 +50,10 @@ export interface GetWorkGroupResult {
  * Resource schema for AWS::Athena::WorkGroup
  */
 export function getWorkGroupOutput(args: GetWorkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkGroupResult> {
-    return pulumi.output(args).apply((a: any) => getWorkGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:athena:getWorkGroup", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetWorkGroupOutputArgs {

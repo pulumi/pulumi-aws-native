@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationFSxLustre.
  */
 export function getLocationFSxLustre(args: GetLocationFSxLustreArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationFSxLustreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationFSxLustre", {
         "locationArn": args.locationArn,
@@ -43,7 +42,10 @@ export interface GetLocationFSxLustreResult {
  * Resource schema for AWS::DataSync::LocationFSxLustre.
  */
 export function getLocationFSxLustreOutput(args: GetLocationFSxLustreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationFSxLustreResult> {
-    return pulumi.output(args).apply((a: any) => getLocationFSxLustre(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationFSxLustre", {
+        "locationArn": args.locationArn,
+    }, opts);
 }
 
 export interface GetLocationFSxLustreOutputArgs {

@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *  For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
  */
 export function getEip(args: GetEipArgs, opts?: pulumi.InvokeOptions): Promise<GetEipResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getEip", {
         "allocationId": args.allocationId,
@@ -63,7 +62,11 @@ export interface GetEipResult {
  *  For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
  */
 export function getEipOutput(args: GetEipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipResult> {
-    return pulumi.output(args).apply((a: any) => getEip(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getEip", {
+        "allocationId": args.allocationId,
+        "publicIp": args.publicIp,
+    }, opts);
 }
 
 export interface GetEipOutputArgs {

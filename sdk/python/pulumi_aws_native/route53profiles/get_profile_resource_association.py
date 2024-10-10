@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -82,9 +87,6 @@ def get_profile_resource_association(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_properties=pulumi.get(__ret__, 'resource_properties'),
         resource_type=pulumi.get(__ret__, 'resource_type'))
-
-
-@_utilities.lift_output_func(get_profile_resource_association)
 def get_profile_resource_association_output(id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResourceAssociationResult]:
     """
@@ -93,4 +95,11 @@ def get_profile_resource_association_output(id: Optional[pulumi.Input[str]] = No
 
     :param str id: Primary Identifier for  Profile Resource Association
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:route53profiles:getProfileResourceAssociation', __args__, opts=opts, typ=GetProfileResourceAssociationResult)
+    return __ret__.apply(lambda __response__: GetProfileResourceAssociationResult(
+        id=pulumi.get(__response__, 'id'),
+        resource_properties=pulumi.get(__response__, 'resource_properties'),
+        resource_type=pulumi.get(__response__, 'resource_type')))

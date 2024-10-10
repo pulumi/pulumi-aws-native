@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -177,9 +182,6 @@ def get_environment_account_connection(arn: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_environment_account_connection)
 def get_environment_account_connection_output(arn: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentAccountConnectionResult]:
     """
@@ -188,4 +190,18 @@ def get_environment_account_connection_output(arn: Optional[pulumi.Input[str]] =
 
     :param str arn: The Amazon Resource Name (ARN) of the environment account connection.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:proton:getEnvironmentAccountConnection', __args__, opts=opts, typ=GetEnvironmentAccountConnectionResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentAccountConnectionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        codebuild_role_arn=pulumi.get(__response__, 'codebuild_role_arn'),
+        component_role_arn=pulumi.get(__response__, 'component_role_arn'),
+        environment_account_id=pulumi.get(__response__, 'environment_account_id'),
+        environment_name=pulumi.get(__response__, 'environment_name'),
+        id=pulumi.get(__response__, 'id'),
+        management_account_id=pulumi.get(__response__, 'management_account_id'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opensearchservice:getDomain", {
         "domainName": args.domainName,
@@ -136,7 +135,10 @@ export interface GetDomainResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:opensearchservice:getDomain", {
+        "domainName": args.domainName,
+    }, opts);
 }
 
 export interface GetDomainOutputArgs {

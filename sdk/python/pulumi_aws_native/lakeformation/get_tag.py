@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_tag(tag_key: Optional[str] = None,
 
     return AwaitableGetTagResult(
         tag_values=pulumi.get(__ret__, 'tag_values'))
-
-
-@_utilities.lift_output_func(get_tag)
 def get_tag_output(tag_key: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagResult]:
     """
@@ -67,4 +69,9 @@ def get_tag_output(tag_key: Optional[pulumi.Input[str]] = None,
 
     :param str tag_key: The key-name for the LF-tag.
     """
-    ...
+    __args__ = dict()
+    __args__['tagKey'] = tag_key
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lakeformation:getTag', __args__, opts=opts, typ=GetTagResult)
+    return __ret__.apply(lambda __response__: GetTagResult(
+        tag_values=pulumi.get(__response__, 'tag_values')))

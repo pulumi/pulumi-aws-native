@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -66,9 +71,6 @@ def get_app(app_name: Optional[str] = None,
 
     return AwaitableGetAppResult(
         app_arn=pulumi.get(__ret__, 'app_arn'))
-
-
-@_utilities.lift_output_func(get_app)
 def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
                    app_type: Optional[pulumi.Input['AppType']] = None,
                    domain_id: Optional[pulumi.Input[str]] = None,
@@ -83,4 +85,12 @@ def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
     :param str domain_id: The domain ID.
     :param str user_profile_name: The user profile name.
     """
-    ...
+    __args__ = dict()
+    __args__['appName'] = app_name
+    __args__['appType'] = app_type
+    __args__['domainId'] = domain_id
+    __args__['userProfileName'] = user_profile_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getApp', __args__, opts=opts, typ=GetAppResult)
+    return __ret__.apply(lambda __response__: GetAppResult(
+        app_arn=pulumi.get(__response__, 'app_arn')))

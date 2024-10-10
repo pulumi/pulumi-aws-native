@@ -4,16 +4,58 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'EnvironmentMaintenanceWindowArgs',
+    'EnvironmentMaintenanceWindowArgsDict',
     'EnvironmentTagArgs',
+    'EnvironmentTagArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EnvironmentMaintenanceWindowArgsDict(TypedDict):
+        type: pulumi.Input['EnvironmentMaintenanceWindowType']
+        """
+        The type of maintenance window.
+        """
+        apply_time_of: NotRequired[pulumi.Input['EnvironmentMaintenanceWindowApplyTimeOf']]
+        """
+        The desired time zone maintenance window.
+        """
+        days_of_the_week: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentDayOfWeek']]]]
+        """
+        The date of maintenance window.
+        """
+        end_time_hour: NotRequired[pulumi.Input[int]]
+        """
+        The hour end time of maintenance window.
+        """
+        end_time_minute: NotRequired[pulumi.Input[int]]
+        """
+        The minute end time of maintenance window.
+        """
+        start_time_hour: NotRequired[pulumi.Input[int]]
+        """
+        The hour start time of maintenance window.
+        """
+        start_time_minute: NotRequired[pulumi.Input[int]]
+        """
+        The minute start time of maintenance window.
+        """
+elif False:
+    EnvironmentMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentMaintenanceWindowArgs:
@@ -132,6 +174,22 @@ class EnvironmentMaintenanceWindowArgs:
     def start_time_minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_time_minute", value)
 
+
+if not MYPY:
+    class EnvironmentTagArgsDict(TypedDict):
+        """
+        A key-value pair to associate with a resource.
+        """
+        key: pulumi.Input[str]
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+elif False:
+    EnvironmentTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentTagArgs:

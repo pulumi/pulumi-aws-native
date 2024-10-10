@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
  */
 export function getResourceCollection(args: GetResourceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceCollectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:devopsguru:getResourceCollection", {
         "resourceCollectionType": args.resourceCollectionType,
@@ -39,7 +38,10 @@ export interface GetResourceCollectionResult {
  * This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
  */
 export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getResourceCollection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:devopsguru:getResourceCollection", {
+        "resourceCollectionType": args.resourceCollectionType,
+    }, opts);
 }
 
 export interface GetResourceCollectionOutputArgs {

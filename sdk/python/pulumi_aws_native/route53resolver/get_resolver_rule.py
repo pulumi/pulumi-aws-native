@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -150,9 +155,6 @@ def get_resolver_rule(resolver_rule_id: Optional[str] = None,
         resolver_rule_id=pulumi.get(__ret__, 'resolver_rule_id'),
         tags=pulumi.get(__ret__, 'tags'),
         target_ips=pulumi.get(__ret__, 'target_ips'))
-
-
-@_utilities.lift_output_func(get_resolver_rule)
 def get_resolver_rule_output(resolver_rule_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRuleResult]:
     """
@@ -161,4 +163,16 @@ def get_resolver_rule_output(resolver_rule_id: Optional[pulumi.Input[str]] = Non
 
     :param str resolver_rule_id: The ID of the endpoint that the rule is associated with.
     """
-    ...
+    __args__ = dict()
+    __args__['resolverRuleId'] = resolver_rule_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverRule', __args__, opts=opts, typ=GetResolverRuleResult)
+    return __ret__.apply(lambda __response__: GetResolverRuleResult(
+        arn=pulumi.get(__response__, 'arn'),
+        delegation_record=pulumi.get(__response__, 'delegation_record'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        name=pulumi.get(__response__, 'name'),
+        resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),
+        resolver_rule_id=pulumi.get(__response__, 'resolver_rule_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_ips=pulumi.get(__response__, 'target_ips')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -129,9 +134,6 @@ def get_instance_storage_config(association_id: Optional[str] = None,
         kinesis_video_stream_config=pulumi.get(__ret__, 'kinesis_video_stream_config'),
         s3_config=pulumi.get(__ret__, 's3_config'),
         storage_type=pulumi.get(__ret__, 'storage_type'))
-
-
-@_utilities.lift_output_func(get_instance_storage_config)
 def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str]] = None,
                                        instance_arn: Optional[pulumi.Input[str]] = None,
                                        resource_type: Optional[pulumi.Input['InstanceStorageConfigInstanceStorageResourceType']] = None,
@@ -144,4 +146,16 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
     :param str instance_arn: Connect Instance ID with which the storage config will be associated
     :param 'InstanceStorageConfigInstanceStorageResourceType' resource_type: A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
     """
-    ...
+    __args__ = dict()
+    __args__['associationId'] = association_id
+    __args__['instanceArn'] = instance_arn
+    __args__['resourceType'] = resource_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getInstanceStorageConfig', __args__, opts=opts, typ=GetInstanceStorageConfigResult)
+    return __ret__.apply(lambda __response__: GetInstanceStorageConfigResult(
+        association_id=pulumi.get(__response__, 'association_id'),
+        kinesis_firehose_config=pulumi.get(__response__, 'kinesis_firehose_config'),
+        kinesis_stream_config=pulumi.get(__response__, 'kinesis_stream_config'),
+        kinesis_video_stream_config=pulumi.get(__response__, 'kinesis_video_stream_config'),
+        s3_config=pulumi.get(__response__, 's3_config'),
+        storage_type=pulumi.get(__response__, 'storage_type')))

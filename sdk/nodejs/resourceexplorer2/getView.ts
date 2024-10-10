@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::ResourceExplorer2::View Resource Type
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:resourceexplorer2:getView", {
         "viewArn": args.viewArn,
@@ -55,7 +54,10 @@ export interface GetViewResult {
  * Definition of AWS::ResourceExplorer2::View Resource Type
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
-    return pulumi.output(args).apply((a: any) => getView(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:resourceexplorer2:getView", {
+        "viewArn": args.viewArn,
+    }, opts);
 }
 
 export interface GetViewOutputArgs {

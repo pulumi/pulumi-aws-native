@@ -4,19 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DeploymentConfigMinimumHealthyHostsPerZoneArgs',
+    'DeploymentConfigMinimumHealthyHostsPerZoneArgsDict',
     'DeploymentConfigMinimumHealthyHostsArgs',
+    'DeploymentConfigMinimumHealthyHostsArgsDict',
     'DeploymentConfigTimeBasedCanaryArgs',
+    'DeploymentConfigTimeBasedCanaryArgsDict',
     'DeploymentConfigTimeBasedLinearArgs',
+    'DeploymentConfigTimeBasedLinearArgsDict',
     'DeploymentConfigTrafficRoutingConfigArgs',
+    'DeploymentConfigTrafficRoutingConfigArgsDict',
     'DeploymentConfigZonalConfigArgs',
+    'DeploymentConfigZonalConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DeploymentConfigMinimumHealthyHostsPerZoneArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The `type` associated with the `MinimumHealthyHostsPerZone` option.
+        """
+        value: pulumi.Input[int]
+        """
+        The `value` associated with the `MinimumHealthyHostsPerZone` option.
+        """
+elif False:
+    DeploymentConfigMinimumHealthyHostsPerZoneArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentConfigMinimumHealthyHostsPerZoneArgs:
@@ -54,6 +80,28 @@ class DeploymentConfigMinimumHealthyHostsPerZoneArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DeploymentConfigMinimumHealthyHostsArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The minimum healthy instance type:
+
+        - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+        - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+
+        In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+
+        > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful. 
+
+        For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
+        """
+        value: pulumi.Input[int]
+        """
+        The minimum healthy instance value.
+        """
+elif False:
+    DeploymentConfigMinimumHealthyHostsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentConfigMinimumHealthyHostsArgs:
@@ -110,6 +158,19 @@ class DeploymentConfigMinimumHealthyHostsArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class DeploymentConfigTimeBasedCanaryArgsDict(TypedDict):
+        canary_interval: pulumi.Input[int]
+        """
+        The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+        """
+        canary_percentage: pulumi.Input[int]
+        """
+        The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+        """
+elif False:
+    DeploymentConfigTimeBasedCanaryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentConfigTimeBasedCanaryArgs:
     def __init__(__self__, *,
@@ -147,6 +208,19 @@ class DeploymentConfigTimeBasedCanaryArgs:
         pulumi.set(self, "canary_percentage", value)
 
 
+if not MYPY:
+    class DeploymentConfigTimeBasedLinearArgsDict(TypedDict):
+        linear_interval: pulumi.Input[int]
+        """
+        The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+        """
+        linear_percentage: pulumi.Input[int]
+        """
+        The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+        """
+elif False:
+    DeploymentConfigTimeBasedLinearArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentConfigTimeBasedLinearArgs:
     def __init__(__self__, *,
@@ -183,6 +257,23 @@ class DeploymentConfigTimeBasedLinearArgs:
     def linear_percentage(self, value: pulumi.Input[int]):
         pulumi.set(self, "linear_percentage", value)
 
+
+if not MYPY:
+    class DeploymentConfigTrafficRoutingConfigArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
+        """
+        time_based_canary: NotRequired[pulumi.Input['DeploymentConfigTimeBasedCanaryArgsDict']]
+        """
+        A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        """
+        time_based_linear: NotRequired[pulumi.Input['DeploymentConfigTimeBasedLinearArgsDict']]
+        """
+        A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
+        """
+elif False:
+    DeploymentConfigTrafficRoutingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentConfigTrafficRoutingConfigArgs:
@@ -237,6 +328,31 @@ class DeploymentConfigTrafficRoutingConfigArgs:
     def time_based_linear(self, value: Optional[pulumi.Input['DeploymentConfigTimeBasedLinearArgs']]):
         pulumi.set(self, "time_based_linear", value)
 
+
+if not MYPY:
+    class DeploymentConfigZonalConfigArgsDict(TypedDict):
+        first_zone_monitor_duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+
+        For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        """
+        minimum_healthy_hosts_per_zone: NotRequired[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgsDict']]
+        """
+        The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+
+        If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+
+        For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        """
+        monitor_duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
+
+        For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
+        """
+elif False:
+    DeploymentConfigZonalConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentConfigZonalConfigArgs:

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SecurityLake::Subscriber
  */
 export function getSubscriber(args: GetSubscriberArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriberResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securitylake:getSubscriber", {
         "subscriberArn": args.subscriberArn,
@@ -77,7 +76,10 @@ export interface GetSubscriberResult {
  * Resource Type definition for AWS::SecurityLake::Subscriber
  */
 export function getSubscriberOutput(args: GetSubscriberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriberResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriber(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:securitylake:getSubscriber", {
+        "subscriberArn": args.subscriberArn,
+    }, opts);
 }
 
 export interface GetSubscriberOutputArgs {

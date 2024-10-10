@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
  */
 export function getClientCertificate(args: GetClientCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetClientCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getClientCertificate", {
         "clientCertificateId": args.clientCertificateId,
@@ -43,7 +42,10 @@ export interface GetClientCertificateResult {
  * The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
  */
 export function getClientCertificateOutput(args: GetClientCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getClientCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigateway:getClientCertificate", {
+        "clientCertificateId": args.clientCertificateId,
+    }, opts);
 }
 
 export interface GetClientCertificateOutputArgs {

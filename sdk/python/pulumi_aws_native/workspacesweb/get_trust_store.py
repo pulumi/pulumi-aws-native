@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -96,9 +101,6 @@ def get_trust_store(trust_store_arn: Optional[str] = None,
         certificate_list=pulumi.get(__ret__, 'certificate_list'),
         tags=pulumi.get(__ret__, 'tags'),
         trust_store_arn=pulumi.get(__ret__, 'trust_store_arn'))
-
-
-@_utilities.lift_output_func(get_trust_store)
 def get_trust_store_output(trust_store_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
@@ -107,4 +109,12 @@ def get_trust_store_output(trust_store_arn: Optional[pulumi.Input[str]] = None,
 
     :param str trust_store_arn: The ARN of the trust store.
     """
-    ...
+    __args__ = dict()
+    __args__['trustStoreArn'] = trust_store_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getTrustStore', __args__, opts=opts, typ=GetTrustStoreResult)
+    return __ret__.apply(lambda __response__: GetTrustStoreResult(
+        associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),
+        certificate_list=pulumi.get(__response__, 'certificate_list'),
+        tags=pulumi.get(__response__, 'tags'),
+        trust_store_arn=pulumi.get(__response__, 'trust_store_arn')))

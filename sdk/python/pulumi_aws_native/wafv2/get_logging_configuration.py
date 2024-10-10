@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -97,9 +102,6 @@ def get_logging_configuration(resource_arn: Optional[str] = None,
         logging_filter=pulumi.get(__ret__, 'logging_filter'),
         managed_by_firewall_manager=pulumi.get(__ret__, 'managed_by_firewall_manager'),
         redacted_fields=pulumi.get(__ret__, 'redacted_fields'))
-
-
-@_utilities.lift_output_func(get_logging_configuration)
 def get_logging_configuration_output(resource_arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
@@ -108,4 +110,12 @@ def get_logging_configuration_output(resource_arn: Optional[pulumi.Input[str]] =
 
     :param str resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceArn'] = resource_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:wafv2:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult)
+    return __ret__.apply(lambda __response__: GetLoggingConfigurationResult(
+        log_destination_configs=pulumi.get(__response__, 'log_destination_configs'),
+        logging_filter=pulumi.get(__response__, 'logging_filter'),
+        managed_by_firewall_manager=pulumi.get(__response__, 'managed_by_firewall_manager'),
+        redacted_fields=pulumi.get(__response__, 'redacted_fields')))

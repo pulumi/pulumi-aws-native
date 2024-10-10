@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A domain is an organizing entity for connecting together assets, users, and their projects
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datazone:getDomain", {
         "id": args.id,
@@ -79,7 +78,10 @@ export interface GetDomainResult {
  * A domain is an organizing entity for connecting together assets, users, and their projects
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datazone:getDomain", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetDomainOutputArgs {

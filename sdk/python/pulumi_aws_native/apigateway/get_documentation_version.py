@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -59,9 +64,6 @@ def get_documentation_version(documentation_version: Optional[str] = None,
 
     return AwaitableGetDocumentationVersionResult(
         description=pulumi.get(__ret__, 'description'))
-
-
-@_utilities.lift_output_func(get_documentation_version)
 def get_documentation_version_output(documentation_version: Optional[pulumi.Input[str]] = None,
                                      rest_api_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationVersionResult]:
@@ -72,4 +74,10 @@ def get_documentation_version_output(documentation_version: Optional[pulumi.Inpu
     :param str documentation_version: The version identifier of the to-be-updated documentation version.
     :param str rest_api_id: The string identifier of the associated RestApi.
     """
-    ...
+    __args__ = dict()
+    __args__['documentationVersion'] = documentation_version
+    __args__['restApiId'] = rest_api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getDocumentationVersion', __args__, opts=opts, typ=GetDocumentationVersionResult)
+    return __ret__.apply(lambda __response__: GetDocumentationVersionResult(
+        description=pulumi.get(__response__, 'description')))

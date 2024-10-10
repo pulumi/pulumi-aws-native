@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Describes a route table for a local gateway.
  */
 export function getLocalGatewayRouteTable(args: GetLocalGatewayRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getLocalGatewayRouteTable", {
         "localGatewayRouteTableId": args.localGatewayRouteTableId,
@@ -55,7 +54,10 @@ export interface GetLocalGatewayRouteTableResult {
  * Describes a route table for a local gateway.
  */
 export function getLocalGatewayRouteTableOutput(args: GetLocalGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTableResult> {
-    return pulumi.output(args).apply((a: any) => getLocalGatewayRouteTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getLocalGatewayRouteTable", {
+        "localGatewayRouteTableId": args.localGatewayRouteTableId,
+    }, opts);
 }
 
 export interface GetLocalGatewayRouteTableOutputArgs {

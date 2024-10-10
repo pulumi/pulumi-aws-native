@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -72,9 +77,6 @@ def get_member(detector_id: Optional[str] = None,
     return AwaitableGetMemberResult(
         email=pulumi.get(__ret__, 'email'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_member)
 def get_member_output(detector_id: Optional[pulumi.Input[str]] = None,
                       member_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMemberResult]:
@@ -85,4 +87,11 @@ def get_member_output(detector_id: Optional[pulumi.Input[str]] = None,
     :param str detector_id: The ID of the detector associated with the GuardDuty service to add the member to.
     :param str member_id: The AWS account ID of the account to designate as a member.
     """
-    ...
+    __args__ = dict()
+    __args__['detectorId'] = detector_id
+    __args__['memberId'] = member_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:guardduty:getMember', __args__, opts=opts, typ=GetMemberResult)
+    return __ret__.apply(lambda __response__: GetMemberResult(
+        email=pulumi.get(__response__, 'email'),
+        status=pulumi.get(__response__, 'status')))

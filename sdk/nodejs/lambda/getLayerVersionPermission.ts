@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Schema for Lambda LayerVersionPermission
  */
 export function getLayerVersionPermission(args: GetLayerVersionPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionPermissionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getLayerVersionPermission", {
         "id": args.id,
@@ -32,7 +31,10 @@ export interface GetLayerVersionPermissionResult {
  * Schema for Lambda LayerVersionPermission
  */
 export function getLayerVersionPermissionOutput(args: GetLayerVersionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionPermissionResult> {
-    return pulumi.output(args).apply((a: any) => getLayerVersionPermission(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lambda:getLayerVersionPermission", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetLayerVersionPermissionOutputArgs {

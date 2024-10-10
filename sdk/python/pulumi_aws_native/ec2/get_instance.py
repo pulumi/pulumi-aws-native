@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -397,9 +402,6 @@ def get_instance(instance_id: Optional[str] = None,
         user_data=pulumi.get(__ret__, 'user_data'),
         volumes=pulumi.get(__ret__, 'volumes'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_instance)
 def get_instance_output(instance_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
@@ -408,4 +410,35 @@ def get_instance_output(instance_id: Optional[pulumi.Input[str]] = None,
 
     :param str instance_id: The EC2 Instance ID.
     """
-    ...
+    __args__ = dict()
+    __args__['instanceId'] = instance_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getInstance', __args__, opts=opts, typ=GetInstanceResult)
+    return __ret__.apply(lambda __response__: GetInstanceResult(
+        affinity=pulumi.get(__response__, 'affinity'),
+        block_device_mappings=pulumi.get(__response__, 'block_device_mappings'),
+        credit_specification=pulumi.get(__response__, 'credit_specification'),
+        disable_api_termination=pulumi.get(__response__, 'disable_api_termination'),
+        ebs_optimized=pulumi.get(__response__, 'ebs_optimized'),
+        host_id=pulumi.get(__response__, 'host_id'),
+        iam_instance_profile=pulumi.get(__response__, 'iam_instance_profile'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        instance_initiated_shutdown_behavior=pulumi.get(__response__, 'instance_initiated_shutdown_behavior'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        kernel_id=pulumi.get(__response__, 'kernel_id'),
+        monitoring=pulumi.get(__response__, 'monitoring'),
+        private_dns_name=pulumi.get(__response__, 'private_dns_name'),
+        private_dns_name_options=pulumi.get(__response__, 'private_dns_name_options'),
+        private_ip=pulumi.get(__response__, 'private_ip'),
+        public_dns_name=pulumi.get(__response__, 'public_dns_name'),
+        public_ip=pulumi.get(__response__, 'public_ip'),
+        ramdisk_id=pulumi.get(__response__, 'ramdisk_id'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        source_dest_check=pulumi.get(__response__, 'source_dest_check'),
+        ssm_associations=pulumi.get(__response__, 'ssm_associations'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenancy=pulumi.get(__response__, 'tenancy'),
+        user_data=pulumi.get(__response__, 'user_data'),
+        volumes=pulumi.get(__response__, 'volumes'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

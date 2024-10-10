@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS::ResilienceHub::App.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:resiliencehub:getApp", {
         "appArn": args.appArn,
@@ -71,7 +70,10 @@ export interface GetAppResult {
  * Resource Type Definition for AWS::ResilienceHub::App.
  */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    return pulumi.output(args).apply((a: any) => getApp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:resiliencehub:getApp", {
+        "appArn": args.appArn,
+    }, opts);
 }
 
 export interface GetAppOutputArgs {

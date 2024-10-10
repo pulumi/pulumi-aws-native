@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -112,9 +117,6 @@ def get_thing_group(thing_group_name: Optional[str] = None,
         query_string=pulumi.get(__ret__, 'query_string'),
         tags=pulumi.get(__ret__, 'tags'),
         thing_group_properties=pulumi.get(__ret__, 'thing_group_properties'))
-
-
-@_utilities.lift_output_func(get_thing_group)
 def get_thing_group_output(thing_group_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingGroupResult]:
     """
@@ -123,4 +125,13 @@ def get_thing_group_output(thing_group_name: Optional[pulumi.Input[str]] = None,
 
     :param str thing_group_name: The thing group name.
     """
-    ...
+    __args__ = dict()
+    __args__['thingGroupName'] = thing_group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getThingGroup', __args__, opts=opts, typ=GetThingGroupResult)
+    return __ret__.apply(lambda __response__: GetThingGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        query_string=pulumi.get(__response__, 'query_string'),
+        tags=pulumi.get(__response__, 'tags'),
+        thing_group_properties=pulumi.get(__response__, 'thing_group_properties')))

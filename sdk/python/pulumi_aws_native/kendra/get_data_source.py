@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -206,9 +211,6 @@ def get_data_source(id: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_data_source)
 def get_data_source_output(id: Optional[pulumi.Input[str]] = None,
                            index_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
@@ -221,4 +223,20 @@ def get_data_source_output(id: Optional[pulumi.Input[str]] = None,
            `b8cae438-6787-4091-8897-684a652bbb0a` .
     :param str index_id: The identifier of the index you want to use with the data source connector.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['indexId'] = index_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:kendra:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
+    return __ret__.apply(lambda __response__: GetDataSourceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        custom_document_enrichment_configuration=pulumi.get(__response__, 'custom_document_enrichment_configuration'),
+        data_source_configuration=pulumi.get(__response__, 'data_source_configuration'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        index_id=pulumi.get(__response__, 'index_id'),
+        language_code=pulumi.get(__response__, 'language_code'),
+        name=pulumi.get(__response__, 'name'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        tags=pulumi.get(__response__, 'tags')))

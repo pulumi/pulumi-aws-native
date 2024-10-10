@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Route53Profiles::ProfileResourceAssociation
  */
 export function getProfileResourceAssociation(args: GetProfileResourceAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResourceAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53profiles:getProfileResourceAssociation", {
         "id": args.id,
@@ -40,7 +39,10 @@ export interface GetProfileResourceAssociationResult {
  * Resource Type definition for AWS::Route53Profiles::ProfileResourceAssociation
  */
 export function getProfileResourceAssociationOutput(args: GetProfileResourceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResourceAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getProfileResourceAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:route53profiles:getProfileResourceAssociation", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetProfileResourceAssociationOutputArgs {

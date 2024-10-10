@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::ControlTower::EnabledBaseline Resource Type
  */
 export function getEnabledBaseline(args: GetEnabledBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetEnabledBaselineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:controltower:getEnabledBaseline", {
         "enabledBaselineIdentifier": args.enabledBaselineIdentifier,
@@ -47,7 +46,10 @@ export interface GetEnabledBaselineResult {
  * Definition of AWS::ControlTower::EnabledBaseline Resource Type
  */
 export function getEnabledBaselineOutput(args: GetEnabledBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnabledBaselineResult> {
-    return pulumi.output(args).apply((a: any) => getEnabledBaseline(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:controltower:getEnabledBaseline", {
+        "enabledBaselineIdentifier": args.enabledBaselineIdentifier,
+    }, opts);
 }
 
 export interface GetEnabledBaselineOutputArgs {

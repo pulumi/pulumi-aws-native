@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -189,9 +194,6 @@ def get_queue(queue_arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_queue)
 def get_queue_output(queue_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
@@ -200,4 +202,19 @@ def get_queue_output(queue_arn: Optional[pulumi.Input[str]] = None,
 
     :param str queue_arn: The Amazon Resource Name (ARN) for the queue.
     """
-    ...
+    __args__ = dict()
+    __args__['queueArn'] = queue_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getQueue', __args__, opts=opts, typ=GetQueueResult)
+    return __ret__.apply(lambda __response__: GetQueueResult(
+        description=pulumi.get(__response__, 'description'),
+        hours_of_operation_arn=pulumi.get(__response__, 'hours_of_operation_arn'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        max_contacts=pulumi.get(__response__, 'max_contacts'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_caller_config=pulumi.get(__response__, 'outbound_caller_config'),
+        queue_arn=pulumi.get(__response__, 'queue_arn'),
+        quick_connect_arns=pulumi.get(__response__, 'quick_connect_arns'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

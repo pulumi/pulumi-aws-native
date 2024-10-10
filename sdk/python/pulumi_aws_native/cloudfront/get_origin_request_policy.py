@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -83,9 +88,6 @@ def get_origin_request_policy(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         origin_request_policy_config=pulumi.get(__ret__, 'origin_request_policy_config'))
-
-
-@_utilities.lift_output_func(get_origin_request_policy)
 def get_origin_request_policy_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
     """
@@ -94,4 +96,11 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getOriginRequestPolicy', __args__, opts=opts, typ=GetOriginRequestPolicyResult)
+    return __ret__.apply(lambda __response__: GetOriginRequestPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        origin_request_policy_config=pulumi.get(__response__, 'origin_request_policy_config')))

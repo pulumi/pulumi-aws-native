@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MemoryDB::ACL
  */
 export function getAcl(args: GetAclArgs, opts?: pulumi.InvokeOptions): Promise<GetAclResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:memorydb:getAcl", {
         "aclName": args.aclName,
@@ -47,7 +46,10 @@ export interface GetAclResult {
  * Resource Type definition for AWS::MemoryDB::ACL
  */
 export function getAclOutput(args: GetAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAclResult> {
-    return pulumi.output(args).apply((a: any) => getAcl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:memorydb:getAcl", {
+        "aclName": args.aclName,
+    }, opts);
 }
 
 export interface GetAclOutputArgs {

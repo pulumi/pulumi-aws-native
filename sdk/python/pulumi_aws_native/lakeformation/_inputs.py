@@ -4,36 +4,77 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DataCellsFilterColumnWildcardArgs',
+    'DataCellsFilterColumnWildcardArgsDict',
     'DataCellsFilterRowFilterArgs',
+    'DataCellsFilterRowFilterArgsDict',
     'PrincipalPermissionsCatalogResourceArgs',
+    'PrincipalPermissionsCatalogResourceArgsDict',
     'PrincipalPermissionsColumnWildcardArgs',
+    'PrincipalPermissionsColumnWildcardArgsDict',
     'PrincipalPermissionsDataCellsFilterResourceArgs',
+    'PrincipalPermissionsDataCellsFilterResourceArgsDict',
     'PrincipalPermissionsDataLakePrincipalArgs',
+    'PrincipalPermissionsDataLakePrincipalArgsDict',
     'PrincipalPermissionsDataLocationResourceArgs',
+    'PrincipalPermissionsDataLocationResourceArgsDict',
     'PrincipalPermissionsDatabaseResourceArgs',
+    'PrincipalPermissionsDatabaseResourceArgsDict',
     'PrincipalPermissionsLfTagKeyResourceArgs',
+    'PrincipalPermissionsLfTagKeyResourceArgsDict',
     'PrincipalPermissionsLfTagPolicyResourceArgs',
+    'PrincipalPermissionsLfTagPolicyResourceArgsDict',
     'PrincipalPermissionsLfTagArgs',
+    'PrincipalPermissionsLfTagArgsDict',
     'PrincipalPermissionsResourceArgs',
+    'PrincipalPermissionsResourceArgsDict',
     'PrincipalPermissionsTableResourceArgs',
+    'PrincipalPermissionsTableResourceArgsDict',
     'PrincipalPermissionsTableWildcardArgs',
+    'PrincipalPermissionsTableWildcardArgsDict',
     'PrincipalPermissionsTableWithColumnsResourceArgs',
+    'PrincipalPermissionsTableWithColumnsResourceArgsDict',
     'TagAssociationCatalogResourceArgs',
+    'TagAssociationCatalogResourceArgsDict',
     'TagAssociationDatabaseResourceArgs',
+    'TagAssociationDatabaseResourceArgsDict',
     'TagAssociationLfTagPairArgs',
+    'TagAssociationLfTagPairArgsDict',
     'TagAssociationResourceArgs',
+    'TagAssociationResourceArgsDict',
     'TagAssociationTableResourceArgs',
+    'TagAssociationTableResourceArgsDict',
     'TagAssociationTableWildcardArgs',
+    'TagAssociationTableWildcardArgsDict',
     'TagAssociationTableWithColumnsResourceArgs',
+    'TagAssociationTableWithColumnsResourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataCellsFilterColumnWildcardArgsDict(TypedDict):
+        """
+        An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required.
+        """
+        excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of column names to be excluded from the Data Cells Filter.
+        """
+elif False:
+    DataCellsFilterColumnWildcardArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCellsFilterColumnWildcardArgs:
@@ -58,6 +99,22 @@ class DataCellsFilterColumnWildcardArgs:
     def excluded_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_column_names", value)
 
+
+if not MYPY:
+    class DataCellsFilterRowFilterArgsDict(TypedDict):
+        """
+        An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required.
+        """
+        all_rows_wildcard: NotRequired[Any]
+        """
+        An empty object representing a row wildcard.
+        """
+        filter_expression: NotRequired[pulumi.Input[str]]
+        """
+        A PartiQL predicate.
+        """
+elif False:
+    DataCellsFilterRowFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCellsFilterRowFilterArgs:
@@ -99,11 +156,29 @@ class DataCellsFilterRowFilterArgs:
         pulumi.set(self, "filter_expression", value)
 
 
+if not MYPY:
+    class PrincipalPermissionsCatalogResourceArgsDict(TypedDict):
+        pass
+elif False:
+    PrincipalPermissionsCatalogResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrincipalPermissionsCatalogResourceArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class PrincipalPermissionsColumnWildcardArgsDict(TypedDict):
+        """
+        A wildcard object, consisting of an optional list of excluded column names or indexes.
+        """
+        excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Excludes column names. Any column with this name will be excluded.
+        """
+elif False:
+    PrincipalPermissionsColumnWildcardArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrincipalPermissionsColumnWildcardArgs:
@@ -128,6 +203,30 @@ class PrincipalPermissionsColumnWildcardArgs:
     def excluded_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_column_names", value)
 
+
+if not MYPY:
+    class PrincipalPermissionsDataCellsFilterResourceArgsDict(TypedDict):
+        """
+        A structure that describes certain columns on certain rows.
+        """
+        database_name: pulumi.Input[str]
+        """
+        A database in the GLUDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name given by the user to the data filter cell.
+        """
+        table_catalog_id: pulumi.Input[str]
+        """
+        The ID of the catalog to which the table belongs.
+        """
+        table_name: pulumi.Input[str]
+        """
+        The name of the table.
+        """
+elif False:
+    PrincipalPermissionsDataCellsFilterResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrincipalPermissionsDataCellsFilterResourceArgs:
@@ -197,6 +296,18 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
         pulumi.set(self, "table_name", value)
 
 
+if not MYPY:
+    class PrincipalPermissionsDataLakePrincipalArgsDict(TypedDict):
+        """
+        The LFlong principal.
+        """
+        data_lake_principal_identifier: NotRequired[pulumi.Input[str]]
+        """
+        An identifier for the LFlong principal.
+        """
+elif False:
+    PrincipalPermissionsDataLakePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrincipalPermissionsDataLakePrincipalArgs:
     def __init__(__self__, *,
@@ -220,6 +331,22 @@ class PrincipalPermissionsDataLakePrincipalArgs:
     def data_lake_principal_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_lake_principal_identifier", value)
 
+
+if not MYPY:
+    class PrincipalPermissionsDataLocationResourceArgsDict(TypedDict):
+        """
+        A structure for a data location object where permissions are granted or revoked.
+        """
+        catalog_id: pulumi.Input[str]
+        """
+        The identifier for the GLUDC where the location is registered with LFlong.
+        """
+        resource_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        """
+elif False:
+    PrincipalPermissionsDataLocationResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrincipalPermissionsDataLocationResourceArgs:
@@ -259,6 +386,22 @@ class PrincipalPermissionsDataLocationResourceArgs:
         pulumi.set(self, "resource_arn", value)
 
 
+if not MYPY:
+    class PrincipalPermissionsDatabaseResourceArgsDict(TypedDict):
+        """
+        A structure for the database object.
+        """
+        catalog_id: pulumi.Input[str]
+        """
+        The identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the database resource. Unique to the Data Catalog.
+        """
+elif False:
+    PrincipalPermissionsDatabaseResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrincipalPermissionsDatabaseResourceArgs:
     def __init__(__self__, *,
@@ -296,6 +439,26 @@ class PrincipalPermissionsDatabaseResourceArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class PrincipalPermissionsLfTagKeyResourceArgsDict(TypedDict):
+        """
+        A structure containing an LF-tag key and values for a resource.
+        """
+        catalog_id: pulumi.Input[str]
+        """
+        The identifier for the GLUDC where the location is registered with GLUDC.
+        """
+        tag_key: pulumi.Input[str]
+        """
+        The key-name for the LF-tag.
+        """
+        tag_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of possible values for the corresponding ``TagKey`` of an LF-tag key-value pair.
+        """
+elif False:
+    PrincipalPermissionsLfTagKeyResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrincipalPermissionsLfTagKeyResourceArgs:
@@ -349,6 +512,27 @@ class PrincipalPermissionsLfTagKeyResourceArgs:
     def tag_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "tag_values", value)
 
+
+if not MYPY:
+    class PrincipalPermissionsLfTagPolicyResourceArgsDict(TypedDict):
+        """
+        A list of LF-tag conditions that define a resource's LF-tag policy.
+         A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.
+        """
+        catalog_id: pulumi.Input[str]
+        """
+        The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+        """
+        expression: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgsDict']]]
+        """
+        A list of LF-tag conditions that apply to the resource's LF-tag policy.
+        """
+        resource_type: pulumi.Input['PrincipalPermissionsResourceType']
+        """
+        The resource type for which the LF-tag policy applies.
+        """
+elif False:
+    PrincipalPermissionsLfTagPolicyResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrincipalPermissionsLfTagPolicyResourceArgs:
@@ -404,6 +588,22 @@ class PrincipalPermissionsLfTagPolicyResourceArgs:
         pulumi.set(self, "resource_type", value)
 
 
+if not MYPY:
+    class PrincipalPermissionsLfTagArgsDict(TypedDict):
+        """
+        The LF-tag key and values attached to a resource.
+        """
+        tag_key: NotRequired[pulumi.Input[str]]
+        """
+        The key-name for the LF-tag.
+        """
+        tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of possible values of the corresponding ``TagKey`` of an LF-tag key-value pair.
+        """
+elif False:
+    PrincipalPermissionsLfTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrincipalPermissionsLfTagArgs:
     def __init__(__self__, *,
@@ -443,6 +643,46 @@ class PrincipalPermissionsLfTagArgs:
     def tag_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tag_values", value)
 
+
+if not MYPY:
+    class PrincipalPermissionsResourceArgsDict(TypedDict):
+        """
+        A structure for the resource.
+        """
+        catalog: NotRequired[pulumi.Input['PrincipalPermissionsCatalogResourceArgsDict']]
+        """
+        The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+        """
+        data_cells_filter: NotRequired[pulumi.Input['PrincipalPermissionsDataCellsFilterResourceArgsDict']]
+        """
+        A data cell filter.
+        """
+        data_location: NotRequired[pulumi.Input['PrincipalPermissionsDataLocationResourceArgsDict']]
+        """
+        The location of an Amazon S3 path where permissions are granted or revoked.
+        """
+        database: NotRequired[pulumi.Input['PrincipalPermissionsDatabaseResourceArgsDict']]
+        """
+        The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+        """
+        lf_tag: NotRequired[pulumi.Input['PrincipalPermissionsLfTagKeyResourceArgsDict']]
+        """
+        The LF-tag key and values attached to a resource.
+        """
+        lf_tag_policy: NotRequired[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgsDict']]
+        """
+        A list of LF-tag conditions that define a resource's LF-tag policy.
+        """
+        table: NotRequired[pulumi.Input['PrincipalPermissionsTableResourceArgsDict']]
+        """
+        The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
+        table_with_columns: NotRequired[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgsDict']]
+        """
+        The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
+        """
+elif False:
+    PrincipalPermissionsResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrincipalPermissionsResourceArgs:
@@ -580,6 +820,31 @@ class PrincipalPermissionsResourceArgs:
         pulumi.set(self, "table_with_columns", value)
 
 
+if not MYPY:
+    class PrincipalPermissionsTableResourceArgsDict(TypedDict):
+        """
+        A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
+        catalog_id: pulumi.Input[str]
+        """
+        The identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        database_name: pulumi.Input[str]
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the table.
+        """
+        table_wildcard: NotRequired[pulumi.Input['PrincipalPermissionsTableWildcardArgsDict']]
+        """
+        A wildcard object representing every table under a database.
+         At least one of ``TableResource$Name`` or ``TableResource$TableWildcard`` is required.
+        """
+elif False:
+    PrincipalPermissionsTableResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrincipalPermissionsTableResourceArgs:
     def __init__(__self__, *,
@@ -652,11 +917,46 @@ class PrincipalPermissionsTableResourceArgs:
         pulumi.set(self, "table_wildcard", value)
 
 
+if not MYPY:
+    class PrincipalPermissionsTableWildcardArgsDict(TypedDict):
+        pass
+elif False:
+    PrincipalPermissionsTableWildcardArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PrincipalPermissionsTableWildcardArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class PrincipalPermissionsTableWithColumnsResourceArgsDict(TypedDict):
+        """
+        A structure for a table with columns object. This object is only used when granting a SELECT permission.
+         This object must take a value for at least one of ``ColumnsNames``, ``ColumnsIndexes``, or ``ColumnsWildcard``.
+        """
+        catalog_id: pulumi.Input[str]
+        """
+        The identifier for the GLUDC where the location is registered with LFlong.
+        """
+        database_name: pulumi.Input[str]
+        """
+        The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
+        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of column names for the table. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+        """
+        column_wildcard: NotRequired[pulumi.Input['PrincipalPermissionsColumnWildcardArgsDict']]
+        """
+        A wildcard specified by a ``ColumnWildcard`` object. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+        """
+elif False:
+    PrincipalPermissionsTableWithColumnsResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrincipalPermissionsTableWithColumnsResourceArgs:
@@ -744,11 +1044,30 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
         pulumi.set(self, "column_wildcard", value)
 
 
+if not MYPY:
+    class TagAssociationCatalogResourceArgsDict(TypedDict):
+        pass
+elif False:
+    TagAssociationCatalogResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagAssociationCatalogResourceArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class TagAssociationDatabaseResourceArgsDict(TypedDict):
+        catalog_id: pulumi.Input[str]
+        """
+        The identifier for the Data Catalog . By default, it should be the account ID of the caller.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the database resource. Unique to the Data Catalog.
+        """
+elif False:
+    TagAssociationDatabaseResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagAssociationDatabaseResourceArgs:
@@ -787,6 +1106,14 @@ class TagAssociationDatabaseResourceArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class TagAssociationLfTagPairArgsDict(TypedDict):
+        catalog_id: pulumi.Input[str]
+        tag_key: pulumi.Input[str]
+        tag_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    TagAssociationLfTagPairArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagAssociationLfTagPairArgs:
     def __init__(__self__, *,
@@ -824,6 +1151,27 @@ class TagAssociationLfTagPairArgs:
     def tag_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "tag_values", value)
 
+
+if not MYPY:
+    class TagAssociationResourceArgsDict(TypedDict):
+        catalog: NotRequired[pulumi.Input['TagAssociationCatalogResourceArgsDict']]
+        """
+        The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
+        """
+        database: NotRequired[pulumi.Input['TagAssociationDatabaseResourceArgsDict']]
+        """
+        The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+        """
+        table: NotRequired[pulumi.Input['TagAssociationTableResourceArgsDict']]
+        """
+        The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
+        table_with_columns: NotRequired[pulumi.Input['TagAssociationTableWithColumnsResourceArgsDict']]
+        """
+        The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
+        """
+elif False:
+    TagAssociationResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagAssociationResourceArgs:
@@ -895,6 +1243,29 @@ class TagAssociationResourceArgs:
     def table_with_columns(self, value: Optional[pulumi.Input['TagAssociationTableWithColumnsResourceArgs']]):
         pulumi.set(self, "table_with_columns", value)
 
+
+if not MYPY:
+    class TagAssociationTableResourceArgsDict(TypedDict):
+        catalog_id: pulumi.Input[str]
+        """
+        The identifier for the Data Catalog . By default, it is the account ID of the caller.
+        """
+        database_name: pulumi.Input[str]
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the table.
+        """
+        table_wildcard: NotRequired[pulumi.Input['TagAssociationTableWildcardArgsDict']]
+        """
+        A wildcard object representing every table under a database.This is an object with no properties that effectively behaves as a true or false depending on whether not it is passed as a parameter. The valid inputs for a property with this type in either yaml or json is null or {}.
+
+        At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
+        """
+elif False:
+    TagAssociationTableResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagAssociationTableResourceArgs:
@@ -969,11 +1340,40 @@ class TagAssociationTableResourceArgs:
         pulumi.set(self, "table_wildcard", value)
 
 
+if not MYPY:
+    class TagAssociationTableWildcardArgsDict(TypedDict):
+        pass
+elif False:
+    TagAssociationTableWildcardArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TagAssociationTableWildcardArgs:
     def __init__(__self__):
         pass
 
+
+if not MYPY:
+    class TagAssociationTableWithColumnsResourceArgsDict(TypedDict):
+        catalog_id: pulumi.Input[str]
+        """
+        A wildcard object representing every table under a database.
+
+        At least one of TableResource$Name or TableResource$TableWildcard is required.
+        """
+        column_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
+        """
+        database_name: pulumi.Input[str]
+        """
+        The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
+elif False:
+    TagAssociationTableWithColumnsResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TagAssociationTableWithColumnsResourceArgs:

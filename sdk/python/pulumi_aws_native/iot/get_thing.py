@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -85,9 +90,6 @@ def get_thing(thing_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         attribute_payload=pulumi.get(__ret__, 'attribute_payload'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_thing)
 def get_thing_output(thing_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingResult]:
     """
@@ -98,4 +100,11 @@ def get_thing_output(thing_name: Optional[pulumi.Input[str]] = None,
            
            You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
     """
-    ...
+    __args__ = dict()
+    __args__['thingName'] = thing_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getThing', __args__, opts=opts, typ=GetThingResult)
+    return __ret__.apply(lambda __response__: GetThingResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attribute_payload=pulumi.get(__response__, 'attribute_payload'),
+        id=pulumi.get(__response__, 'id')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -162,9 +167,6 @@ def get_variable(arn: Optional[str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'),
         variable_type=pulumi.get(__ret__, 'variable_type'))
-
-
-@_utilities.lift_output_func(get_variable)
 def get_variable_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableResult]:
     """
@@ -173,4 +175,17 @@ def get_variable_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the variable.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getVariable', __args__, opts=opts, typ=GetVariableResult)
+    return __ret__.apply(lambda __response__: GetVariableResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        data_source=pulumi.get(__response__, 'data_source'),
+        data_type=pulumi.get(__response__, 'data_type'),
+        default_value=pulumi.get(__response__, 'default_value'),
+        description=pulumi.get(__response__, 'description'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        tags=pulumi.get(__response__, 'tags'),
+        variable_type=pulumi.get(__response__, 'variable_type')))

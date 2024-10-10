@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Athena::NamedQuery
  */
 export function getNamedQuery(args: GetNamedQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedQueryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:athena:getNamedQuery", {
         "namedQueryId": args.namedQueryId,
@@ -32,7 +31,10 @@ export interface GetNamedQueryResult {
  * Resource schema for AWS::Athena::NamedQuery
  */
 export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedQueryResult> {
-    return pulumi.output(args).apply((a: any) => getNamedQuery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:athena:getNamedQuery", {
+        "namedQueryId": args.namedQueryId,
+    }, opts);
 }
 
 export interface GetNamedQueryOutputArgs {

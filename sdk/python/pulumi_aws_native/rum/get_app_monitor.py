@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -134,9 +139,6 @@ def get_app_monitor(name: Optional[str] = None,
         domain=pulumi.get(__ret__, 'domain'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_app_monitor)
 def get_app_monitor_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppMonitorResult]:
     """
@@ -145,4 +147,14 @@ def get_app_monitor_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: A name for the app monitor
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:rum:getAppMonitor', __args__, opts=opts, typ=GetAppMonitorResult)
+    return __ret__.apply(lambda __response__: GetAppMonitorResult(
+        app_monitor_configuration=pulumi.get(__response__, 'app_monitor_configuration'),
+        custom_events=pulumi.get(__response__, 'custom_events'),
+        cw_log_enabled=pulumi.get(__response__, 'cw_log_enabled'),
+        domain=pulumi.get(__response__, 'domain'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))

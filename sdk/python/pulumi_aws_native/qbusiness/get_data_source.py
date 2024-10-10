@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -245,9 +250,6 @@ def get_data_source(application_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         vpc_configuration=pulumi.get(__ret__, 'vpc_configuration'))
-
-
-@_utilities.lift_output_func(get_data_source)
 def get_data_source_output(application_id: Optional[pulumi.Input[str]] = None,
                            data_source_id: Optional[pulumi.Input[str]] = None,
                            index_id: Optional[pulumi.Input[str]] = None,
@@ -260,4 +262,24 @@ def get_data_source_output(application_id: Optional[pulumi.Input[str]] = None,
     :param str data_source_id: The identifier of the Amazon Q Business data source.
     :param str index_id: The identifier of the index the data source is attached to.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationId'] = application_id
+    __args__['dataSourceId'] = data_source_id
+    __args__['indexId'] = index_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
+    return __ret__.apply(lambda __response__: GetDataSourceResult(
+        configuration=pulumi.get(__response__, 'configuration'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        data_source_arn=pulumi.get(__response__, 'data_source_arn'),
+        data_source_id=pulumi.get(__response__, 'data_source_id'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        document_enrichment_configuration=pulumi.get(__response__, 'document_enrichment_configuration'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        status=pulumi.get(__response__, 'status'),
+        sync_schedule=pulumi.get(__response__, 'sync_schedule'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        vpc_configuration=pulumi.get(__response__, 'vpc_configuration')))

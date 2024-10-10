@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -193,9 +198,6 @@ def get_experiment(arn: Optional[str] = None,
         segment=pulumi.get(__ret__, 'segment'),
         tags=pulumi.get(__ret__, 'tags'),
         treatments=pulumi.get(__ret__, 'treatments'))
-
-
-@_utilities.lift_output_func(get_experiment)
 def get_experiment_output(arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentResult]:
     """
@@ -204,4 +206,19 @@ def get_experiment_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:evidently:getExperiment', __args__, opts=opts, typ=GetExperimentResult)
+    return __ret__.apply(lambda __response__: GetExperimentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        metric_goals=pulumi.get(__response__, 'metric_goals'),
+        online_ab_config=pulumi.get(__response__, 'online_ab_config'),
+        randomization_salt=pulumi.get(__response__, 'randomization_salt'),
+        remove_segment=pulumi.get(__response__, 'remove_segment'),
+        running_status=pulumi.get(__response__, 'running_status'),
+        sampling_rate=pulumi.get(__response__, 'sampling_rate'),
+        segment=pulumi.get(__response__, 'segment'),
+        tags=pulumi.get(__response__, 'tags'),
+        treatments=pulumi.get(__response__, 'treatments')))

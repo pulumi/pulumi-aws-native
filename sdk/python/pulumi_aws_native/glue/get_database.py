@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -70,9 +75,6 @@ def get_database(database_name: Optional[str] = None,
     return AwaitableGetDatabaseResult(
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         database_input=pulumi.get(__ret__, 'database_input'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
@@ -81,4 +83,10 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
 
     :param str database_name: The name of the database. For hive compatibility, this is folded to lowercase when it is store.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseName'] = database_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        catalog_id=pulumi.get(__response__, 'catalog_id'),
+        database_input=pulumi.get(__response__, 'database_input')))

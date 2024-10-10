@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for Activity
  */
 export function getActivity(args: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:stepfunctions:getActivity", {
         "arn": args.arn,
@@ -41,7 +40,10 @@ export interface GetActivityResult {
  * Resource schema for Activity
  */
 export function getActivityOutput(args: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
-    return pulumi.output(args).apply((a: any) => getActivity(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:stepfunctions:getActivity", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetActivityOutputArgs {

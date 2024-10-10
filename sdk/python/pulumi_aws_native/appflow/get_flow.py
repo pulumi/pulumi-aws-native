@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -163,9 +168,6 @@ def get_flow(flow_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tasks=pulumi.get(__ret__, 'tasks'),
         trigger_config=pulumi.get(__ret__, 'trigger_config'))
-
-
-@_utilities.lift_output_func(get_flow)
 def get_flow_output(flow_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowResult]:
     """
@@ -174,4 +176,17 @@ def get_flow_output(flow_name: Optional[pulumi.Input[str]] = None,
 
     :param str flow_name: Name of the flow.
     """
-    ...
+    __args__ = dict()
+    __args__['flowName'] = flow_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:appflow:getFlow', __args__, opts=opts, typ=GetFlowResult)
+    return __ret__.apply(lambda __response__: GetFlowResult(
+        description=pulumi.get(__response__, 'description'),
+        destination_flow_config_list=pulumi.get(__response__, 'destination_flow_config_list'),
+        flow_arn=pulumi.get(__response__, 'flow_arn'),
+        flow_status=pulumi.get(__response__, 'flow_status'),
+        metadata_catalog_config=pulumi.get(__response__, 'metadata_catalog_config'),
+        source_flow_config=pulumi.get(__response__, 'source_flow_config'),
+        tags=pulumi.get(__response__, 'tags'),
+        tasks=pulumi.get(__response__, 'tasks'),
+        trigger_config=pulumi.get(__response__, 'trigger_config')))

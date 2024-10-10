@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -124,9 +129,6 @@ def get_package_group(arn: Optional[str] = None,
         domain_owner=pulumi.get(__ret__, 'domain_owner'),
         origin_configuration=pulumi.get(__ret__, 'origin_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_package_group)
 def get_package_group_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageGroupResult]:
     """
@@ -135,4 +137,14 @@ def get_package_group_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the package group.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:codeartifact:getPackageGroup', __args__, opts=opts, typ=GetPackageGroupResult)
+    return __ret__.apply(lambda __response__: GetPackageGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        contact_info=pulumi.get(__response__, 'contact_info'),
+        description=pulumi.get(__response__, 'description'),
+        domain_owner=pulumi.get(__response__, 'domain_owner'),
+        origin_configuration=pulumi.get(__response__, 'origin_configuration'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -137,9 +142,6 @@ def get_trust_anchor(trust_anchor_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'),
         trust_anchor_id=pulumi.get(__ret__, 'trust_anchor_id'))
-
-
-@_utilities.lift_output_func(get_trust_anchor)
 def get_trust_anchor_output(trust_anchor_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustAnchorResult]:
     """
@@ -148,4 +150,15 @@ def get_trust_anchor_output(trust_anchor_id: Optional[pulumi.Input[str]] = None,
 
     :param str trust_anchor_id: The unique identifier of the trust anchor.
     """
-    ...
+    __args__ = dict()
+    __args__['trustAnchorId'] = trust_anchor_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:rolesanywhere:getTrustAnchor', __args__, opts=opts, typ=GetTrustAnchorResult)
+    return __ret__.apply(lambda __response__: GetTrustAnchorResult(
+        enabled=pulumi.get(__response__, 'enabled'),
+        name=pulumi.get(__response__, 'name'),
+        notification_settings=pulumi.get(__response__, 'notification_settings'),
+        source=pulumi.get(__response__, 'source'),
+        tags=pulumi.get(__response__, 'tags'),
+        trust_anchor_arn=pulumi.get(__response__, 'trust_anchor_arn'),
+        trust_anchor_id=pulumi.get(__response__, 'trust_anchor_id')))

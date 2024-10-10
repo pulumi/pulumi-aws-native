@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppStream::ImageBuilder
  */
 export function getImageBuilder(args: GetImageBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetImageBuilderResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appstream:getImageBuilder", {
         "name": args.name,
@@ -123,7 +122,10 @@ export interface GetImageBuilderResult {
  * Resource Type definition for AWS::AppStream::ImageBuilder
  */
 export function getImageBuilderOutput(args: GetImageBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageBuilderResult> {
-    return pulumi.output(args).apply((a: any) => getImageBuilder(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:appstream:getImageBuilder", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetImageBuilderOutputArgs {

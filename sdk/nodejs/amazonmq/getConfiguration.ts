@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AmazonMQ::Configuration
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amazonmq:getConfiguration", {
         "id": args.id,
@@ -51,7 +50,10 @@ export interface GetConfigurationResult {
  * Resource Type definition for AWS::AmazonMQ::Configuration
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:amazonmq:getConfiguration", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetConfigurationOutputArgs {

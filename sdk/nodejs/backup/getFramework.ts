@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
  */
 export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:backup:getFramework", {
         "frameworkArn": args.frameworkArn,
@@ -67,7 +66,10 @@ export interface GetFrameworkResult {
  * Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
  */
 export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrameworkResult> {
-    return pulumi.output(args).apply((a: any) => getFramework(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:backup:getFramework", {
+        "frameworkArn": args.frameworkArn,
+    }, opts);
 }
 
 export interface GetFrameworkOutputArgs {

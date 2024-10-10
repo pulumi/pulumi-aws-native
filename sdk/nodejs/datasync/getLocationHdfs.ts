@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationHDFS.
  */
 export function getLocationHdfs(args: GetLocationHdfsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationHdfsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationHdfs", {
         "locationArn": args.locationArn,
@@ -79,7 +78,10 @@ export interface GetLocationHdfsResult {
  * Resource schema for AWS::DataSync::LocationHDFS.
  */
 export function getLocationHdfsOutput(args: GetLocationHdfsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationHdfsResult> {
-    return pulumi.output(args).apply((a: any) => getLocationHdfs(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationHdfs", {
+        "locationArn": args.locationArn,
+    }, opts);
 }
 
 export interface GetLocationHdfsOutputArgs {

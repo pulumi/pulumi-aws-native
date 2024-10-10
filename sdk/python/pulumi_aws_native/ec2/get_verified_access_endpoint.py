@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -240,9 +245,6 @@ def get_verified_access_endpoint(verified_access_endpoint_id: Optional[str] = No
         verified_access_endpoint_id=pulumi.get(__ret__, 'verified_access_endpoint_id'),
         verified_access_group_id=pulumi.get(__ret__, 'verified_access_group_id'),
         verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'))
-
-
-@_utilities.lift_output_func(get_verified_access_endpoint)
 def get_verified_access_endpoint_output(verified_access_endpoint_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVerifiedAccessEndpointResult]:
     """
@@ -251,4 +253,23 @@ def get_verified_access_endpoint_output(verified_access_endpoint_id: Optional[pu
 
     :param str verified_access_endpoint_id: The ID of the AWS Verified Access endpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['verifiedAccessEndpointId'] = verified_access_endpoint_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVerifiedAccessEndpoint', __args__, opts=opts, typ=GetVerifiedAccessEndpointResult)
+    return __ret__.apply(lambda __response__: GetVerifiedAccessEndpointResult(
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        description=pulumi.get(__response__, 'description'),
+        device_validation_domain=pulumi.get(__response__, 'device_validation_domain'),
+        endpoint_domain=pulumi.get(__response__, 'endpoint_domain'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        load_balancer_options=pulumi.get(__response__, 'load_balancer_options'),
+        network_interface_options=pulumi.get(__response__, 'network_interface_options'),
+        policy_document=pulumi.get(__response__, 'policy_document'),
+        policy_enabled=pulumi.get(__response__, 'policy_enabled'),
+        sse_specification=pulumi.get(__response__, 'sse_specification'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        verified_access_endpoint_id=pulumi.get(__response__, 'verified_access_endpoint_id'),
+        verified_access_group_id=pulumi.get(__response__, 'verified_access_group_id'),
+        verified_access_instance_id=pulumi.get(__response__, 'verified_access_instance_id')))

@@ -4,15 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DbClusterDbClusterRoleArgs',
+    'DbClusterDbClusterRoleArgsDict',
     'DbClusterServerlessScalingConfigurationArgs',
+    'DbClusterServerlessScalingConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DbClusterDbClusterRoleArgsDict(TypedDict):
+        """
+        Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+        """
+        feature_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon Neptune API Reference.
+        """
+elif False:
+    DbClusterDbClusterRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DbClusterDbClusterRoleArgs:
@@ -52,6 +77,22 @@ class DbClusterDbClusterRoleArgs:
     def feature_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "feature_name", value)
 
+
+if not MYPY:
+    class DbClusterServerlessScalingConfigurationArgsDict(TypedDict):
+        """
+        Contains the scaling configuration of an Neptune Serverless DB cluster.
+        """
+        max_capacity: pulumi.Input[float]
+        """
+        The maximum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 40, 40.5, 41, and so on. The smallest value you can use is 2.5, whereas the largest is 128.
+        """
+        min_capacity: pulumi.Input[float]
+        """
+        The minimum number of Neptune capacity units (NCUs) for a DB instance in an Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value you can use is 1, whereas the largest is 128.
+        """
+elif False:
+    DbClusterServerlessScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DbClusterServerlessScalingConfigurationArgs:

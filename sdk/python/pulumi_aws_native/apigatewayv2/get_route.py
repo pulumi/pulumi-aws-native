@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -178,9 +183,6 @@ def get_route(api_id: Optional[str] = None,
         route_key=pulumi.get(__ret__, 'route_key'),
         route_response_selection_expression=pulumi.get(__ret__, 'route_response_selection_expression'),
         target=pulumi.get(__ret__, 'target'))
-
-
-@_utilities.lift_output_func(get_route)
 def get_route_output(api_id: Optional[pulumi.Input[str]] = None,
                      route_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
@@ -191,4 +193,19 @@ def get_route_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str api_id: The API identifier.
     :param str route_id: The route ID.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['routeId'] = route_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getRoute', __args__, opts=opts, typ=GetRouteResult)
+    return __ret__.apply(lambda __response__: GetRouteResult(
+        api_key_required=pulumi.get(__response__, 'api_key_required'),
+        authorization_scopes=pulumi.get(__response__, 'authorization_scopes'),
+        authorization_type=pulumi.get(__response__, 'authorization_type'),
+        model_selection_expression=pulumi.get(__response__, 'model_selection_expression'),
+        operation_name=pulumi.get(__response__, 'operation_name'),
+        request_models=pulumi.get(__response__, 'request_models'),
+        route_id=pulumi.get(__response__, 'route_id'),
+        route_key=pulumi.get(__response__, 'route_key'),
+        route_response_selection_expression=pulumi.get(__response__, 'route_response_selection_expression'),
+        target=pulumi.get(__response__, 'target')))

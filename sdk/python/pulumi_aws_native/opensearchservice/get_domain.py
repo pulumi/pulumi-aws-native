@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -375,9 +380,6 @@ def get_domain(domain_name: Optional[str] = None,
         software_update_options=pulumi.get(__ret__, 'software_update_options'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -390,4 +392,33 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
            
            > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchservice:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        access_policies=pulumi.get(__response__, 'access_policies'),
+        advanced_options=pulumi.get(__response__, 'advanced_options'),
+        advanced_security_options=pulumi.get(__response__, 'advanced_security_options'),
+        arn=pulumi.get(__response__, 'arn'),
+        cluster_config=pulumi.get(__response__, 'cluster_config'),
+        cognito_options=pulumi.get(__response__, 'cognito_options'),
+        domain_arn=pulumi.get(__response__, 'domain_arn'),
+        domain_endpoint=pulumi.get(__response__, 'domain_endpoint'),
+        domain_endpoint_options=pulumi.get(__response__, 'domain_endpoint_options'),
+        domain_endpoint_v2=pulumi.get(__response__, 'domain_endpoint_v2'),
+        domain_endpoints=pulumi.get(__response__, 'domain_endpoints'),
+        ebs_options=pulumi.get(__response__, 'ebs_options'),
+        encryption_at_rest_options=pulumi.get(__response__, 'encryption_at_rest_options'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        log_publishing_options=pulumi.get(__response__, 'log_publishing_options'),
+        node_to_node_encryption_options=pulumi.get(__response__, 'node_to_node_encryption_options'),
+        off_peak_window_options=pulumi.get(__response__, 'off_peak_window_options'),
+        service_software_options=pulumi.get(__response__, 'service_software_options'),
+        skip_shard_migration_wait=pulumi.get(__response__, 'skip_shard_migration_wait'),
+        snapshot_options=pulumi.get(__response__, 'snapshot_options'),
+        software_update_options=pulumi.get(__response__, 'software_update_options'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_options=pulumi.get(__response__, 'vpc_options')))

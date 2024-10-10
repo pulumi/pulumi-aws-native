@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -162,9 +167,6 @@ def get_asset(id: Optional[str] = None,
         source_arn=pulumi.get(__ret__, 'source_arn'),
         source_role_arn=pulumi.get(__ret__, 'source_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_asset)
 def get_asset_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetResult]:
     """
@@ -173,4 +175,17 @@ def get_asset_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The unique identifier for the Asset.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackage:getAsset', __args__, opts=opts, typ=GetAssetResult)
+    return __ret__.apply(lambda __response__: GetAssetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        egress_endpoints=pulumi.get(__response__, 'egress_endpoints'),
+        id=pulumi.get(__response__, 'id'),
+        packaging_group_id=pulumi.get(__response__, 'packaging_group_id'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        source_arn=pulumi.get(__response__, 'source_arn'),
+        source_role_arn=pulumi.get(__response__, 'source_role_arn'),
+        tags=pulumi.get(__response__, 'tags')))

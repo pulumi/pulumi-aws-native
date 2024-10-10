@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -113,9 +118,6 @@ def get_firewall_policy(firewall_policy_arn: Optional[str] = None,
         firewall_policy_arn=pulumi.get(__ret__, 'firewall_policy_arn'),
         firewall_policy_id=pulumi.get(__ret__, 'firewall_policy_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_firewall_policy)
 def get_firewall_policy_output(firewall_policy_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
@@ -124,4 +126,13 @@ def get_firewall_policy_output(firewall_policy_arn: Optional[pulumi.Input[str]] 
 
     :param str firewall_policy_arn: The Amazon Resource Name (ARN) of the `FirewallPolicy` .
     """
-    ...
+    __args__ = dict()
+    __args__['firewallPolicyArn'] = firewall_policy_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult)
+    return __ret__.apply(lambda __response__: GetFirewallPolicyResult(
+        description=pulumi.get(__response__, 'description'),
+        firewall_policy=pulumi.get(__response__, 'firewall_policy'),
+        firewall_policy_arn=pulumi.get(__response__, 'firewall_policy_arn'),
+        firewall_policy_id=pulumi.get(__response__, 'firewall_policy_id'),
+        tags=pulumi.get(__response__, 'tags')))

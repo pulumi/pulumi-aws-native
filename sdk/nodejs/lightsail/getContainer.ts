@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lightsail::Container
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lightsail:getContainer", {
         "serviceName": args.serviceName,
@@ -71,7 +70,10 @@ export interface GetContainerResult {
  * Resource Type definition for AWS::Lightsail::Container
  */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
-    return pulumi.output(args).apply((a: any) => getContainer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lightsail:getContainer", {
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 export interface GetContainerOutputArgs {

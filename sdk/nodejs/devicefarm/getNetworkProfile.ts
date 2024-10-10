@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
  */
 export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:devicefarm:getNetworkProfile", {
         "arn": args.arn,
@@ -81,7 +80,10 @@ export interface GetNetworkProfileResult {
  * AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
  */
 export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:devicefarm:getNetworkProfile", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetNetworkProfileOutputArgs {

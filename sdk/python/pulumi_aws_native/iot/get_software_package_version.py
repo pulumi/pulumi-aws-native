@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -116,13 +121,21 @@ def get_software_package_version(package_name: Optional[str] = None,
         package_version_arn=pulumi.get(__ret__, 'package_version_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_software_package_version)
 def get_software_package_version_output(package_name: Optional[pulumi.Input[str]] = None,
                                         version_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoftwarePackageVersionResult]:
     """
     resource definition
     """
-    ...
+    __args__ = dict()
+    __args__['packageName'] = package_name
+    __args__['versionName'] = version_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getSoftwarePackageVersion', __args__, opts=opts, typ=GetSoftwarePackageVersionResult)
+    return __ret__.apply(lambda __response__: GetSoftwarePackageVersionResult(
+        attributes=pulumi.get(__response__, 'attributes'),
+        description=pulumi.get(__response__, 'description'),
+        error_reason=pulumi.get(__response__, 'error_reason'),
+        package_version_arn=pulumi.get(__response__, 'package_version_arn'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -205,9 +210,6 @@ def get_automation_rule(rule_arn: Optional[str] = None,
         rule_status=pulumi.get(__ret__, 'rule_status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_automation_rule)
 def get_automation_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
@@ -216,4 +218,20 @@ def get_automation_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
 
     :param str rule_arn: The Amazon Resource Name (ARN) of the automation rule that you create. For example, `arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` .
     """
-    ...
+    __args__ = dict()
+    __args__['ruleArn'] = rule_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getAutomationRule', __args__, opts=opts, typ=GetAutomationRuleResult)
+    return __ret__.apply(lambda __response__: GetAutomationRuleResult(
+        actions=pulumi.get(__response__, 'actions'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        criteria=pulumi.get(__response__, 'criteria'),
+        description=pulumi.get(__response__, 'description'),
+        is_terminal=pulumi.get(__response__, 'is_terminal'),
+        rule_arn=pulumi.get(__response__, 'rule_arn'),
+        rule_name=pulumi.get(__response__, 'rule_name'),
+        rule_order=pulumi.get(__response__, 'rule_order'),
+        rule_status=pulumi.get(__response__, 'rule_status'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

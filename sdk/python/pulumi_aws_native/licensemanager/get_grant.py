@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -108,9 +113,6 @@ def get_grant(grant_arn: Optional[str] = None,
         home_region=pulumi.get(__ret__, 'home_region'),
         license_arn=pulumi.get(__ret__, 'license_arn'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_grant)
 def get_grant_output(grant_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGrantResult]:
     """
@@ -119,4 +121,13 @@ def get_grant_output(grant_arn: Optional[pulumi.Input[str]] = None,
 
     :param str grant_arn: Arn of the grant.
     """
-    ...
+    __args__ = dict()
+    __args__['grantArn'] = grant_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:licensemanager:getGrant', __args__, opts=opts, typ=GetGrantResult)
+    return __ret__.apply(lambda __response__: GetGrantResult(
+        grant_arn=pulumi.get(__response__, 'grant_arn'),
+        grant_name=pulumi.get(__response__, 'grant_name'),
+        home_region=pulumi.get(__response__, 'home_region'),
+        license_arn=pulumi.get(__response__, 'license_arn'),
+        version=pulumi.get(__response__, 'version')))

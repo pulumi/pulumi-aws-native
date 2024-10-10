@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EventSchemas::Discoverer
  */
 export function getDiscoverer(args: GetDiscovererArgs, opts?: pulumi.InvokeOptions): Promise<GetDiscovererResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eventschemas:getDiscoverer", {
         "discovererArn": args.discovererArn,
@@ -55,7 +54,10 @@ export interface GetDiscovererResult {
  * Resource Type definition for AWS::EventSchemas::Discoverer
  */
 export function getDiscovererOutput(args: GetDiscovererOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiscovererResult> {
-    return pulumi.output(args).apply((a: any) => getDiscoverer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:eventschemas:getDiscoverer", {
+        "discovererArn": args.discovererArn,
+    }, opts);
 }
 
 export interface GetDiscovererOutputArgs {

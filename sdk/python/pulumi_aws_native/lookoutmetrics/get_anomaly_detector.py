@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -110,9 +115,6 @@ def get_anomaly_detector(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         metric_set_list=pulumi.get(__ret__, 'metric_set_list'))
-
-
-@_utilities.lift_output_func(get_anomaly_detector)
 def get_anomaly_detector_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalyDetectorResult]:
     """
@@ -121,4 +123,13 @@ def get_anomaly_detector_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the detector. For example, `arn:aws:lookoutmetrics:us-east-2:123456789012:AnomalyDetector:my-detector`
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lookoutmetrics:getAnomalyDetector', __args__, opts=opts, typ=GetAnomalyDetectorResult)
+    return __ret__.apply(lambda __response__: GetAnomalyDetectorResult(
+        anomaly_detector_config=pulumi.get(__response__, 'anomaly_detector_config'),
+        anomaly_detector_description=pulumi.get(__response__, 'anomaly_detector_description'),
+        arn=pulumi.get(__response__, 'arn'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        metric_set_list=pulumi.get(__response__, 'metric_set_list')))

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
  */
 export function getDrtAccess(args: GetDrtAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDrtAccessResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:shield:getDrtAccess", {
         "accountId": args.accountId,
@@ -40,7 +39,10 @@ export interface GetDrtAccessResult {
  * Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
  */
 export function getDrtAccessOutput(args: GetDrtAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDrtAccessResult> {
-    return pulumi.output(args).apply((a: any) => getDrtAccess(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:shield:getDrtAccess", {
+        "accountId": args.accountId,
+    }, opts);
 }
 
 export interface GetDrtAccessOutputArgs {

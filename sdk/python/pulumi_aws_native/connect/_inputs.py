@@ -4,79 +4,171 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ConstraintsPropertiesArgs',
+    'ConstraintsPropertiesArgsDict',
     'EvaluationFormBaseItemArgs',
+    'EvaluationFormBaseItemArgsDict',
     'EvaluationFormItemArgs',
+    'EvaluationFormItemArgsDict',
     'EvaluationFormNumericQuestionAutomationArgs',
+    'EvaluationFormNumericQuestionAutomationArgsDict',
     'EvaluationFormNumericQuestionOptionArgs',
+    'EvaluationFormNumericQuestionOptionArgsDict',
     'EvaluationFormNumericQuestionPropertiesArgs',
+    'EvaluationFormNumericQuestionPropertiesArgsDict',
     'EvaluationFormNumericQuestionPropertyValueAutomationArgs',
+    'EvaluationFormNumericQuestionPropertyValueAutomationArgsDict',
     'EvaluationFormQuestionTypePropertiesArgs',
+    'EvaluationFormQuestionTypePropertiesArgsDict',
     'EvaluationFormQuestionArgs',
+    'EvaluationFormQuestionArgsDict',
     'EvaluationFormScoringStrategyArgs',
+    'EvaluationFormScoringStrategyArgsDict',
     'EvaluationFormSectionArgs',
+    'EvaluationFormSectionArgsDict',
     'EvaluationFormSingleSelectQuestionAutomationOptionArgs',
+    'EvaluationFormSingleSelectQuestionAutomationOptionArgsDict',
     'EvaluationFormSingleSelectQuestionAutomationArgs',
+    'EvaluationFormSingleSelectQuestionAutomationArgsDict',
     'EvaluationFormSingleSelectQuestionOptionArgs',
+    'EvaluationFormSingleSelectQuestionOptionArgsDict',
     'EvaluationFormSingleSelectQuestionPropertiesArgs',
+    'EvaluationFormSingleSelectQuestionPropertiesArgsDict',
     'EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs',
+    'EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgsDict',
     'HoursOfOperationConfigArgs',
+    'HoursOfOperationConfigArgsDict',
     'HoursOfOperationTimeSliceArgs',
+    'HoursOfOperationTimeSliceArgsDict',
     'InstanceAttributesArgs',
+    'InstanceAttributesArgsDict',
     'InstanceStorageConfigEncryptionConfigArgs',
+    'InstanceStorageConfigEncryptionConfigArgsDict',
     'InstanceStorageConfigKinesisFirehoseConfigArgs',
+    'InstanceStorageConfigKinesisFirehoseConfigArgsDict',
     'InstanceStorageConfigKinesisStreamConfigArgs',
+    'InstanceStorageConfigKinesisStreamConfigArgsDict',
     'InstanceStorageConfigKinesisVideoStreamConfigArgs',
+    'InstanceStorageConfigKinesisVideoStreamConfigArgsDict',
     'InstanceStorageConfigS3ConfigArgs',
+    'InstanceStorageConfigS3ConfigArgsDict',
     'QueueOutboundCallerConfigArgs',
+    'QueueOutboundCallerConfigArgsDict',
     'QuickConnectConfigArgs',
+    'QuickConnectConfigArgsDict',
     'QuickConnectPhoneNumberQuickConnectConfigArgs',
+    'QuickConnectPhoneNumberQuickConnectConfigArgsDict',
     'QuickConnectQueueQuickConnectConfigArgs',
+    'QuickConnectQueueQuickConnectConfigArgsDict',
     'QuickConnectUserQuickConnectConfigArgs',
+    'QuickConnectUserQuickConnectConfigArgsDict',
     'RoutingProfileCrossChannelBehaviorArgs',
+    'RoutingProfileCrossChannelBehaviorArgsDict',
     'RoutingProfileMediaConcurrencyArgs',
+    'RoutingProfileMediaConcurrencyArgsDict',
     'RoutingProfileQueueConfigArgs',
+    'RoutingProfileQueueConfigArgsDict',
     'RoutingProfileQueueReferenceArgs',
+    'RoutingProfileQueueReferenceArgsDict',
     'RuleActionsArgs',
+    'RuleActionsArgsDict',
     'RuleAssignContactCategoryActionArgs',
+    'RuleAssignContactCategoryActionArgsDict',
     'RuleCreateCaseActionArgs',
+    'RuleCreateCaseActionArgsDict',
     'RuleEndAssociatedTasksActionArgs',
+    'RuleEndAssociatedTasksActionArgsDict',
     'RuleEventBridgeActionArgs',
+    'RuleEventBridgeActionArgsDict',
     'RuleFieldValueArgs',
+    'RuleFieldValueArgsDict',
     'RuleFieldArgs',
+    'RuleFieldArgsDict',
     'RuleNotificationRecipientTypeArgs',
+    'RuleNotificationRecipientTypeArgsDict',
     'RuleReferenceArgs',
+    'RuleReferenceArgsDict',
     'RuleSendNotificationActionArgs',
+    'RuleSendNotificationActionArgsDict',
     'RuleSubmitAutoEvaluationActionArgs',
+    'RuleSubmitAutoEvaluationActionArgsDict',
     'RuleTaskActionArgs',
+    'RuleTaskActionArgsDict',
     'RuleTriggerEventSourceArgs',
+    'RuleTriggerEventSourceArgsDict',
     'RuleUpdateCaseActionArgs',
+    'RuleUpdateCaseActionArgsDict',
     'SecurityProfileApplicationArgs',
+    'SecurityProfileApplicationArgsDict',
     'SecurityProfileTagArgs',
+    'SecurityProfileTagArgsDict',
     'TaskTemplateDefaultFieldValueArgs',
+    'TaskTemplateDefaultFieldValueArgsDict',
     'TaskTemplateFieldIdentifierArgs',
+    'TaskTemplateFieldIdentifierArgsDict',
     'TaskTemplateFieldArgs',
+    'TaskTemplateFieldArgsDict',
     'TaskTemplateInvisibleFieldInfoArgs',
+    'TaskTemplateInvisibleFieldInfoArgsDict',
     'TaskTemplateReadOnlyFieldInfoArgs',
+    'TaskTemplateReadOnlyFieldInfoArgsDict',
     'TaskTemplateRequiredFieldInfoArgs',
+    'TaskTemplateRequiredFieldInfoArgsDict',
     'UserHierarchyStructureLevelFiveArgs',
+    'UserHierarchyStructureLevelFiveArgsDict',
     'UserHierarchyStructureLevelFourArgs',
+    'UserHierarchyStructureLevelFourArgsDict',
     'UserHierarchyStructureLevelOneArgs',
+    'UserHierarchyStructureLevelOneArgsDict',
     'UserHierarchyStructureLevelThreeArgs',
+    'UserHierarchyStructureLevelThreeArgsDict',
     'UserHierarchyStructureLevelTwoArgs',
+    'UserHierarchyStructureLevelTwoArgsDict',
     'UserHierarchyStructurePropertiesArgs',
+    'UserHierarchyStructurePropertiesArgsDict',
     'UserIdentityInfoArgs',
+    'UserIdentityInfoArgsDict',
     'UserPhoneConfigArgs',
+    'UserPhoneConfigArgsDict',
     'UserProficiencyArgs',
+    'UserProficiencyArgsDict',
     'ValuesPropertiesArgs',
+    'ValuesPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConstraintsPropertiesArgsDict(TypedDict):
+        """
+        The constraints for the task template
+        """
+        invisible_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgsDict']]]]
+        """
+        Lists the fields that are invisible to agents.
+        """
+        read_only_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgsDict']]]]
+        """
+        Lists the fields that are read-only to agents, and cannot be edited.
+        """
+        required_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgsDict']]]]
+        """
+        Lists the fields that are required to be filled by agents.
+        """
+elif False:
+    ConstraintsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConstraintsPropertiesArgs:
@@ -134,6 +226,18 @@ class ConstraintsPropertiesArgs:
         pulumi.set(self, "required_fields", value)
 
 
+if not MYPY:
+    class EvaluationFormBaseItemArgsDict(TypedDict):
+        """
+        An item at the root level. All items must be sections.
+        """
+        section: pulumi.Input['EvaluationFormSectionArgsDict']
+        """
+        A subsection or inner section of an item.
+        """
+elif False:
+    EvaluationFormBaseItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EvaluationFormBaseItemArgs:
     def __init__(__self__, *,
@@ -156,6 +260,22 @@ class EvaluationFormBaseItemArgs:
     def section(self, value: pulumi.Input['EvaluationFormSectionArgs']):
         pulumi.set(self, "section", value)
 
+
+if not MYPY:
+    class EvaluationFormItemArgsDict(TypedDict):
+        """
+        Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+        """
+        question: NotRequired[pulumi.Input['EvaluationFormQuestionArgsDict']]
+        """
+        The information of the question.
+        """
+        section: NotRequired[pulumi.Input['EvaluationFormSectionArgsDict']]
+        """
+        The information of the section.
+        """
+elif False:
+    EvaluationFormItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EvaluationFormItemArgs:
@@ -197,6 +317,18 @@ class EvaluationFormItemArgs:
         pulumi.set(self, "section", value)
 
 
+if not MYPY:
+    class EvaluationFormNumericQuestionAutomationArgsDict(TypedDict):
+        """
+        Information about the automation configuration in numeric questions.
+        """
+        property_value: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgsDict']
+        """
+        The property value of the automation.
+        """
+elif False:
+    EvaluationFormNumericQuestionAutomationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EvaluationFormNumericQuestionAutomationArgs:
     def __init__(__self__, *,
@@ -219,6 +351,32 @@ class EvaluationFormNumericQuestionAutomationArgs:
     def property_value(self, value: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']):
         pulumi.set(self, "property_value", value)
 
+
+if not MYPY:
+    class EvaluationFormNumericQuestionOptionArgsDict(TypedDict):
+        """
+        Information about the option range used for scoring in numeric questions.
+        """
+        max_value: pulumi.Input[int]
+        """
+        The maximum answer value of the range option.
+        """
+        min_value: pulumi.Input[int]
+        """
+        The minimum answer value of the range option.
+        """
+        automatic_fail: NotRequired[pulumi.Input[bool]]
+        """
+        The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        """
+        score: NotRequired[pulumi.Input[int]]
+        """
+        The score assigned to answer values within the range option.
+          *Minimum*: 0
+          *Maximum*: 10
+        """
+elif False:
+    EvaluationFormNumericQuestionOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EvaluationFormNumericQuestionOptionArgs:
@@ -294,6 +452,30 @@ class EvaluationFormNumericQuestionOptionArgs:
         pulumi.set(self, "score", value)
 
 
+if not MYPY:
+    class EvaluationFormNumericQuestionPropertiesArgsDict(TypedDict):
+        """
+        Information about properties for a numeric question in an evaluation form.
+        """
+        max_value: pulumi.Input[int]
+        """
+        The maximum answer value.
+        """
+        min_value: pulumi.Input[int]
+        """
+        The minimum answer value.
+        """
+        automation: NotRequired[pulumi.Input['EvaluationFormNumericQuestionAutomationArgsDict']]
+        """
+        The automation properties of the numeric question.
+        """
+        options: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluationFormNumericQuestionOptionArgsDict']]]]
+        """
+        The scoring options of the numeric question.
+        """
+elif False:
+    EvaluationFormNumericQuestionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EvaluationFormNumericQuestionPropertiesArgs:
     def __init__(__self__, *,
@@ -364,6 +546,18 @@ class EvaluationFormNumericQuestionPropertiesArgs:
         pulumi.set(self, "options", value)
 
 
+if not MYPY:
+    class EvaluationFormNumericQuestionPropertyValueAutomationArgsDict(TypedDict):
+        """
+        Information about the property value used in automation of a numeric questions.
+        """
+        label: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationLabel']
+        """
+        The property label of the automation.
+        """
+elif False:
+    EvaluationFormNumericQuestionPropertyValueAutomationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EvaluationFormNumericQuestionPropertyValueAutomationArgs:
     def __init__(__self__, *,
@@ -386,6 +580,22 @@ class EvaluationFormNumericQuestionPropertyValueAutomationArgs:
     def label(self, value: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationLabel']):
         pulumi.set(self, "label", value)
 
+
+if not MYPY:
+    class EvaluationFormQuestionTypePropertiesArgsDict(TypedDict):
+        """
+        Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
+        """
+        numeric: NotRequired[pulumi.Input['EvaluationFormNumericQuestionPropertiesArgsDict']]
+        """
+        The properties of the numeric question.
+        """
+        single_select: NotRequired[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesArgsDict']]
+        """
+        The properties of the numeric question.
+        """
+elif False:
+    EvaluationFormQuestionTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EvaluationFormQuestionTypePropertiesArgs:
@@ -426,6 +636,48 @@ class EvaluationFormQuestionTypePropertiesArgs:
     def single_select(self, value: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesArgs']]):
         pulumi.set(self, "single_select", value)
 
+
+if not MYPY:
+    class EvaluationFormQuestionArgsDict(TypedDict):
+        """
+        Information about a question from an evaluation form.
+        """
+        question_type: pulumi.Input['EvaluationFormQuestionQuestionType']
+        """
+        The type of the question.
+          *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
+        """
+        ref_id: pulumi.Input[str]
+        """
+        The identifier of the question. An identifier must be unique within the evaluation form.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        """
+        title: pulumi.Input[str]
+        """
+        The title of the question.
+          *Length Constraints*: Minimum length of 1. Maximum length of 350.
+        """
+        instructions: NotRequired[pulumi.Input[str]]
+        """
+        The instructions of the section.
+          *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+        """
+        not_applicable_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The flag to enable not applicable answers to the question.
+        """
+        question_type_properties: NotRequired[pulumi.Input['EvaluationFormQuestionTypePropertiesArgsDict']]
+        """
+        The properties of the type of question. Text questions do not have to define question type properties.
+        """
+        weight: NotRequired[pulumi.Input[float]]
+        """
+        The scoring weight of the section.
+          *Minimum*: 0
+          *Maximum*: 100
+        """
+elif False:
+    EvaluationFormQuestionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EvaluationFormQuestionArgs:
@@ -556,6 +808,24 @@ class EvaluationFormQuestionArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class EvaluationFormScoringStrategyArgsDict(TypedDict):
+        """
+        A scoring strategy of the evaluation form.
+        """
+        mode: pulumi.Input['EvaluationFormScoringStrategyMode']
+        """
+        The scoring mode of the evaluation form.
+          *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
+        """
+        status: pulumi.Input['EvaluationFormScoringStrategyStatus']
+        """
+        The scoring status of the evaluation form.
+          *Allowed values*: ``ENABLED`` | ``DISABLED``
+        """
+elif False:
+    EvaluationFormScoringStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EvaluationFormScoringStrategyArgs:
     def __init__(__self__, *,
@@ -597,6 +867,39 @@ class EvaluationFormScoringStrategyArgs:
     def status(self, value: pulumi.Input['EvaluationFormScoringStrategyStatus']):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class EvaluationFormSectionArgsDict(TypedDict):
+        """
+        Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
+        """
+        ref_id: pulumi.Input[str]
+        """
+        The identifier of the section. An identifier must be unique within the evaluation form.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        """
+        title: pulumi.Input[str]
+        """
+        The title of the section.
+          *Length Constraints*: Minimum length of 1. Maximum length of 128.
+        """
+        instructions: NotRequired[pulumi.Input[str]]
+        """
+        The instructions of the section.
+        """
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgsDict']]]]
+        """
+        The items of the section.
+          *Minimum*: 1
+        """
+        weight: NotRequired[pulumi.Input[float]]
+        """
+        The scoring weight of the section.
+          *Minimum*: 0 
+          *Maximum*: 100
+        """
+elif False:
+    EvaluationFormSectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EvaluationFormSectionArgs:
@@ -694,6 +997,18 @@ class EvaluationFormSectionArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class EvaluationFormSingleSelectQuestionAutomationOptionArgsDict(TypedDict):
+        """
+        The automation options of the single select question.
+        """
+        rule_category: pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgsDict']
+        """
+        The automation option based on a rule category for the single select question.
+        """
+elif False:
+    EvaluationFormSingleSelectQuestionAutomationOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EvaluationFormSingleSelectQuestionAutomationOptionArgs:
     def __init__(__self__, *,
@@ -716,6 +1031,25 @@ class EvaluationFormSingleSelectQuestionAutomationOptionArgs:
     def rule_category(self, value: pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs']):
         pulumi.set(self, "rule_category", value)
 
+
+if not MYPY:
+    class EvaluationFormSingleSelectQuestionAutomationArgsDict(TypedDict):
+        """
+        Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.
+        """
+        options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgsDict']]]
+        """
+        The automation options of the single select question.
+          *Minimum*: 1
+          *Maximum*: 20
+        """
+        default_option_ref_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the default answer option, when none of the automation options match the criteria.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        """
+elif False:
+    EvaluationFormSingleSelectQuestionAutomationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EvaluationFormSingleSelectQuestionAutomationArgs:
@@ -761,6 +1095,34 @@ class EvaluationFormSingleSelectQuestionAutomationArgs:
     def default_option_ref_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_option_ref_id", value)
 
+
+if not MYPY:
+    class EvaluationFormSingleSelectQuestionOptionArgsDict(TypedDict):
+        """
+        Information about the automation configuration in single select questions.
+        """
+        ref_id: pulumi.Input[str]
+        """
+        The identifier of the answer option. An identifier must be unique within the question.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        """
+        text: pulumi.Input[str]
+        """
+        The title of the answer option.
+          *Length Constraints*: Minimum length of 1. Maximum length of 128.
+        """
+        automatic_fail: NotRequired[pulumi.Input[bool]]
+        """
+        The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        """
+        score: NotRequired[pulumi.Input[int]]
+        """
+        The score assigned to the answer option.
+          *Minimum*: 0
+          *Maximum*: 10
+        """
+elif False:
+    EvaluationFormSingleSelectQuestionOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EvaluationFormSingleSelectQuestionOptionArgs:
@@ -840,6 +1202,29 @@ class EvaluationFormSingleSelectQuestionOptionArgs:
         pulumi.set(self, "score", value)
 
 
+if not MYPY:
+    class EvaluationFormSingleSelectQuestionPropertiesArgsDict(TypedDict):
+        """
+        Information about the options in single select questions.
+        """
+        options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionOptionArgsDict']]]
+        """
+        The answer options of the single select question.
+          *Minimum*: 2
+          *Maximum*: 256
+        """
+        automation: NotRequired[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationArgsDict']]
+        """
+        The display mode of the single select question.
+        """
+        display_as: NotRequired[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesDisplayAs']]
+        """
+        The display mode of the single select question.
+          *Allowed values*: ``DROPDOWN`` | ``RADIO``
+        """
+elif False:
+    EvaluationFormSingleSelectQuestionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EvaluationFormSingleSelectQuestionPropertiesArgs:
     def __init__(__self__, *,
@@ -900,6 +1285,32 @@ class EvaluationFormSingleSelectQuestionPropertiesArgs:
     def display_as(self, value: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesDisplayAs']]):
         pulumi.set(self, "display_as", value)
 
+
+if not MYPY:
+    class EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgsDict(TypedDict):
+        """
+        Information about the automation option based on a rule category for a single select question.
+          *Length Constraints*: Minimum length of 1. Maximum length of 50.
+        """
+        category: pulumi.Input[str]
+        """
+        The category name, as defined in Rules.
+          *Minimum*: 1
+          *Maximum*: 50
+        """
+        condition: pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition']
+        """
+        The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.
+          *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` 
+          *Maximum*: 50
+        """
+        option_ref_id: pulumi.Input[str]
+        """
+        The identifier of the answer option. An identifier must be unique within the question.
+          *Length Constraints*: Minimum length of 1. Maximum length of 40.
+        """
+elif False:
+    EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs:
@@ -965,6 +1376,26 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs:
         pulumi.set(self, "option_ref_id", value)
 
 
+if not MYPY:
+    class HoursOfOperationConfigArgsDict(TypedDict):
+        """
+        Contains information about the hours of operation.
+        """
+        day: pulumi.Input['HoursOfOperationConfigDay']
+        """
+        The day that the hours of operation applies to.
+        """
+        end_time: pulumi.Input['HoursOfOperationTimeSliceArgsDict']
+        """
+        The end time that your contact center closes.
+        """
+        start_time: pulumi.Input['HoursOfOperationTimeSliceArgsDict']
+        """
+        The start time that your contact center opens.
+        """
+elif False:
+    HoursOfOperationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HoursOfOperationConfigArgs:
     def __init__(__self__, *,
@@ -1018,6 +1449,22 @@ class HoursOfOperationConfigArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class HoursOfOperationTimeSliceArgsDict(TypedDict):
+        """
+        The start time or end time for an hours of operation.
+        """
+        hours: pulumi.Input[int]
+        """
+        The hours.
+        """
+        minutes: pulumi.Input[int]
+        """
+        The minutes.
+        """
+elif False:
+    HoursOfOperationTimeSliceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HoursOfOperationTimeSliceArgs:
     def __init__(__self__, *,
@@ -1055,6 +1502,18 @@ class HoursOfOperationTimeSliceArgs:
     def minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "minutes", value)
 
+
+if not MYPY:
+    class InstanceAttributesArgsDict(TypedDict):
+        inbound_calls: pulumi.Input[bool]
+        outbound_calls: pulumi.Input[bool]
+        auto_resolve_best_voices: NotRequired[pulumi.Input[bool]]
+        contact_lens: NotRequired[pulumi.Input[bool]]
+        contactflow_logs: NotRequired[pulumi.Input[bool]]
+        early_media: NotRequired[pulumi.Input[bool]]
+        use_custom_tts_voices: NotRequired[pulumi.Input[bool]]
+elif False:
+    InstanceAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceAttributesArgs:
@@ -1143,6 +1602,23 @@ class InstanceAttributesArgs:
         pulumi.set(self, "use_custom_tts_voices", value)
 
 
+if not MYPY:
+    class InstanceStorageConfigEncryptionConfigArgsDict(TypedDict):
+        encryption_type: pulumi.Input['InstanceStorageConfigEncryptionType']
+        """
+        The type of encryption.
+        """
+        key_id: pulumi.Input[str]
+        """
+        The full ARN of the encryption key.
+
+        > Be sure to provide the full ARN of the encryption key, not just the ID.
+        > 
+        > Amazon Connect supports only KMS keys with the default key spec of [`SYMMETRIC_DEFAULT`](https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-symmetric-default) .
+        """
+elif False:
+    InstanceStorageConfigEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceStorageConfigEncryptionConfigArgs:
     def __init__(__self__, *,
@@ -1188,6 +1664,15 @@ class InstanceStorageConfigEncryptionConfigArgs:
         pulumi.set(self, "key_id", value)
 
 
+if not MYPY:
+    class InstanceStorageConfigKinesisFirehoseConfigArgsDict(TypedDict):
+        firehose_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the delivery stream.
+        """
+elif False:
+    InstanceStorageConfigKinesisFirehoseConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceStorageConfigKinesisFirehoseConfigArgs:
     def __init__(__self__, *,
@@ -1210,6 +1695,15 @@ class InstanceStorageConfigKinesisFirehoseConfigArgs:
         pulumi.set(self, "firehose_arn", value)
 
 
+if not MYPY:
+    class InstanceStorageConfigKinesisStreamConfigArgsDict(TypedDict):
+        stream_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the data stream.
+        """
+elif False:
+    InstanceStorageConfigKinesisStreamConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceStorageConfigKinesisStreamConfigArgs:
     def __init__(__self__, *,
@@ -1231,6 +1725,25 @@ class InstanceStorageConfigKinesisStreamConfigArgs:
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
 
+
+if not MYPY:
+    class InstanceStorageConfigKinesisVideoStreamConfigArgsDict(TypedDict):
+        encryption_config: pulumi.Input['InstanceStorageConfigEncryptionConfigArgsDict']
+        """
+        The encryption configuration.
+        """
+        prefix: pulumi.Input[str]
+        """
+        The prefix of the video stream.
+        """
+        retention_period_hours: pulumi.Input[float]
+        """
+        The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+
+        The default value is 0, indicating that the stream does not persist data.
+        """
+elif False:
+    InstanceStorageConfigKinesisVideoStreamConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceStorageConfigKinesisVideoStreamConfigArgs:
@@ -1288,6 +1801,23 @@ class InstanceStorageConfigKinesisVideoStreamConfigArgs:
         pulumi.set(self, "retention_period_hours", value)
 
 
+if not MYPY:
+    class InstanceStorageConfigS3ConfigArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        """
+        The S3 bucket name.
+        """
+        bucket_prefix: pulumi.Input[str]
+        """
+        The S3 bucket prefix.
+        """
+        encryption_config: NotRequired[pulumi.Input['InstanceStorageConfigEncryptionConfigArgsDict']]
+        """
+        The Amazon S3 encryption configuration.
+        """
+elif False:
+    InstanceStorageConfigS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceStorageConfigS3ConfigArgs:
     def __init__(__self__, *,
@@ -1340,6 +1870,28 @@ class InstanceStorageConfigS3ConfigArgs:
     def encryption_config(self, value: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']]):
         pulumi.set(self, "encryption_config", value)
 
+
+if not MYPY:
+    class QueueOutboundCallerConfigArgsDict(TypedDict):
+        """
+        The outbound caller ID name, number, and outbound whisper flow.
+        """
+        outbound_caller_id_name: NotRequired[pulumi.Input[str]]
+        """
+        The caller ID name.
+        """
+        outbound_caller_id_number_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the outbound caller ID number.
+
+        > Only use the phone number ARN format that doesn't contain `instance` in the path, for example, `arn:aws:connect:us-east-1:1234567890:phone-number/uuid` . This is the same ARN format that is returned when you create a phone number using CloudFormation , or when you call the [ListPhoneNumbersV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html) API.
+        """
+        outbound_flow_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the outbound flow.
+        """
+elif False:
+    QueueOutboundCallerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QueueOutboundCallerConfigArgs:
@@ -1400,6 +1952,30 @@ class QueueOutboundCallerConfigArgs:
     def outbound_flow_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "outbound_flow_arn", value)
 
+
+if not MYPY:
+    class QuickConnectConfigArgsDict(TypedDict):
+        """
+        Configuration settings for the quick connect.
+        """
+        quick_connect_type: pulumi.Input['QuickConnectType']
+        """
+        The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
+        """
+        phone_config: NotRequired[pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgsDict']]
+        """
+        The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+        """
+        queue_config: NotRequired[pulumi.Input['QuickConnectQueueQuickConnectConfigArgsDict']]
+        """
+        The queue configuration. This is required only if QuickConnectType is QUEUE.
+        """
+        user_config: NotRequired[pulumi.Input['QuickConnectUserQuickConnectConfigArgsDict']]
+        """
+        The user configuration. This is required only if QuickConnectType is USER.
+        """
+elif False:
+    QuickConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QuickConnectConfigArgs:
@@ -1472,6 +2048,18 @@ class QuickConnectConfigArgs:
         pulumi.set(self, "user_config", value)
 
 
+if not MYPY:
+    class QuickConnectPhoneNumberQuickConnectConfigArgsDict(TypedDict):
+        """
+        The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number in E.164 format.
+        """
+elif False:
+    QuickConnectPhoneNumberQuickConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QuickConnectPhoneNumberQuickConnectConfigArgs:
     def __init__(__self__, *,
@@ -1494,6 +2082,22 @@ class QuickConnectPhoneNumberQuickConnectConfigArgs:
     def phone_number(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone_number", value)
 
+
+if not MYPY:
+    class QuickConnectQueueQuickConnectConfigArgsDict(TypedDict):
+        """
+        The queue configuration. This is required only if QuickConnectType is QUEUE.
+        """
+        contact_flow_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the flow.
+        """
+        queue_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the queue.
+        """
+elif False:
+    QuickConnectQueueQuickConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QuickConnectQueueQuickConnectConfigArgs:
@@ -1533,6 +2137,22 @@ class QuickConnectQueueQuickConnectConfigArgs:
         pulumi.set(self, "queue_arn", value)
 
 
+if not MYPY:
+    class QuickConnectUserQuickConnectConfigArgsDict(TypedDict):
+        """
+        The user configuration. This is required only if QuickConnectType is USER.
+        """
+        contact_flow_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the flow.
+        """
+        user_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the user.
+        """
+elif False:
+    QuickConnectUserQuickConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QuickConnectUserQuickConnectConfigArgs:
     def __init__(__self__, *,
@@ -1571,6 +2191,18 @@ class QuickConnectUserQuickConnectConfigArgs:
         pulumi.set(self, "user_arn", value)
 
 
+if not MYPY:
+    class RoutingProfileCrossChannelBehaviorArgsDict(TypedDict):
+        """
+        Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+        """
+        behavior_type: pulumi.Input['RoutingProfileBehaviorType']
+        """
+        Specifies the other channels that can be routed to an agent handling their current channel.
+        """
+elif False:
+    RoutingProfileCrossChannelBehaviorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingProfileCrossChannelBehaviorArgs:
     def __init__(__self__, *,
@@ -1593,6 +2225,32 @@ class RoutingProfileCrossChannelBehaviorArgs:
     def behavior_type(self, value: pulumi.Input['RoutingProfileBehaviorType']):
         pulumi.set(self, "behavior_type", value)
 
+
+if not MYPY:
+    class RoutingProfileMediaConcurrencyArgsDict(TypedDict):
+        """
+        Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+        """
+        channel: pulumi.Input['RoutingProfileChannel']
+        """
+        The channels that agents can handle in the Contact Control Panel (CCP).
+        """
+        concurrency: pulumi.Input[int]
+        """
+        The number of contacts an agent can have on a channel simultaneously.
+
+        Valid Range for `VOICE` : Minimum value of 1. Maximum value of 1.
+
+        Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
+
+        Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
+        """
+        cross_channel_behavior: NotRequired[pulumi.Input['RoutingProfileCrossChannelBehaviorArgsDict']]
+        """
+        Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
+        """
+elif False:
+    RoutingProfileMediaConcurrencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoutingProfileMediaConcurrencyArgs:
@@ -1660,6 +2318,26 @@ class RoutingProfileMediaConcurrencyArgs:
         pulumi.set(self, "cross_channel_behavior", value)
 
 
+if not MYPY:
+    class RoutingProfileQueueConfigArgsDict(TypedDict):
+        """
+        Contains information about the queue and channel for which priority and delay can be set.
+        """
+        delay: pulumi.Input[int]
+        """
+        The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
+        """
+        priority: pulumi.Input[int]
+        """
+        The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
+        """
+        queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgsDict']
+        """
+        Contains information about a queue resource.
+        """
+elif False:
+    RoutingProfileQueueConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingProfileQueueConfigArgs:
     def __init__(__self__, *,
@@ -1713,6 +2391,22 @@ class RoutingProfileQueueConfigArgs:
         pulumi.set(self, "queue_reference", value)
 
 
+if not MYPY:
+    class RoutingProfileQueueReferenceArgsDict(TypedDict):
+        """
+        Contains the channel and queue identifier for a routing profile.
+        """
+        channel: pulumi.Input['RoutingProfileChannel']
+        """
+        The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+        """
+        queue_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the queue.
+        """
+elif False:
+    RoutingProfileQueueReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingProfileQueueReferenceArgs:
     def __init__(__self__, *,
@@ -1750,6 +2444,34 @@ class RoutingProfileQueueReferenceArgs:
     def queue_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "queue_arn", value)
 
+
+if not MYPY:
+    class RuleActionsArgsDict(TypedDict):
+        """
+        The list of actions that will be executed when a rule is triggered.
+        """
+        assign_contact_category_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleAssignContactCategoryActionArgsDict']]]]
+        """
+        Information about the contact category action. The syntax can be empty, for example, `{}` .
+        """
+        create_case_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleCreateCaseActionArgsDict']]]]
+        end_associated_tasks_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgsDict']]]]
+        event_bridge_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgsDict']]]]
+        """
+        Information about the EventBridge action.
+        """
+        send_notification_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSendNotificationActionArgsDict']]]]
+        """
+        Information about the send notification action.
+        """
+        submit_auto_evaluation_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSubmitAutoEvaluationActionArgsDict']]]]
+        task_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleTaskActionArgsDict']]]]
+        """
+        Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+        """
+        update_case_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleUpdateCaseActionArgsDict']]]]
+elif False:
+    RuleActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleActionsArgs:
@@ -1871,6 +2593,15 @@ class RuleActionsArgs:
         pulumi.set(self, "update_case_actions", value)
 
 
+if not MYPY:
+    class RuleAssignContactCategoryActionArgsDict(TypedDict):
+        """
+        The definition for assigning contact category action.
+        """
+        pass
+elif False:
+    RuleAssignContactCategoryActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleAssignContactCategoryActionArgs:
     def __init__(__self__):
@@ -1879,6 +2610,19 @@ class RuleAssignContactCategoryActionArgs:
         """
         pass
 
+
+if not MYPY:
+    class RuleCreateCaseActionArgsDict(TypedDict):
+        """
+        The definition for create case action.
+        """
+        fields: pulumi.Input[Sequence[pulumi.Input['RuleFieldArgsDict']]]
+        template_id: pulumi.Input[str]
+        """
+        The Id of template.
+        """
+elif False:
+    RuleCreateCaseActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleCreateCaseActionArgs:
@@ -1914,6 +2658,15 @@ class RuleCreateCaseActionArgs:
         pulumi.set(self, "template_id", value)
 
 
+if not MYPY:
+    class RuleEndAssociatedTasksActionArgsDict(TypedDict):
+        """
+        The definition for ending associated task action.
+        """
+        pass
+elif False:
+    RuleEndAssociatedTasksActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleEndAssociatedTasksActionArgs:
     def __init__(__self__):
@@ -1922,6 +2675,18 @@ class RuleEndAssociatedTasksActionArgs:
         """
         pass
 
+
+if not MYPY:
+    class RuleEventBridgeActionArgsDict(TypedDict):
+        """
+        The definition for event bridge action.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the event bridge action.
+        """
+elif False:
+    RuleEventBridgeActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleEventBridgeActionArgs:
@@ -1945,6 +2710,18 @@ class RuleEventBridgeActionArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class RuleFieldValueArgsDict(TypedDict):
+        """
+        The value of the field.
+        """
+        boolean_value: NotRequired[pulumi.Input[bool]]
+        double_value: NotRequired[pulumi.Input[float]]
+        empty_value: NotRequired[Any]
+        string_value: NotRequired[pulumi.Input[str]]
+elif False:
+    RuleFieldValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleFieldValueArgs:
@@ -2002,6 +2779,19 @@ class RuleFieldValueArgs:
         pulumi.set(self, "string_value", value)
 
 
+if not MYPY:
+    class RuleFieldArgsDict(TypedDict):
+        """
+        The field of the case.
+        """
+        id: pulumi.Input[str]
+        """
+        The Id of the field
+        """
+        value: pulumi.Input['RuleFieldValueArgsDict']
+elif False:
+    RuleFieldArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleFieldArgs:
     def __init__(__self__, *,
@@ -2035,6 +2825,22 @@ class RuleFieldArgs:
     def value(self, value: pulumi.Input['RuleFieldValueArgs']):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RuleNotificationRecipientTypeArgsDict(TypedDict):
+        """
+        The type of notification recipient.
+        """
+        user_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of recipients by user arns.
+        """
+        user_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The collection of recipients who are identified by user tags
+        """
+elif False:
+    RuleNotificationRecipientTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleNotificationRecipientTypeArgs:
@@ -2076,6 +2882,16 @@ class RuleNotificationRecipientTypeArgs:
         pulumi.set(self, "user_tags", value)
 
 
+if not MYPY:
+    class RuleReferenceArgsDict(TypedDict):
+        """
+        A contact reference.
+        """
+        type: pulumi.Input['RuleReferenceType']
+        value: pulumi.Input[str]
+elif False:
+    RuleReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleReferenceArgs:
     def __init__(__self__, *,
@@ -2105,6 +2921,31 @@ class RuleReferenceArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RuleSendNotificationActionArgsDict(TypedDict):
+        """
+        The definition for sending notification action.
+        """
+        content: pulumi.Input[str]
+        """
+        The content of notification.
+        """
+        content_type: pulumi.Input['RuleSendNotificationActionContentType']
+        """
+        The type of content.
+        """
+        delivery_method: pulumi.Input['RuleSendNotificationActionDeliveryMethod']
+        """
+        The means of delivery.
+        """
+        recipient: pulumi.Input['RuleNotificationRecipientTypeArgsDict']
+        subject: NotRequired[pulumi.Input[str]]
+        """
+        The subject of notification.
+        """
+elif False:
+    RuleSendNotificationActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleSendNotificationActionArgs:
@@ -2186,6 +3027,18 @@ class RuleSendNotificationActionArgs:
         pulumi.set(self, "subject", value)
 
 
+if not MYPY:
+    class RuleSubmitAutoEvaluationActionArgsDict(TypedDict):
+        """
+        The definition of submit auto evaluation action.
+        """
+        evaluation_form_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the evaluation form.
+        """
+elif False:
+    RuleSubmitAutoEvaluationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleSubmitAutoEvaluationActionArgs:
     def __init__(__self__, *,
@@ -2208,6 +3061,30 @@ class RuleSubmitAutoEvaluationActionArgs:
     def evaluation_form_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "evaluation_form_arn", value)
 
+
+if not MYPY:
+    class RuleTaskActionArgsDict(TypedDict):
+        """
+        The definition of task action.
+        """
+        contact_flow_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the contact flow.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which appears in the agent's Contact Control Panel (CCP).
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description which appears in the agent's Contact Control Panel (CCP).
+        """
+        references: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['RuleReferenceArgsDict']]]]
+        """
+        A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        """
+elif False:
+    RuleTaskActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleTaskActionArgs:
@@ -2279,6 +3156,22 @@ class RuleTaskActionArgs:
         pulumi.set(self, "references", value)
 
 
+if not MYPY:
+    class RuleTriggerEventSourceArgsDict(TypedDict):
+        """
+        The event source that will trigger the rule.
+        """
+        event_source_name: pulumi.Input['RuleTriggerEventSourceEventSourceName']
+        """
+        The name of event source.
+        """
+        integration_association_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) for the AppIntegration association.
+        """
+elif False:
+    RuleTriggerEventSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleTriggerEventSourceArgs:
     def __init__(__self__, *,
@@ -2318,6 +3211,15 @@ class RuleTriggerEventSourceArgs:
         pulumi.set(self, "integration_association_arn", value)
 
 
+if not MYPY:
+    class RuleUpdateCaseActionArgsDict(TypedDict):
+        """
+        The definition for update case action.
+        """
+        fields: pulumi.Input[Sequence[pulumi.Input['RuleFieldArgsDict']]]
+elif False:
+    RuleUpdateCaseActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleUpdateCaseActionArgs:
     def __init__(__self__, *,
@@ -2336,6 +3238,22 @@ class RuleUpdateCaseActionArgs:
     def fields(self, value: pulumi.Input[Sequence[pulumi.Input['RuleFieldArgs']]]):
         pulumi.set(self, "fields", value)
 
+
+if not MYPY:
+    class SecurityProfileApplicationArgsDict(TypedDict):
+        """
+        A third-party application's metadata.
+        """
+        application_permissions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The permissions that the agent is granted on the application
+        """
+        namespace: pulumi.Input[str]
+        """
+        Namespace of the application that you want to give access to.
+        """
+elif False:
+    SecurityProfileApplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityProfileApplicationArgs:
@@ -2375,6 +3293,22 @@ class SecurityProfileApplicationArgs:
         pulumi.set(self, "namespace", value)
 
 
+if not MYPY:
+    class SecurityProfileTagArgsDict(TypedDict):
+        """
+        A key-value pair to associate with a resource.
+        """
+        key: pulumi.Input[str]
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+elif False:
+    SecurityProfileTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityProfileTagArgs:
     def __init__(__self__, *,
@@ -2412,6 +3346,22 @@ class SecurityProfileTagArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class TaskTemplateDefaultFieldValueArgsDict(TypedDict):
+        """
+        the default value for the task template's field
+        """
+        default_value: pulumi.Input[str]
+        """
+        Default value for the field.
+        """
+        id: pulumi.Input['TaskTemplateFieldIdentifierArgsDict']
+        """
+        Identifier of a field.
+        """
+elif False:
+    TaskTemplateDefaultFieldValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskTemplateDefaultFieldValueArgs:
@@ -2451,6 +3401,18 @@ class TaskTemplateDefaultFieldValueArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class TaskTemplateFieldIdentifierArgsDict(TypedDict):
+        """
+        the identifier (name) for the task template field
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the task template field
+        """
+elif False:
+    TaskTemplateFieldIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskTemplateFieldIdentifierArgs:
     def __init__(__self__, *,
@@ -2473,6 +3435,30 @@ class TaskTemplateFieldIdentifierArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TaskTemplateFieldArgsDict(TypedDict):
+        """
+        A task template field object.
+        """
+        id: pulumi.Input['TaskTemplateFieldIdentifierArgsDict']
+        """
+        The unique identifier for the field.
+        """
+        type: pulumi.Input['TaskTemplateFieldType']
+        """
+        Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the task template's field
+        """
+        single_select_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        list of field options to be used with single select
+        """
+elif False:
+    TaskTemplateFieldArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskTemplateFieldArgs:
@@ -2544,6 +3530,15 @@ class TaskTemplateFieldArgs:
         pulumi.set(self, "single_select_options", value)
 
 
+if not MYPY:
+    class TaskTemplateInvisibleFieldInfoArgsDict(TypedDict):
+        """
+        Invisible field info
+        """
+        id: pulumi.Input['TaskTemplateFieldIdentifierArgsDict']
+elif False:
+    TaskTemplateInvisibleFieldInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskTemplateInvisibleFieldInfoArgs:
     def __init__(__self__, *,
@@ -2562,6 +3557,15 @@ class TaskTemplateInvisibleFieldInfoArgs:
     def id(self, value: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class TaskTemplateReadOnlyFieldInfoArgsDict(TypedDict):
+        """
+        ReadOnly field info
+        """
+        id: pulumi.Input['TaskTemplateFieldIdentifierArgsDict']
+elif False:
+    TaskTemplateReadOnlyFieldInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TaskTemplateReadOnlyFieldInfoArgs:
@@ -2582,6 +3586,15 @@ class TaskTemplateReadOnlyFieldInfoArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class TaskTemplateRequiredFieldInfoArgsDict(TypedDict):
+        """
+        Required field info
+        """
+        id: pulumi.Input['TaskTemplateFieldIdentifierArgsDict']
+elif False:
+    TaskTemplateRequiredFieldInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TaskTemplateRequiredFieldInfoArgs:
     def __init__(__self__, *,
@@ -2600,6 +3613,26 @@ class TaskTemplateRequiredFieldInfoArgs:
     def id(self, value: pulumi.Input['TaskTemplateFieldIdentifierArgs']):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class UserHierarchyStructureLevelFiveArgsDict(TypedDict):
+        """
+        Information about level five.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the hierarchy level.
+        """
+        hierarchy_level_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        hierarchy_level_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureLevelFiveArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyStructureLevelFiveArgs:
@@ -2656,6 +3689,26 @@ class UserHierarchyStructureLevelFiveArgs:
         pulumi.set(self, "hierarchy_level_id", value)
 
 
+if not MYPY:
+    class UserHierarchyStructureLevelFourArgsDict(TypedDict):
+        """
+        Information about level four.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the hierarchy level.
+        """
+        hierarchy_level_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        hierarchy_level_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureLevelFourArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyStructureLevelFourArgs:
     def __init__(__self__, *,
@@ -2710,6 +3763,26 @@ class UserHierarchyStructureLevelFourArgs:
     def hierarchy_level_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hierarchy_level_id", value)
 
+
+if not MYPY:
+    class UserHierarchyStructureLevelOneArgsDict(TypedDict):
+        """
+        Information about level one.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the hierarchy level.
+        """
+        hierarchy_level_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        hierarchy_level_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureLevelOneArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyStructureLevelOneArgs:
@@ -2766,6 +3839,23 @@ class UserHierarchyStructureLevelOneArgs:
         pulumi.set(self, "hierarchy_level_id", value)
 
 
+if not MYPY:
+    class UserHierarchyStructureLevelThreeArgsDict(TypedDict):
+        """
+        Information about level three.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the hierarchy level.
+        """
+        hierarchy_level_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        hierarchy_level_id: NotRequired[pulumi.Input[str]]
+elif False:
+    UserHierarchyStructureLevelThreeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyStructureLevelThreeArgs:
     def __init__(__self__, *,
@@ -2816,6 +3906,26 @@ class UserHierarchyStructureLevelThreeArgs:
     def hierarchy_level_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hierarchy_level_id", value)
 
+
+if not MYPY:
+    class UserHierarchyStructureLevelTwoArgsDict(TypedDict):
+        """
+        Information about level two.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the hierarchy level.
+        """
+        hierarchy_level_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        hierarchy_level_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureLevelTwoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyStructureLevelTwoArgs:
@@ -2871,6 +3981,31 @@ class UserHierarchyStructureLevelTwoArgs:
     def hierarchy_level_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hierarchy_level_id", value)
 
+
+if not MYPY:
+    class UserHierarchyStructurePropertiesArgsDict(TypedDict):
+        """
+        Information about the hierarchy structure.
+        """
+        level_five: NotRequired[pulumi.Input['UserHierarchyStructureLevelFiveArgsDict']]
+        level_four: NotRequired[pulumi.Input['UserHierarchyStructureLevelFourArgsDict']]
+        """
+        The update for level four.
+        """
+        level_one: NotRequired[pulumi.Input['UserHierarchyStructureLevelOneArgsDict']]
+        """
+        The update for level one.
+        """
+        level_three: NotRequired[pulumi.Input['UserHierarchyStructureLevelThreeArgsDict']]
+        """
+        The update for level three.
+        """
+        level_two: NotRequired[pulumi.Input['UserHierarchyStructureLevelTwoArgsDict']]
+        """
+        The update for level two.
+        """
+elif False:
+    UserHierarchyStructurePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyStructurePropertiesArgs:
@@ -2955,6 +4090,36 @@ class UserHierarchyStructurePropertiesArgs:
     def level_two(self, value: Optional[pulumi.Input['UserHierarchyStructureLevelTwoArgs']]):
         pulumi.set(self, "level_two", value)
 
+
+if not MYPY:
+    class UserIdentityInfoArgsDict(TypedDict):
+        """
+        Contains information about the identity of a user.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        The first name. This is required if you are using Amazon Connect or SAML for identity management.
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        The last name. This is required if you are using Amazon Connect or SAML for identity management.
+        """
+        mobile: NotRequired[pulumi.Input[str]]
+        """
+        The user's mobile number.
+        """
+        secondary_email: NotRequired[pulumi.Input[str]]
+        """
+        The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
+
+        *Pattern* : `(?=^.{0,265}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,63}`
+        """
+elif False:
+    UserIdentityInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserIdentityInfoArgs:
@@ -3048,6 +4213,32 @@ class UserIdentityInfoArgs:
         pulumi.set(self, "secondary_email", value)
 
 
+if not MYPY:
+    class UserPhoneConfigArgsDict(TypedDict):
+        """
+        Contains information about the phone configuration settings for a user.
+        """
+        phone_type: pulumi.Input['UserPhoneType']
+        """
+        The phone type.
+        """
+        after_contact_work_time_limit: NotRequired[pulumi.Input[int]]
+        """
+        The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close contact to end ACW.
+
+        > When returned by a `SearchUsers` call, `AfterContactWorkTimeLimit` is returned in milliseconds.
+        """
+        auto_accept: NotRequired[pulumi.Input[bool]]
+        """
+        The Auto accept setting.
+        """
+        desk_phone_number: NotRequired[pulumi.Input[str]]
+        """
+        The phone number for the user's desk phone.
+        """
+elif False:
+    UserPhoneConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPhoneConfigArgs:
     def __init__(__self__, *,
@@ -3123,6 +4314,26 @@ class UserPhoneConfigArgs:
         pulumi.set(self, "desk_phone_number", value)
 
 
+if not MYPY:
+    class UserProficiencyArgsDict(TypedDict):
+        """
+        Proficiency of a user.
+        """
+        attribute_name: pulumi.Input[str]
+        """
+        The name of user’s proficiency. You must use a predefined attribute name that is present in the Amazon Connect instance.
+        """
+        attribute_value: pulumi.Input[str]
+        """
+        The value of user’s proficiency. You must use a predefined attribute value that is present in the Amazon Connect instance.
+        """
+        level: pulumi.Input[float]
+        """
+        The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
+        """
+elif False:
+    UserProficiencyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserProficiencyArgs:
     def __init__(__self__, *,
@@ -3175,6 +4386,18 @@ class UserProficiencyArgs:
     def level(self, value: pulumi.Input[float]):
         pulumi.set(self, "level", value)
 
+
+if not MYPY:
+    class ValuesPropertiesArgsDict(TypedDict):
+        """
+        The values of a predefined attribute.
+        """
+        string_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Predefined attribute values of type string list.
+        """
+elif False:
+    ValuesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ValuesPropertiesArgs:

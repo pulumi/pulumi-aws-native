@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_backup_selection(id: Optional[str] = None,
     return AwaitableGetBackupSelectionResult(
         id=pulumi.get(__ret__, 'id'),
         selection_id=pulumi.get(__ret__, 'selection_id'))
-
-
-@_utilities.lift_output_func(get_backup_selection)
 def get_backup_selection_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupSelectionResult]:
     """
@@ -80,4 +82,10 @@ def get_backup_selection_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Uniquely identifies the backup selection.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getBackupSelection', __args__, opts=opts, typ=GetBackupSelectionResult)
+    return __ret__.apply(lambda __response__: GetBackupSelectionResult(
+        id=pulumi.get(__response__, 'id'),
+        selection_id=pulumi.get(__response__, 'selection_id')))

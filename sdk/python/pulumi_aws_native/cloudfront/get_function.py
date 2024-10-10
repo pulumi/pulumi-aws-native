@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -131,9 +136,6 @@ def get_function(function_arn: Optional[str] = None,
         function_metadata=pulumi.get(__ret__, 'function_metadata'),
         name=pulumi.get(__ret__, 'name'),
         stage=pulumi.get(__ret__, 'stage'))
-
-
-@_utilities.lift_output_func(get_function)
 def get_function_output(function_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
@@ -148,4 +150,14 @@ def get_function_output(function_arn: Optional[pulumi.Input[str]] = None,
            
            `!GetAtt *Function_Logical_ID* .FunctionMetadata.FunctionARN`
     """
-    ...
+    __args__ = dict()
+    __args__['functionArn'] = function_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getFunction', __args__, opts=opts, typ=GetFunctionResult)
+    return __ret__.apply(lambda __response__: GetFunctionResult(
+        function_arn=pulumi.get(__response__, 'function_arn'),
+        function_code=pulumi.get(__response__, 'function_code'),
+        function_config=pulumi.get(__response__, 'function_config'),
+        function_metadata=pulumi.get(__response__, 'function_metadata'),
+        name=pulumi.get(__response__, 'name'),
+        stage=pulumi.get(__response__, 'stage')))

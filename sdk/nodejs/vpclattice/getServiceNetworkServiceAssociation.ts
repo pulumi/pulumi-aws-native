@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Associates a service with a service network.
  */
 export function getServiceNetworkServiceAssociation(args: GetServiceNetworkServiceAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceNetworkServiceAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:vpclattice:getServiceNetworkServiceAssociation", {
         "arn": args.arn,
@@ -79,7 +78,10 @@ export interface GetServiceNetworkServiceAssociationResult {
  * Associates a service with a service network.
  */
 export function getServiceNetworkServiceAssociationOutput(args: GetServiceNetworkServiceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkServiceAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getServiceNetworkServiceAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:vpclattice:getServiceNetworkServiceAssociation", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetServiceNetworkServiceAssociationOutputArgs {

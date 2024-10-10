@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Inspector::ResourceGroup
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:inspector:getResourceGroup", {
         "arn": args.arn,
@@ -32,7 +31,10 @@ export interface GetResourceGroupResult {
  * Resource Type definition for AWS::Inspector::ResourceGroup
  */
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getResourceGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:inspector:getResourceGroup", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetResourceGroupOutputArgs {

@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *  Also, be aware that if you attempt to update several detector models at once using CFN, some updates may succeed and others fail. In this case, the effects on each detector model's detector instances and version number depend on whether the update succeeded or failed, with the results as stated.
  */
 export function getDetectorModel(args: GetDetectorModelArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorModelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotevents:getDetectorModel", {
         "detectorModelName": args.detectorModelName,
@@ -60,7 +59,10 @@ export interface GetDetectorModelResult {
  *  Also, be aware that if you attempt to update several detector models at once using CFN, some updates may succeed and others fail. In this case, the effects on each detector model's detector instances and version number depend on whether the update succeeded or failed, with the results as stated.
  */
 export function getDetectorModelOutput(args: GetDetectorModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorModelResult> {
-    return pulumi.output(args).apply((a: any) => getDetectorModel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iotevents:getDetectorModel", {
+        "detectorModelName": args.detectorModelName,
+    }, opts);
 }
 
 export interface GetDetectorModelOutputArgs {

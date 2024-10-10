@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -160,9 +165,6 @@ def get_membership(membership_identifier: Optional[str] = None,
         payment_configuration=pulumi.get(__ret__, 'payment_configuration'),
         query_log_status=pulumi.get(__ret__, 'query_log_status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_membership)
 def get_membership_output(membership_identifier: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMembershipResult]:
     """
@@ -173,4 +175,16 @@ def get_membership_output(membership_identifier: Optional[pulumi.Input[str]] = N
            
            Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
     """
-    ...
+    __args__ = dict()
+    __args__['membershipIdentifier'] = membership_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getMembership', __args__, opts=opts, typ=GetMembershipResult)
+    return __ret__.apply(lambda __response__: GetMembershipResult(
+        arn=pulumi.get(__response__, 'arn'),
+        collaboration_arn=pulumi.get(__response__, 'collaboration_arn'),
+        collaboration_creator_account_id=pulumi.get(__response__, 'collaboration_creator_account_id'),
+        default_result_configuration=pulumi.get(__response__, 'default_result_configuration'),
+        membership_identifier=pulumi.get(__response__, 'membership_identifier'),
+        payment_configuration=pulumi.get(__response__, 'payment_configuration'),
+        query_log_status=pulumi.get(__response__, 'query_log_status'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
  */
 export function getConfigurationPolicy(args: GetConfigurationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securityhub:getConfigurationPolicy", {
         "arn": args.arn,
@@ -67,7 +66,10 @@ export interface GetConfigurationPolicyResult {
  * The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
  */
 export function getConfigurationPolicyOutput(args: GetConfigurationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:securityhub:getConfigurationPolicy", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetConfigurationPolicyOutputArgs {

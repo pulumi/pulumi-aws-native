@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *  A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
  */
 export function getRegistryPolicy(args: GetRegistryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ecr:getRegistryPolicy", {
         "registryId": args.registryId,
@@ -40,7 +39,10 @@ export interface GetRegistryPolicyResult {
  *  A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
  */
 export function getRegistryPolicyOutput(args: GetRegistryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getRegistryPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ecr:getRegistryPolicy", {
+        "registryId": args.registryId,
+    }, opts);
 }
 
 export interface GetRegistryPolicyOutputArgs {

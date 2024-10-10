@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -163,9 +168,6 @@ def get_scene(scene_id: Optional[str] = None,
         scene_metadata=pulumi.get(__ret__, 'scene_metadata'),
         tags=pulumi.get(__ret__, 'tags'),
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
-
-
-@_utilities.lift_output_func(get_scene)
 def get_scene_output(scene_id: Optional[pulumi.Input[str]] = None,
                      workspace_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSceneResult]:
@@ -176,4 +178,18 @@ def get_scene_output(scene_id: Optional[pulumi.Input[str]] = None,
     :param str scene_id: The ID of the scene.
     :param str workspace_id: The ID of the scene.
     """
-    ...
+    __args__ = dict()
+    __args__['sceneId'] = scene_id
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iottwinmaker:getScene', __args__, opts=opts, typ=GetSceneResult)
+    return __ret__.apply(lambda __response__: GetSceneResult(
+        arn=pulumi.get(__response__, 'arn'),
+        capabilities=pulumi.get(__response__, 'capabilities'),
+        content_location=pulumi.get(__response__, 'content_location'),
+        creation_date_time=pulumi.get(__response__, 'creation_date_time'),
+        description=pulumi.get(__response__, 'description'),
+        generated_scene_metadata=pulumi.get(__response__, 'generated_scene_metadata'),
+        scene_metadata=pulumi.get(__response__, 'scene_metadata'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_date_time=pulumi.get(__response__, 'update_date_time')))

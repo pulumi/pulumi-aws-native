@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -85,9 +90,6 @@ def get_policy_template(policy_store_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         policy_template_id=pulumi.get(__ret__, 'policy_template_id'),
         statement=pulumi.get(__ret__, 'statement'))
-
-
-@_utilities.lift_output_func(get_policy_template)
 def get_policy_template_output(policy_store_id: Optional[pulumi.Input[str]] = None,
                                policy_template_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyTemplateResult]:
@@ -98,4 +100,12 @@ def get_policy_template_output(policy_store_id: Optional[pulumi.Input[str]] = No
     :param str policy_store_id: The unique identifier of the policy store that contains the template.
     :param str policy_template_id: The unique identifier of the new or modified policy template.
     """
-    ...
+    __args__ = dict()
+    __args__['policyStoreId'] = policy_store_id
+    __args__['policyTemplateId'] = policy_template_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getPolicyTemplate', __args__, opts=opts, typ=GetPolicyTemplateResult)
+    return __ret__.apply(lambda __response__: GetPolicyTemplateResult(
+        description=pulumi.get(__response__, 'description'),
+        policy_template_id=pulumi.get(__response__, 'policy_template_id'),
+        statement=pulumi.get(__response__, 'statement')))

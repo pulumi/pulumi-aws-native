@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
  */
 export function getServerlessCache(args: GetServerlessCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessCacheResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticache:getServerlessCache", {
         "serverlessCacheName": args.serverlessCacheName,
@@ -83,7 +82,10 @@ export interface GetServerlessCacheResult {
  * The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
  */
 export function getServerlessCacheOutput(args: GetServerlessCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessCacheResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessCache(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:elasticache:getServerlessCache", {
+        "serverlessCacheName": args.serverlessCacheName,
+    }, opts);
 }
 
 export interface GetServerlessCacheOutputArgs {

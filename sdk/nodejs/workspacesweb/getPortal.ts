@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::WorkSpacesWeb::Portal Resource Type
  */
 export function getPortal(args: GetPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetPortalResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesweb:getPortal", {
         "portalArn": args.portalArn,
@@ -119,7 +118,10 @@ export interface GetPortalResult {
  * Definition of AWS::WorkSpacesWeb::Portal Resource Type
  */
 export function getPortalOutput(args: GetPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortalResult> {
-    return pulumi.output(args).apply((a: any) => getPortal(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getPortal", {
+        "portalArn": args.portalArn,
+    }, opts);
 }
 
 export interface GetPortalOutputArgs {

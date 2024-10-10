@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -139,9 +144,6 @@ def get_dataset(arn: Optional[str] = None,
         encryption_config=pulumi.get(__ret__, 'encryption_config'),
         schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_dataset)
 def get_dataset_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
     """
@@ -150,4 +152,15 @@ def get_dataset_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the dataset.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:forecast:getDataset', __args__, opts=opts, typ=GetDatasetResult)
+    return __ret__.apply(lambda __response__: GetDatasetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        data_frequency=pulumi.get(__response__, 'data_frequency'),
+        dataset_type=pulumi.get(__response__, 'dataset_type'),
+        domain=pulumi.get(__response__, 'domain'),
+        encryption_config=pulumi.get(__response__, 'encryption_config'),
+        schema=pulumi.get(__response__, 'schema'),
+        tags=pulumi.get(__response__, 'tags')))

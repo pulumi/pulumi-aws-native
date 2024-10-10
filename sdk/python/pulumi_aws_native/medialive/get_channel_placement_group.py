@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -136,9 +141,6 @@ def get_channel_placement_group(cluster_id: Optional[str] = None,
         nodes=pulumi.get(__ret__, 'nodes'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_channel_placement_group)
 def get_channel_placement_group_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                        id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelPlacementGroupResult]:
@@ -149,4 +151,16 @@ def get_channel_placement_group_output(cluster_id: Optional[pulumi.Input[str]] =
     :param str cluster_id: The ID of the cluster the node is on.
     :param str id: Unique internal identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getChannelPlacementGroup', __args__, opts=opts, typ=GetChannelPlacementGroupResult)
+    return __ret__.apply(lambda __response__: GetChannelPlacementGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        channels=pulumi.get(__response__, 'channels'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        nodes=pulumi.get(__response__, 'nodes'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Schema of AWS::EMRContainers::VirtualCluster Type
  */
 export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:emrcontainers:getVirtualCluster", {
         "id": args.id,
@@ -43,7 +42,10 @@ export interface GetVirtualClusterResult {
  * Resource Schema of AWS::EMRContainers::VirtualCluster Type
  */
 export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualClusterResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:emrcontainers:getVirtualCluster", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetVirtualClusterOutputArgs {

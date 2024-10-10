@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -83,9 +88,6 @@ def get_readiness_check(readiness_check_name: Optional[str] = None,
         readiness_check_arn=pulumi.get(__ret__, 'readiness_check_arn'),
         resource_set_name=pulumi.get(__ret__, 'resource_set_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_readiness_check)
 def get_readiness_check_output(readiness_check_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadinessCheckResult]:
     """
@@ -94,4 +96,11 @@ def get_readiness_check_output(readiness_check_name: Optional[pulumi.Input[str]]
 
     :param str readiness_check_name: Name of the ReadinessCheck to create.
     """
-    ...
+    __args__ = dict()
+    __args__['readinessCheckName'] = readiness_check_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoveryreadiness:getReadinessCheck', __args__, opts=opts, typ=GetReadinessCheckResult)
+    return __ret__.apply(lambda __response__: GetReadinessCheckResult(
+        readiness_check_arn=pulumi.get(__response__, 'readiness_check_arn'),
+        resource_set_name=pulumi.get(__response__, 'resource_set_name'),
+        tags=pulumi.get(__response__, 'tags')))

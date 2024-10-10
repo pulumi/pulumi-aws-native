@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Organizations::Organization
  */
 export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:organizations:getOrganization", {
         "id": args.id,
@@ -59,7 +58,10 @@ export interface GetOrganizationResult {
  * Resource schema for AWS::Organizations::Organization
  */
 export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
-    return pulumi.output(args).apply((a: any) => getOrganization(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:organizations:getOrganization", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetOrganizationOutputArgs {

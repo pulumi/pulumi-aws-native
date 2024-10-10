@@ -4,28 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'OriginEndpointDashManifestConfigurationArgs',
+    'OriginEndpointDashManifestConfigurationArgsDict',
     'OriginEndpointDashUtcTimingArgs',
+    'OriginEndpointDashUtcTimingArgsDict',
     'OriginEndpointEncryptionContractConfigurationArgs',
+    'OriginEndpointEncryptionContractConfigurationArgsDict',
     'OriginEndpointEncryptionMethodArgs',
+    'OriginEndpointEncryptionMethodArgsDict',
     'OriginEndpointEncryptionArgs',
+    'OriginEndpointEncryptionArgsDict',
     'OriginEndpointFilterConfigurationArgs',
+    'OriginEndpointFilterConfigurationArgsDict',
     'OriginEndpointForceEndpointErrorConfigurationArgs',
+    'OriginEndpointForceEndpointErrorConfigurationArgsDict',
     'OriginEndpointHlsManifestConfigurationArgs',
+    'OriginEndpointHlsManifestConfigurationArgsDict',
     'OriginEndpointLowLatencyHlsManifestConfigurationArgs',
+    'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict',
     'OriginEndpointScteDashArgs',
+    'OriginEndpointScteDashArgsDict',
     'OriginEndpointScteHlsArgs',
+    'OriginEndpointScteHlsArgsDict',
     'OriginEndpointScteArgs',
+    'OriginEndpointScteArgsDict',
     'OriginEndpointSegmentArgs',
+    'OriginEndpointSegmentArgsDict',
     'OriginEndpointSpekeKeyProviderArgs',
+    'OriginEndpointSpekeKeyProviderArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class OriginEndpointDashManifestConfigurationArgsDict(TypedDict):
+        """
+        <p>Retrieve the DASH manifest configuration.</p>
+        """
+        manifest_name: pulumi.Input[str]
+        """
+        <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+        """
+        drm_signaling: NotRequired[pulumi.Input['OriginEndpointDashDrmSignaling']]
+        filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+        manifest_window_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>The total duration (in seconds) of the manifest's content.</p>
+        """
+        min_buffer_time_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+        """
+        min_update_period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+        """
+        period_triggers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPeriodTrigger']]]]
+        """
+        <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+                 For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+        """
+        scte_dash: NotRequired[pulumi.Input['OriginEndpointScteDashArgsDict']]
+        segment_template_format: NotRequired[pulumi.Input['OriginEndpointDashSegmentTemplateFormat']]
+        suggested_presentation_delay_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+        """
+        utc_timing: NotRequired[pulumi.Input['OriginEndpointDashUtcTimingArgsDict']]
+elif False:
+    OriginEndpointDashManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginEndpointDashManifestConfigurationArgs:
@@ -192,6 +251,22 @@ class OriginEndpointDashManifestConfigurationArgs:
         pulumi.set(self, "utc_timing", value)
 
 
+if not MYPY:
+    class OriginEndpointDashUtcTimingArgsDict(TypedDict):
+        """
+        <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+        """
+        timing_mode: NotRequired[pulumi.Input['OriginEndpointDashUtcTimingMode']]
+        """
+        The UTC timing mode.
+        """
+        timing_source: NotRequired[pulumi.Input[str]]
+        """
+        <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+        """
+elif False:
+    OriginEndpointDashUtcTimingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginEndpointDashUtcTimingArgs:
     def __init__(__self__, *,
@@ -231,6 +306,30 @@ class OriginEndpointDashUtcTimingArgs:
     def timing_source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timing_source", value)
 
+
+if not MYPY:
+    class OriginEndpointEncryptionContractConfigurationArgsDict(TypedDict):
+        """
+        <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
+        """
+        preset_speke20_audio: pulumi.Input['OriginEndpointPresetSpeke20Audio']
+        """
+        A collection of audio encryption presets.
+
+        Value description:
+
+        - `PRESET-AUDIO-1` - Use one content key to encrypt all of the audio tracks in your stream.
+        - `PRESET-AUDIO-2` - Use one content key to encrypt all of the stereo audio tracks and one content key to encrypt all of the multichannel audio tracks.
+        - `PRESET-AUDIO-3` - Use one content key to encrypt all of the stereo audio tracks, one content key to encrypt all of the multichannel audio tracks with 3 to 6 channels, and one content key to encrypt all of the multichannel audio tracks with more than 6 channels.
+        - `SHARED` - Use the same content key for all of the audio and video tracks in your stream.
+        - `UNENCRYPTED` - Don't encrypt any of the audio tracks in your stream.
+        """
+        preset_speke20_video: pulumi.Input['OriginEndpointPresetSpeke20Video']
+        """
+        The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
+        """
+elif False:
+    OriginEndpointEncryptionContractConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginEndpointEncryptionContractConfigurationArgs:
@@ -286,6 +385,22 @@ class OriginEndpointEncryptionContractConfigurationArgs:
         pulumi.set(self, "preset_speke20_video", value)
 
 
+if not MYPY:
+    class OriginEndpointEncryptionMethodArgsDict(TypedDict):
+        """
+        <p>The encryption type.</p>
+        """
+        cmaf_encryption_method: NotRequired[pulumi.Input['OriginEndpointCmafEncryptionMethod']]
+        """
+        The encryption method to use.
+        """
+        ts_encryption_method: NotRequired[pulumi.Input['OriginEndpointTsEncryptionMethod']]
+        """
+        The encryption method to use.
+        """
+elif False:
+    OriginEndpointEncryptionMethodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginEndpointEncryptionMethodArgs:
     def __init__(__self__, *,
@@ -325,6 +440,32 @@ class OriginEndpointEncryptionMethodArgs:
     def ts_encryption_method(self, value: Optional[pulumi.Input['OriginEndpointTsEncryptionMethod']]):
         pulumi.set(self, "ts_encryption_method", value)
 
+
+if not MYPY:
+    class OriginEndpointEncryptionArgsDict(TypedDict):
+        """
+        <p>The parameters for encrypting content.</p>
+        """
+        encryption_method: pulumi.Input['OriginEndpointEncryptionMethodArgsDict']
+        """
+        The encryption method to use.
+        """
+        speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgsDict']
+        """
+        The SPEKE key provider to use for encryption.
+        """
+        constant_initialization_vector: NotRequired[pulumi.Input[str]]
+        """
+        <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
+        """
+        key_rotation_interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
+                 <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
+                 </p>
+        """
+elif False:
+    OriginEndpointEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginEndpointEncryptionArgs:
@@ -400,6 +541,30 @@ class OriginEndpointEncryptionArgs:
         pulumi.set(self, "key_rotation_interval_seconds", value)
 
 
+if not MYPY:
+    class OriginEndpointFilterConfigurationArgsDict(TypedDict):
+        """
+        <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+        """
+        end: NotRequired[pulumi.Input[str]]
+        """
+        <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+        """
+        manifest_filter: NotRequired[pulumi.Input[str]]
+        """
+        <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+        """
+        time_delay_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+        """
+elif False:
+    OriginEndpointFilterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginEndpointFilterConfigurationArgs:
     def __init__(__self__, *,
@@ -472,6 +637,32 @@ class OriginEndpointFilterConfigurationArgs:
         pulumi.set(self, "time_delay_seconds", value)
 
 
+if not MYPY:
+    class OriginEndpointForceEndpointErrorConfigurationArgsDict(TypedDict):
+        """
+        <p>The failover settings for the endpoint.</p>
+        """
+        endpoint_error_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]
+        """
+        <p>The failover settings for the endpoint. The options are:</p>
+                 <ul>
+                    <li>
+                       <p>
+                          <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+                    </li>
+                    <li>
+                       <p>
+                          <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+                    </li>
+                    <li>
+                       <p>
+                          <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+                    </li>
+                 </ul>
+        """
+elif False:
+    OriginEndpointForceEndpointErrorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginEndpointForceEndpointErrorConfigurationArgs:
     def __init__(__self__, *,
@@ -523,6 +714,43 @@ class OriginEndpointForceEndpointErrorConfigurationArgs:
     def endpoint_error_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointEndpointErrorCondition']]]]):
         pulumi.set(self, "endpoint_error_conditions", value)
 
+
+if not MYPY:
+    class OriginEndpointHlsManifestConfigurationArgsDict(TypedDict):
+        """
+        <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
+        """
+        manifest_name: pulumi.Input[str]
+        """
+        <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+        """
+        child_manifest_name: NotRequired[pulumi.Input[str]]
+        """
+        <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+        """
+        filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+        manifest_window_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>The total duration (in seconds) of the manifest's content.</p>
+        """
+        program_date_time_interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
+                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
+                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
+                 ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+                 <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+        """
+        scte_hls: NotRequired[pulumi.Input['OriginEndpointScteHlsArgsDict']]
+        """
+        THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        <p>The egress domain URL for stream delivery from MediaPackage.</p>
+        """
+elif False:
+    OriginEndpointHlsManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginEndpointHlsManifestConfigurationArgs:
@@ -647,6 +875,43 @@ class OriginEndpointHlsManifestConfigurationArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class OriginEndpointLowLatencyHlsManifestConfigurationArgsDict(TypedDict):
+        """
+        <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
+        """
+        manifest_name: pulumi.Input[str]
+        """
+        <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+        """
+        child_manifest_name: NotRequired[pulumi.Input[str]]
+        """
+        <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
+        """
+        filter_configuration: NotRequired[pulumi.Input['OriginEndpointFilterConfigurationArgsDict']]
+        manifest_window_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>The total duration (in seconds) of the manifest's content.</p>
+        """
+        program_date_time_interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, 
+                 EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. 
+                 The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
+                 ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+                 <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+        """
+        scte_hls: NotRequired[pulumi.Input['OriginEndpointScteHlsArgsDict']]
+        """
+        The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        <p>The egress domain URL for stream delivery from MediaPackage.</p>
+        """
+elif False:
+    OriginEndpointLowLatencyHlsManifestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     def __init__(__self__, *,
@@ -770,6 +1035,23 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class OriginEndpointScteDashArgsDict(TypedDict):
+        """
+        <p>The SCTE configuration.</p>
+        """
+        ad_marker_dash: NotRequired[pulumi.Input['OriginEndpointAdMarkerDash']]
+        """
+        Choose how ad markers are included in the packaged content. If you include ad markers in the content stream in your upstream encoders, then you need to inform MediaPackage what to do with the ad markers in the output.
+
+        Value description:
+
+        - `Binary` - The SCTE-35 marker is expressed as a hex-string (Base64 string) rather than full XML.
+        - `XML` - The SCTE marker is expressed fully in XML.
+        """
+elif False:
+    OriginEndpointScteDashArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginEndpointScteDashArgs:
     def __init__(__self__, *,
@@ -804,6 +1086,18 @@ class OriginEndpointScteDashArgs:
         pulumi.set(self, "ad_marker_dash", value)
 
 
+if not MYPY:
+    class OriginEndpointScteHlsArgsDict(TypedDict):
+        """
+        <p>The SCTE configuration.</p>
+        """
+        ad_marker_hls: NotRequired[pulumi.Input['OriginEndpointAdMarkerHls']]
+        """
+        The SCTE-35 HLS ad-marker configuration.
+        """
+elif False:
+    OriginEndpointScteHlsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginEndpointScteHlsArgs:
     def __init__(__self__, *,
@@ -828,6 +1122,18 @@ class OriginEndpointScteHlsArgs:
         pulumi.set(self, "ad_marker_hls", value)
 
 
+if not MYPY:
+    class OriginEndpointScteArgsDict(TypedDict):
+        """
+        <p>The SCTE configuration.</p>
+        """
+        scte_filter: NotRequired[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]
+        """
+        <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
+        """
+elif False:
+    OriginEndpointScteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginEndpointScteArgs:
     def __init__(__self__, *,
@@ -851,6 +1157,42 @@ class OriginEndpointScteArgs:
     def scte_filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]):
         pulumi.set(self, "scte_filter", value)
 
+
+if not MYPY:
+    class OriginEndpointSegmentArgsDict(TypedDict):
+        """
+        <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
+        """
+        encryption: NotRequired[pulumi.Input['OriginEndpointEncryptionArgsDict']]
+        """
+        Whether to use encryption for the segment.
+        """
+        include_iframe_only_streams: NotRequired[pulumi.Input[bool]]
+        """
+        <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
+        """
+        scte: NotRequired[pulumi.Input['OriginEndpointScteArgsDict']]
+        """
+        The SCTE-35 configuration associated with the segment.
+        """
+        segment_duration_seconds: NotRequired[pulumi.Input[int]]
+        """
+        <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
+        """
+        segment_name: NotRequired[pulumi.Input[str]]
+        """
+        <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
+        """
+        ts_include_dvb_subtitles: NotRequired[pulumi.Input[bool]]
+        """
+        <p>By default, MediaPackage excludes all digital video broadcasting (DVB) subtitles from the output. When selected, MediaPackage passes through DVB subtitles into the output.</p>
+        """
+        ts_use_audio_rendition_group: NotRequired[pulumi.Input[bool]]
+        """
+        <p>When selected, MediaPackage bundles all audio tracks in a rendition group. All other tracks in the stream can be used with any audio rendition from the group.</p>
+        """
+elif False:
+    OriginEndpointSegmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginEndpointSegmentArgs:
@@ -971,6 +1313,40 @@ class OriginEndpointSegmentArgs:
     def ts_use_audio_rendition_group(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ts_use_audio_rendition_group", value)
 
+
+if not MYPY:
+    class OriginEndpointSpekeKeyProviderArgsDict(TypedDict):
+        """
+        <p>The parameters for the SPEKE key provider.</p>
+        """
+        drm_systems: pulumi.Input[Sequence[pulumi.Input['OriginEndpointDrmSystem']]]
+        """
+        <p>The DRM solution provider you're using to protect your content during distribution.</p>
+        """
+        encryption_contract_configuration: pulumi.Input['OriginEndpointEncryptionContractConfigurationArgsDict']
+        """
+        The encryption contract configuration associated with the SPEKE key provider.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
+                 <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
+                 </p>
+        """
+        role_arn: pulumi.Input[str]
+        """
+        <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p>
+                 <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code>
+                 </p>
+        """
+        url: pulumi.Input[str]
+        """
+        <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p>
+                 <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
+                 </p>
+        """
+elif False:
+    OriginEndpointSpekeKeyProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginEndpointSpekeKeyProviderArgs:

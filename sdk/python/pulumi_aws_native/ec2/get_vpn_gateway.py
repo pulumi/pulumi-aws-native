@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -71,9 +76,6 @@ def get_vpn_gateway(vpn_gateway_id: Optional[str] = None,
     return AwaitableGetVpnGatewayResult(
         tags=pulumi.get(__ret__, 'tags'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
-
-
-@_utilities.lift_output_func(get_vpn_gateway)
 def get_vpn_gateway_output(vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
@@ -83,4 +85,10 @@ def get_vpn_gateway_output(vpn_gateway_id: Optional[pulumi.Input[str]] = None,
 
     :param str vpn_gateway_id: The ID of the VPN gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['vpnGatewayId'] = vpn_gateway_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult)
+    return __ret__.apply(lambda __response__: GetVpnGatewayResult(
+        tags=pulumi.get(__response__, 'tags'),
+        vpn_gateway_id=pulumi.get(__response__, 'vpn_gateway_id')))

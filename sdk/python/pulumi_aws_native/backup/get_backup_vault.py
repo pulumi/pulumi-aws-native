@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -111,9 +116,6 @@ def get_backup_vault(backup_vault_name: Optional[str] = None,
         backup_vault_tags=pulumi.get(__ret__, 'backup_vault_tags'),
         lock_configuration=pulumi.get(__ret__, 'lock_configuration'),
         notifications=pulumi.get(__ret__, 'notifications'))
-
-
-@_utilities.lift_output_func(get_backup_vault)
 def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
@@ -122,4 +124,13 @@ def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[str]] = Non
 
     :param str backup_vault_name: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
     """
-    ...
+    __args__ = dict()
+    __args__['backupVaultName'] = backup_vault_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getBackupVault', __args__, opts=opts, typ=GetBackupVaultResult)
+    return __ret__.apply(lambda __response__: GetBackupVaultResult(
+        access_policy=pulumi.get(__response__, 'access_policy'),
+        backup_vault_arn=pulumi.get(__response__, 'backup_vault_arn'),
+        backup_vault_tags=pulumi.get(__response__, 'backup_vault_tags'),
+        lock_configuration=pulumi.get(__response__, 'lock_configuration'),
+        notifications=pulumi.get(__response__, 'notifications')))

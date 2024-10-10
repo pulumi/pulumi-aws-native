@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -126,9 +131,6 @@ def get_datastore(datastore_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         retention_period=pulumi.get(__ret__, 'retention_period'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_datastore)
 def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
     """
@@ -137,4 +139,14 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
 
     :param str datastore_name: The name of the data store.
     """
-    ...
+    __args__ = dict()
+    __args__['datastoreName'] = datastore_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iotanalytics:getDatastore', __args__, opts=opts, typ=GetDatastoreResult)
+    return __ret__.apply(lambda __response__: GetDatastoreResult(
+        datastore_partitions=pulumi.get(__response__, 'datastore_partitions'),
+        datastore_storage=pulumi.get(__response__, 'datastore_storage'),
+        file_format_configuration=pulumi.get(__response__, 'file_format_configuration'),
+        id=pulumi.get(__response__, 'id'),
+        retention_period=pulumi.get(__response__, 'retention_period'),
+        tags=pulumi.get(__response__, 'tags')))

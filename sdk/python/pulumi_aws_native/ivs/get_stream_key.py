@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -83,9 +88,6 @@ def get_stream_key(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_stream_key)
 def get_stream_key_output(arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamKeyResult]:
     """
@@ -94,4 +96,11 @@ def get_stream_key_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getStreamKey', __args__, opts=opts, typ=GetStreamKeyResult)
+    return __ret__.apply(lambda __response__: GetStreamKeyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        tags=pulumi.get(__response__, 'tags'),
+        value=pulumi.get(__response__, 'value')))

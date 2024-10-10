@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DirectoryService::SimpleAD
  */
 export function getSimpleAd(args: GetSimpleAdArgs, opts?: pulumi.InvokeOptions): Promise<GetSimpleAdResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:directoryservice:getSimpleAd", {
         "directoryId": args.directoryId,
@@ -44,7 +43,10 @@ export interface GetSimpleAdResult {
  * Resource Type definition for AWS::DirectoryService::SimpleAD
  */
 export function getSimpleAdOutput(args: GetSimpleAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimpleAdResult> {
-    return pulumi.output(args).apply((a: any) => getSimpleAd(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:directoryservice:getSimpleAd", {
+        "directoryId": args.directoryId,
+    }, opts);
 }
 
 export interface GetSimpleAdOutputArgs {

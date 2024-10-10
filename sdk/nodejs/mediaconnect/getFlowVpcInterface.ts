@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaConnect::FlowVpcInterface
  */
 export function getFlowVpcInterface(args: GetFlowVpcInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowVpcInterfaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconnect:getFlowVpcInterface", {
         "flowArn": args.flowArn,
@@ -49,7 +48,11 @@ export interface GetFlowVpcInterfaceResult {
  * Resource schema for AWS::MediaConnect::FlowVpcInterface
  */
 export function getFlowVpcInterfaceOutput(args: GetFlowVpcInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowVpcInterfaceResult> {
-    return pulumi.output(args).apply((a: any) => getFlowVpcInterface(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:mediaconnect:getFlowVpcInterface", {
+        "flowArn": args.flowArn,
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetFlowVpcInterfaceOutputArgs {

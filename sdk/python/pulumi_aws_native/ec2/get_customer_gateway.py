@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -70,9 +75,6 @@ def get_customer_gateway(customer_gateway_id: Optional[str] = None,
     return AwaitableGetCustomerGatewayResult(
         customer_gateway_id=pulumi.get(__ret__, 'customer_gateway_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_customer_gateway)
 def get_customer_gateway_output(customer_gateway_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
@@ -81,4 +83,10 @@ def get_customer_gateway_output(customer_gateway_id: Optional[pulumi.Input[str]]
 
     :param str customer_gateway_id: The ID of the customer gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['customerGatewayId'] = customer_gateway_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getCustomerGateway', __args__, opts=opts, typ=GetCustomerGatewayResult)
+    return __ret__.apply(lambda __response__: GetCustomerGatewayResult(
+        customer_gateway_id=pulumi.get(__response__, 'customer_gateway_id'),
+        tags=pulumi.get(__response__, 'tags')))

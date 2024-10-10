@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 export function getSsmParameterList(args: GetSsmParameterListArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmParameterListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:index:getSsmParameterList", {
         "name": args.name,
@@ -20,7 +19,10 @@ export interface GetSsmParameterListResult {
     readonly value: string[];
 }
 export function getSsmParameterListOutput(args: GetSsmParameterListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmParameterListResult> {
-    return pulumi.output(args).apply((a: any) => getSsmParameterList(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:index:getSsmParameterList", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetSsmParameterListOutputArgs {

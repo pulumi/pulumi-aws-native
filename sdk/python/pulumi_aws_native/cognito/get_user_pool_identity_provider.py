@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -127,9 +132,6 @@ def get_user_pool_identity_provider(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         idp_identifiers=pulumi.get(__ret__, 'idp_identifiers'),
         provider_details=pulumi.get(__ret__, 'provider_details'))
-
-
-@_utilities.lift_output_func(get_user_pool_identity_provider)
 def get_user_pool_identity_provider_output(id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolIdentityProviderResult]:
     """
@@ -138,4 +140,12 @@ def get_user_pool_identity_provider_output(id: Optional[pulumi.Input[str]] = Non
 
     :param str id: The resource ID.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolIdentityProvider', __args__, opts=opts, typ=GetUserPoolIdentityProviderResult)
+    return __ret__.apply(lambda __response__: GetUserPoolIdentityProviderResult(
+        attribute_mapping=pulumi.get(__response__, 'attribute_mapping'),
+        id=pulumi.get(__response__, 'id'),
+        idp_identifiers=pulumi.get(__response__, 'idp_identifiers'),
+        provider_details=pulumi.get(__response__, 'provider_details')))

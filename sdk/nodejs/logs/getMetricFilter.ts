@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *  The maximum number of metric filters that can be associated with a log group is 100.
  */
 export function getMetricFilter(args: GetMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricFilterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getMetricFilter", {
         "filterName": args.filterName,
@@ -46,7 +45,11 @@ export interface GetMetricFilterResult {
  *  The maximum number of metric filters that can be associated with a log group is 100.
  */
 export function getMetricFilterOutput(args: GetMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricFilterResult> {
-    return pulumi.output(args).apply((a: any) => getMetricFilter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:logs:getMetricFilter", {
+        "filterName": args.filterName,
+        "logGroupName": args.logGroupName,
+    }, opts);
 }
 
 export interface GetMetricFilterOutputArgs {

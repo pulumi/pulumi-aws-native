@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::Instance
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getInstance", {
         "arn": args.arn,
@@ -59,7 +58,10 @@ export interface GetInstanceResult {
  * Resource Type definition for AWS::Connect::Instance
  */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getInstance", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetInstanceOutputArgs {

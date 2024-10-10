@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -173,9 +178,6 @@ def get_alarm(alarm_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         threshold=pulumi.get(__ret__, 'threshold'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'))
-
-
-@_utilities.lift_output_func(get_alarm)
 def get_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlarmResult]:
     """
@@ -184,4 +186,18 @@ def get_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
 
     :param str alarm_name: The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
     """
-    ...
+    __args__ = dict()
+    __args__['alarmName'] = alarm_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getAlarm', __args__, opts=opts, typ=GetAlarmResult)
+    return __ret__.apply(lambda __response__: GetAlarmResult(
+        alarm_arn=pulumi.get(__response__, 'alarm_arn'),
+        comparison_operator=pulumi.get(__response__, 'comparison_operator'),
+        contact_protocols=pulumi.get(__response__, 'contact_protocols'),
+        datapoints_to_alarm=pulumi.get(__response__, 'datapoints_to_alarm'),
+        evaluation_periods=pulumi.get(__response__, 'evaluation_periods'),
+        notification_enabled=pulumi.get(__response__, 'notification_enabled'),
+        notification_triggers=pulumi.get(__response__, 'notification_triggers'),
+        state=pulumi.get(__response__, 'state'),
+        threshold=pulumi.get(__response__, 'threshold'),
+        treat_missing_data=pulumi.get(__response__, 'treat_missing_data')))

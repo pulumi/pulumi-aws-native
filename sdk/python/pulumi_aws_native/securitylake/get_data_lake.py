@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -123,9 +128,6 @@ def get_data_lake(arn: Optional[str] = None,
         replication_configuration=pulumi.get(__ret__, 'replication_configuration'),
         s3_bucket_arn=pulumi.get(__ret__, 's3_bucket_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_data_lake)
 def get_data_lake_output(arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataLakeResult]:
     """
@@ -134,4 +136,14 @@ def get_data_lake_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) created by you to provide to the subscriber.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:securitylake:getDataLake', __args__, opts=opts, typ=GetDataLakeResult)
+    return __ret__.apply(lambda __response__: GetDataLakeResult(
+        arn=pulumi.get(__response__, 'arn'),
+        encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
+        lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
+        replication_configuration=pulumi.get(__response__, 'replication_configuration'),
+        s3_bucket_arn=pulumi.get(__response__, 's3_bucket_arn'),
+        tags=pulumi.get(__response__, 'tags')))

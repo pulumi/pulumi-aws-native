@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Schema for AWS::SNS::TopicInlinePolicy
  */
 export function getTopicInlinePolicy(args: GetTopicInlinePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicInlinePolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sns:getTopicInlinePolicy", {
         "topicArn": args.topicArn,
@@ -34,7 +33,10 @@ export interface GetTopicInlinePolicyResult {
  * Schema for AWS::SNS::TopicInlinePolicy
  */
 export function getTopicInlinePolicyOutput(args: GetTopicInlinePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicInlinePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getTopicInlinePolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sns:getTopicInlinePolicy", {
+        "topicArn": args.topicArn,
+    }, opts);
 }
 
 export interface GetTopicInlinePolicyOutputArgs {

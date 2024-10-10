@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::Space
  */
 export function getSpace(args: GetSpaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSpaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getSpace", {
         "domainId": args.domainId,
@@ -51,7 +50,11 @@ export interface GetSpaceResult {
  * Resource Type definition for AWS::SageMaker::Space
  */
 export function getSpaceOutput(args: GetSpaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpaceResult> {
-    return pulumi.output(args).apply((a: any) => getSpace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:sagemaker:getSpace", {
+        "domainId": args.domainId,
+        "spaceName": args.spaceName,
+    }, opts);
 }
 
 export interface GetSpaceOutputArgs {

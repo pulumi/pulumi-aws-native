@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
  */
 export function getTrustStore(args: GetTrustStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustStoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticloadbalancingv2:getTrustStore", {
         "trustStoreArn": args.trustStoreArn,
@@ -47,7 +46,10 @@ export interface GetTrustStoreResult {
  * Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
  */
 export function getTrustStoreOutput(args: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustStoreResult> {
-    return pulumi.output(args).apply((a: any) => getTrustStore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:elasticloadbalancingv2:getTrustStore", {
+        "trustStoreArn": args.trustStoreArn,
+    }, opts);
 }
 
 export interface GetTrustStoreOutputArgs {

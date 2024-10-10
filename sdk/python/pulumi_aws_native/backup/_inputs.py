@@ -4,34 +4,84 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'BackupPlanAdvancedBackupSettingResourceTypeArgs',
+    'BackupPlanAdvancedBackupSettingResourceTypeArgsDict',
     'BackupPlanBackupRuleResourceTypeArgs',
+    'BackupPlanBackupRuleResourceTypeArgsDict',
     'BackupPlanCopyActionResourceTypeArgs',
+    'BackupPlanCopyActionResourceTypeArgsDict',
     'BackupPlanLifecycleResourceTypeArgs',
+    'BackupPlanLifecycleResourceTypeArgsDict',
     'BackupPlanResourceTypeArgs',
+    'BackupPlanResourceTypeArgsDict',
     'BackupSelectionConditionParameterArgs',
+    'BackupSelectionConditionParameterArgsDict',
     'BackupSelectionConditionResourceTypeArgs',
+    'BackupSelectionConditionResourceTypeArgsDict',
     'BackupSelectionResourceTypeConditionsPropertiesArgs',
+    'BackupSelectionResourceTypeConditionsPropertiesArgsDict',
     'BackupSelectionResourceTypeArgs',
+    'BackupSelectionResourceTypeArgsDict',
     'BackupVaultLockConfigurationTypeArgs',
+    'BackupVaultLockConfigurationTypeArgsDict',
     'BackupVaultNotificationObjectTypeArgs',
+    'BackupVaultNotificationObjectTypeArgsDict',
     'FrameworkControlControlScopePropertiesArgs',
+    'FrameworkControlControlScopePropertiesArgsDict',
     'FrameworkControlInputParameterArgs',
+    'FrameworkControlInputParameterArgsDict',
     'FrameworkControlArgs',
+    'FrameworkControlArgsDict',
     'FrameworkTagArgs',
+    'FrameworkTagArgsDict',
     'ReportDeliveryChannelPropertiesArgs',
+    'ReportDeliveryChannelPropertiesArgsDict',
     'ReportSettingPropertiesArgs',
+    'ReportSettingPropertiesArgsDict',
     'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs',
+    'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict',
     'RestoreTestingSelectionKeyValueArgs',
+    'RestoreTestingSelectionKeyValueArgsDict',
     'RestoreTestingSelectionProtectedResourceConditionsArgs',
+    'RestoreTestingSelectionProtectedResourceConditionsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BackupPlanAdvancedBackupSettingResourceTypeArgsDict(TypedDict):
+        backup_options: Any
+        """
+        The backup option for the resource. Each option is a key-value pair. This option is only available for Windows VSS backup jobs.
+
+        Valid values:
+
+        Set to `"WindowsVSS":"enabled"` to enable the `WindowsVSS` backup option and create a Windows VSS backup.
+
+        Set to `"WindowsVSS":"disabled"` to create a regular backup. The `WindowsVSS` option is not enabled by default.
+
+        If you specify an invalid option, you get an `InvalidParameterValueException` exception.
+
+        For more information about Windows VSS backups, see [Creating a VSS-Enabled Windows Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html) .
+        """
+        resource_type: pulumi.Input[str]
+        """
+        The name of a resource type. The only supported resource type is EC2.
+        """
+elif False:
+    BackupPlanAdvancedBackupSettingResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPlanAdvancedBackupSettingResourceTypeArgs:
@@ -89,6 +139,53 @@ class BackupPlanAdvancedBackupSettingResourceTypeArgs:
     def resource_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_type", value)
 
+
+if not MYPY:
+    class BackupPlanBackupRuleResourceTypeArgsDict(TypedDict):
+        rule_name: pulumi.Input[str]
+        """
+        A display name for a backup rule.
+        """
+        target_backup_vault: pulumi.Input[str]
+        """
+        The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
+        """
+        completion_window_minutes: NotRequired[pulumi.Input[float]]
+        """
+        A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
+        """
+        copy_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupPlanCopyActionResourceTypeArgsDict']]]]
+        """
+        An array of CopyAction objects, which contains the details of the copy operation.
+        """
+        enable_continuous_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Enables continuous backup and point-in-time restores (PITR).
+        """
+        lifecycle: NotRequired[pulumi.Input['BackupPlanLifecycleResourceTypeArgsDict']]
+        """
+        The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
+        """
+        recovery_point_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The tags to assign to the resources.
+        """
+        schedule_expression: NotRequired[pulumi.Input[str]]
+        """
+        A CRON expression specifying when AWS Backup initiates a backup job.
+        """
+        schedule_expression_timezone: NotRequired[pulumi.Input[str]]
+        """
+        This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        """
+        start_window_minutes: NotRequired[pulumi.Input[float]]
+        """
+        An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
+
+        If this value is included, it must be at least 60 minutes to avoid errors.
+        """
+elif False:
+    BackupPlanBackupRuleResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPlanBackupRuleResourceTypeArgs:
@@ -259,6 +356,21 @@ class BackupPlanBackupRuleResourceTypeArgs:
         pulumi.set(self, "start_window_minutes", value)
 
 
+if not MYPY:
+    class BackupPlanCopyActionResourceTypeArgsDict(TypedDict):
+        destination_backup_vault_arn: pulumi.Input[str]
+        """
+        An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup. For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
+        """
+        lifecycle: NotRequired[pulumi.Input['BackupPlanLifecycleResourceTypeArgsDict']]
+        """
+        Defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
+
+        Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
+        """
+elif False:
+    BackupPlanCopyActionResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPlanCopyActionResourceTypeArgs:
     def __init__(__self__, *,
@@ -300,6 +412,23 @@ class BackupPlanCopyActionResourceTypeArgs:
     def lifecycle(self, value: Optional[pulumi.Input['BackupPlanLifecycleResourceTypeArgs']]):
         pulumi.set(self, "lifecycle", value)
 
+
+if not MYPY:
+    class BackupPlanLifecycleResourceTypeArgsDict(TypedDict):
+        delete_after_days: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the number of days after creation that a recovery point is deleted. Must be greater than `MoveToColdStorageAfterDays` .
+        """
+        move_to_cold_storage_after_days: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the number of days after creation that a recovery point is moved to cold storage.
+        """
+        opt_in_to_archive_for_supported_resources: NotRequired[pulumi.Input[bool]]
+        """
+        If the value is true, your backup plan transitions supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        """
+elif False:
+    BackupPlanLifecycleResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPlanLifecycleResourceTypeArgs:
@@ -356,6 +485,23 @@ class BackupPlanLifecycleResourceTypeArgs:
         pulumi.set(self, "opt_in_to_archive_for_supported_resources", value)
 
 
+if not MYPY:
+    class BackupPlanResourceTypeArgsDict(TypedDict):
+        backup_plan_name: pulumi.Input[str]
+        """
+        The display name of a backup plan.
+        """
+        backup_plan_rule: pulumi.Input[Sequence[pulumi.Input['BackupPlanBackupRuleResourceTypeArgsDict']]]
+        """
+        An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
+        """
+        advanced_backup_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupPlanAdvancedBackupSettingResourceTypeArgsDict']]]]
+        """
+        A list of backup options for each resource type.
+        """
+elif False:
+    BackupPlanResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPlanResourceTypeArgs:
     def __init__(__self__, *,
@@ -409,6 +555,19 @@ class BackupPlanResourceTypeArgs:
         pulumi.set(self, "advanced_backup_settings", value)
 
 
+if not MYPY:
+    class BackupSelectionConditionParameterArgsDict(TypedDict):
+        condition_key: NotRequired[pulumi.Input[str]]
+        """
+        The key in a key-value pair. For example, in the tag `Department: Accounting` , `Department` is the key.
+        """
+        condition_value: NotRequired[pulumi.Input[str]]
+        """
+        The value in a key-value pair. For example, in the tag `Department: Accounting` , `Accounting` is the value.
+        """
+elif False:
+    BackupSelectionConditionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupSelectionConditionParameterArgs:
     def __init__(__self__, *,
@@ -447,6 +606,23 @@ class BackupSelectionConditionParameterArgs:
     def condition_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "condition_value", value)
 
+
+if not MYPY:
+    class BackupSelectionConditionResourceTypeArgsDict(TypedDict):
+        condition_key: pulumi.Input[str]
+        """
+        The key in a key-value pair. For example, in `"Department": "accounting"` , `"Department"` is the key.
+        """
+        condition_type: pulumi.Input[str]
+        """
+        An operation, such as `STRINGEQUALS` , that is applied to a key-value pair used to filter resources in a selection.
+        """
+        condition_value: pulumi.Input[str]
+        """
+        The value in a key-value pair. For example, in `"Department": "accounting"` , `"accounting"` is the value.
+        """
+elif False:
+    BackupSelectionConditionResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupSelectionConditionResourceTypeArgs:
@@ -499,6 +675,23 @@ class BackupSelectionConditionResourceTypeArgs:
     def condition_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "condition_value", value)
 
+
+if not MYPY:
+    class BackupSelectionResourceTypeConditionsPropertiesArgsDict(TypedDict):
+        """
+        A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+
+        `Conditions` differs from `ListOfTags` as follows:
+
+        - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
+        - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
+        """
+        string_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgsDict']]]]
+        string_like: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgsDict']]]]
+        string_not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgsDict']]]]
+        string_not_like: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgsDict']]]]
+elif False:
+    BackupSelectionResourceTypeConditionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupSelectionResourceTypeConditionsPropertiesArgs:
@@ -560,6 +753,47 @@ class BackupSelectionResourceTypeConditionsPropertiesArgs:
     def string_not_like(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionParameterArgs']]]]):
         pulumi.set(self, "string_not_like", value)
 
+
+if not MYPY:
+    class BackupSelectionResourceTypeArgsDict(TypedDict):
+        iam_role_arn: pulumi.Input[str]
+        """
+        The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target resource; for example, `arn:aws:iam::123456789012:role/S3Access` .
+        """
+        selection_name: pulumi.Input[str]
+        """
+        The display name of a resource selection document.
+        """
+        conditions: NotRequired[pulumi.Input['BackupSelectionResourceTypeConditionsPropertiesArgsDict']]
+        """
+        A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+
+        `Conditions` differs from `ListOfTags` as follows:
+
+        - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
+        - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
+        """
+        list_of_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackupSelectionConditionResourceTypeArgsDict']]]]
+        """
+        A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+
+        `ListOfTags` differs from `Conditions` as follows:
+
+        - When you specify more than one condition, you assign all resources that match AT LEAST ONE condition (using OR logic).
+        - `ListOfTags` only supports `StringEquals` . `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` .
+        """
+        not_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.
+
+        If you need to exclude many resources from a backup plan, consider a different resource selection strategy, such as assigning only one or a few resource types or refining your resource selection using tags.
+        """
+        resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of strings that contain Amazon Resource Names (ARNs) of resources to assign to a backup plan.
+        """
+elif False:
+    BackupSelectionResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupSelectionResourceTypeArgs:
@@ -686,6 +920,37 @@ class BackupSelectionResourceTypeArgs:
         pulumi.set(self, "resources", value)
 
 
+if not MYPY:
+    class BackupVaultLockConfigurationTypeArgsDict(TypedDict):
+        min_retention_days: pulumi.Input[int]
+        """
+        The AWS Backup Vault Lock configuration that specifies the minimum retention period that the vault retains its recovery points. This setting can be useful if, for example, your organization's policies require you to retain certain data for at least seven years (2555 days).
+
+        If this parameter is not specified, Vault Lock will not enforce a minimum retention period.
+
+        If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or longer than the minimum retention period. If the job's retention period is shorter than that minimum retention period, then the vault fails that backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
+        """
+        changeable_for_days: NotRequired[pulumi.Input[int]]
+        """
+        The AWS Backup Vault Lock configuration that specifies the number of days before the lock date. For example, setting `ChangeableForDays` to 30 on Jan. 1, 2022 at 8pm UTC will set the lock date to Jan. 31, 2022 at 8pm UTC.
+
+        AWS Backup enforces a 72-hour cooling-off period before Vault Lock takes effect and becomes immutable. Therefore, you must set `ChangeableForDays` to 3 or greater.
+
+        Before the lock date, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` . On and after the lock date, the Vault Lock becomes immutable and cannot be changed or deleted.
+
+        If this parameter is not specified, you can delete Vault Lock from the vault using `DeleteBackupVaultLockConfiguration` or change the Vault Lock configuration using `PutBackupVaultLockConfiguration` at any time.
+        """
+        max_retention_days: NotRequired[pulumi.Input[int]]
+        """
+        The AWS Backup Vault Lock configuration that specifies the maximum retention period that the vault retains its recovery points. This setting can be useful if, for example, your organization's policies require you to destroy certain data after retaining it for four years (1460 days).
+
+        If this parameter is not included, Vault Lock does not enforce a maximum retention period on the recovery points in the vault. If this parameter is included without a value, Vault Lock will not enforce a maximum retention period.
+
+        If this parameter is specified, any backup or copy job to the vault must have a lifecycle policy with a retention period equal to or shorter than the maximum retention period. If the job's retention period is longer than that maximum retention period, then the vault fails the backup or copy job, and you should either modify your lifecycle settings or use a different vault. Recovery points already saved in the vault prior to Vault Lock are not affected.
+        """
+elif False:
+    BackupVaultLockConfigurationTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupVaultLockConfigurationTypeArgs:
     def __init__(__self__, *,
@@ -768,6 +1033,19 @@ class BackupVaultLockConfigurationTypeArgs:
         pulumi.set(self, "max_retention_days", value)
 
 
+if not MYPY:
+    class BackupVaultNotificationObjectTypeArgsDict(TypedDict):
+        backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        An array of events that indicate the status of jobs to back up resources to the backup vault. For valid events, see [BackupVaultEvents](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_PutBackupVaultNotifications.html#API_PutBackupVaultNotifications_RequestSyntax) in the *AWS Backup API Guide* .
+        """
+        sns_topic_arn: pulumi.Input[str]
+        """
+        An ARN that uniquely identifies an Amazon Simple Notification Service (Amazon SNS) topic; for example, `arn:aws:sns:us-west-2:111122223333:MyTopic` .
+        """
+elif False:
+    BackupVaultNotificationObjectTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupVaultNotificationObjectTypeArgs:
     def __init__(__self__, *,
@@ -804,6 +1082,26 @@ class BackupVaultNotificationObjectTypeArgs:
     def sns_topic_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "sns_topic_arn", value)
 
+
+if not MYPY:
+    class FrameworkControlControlScopePropertiesArgsDict(TypedDict):
+        """
+        The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+        """
+        compliance_resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ID of the only AWS resource that you want your control scope to contain.
+        """
+        compliance_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Describes whether the control scope includes one or more types of resources, such as `EFS` or `RDS`.
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrameworkTagArgsDict']]]]
+        """
+        Describes whether the control scope includes resources with one or more tags. Each tag is a key-value pair.
+        """
+elif False:
+    FrameworkControlControlScopePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrameworkControlControlScopePropertiesArgs:
@@ -861,6 +1159,19 @@ class FrameworkControlControlScopePropertiesArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class FrameworkControlInputParameterArgsDict(TypedDict):
+        parameter_name: pulumi.Input[str]
+        """
+        The name of a parameter, for example, `BackupPlanFrequency` .
+        """
+        parameter_value: pulumi.Input[str]
+        """
+        The value of parameter, for example, `hourly` .
+        """
+elif False:
+    FrameworkControlInputParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrameworkControlInputParameterArgs:
     def __init__(__self__, *,
@@ -897,6 +1208,23 @@ class FrameworkControlInputParameterArgs:
     def parameter_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_value", value)
 
+
+if not MYPY:
+    class FrameworkControlArgsDict(TypedDict):
+        control_name: pulumi.Input[str]
+        """
+        The name of a control. This name is between 1 and 256 characters.
+        """
+        control_input_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgsDict']]]]
+        """
+        A list of ParameterName and ParameterValue pairs.
+        """
+        control_scope: NotRequired[pulumi.Input['FrameworkControlControlScopePropertiesArgsDict']]
+        """
+        The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans.
+        """
+elif False:
+    FrameworkControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrameworkControlArgs:
@@ -952,6 +1280,22 @@ class FrameworkControlArgs:
         pulumi.set(self, "control_scope", value)
 
 
+if not MYPY:
+    class FrameworkTagArgsDict(TypedDict):
+        """
+        A key-value pair to associate with a resource.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+elif False:
+    FrameworkTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrameworkTagArgs:
     def __init__(__self__, *,
@@ -991,6 +1335,26 @@ class FrameworkTagArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ReportDeliveryChannelPropertiesArgsDict(TypedDict):
+        """
+        A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
+        """
+        s3_bucket_name: pulumi.Input[str]
+        """
+        The unique name of the S3 bucket that receives your reports.
+        """
+        formats: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+        """
+        s3_key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix for where AWS Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+        """
+elif False:
+    ReportDeliveryChannelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportDeliveryChannelPropertiesArgs:
@@ -1046,6 +1410,34 @@ class ReportDeliveryChannelPropertiesArgs:
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
 
+
+if not MYPY:
+    class ReportSettingPropertiesArgsDict(TypedDict):
+        """
+        Identifies the report template for the report. Reports are built using a report template.
+        """
+        report_template: pulumi.Input[str]
+        """
+        Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
+        """
+        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of AWS accounts that a report covers.
+        """
+        framework_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The Amazon Resource Names (ARNs) of the frameworks a report covers.
+        """
+        organization_units: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of AWS organization units that a report covers.
+        """
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of AWS regions that a report covers.
+        """
+elif False:
+    ReportSettingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReportSettingPropertiesArgs:
@@ -1133,6 +1525,33 @@ class ReportSettingPropertiesArgs:
     def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "regions", value)
 
+
+if not MYPY:
+    class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict(TypedDict):
+        algorithm: pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm']
+        """
+        Acceptable values include "LATEST_WITHIN_WINDOW" or "RANDOM_WITHIN_WINDOW"
+        """
+        include_vaults: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Accepted values include wildcard ["*"] or by specific ARNs or ARN wilcard replacement ["arn:aws:backup:us-west-2:123456789012:backup-vault:asdf", ...] ["arn:aws:backup:*:*:backup-vault:asdf-*", ...]
+        """
+        recovery_point_types: pulumi.Input[Sequence[pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointType']]]
+        """
+        These are the types of recovery points.
+
+        Include `SNAPSHOT` to restore only snapshot recovery points; include `CONTINUOUS` to restore continuous recovery points (point in time restore / PITR); use both to restore either a snapshot or a continuous recovery point. The recovery point will be determined by the value for `Algorithm` .
+        """
+        exclude_vaults: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Accepted values include specific ARNs or list of selectors. Defaults to empty list if not listed.
+        """
+        selection_window_days: NotRequired[pulumi.Input[int]]
+        """
+        Accepted values are integers from 1 to 365.
+        """
+elif False:
+    RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
@@ -1222,6 +1641,19 @@ class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
         pulumi.set(self, "selection_window_days", value)
 
 
+if not MYPY:
+    class RestoreTestingSelectionKeyValueArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The tag key.
+        """
+        value: pulumi.Input[str]
+        """
+        The tag value.
+        """
+elif False:
+    RestoreTestingSelectionKeyValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RestoreTestingSelectionKeyValueArgs:
     def __init__(__self__, *,
@@ -1258,6 +1690,19 @@ class RestoreTestingSelectionKeyValueArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RestoreTestingSelectionProtectedResourceConditionsArgsDict(TypedDict):
+        string_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgsDict']]]]
+        """
+        Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
+        """
+        string_not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgsDict']]]]
+        """
+        Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching."
+        """
+elif False:
+    RestoreTestingSelectionProtectedResourceConditionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RestoreTestingSelectionProtectedResourceConditionsArgs:

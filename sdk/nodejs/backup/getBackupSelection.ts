@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Backup::BackupSelection
  */
 export function getBackupSelection(args: GetBackupSelectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupSelectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:backup:getBackupSelection", {
         "id": args.id,
@@ -36,7 +35,10 @@ export interface GetBackupSelectionResult {
  * Resource Type definition for AWS::Backup::BackupSelection
  */
 export function getBackupSelectionOutput(args: GetBackupSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupSelectionResult> {
-    return pulumi.output(args).apply((a: any) => getBackupSelection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:backup:getBackupSelection", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetBackupSelectionOutputArgs {

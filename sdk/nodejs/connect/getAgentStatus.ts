@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::AgentStatus
  */
 export function getAgentStatus(args: GetAgentStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getAgentStatus", {
         "agentStatusArn": args.agentStatusArn,
@@ -75,7 +74,10 @@ export interface GetAgentStatusResult {
  * Resource Type definition for AWS::Connect::AgentStatus
  */
 export function getAgentStatusOutput(args: GetAgentStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentStatusResult> {
-    return pulumi.output(args).apply((a: any) => getAgentStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:connect:getAgentStatus", {
+        "agentStatusArn": args.agentStatusArn,
+    }, opts);
 }
 
 export interface GetAgentStatusOutputArgs {

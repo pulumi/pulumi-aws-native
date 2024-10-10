@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -66,9 +71,6 @@ def get_vpc_connection(arn: Optional[str] = None,
     return AwaitableGetVpcConnectionResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_vpc_connection)
 def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
@@ -77,4 +79,10 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The ARN of the VPC connection.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:msk:getVpcConnection', __args__, opts=opts, typ=GetVpcConnectionResult)
+    return __ret__.apply(lambda __response__: GetVpcConnectionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        tags=pulumi.get(__response__, 'tags')))

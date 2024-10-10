@@ -4,17 +4,44 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ConfigurationProfileValidatorsArgs',
+    'ConfigurationProfileValidatorsArgsDict',
     'EnvironmentMonitorArgs',
+    'EnvironmentMonitorArgsDict',
     'ExtensionActionArgs',
+    'ExtensionActionArgsDict',
     'ExtensionParameterArgs',
+    'ExtensionParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationProfileValidatorsArgsDict(TypedDict):
+        """
+        A list of methods for validating the configuration.
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+        """
+elif False:
+    ConfigurationProfileValidatorsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationProfileValidatorsArgs:
@@ -56,6 +83,22 @@ class ConfigurationProfileValidatorsArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class EnvironmentMonitorArgsDict(TypedDict):
+        """
+        Amazon CloudWatch alarm to monitor during the deployment process.
+        """
+        alarm_arn: pulumi.Input[str]
+        """
+        Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+        """
+        alarm_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
+        """
+elif False:
+    EnvironmentMonitorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentMonitorArgs:
     def __init__(__self__, *,
@@ -94,6 +137,30 @@ class EnvironmentMonitorArgs:
     def alarm_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alarm_role_arn", value)
 
+
+if not MYPY:
+    class ExtensionActionArgsDict(TypedDict):
+        """
+        An action for an extension to take at a specific action point.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the extension action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI of the extension action.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the extension Action.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the role for invoking the extension action.
+        """
+elif False:
+    ExtensionActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionActionArgs:
@@ -164,6 +231,20 @@ class ExtensionActionArgs:
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
 
+
+if not MYPY:
+    class ExtensionParameterArgsDict(TypedDict):
+        """
+        A parameter for the extension to send to a specific action.
+        """
+        required: pulumi.Input[bool]
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the extension Parameter.
+        """
+        dynamic: NotRequired[pulumi.Input[bool]]
+elif False:
+    ExtensionParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionParameterArgs:

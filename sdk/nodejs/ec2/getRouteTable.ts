@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getRouteTable", {
         "routeTableId": args.routeTableId,
@@ -41,7 +40,10 @@ export interface GetRouteTableResult {
  *  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
  */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
-    return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getRouteTable", {
+        "routeTableId": args.routeTableId,
+    }, opts);
 }
 
 export interface GetRouteTableOutputArgs {

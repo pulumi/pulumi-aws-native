@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -97,12 +102,17 @@ def get_secret_target_attachment(id: Optional[str] = None,
         secret_id=pulumi.get(__ret__, 'secret_id'),
         target_id=pulumi.get(__ret__, 'target_id'),
         target_type=pulumi.get(__ret__, 'target_type'))
-
-
-@_utilities.lift_output_func(get_secret_target_attachment)
 def get_secret_target_attachment_output(id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretTargetAttachmentResult]:
     """
     Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:secretsmanager:getSecretTargetAttachment', __args__, opts=opts, typ=GetSecretTargetAttachmentResult)
+    return __ret__.apply(lambda __response__: GetSecretTargetAttachmentResult(
+        id=pulumi.get(__response__, 'id'),
+        secret_id=pulumi.get(__response__, 'secret_id'),
+        target_id=pulumi.get(__response__, 'target_id'),
+        target_type=pulumi.get(__response__, 'target_type')))

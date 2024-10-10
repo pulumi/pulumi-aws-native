@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -136,9 +141,6 @@ def get_workspace(arn: Optional[str] = None,
         prometheus_endpoint=pulumi.get(__ret__, 'prometheus_endpoint'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
@@ -147,4 +149,15 @@ def get_workspace_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Workspace arn.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:aps:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        alert_manager_definition=pulumi.get(__response__, 'alert_manager_definition'),
+        alias=pulumi.get(__response__, 'alias'),
+        arn=pulumi.get(__response__, 'arn'),
+        logging_configuration=pulumi.get(__response__, 'logging_configuration'),
+        prometheus_endpoint=pulumi.get(__response__, 'prometheus_endpoint'),
+        tags=pulumi.get(__response__, 'tags'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

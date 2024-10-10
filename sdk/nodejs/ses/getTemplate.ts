@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SES::Template
  */
 export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getTemplate", {
         "id": args.id,
@@ -33,7 +32,10 @@ export interface GetTemplateResult {
  * Resource Type definition for AWS::SES::Template
  */
 export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ses:getTemplate", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetTemplateOutputArgs {
