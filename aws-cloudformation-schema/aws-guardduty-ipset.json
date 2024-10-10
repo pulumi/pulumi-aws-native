@@ -5,8 +5,10 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "guardduty:TagResource", "guardduty:UntagResource", "guardduty:ListTagsForResource" ]
   },
   "properties" : {
     "Id" : {
@@ -35,6 +37,7 @@
     },
     "Tags" : {
       "type" : "array",
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/TagItem"
       }
@@ -75,7 +78,7 @@
       "permissions" : [ "guardduty:GetDetector", "guardduty:ListDetectors", "guardduty:ListIPSets", "guardduty:GetIPSet", "guardduty:DeleteIPSet", "iam:DeleteRolePolicy" ]
     },
     "update" : {
-      "permissions" : [ "guardduty:UpdateIPSet", "guardduty:GetIPSet", "guardduty:ListIPSets", "iam:PutRolePolicy" ]
+      "permissions" : [ "guardduty:UpdateIPSet", "guardduty:GetIPSet", "guardduty:ListIPSets", "iam:PutRolePolicy", "guardduty:TagResource", "guardduty:UntagResource" ]
     },
     "list" : {
       "handlerSchema" : {

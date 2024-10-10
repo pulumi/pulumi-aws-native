@@ -7858,6 +7858,24 @@
       }
     }
   },
+  "aws-native:kinesis:ResourcePolicy": {
+    "cfTypeName": "AWS::Kinesis::ResourcePolicy",
+    "properties": {
+      "resourceArn": {
+        "type": "string",
+        "description": "The ARN of the AWS Kinesis resource to which the policy applies."
+      },
+      "resourcePolicy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "A policy document containing permissions to add to the specified resource. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Kinesis::ResourcePolicy` for more information about the expected schema for this property.",
+        "language": {
+          "csharp": {
+            "name": "ResourcePolicyValue"
+          }
+        }
+      }
+    }
+  },
   "aws-native:kms:Key": {
     "cfTypeName": "AWS::KMS::Key",
     "properties": {

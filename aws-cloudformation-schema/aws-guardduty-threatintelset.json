@@ -6,8 +6,10 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "guardduty:TagResource", "guardduty:UntagResource", "guardduty:ListTagsForResource" ]
   },
   "properties" : {
     "Id" : {
@@ -76,7 +78,7 @@
       "permissions" : [ "guardduty:ListDetectors", "guardduty:ListThreatIntelSets", "guardduty:DeleteThreatIntelSet", "guardduty:GetThreatIntelSet", "iam:DeleteRolePolicy" ]
     },
     "update" : {
-      "permissions" : [ "guardduty:UpdateThreatIntelSet", "guardduty:GetThreatIntelSet", "guardduty:ListThreatIntelSets", "iam:PutRolePolicy" ]
+      "permissions" : [ "guardduty:UpdateThreatIntelSet", "guardduty:GetThreatIntelSet", "guardduty:ListThreatIntelSets", "iam:PutRolePolicy", "guardduty:TagResource", "guardduty:UntagResource" ]
     },
     "list" : {
       "handlerSchema" : {
