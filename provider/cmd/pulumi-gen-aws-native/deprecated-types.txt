@@ -3,9 +3,9 @@ AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolIdentityProvider
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
-AWS::Glue::Crawler
 AWS::SNS::TopicPolicy
 AWS::SSMGuiConnect::Preferences
+AWS::SecretsManager::SecretTargetAttachment
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm
