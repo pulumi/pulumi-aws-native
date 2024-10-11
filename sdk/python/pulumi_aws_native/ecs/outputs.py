@@ -79,6 +79,7 @@ __all__ = [
     'TaskDefinitionVolume',
     'TaskDefinitionVolumeFrom',
     'TaskSetAwsVpcConfiguration',
+    'TaskSetCapacityProviderStrategyItem',
     'TaskSetLoadBalancer',
     'TaskSetNetworkConfiguration',
     'TaskSetScale',
@@ -5378,6 +5379,52 @@ class TaskSetAwsVpcConfiguration(dict):
         The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
         """
         return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
+class TaskSetCapacityProviderStrategyItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProvider":
+            suggest = "capacity_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetCapacityProviderStrategyItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetCapacityProviderStrategyItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetCapacityProviderStrategyItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base: Optional[int] = None,
+                 capacity_provider: Optional[str] = None,
+                 weight: Optional[int] = None):
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if capacity_provider is not None:
+            pulumi.set(__self__, "capacity_provider", capacity_provider)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[int]:
+        return pulumi.get(self, "base")
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> Optional[str]:
+        return pulumi.get(self, "capacity_provider")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type

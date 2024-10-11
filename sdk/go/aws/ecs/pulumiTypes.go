@@ -11822,6 +11822,112 @@ func (o TaskSetAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+type TaskSetCapacityProviderStrategyItem struct {
+	Base             *int    `pulumi:"base"`
+	CapacityProvider *string `pulumi:"capacityProvider"`
+	Weight           *int    `pulumi:"weight"`
+}
+
+// TaskSetCapacityProviderStrategyItemInput is an input type that accepts TaskSetCapacityProviderStrategyItemArgs and TaskSetCapacityProviderStrategyItemOutput values.
+// You can construct a concrete instance of `TaskSetCapacityProviderStrategyItemInput` via:
+//
+//	TaskSetCapacityProviderStrategyItemArgs{...}
+type TaskSetCapacityProviderStrategyItemInput interface {
+	pulumi.Input
+
+	ToTaskSetCapacityProviderStrategyItemOutput() TaskSetCapacityProviderStrategyItemOutput
+	ToTaskSetCapacityProviderStrategyItemOutputWithContext(context.Context) TaskSetCapacityProviderStrategyItemOutput
+}
+
+type TaskSetCapacityProviderStrategyItemArgs struct {
+	Base             pulumi.IntPtrInput    `pulumi:"base"`
+	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
+	Weight           pulumi.IntPtrInput    `pulumi:"weight"`
+}
+
+func (TaskSetCapacityProviderStrategyItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetCapacityProviderStrategyItem)(nil)).Elem()
+}
+
+func (i TaskSetCapacityProviderStrategyItemArgs) ToTaskSetCapacityProviderStrategyItemOutput() TaskSetCapacityProviderStrategyItemOutput {
+	return i.ToTaskSetCapacityProviderStrategyItemOutputWithContext(context.Background())
+}
+
+func (i TaskSetCapacityProviderStrategyItemArgs) ToTaskSetCapacityProviderStrategyItemOutputWithContext(ctx context.Context) TaskSetCapacityProviderStrategyItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetCapacityProviderStrategyItemOutput)
+}
+
+// TaskSetCapacityProviderStrategyItemArrayInput is an input type that accepts TaskSetCapacityProviderStrategyItemArray and TaskSetCapacityProviderStrategyItemArrayOutput values.
+// You can construct a concrete instance of `TaskSetCapacityProviderStrategyItemArrayInput` via:
+//
+//	TaskSetCapacityProviderStrategyItemArray{ TaskSetCapacityProviderStrategyItemArgs{...} }
+type TaskSetCapacityProviderStrategyItemArrayInput interface {
+	pulumi.Input
+
+	ToTaskSetCapacityProviderStrategyItemArrayOutput() TaskSetCapacityProviderStrategyItemArrayOutput
+	ToTaskSetCapacityProviderStrategyItemArrayOutputWithContext(context.Context) TaskSetCapacityProviderStrategyItemArrayOutput
+}
+
+type TaskSetCapacityProviderStrategyItemArray []TaskSetCapacityProviderStrategyItemInput
+
+func (TaskSetCapacityProviderStrategyItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskSetCapacityProviderStrategyItem)(nil)).Elem()
+}
+
+func (i TaskSetCapacityProviderStrategyItemArray) ToTaskSetCapacityProviderStrategyItemArrayOutput() TaskSetCapacityProviderStrategyItemArrayOutput {
+	return i.ToTaskSetCapacityProviderStrategyItemArrayOutputWithContext(context.Background())
+}
+
+func (i TaskSetCapacityProviderStrategyItemArray) ToTaskSetCapacityProviderStrategyItemArrayOutputWithContext(ctx context.Context) TaskSetCapacityProviderStrategyItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetCapacityProviderStrategyItemArrayOutput)
+}
+
+type TaskSetCapacityProviderStrategyItemOutput struct{ *pulumi.OutputState }
+
+func (TaskSetCapacityProviderStrategyItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetCapacityProviderStrategyItem)(nil)).Elem()
+}
+
+func (o TaskSetCapacityProviderStrategyItemOutput) ToTaskSetCapacityProviderStrategyItemOutput() TaskSetCapacityProviderStrategyItemOutput {
+	return o
+}
+
+func (o TaskSetCapacityProviderStrategyItemOutput) ToTaskSetCapacityProviderStrategyItemOutputWithContext(ctx context.Context) TaskSetCapacityProviderStrategyItemOutput {
+	return o
+}
+
+func (o TaskSetCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskSetCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
+}
+
+func (o TaskSetCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskSetCapacityProviderStrategyItem) *string { return v.CapacityProvider }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskSetCapacityProviderStrategyItemOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskSetCapacityProviderStrategyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type TaskSetCapacityProviderStrategyItemArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskSetCapacityProviderStrategyItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskSetCapacityProviderStrategyItem)(nil)).Elem()
+}
+
+func (o TaskSetCapacityProviderStrategyItemArrayOutput) ToTaskSetCapacityProviderStrategyItemArrayOutput() TaskSetCapacityProviderStrategyItemArrayOutput {
+	return o
+}
+
+func (o TaskSetCapacityProviderStrategyItemArrayOutput) ToTaskSetCapacityProviderStrategyItemArrayOutputWithContext(ctx context.Context) TaskSetCapacityProviderStrategyItemArrayOutput {
+	return o
+}
+
+func (o TaskSetCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput) TaskSetCapacityProviderStrategyItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskSetCapacityProviderStrategyItem {
+		return vs[0].([]TaskSetCapacityProviderStrategyItem)[vs[1].(int)]
+	}).(TaskSetCapacityProviderStrategyItemOutput)
+}
+
 // A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 type TaskSetLoadBalancer struct {
 	// The name of the container (as it appears in a container definition) to associate with the load balancer.
@@ -12509,6 +12615,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionVolumeFromArrayInput)(nil)).Elem(), TaskDefinitionVolumeFromArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetAwsVpcConfigurationInput)(nil)).Elem(), TaskSetAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetAwsVpcConfigurationPtrInput)(nil)).Elem(), TaskSetAwsVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetCapacityProviderStrategyItemInput)(nil)).Elem(), TaskSetCapacityProviderStrategyItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetCapacityProviderStrategyItemArrayInput)(nil)).Elem(), TaskSetCapacityProviderStrategyItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetLoadBalancerInput)(nil)).Elem(), TaskSetLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetLoadBalancerArrayInput)(nil)).Elem(), TaskSetLoadBalancerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetNetworkConfigurationInput)(nil)).Elem(), TaskSetNetworkConfigurationArgs{})
@@ -12651,6 +12759,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionVolumeFromArrayOutput{})
 	pulumi.RegisterOutputType(TaskSetAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(TaskSetAwsVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TaskSetCapacityProviderStrategyItemOutput{})
+	pulumi.RegisterOutputType(TaskSetCapacityProviderStrategyItemArrayOutput{})
 	pulumi.RegisterOutputType(TaskSetLoadBalancerOutput{})
 	pulumi.RegisterOutputType(TaskSetLoadBalancerArrayOutput{})
 	pulumi.RegisterOutputType(TaskSetNetworkConfigurationOutput{})

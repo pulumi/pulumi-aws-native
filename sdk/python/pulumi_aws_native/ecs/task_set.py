@@ -22,6 +22,7 @@ class TaskSetArgs:
                  cluster: pulumi.Input[str],
                  service: pulumi.Input[str],
                  task_definition: pulumi.Input[str],
+                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
@@ -57,6 +58,8 @@ class TaskSetArgs:
         pulumi.set(__self__, "cluster", cluster)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "task_definition", task_definition)
+        if capacity_provider_strategy is not None:
+            pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if launch_type is not None:
@@ -109,6 +112,15 @@ class TaskSetArgs:
     @task_definition.setter
     def task_definition(self, value: pulumi.Input[str]):
         pulumi.set(self, "task_definition", value)
+
+    @property
+    @pulumi.getter(name="capacityProviderStrategy")
+    def capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]]:
+        return pulumi.get(self, "capacity_provider_strategy")
+
+    @capacity_provider_strategy.setter
+    def capacity_provider_strategy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]]):
+        pulumi.set(self, "capacity_provider_strategy", value)
 
     @property
     @pulumi.getter(name="externalId")
@@ -222,6 +234,7 @@ class TaskSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyItemArgs', 'TaskSetCapacityProviderStrategyItemArgsDict']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
@@ -285,6 +298,7 @@ class TaskSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyItemArgs', 'TaskSetCapacityProviderStrategyItemArgsDict']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
@@ -305,6 +319,7 @@ class TaskSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TaskSetArgs.__new__(TaskSetArgs)
 
+            __props__.__dict__["capacity_provider_strategy"] = capacity_provider_strategy
             if cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster'")
             __props__.__dict__["cluster"] = cluster
@@ -323,7 +338,7 @@ class TaskSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'task_definition'")
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "externalId", "launchType", "loadBalancers[*]", "networkConfiguration", "platformVersion", "service", "serviceRegistries[*]", "taskDefinition"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["capacityProviderStrategy[*]", "cluster", "externalId", "launchType", "loadBalancers[*]", "networkConfiguration", "platformVersion", "service", "serviceRegistries[*]", "taskDefinition"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TaskSet, __self__).__init__(
             'aws-native:ecs:TaskSet',
@@ -348,6 +363,7 @@ class TaskSet(pulumi.CustomResource):
         __props__ = TaskSetArgs.__new__(TaskSetArgs)
 
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["capacity_provider_strategy"] = None
         __props__.__dict__["cluster"] = None
         __props__.__dict__["external_id"] = None
         __props__.__dict__["launch_type"] = None
@@ -368,6 +384,11 @@ class TaskSet(pulumi.CustomResource):
         The ID of the task set.
         """
         return pulumi.get(self, "aws_id")
+
+    @property
+    @pulumi.getter(name="capacityProviderStrategy")
+    def capacity_provider_strategy(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetCapacityProviderStrategyItem']]]:
+        return pulumi.get(self, "capacity_provider_strategy")
 
     @property
     @pulumi.getter

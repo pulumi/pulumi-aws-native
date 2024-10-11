@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        [Output("capacityProviderStrategy")]
+        public Output<ImmutableArray<Outputs.TaskSetCapacityProviderStrategyItem>> CapacityProviderStrategy { get; private set; } = null!;
+
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>
@@ -122,6 +125,7 @@ namespace Pulumi.AwsNative.Ecs
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "capacityProviderStrategy[*]",
                     "cluster",
                     "externalId",
                     "launchType",
@@ -154,6 +158,14 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class TaskSetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("capacityProviderStrategy")]
+        private InputList<Inputs.TaskSetCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
+        public InputList<Inputs.TaskSetCapacityProviderStrategyItemArgs> CapacityProviderStrategy
+        {
+            get => _capacityProviderStrategy ?? (_capacityProviderStrategy = new InputList<Inputs.TaskSetCapacityProviderStrategyItemArgs>());
+            set => _capacityProviderStrategy = value;
+        }
+
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>

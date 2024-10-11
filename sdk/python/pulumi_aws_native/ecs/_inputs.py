@@ -78,6 +78,7 @@ __all__ = [
     'TaskDefinitionVolumeFromArgs',
     'TaskDefinitionVolumeArgs',
     'TaskSetAwsVpcConfigurationArgs',
+    'TaskSetCapacityProviderStrategyItemArgs',
     'TaskSetLoadBalancerArgs',
     'TaskSetNetworkConfigurationArgs',
     'TaskSetScaleArgs',
@@ -4960,6 +4961,47 @@ class TaskSetAwsVpcConfigurationArgs:
     @security_groups.setter
     def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_groups", value)
+
+
+@pulumi.input_type
+class TaskSetCapacityProviderStrategyItemArgs:
+    def __init__(__self__, *,
+                 base: Optional[pulumi.Input[int]] = None,
+                 capacity_provider: Optional[pulumi.Input[str]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if capacity_provider is not None:
+            pulumi.set(__self__, "capacity_provider", capacity_provider)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "base")
+
+    @base.setter
+    def base(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "base", value)
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "capacity_provider")
+
+    @capacity_provider.setter
+    def capacity_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_provider", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type

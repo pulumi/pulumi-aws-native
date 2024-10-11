@@ -41,6 +41,7 @@ export class TaskSet extends pulumi.CustomResource {
      * The ID of the task set.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    public readonly capacityProviderStrategy!: pulumi.Output<outputs.ecs.TaskSetCapacityProviderStrategyItem[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
@@ -116,6 +117,7 @@ export class TaskSet extends pulumi.CustomResource {
             if ((!args || args.taskDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskDefinition'");
             }
+            resourceInputs["capacityProviderStrategy"] = args ? args.capacityProviderStrategy : undefined;
             resourceInputs["cluster"] = args ? args.cluster : undefined;
             resourceInputs["externalId"] = args ? args.externalId : undefined;
             resourceInputs["launchType"] = args ? args.launchType : undefined;
@@ -130,6 +132,7 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["capacityProviderStrategy"] = undefined /*out*/;
             resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;
             resourceInputs["launchType"] = undefined /*out*/;
@@ -143,7 +146,7 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["taskDefinition"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["cluster", "externalId", "launchType", "loadBalancers[*]", "networkConfiguration", "platformVersion", "service", "serviceRegistries[*]", "taskDefinition"] };
+        const replaceOnChanges = { replaceOnChanges: ["capacityProviderStrategy[*]", "cluster", "externalId", "launchType", "loadBalancers[*]", "networkConfiguration", "platformVersion", "service", "serviceRegistries[*]", "taskDefinition"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TaskSet.__pulumiType, name, resourceInputs, opts);
     }
@@ -153,6 +156,7 @@ export class TaskSet extends pulumi.CustomResource {
  * The set of arguments for constructing a TaskSet resource.
  */
 export interface TaskSetArgs {
+    capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetCapacityProviderStrategyItemArgs>[]>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */

@@ -18,7 +18,8 @@ type TaskSet struct {
 	pulumi.CustomResourceState
 
 	// The ID of the task set.
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	AwsId                    pulumi.StringOutput                            `pulumi:"awsId"`
+	CapacityProviderStrategy TaskSetCapacityProviderStrategyItemArrayOutput `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
@@ -70,6 +71,7 @@ func NewTaskSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TaskDefinition'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"capacityProviderStrategy[*]",
 		"cluster",
 		"externalId",
 		"launchType",
@@ -114,6 +116,7 @@ func (TaskSetState) ElementType() reflect.Type {
 }
 
 type taskSetArgs struct {
+	CapacityProviderStrategy []TaskSetCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster string `pulumi:"cluster"`
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
@@ -150,6 +153,7 @@ type taskSetArgs struct {
 
 // The set of arguments for constructing a TaskSet resource.
 type TaskSetArgs struct {
+	CapacityProviderStrategy TaskSetCapacityProviderStrategyItemArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringInput
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
@@ -224,6 +228,10 @@ func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOu
 // The ID of the task set.
 func (o TaskSetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+func (o TaskSetOutput) CapacityProviderStrategy() TaskSetCapacityProviderStrategyItemArrayOutput {
+	return o.ApplyT(func(v *TaskSet) TaskSetCapacityProviderStrategyItemArrayOutput { return v.CapacityProviderStrategy }).(TaskSetCapacityProviderStrategyItemArrayOutput)
 }
 
 // The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
