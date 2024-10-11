@@ -63,6 +63,28 @@ func TestCalcPatch(t *testing.T) {
 					}})
 				assert.Empty(t, patch)
 			})
+			t.Run("no diff with must send props", func(t *testing.T) {
+				expected := []jsonpatch.JsonPatchOperation{
+					{Operation: "add", Path: "/Prop1", Value: "1"},
+				}
+				patch := run(t, args{
+					oldInputs: resource.PropertyMap{
+						"prop1": resource.NewStringProperty("1"),
+						"prop2": resource.NewStringProperty("2"),
+					},
+					newInputs: resource.PropertyMap{
+						"prop1": resource.NewStringProperty("1"),
+						"prop2": resource.NewStringProperty("2"),
+					},
+					spec: metadata.CloudAPIResource{
+						Inputs: map[string]schema.PropertySpec{
+							"prop1": {TypeSpec: schema.TypeSpec{Type: "string"}},
+							"prop2": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						},
+						WriteOnly: []string{"prop1"},
+					}})
+				assert.Equal(t, expected, patch)
+			})
 			t.Run("always sends write-only properties", func(t *testing.T) {
 				expected := []jsonpatch.JsonPatchOperation{
 					{Operation: "add", Path: "/Prop1", Value: "1"},
