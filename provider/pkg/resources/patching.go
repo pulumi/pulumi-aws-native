@@ -23,9 +23,26 @@ func CalcPatch(oldInputs resource.PropertyMap, newInputs resource.PropertyMap, s
 	createOnlyProps := codegen.NewStringSet(spec.CreateOnly...)
 	writeOnlyProps := codegen.NewStringSet(spec.WriteOnly...)
 	mustSendProps := writeOnlyProps.Subtract(createOnlyProps)
+
+	isDiffEmpty := diff == nil
+	if isDiffEmpty {
+		// If there's no diff and no write-only properties to send, we can return an empty patch.
+		if len(mustSendProps) == 0 {
+			return []jsonpatch.JsonPatchOperation{}, nil
+		}
+
+		// Init the diff with empty values so we can safely access it later
+		diff = &resource.ObjectDiff{
+			Adds:    make(resource.PropertyMap),
+			Deletes: make(resource.PropertyMap),
+			Sames:   make(resource.PropertyMap),
+			Updates: make(map[resource.PropertyKey]resource.ValueDiff),
+		}
+	}
+
 	for _, writeOnlyPropName := range mustSendProps.SortedValues() {
 		propKey := resource.PropertyKey(writeOnlyPropName)
-		if _, ok := diff.Sames[propKey]; ok {
+		if _, ok := diff.Sames[propKey]; ok || isDiffEmpty {
 			delete(diff.Sames, propKey)
 			diff.Adds[propKey] = newInputs[propKey]
 		}
