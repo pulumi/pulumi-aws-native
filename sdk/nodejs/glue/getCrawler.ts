@@ -14,12 +14,15 @@ export function getCrawler(args: GetCrawlerArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getCrawler", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetCrawlerArgs {
-    id: string;
+    /**
+     * The name of the crawler.
+     */
+    name: string;
 }
 
 export interface GetCrawlerResult {
@@ -28,11 +31,11 @@ export interface GetCrawlerResult {
      */
     readonly classifiers?: string[];
     /**
-     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior. For more information, see [Configuring a Crawler](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html) .
+     * Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
      */
     readonly configuration?: string;
     /**
-     * The name of the `SecurityConfiguration` structure to be used by this crawler.
+     * The name of the SecurityConfiguration structure to be used by this crawler.
      */
     readonly crawlerSecurityConfiguration?: string;
     /**
@@ -43,7 +46,6 @@ export interface GetCrawlerResult {
      * A description of the crawler.
      */
     readonly description?: string;
-    readonly id?: string;
     /**
      * Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
      */
@@ -89,5 +91,8 @@ export function getCrawlerOutput(args: GetCrawlerOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetCrawlerOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the crawler.
+     */
+    name: pulumi.Input<string>;
 }

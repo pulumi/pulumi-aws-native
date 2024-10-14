@@ -31,8 +31,8 @@ type FindingAggregator struct {
 	//   +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions.
 	//   +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
 	RegionLinkingMode FindingAggregatorRegionLinkingModeOutput `pulumi:"regionLinkingMode"`
-	// If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
-	//  If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
+	// If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.
+	//  If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do replicate and send findings to the home Region.
 	//  An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
 }
@@ -88,8 +88,8 @@ type findingAggregatorArgs struct {
 	//   +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions.
 	//   +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
 	RegionLinkingMode FindingAggregatorRegionLinkingMode `pulumi:"regionLinkingMode"`
-	// If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
-	//  If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
+	// If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.
+	//  If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do replicate and send findings to the home Region.
 	//  An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
 	Regions []string `pulumi:"regions"`
 }
@@ -104,8 +104,8 @@ type FindingAggregatorArgs struct {
 	//   +   ``SPECIFIED_REGIONS`` - Aggregates findings only from the Regions listed in the ``Regions`` parameter. Security Hub does not automatically aggregate findings from new Regions.
 	//   +   ``NO_REGIONS`` - Aggregates no data because no Regions are selected as linked Regions.
 	RegionLinkingMode FindingAggregatorRegionLinkingModeInput
-	// If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
-	//  If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
+	// If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.
+	//  If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do replicate and send findings to the home Region.
 	//  An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
 	Regions pulumi.StringArrayInput
 }
@@ -169,9 +169,9 @@ func (o FindingAggregatorOutput) RegionLinkingMode() FindingAggregatorRegionLink
 	return o.ApplyT(func(v *FindingAggregator) FindingAggregatorRegionLinkingModeOutput { return v.RegionLinkingMode }).(FindingAggregatorRegionLinkingModeOutput)
 }
 
-// If “RegionLinkingMode“ is “ALL_REGIONS_EXCEPT_SPECIFIED“, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.
+// If “RegionLinkingMode“ is “ALL_REGIONS_EXCEPT_SPECIFIED“, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.
 //
-//	If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.
+//	If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do replicate and send findings to the home Region.
 //	An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``.
 func (o FindingAggregatorOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FindingAggregator) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)

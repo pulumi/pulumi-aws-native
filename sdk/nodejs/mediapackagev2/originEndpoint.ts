@@ -66,6 +66,9 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The failover settings for the endpoint.
+     */
     public readonly forceEndpointErrorConfiguration!: pulumi.Output<outputs.mediapackagev2.OriginEndpointForceEndpointErrorConfiguration | undefined>;
     public /*out*/ readonly hlsManifestUrls!: pulumi.Output<string[]>;
     /**
@@ -187,6 +190,9 @@ export interface OriginEndpointArgs {
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     description?: pulumi.Input<string>;
+    /**
+     * The failover settings for the endpoint.
+     */
     forceEndpointErrorConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointForceEndpointErrorConfigurationArgs>;
     /**
      * <p>An HTTP live streaming (HLS) manifest configuration.</p>

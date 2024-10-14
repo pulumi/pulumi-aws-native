@@ -19,8 +19,6 @@ type ResolverRule struct {
 
 	// The Amazon Resource Name (ARN) of the resolver rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name server domain for queries to be delegated to if a query matches the delegation record.
-	DelegationRecord pulumi.StringPtrOutput `pulumi:"delegationRecord"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// The name for the Resolver rule
@@ -84,8 +82,6 @@ func (ResolverRuleState) ElementType() reflect.Type {
 }
 
 type resolverRuleArgs struct {
-	// The name server domain for queries to be delegated to if a query matches the delegation record.
-	DelegationRecord *string `pulumi:"delegationRecord"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
 	DomainName *string `pulumi:"domainName"`
 	// The name for the Resolver rule
@@ -102,8 +98,6 @@ type resolverRuleArgs struct {
 
 // The set of arguments for constructing a ResolverRule resource.
 type ResolverRuleArgs struct {
-	// The name server domain for queries to be delegated to if a query matches the delegation record.
-	DelegationRecord pulumi.StringPtrInput
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
 	DomainName pulumi.StringPtrInput
 	// The name for the Resolver rule
@@ -158,11 +152,6 @@ func (o ResolverRuleOutput) ToResolverRuleOutputWithContext(ctx context.Context)
 // The Amazon Resource Name (ARN) of the resolver rule.
 func (o ResolverRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
-}
-
-// The name server domain for queries to be delegated to if a query matches the delegation record.
-func (o ResolverRuleOutput) DelegationRecord() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResolverRule) pulumi.StringPtrOutput { return v.DelegationRecord }).(pulumi.StringPtrOutput)
 }
 
 // DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyStatefulEngineOptions
     {
+        public readonly Outputs.FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties? FlowTimeouts;
         /// <summary>
         /// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
         /// </summary>
@@ -28,10 +29,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicyStatefulEngineOptions(
+            Outputs.FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties? flowTimeouts,
+
             Pulumi.AwsNative.NetworkFirewall.FirewallPolicyRuleOrder? ruleOrder,
 
             Pulumi.AwsNative.NetworkFirewall.FirewallPolicyStreamExceptionPolicy? streamExceptionPolicy)
         {
+            FlowTimeouts = flowTimeouts;
             RuleOrder = ruleOrder;
             StreamExceptionPolicy = streamExceptionPolicy;
         }

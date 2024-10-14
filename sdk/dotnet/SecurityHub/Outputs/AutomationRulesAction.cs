@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
     /// <summary>
-    /// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+    /// One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
     /// </summary>
     [OutputType]
     public sealed class AutomationRulesAction
@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly Outputs.AutomationRulesFindingFieldsUpdate FindingFieldsUpdate;
         /// <summary>
-        /// Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+        /// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRulesActionType Type;
 

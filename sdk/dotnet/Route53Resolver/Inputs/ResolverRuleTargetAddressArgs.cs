@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         [Input("protocol")]
         public Input<Pulumi.AwsNative.Route53Resolver.ResolverRuleTargetAddressProtocol>? Protocol { get; set; }
 
+        /// <summary>
+        /// The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+        /// </summary>
+        [Input("serverNameIndication")]
+        public Input<string>? ServerNameIndication { get; set; }
+
         public ResolverRuleTargetAddressArgs()
         {
         }

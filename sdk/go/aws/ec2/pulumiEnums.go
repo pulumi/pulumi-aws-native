@@ -10647,6 +10647,1344 @@ func (in *vpcEndpointTypePtr) ToVpcEndpointTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointTypePtrOutput)
 }
 
+type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat string
+
+const (
+	VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatJson = VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json")
+	VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatText = VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("text")
+)
+
+func (VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat)(nil)).Elem()
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput {
+	return pulumi.ToOutput(e).(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
+	return e.ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
+	return VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat(e).ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutputWithContext(ctx).ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat)(nil)).Elem()
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput {
+	return o
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput {
+	return o
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
+	return o.ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) *VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat {
+		return &v
+	}).(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput)
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat)(nil)).Elem()
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
+	return o
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
+	return o
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput) Elem() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput {
+	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat
+		return ret
+	}).(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput)
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput is an input type that accepts values of the VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat enum
+// A concrete instance of `VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput` can be one of the following:
+//
+//	VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatJson
+//	VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatText
+type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput interface {
+	pulumi.Input
+
+	ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput
+	ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutputWithContext(context.Context) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput
+}
+
+var vpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrType = reflect.TypeOf((**VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat)(nil)).Elem()
+
+type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput
+	ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutputWithContext(context.Context) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput
+}
+
+type vpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtr string
+
+func VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtr(v string) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrInput {
+	return (*vpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtr)(&v)
+}
+
+func (*vpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtr) ElementType() reflect.Type {
+	return vpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrType
+}
+
+func (in *vpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtr) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput)
+}
+
+func (in *vpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtr) ToVpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput)
+}
+
+type VpnConnectionIkeVersionsRequestListValueValue string
+
+const (
+	VpnConnectionIkeVersionsRequestListValueValueIkev1 = VpnConnectionIkeVersionsRequestListValueValue("ikev1")
+	VpnConnectionIkeVersionsRequestListValueValueIkev2 = VpnConnectionIkeVersionsRequestListValueValue("ikev2")
+)
+
+func (VpnConnectionIkeVersionsRequestListValueValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionIkeVersionsRequestListValueValue)(nil)).Elem()
+}
+
+func (e VpnConnectionIkeVersionsRequestListValueValue) ToVpnConnectionIkeVersionsRequestListValueValueOutput() VpnConnectionIkeVersionsRequestListValueValueOutput {
+	return pulumi.ToOutput(e).(VpnConnectionIkeVersionsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionIkeVersionsRequestListValueValue) ToVpnConnectionIkeVersionsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionIkeVersionsRequestListValueValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionIkeVersionsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionIkeVersionsRequestListValueValue) ToVpnConnectionIkeVersionsRequestListValueValuePtrOutput() VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
+	return e.ToVpnConnectionIkeVersionsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionIkeVersionsRequestListValueValue) ToVpnConnectionIkeVersionsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
+	return VpnConnectionIkeVersionsRequestListValueValue(e).ToVpnConnectionIkeVersionsRequestListValueValueOutputWithContext(ctx).ToVpnConnectionIkeVersionsRequestListValueValuePtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionIkeVersionsRequestListValueValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionIkeVersionsRequestListValueValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionIkeVersionsRequestListValueValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionIkeVersionsRequestListValueValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionIkeVersionsRequestListValueValueOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionIkeVersionsRequestListValueValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionIkeVersionsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValueOutput) ToVpnConnectionIkeVersionsRequestListValueValueOutput() VpnConnectionIkeVersionsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValueOutput) ToVpnConnectionIkeVersionsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionIkeVersionsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValueOutput) ToVpnConnectionIkeVersionsRequestListValueValuePtrOutput() VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
+	return o.ToVpnConnectionIkeVersionsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValueOutput) ToVpnConnectionIkeVersionsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionIkeVersionsRequestListValueValue) *VpnConnectionIkeVersionsRequestListValueValue {
+		return &v
+	}).(VpnConnectionIkeVersionsRequestListValueValuePtrOutput)
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionIkeVersionsRequestListValueValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionIkeVersionsRequestListValueValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionIkeVersionsRequestListValueValuePtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionIkeVersionsRequestListValueValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionIkeVersionsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValuePtrOutput) ToVpnConnectionIkeVersionsRequestListValueValuePtrOutput() VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValuePtrOutput) ToVpnConnectionIkeVersionsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValuePtrOutput) Elem() VpnConnectionIkeVersionsRequestListValueValueOutput {
+	return o.ApplyT(func(v *VpnConnectionIkeVersionsRequestListValueValue) VpnConnectionIkeVersionsRequestListValueValue {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionIkeVersionsRequestListValueValue
+		return ret
+	}).(VpnConnectionIkeVersionsRequestListValueValueOutput)
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionIkeVersionsRequestListValueValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionIkeVersionsRequestListValueValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionIkeVersionsRequestListValueValueInput is an input type that accepts values of the VpnConnectionIkeVersionsRequestListValueValue enum
+// A concrete instance of `VpnConnectionIkeVersionsRequestListValueValueInput` can be one of the following:
+//
+//	VpnConnectionIkeVersionsRequestListValueValueIkev1
+//	VpnConnectionIkeVersionsRequestListValueValueIkev2
+type VpnConnectionIkeVersionsRequestListValueValueInput interface {
+	pulumi.Input
+
+	ToVpnConnectionIkeVersionsRequestListValueValueOutput() VpnConnectionIkeVersionsRequestListValueValueOutput
+	ToVpnConnectionIkeVersionsRequestListValueValueOutputWithContext(context.Context) VpnConnectionIkeVersionsRequestListValueValueOutput
+}
+
+var vpnConnectionIkeVersionsRequestListValueValuePtrType = reflect.TypeOf((**VpnConnectionIkeVersionsRequestListValueValue)(nil)).Elem()
+
+type VpnConnectionIkeVersionsRequestListValueValuePtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionIkeVersionsRequestListValueValuePtrOutput() VpnConnectionIkeVersionsRequestListValueValuePtrOutput
+	ToVpnConnectionIkeVersionsRequestListValueValuePtrOutputWithContext(context.Context) VpnConnectionIkeVersionsRequestListValueValuePtrOutput
+}
+
+type vpnConnectionIkeVersionsRequestListValueValuePtr string
+
+func VpnConnectionIkeVersionsRequestListValueValuePtr(v string) VpnConnectionIkeVersionsRequestListValueValuePtrInput {
+	return (*vpnConnectionIkeVersionsRequestListValueValuePtr)(&v)
+}
+
+func (*vpnConnectionIkeVersionsRequestListValueValuePtr) ElementType() reflect.Type {
+	return vpnConnectionIkeVersionsRequestListValueValuePtrType
+}
+
+func (in *vpnConnectionIkeVersionsRequestListValueValuePtr) ToVpnConnectionIkeVersionsRequestListValueValuePtrOutput() VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionIkeVersionsRequestListValueValuePtrOutput)
+}
+
+func (in *vpnConnectionIkeVersionsRequestListValueValuePtr) ToVpnConnectionIkeVersionsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionIkeVersionsRequestListValueValuePtrOutput)
+}
+
+type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue string
+
+const (
+	VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueAes128      = VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES128")
+	VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueAes256      = VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES256")
+	VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueAes128Gcm16 = VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES128-GCM-16")
+	VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueAes256Gcm16 = VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES256-GCM-16")
+)
+
+func (VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput {
+	return pulumi.ToOutput(e).(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return e.ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue(e).ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutputWithContext(ctx).ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return o.ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) *VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue {
+		return &v
+	}).(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput)
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput) Elem() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput {
+	return o.ApplyT(func(v *VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue
+		return ret
+	}).(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput)
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueInput is an input type that accepts values of the VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue enum
+// A concrete instance of `VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueInput` can be one of the following:
+//
+//	VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueAes128
+//	VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueAes256
+//	VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueAes128Gcm16
+//	VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueAes256Gcm16
+type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput
+	ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutputWithContext(context.Context) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput
+}
+
+var vpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrType = reflect.TypeOf((**VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue)(nil)).Elem()
+
+type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput
+	ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(context.Context) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput
+}
+
+type vpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtr string
+
+func VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtr(v string) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrInput {
+	return (*vpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtr)(&v)
+}
+
+func (*vpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtr) ElementType() reflect.Type {
+	return vpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrType
+}
+
+func (in *vpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtr) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput)
+}
+
+func (in *vpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtr) ToVpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput)
+}
+
+type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue string
+
+const (
+	VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueSha1    = VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA1")
+	VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueSha2256 = VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA2-256")
+	VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueSha2384 = VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA2-384")
+	VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueSha2512 = VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA2-512")
+)
+
+func (VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput {
+	return pulumi.ToOutput(e).(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return e.ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue(e).ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutputWithContext(ctx).ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return o.ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) *VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue {
+		return &v
+	}).(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput)
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput) Elem() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput {
+	return o.ApplyT(func(v *VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue
+		return ret
+	}).(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput)
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueInput is an input type that accepts values of the VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue enum
+// A concrete instance of `VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueInput` can be one of the following:
+//
+//	VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueSha1
+//	VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueSha2256
+//	VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueSha2384
+//	VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueSha2512
+type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput
+	ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutputWithContext(context.Context) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput
+}
+
+var vpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrType = reflect.TypeOf((**VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue)(nil)).Elem()
+
+type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput
+	ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(context.Context) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput
+}
+
+type vpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtr string
+
+func VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtr(v string) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrInput {
+	return (*vpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtr)(&v)
+}
+
+func (*vpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtr) ElementType() reflect.Type {
+	return vpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrType
+}
+
+func (in *vpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtr) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput)
+}
+
+func (in *vpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtr) ToVpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput)
+}
+
+type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue string
+
+const (
+	VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueAes128      = VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES128")
+	VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueAes256      = VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES256")
+	VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueAes128Gcm16 = VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES128-GCM-16")
+	VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueAes256Gcm16 = VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES256-GCM-16")
+)
+
+func (VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput {
+	return pulumi.ToOutput(e).(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return e.ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue(e).ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutputWithContext(ctx).ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return o.ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) *VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue {
+		return &v
+	}).(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput)
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput) Elem() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput {
+	return o.ApplyT(func(v *VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue
+		return ret
+	}).(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput)
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueInput is an input type that accepts values of the VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue enum
+// A concrete instance of `VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueInput` can be one of the following:
+//
+//	VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueAes128
+//	VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueAes256
+//	VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueAes128Gcm16
+//	VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueAes256Gcm16
+type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput
+	ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutputWithContext(context.Context) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput
+}
+
+var vpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrType = reflect.TypeOf((**VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue)(nil)).Elem()
+
+type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput
+	ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(context.Context) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput
+}
+
+type vpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtr string
+
+func VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtr(v string) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrInput {
+	return (*vpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtr)(&v)
+}
+
+func (*vpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtr) ElementType() reflect.Type {
+	return vpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrType
+}
+
+func (in *vpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtr) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput)
+}
+
+func (in *vpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtr) ToVpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput)
+}
+
+type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue string
+
+const (
+	VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueSha1    = VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA1")
+	VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueSha2256 = VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA2-256")
+	VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueSha2384 = VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA2-384")
+	VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueSha2512 = VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA2-512")
+)
+
+func (VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput {
+	return pulumi.ToOutput(e).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput)
+}
+
+func (e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return e.ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(e).ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutputWithContext(ctx).ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutputWithContext(ctx context.Context) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput {
+	return o
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return o.ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) *VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue {
+		return &v
+	}).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput)
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue)(nil)).Elem()
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return o
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput) Elem() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput {
+	return o.ApplyT(func(v *VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue
+		return ret
+	}).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput)
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueInput is an input type that accepts values of the VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue enum
+// A concrete instance of `VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueInput` can be one of the following:
+//
+//	VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueSha1
+//	VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueSha2256
+//	VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueSha2384
+//	VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueSha2512
+type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput
+	ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutputWithContext(context.Context) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput
+}
+
+var vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrType = reflect.TypeOf((**VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue)(nil)).Elem()
+
+type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput
+	ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(context.Context) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput
+}
+
+type vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr string
+
+func VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr(v string) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrInput {
+	return (*vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr)(&v)
+}
+
+func (*vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr) ElementType() reflect.Type {
+	return vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrType
+}
+
+func (in *vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput)
+}
+
+func (in *vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr) ToVpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutputWithContext(ctx context.Context) VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction string
+
+const (
+	VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionClear   = VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear")
+	VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionNone    = VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("none")
+	VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionRestart = VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("restart")
+)
+
+func (VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction)(nil)).Elem()
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput {
+	return pulumi.ToOutput(e).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
+	return e.ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
+	return VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction(e).ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutputWithContext(ctx).ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction)(nil)).Elem()
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
+	return o.ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) *VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction {
+		return &v
+	}).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput)
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction)(nil)).Elem()
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput) Elem() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput {
+	return o.ApplyT(func(v *VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction
+		return ret
+	}).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput)
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionInput is an input type that accepts values of the VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction enum
+// A concrete instance of `VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionInput` can be one of the following:
+//
+//	VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionClear
+//	VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionNone
+//	VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionRestart
+type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionInput interface {
+	pulumi.Input
+
+	ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput
+	ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutputWithContext(context.Context) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput
+}
+
+var vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrType = reflect.TypeOf((**VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction)(nil)).Elem()
+
+type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput
+	ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutputWithContext(context.Context) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput
+}
+
+type vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtr string
+
+func VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtr(v string) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput {
+	return (*vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtr)(&v)
+}
+
+func (*vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtr) ElementType() reflect.Type {
+	return vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrType
+}
+
+func (in *vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtr) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput)
+}
+
+func (in *vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtr) ToVpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationStartupAction string
+
+const (
+	VpnConnectionVpnTunnelOptionsSpecificationStartupActionAdd   = VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add")
+	VpnConnectionVpnTunnelOptionsSpecificationStartupActionStart = VpnConnectionVpnTunnelOptionsSpecificationStartupAction("start")
+)
+
+func (VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupAction)(nil)).Elem()
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput() VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput {
+	return pulumi.ToOutput(e).(VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
+	return e.ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
+	return VpnConnectionVpnTunnelOptionsSpecificationStartupAction(e).ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionOutputWithContext(ctx).ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupAction)(nil)).Elem()
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput() VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
+	return o.ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionVpnTunnelOptionsSpecificationStartupAction) *VpnConnectionVpnTunnelOptionsSpecificationStartupAction {
+		return &v
+	}).(VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput)
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionVpnTunnelOptionsSpecificationStartupAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionVpnTunnelOptionsSpecificationStartupAction)(nil)).Elem()
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
+	return o
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput) Elem() VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput {
+	return o.ApplyT(func(v *VpnConnectionVpnTunnelOptionsSpecificationStartupAction) VpnConnectionVpnTunnelOptionsSpecificationStartupAction {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionVpnTunnelOptionsSpecificationStartupAction
+		return ret
+	}).(VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput)
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionVpnTunnelOptionsSpecificationStartupAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionVpnTunnelOptionsSpecificationStartupActionInput is an input type that accepts values of the VpnConnectionVpnTunnelOptionsSpecificationStartupAction enum
+// A concrete instance of `VpnConnectionVpnTunnelOptionsSpecificationStartupActionInput` can be one of the following:
+//
+//	VpnConnectionVpnTunnelOptionsSpecificationStartupActionAdd
+//	VpnConnectionVpnTunnelOptionsSpecificationStartupActionStart
+type VpnConnectionVpnTunnelOptionsSpecificationStartupActionInput interface {
+	pulumi.Input
+
+	ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput() VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput
+	ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionOutputWithContext(context.Context) VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput
+}
+
+var vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrType = reflect.TypeOf((**VpnConnectionVpnTunnelOptionsSpecificationStartupAction)(nil)).Elem()
+
+type VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput
+	ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutputWithContext(context.Context) VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput
+}
+
+type vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtr string
+
+func VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtr(v string) VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrInput {
+	return (*vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtr)(&v)
+}
+
+func (*vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtr) ElementType() reflect.Type {
+	return vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrType
+}
+
+func (in *vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtr) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput() VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput)
+}
+
+func (in *vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtr) ToVpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutputWithContext(ctx context.Context) VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInstanceMatchCriteriaInput)(nil)).Elem(), CapacityReservationFleetInstanceMatchCriteria("open"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationFleetInstanceMatchCriteriaPtrInput)(nil)).Elem(), CapacityReservationFleetInstanceMatchCriteria("open"))
@@ -10771,6 +12109,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypePtrInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypeInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypePtrInput)(nil)).Elem(), VpcEndpointType("Interface"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionIkeVersionsRequestListValueValueInput)(nil)).Elem(), VpnConnectionIkeVersionsRequestListValueValue("ikev1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionIkeVersionsRequestListValueValuePtrInput)(nil)).Elem(), VpnConnectionIkeVersionsRequestListValueValue("ikev1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueInput)(nil)).Elem(), VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES128"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrInput)(nil)).Elem(), VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES128"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueInput)(nil)).Elem(), VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrInput)(nil)).Elem(), VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueInput)(nil)).Elem(), VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES128"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrInput)(nil)).Elem(), VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES128"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueInput)(nil)).Elem(), VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrInput)(nil)).Elem(), VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupActionInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add"))
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetInstanceMatchCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationFleetTenancyOutput{})
@@ -10906,4 +12260,20 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput{})
+	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionIkeVersionsRequestListValueValueOutput{})
+	pulumi.RegisterOutputType(VpnConnectionIkeVersionsRequestListValueValuePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValueOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValueOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValueOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValueOutput{})
+	pulumi.RegisterOutputType(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput{})
+	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput{})
+	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput{})
 }

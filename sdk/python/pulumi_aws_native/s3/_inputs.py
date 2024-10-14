@@ -1102,12 +1102,6 @@ class BucketLifecycleConfigurationArgs:
         """
         Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['BucketRuleArgs']]] rules: A lifecycle rule for individual objects in an Amazon S3 bucket.
-        :param pulumi.Input['BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize'] transition_default_minimum_object_size: Indicates which default minimum object size behavior is applied to the lifecycle configuration.
-               
-               - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
-               - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
-               
-               To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
         """
         pulumi.set(__self__, "rules", rules)
         if transition_default_minimum_object_size is not None:
@@ -1128,14 +1122,6 @@ class BucketLifecycleConfigurationArgs:
     @property
     @pulumi.getter(name="transitionDefaultMinimumObjectSize")
     def transition_default_minimum_object_size(self) -> Optional[pulumi.Input['BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize']]:
-        """
-        Indicates which default minimum object size behavior is applied to the lifecycle configuration.
-
-        - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
-        - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
-
-        To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
-        """
         return pulumi.get(self, "transition_default_minimum_object_size")
 
     @transition_default_minimum_object_size.setter
@@ -3369,7 +3355,7 @@ class StorageLensAccountLevelArgs:
                  storage_lens_group_level: Optional[pulumi.Input['StorageLensGroupLevelArgs']] = None):
         """
         Account-level metrics configurations.
-        :param pulumi.Input['StorageLensBucketLevelArgs'] bucket_level: This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+        :param pulumi.Input['StorageLensBucketLevelArgs'] bucket_level: This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
         :param pulumi.Input['StorageLensActivityMetricsArgs'] activity_metrics: This property contains the details of account-level activity metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
@@ -3392,7 +3378,7 @@ class StorageLensAccountLevelArgs:
     @pulumi.getter(name="bucketLevel")
     def bucket_level(self) -> pulumi.Input['StorageLensBucketLevelArgs']:
         """
-        This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+        This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
         """
         return pulumi.get(self, "bucket_level")
 

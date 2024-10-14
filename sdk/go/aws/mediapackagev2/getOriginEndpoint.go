@@ -39,7 +39,8 @@ type LookupOriginEndpointResult struct {
 	// <p>A DASH manifest configuration.</p>
 	DashManifests []OriginEndpointDashManifestConfiguration `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description                     *string                                        `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The failover settings for the endpoint.
 	ForceEndpointErrorConfiguration *OriginEndpointForceEndpointErrorConfiguration `pulumi:"forceEndpointErrorConfiguration"`
 	HlsManifestUrls                 []string                                       `pulumi:"hlsManifestUrls"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -128,6 +129,7 @@ func (o LookupOriginEndpointResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The failover settings for the endpoint.
 func (o LookupOriginEndpointResultOutput) ForceEndpointErrorConfiguration() OriginEndpointForceEndpointErrorConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointForceEndpointErrorConfiguration {
 		return v.ForceEndpointErrorConfiguration

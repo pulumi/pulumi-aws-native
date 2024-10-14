@@ -58,13 +58,21 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetTransitGatewayRouteTableResult
     {
         /// <summary>
+        /// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Transit Gateway Route Table primary identifier
         /// </summary>
         public readonly string? TransitGatewayRouteTableId;
 
         [OutputConstructor]
-        private GetTransitGatewayRouteTableResult(string? transitGatewayRouteTableId)
+        private GetTransitGatewayRouteTableResult(
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            string? transitGatewayRouteTableId)
         {
+            Tags = tags;
             TransitGatewayRouteTableId = transitGatewayRouteTableId;
         }
     }

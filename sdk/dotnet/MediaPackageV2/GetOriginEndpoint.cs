@@ -78,6 +78,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the origin endpoint.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The failover settings for the endpoint.
+        /// </summary>
         public readonly Outputs.OriginEndpointForceEndpointErrorConfiguration? ForceEndpointErrorConfiguration;
         public readonly ImmutableArray<string> HlsManifestUrls;
         /// <summary>

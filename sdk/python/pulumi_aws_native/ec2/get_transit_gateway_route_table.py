@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetTransitGatewayRouteTableResult',
@@ -18,10 +19,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayRouteTableResult:
-    def __init__(__self__, transit_gateway_route_table_id=None):
+    def __init__(__self__, tags=None, transit_gateway_route_table_id=None):
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if transit_gateway_route_table_id and not isinstance(transit_gateway_route_table_id, str):
             raise TypeError("Expected argument 'transit_gateway_route_table_id' to be a str")
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
@@ -38,6 +50,7 @@ class AwaitableGetTransitGatewayRouteTableResult(GetTransitGatewayRouteTableResu
         if False:
             yield self
         return GetTransitGatewayRouteTableResult(
+            tags=self.tags,
             transit_gateway_route_table_id=self.transit_gateway_route_table_id)
 
 
@@ -55,6 +68,7 @@ def get_transit_gateway_route_table(transit_gateway_route_table_id: Optional[str
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayRouteTable', __args__, opts=opts, typ=GetTransitGatewayRouteTableResult).value
 
     return AwaitableGetTransitGatewayRouteTableResult(
+        tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
 
 

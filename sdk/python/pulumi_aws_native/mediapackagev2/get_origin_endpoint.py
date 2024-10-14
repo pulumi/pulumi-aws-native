@@ -116,6 +116,9 @@ class GetOriginEndpointResult:
     @property
     @pulumi.getter(name="forceEndpointErrorConfiguration")
     def force_endpoint_error_configuration(self) -> Optional['outputs.OriginEndpointForceEndpointErrorConfiguration']:
+        """
+        The failover settings for the endpoint.
+        """
         return pulumi.get(self, "force_endpoint_error_configuration")
 
     @property

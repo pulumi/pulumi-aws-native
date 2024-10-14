@@ -2097,4 +2097,237 @@ namespace Pulumi.AwsNative.Ec2
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat : IEquatable<VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat>
+    {
+        private readonly string _value;
+
+        private VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat Json { get; } = new VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json");
+        public static VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat Text { get; } = new VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("text");
+
+        public static bool operator ==(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat left, VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat left, VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat other && Equals(other);
+        public bool Equals(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpnConnectionIkeVersionsRequestListValueValue : IEquatable<VpnConnectionIkeVersionsRequestListValueValue>
+    {
+        private readonly string _value;
+
+        private VpnConnectionIkeVersionsRequestListValueValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionIkeVersionsRequestListValueValue Ikev1 { get; } = new VpnConnectionIkeVersionsRequestListValueValue("ikev1");
+        public static VpnConnectionIkeVersionsRequestListValueValue Ikev2 { get; } = new VpnConnectionIkeVersionsRequestListValueValue("ikev2");
+
+        public static bool operator ==(VpnConnectionIkeVersionsRequestListValueValue left, VpnConnectionIkeVersionsRequestListValueValue right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionIkeVersionsRequestListValueValue left, VpnConnectionIkeVersionsRequestListValueValue right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionIkeVersionsRequestListValueValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionIkeVersionsRequestListValueValue other && Equals(other);
+        public bool Equals(VpnConnectionIkeVersionsRequestListValueValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue : IEquatable<VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue>
+    {
+        private readonly string _value;
+
+        private VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue Aes128 { get; } = new VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES128");
+        public static VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue Aes256 { get; } = new VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES256");
+        public static VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue Aes128Gcm16 { get; } = new VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES128-GCM-16");
+        public static VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue Aes256Gcm16 { get; } = new VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue("AES256-GCM-16");
+
+        public static bool operator ==(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue left, VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue left, VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue other && Equals(other);
+        public bool Equals(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue : IEquatable<VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue>
+    {
+        private readonly string _value;
+
+        private VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue Sha1 { get; } = new VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA1");
+        public static VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue Sha2256 { get; } = new VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA2-256");
+        public static VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue Sha2384 { get; } = new VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA2-384");
+        public static VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue Sha2512 { get; } = new VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue("SHA2-512");
+
+        public static bool operator ==(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue left, VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue left, VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue other && Equals(other);
+        public bool Equals(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue : IEquatable<VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue>
+    {
+        private readonly string _value;
+
+        private VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue Aes128 { get; } = new VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES128");
+        public static VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue Aes256 { get; } = new VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES256");
+        public static VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue Aes128Gcm16 { get; } = new VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES128-GCM-16");
+        public static VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue Aes256Gcm16 { get; } = new VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue("AES256-GCM-16");
+
+        public static bool operator ==(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue left, VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue left, VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue other && Equals(other);
+        public bool Equals(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue : IEquatable<VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue>
+    {
+        private readonly string _value;
+
+        private VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue Sha1 { get; } = new VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA1");
+        public static VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue Sha2256 { get; } = new VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA2-256");
+        public static VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue Sha2384 { get; } = new VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA2-384");
+        public static VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue Sha2512 { get; } = new VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA2-512");
+
+        public static bool operator ==(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue left, VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue left, VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue other && Equals(other);
+        public bool Equals(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction : IEquatable<VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction>
+    {
+        private readonly string _value;
+
+        private VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction Clear { get; } = new VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear");
+        public static VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction None { get; } = new VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("none");
+        public static VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction Restart { get; } = new VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("restart");
+
+        public static bool operator ==(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction left, VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction left, VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction other && Equals(other);
+        public bool Equals(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpnConnectionVpnTunnelOptionsSpecificationStartupAction : IEquatable<VpnConnectionVpnTunnelOptionsSpecificationStartupAction>
+    {
+        private readonly string _value;
+
+        private VpnConnectionVpnTunnelOptionsSpecificationStartupAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionVpnTunnelOptionsSpecificationStartupAction Add { get; } = new VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add");
+        public static VpnConnectionVpnTunnelOptionsSpecificationStartupAction Start { get; } = new VpnConnectionVpnTunnelOptionsSpecificationStartupAction("start");
+
+        public static bool operator ==(VpnConnectionVpnTunnelOptionsSpecificationStartupAction left, VpnConnectionVpnTunnelOptionsSpecificationStartupAction right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionVpnTunnelOptionsSpecificationStartupAction left, VpnConnectionVpnTunnelOptionsSpecificationStartupAction right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionVpnTunnelOptionsSpecificationStartupAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionVpnTunnelOptionsSpecificationStartupAction other && Equals(other);
+        public bool Equals(VpnConnectionVpnTunnelOptionsSpecificationStartupAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

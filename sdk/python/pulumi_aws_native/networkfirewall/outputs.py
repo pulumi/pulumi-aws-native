@@ -20,6 +20,7 @@ __all__ = [
     'FirewallPolicyPolicyVariablesProperties',
     'FirewallPolicyPublishMetricAction',
     'FirewallPolicyStatefulEngineOptions',
+    'FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties',
     'FirewallPolicyStatefulRuleGroupOverride',
     'FirewallPolicyStatefulRuleGroupReference',
     'FirewallPolicyStatelessRuleGroupReference',
@@ -416,7 +417,9 @@ class FirewallPolicyStatefulEngineOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ruleOrder":
+        if key == "flowTimeouts":
+            suggest = "flow_timeouts"
+        elif key == "ruleOrder":
             suggest = "rule_order"
         elif key == "streamExceptionPolicy":
             suggest = "stream_exception_policy"
@@ -433,6 +436,7 @@ class FirewallPolicyStatefulEngineOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 flow_timeouts: Optional['outputs.FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties'] = None,
                  rule_order: Optional['FirewallPolicyRuleOrder'] = None,
                  stream_exception_policy: Optional['FirewallPolicyStreamExceptionPolicy'] = None):
         """
@@ -443,10 +447,17 @@ class FirewallPolicyStatefulEngineOptions(dict):
                - `CONTINUE` - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to `drop http` traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
                - `REJECT` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
         """
+        if flow_timeouts is not None:
+            pulumi.set(__self__, "flow_timeouts", flow_timeouts)
         if rule_order is not None:
             pulumi.set(__self__, "rule_order", rule_order)
         if stream_exception_policy is not None:
             pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
+
+    @property
+    @pulumi.getter(name="flowTimeouts")
+    def flow_timeouts(self) -> Optional['outputs.FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties']:
+        return pulumi.get(self, "flow_timeouts")
 
     @property
     @pulumi.getter(name="ruleOrder")
@@ -467,6 +478,36 @@ class FirewallPolicyStatefulEngineOptions(dict):
         - `REJECT` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
         """
         return pulumi.get(self, "stream_exception_policy")
+
+
+@pulumi.output_type
+class FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tcpIdleTimeoutSeconds":
+            suggest = "tcp_idle_timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tcp_idle_timeout_seconds: Optional[int] = None):
+        if tcp_idle_timeout_seconds is not None:
+            pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="tcpIdleTimeoutSeconds")
+    def tcp_idle_timeout_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "tcp_idle_timeout_seconds")
 
 
 @pulumi.output_type

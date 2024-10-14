@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// The protocol that you want to use to forward DNS queries. 
         /// </summary>
         public readonly Pulumi.AwsNative.Route53Resolver.ResolverRuleTargetAddressProtocol? Protocol;
+        /// <summary>
+        /// The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+        /// </summary>
+        public readonly string? ServerNameIndication;
 
         [OutputConstructor]
         private ResolverRuleTargetAddress(
@@ -38,12 +42,15 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 
             string? port,
 
-            Pulumi.AwsNative.Route53Resolver.ResolverRuleTargetAddressProtocol? protocol)
+            Pulumi.AwsNative.Route53Resolver.ResolverRuleTargetAddressProtocol? protocol,
+
+            string? serverNameIndication)
         {
             Ip = ip;
             Ipv6 = ipv6;
             Port = port;
             Protocol = protocol;
+            ServerNameIndication = serverNameIndication;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRuleSeverityUpdateLabel? Label;
         /// <summary>
         /// The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
-        ///  If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+        ///  If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
         ///   +  0 - ``INFORMATIONAL`` 
         ///   +  1–39 - ``LOW`` 
         ///   +  40–69 - ``MEDIUM`` 

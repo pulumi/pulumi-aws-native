@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Outputs
 {
 
+    /// <summary>
+    /// Specifies data stores to crawl.
+    /// </summary>
     [OutputType]
     public sealed class CrawlerTargets
     {

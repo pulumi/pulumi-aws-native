@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The failover settings for the endpoint.
+        /// </summary>
         [Output("forceEndpointErrorConfiguration")]
         public Output<Outputs.OriginEndpointForceEndpointErrorConfiguration?> ForceEndpointErrorConfiguration { get; private set; } = null!;
 
@@ -198,6 +201,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The failover settings for the endpoint.
+        /// </summary>
         [Input("forceEndpointErrorConfiguration")]
         public Input<Inputs.OriginEndpointForceEndpointErrorConfigurationArgs>? ForceEndpointErrorConfiguration { get; set; }
 

@@ -170,12 +170,14 @@ class ResolverRuleTargetAddressArgs:
                  ip: Optional[pulumi.Input[str]] = None,
                  ipv6: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']] = None):
+                 protocol: Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']] = None,
+                 server_name_indication: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
         :param pulumi.Input[str] ipv6: One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
         :param pulumi.Input[str] port: The port at Ip that you want to forward DNS queries to. 
         :param pulumi.Input['ResolverRuleTargetAddressProtocol'] protocol: The protocol that you want to use to forward DNS queries. 
+        :param pulumi.Input[str] server_name_indication: The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -185,6 +187,8 @@ class ResolverRuleTargetAddressArgs:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if server_name_indication is not None:
+            pulumi.set(__self__, "server_name_indication", server_name_indication)
 
     @property
     @pulumi.getter
@@ -233,5 +237,17 @@ class ResolverRuleTargetAddressArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="serverNameIndication")
+    def server_name_indication(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+        """
+        return pulumi.get(self, "server_name_indication")
+
+    @server_name_indication.setter
+    def server_name_indication(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name_indication", value)
 
 

@@ -402,7 +402,7 @@ class AutomationRuleSeverityUpdate(dict):
                  +   ``HIGH`` - The issue must be addressed as a priority.
                  +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
         :param int normalized: The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
-                If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+                If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
                  +  0 - ``INFORMATIONAL`` 
                  +  1–39 - ``LOW`` 
                  +  40–69 - ``MEDIUM`` 
@@ -435,7 +435,7 @@ class AutomationRuleSeverityUpdate(dict):
     def normalized(self) -> Optional[int]:
         """
         The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
-         If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+         If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
           +  0 - ``INFORMATIONAL`` 
           +  1–39 - ``LOW`` 
           +  40–69 - ``MEDIUM`` 
@@ -546,7 +546,7 @@ class AutomationRuleWorkflowUpdate(dict):
                  
                  +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
                  +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-                 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+                 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
         """
         pulumi.set(__self__, "status", status)
 
@@ -563,7 +563,7 @@ class AutomationRuleWorkflowUpdate(dict):
           
           +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
           +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-          +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+          +   ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
         """
         return pulumi.get(self, "status")
 
@@ -571,7 +571,7 @@ class AutomationRuleWorkflowUpdate(dict):
 @pulumi.output_type
 class AutomationRulesAction(dict):
     """
-    One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+    One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -594,9 +594,9 @@ class AutomationRulesAction(dict):
                  finding_fields_update: 'outputs.AutomationRulesFindingFieldsUpdate',
                  type: 'AutomationRulesActionType'):
         """
-        One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+        One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
         :param 'AutomationRulesFindingFieldsUpdate' finding_fields_update: Specifies that the automation rule action is an update to a finding field.
-        :param 'AutomationRulesActionType' type: Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+        :param 'AutomationRulesActionType' type: Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
         """
         pulumi.set(__self__, "finding_fields_update", finding_fields_update)
         pulumi.set(__self__, "type", type)
@@ -613,7 +613,7 @@ class AutomationRulesAction(dict):
     @pulumi.getter
     def type(self) -> 'AutomationRulesActionType':
         """
-        Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+        Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
         """
         return pulumi.get(self, "type")
 

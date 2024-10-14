@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -23,6 +26,10 @@ export interface GetTransitGatewayRouteTableArgs {
 }
 
 export interface GetTransitGatewayRouteTableResult {
+    /**
+     * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+     */
+    readonly tags?: outputs.Tag[];
     /**
      * Transit Gateway Route Table primary identifier
      */

@@ -28,6 +28,12 @@ class ChannelArgs:
         :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the channel configuration.
         :param pulumi.Input[str] channel_name: The name of the channel.
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel.</p>
+        :param pulumi.Input['ChannelInputType'] input_type: The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
+               
+               The allowed values are:
+               
+               - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
+               - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the channel.
         """
         pulumi.set(__self__, "channel_group_name", channel_group_name)
@@ -79,6 +85,14 @@ class ChannelArgs:
     @property
     @pulumi.getter(name="inputType")
     def input_type(self) -> Optional[pulumi.Input['ChannelInputType']]:
+        """
+        The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
+
+        The allowed values are:
+
+        - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
+        - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
+        """
         return pulumi.get(self, "input_type")
 
     @input_type.setter
@@ -117,6 +131,12 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] channel_group_name: The name of the channel group associated with the channel configuration.
         :param pulumi.Input[str] channel_name: The name of the channel.
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel.</p>
+        :param pulumi.Input['ChannelInputType'] input_type: The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
+               
+               The allowed values are:
+               
+               - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
+               - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the channel.
         """
         ...
@@ -261,6 +281,14 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="inputType")
     def input_type(self) -> pulumi.Output[Optional['ChannelInputType']]:
+        """
+        The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
+
+        The allowed values are:
+
+        - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
+        - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
+        """
         return pulumi.get(self, "input_type")
 
     @property

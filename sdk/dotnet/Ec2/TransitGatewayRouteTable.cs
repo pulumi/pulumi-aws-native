@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ec2
         /// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the transit gateway.
@@ -58,7 +58,6 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "tags[*]",
                     "transitGatewayId",
                 },
             };
@@ -84,14 +83,14 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class TransitGatewayRouteTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
         /// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 

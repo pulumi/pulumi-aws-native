@@ -811,3 +811,68 @@ export const VpcEndpointType = {
  *  Default: Gateway
  */
 export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];
+
+export const VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat = {
+    Json: "json",
+    Text: "text",
+} as const;
+
+export type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat = (typeof VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat)[keyof typeof VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat];
+
+export const VpnConnectionIkeVersionsRequestListValueValue = {
+    Ikev1: "ikev1",
+    Ikev2: "ikev2",
+} as const;
+
+export type VpnConnectionIkeVersionsRequestListValueValue = (typeof VpnConnectionIkeVersionsRequestListValueValue)[keyof typeof VpnConnectionIkeVersionsRequestListValueValue];
+
+export const VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue = {
+    Aes128: "AES128",
+    Aes256: "AES256",
+    Aes128Gcm16: "AES128-GCM-16",
+    Aes256Gcm16: "AES256-GCM-16",
+} as const;
+
+export type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue];
+
+export const VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue = {
+    Sha1: "SHA1",
+    Sha2256: "SHA2-256",
+    Sha2384: "SHA2-384",
+    Sha2512: "SHA2-512",
+} as const;
+
+export type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue];
+
+export const VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue = {
+    Aes128: "AES128",
+    Aes256: "AES256",
+    Aes128Gcm16: "AES128-GCM-16",
+    Aes256Gcm16: "AES256-GCM-16",
+} as const;
+
+export type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue];
+
+export const VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue = {
+    Sha1: "SHA1",
+    Sha2256: "SHA2-256",
+    Sha2384: "SHA2-384",
+    Sha2512: "SHA2-512",
+} as const;
+
+export type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue];
+
+export const VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = {
+    Clear: "clear",
+    None: "none",
+    Restart: "restart",
+} as const;
+
+export type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = (typeof VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction)[keyof typeof VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction];
+
+export const VpnConnectionVpnTunnelOptionsSpecificationStartupAction = {
+    Add: "add",
+    Start: "start",
+} as const;
+
+export type VpnConnectionVpnTunnelOptionsSpecificationStartupAction = (typeof VpnConnectionVpnTunnelOptionsSpecificationStartupAction)[keyof typeof VpnConnectionVpnTunnelOptionsSpecificationStartupAction];

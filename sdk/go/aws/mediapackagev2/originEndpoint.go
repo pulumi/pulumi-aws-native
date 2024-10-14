@@ -31,7 +31,8 @@ type OriginEndpoint struct {
 	// <p>A DASH manifest configuration.</p>
 	DashManifests OriginEndpointDashManifestConfigurationArrayOutput `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description                     pulumi.StringPtrOutput                                 `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The failover settings for the endpoint.
 	ForceEndpointErrorConfiguration OriginEndpointForceEndpointErrorConfigurationPtrOutput `pulumi:"forceEndpointErrorConfiguration"`
 	HlsManifestUrls                 pulumi.StringArrayOutput                               `pulumi:"hlsManifestUrls"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -115,7 +116,8 @@ type originEndpointArgs struct {
 	// <p>A DASH manifest configuration.</p>
 	DashManifests []OriginEndpointDashManifestConfiguration `pulumi:"dashManifests"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description                     *string                                        `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The failover settings for the endpoint.
 	ForceEndpointErrorConfiguration *OriginEndpointForceEndpointErrorConfiguration `pulumi:"forceEndpointErrorConfiguration"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
 	HlsManifests []OriginEndpointHlsManifestConfiguration `pulumi:"hlsManifests"`
@@ -142,7 +144,8 @@ type OriginEndpointArgs struct {
 	// <p>A DASH manifest configuration.</p>
 	DashManifests OriginEndpointDashManifestConfigurationArrayInput
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-	Description                     pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The failover settings for the endpoint.
 	ForceEndpointErrorConfiguration OriginEndpointForceEndpointErrorConfigurationPtrInput
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
 	HlsManifests OriginEndpointHlsManifestConfigurationArrayInput
@@ -234,6 +237,7 @@ func (o OriginEndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The failover settings for the endpoint.
 func (o OriginEndpointOutput) ForceEndpointErrorConfiguration() OriginEndpointForceEndpointErrorConfigurationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointForceEndpointErrorConfigurationPtrOutput {
 		return v.ForceEndpointErrorConfiguration

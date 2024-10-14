@@ -18,7 +18,7 @@ type TransitGatewayRouteTable struct {
 	pulumi.CustomResourceState
 
 	// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 	// Transit Gateway Route Table primary identifier
@@ -36,7 +36,6 @@ func NewTransitGatewayRouteTable(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"tags[*]",
 		"transitGatewayId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -74,7 +73,7 @@ func (TransitGatewayRouteTableState) ElementType() reflect.Type {
 
 type transitGatewayRouteTableArgs struct {
 	// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -82,7 +81,7 @@ type transitGatewayRouteTableArgs struct {
 // The set of arguments for constructing a TransitGatewayRouteTable resource.
 type TransitGatewayRouteTableArgs struct {
 	// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
 }
@@ -125,8 +124,8 @@ func (o TransitGatewayRouteTableOutput) ToTransitGatewayRouteTableOutputWithCont
 }
 
 // Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
-func (o TransitGatewayRouteTableOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *TransitGatewayRouteTable) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o TransitGatewayRouteTableOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTable) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The ID of the transit gateway.

@@ -54,6 +54,14 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("ingestEndpoints")]
         public Output<ImmutableArray<Outputs.ChannelIngestEndpoint>> IngestEndpoints { get; private set; } = null!;
 
+        /// <summary>
+        /// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
+        /// 
+        /// The allowed values are:
+        /// 
+        /// - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
+        /// - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
+        /// </summary>
         [Output("inputType")]
         public Output<Pulumi.AwsNative.MediaPackageV2.ChannelInputType?> InputType { get; private set; } = null!;
 
@@ -138,6 +146,14 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
+        /// 
+        /// The allowed values are:
+        /// 
+        /// - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
+        /// - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
+        /// </summary>
         [Input("inputType")]
         public Input<Pulumi.AwsNative.MediaPackageV2.ChannelInputType>? InputType { get; set; }
 

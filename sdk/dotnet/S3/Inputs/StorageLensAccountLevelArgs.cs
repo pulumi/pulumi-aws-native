@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         public Input<Inputs.StorageLensAdvancedDataProtectionMetricsArgs>? AdvancedDataProtectionMetrics { get; set; }
 
         /// <summary>
-        /// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+        /// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
         /// </summary>
         [Input("bucketLevel", required: true)]
         public Input<Inputs.StorageLensBucketLevelArgs> BucketLevel { get; set; } = null!;

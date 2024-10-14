@@ -160,16 +160,35 @@ class FirewallRuleGroupFirewallRule(dict):
 
 @pulumi.output_type
 class ResolverRuleTargetAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverNameIndication":
+            suggest = "server_name_indication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResolverRuleTargetAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResolverRuleTargetAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResolverRuleTargetAddress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip: Optional[str] = None,
                  ipv6: Optional[str] = None,
                  port: Optional[str] = None,
-                 protocol: Optional['ResolverRuleTargetAddressProtocol'] = None):
+                 protocol: Optional['ResolverRuleTargetAddressProtocol'] = None,
+                 server_name_indication: Optional[str] = None):
         """
         :param str ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
         :param str ipv6: One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
         :param str port: The port at Ip that you want to forward DNS queries to. 
         :param 'ResolverRuleTargetAddressProtocol' protocol: The protocol that you want to use to forward DNS queries. 
+        :param str server_name_indication: The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -179,6 +198,8 @@ class ResolverRuleTargetAddress(dict):
             pulumi.set(__self__, "port", port)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if server_name_indication is not None:
+            pulumi.set(__self__, "server_name_indication", server_name_indication)
 
     @property
     @pulumi.getter
@@ -211,5 +232,13 @@ class ResolverRuleTargetAddress(dict):
         The protocol that you want to use to forward DNS queries. 
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="serverNameIndication")
+    def server_name_indication(self) -> Optional[str]:
+        """
+        The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+        """
+        return pulumi.get(self, "server_name_indication")
 
 

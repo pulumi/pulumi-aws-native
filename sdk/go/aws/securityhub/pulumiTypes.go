@@ -886,7 +886,7 @@ type AutomationRuleSeverityUpdate struct {
 	//   +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
 	Label *AutomationRuleSeverityUpdateLabel `pulumi:"label"`
 	// The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
-	//  If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+	//  If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
 	//   +  0 - ``INFORMATIONAL``
 	//   +  1–39 - ``LOW``
 	//   +  40–69 - ``MEDIUM``
@@ -918,7 +918,7 @@ type AutomationRuleSeverityUpdateArgs struct {
 	//   +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
 	Label AutomationRuleSeverityUpdateLabelPtrInput `pulumi:"label"`
 	// The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
-	//  If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+	//  If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
 	//   +  0 - ``INFORMATIONAL``
 	//   +  1–39 - ``LOW``
 	//   +  40–69 - ``MEDIUM``
@@ -1019,7 +1019,7 @@ func (o AutomationRuleSeverityUpdateOutput) Label() AutomationRuleSeverityUpdate
 
 // The normalized severity for the finding. This attribute is to be deprecated in favor of “Label“.
 //
-//	If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+//	If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
 //	 +  0 - ``INFORMATIONAL``
 //	 +  1–39 - ``LOW``
 //	 +  40–69 - ``MEDIUM``
@@ -1075,7 +1075,7 @@ func (o AutomationRuleSeverityUpdatePtrOutput) Label() AutomationRuleSeverityUpd
 
 // The normalized severity for the finding. This attribute is to be deprecated in favor of “Label“.
 //
-//	If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+//	If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
 //	 +  0 - ``INFORMATIONAL``
 //	 +  1–39 - ``LOW``
 //	 +  40–69 - ``MEDIUM``
@@ -1284,7 +1284,7 @@ type AutomationRuleWorkflowUpdate struct {
 	//
 	//   +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
 	//   +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-	//   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+	//   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
 	Status AutomationRuleWorkflowUpdateStatus `pulumi:"status"`
 }
 
@@ -1310,7 +1310,7 @@ type AutomationRuleWorkflowUpdateArgs struct {
 	//
 	//   +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
 	//   +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-	//   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+	//   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
 	Status AutomationRuleWorkflowUpdateStatusInput `pulumi:"status"`
 }
 
@@ -1402,7 +1402,7 @@ func (o AutomationRuleWorkflowUpdateOutput) ToAutomationRuleWorkflowUpdatePtrOut
 //
 //	 +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
 //	 +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-//	 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+//	 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
 func (o AutomationRuleWorkflowUpdateOutput) Status() AutomationRuleWorkflowUpdateStatusOutput {
 	return o.ApplyT(func(v AutomationRuleWorkflowUpdate) AutomationRuleWorkflowUpdateStatus { return v.Status }).(AutomationRuleWorkflowUpdateStatusOutput)
 }
@@ -1441,7 +1441,7 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Elem() AutomationRuleWorkflowUpda
 //
 //	 +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
 //	 +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-//	 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+//	 +   ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
 func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUpdateStatusPtrOutput {
 	return o.ApplyT(func(v *AutomationRuleWorkflowUpdate) *AutomationRuleWorkflowUpdateStatus {
 		if v == nil {
@@ -1451,11 +1451,11 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUp
 	}).(AutomationRuleWorkflowUpdateStatusPtrOutput)
 }
 
-// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+// One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
 type AutomationRulesAction struct {
 	// Specifies that the automation rule action is an update to a finding field.
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdate `pulumi:"findingFieldsUpdate"`
-	// Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+	// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
 	Type AutomationRulesActionType `pulumi:"type"`
 }
 
@@ -1470,11 +1470,11 @@ type AutomationRulesActionInput interface {
 	ToAutomationRulesActionOutputWithContext(context.Context) AutomationRulesActionOutput
 }
 
-// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+// One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
 type AutomationRulesActionArgs struct {
 	// Specifies that the automation rule action is an update to a finding field.
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdateInput `pulumi:"findingFieldsUpdate"`
-	// Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+	// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
 	Type AutomationRulesActionTypeInput `pulumi:"type"`
 }
 
@@ -1515,7 +1515,7 @@ func (i AutomationRulesActionArray) ToAutomationRulesActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesActionArrayOutput)
 }
 
-// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+// One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
 type AutomationRulesActionOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulesActionOutput) ElementType() reflect.Type {
@@ -1535,7 +1535,7 @@ func (o AutomationRulesActionOutput) FindingFieldsUpdate() AutomationRulesFindin
 	return o.ApplyT(func(v AutomationRulesAction) AutomationRulesFindingFieldsUpdate { return v.FindingFieldsUpdate }).(AutomationRulesFindingFieldsUpdateOutput)
 }
 
-// Specifies that the rule action should update the “Types“ finding field. The “Types“ finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
 func (o AutomationRulesActionOutput) Type() AutomationRulesActionTypeOutput {
 	return o.ApplyT(func(v AutomationRulesAction) AutomationRulesActionType { return v.Type }).(AutomationRulesActionTypeOutput)
 }

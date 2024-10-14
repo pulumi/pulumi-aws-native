@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
+    /// <summary>
+    /// Specifies an Amazon DocumentDB or MongoDB data store to crawl.
+    /// </summary>
     public sealed class CrawlerMongoDbTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

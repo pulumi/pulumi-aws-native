@@ -38,6 +38,7 @@ class OriginEndpointArgs:
         :param pulumi.Input['OriginEndpointContainerType'] container_type: The container type associated with the origin endpoint configuration.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashManifestConfigurationArgs']]] dash_manifests: <p>A DASH manifest configuration.</p>
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
+        :param pulumi.Input['OriginEndpointForceEndpointErrorConfigurationArgs'] force_endpoint_error_configuration: The failover settings for the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
         :param pulumi.Input[str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
@@ -130,6 +131,9 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="forceEndpointErrorConfiguration")
     def force_endpoint_error_configuration(self) -> Optional[pulumi.Input['OriginEndpointForceEndpointErrorConfigurationArgs']]:
+        """
+        The failover settings for the endpoint.
+        """
         return pulumi.get(self, "force_endpoint_error_configuration")
 
     @force_endpoint_error_configuration.setter
@@ -237,6 +241,7 @@ class OriginEndpoint(pulumi.CustomResource):
         :param pulumi.Input['OriginEndpointContainerType'] container_type: The container type associated with the origin endpoint configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointDashManifestConfigurationArgs', 'OriginEndpointDashManifestConfigurationArgsDict']]]] dash_manifests: <p>A DASH manifest configuration.</p>
         :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
+        :param pulumi.Input[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict']] force_endpoint_error_configuration: The failover settings for the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict']]]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict']]]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
         :param pulumi.Input[str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
@@ -421,6 +426,9 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="forceEndpointErrorConfiguration")
     def force_endpoint_error_configuration(self) -> pulumi.Output[Optional['outputs.OriginEndpointForceEndpointErrorConfiguration']]:
+        """
+        The failover settings for the endpoint.
+        """
         return pulumi.get(self, "force_endpoint_error_configuration")
 
     @property

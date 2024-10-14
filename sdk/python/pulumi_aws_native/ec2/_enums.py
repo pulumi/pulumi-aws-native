@@ -66,6 +66,14 @@ __all__ = [
     'SpotFleetSpotPlacementTenancy',
     'SpotFleetTagSpecificationResourceType',
     'VpcEndpointType',
+    'VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat',
+    'VpnConnectionIkeVersionsRequestListValueValue',
+    'VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue',
+    'VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue',
+    'VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue',
+    'VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue',
+    'VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction',
+    'VpnConnectionVpnTunnelOptionsSpecificationStartupAction',
 ]
 
 
@@ -755,3 +763,52 @@ class VpcEndpointType(str, Enum):
     INTERFACE = "Interface"
     GATEWAY = "Gateway"
     GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"
+
+
+class VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat(str, Enum):
+    JSON = "json"
+    TEXT = "text"
+
+
+class VpnConnectionIkeVersionsRequestListValueValue(str, Enum):
+    IKEV1 = "ikev1"
+    IKEV2 = "ikev2"
+
+
+class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue(str, Enum):
+    AES128 = "AES128"
+    AES256 = "AES256"
+    AES128_GCM16 = "AES128-GCM-16"
+    AES256_GCM16 = "AES256-GCM-16"
+
+
+class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue(str, Enum):
+    SHA1 = "SHA1"
+    SHA2256 = "SHA2-256"
+    SHA2384 = "SHA2-384"
+    SHA2512 = "SHA2-512"
+
+
+class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue(str, Enum):
+    AES128 = "AES128"
+    AES256 = "AES256"
+    AES128_GCM16 = "AES128-GCM-16"
+    AES256_GCM16 = "AES256-GCM-16"
+
+
+class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(str, Enum):
+    SHA1 = "SHA1"
+    SHA2256 = "SHA2-256"
+    SHA2384 = "SHA2-384"
+    SHA2512 = "SHA2-512"
+
+
+class VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction(str, Enum):
+    CLEAR = "clear"
+    NONE = "none"
+    RESTART = "restart"
+
+
+class VpnConnectionVpnTunnelOptionsSpecificationStartupAction(str, Enum):
+    ADD = "add"
+    START = "start"

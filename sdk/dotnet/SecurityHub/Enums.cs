@@ -198,7 +198,7 @@ namespace Pulumi.AwsNative.SecurityHub
     ///   
     ///   +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
     ///   +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-    ///   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+    ///   +   ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
     /// </summary>
     [EnumType]
     public readonly struct AutomationRuleWorkflowUpdateStatus : IEquatable<AutomationRuleWorkflowUpdateStatus>
@@ -231,7 +231,7 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
-    /// Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+    /// Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
     /// </summary>
     [EnumType]
     public readonly struct AutomationRulesActionType : IEquatable<AutomationRulesActionType>

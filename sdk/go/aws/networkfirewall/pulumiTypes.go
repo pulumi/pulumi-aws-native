@@ -953,6 +953,7 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyD
 }
 
 type FirewallPolicyStatefulEngineOptions struct {
+	FlowTimeouts *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties `pulumi:"flowTimeouts"`
 	// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 	RuleOrder *FirewallPolicyRuleOrder `pulumi:"ruleOrder"`
 	// Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
@@ -975,6 +976,7 @@ type FirewallPolicyStatefulEngineOptionsInput interface {
 }
 
 type FirewallPolicyStatefulEngineOptionsArgs struct {
+	FlowTimeouts FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrInput `pulumi:"flowTimeouts"`
 	// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 	RuleOrder FirewallPolicyRuleOrderPtrInput `pulumi:"ruleOrder"`
 	// Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
@@ -1062,6 +1064,12 @@ func (o FirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolicyStatefulEngin
 	}).(FirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+func (o FirewallPolicyStatefulEngineOptionsOutput) FlowTimeouts() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties {
+		return v.FlowTimeouts
+	}).(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput)
+}
+
 // Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 func (o FirewallPolicyStatefulEngineOptionsOutput) RuleOrder() FirewallPolicyRuleOrderPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyRuleOrder { return v.RuleOrder }).(FirewallPolicyRuleOrderPtrOutput)
@@ -1102,6 +1110,15 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) Elem() FirewallPolicyState
 	}).(FirewallPolicyStatefulEngineOptionsOutput)
 }
 
+func (o FirewallPolicyStatefulEngineOptionsPtrOutput) FlowTimeouts() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptions) *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.FlowTimeouts
+	}).(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput)
+}
+
 // Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 func (o FirewallPolicyStatefulEngineOptionsPtrOutput) RuleOrder() FirewallPolicyRuleOrderPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptions) *FirewallPolicyRuleOrder {
@@ -1124,6 +1141,139 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) StreamExceptionPolicy() Fi
 		}
 		return v.StreamExceptionPolicy
 	}).(FirewallPolicyStreamExceptionPolicyPtrOutput)
+}
+
+type FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties struct {
+	TcpIdleTimeoutSeconds *int `pulumi:"tcpIdleTimeoutSeconds"`
+}
+
+// FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesInput is an input type that accepts FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs and FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput values.
+// You can construct a concrete instance of `FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesInput` via:
+//
+//	FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs{...}
+type FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput
+	ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutputWithContext(context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput
+}
+
+type FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs struct {
+	TcpIdleTimeoutSeconds pulumi.IntPtrInput `pulumi:"tcpIdleTimeoutSeconds"`
+}
+
+func (FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties)(nil)).Elem()
+}
+
+func (i FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput {
+	return i.ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput)
+}
+
+func (i FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return i.ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput).ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrInput is an input type that accepts FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs, FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtr and FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrInput` via:
+//
+//	        FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput
+	ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput
+}
+
+type firewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrType FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs
+
+func FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtr(v *FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrInput {
+	return (*firewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrType)(v)
+}
+
+func (*firewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties)(nil)).Elem()
+}
+
+func (i *firewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrType) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return i.ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrType) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput)
+}
+
+type FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties)(nil)).Elem()
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput {
+	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput {
+	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return o.ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties) *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties {
+		return &v
+	}).(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput)
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput) TcpIdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties) *int { return v.TcpIdleTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties)(nil)).Elem()
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput) ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput) Elem() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput {
+	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties) FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties
+		return ret
+	}).(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput)
+}
+
+func (o FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput) TcpIdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpIdleTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type FirewallPolicyStatefulRuleGroupOverride struct {
@@ -5707,6 +5857,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPublishMetricActionPtrInput)(nil)).Elem(), FirewallPolicyPublishMetricActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsPtrInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrInput)(nil)).Elem(), FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulRuleGroupOverrideInput)(nil)).Elem(), FirewallPolicyStatefulRuleGroupOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulRuleGroupOverridePtrInput)(nil)).Elem(), FirewallPolicyStatefulRuleGroupOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), FirewallPolicyStatefulRuleGroupReferenceArgs{})
@@ -5788,6 +5940,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupOverrideOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupOverridePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferenceOutput{})

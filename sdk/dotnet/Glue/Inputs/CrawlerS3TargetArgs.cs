@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
+    /// <summary>
+    /// Specifies a data store in Amazon Simple Storage Service (Amazon S3).
+    /// </summary>
     public sealed class CrawlerS3TargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -19,13 +22,13 @@ namespace Pulumi.AwsNative.Glue.Inputs
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
-        /// A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
+        /// A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
         /// </summary>
         [Input("dlqEventQueueArn")]
         public Input<string>? DlqEventQueueArn { get; set; }
 
         /// <summary>
-        /// A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
+        /// A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
         /// </summary>
         [Input("eventQueueArn")]
         public Input<string>? EventQueueArn { get; set; }
@@ -34,7 +37,7 @@ namespace Pulumi.AwsNative.Glue.Inputs
         private InputList<string>? _exclusions;
 
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
+        /// A list of glob patterns used to exclude from the crawl.
         /// </summary>
         public InputList<string> Exclusions
         {

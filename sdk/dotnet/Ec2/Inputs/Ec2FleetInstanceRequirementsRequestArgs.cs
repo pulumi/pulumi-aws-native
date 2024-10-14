@@ -85,7 +85,6 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// 
         /// - To include instance types with GPU hardware, specify `gpu` .
         /// - To include instance types with FPGA hardware, specify `fpga` .
-        /// - To include instance types with inference hardware, specify `inference` .
         /// 
         /// Default: Any accelerator type
         /// </summary>

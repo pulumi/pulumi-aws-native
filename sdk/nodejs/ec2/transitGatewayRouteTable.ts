@@ -40,7 +40,7 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
     /**
      * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The ID of the transit gateway.
      */
@@ -73,7 +73,7 @@ export class TransitGatewayRouteTable extends pulumi.CustomResource {
             resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["tags[*]", "transitGatewayId"] };
+        const replaceOnChanges = { replaceOnChanges: ["transitGatewayId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayRouteTable.__pulumiType, name, resourceInputs, opts);
     }
@@ -86,7 +86,7 @@ export interface TransitGatewayRouteTableArgs {
     /**
      * Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The ID of the transit gateway.
      */

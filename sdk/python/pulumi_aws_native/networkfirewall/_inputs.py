@@ -17,6 +17,7 @@ __all__ = [
     'FirewallPolicyIpSetArgs',
     'FirewallPolicyPolicyVariablesPropertiesArgs',
     'FirewallPolicyPublishMetricActionArgs',
+    'FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs',
     'FirewallPolicyStatefulEngineOptionsArgs',
     'FirewallPolicyStatefulRuleGroupOverrideArgs',
     'FirewallPolicyStatefulRuleGroupReferenceArgs',
@@ -203,8 +204,26 @@ class FirewallPolicyPublishMetricActionArgs:
 
 
 @pulumi.input_type
+class FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs:
+    def __init__(__self__, *,
+                 tcp_idle_timeout_seconds: Optional[pulumi.Input[int]] = None):
+        if tcp_idle_timeout_seconds is not None:
+            pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="tcpIdleTimeoutSeconds")
+    def tcp_idle_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "tcp_idle_timeout_seconds")
+
+    @tcp_idle_timeout_seconds.setter
+    def tcp_idle_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tcp_idle_timeout_seconds", value)
+
+
+@pulumi.input_type
 class FirewallPolicyStatefulEngineOptionsArgs:
     def __init__(__self__, *,
+                 flow_timeouts: Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs']] = None,
                  rule_order: Optional[pulumi.Input['FirewallPolicyRuleOrder']] = None,
                  stream_exception_policy: Optional[pulumi.Input['FirewallPolicyStreamExceptionPolicy']] = None):
         """
@@ -215,10 +234,21 @@ class FirewallPolicyStatefulEngineOptionsArgs:
                - `CONTINUE` - Network Firewall continues to apply rules to the subsequent traffic without context from traffic before the break. This impacts the behavior of rules that depend on this context. For example, if you have a stateful rule to `drop http` traffic, Network Firewall won't match the traffic for this rule because the service won't have the context from session initialization defining the application layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule using a `flow:stateless` rule would still match, as would the `aws:drop_strict` default action.
                - `REJECT` - Network Firewall fails closed and drops all subsequent traffic going to the firewall. Network Firewall also sends a TCP reject packet back to your client so that the client can immediately establish a new session. Network Firewall will have context about the new session and will apply rules to the subsequent traffic.
         """
+        if flow_timeouts is not None:
+            pulumi.set(__self__, "flow_timeouts", flow_timeouts)
         if rule_order is not None:
             pulumi.set(__self__, "rule_order", rule_order)
         if stream_exception_policy is not None:
             pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
+
+    @property
+    @pulumi.getter(name="flowTimeouts")
+    def flow_timeouts(self) -> Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs']]:
+        return pulumi.get(self, "flow_timeouts")
+
+    @flow_timeouts.setter
+    def flow_timeouts(self, value: Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs']]):
+        pulumi.set(self, "flow_timeouts", value)
 
     @property
     @pulumi.getter(name="ruleOrder")

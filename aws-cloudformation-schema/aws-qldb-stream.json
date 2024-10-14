@@ -103,7 +103,15 @@
       "permissions" : [ "qldb:DescribeJournalKinesisStream", "qldb:UntagResource", "qldb:TagResource" ]
     },
     "list" : {
-      "permissions" : [ "qldb:listJournalKinesisStreamsForLedger" ]
+      "permissions" : [ "qldb:listJournalKinesisStreamsForLedger" ],
+      "handlerSchema" : {
+        "properties" : {
+          "LedgerName" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "LedgerName" ]
+      }
     }
   }
 }

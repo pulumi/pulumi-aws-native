@@ -51,34 +51,28 @@ export class VpnConnection extends pulumi.CustomResource {
     public readonly enableAcceleration!: pulumi.Output<boolean | undefined>;
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-     *
-     * Default: `0.0.0.0/0`
+     *  Default: ``0.0.0.0/0``
      */
     public readonly localIpv4NetworkCidr!: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-     *
-     * Default: `::/0`
+     *  Default: ``::/0``
      */
     public readonly localIpv6NetworkCidr!: pulumi.Output<string | undefined>;
     /**
      * The type of IPv4 address assigned to the outside interface of the customer gateway device.
-     *
-     * Valid values: `PrivateIpv4` | `PublicIpv4`
-     *
-     * Default: `PublicIpv4`
+     *  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` 
+     *  Default: ``PublicIpv4``
      */
     public readonly outsideIpAddressType!: pulumi.Output<string | undefined>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
-     *
-     * Default: `0.0.0.0/0`
+     *  Default: ``0.0.0.0/0``
      */
     public readonly remoteIpv4NetworkCidr!: pulumi.Output<string | undefined>;
     /**
      * The IPv6 CIDR on the AWS side of the VPN connection.
-     *
-     * Default: `::/0`
+     *  Default: ``::/0``
      */
     public readonly remoteIpv6NetworkCidr!: pulumi.Output<string | undefined>;
     /**
@@ -97,14 +91,12 @@ export class VpnConnection extends pulumi.CustomResource {
     public readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
      * The transit gateway attachment ID to use for the VPN tunnel.
-     *
-     * Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
+     *  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
     public readonly transportTransitGatewayAttachmentId!: pulumi.Output<string | undefined>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
-     *
-     * Default: `ipv4`
+     *  Default: ``ipv4``
      */
     public readonly tunnelInsideIpVersion!: pulumi.Output<string | undefined>;
     /**
@@ -198,34 +190,28 @@ export interface VpnConnectionArgs {
     enableAcceleration?: pulumi.Input<boolean>;
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-     *
-     * Default: `0.0.0.0/0`
+     *  Default: ``0.0.0.0/0``
      */
     localIpv4NetworkCidr?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-     *
-     * Default: `::/0`
+     *  Default: ``::/0``
      */
     localIpv6NetworkCidr?: pulumi.Input<string>;
     /**
      * The type of IPv4 address assigned to the outside interface of the customer gateway device.
-     *
-     * Valid values: `PrivateIpv4` | `PublicIpv4`
-     *
-     * Default: `PublicIpv4`
+     *  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` 
+     *  Default: ``PublicIpv4``
      */
     outsideIpAddressType?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
-     *
-     * Default: `0.0.0.0/0`
+     *  Default: ``0.0.0.0/0``
      */
     remoteIpv4NetworkCidr?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR on the AWS side of the VPN connection.
-     *
-     * Default: `::/0`
+     *  Default: ``::/0``
      */
     remoteIpv6NetworkCidr?: pulumi.Input<string>;
     /**
@@ -244,14 +230,12 @@ export interface VpnConnectionArgs {
     transitGatewayId?: pulumi.Input<string>;
     /**
      * The transit gateway attachment ID to use for the VPN tunnel.
-     *
-     * Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
+     *  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
     transportTransitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
-     *
-     * Default: `ipv4`
+     *  Default: ``ipv4``
      */
     tunnelInsideIpVersion?: pulumi.Input<string>;
     /**

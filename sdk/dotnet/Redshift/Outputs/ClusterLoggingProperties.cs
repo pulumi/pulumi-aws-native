@@ -33,16 +33,7 @@ namespace Pulumi.AwsNative.Redshift.Outputs
         /// <summary>
         /// The prefix applied to the log file names.
         /// 
-        /// Constraints:
-        /// 
-        /// - Cannot exceed 512 characters
-        /// - Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
-        /// 
-        /// - x00 to x20
-        /// - x22
-        /// - x27
-        /// - x5c
-        /// - x7f or larger
+        /// Valid characters are any letter from any language, any whitespace character, any numeric character, and the following characters: underscore ( `_` ), period ( `.` ), colon ( `:` ), slash ( `/` ), equal ( `=` ), plus ( `+` ), backslash ( `\` ), hyphen ( `-` ), at symbol ( `@` ).
         /// </summary>
         public readonly string? S3KeyPrefix;
 

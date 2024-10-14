@@ -62,6 +62,14 @@ export class Channel extends pulumi.CustomResource {
      * <p>The list of ingest endpoints.</p>
      */
     public /*out*/ readonly ingestEndpoints!: pulumi.Output<outputs.mediapackagev2.ChannelIngestEndpoint[]>;
+    /**
+     * The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
+     *
+     * The allowed values are:
+     *
+     * - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
+     * - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
+     */
     public readonly inputType!: pulumi.Output<enums.mediapackagev2.ChannelInputType | undefined>;
     /**
      * <p>The date and time the channel was modified.</p>
@@ -131,6 +139,14 @@ export interface ChannelArgs {
      * <p>Enter any descriptive text that helps you to identify the channel.</p>
      */
     description?: pulumi.Input<string>;
+    /**
+     * The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
+     *
+     * The allowed values are:
+     *
+     * - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
+     * - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
+     */
     inputType?: pulumi.Input<enums.mediapackagev2.ChannelInputType>;
     /**
      * The tags associated with the channel.

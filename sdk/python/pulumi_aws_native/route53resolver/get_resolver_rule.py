@@ -21,13 +21,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverRuleResult:
-    def __init__(__self__, arn=None, delegation_record=None, domain_name=None, name=None, resolver_endpoint_id=None, resolver_rule_id=None, tags=None, target_ips=None):
+    def __init__(__self__, arn=None, domain_name=None, name=None, resolver_endpoint_id=None, resolver_rule_id=None, tags=None, target_ips=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if delegation_record and not isinstance(delegation_record, str):
-            raise TypeError("Expected argument 'delegation_record' to be a str")
-        pulumi.set(__self__, "delegation_record", delegation_record)
         if domain_name and not isinstance(domain_name, str):
             raise TypeError("Expected argument 'domain_name' to be a str")
         pulumi.set(__self__, "domain_name", domain_name)
@@ -54,14 +51,6 @@ class GetResolverRuleResult:
         The Amazon Resource Name (ARN) of the resolver rule.
         """
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="delegationRecord")
-    def delegation_record(self) -> Optional[str]:
-        """
-        The name server domain for queries to be delegated to if a query matches the delegation record.
-        """
-        return pulumi.get(self, "delegation_record")
 
     @property
     @pulumi.getter(name="domainName")
@@ -119,7 +108,6 @@ class AwaitableGetResolverRuleResult(GetResolverRuleResult):
             yield self
         return GetResolverRuleResult(
             arn=self.arn,
-            delegation_record=self.delegation_record,
             domain_name=self.domain_name,
             name=self.name,
             resolver_endpoint_id=self.resolver_endpoint_id,
@@ -143,7 +131,6 @@ def get_resolver_rule(resolver_rule_id: Optional[str] = None,
 
     return AwaitableGetResolverRuleResult(
         arn=pulumi.get(__ret__, 'arn'),
-        delegation_record=pulumi.get(__ret__, 'delegation_record'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         name=pulumi.get(__ret__, 'name'),
         resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),

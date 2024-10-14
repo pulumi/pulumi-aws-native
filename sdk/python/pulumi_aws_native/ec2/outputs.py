@@ -183,6 +183,15 @@ __all__ = [
     'VerifiedAccessInstanceVerifiedAccessTrustProvider',
     'VerifiedAccessTrustProviderDeviceOptions',
     'VerifiedAccessTrustProviderOidcOptions',
+    'VpnConnectionCloudwatchLogOptionsSpecification',
+    'VpnConnectionIkeVersionsRequestListValue',
+    'VpnConnectionPhase1EncryptionAlgorithmsRequestListValue',
+    'VpnConnectionPhase1IntegrityAlgorithmsRequestListValue',
+    'VpnConnectionPhase1dhGroupNumbersRequestListValue',
+    'VpnConnectionPhase2EncryptionAlgorithmsRequestListValue',
+    'VpnConnectionPhase2IntegrityAlgorithmsRequestListValue',
+    'VpnConnectionPhase2dhGroupNumbersRequestListValue',
+    'VpnConnectionVpnTunnelLogOptionsSpecification',
     'VpnConnectionVpnTunnelOptionsSpecification',
 ]
 
@@ -1261,7 +1270,6 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                - To include instance types with GPU hardware, specify `gpu` .
                - To include instance types with FPGA hardware, specify `fpga` .
-               - To include instance types with inference hardware, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -1495,7 +1503,6 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
         - To include instance types with GPU hardware, specify `gpu` .
         - To include instance types with FPGA hardware, specify `fpga` .
-        - To include instance types with inference hardware, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -11176,7 +11183,6 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                - To include instance types with GPU hardware, specify `gpu` .
                - To include instance types with FPGA hardware, specify `fpga` .
-               - To include instance types with inference hardware, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -11410,7 +11416,6 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
         - To include instance types with GPU hardware, specify `gpu` .
         - To include instance types with FPGA hardware, specify `fpga` .
-        - To include instance types with inference hardware, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -14100,6 +14105,177 @@ class VerifiedAccessTrustProviderOidcOptions(dict):
 
 
 @pulumi.output_type
+class VpnConnectionCloudwatchLogOptionsSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logEnabled":
+            suggest = "log_enabled"
+        elif key == "logGroupArn":
+            suggest = "log_group_arn"
+        elif key == "logOutputFormat":
+            suggest = "log_output_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnConnectionCloudwatchLogOptionsSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnConnectionCloudwatchLogOptionsSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnConnectionCloudwatchLogOptionsSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_enabled: Optional[bool] = None,
+                 log_group_arn: Optional[str] = None,
+                 log_output_format: Optional['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat'] = None):
+        if log_enabled is not None:
+            pulumi.set(__self__, "log_enabled", log_enabled)
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+        if log_output_format is not None:
+            pulumi.set(__self__, "log_output_format", log_output_format)
+
+    @property
+    @pulumi.getter(name="logEnabled")
+    def log_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "log_enabled")
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[str]:
+        return pulumi.get(self, "log_group_arn")
+
+    @property
+    @pulumi.getter(name="logOutputFormat")
+    def log_output_format(self) -> Optional['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat']:
+        return pulumi.get(self, "log_output_format")
+
+
+@pulumi.output_type
+class VpnConnectionIkeVersionsRequestListValue(dict):
+    def __init__(__self__, *,
+                 value: Optional['VpnConnectionIkeVersionsRequestListValueValue'] = None):
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['VpnConnectionIkeVersionsRequestListValueValue']:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionPhase1EncryptionAlgorithmsRequestListValue(dict):
+    def __init__(__self__, *,
+                 value: Optional['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue'] = None):
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue']:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionPhase1IntegrityAlgorithmsRequestListValue(dict):
+    def __init__(__self__, *,
+                 value: Optional['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue'] = None):
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue']:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionPhase1dhGroupNumbersRequestListValue(dict):
+    def __init__(__self__, *,
+                 value: Optional[int] = None):
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[int]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionPhase2EncryptionAlgorithmsRequestListValue(dict):
+    def __init__(__self__, *,
+                 value: Optional['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue'] = None):
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue']:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionPhase2IntegrityAlgorithmsRequestListValue(dict):
+    def __init__(__self__, *,
+                 value: Optional['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue'] = None):
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue']:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionPhase2dhGroupNumbersRequestListValue(dict):
+    def __init__(__self__, *,
+                 value: Optional[int] = None):
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[int]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpnConnectionVpnTunnelLogOptionsSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogOptions":
+            suggest = "cloudwatch_log_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnConnectionVpnTunnelLogOptionsSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnConnectionVpnTunnelLogOptionsSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnConnectionVpnTunnelLogOptionsSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_log_options: Optional['outputs.VpnConnectionCloudwatchLogOptionsSpecification'] = None):
+        if cloudwatch_log_options is not None:
+            pulumi.set(__self__, "cloudwatch_log_options", cloudwatch_log_options)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogOptions")
+    def cloudwatch_log_options(self) -> Optional['outputs.VpnConnectionCloudwatchLogOptionsSpecification']:
+        return pulumi.get(self, "cloudwatch_log_options")
+
+
+@pulumi.output_type
 class VpnConnectionVpnTunnelOptionsSpecification(dict):
     """
     The tunnel options for a single VPN tunnel.
@@ -14107,10 +14283,46 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "preSharedKey":
+        if key == "dpdTimeoutAction":
+            suggest = "dpd_timeout_action"
+        elif key == "dpdTimeoutSeconds":
+            suggest = "dpd_timeout_seconds"
+        elif key == "enableTunnelLifecycleControl":
+            suggest = "enable_tunnel_lifecycle_control"
+        elif key == "ikeVersions":
+            suggest = "ike_versions"
+        elif key == "logOptions":
+            suggest = "log_options"
+        elif key == "phase1EncryptionAlgorithms":
+            suggest = "phase1_encryption_algorithms"
+        elif key == "phase1IntegrityAlgorithms":
+            suggest = "phase1_integrity_algorithms"
+        elif key == "phase1LifetimeSeconds":
+            suggest = "phase1_lifetime_seconds"
+        elif key == "phase1dhGroupNumbers":
+            suggest = "phase1dh_group_numbers"
+        elif key == "phase2EncryptionAlgorithms":
+            suggest = "phase2_encryption_algorithms"
+        elif key == "phase2IntegrityAlgorithms":
+            suggest = "phase2_integrity_algorithms"
+        elif key == "phase2LifetimeSeconds":
+            suggest = "phase2_lifetime_seconds"
+        elif key == "phase2dhGroupNumbers":
+            suggest = "phase2dh_group_numbers"
+        elif key == "preSharedKey":
             suggest = "pre_shared_key"
+        elif key == "rekeyFuzzPercentage":
+            suggest = "rekey_fuzz_percentage"
+        elif key == "rekeyMarginTimeSeconds":
+            suggest = "rekey_margin_time_seconds"
+        elif key == "replayWindowSize":
+            suggest = "replay_window_size"
+        elif key == "startupAction":
+            suggest = "startup_action"
         elif key == "tunnelInsideCidr":
             suggest = "tunnel_inside_cidr"
+        elif key == "tunnelInsideIpv6Cidr":
+            suggest = "tunnel_inside_ipv6_cidr"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VpnConnectionVpnTunnelOptionsSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -14124,8 +14336,26 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 dpd_timeout_action: Optional['VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction'] = None,
+                 dpd_timeout_seconds: Optional[int] = None,
+                 enable_tunnel_lifecycle_control: Optional[bool] = None,
+                 ike_versions: Optional[Sequence['outputs.VpnConnectionIkeVersionsRequestListValue']] = None,
+                 log_options: Optional['outputs.VpnConnectionVpnTunnelLogOptionsSpecification'] = None,
+                 phase1_encryption_algorithms: Optional[Sequence['outputs.VpnConnectionPhase1EncryptionAlgorithmsRequestListValue']] = None,
+                 phase1_integrity_algorithms: Optional[Sequence['outputs.VpnConnectionPhase1IntegrityAlgorithmsRequestListValue']] = None,
+                 phase1_lifetime_seconds: Optional[int] = None,
+                 phase1dh_group_numbers: Optional[Sequence['outputs.VpnConnectionPhase1dhGroupNumbersRequestListValue']] = None,
+                 phase2_encryption_algorithms: Optional[Sequence['outputs.VpnConnectionPhase2EncryptionAlgorithmsRequestListValue']] = None,
+                 phase2_integrity_algorithms: Optional[Sequence['outputs.VpnConnectionPhase2IntegrityAlgorithmsRequestListValue']] = None,
+                 phase2_lifetime_seconds: Optional[int] = None,
+                 phase2dh_group_numbers: Optional[Sequence['outputs.VpnConnectionPhase2dhGroupNumbersRequestListValue']] = None,
                  pre_shared_key: Optional[str] = None,
-                 tunnel_inside_cidr: Optional[str] = None):
+                 rekey_fuzz_percentage: Optional[int] = None,
+                 rekey_margin_time_seconds: Optional[int] = None,
+                 replay_window_size: Optional[int] = None,
+                 startup_action: Optional['VpnConnectionVpnTunnelOptionsSpecificationStartupAction'] = None,
+                 tunnel_inside_cidr: Optional[str] = None,
+                 tunnel_inside_ipv6_cidr: Optional[str] = None):
         """
         The tunnel options for a single VPN tunnel.
         :param str pre_shared_key: The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
@@ -14140,10 +14370,111 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
                  +   ``169.254.5.0/30`` 
                  +   ``169.254.169.252/30``
         """
+        if dpd_timeout_action is not None:
+            pulumi.set(__self__, "dpd_timeout_action", dpd_timeout_action)
+        if dpd_timeout_seconds is not None:
+            pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
+        if enable_tunnel_lifecycle_control is not None:
+            pulumi.set(__self__, "enable_tunnel_lifecycle_control", enable_tunnel_lifecycle_control)
+        if ike_versions is not None:
+            pulumi.set(__self__, "ike_versions", ike_versions)
+        if log_options is not None:
+            pulumi.set(__self__, "log_options", log_options)
+        if phase1_encryption_algorithms is not None:
+            pulumi.set(__self__, "phase1_encryption_algorithms", phase1_encryption_algorithms)
+        if phase1_integrity_algorithms is not None:
+            pulumi.set(__self__, "phase1_integrity_algorithms", phase1_integrity_algorithms)
+        if phase1_lifetime_seconds is not None:
+            pulumi.set(__self__, "phase1_lifetime_seconds", phase1_lifetime_seconds)
+        if phase1dh_group_numbers is not None:
+            pulumi.set(__self__, "phase1dh_group_numbers", phase1dh_group_numbers)
+        if phase2_encryption_algorithms is not None:
+            pulumi.set(__self__, "phase2_encryption_algorithms", phase2_encryption_algorithms)
+        if phase2_integrity_algorithms is not None:
+            pulumi.set(__self__, "phase2_integrity_algorithms", phase2_integrity_algorithms)
+        if phase2_lifetime_seconds is not None:
+            pulumi.set(__self__, "phase2_lifetime_seconds", phase2_lifetime_seconds)
+        if phase2dh_group_numbers is not None:
+            pulumi.set(__self__, "phase2dh_group_numbers", phase2dh_group_numbers)
         if pre_shared_key is not None:
             pulumi.set(__self__, "pre_shared_key", pre_shared_key)
+        if rekey_fuzz_percentage is not None:
+            pulumi.set(__self__, "rekey_fuzz_percentage", rekey_fuzz_percentage)
+        if rekey_margin_time_seconds is not None:
+            pulumi.set(__self__, "rekey_margin_time_seconds", rekey_margin_time_seconds)
+        if replay_window_size is not None:
+            pulumi.set(__self__, "replay_window_size", replay_window_size)
+        if startup_action is not None:
+            pulumi.set(__self__, "startup_action", startup_action)
         if tunnel_inside_cidr is not None:
             pulumi.set(__self__, "tunnel_inside_cidr", tunnel_inside_cidr)
+        if tunnel_inside_ipv6_cidr is not None:
+            pulumi.set(__self__, "tunnel_inside_ipv6_cidr", tunnel_inside_ipv6_cidr)
+
+    @property
+    @pulumi.getter(name="dpdTimeoutAction")
+    def dpd_timeout_action(self) -> Optional['VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction']:
+        return pulumi.get(self, "dpd_timeout_action")
+
+    @property
+    @pulumi.getter(name="dpdTimeoutSeconds")
+    def dpd_timeout_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "dpd_timeout_seconds")
+
+    @property
+    @pulumi.getter(name="enableTunnelLifecycleControl")
+    def enable_tunnel_lifecycle_control(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_tunnel_lifecycle_control")
+
+    @property
+    @pulumi.getter(name="ikeVersions")
+    def ike_versions(self) -> Optional[Sequence['outputs.VpnConnectionIkeVersionsRequestListValue']]:
+        return pulumi.get(self, "ike_versions")
+
+    @property
+    @pulumi.getter(name="logOptions")
+    def log_options(self) -> Optional['outputs.VpnConnectionVpnTunnelLogOptionsSpecification']:
+        return pulumi.get(self, "log_options")
+
+    @property
+    @pulumi.getter(name="phase1EncryptionAlgorithms")
+    def phase1_encryption_algorithms(self) -> Optional[Sequence['outputs.VpnConnectionPhase1EncryptionAlgorithmsRequestListValue']]:
+        return pulumi.get(self, "phase1_encryption_algorithms")
+
+    @property
+    @pulumi.getter(name="phase1IntegrityAlgorithms")
+    def phase1_integrity_algorithms(self) -> Optional[Sequence['outputs.VpnConnectionPhase1IntegrityAlgorithmsRequestListValue']]:
+        return pulumi.get(self, "phase1_integrity_algorithms")
+
+    @property
+    @pulumi.getter(name="phase1LifetimeSeconds")
+    def phase1_lifetime_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "phase1_lifetime_seconds")
+
+    @property
+    @pulumi.getter(name="phase1dhGroupNumbers")
+    def phase1dh_group_numbers(self) -> Optional[Sequence['outputs.VpnConnectionPhase1dhGroupNumbersRequestListValue']]:
+        return pulumi.get(self, "phase1dh_group_numbers")
+
+    @property
+    @pulumi.getter(name="phase2EncryptionAlgorithms")
+    def phase2_encryption_algorithms(self) -> Optional[Sequence['outputs.VpnConnectionPhase2EncryptionAlgorithmsRequestListValue']]:
+        return pulumi.get(self, "phase2_encryption_algorithms")
+
+    @property
+    @pulumi.getter(name="phase2IntegrityAlgorithms")
+    def phase2_integrity_algorithms(self) -> Optional[Sequence['outputs.VpnConnectionPhase2IntegrityAlgorithmsRequestListValue']]:
+        return pulumi.get(self, "phase2_integrity_algorithms")
+
+    @property
+    @pulumi.getter(name="phase2LifetimeSeconds")
+    def phase2_lifetime_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "phase2_lifetime_seconds")
+
+    @property
+    @pulumi.getter(name="phase2dhGroupNumbers")
+    def phase2dh_group_numbers(self) -> Optional[Sequence['outputs.VpnConnectionPhase2dhGroupNumbersRequestListValue']]:
+        return pulumi.get(self, "phase2dh_group_numbers")
 
     @property
     @pulumi.getter(name="preSharedKey")
@@ -14153,6 +14484,26 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
          Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
         """
         return pulumi.get(self, "pre_shared_key")
+
+    @property
+    @pulumi.getter(name="rekeyFuzzPercentage")
+    def rekey_fuzz_percentage(self) -> Optional[int]:
+        return pulumi.get(self, "rekey_fuzz_percentage")
+
+    @property
+    @pulumi.getter(name="rekeyMarginTimeSeconds")
+    def rekey_margin_time_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "rekey_margin_time_seconds")
+
+    @property
+    @pulumi.getter(name="replayWindowSize")
+    def replay_window_size(self) -> Optional[int]:
+        return pulumi.get(self, "replay_window_size")
+
+    @property
+    @pulumi.getter(name="startupAction")
+    def startup_action(self) -> Optional['VpnConnectionVpnTunnelOptionsSpecificationStartupAction']:
+        return pulumi.get(self, "startup_action")
 
     @property
     @pulumi.getter(name="tunnelInsideCidr")
@@ -14169,5 +14520,10 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
           +   ``169.254.169.252/30``
         """
         return pulumi.get(self, "tunnel_inside_cidr")
+
+    @property
+    @pulumi.getter(name="tunnelInsideIpv6Cidr")
+    def tunnel_inside_ipv6_cidr(self) -> Optional[str]:
+        return pulumi.get(self, "tunnel_inside_ipv6_cidr")
 
 

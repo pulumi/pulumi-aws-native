@@ -239,6 +239,8 @@ type ResolverRuleTargetAddress struct {
 	Port *string `pulumi:"port"`
 	// The protocol that you want to use to forward DNS queries.
 	Protocol *ResolverRuleTargetAddressProtocol `pulumi:"protocol"`
+	// The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+	ServerNameIndication *string `pulumi:"serverNameIndication"`
 }
 
 // ResolverRuleTargetAddressInput is an input type that accepts ResolverRuleTargetAddressArgs and ResolverRuleTargetAddressOutput values.
@@ -261,6 +263,8 @@ type ResolverRuleTargetAddressArgs struct {
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// The protocol that you want to use to forward DNS queries.
 	Protocol ResolverRuleTargetAddressProtocolPtrInput `pulumi:"protocol"`
+	// The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+	ServerNameIndication pulumi.StringPtrInput `pulumi:"serverNameIndication"`
 }
 
 func (ResolverRuleTargetAddressArgs) ElementType() reflect.Type {
@@ -332,6 +336,11 @@ func (o ResolverRuleTargetAddressOutput) Port() pulumi.StringPtrOutput {
 // The protocol that you want to use to forward DNS queries.
 func (o ResolverRuleTargetAddressOutput) Protocol() ResolverRuleTargetAddressProtocolPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetAddress) *ResolverRuleTargetAddressProtocol { return v.Protocol }).(ResolverRuleTargetAddressProtocolPtrOutput)
+}
+
+// The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+func (o ResolverRuleTargetAddressOutput) ServerNameIndication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetAddress) *string { return v.ServerNameIndication }).(pulumi.StringPtrOutput)
 }
 
 type ResolverRuleTargetAddressArrayOutput struct{ *pulumi.OutputState }

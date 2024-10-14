@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VpnConnectionArgs', 'VpnConnection']
@@ -40,33 +41,25 @@ class VpnConnectionArgs:
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection.
                 Default: ``false``
         :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-               
-               Default: `0.0.0.0/0`
+                Default: ``0.0.0.0/0``
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-               
-               Default: `::/0`
+                Default: ``::/0``
         :param pulumi.Input[str] outside_ip_address_type: The type of IPv4 address assigned to the outside interface of the customer gateway device.
-               
-               Valid values: `PrivateIpv4` | `PublicIpv4`
-               
-               Default: `PublicIpv4`
+                Valid values: ``PrivateIpv4`` | ``PublicIpv4`` 
+                Default: ``PublicIpv4``
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
-               
-               Default: `0.0.0.0/0`
+                Default: ``0.0.0.0/0``
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
-               
-               Default: `::/0`
+                Default: ``::/0``
         :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
                 If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the VPN connection.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway associated with the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[str] transport_transit_gateway_attachment_id: The transit gateway attachment ID to use for the VPN tunnel.
-               
-               Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
+                Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
         :param pulumi.Input[str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
-               
-               Default: `ipv4`
+                Default: ``ipv4``
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
@@ -142,8 +135,7 @@ class VpnConnectionArgs:
     def local_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-
-        Default: `0.0.0.0/0`
+         Default: ``0.0.0.0/0``
         """
         return pulumi.get(self, "local_ipv4_network_cidr")
 
@@ -156,8 +148,7 @@ class VpnConnectionArgs:
     def local_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-
-        Default: `::/0`
+         Default: ``::/0``
         """
         return pulumi.get(self, "local_ipv6_network_cidr")
 
@@ -170,10 +161,8 @@ class VpnConnectionArgs:
     def outside_ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of IPv4 address assigned to the outside interface of the customer gateway device.
-
-        Valid values: `PrivateIpv4` | `PublicIpv4`
-
-        Default: `PublicIpv4`
+         Valid values: ``PrivateIpv4`` | ``PublicIpv4`` 
+         Default: ``PublicIpv4``
         """
         return pulumi.get(self, "outside_ip_address_type")
 
@@ -186,8 +175,7 @@ class VpnConnectionArgs:
     def remote_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv4 CIDR on the AWS side of the VPN connection.
-
-        Default: `0.0.0.0/0`
+         Default: ``0.0.0.0/0``
         """
         return pulumi.get(self, "remote_ipv4_network_cidr")
 
@@ -200,8 +188,7 @@ class VpnConnectionArgs:
     def remote_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
         """
         The IPv6 CIDR on the AWS side of the VPN connection.
-
-        Default: `::/0`
+         Default: ``::/0``
         """
         return pulumi.get(self, "remote_ipv6_network_cidr")
 
@@ -252,8 +239,7 @@ class VpnConnectionArgs:
     def transport_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
         """
         The transit gateway attachment ID to use for the VPN tunnel.
-
-        Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
+         Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
         """
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
@@ -266,8 +252,7 @@ class VpnConnectionArgs:
     def tunnel_inside_ip_version(self) -> Optional[pulumi.Input[str]]:
         """
         Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
-
-        Default: `ipv4`
+         Default: ``ipv4``
         """
         return pulumi.get(self, "tunnel_inside_ip_version")
 
@@ -334,33 +319,25 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection.
                 Default: ``false``
         :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-               
-               Default: `0.0.0.0/0`
+                Default: ``0.0.0.0/0``
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-               
-               Default: `::/0`
+                Default: ``::/0``
         :param pulumi.Input[str] outside_ip_address_type: The type of IPv4 address assigned to the outside interface of the customer gateway device.
-               
-               Valid values: `PrivateIpv4` | `PublicIpv4`
-               
-               Default: `PublicIpv4`
+                Valid values: ``PrivateIpv4`` | ``PublicIpv4`` 
+                Default: ``PublicIpv4``
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
-               
-               Default: `0.0.0.0/0`
+                Default: ``0.0.0.0/0``
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
-               
-               Default: `::/0`
+                Default: ``::/0``
         :param pulumi.Input[bool] static_routes_only: Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
                 If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the VPN connection.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway associated with the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[str] transport_transit_gateway_attachment_id: The transit gateway attachment ID to use for the VPN tunnel.
-               
-               Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
+                Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
         :param pulumi.Input[str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
-               
-               Default: `ipv4`
+                Default: ``ipv4``
         :param pulumi.Input[str] type: The type of VPN connection.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
@@ -501,8 +478,7 @@ class VpnConnection(pulumi.CustomResource):
     def local_ipv4_network_cidr(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
-
-        Default: `0.0.0.0/0`
+         Default: ``0.0.0.0/0``
         """
         return pulumi.get(self, "local_ipv4_network_cidr")
 
@@ -511,8 +487,7 @@ class VpnConnection(pulumi.CustomResource):
     def local_ipv6_network_cidr(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
-
-        Default: `::/0`
+         Default: ``::/0``
         """
         return pulumi.get(self, "local_ipv6_network_cidr")
 
@@ -521,10 +496,8 @@ class VpnConnection(pulumi.CustomResource):
     def outside_ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of IPv4 address assigned to the outside interface of the customer gateway device.
-
-        Valid values: `PrivateIpv4` | `PublicIpv4`
-
-        Default: `PublicIpv4`
+         Valid values: ``PrivateIpv4`` | ``PublicIpv4`` 
+         Default: ``PublicIpv4``
         """
         return pulumi.get(self, "outside_ip_address_type")
 
@@ -533,8 +506,7 @@ class VpnConnection(pulumi.CustomResource):
     def remote_ipv4_network_cidr(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv4 CIDR on the AWS side of the VPN connection.
-
-        Default: `0.0.0.0/0`
+         Default: ``0.0.0.0/0``
         """
         return pulumi.get(self, "remote_ipv4_network_cidr")
 
@@ -543,8 +515,7 @@ class VpnConnection(pulumi.CustomResource):
     def remote_ipv6_network_cidr(self) -> pulumi.Output[Optional[str]]:
         """
         The IPv6 CIDR on the AWS side of the VPN connection.
-
-        Default: `::/0`
+         Default: ``::/0``
         """
         return pulumi.get(self, "remote_ipv6_network_cidr")
 
@@ -579,8 +550,7 @@ class VpnConnection(pulumi.CustomResource):
     def transport_transit_gateway_attachment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The transit gateway attachment ID to use for the VPN tunnel.
-
-        Required if `OutsideIpAddressType` is set to `PrivateIpv4` .
+         Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
         """
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
@@ -589,8 +559,7 @@ class VpnConnection(pulumi.CustomResource):
     def tunnel_inside_ip_version(self) -> pulumi.Output[Optional[str]]:
         """
         Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
-
-        Default: `ipv4`
+         Default: ``ipv4``
         """
         return pulumi.get(self, "tunnel_inside_ip_version")
 

@@ -53,10 +53,11 @@ class CrawlerCatalogTargetArgs:
                  event_queue_arn: Optional[pulumi.Input[str]] = None,
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
+        Specifies an AWS Glue Data Catalog target.
+        :param pulumi.Input[str] connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
         :param pulumi.Input[str] database_name: The name of the database to be synchronized.
-        :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
-        :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
+        :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables: A list of the tables to be synchronized.
         """
         if connection_name is not None:
@@ -74,7 +75,7 @@ class CrawlerCatalogTargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.
+        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
         """
         return pulumi.get(self, "connection_name")
 
@@ -98,7 +99,7 @@ class CrawlerCatalogTargetArgs:
     @pulumi.getter(name="dlqEventQueueArn")
     def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
+        A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 
@@ -110,7 +111,7 @@ class CrawlerCatalogTargetArgs:
     @pulumi.getter(name="eventQueueArn")
     def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
+        A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
         """
         return pulumi.get(self, "event_queue_arn")
 
@@ -139,6 +140,7 @@ class CrawlerDeltaTargetArgs:
                  delta_tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  write_manifest: Optional[pulumi.Input[bool]] = None):
         """
+        Specifies a Delta data store to crawl one or more Delta tables.
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
         :param pulumi.Input[bool] create_native_delta_table: Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] delta_tables: A list of the Amazon S3 paths to the Delta tables.
@@ -207,6 +209,7 @@ class CrawlerDynamoDbTargetArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None):
         """
+        Specifies an Amazon DynamoDB table to crawl.
         :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
         """
         if path is not None:
@@ -233,6 +236,7 @@ class CrawlerIcebergTargetArgs:
                  maximum_traversal_depth: Optional[pulumi.Input[int]] = None,
                  paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        Specifies Apache Iceberg data store targets.
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Iceberg target.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of global patterns used to exclude from the crawl.
         :param pulumi.Input[int] maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time.
@@ -304,11 +308,12 @@ class CrawlerJdbcTargetArgs:
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
+        Specifies a JDBC data store to crawl.
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_additional_metadata: Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata in table responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_additional_metadata: Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
                
                If you do not need additional metadata, keep the field empty.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
         :param pulumi.Input[str] path: The path of the JDBC target.
         """
         if connection_name is not None:
@@ -336,7 +341,7 @@ class CrawlerJdbcTargetArgs:
     @pulumi.getter(name="enableAdditionalMetadata")
     def enable_additional_metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata in table responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+        Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
 
         If you do not need additional metadata, keep the field empty.
         """
@@ -350,7 +355,7 @@ class CrawlerJdbcTargetArgs:
     @pulumi.getter
     def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
+        A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
         """
         return pulumi.get(self, "exclusions")
 
@@ -377,6 +382,7 @@ class CrawlerLakeFormationConfigurationArgs:
                  account_id: Optional[pulumi.Input[str]] = None,
                  use_lake_formation_credentials: Optional[pulumi.Input[bool]] = None):
         """
+        Specifies AWS Lake Formation configuration settings for the crawler
         :param pulumi.Input[str] account_id: Required for cross account crawls. For same account crawls as the target data, this can be left as null.
         :param pulumi.Input[bool] use_lake_formation_credentials: Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
         """
@@ -416,6 +422,7 @@ class CrawlerMongoDbTargetArgs:
                  connection_name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
+        Specifies an Amazon DocumentDB or MongoDB data store to crawl.
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         """
@@ -454,13 +461,8 @@ class CrawlerRecrawlPolicyArgs:
     def __init__(__self__, *,
                  recrawl_behavior: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] recrawl_behavior: Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
-               
-               A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
-               
-               A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
-               
-               A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
+        When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see Incremental Crawls in AWS Glue in the developer guide.
+        :param pulumi.Input[str] recrawl_behavior: Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
         """
         if recrawl_behavior is not None:
             pulumi.set(__self__, "recrawl_behavior", recrawl_behavior)
@@ -469,13 +471,7 @@ class CrawlerRecrawlPolicyArgs:
     @pulumi.getter(name="recrawlBehavior")
     def recrawl_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
-
-        A value of `CRAWL_EVERYTHING` specifies crawling the entire dataset again.
-
-        A value of `CRAWL_NEW_FOLDERS_ONLY` specifies crawling only folders that were added since the last crawler run.
-
-        A value of `CRAWL_EVENT_MODE` specifies crawling only the changes identified by Amazon S3 events.
+        Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of CRAWL_EVERYTHING specifies crawling the entire dataset again. A value of CRAWL_NEW_FOLDERS_ONLY specifies crawling only folders that were added since the last crawler run. A value of CRAWL_EVENT_MODE specifies crawling only the changes identified by Amazon S3 events.
         """
         return pulumi.get(self, "recrawl_behavior")
 
@@ -494,10 +490,11 @@ class CrawlerS3TargetArgs:
                  path: Optional[pulumi.Input[str]] = None,
                  sample_size: Optional[pulumi.Input[int]] = None):
         """
+        Specifies a data store in Amazon Simple Storage Service (Amazon S3).
         :param pulumi.Input[str] connection_name: The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
-        :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
-        :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
+        :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
+        :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         :param pulumi.Input[str] path: The path to the Amazon S3 target.
         :param pulumi.Input[int] sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
@@ -530,7 +527,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="dlqEventQueueArn")
     def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue` .
+        A valid Amazon dead-letter SQS ARN. For example, arn:aws:sqs:region:account:deadLetterQueue.
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 
@@ -542,7 +539,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="eventQueueArn")
     def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs` .
+        A valid Amazon SQS ARN. For example, arn:aws:sqs:region:account:sqs.
         """
         return pulumi.get(self, "event_queue_arn")
 
@@ -554,7 +551,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter
     def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
+        A list of glob patterns used to exclude from the crawl.
         """
         return pulumi.get(self, "exclusions")
 
@@ -592,7 +589,8 @@ class CrawlerScheduleArgs:
     def __init__(__self__, *,
                  schedule_expression: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] schedule_expression: A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+        A scheduling object using a cron statement to schedule an event.
+        :param pulumi.Input[str] schedule_expression: A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
         """
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -601,7 +599,7 @@ class CrawlerScheduleArgs:
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        A `cron` expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html) . For example, to run something every day at 12:15 UTC, specify `cron(15 12 * * ? *)` .
+        A cron expression used to specify the schedule. For more information, see Time-Based Schedules for Jobs and Crawlers. For example, to run something every day at 12:15 UTC, specify cron(15 12 * * ? *).
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -616,18 +614,9 @@ class CrawlerSchemaChangePolicyArgs:
                  delete_behavior: Optional[pulumi.Input[str]] = None,
                  update_behavior: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] delete_behavior: The deletion behavior when the crawler finds a deleted object.
-               
-               A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
-               
-               A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
-               
-               A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
-        :param pulumi.Input[str] update_behavior: The update behavior when the crawler finds a changed schema.
-               
-               A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
-               
-               A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+        The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The SchemaChangePolicy does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the SchemaChangePolicy on a crawler. The SchemaChangePolicy consists of two components, UpdateBehavior and DeleteBehavior.
+        :param pulumi.Input[str] delete_behavior: The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
+        :param pulumi.Input[str] update_behavior: The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
         """
         if delete_behavior is not None:
             pulumi.set(__self__, "delete_behavior", delete_behavior)
@@ -638,13 +627,7 @@ class CrawlerSchemaChangePolicyArgs:
     @pulumi.getter(name="deleteBehavior")
     def delete_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        The deletion behavior when the crawler finds a deleted object.
-
-        A value of `LOG` specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist.
-
-        A value of `DELETE_FROM_DATABASE` specifies that if a table or partition is found to have been removed, delete it from the database.
-
-        A value of `DEPRECATE_IN_DATABASE` specifies that if a table has been found to no longer exist, to add a property to the table that says "DEPRECATED" and includes a timestamp with the time of deprecation.
+        The deletion behavior when the crawler finds a deleted object. A value of LOG specifies that if a table or partition is found to no longer exist, do not delete it, only log that it was found to no longer exist. A value of DELETE_FROM_DATABASE specifies that if a table or partition is found to have been removed, delete it from the database. A value of DEPRECATE_IN_DATABASE specifies that if a table has been found to no longer exist, to add a property to the table that says 'DEPRECATED' and includes a timestamp with the time of deprecation.
         """
         return pulumi.get(self, "delete_behavior")
 
@@ -656,11 +639,7 @@ class CrawlerSchemaChangePolicyArgs:
     @pulumi.getter(name="updateBehavior")
     def update_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        The update behavior when the crawler finds a changed schema.
-
-        A value of `LOG` specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables).
-
-        A value of `UPDATE_IN_DATABASE` specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
+        The update behavior when the crawler finds a changed schema. A value of LOG specifies that if a table or a partition already exists, and a change is detected, do not update it, only log that a change was detected. Add new tables and new partitions (including on existing tables). A value of UPDATE_IN_DATABASE specifies that if a table or partition already exists, and a change is detected, update it. Add new tables and partitions.
         """
         return pulumi.get(self, "update_behavior")
 
@@ -680,6 +659,7 @@ class CrawlerTargetsArgs:
                  mongo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDbTargetArgs']]]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None):
         """
+        Specifies data stores to crawl.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: Specifies AWS Glue Data Catalog targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: Specifies an array of Delta data store targets.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDbTargetArgs']]] dynamo_db_targets: Specifies Amazon DynamoDB targets.

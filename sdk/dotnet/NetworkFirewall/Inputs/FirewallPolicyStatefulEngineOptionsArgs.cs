@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyStatefulEngineOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("flowTimeouts")]
+        public Input<Inputs.FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs>? FlowTimeouts { get; set; }
+
         /// <summary>
         /// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
         /// </summary>

@@ -47,6 +47,9 @@ export interface GetOriginEndpointResult {
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */
     readonly description?: string;
+    /**
+     * The failover settings for the endpoint.
+     */
     readonly forceEndpointErrorConfiguration?: outputs.mediapackagev2.OriginEndpointForceEndpointErrorConfiguration;
     readonly hlsManifestUrls?: string[];
     /**

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue.Inputs
 {
 
+    /// <summary>
+    /// Specifies a JDBC data store to crawl.
+    /// </summary>
     public sealed class CrawlerJdbcTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -22,7 +25,7 @@ namespace Pulumi.AwsNative.Glue.Inputs
         private InputList<string>? _enableAdditionalMetadata;
 
         /// <summary>
-        /// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata in table responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+        /// Specify a value of RAWTYPES or COMMENTS to enable additional metadata in table responses. RAWTYPES provides the native-level datatype. COMMENTS provides comments associated with a column or table in the database.
         /// 
         /// If you do not need additional metadata, keep the field empty.
         /// </summary>
@@ -36,7 +39,7 @@ namespace Pulumi.AwsNative.Glue.Inputs
         private InputList<string>? _exclusions;
 
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl. For more information, see [Catalog Tables with a Crawler](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html) .
+        /// A list of glob patterns used to exclude from the crawl. For more information, see Catalog Tables with a Crawler.
         /// </summary>
         public InputList<string> Exclusions
         {

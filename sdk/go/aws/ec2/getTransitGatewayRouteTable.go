@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,6 +29,8 @@ type LookupTransitGatewayRouteTableArgs struct {
 }
 
 type LookupTransitGatewayRouteTableResult struct {
+	// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Transit Gateway Route Table primary identifier
 	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
 }
@@ -72,6 +75,11 @@ func (o LookupTransitGatewayRouteTableResultOutput) ToLookupTransitGatewayRouteT
 
 func (o LookupTransitGatewayRouteTableResultOutput) ToLookupTransitGatewayRouteTableResultOutputWithContext(ctx context.Context) LookupTransitGatewayRouteTableResultOutput {
 	return o
+}
+
+// Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
+func (o LookupTransitGatewayRouteTableResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayRouteTableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Transit Gateway Route Table primary identifier
