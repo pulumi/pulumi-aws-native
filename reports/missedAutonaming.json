@@ -5262,7 +5262,7 @@
       "tags": {
         "type": "array",
         "items": {
-          "$ref": "#/types/aws-native:index:CreateOnlyTag"
+          "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted."
       },
@@ -5866,23 +5866,23 @@
       },
       "localIpv4NetworkCidr": {
         "type": "string",
-        "description": "The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.\n\nDefault: `0.0.0.0/0`"
+        "description": "The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.\n Default: ``0.0.0.0/0``"
       },
       "localIpv6NetworkCidr": {
         "type": "string",
-        "description": "The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.\n\nDefault: `::/0`"
+        "description": "The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.\n Default: ``::/0``"
       },
       "outsideIpAddressType": {
         "type": "string",
-        "description": "The type of IPv4 address assigned to the outside interface of the customer gateway device.\n\nValid values: `PrivateIpv4` | `PublicIpv4`\n\nDefault: `PublicIpv4`"
+        "description": "The type of IPv4 address assigned to the outside interface of the customer gateway device.\n Valid values: ``PrivateIpv4`` | ``PublicIpv4`` \n Default: ``PublicIpv4``"
       },
       "remoteIpv4NetworkCidr": {
         "type": "string",
-        "description": "The IPv4 CIDR on the AWS side of the VPN connection.\n\nDefault: `0.0.0.0/0`"
+        "description": "The IPv4 CIDR on the AWS side of the VPN connection.\n Default: ``0.0.0.0/0``"
       },
       "remoteIpv6NetworkCidr": {
         "type": "string",
-        "description": "The IPv6 CIDR on the AWS side of the VPN connection.\n\nDefault: `::/0`"
+        "description": "The IPv6 CIDR on the AWS side of the VPN connection.\n Default: ``::/0``"
       },
       "staticRoutesOnly": {
         "type": "boolean",
@@ -5901,11 +5901,11 @@
       },
       "transportTransitGatewayAttachmentId": {
         "type": "string",
-        "description": "The transit gateway attachment ID to use for the VPN tunnel.\n\nRequired if `OutsideIpAddressType` is set to `PrivateIpv4` ."
+        "description": "The transit gateway attachment ID to use for the VPN tunnel.\n Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``."
       },
       "tunnelInsideIpVersion": {
         "type": "string",
-        "description": "Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.\n\nDefault: `ipv4`"
+        "description": "Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.\n Default: ``ipv4``"
       },
       "type": {
         "type": "string",
@@ -11418,10 +11418,6 @@
       },
       "vendorGuidance": {
         "$ref": "#/types/aws-native:sagemaker:ImageVersionVendorGuidance"
-      },
-      "version": {
-        "type": "integer",
-        "description": "The version number."
       }
     }
   },
@@ -11485,7 +11481,7 @@
         "items": {
           "type": "string"
         },
-        "description": "If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.\n If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region. \n An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``."
+        "description": "If ``RegionLinkingMode`` is ``ALL_REGIONS_EXCEPT_SPECIFIED``, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.\n If ``RegionLinkingMode`` is ``SPECIFIED_REGIONS``, then this is a space-separated list of Regions that do replicate and send findings to the home Region. \n An ``InvalidInputException`` error results if you populate this field while ``RegionLinkingMode`` is ``NO_REGIONS``."
       }
     }
   },
