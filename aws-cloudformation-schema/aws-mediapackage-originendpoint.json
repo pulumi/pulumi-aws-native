@@ -506,9 +506,10 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "mediapackage:TagResource", "mediapackage:UntagResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "Id", "ChannelId" ],
@@ -524,7 +525,7 @@
       "permissions" : [ "mediapackage:DescribeOriginEndpoint" ]
     },
     "update" : {
-      "permissions" : [ "mediapackage:UpdateOriginEndpoint", "iam:PassRole" ]
+      "permissions" : [ "mediapackage:UpdateOriginEndpoint", "mediapackage:TagResource", "mediapackage:ListTagsForResource", "mediapackage:UntagResource", "mediapackage:DescribeOriginEndpoint", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "mediapackage:DeleteOriginEndpoint" ]

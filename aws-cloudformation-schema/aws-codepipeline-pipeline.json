@@ -60,7 +60,7 @@
         "Category" : {
           "description" : "A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.",
           "type" : "string",
-          "enum" : [ "Source", "Build", "Test", "Deploy", "Invoke", "Approval" ]
+          "enum" : [ "Source", "Build", "Test", "Deploy", "Invoke", "Approval", "Compute" ]
         },
         "Version" : {
           "description" : "A string that describes the action version.",
@@ -181,6 +181,22 @@
           "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/OutputArtifact"
+          }
+        },
+        "Commands" : {
+          "description" : "The shell commands to run with your compute action in CodePipeline.",
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "OutputVariables" : {
+          "description" : "The list of variables that are to be exported from the compute action.",
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
           }
         },
         "Region" : {
@@ -413,6 +429,14 @@
         "Name" : {
           "description" : "The name of the output of an artifact, such as \"My App\".",
           "type" : "string"
+        },
+        "Files" : {
+          "description" : "The files that you want to associate with the output artifact that will be exported from the compute action.",
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
         }
       },
       "required" : [ "Name" ]

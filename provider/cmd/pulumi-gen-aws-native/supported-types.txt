@@ -1017,6 +1017,7 @@ AWS::Transfer::Agreement
 AWS::Transfer::Certificate
 AWS::Transfer::Connector
 AWS::Transfer::Profile
+AWS::Transfer::Server
 AWS::Transfer::Workflow
 AWS::VerifiedPermissions::IdentitySource
 AWS::VerifiedPermissions::Policy
@@ -1039,6 +1040,7 @@ AWS::WAFv2::RegexPatternSet
 AWS::WAFv2::RuleGroup
 AWS::WAFv2::WebACL
 AWS::WAFv2::WebACLAssociation
+AWS::Wisdom::AIPrompt
 AWS::Wisdom::Assistant
 AWS::Wisdom::AssistantAssociation
 AWS::Wisdom::KnowledgeBase
