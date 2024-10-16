@@ -99,7 +99,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "organizations:TagResource", "organizations:UntagResource", "organizations:ListTagsForResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "AccountName", "Email" ],

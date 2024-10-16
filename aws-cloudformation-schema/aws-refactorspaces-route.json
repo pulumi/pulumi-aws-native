@@ -162,12 +162,5 @@
       "permissions" : [ "refactor-spaces:UpdateRoute", "refactor-spaces:GetRoute", "refactor-spaces:TagResource", "iam:CreateServiceLinkedRole", "apigateway:GET", "apigateway:PATCH", "apigateway:POST", "apigateway:PUT", "apigateway:DELETE", "apigateway:UpdateRestApiPolicy", "lambda:GetFunctionConfiguration", "lambda:AddPermission", "elasticloadbalancing:DescribeListeners", "elasticloadbalancing:DescribeTargetGroups", "elasticloadbalancing:CreateListener", "elasticloadbalancing:CreateTargetGroup", "elasticloadbalancing:DeleteListener", "elasticloadbalancing:DeleteTargetGroup", "elasticloadbalancing:DescribeTags", "elasticloadbalancing:AddTags", "elasticloadbalancing:RegisterTargets", "elasticloadbalancing:DescribeTargetHealth", "ec2:DescribeSubnets", "ec2:DescribeSubnets", "tag:GetResources" ]
     }
   },
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags",
-    "permissions" : [ "refactor-spaces:ListTagsForResource", "tag:GetResources", "elasticloadbalancing:AddTags", "refactor-spaces:UntagResource", "refactor-spaces:TagResource", "elasticloadbalancing:DescribeTags" ]
-  }
+  "taggable" : true
 }
