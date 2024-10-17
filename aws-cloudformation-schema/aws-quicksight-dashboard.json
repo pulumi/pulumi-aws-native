@@ -5,7 +5,7 @@
       "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:ListTagsForResource" ]
     },
     "create" : {
-      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:CreateDashboard", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:CreateDashboard", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource" ]
     },
     "update" : {
       "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:UpdateDashboard", "quicksight:UpdateDashboardLinks", "quicksight:UpdateDashboardPermissions", "quicksight:UpdateDashboardPublishedVersion", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
@@ -28,7 +28,7 @@
   "typeName" : "AWS::QuickSight::Dashboard",
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
   "description" : "Definition of the AWS::QuickSight::Dashboard Resource Type.",
-  "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/LinkSharingConfiguration", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/ValidationStrategy" ],
+  "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/LinkSharingConfiguration", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/ValidationStrategy", "/properties/FolderArns" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
@@ -10603,6 +10603,14 @@
     },
     "ValidationStrategy" : {
       "$ref" : "#/definitions/ValidationStrategy"
+    },
+    "FolderArns" : {
+      "minItems" : 0,
+      "maxItems" : 10,
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     },
     "DashboardId" : {
       "minLength" : 1,

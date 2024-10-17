@@ -11,7 +11,7 @@
       "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:ListTagsForResource", "quicksight:DescribeDataSetRefreshProperties" ]
     },
     "create" : {
-      "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:DescribeIngestion", "quicksight:ListIngestions", "quicksight:CreateDataSet", "quicksight:PassDataSource", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:ListTagsForResource", "quicksight:DescribeDataSetRefreshProperties", "quicksight:PutDataSetRefreshProperties" ]
+      "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:DescribeIngestion", "quicksight:ListIngestions", "quicksight:CreateDataSet", "quicksight:PassDataSource", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:ListTagsForResource", "quicksight:DescribeDataSetRefreshProperties", "quicksight:PutDataSetRefreshProperties", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource" ]
     },
     "update" : {
       "permissions" : [ "quicksight:DescribeDataSet", "quicksight:DescribeDataSetPermissions", "quicksight:PassDataSource", "quicksight:UpdateDataSet", "quicksight:UpdateDataSetPermissions", "quicksight:PassDataSet", "quicksight:DescribeIngestion", "quicksight:ListIngestions", "quicksight:CancelIngestion", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource", "quicksight:PutDataSetRefreshProperties", "quicksight:DescribeDataSetRefreshProperties", "quicksight:DeleteDataSetRefreshProperties" ]
@@ -463,7 +463,7 @@
           "maxLength" : 256
         }
       },
-      "required" : [ "DataSourceArn", "InputColumns", "Name" ]
+      "required" : [ "DataSourceArn", "Name" ]
     },
     "DatasetParameterValueType" : {
       "type" : "string",
@@ -1200,7 +1200,7 @@
           "maxLength" : 128
         }
       },
-      "required" : [ "Columns", "DataSourceArn", "Name", "SqlQuery" ]
+      "required" : [ "DataSourceArn", "Name", "SqlQuery" ]
     },
     "ProjectOperation" : {
       "description" : "<p>A transform operation that projects columns. Operations that come after a projection\n            can only refer to projected columns.</p>",

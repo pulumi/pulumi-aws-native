@@ -75,7 +75,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "organizations:TagResource", "organizations:UntagResource", "organizations:ListTagsForResource" ]
   },
   "required" : [ "Content" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],

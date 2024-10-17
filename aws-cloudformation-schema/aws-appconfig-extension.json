@@ -140,13 +140,6 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/VersionNumber" ],
   "writeOnlyProperties" : [ "/properties/LatestVersionNumber", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
-  },
   "handlers" : {
     "create" : {
       "permissions" : [ "appconfig:CreateExtension", "appconfig:TagResource", "iam:PassRole" ]
@@ -163,5 +156,13 @@
     "list" : {
       "permissions" : [ "appconfig:ListExtensions" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "appconfig:TagResource", "appconfig:UntagResource", "appconfig:ListTagsForResource" ]
   }
 }

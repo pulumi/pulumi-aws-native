@@ -1,6 +1,14 @@
 {
   "typeName" : "AWS::Glue::Registry",
   "description" : "This resource creates a Registry for authoring schemas as part of Glue Schema Registry.",
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "glue:GetTags", "glue:TagResource", "glue:UntagResource" ]
+  },
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-glue.git",
   "definitions" : {
     "Tag" : {
@@ -58,7 +66,7 @@
   "required" : [ "Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "glue:CreateRegistry", "glue:GetRegistry", "glue:GetTags" ]
+      "permissions" : [ "glue:CreateRegistry", "glue:GetRegistry", "glue:GetTags", "glue:TagResource" ]
     },
     "read" : {
       "permissions" : [ "glue:GetRegistry", "glue:GetTags" ]
