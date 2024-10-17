@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The resource schema for AWSLogs QueryDefinition
  */
 export function getQueryDefinition(args: GetQueryDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getQueryDefinition", {
         "queryDefinitionId": args.queryDefinitionId,
@@ -44,7 +43,10 @@ export interface GetQueryDefinitionResult {
  * The resource schema for AWSLogs QueryDefinition
  */
 export function getQueryDefinitionOutput(args: GetQueryDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getQueryDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:logs:getQueryDefinition", {
+        "queryDefinitionId": args.queryDefinitionId,
+    }, opts);
 }
 
 export interface GetQueryDefinitionOutputArgs {

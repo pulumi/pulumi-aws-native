@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS::S3Outposts::AccessPoint
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3outposts:getAccessPoint", {
         "arn": args.arn,
@@ -38,7 +37,10 @@ export interface GetAccessPointResult {
  * Resource Type Definition for AWS::S3Outposts::AccessPoint
  */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
-    return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:s3outposts:getAccessPoint", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetAccessPointOutputArgs {

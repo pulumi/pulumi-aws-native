@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -137,9 +142,6 @@ def get_usage_plan(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         throttle=pulumi.get(__ret__, 'throttle'),
         usage_plan_name=pulumi.get(__ret__, 'usage_plan_name'))
-
-
-@_utilities.lift_output_func(get_usage_plan)
 def get_usage_plan_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsagePlanResult]:
     """
@@ -149,4 +151,15 @@ def get_usage_plan_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID for the usage plan. For example: `abc123` .
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getUsagePlan', __args__, opts=opts, typ=GetUsagePlanResult)
+    return __ret__.apply(lambda __response__: GetUsagePlanResult(
+        api_stages=pulumi.get(__response__, 'api_stages'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        quota=pulumi.get(__response__, 'quota'),
+        tags=pulumi.get(__response__, 'tags'),
+        throttle=pulumi.get(__response__, 'throttle'),
+        usage_plan_name=pulumi.get(__response__, 'usage_plan_name')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -368,9 +373,6 @@ def get_bucket(bucket_name: Optional[str] = None,
         versioning_configuration=pulumi.get(__ret__, 'versioning_configuration'),
         website_configuration=pulumi.get(__ret__, 'website_configuration'),
         website_url=pulumi.get(__ret__, 'website_url'))
-
-
-@_utilities.lift_output_func(get_bucket)
 def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
     """
@@ -382,4 +384,31 @@ def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
     :param str bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
              If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
     """
-    ...
+    __args__ = dict()
+    __args__['bucketName'] = bucket_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getBucket', __args__, opts=opts, typ=GetBucketResult)
+    return __ret__.apply(lambda __response__: GetBucketResult(
+        accelerate_configuration=pulumi.get(__response__, 'accelerate_configuration'),
+        analytics_configurations=pulumi.get(__response__, 'analytics_configurations'),
+        arn=pulumi.get(__response__, 'arn'),
+        bucket_encryption=pulumi.get(__response__, 'bucket_encryption'),
+        cors_configuration=pulumi.get(__response__, 'cors_configuration'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        dual_stack_domain_name=pulumi.get(__response__, 'dual_stack_domain_name'),
+        intelligent_tiering_configurations=pulumi.get(__response__, 'intelligent_tiering_configurations'),
+        inventory_configurations=pulumi.get(__response__, 'inventory_configurations'),
+        lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
+        logging_configuration=pulumi.get(__response__, 'logging_configuration'),
+        metrics_configurations=pulumi.get(__response__, 'metrics_configurations'),
+        notification_configuration=pulumi.get(__response__, 'notification_configuration'),
+        object_lock_configuration=pulumi.get(__response__, 'object_lock_configuration'),
+        object_lock_enabled=pulumi.get(__response__, 'object_lock_enabled'),
+        ownership_controls=pulumi.get(__response__, 'ownership_controls'),
+        public_access_block_configuration=pulumi.get(__response__, 'public_access_block_configuration'),
+        regional_domain_name=pulumi.get(__response__, 'regional_domain_name'),
+        replication_configuration=pulumi.get(__response__, 'replication_configuration'),
+        tags=pulumi.get(__response__, 'tags'),
+        versioning_configuration=pulumi.get(__response__, 'versioning_configuration'),
+        website_configuration=pulumi.get(__response__, 'website_configuration'),
+        website_url=pulumi.get(__response__, 'website_url')))

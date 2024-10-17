@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -164,9 +169,6 @@ def get_sync_configuration(resource_name: Optional[str] = None,
         repository_name=pulumi.get(__ret__, 'repository_name'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         trigger_resource_update_on=pulumi.get(__ret__, 'trigger_resource_update_on'))
-
-
-@_utilities.lift_output_func(get_sync_configuration)
 def get_sync_configuration_output(resource_name: Optional[pulumi.Input[str]] = None,
                                   sync_type: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncConfigurationResult]:
@@ -177,4 +179,18 @@ def get_sync_configuration_output(resource_name: Optional[pulumi.Input[str]] = N
     :param str resource_name: The name of the resource that is being synchronized to the repository.
     :param str sync_type: The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceName'] = resource_name
+    __args__['syncType'] = sync_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:codestarconnections:getSyncConfiguration', __args__, opts=opts, typ=GetSyncConfigurationResult)
+    return __ret__.apply(lambda __response__: GetSyncConfigurationResult(
+        branch=pulumi.get(__response__, 'branch'),
+        config_file=pulumi.get(__response__, 'config_file'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        provider_type=pulumi.get(__response__, 'provider_type'),
+        publish_deployment_status=pulumi.get(__response__, 'publish_deployment_status'),
+        repository_link_id=pulumi.get(__response__, 'repository_link_id'),
+        repository_name=pulumi.get(__response__, 'repository_name'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        trigger_resource_update_on=pulumi.get(__response__, 'trigger_resource_update_on')))

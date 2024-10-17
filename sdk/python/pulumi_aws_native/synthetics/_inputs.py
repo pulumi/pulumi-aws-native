@@ -4,22 +4,46 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'CanaryArtifactConfigArgs',
+    'CanaryArtifactConfigArgsDict',
     'CanaryBaseScreenshotArgs',
+    'CanaryBaseScreenshotArgsDict',
     'CanaryCodeArgs',
+    'CanaryCodeArgsDict',
     'CanaryRunConfigArgs',
+    'CanaryRunConfigArgsDict',
     'CanaryS3EncryptionArgs',
+    'CanaryS3EncryptionArgsDict',
     'CanaryScheduleArgs',
+    'CanaryScheduleArgsDict',
     'CanaryVisualReferenceArgs',
+    'CanaryVisualReferenceArgsDict',
     'CanaryVpcConfigArgs',
+    'CanaryVpcConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CanaryArtifactConfigArgsDict(TypedDict):
+        s3_encryption: NotRequired[pulumi.Input['CanaryS3EncryptionArgsDict']]
+        """
+        Encryption configuration for uploading artifacts to S3
+        """
+elif False:
+    CanaryArtifactConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryArtifactConfigArgs:
@@ -43,6 +67,19 @@ class CanaryArtifactConfigArgs:
     def s3_encryption(self, value: Optional[pulumi.Input['CanaryS3EncryptionArgs']]):
         pulumi.set(self, "s3_encryption", value)
 
+
+if not MYPY:
+    class CanaryBaseScreenshotArgsDict(TypedDict):
+        screenshot_name: pulumi.Input[str]
+        """
+        Name of the screenshot to be used as base reference for visual testing
+        """
+        ignore_coordinates: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of coordinates of rectangles to be ignored during visual testing
+        """
+elif False:
+    CanaryBaseScreenshotArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryBaseScreenshotArgs:
@@ -81,6 +118,35 @@ class CanaryBaseScreenshotArgs:
     def ignore_coordinates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ignore_coordinates", value)
 
+
+if not MYPY:
+    class CanaryCodeArgsDict(TypedDict):
+        handler: pulumi.Input[str]
+        """
+        The entry point to use for the source code when running the canary. For canaries that use the `syn-python-selenium-1.0` runtime or a `syn-nodejs.puppeteer` runtime earlier than `syn-nodejs.puppeteer-3.4` , the handler must be specified as `*fileName* .handler` . For `syn-python-selenium-1.1` , `syn-nodejs.puppeteer-3.4` , and later runtimes, the handler can be specified as `*fileName* . *functionName*` , or you can specify a folder where canary scripts reside as `*folder* / *fileName* . *functionName*` .
+        """
+        s3_bucket: NotRequired[pulumi.Input[str]]
+        """
+        If your canary script is located in S3, specify the bucket name here. The bucket must already exist.
+        """
+        s3_key: NotRequired[pulumi.Input[str]]
+        """
+        The S3 key of your script. For more information, see [Working with Amazon S3 Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html) .
+        """
+        s3_object_version: NotRequired[pulumi.Input[str]]
+        """
+        The S3 version ID of your script.
+        """
+        script: NotRequired[pulumi.Input[str]]
+        """
+        If you input your canary script directly into the canary instead of referring to an S3 location, the value of this parameter is the script in plain text. It can be up to 5 MB.
+        """
+        source_location_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Lambda layer where Synthetics stores the canary script code.
+        """
+elif False:
+    CanaryCodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryCodeArgs:
@@ -184,6 +250,27 @@ class CanaryCodeArgs:
         pulumi.set(self, "source_location_arn", value)
 
 
+if not MYPY:
+    class CanaryRunConfigArgsDict(TypedDict):
+        active_tracing: NotRequired[pulumi.Input[bool]]
+        """
+        Enable active tracing if set to true
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variable key-value pairs.
+        """
+        memory_in_mb: NotRequired[pulumi.Input[int]]
+        """
+        Provide maximum memory available for canary in MB
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Provide maximum canary timeout per run in seconds
+        """
+elif False:
+    CanaryRunConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CanaryRunConfigArgs:
     def __init__(__self__, *,
@@ -255,6 +342,19 @@ class CanaryRunConfigArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
+if not MYPY:
+    class CanaryS3EncryptionArgsDict(TypedDict):
+        encryption_mode: NotRequired[pulumi.Input[str]]
+        """
+        Encryption mode for encrypting artifacts when uploading to S3. Valid values: SSE_S3 and SSE_KMS.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        KMS key Arn for encrypting artifacts when uploading to S3. You must specify KMS key Arn for SSE_KMS encryption mode only.
+        """
+elif False:
+    CanaryS3EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CanaryS3EncryptionArgs:
     def __init__(__self__, *,
@@ -293,6 +393,27 @@ class CanaryS3EncryptionArgs:
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
 
+
+if not MYPY:
+    class CanaryScheduleArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        A `rate` expression or a `cron` expression that defines how often the canary is to run.
+
+        For a rate expression, The syntax is `rate( *number unit* )` . *unit* can be `minute` , `minutes` , or `hour` .
+
+        For example, `rate(1 minute)` runs the canary once a minute, `rate(10 minutes)` runs it once every 10 minutes, and `rate(1 hour)` runs it once every hour. You can specify a frequency between `rate(1 minute)` and `rate(1 hour)` .
+
+        Specifying `rate(0 minute)` or `rate(0 hour)` is a special value that causes the canary to run only once when it is started.
+
+        Use `cron( *expression* )` to specify a cron expression. You can't schedule a canary to wait for more than a year before running. For information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html) .
+        """
+        duration_in_seconds: NotRequired[pulumi.Input[str]]
+        """
+        How long, in seconds, for the canary to continue making regular runs according to the schedule in the `Expression` value. If you specify 0, the canary continues making runs until you stop it. If you omit this field, the default of 0 is used.
+        """
+elif False:
+    CanaryScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryScheduleArgs:
@@ -348,6 +469,19 @@ class CanaryScheduleArgs:
         pulumi.set(self, "duration_in_seconds", value)
 
 
+if not MYPY:
+    class CanaryVisualReferenceArgsDict(TypedDict):
+        base_canary_run_id: pulumi.Input[str]
+        """
+        Canary run id to be used as base reference for visual testing
+        """
+        base_screenshots: NotRequired[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgsDict']]]]
+        """
+        List of screenshots used as base reference for visual testing
+        """
+elif False:
+    CanaryVisualReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CanaryVisualReferenceArgs:
     def __init__(__self__, *,
@@ -385,6 +519,23 @@ class CanaryVisualReferenceArgs:
     def base_screenshots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]]):
         pulumi.set(self, "base_screenshots", value)
 
+
+if not MYPY:
+    class CanaryVpcConfigArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The IDs of the security groups for this canary.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The IDs of the subnets where this canary is to run.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the VPC where this canary is to run.
+        """
+elif False:
+    CanaryVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryVpcConfigArgs:

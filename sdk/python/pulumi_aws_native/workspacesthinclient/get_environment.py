@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -280,9 +285,6 @@ def get_environment(id: Optional[str] = None,
         software_set_update_schedule=pulumi.get(__ret__, 'software_set_update_schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_environment)
 def get_environment_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
@@ -291,4 +293,26 @@ def get_environment_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Unique identifier of the environment.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesthinclient:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentResult(
+        activation_code=pulumi.get(__response__, 'activation_code'),
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        desired_software_set_id=pulumi.get(__response__, 'desired_software_set_id'),
+        desktop_endpoint=pulumi.get(__response__, 'desktop_endpoint'),
+        desktop_type=pulumi.get(__response__, 'desktop_type'),
+        device_creation_tags=pulumi.get(__response__, 'device_creation_tags'),
+        id=pulumi.get(__response__, 'id'),
+        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
+        name=pulumi.get(__response__, 'name'),
+        pending_software_set_id=pulumi.get(__response__, 'pending_software_set_id'),
+        pending_software_set_version=pulumi.get(__response__, 'pending_software_set_version'),
+        registered_devices_count=pulumi.get(__response__, 'registered_devices_count'),
+        software_set_compliance_status=pulumi.get(__response__, 'software_set_compliance_status'),
+        software_set_update_mode=pulumi.get(__response__, 'software_set_update_mode'),
+        software_set_update_schedule=pulumi.get(__response__, 'software_set_update_schedule'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

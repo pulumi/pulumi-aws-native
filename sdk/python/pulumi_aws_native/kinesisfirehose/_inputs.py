@@ -4,69 +4,146 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs',
+    'DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgsDict',
     'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs',
+    'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgsDict',
     'DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs',
+    'DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgsDict',
     'DeliveryStreamAmazonopensearchserviceBufferingHintsArgs',
+    'DeliveryStreamAmazonopensearchserviceBufferingHintsArgsDict',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs',
+    'DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgsDict',
     'DeliveryStreamAmazonopensearchserviceRetryOptionsArgs',
+    'DeliveryStreamAmazonopensearchserviceRetryOptionsArgsDict',
     'DeliveryStreamAuthenticationConfigurationArgs',
+    'DeliveryStreamAuthenticationConfigurationArgsDict',
     'DeliveryStreamBufferingHintsArgs',
+    'DeliveryStreamBufferingHintsArgsDict',
     'DeliveryStreamCatalogConfigurationArgs',
+    'DeliveryStreamCatalogConfigurationArgsDict',
     'DeliveryStreamCloudWatchLoggingOptionsArgs',
+    'DeliveryStreamCloudWatchLoggingOptionsArgsDict',
     'DeliveryStreamCopyCommandArgs',
+    'DeliveryStreamCopyCommandArgsDict',
     'DeliveryStreamDataFormatConversionConfigurationArgs',
+    'DeliveryStreamDataFormatConversionConfigurationArgsDict',
     'DeliveryStreamDeserializerArgs',
+    'DeliveryStreamDeserializerArgsDict',
     'DeliveryStreamDestinationTableConfigurationArgs',
+    'DeliveryStreamDestinationTableConfigurationArgsDict',
     'DeliveryStreamDocumentIdOptionsArgs',
+    'DeliveryStreamDocumentIdOptionsArgsDict',
     'DeliveryStreamDynamicPartitioningConfigurationArgs',
+    'DeliveryStreamDynamicPartitioningConfigurationArgsDict',
     'DeliveryStreamElasticsearchBufferingHintsArgs',
+    'DeliveryStreamElasticsearchBufferingHintsArgsDict',
     'DeliveryStreamElasticsearchDestinationConfigurationArgs',
+    'DeliveryStreamElasticsearchDestinationConfigurationArgsDict',
     'DeliveryStreamElasticsearchRetryOptionsArgs',
+    'DeliveryStreamElasticsearchRetryOptionsArgsDict',
     'DeliveryStreamEncryptionConfigurationInputArgs',
+    'DeliveryStreamEncryptionConfigurationInputArgsDict',
     'DeliveryStreamEncryptionConfigurationArgs',
+    'DeliveryStreamEncryptionConfigurationArgsDict',
     'DeliveryStreamExtendedS3DestinationConfigurationArgs',
+    'DeliveryStreamExtendedS3DestinationConfigurationArgsDict',
     'DeliveryStreamHiveJsonSerDeArgs',
+    'DeliveryStreamHiveJsonSerDeArgsDict',
     'DeliveryStreamHttpEndpointCommonAttributeArgs',
+    'DeliveryStreamHttpEndpointCommonAttributeArgsDict',
     'DeliveryStreamHttpEndpointConfigurationArgs',
+    'DeliveryStreamHttpEndpointConfigurationArgsDict',
     'DeliveryStreamHttpEndpointDestinationConfigurationArgs',
+    'DeliveryStreamHttpEndpointDestinationConfigurationArgsDict',
     'DeliveryStreamHttpEndpointRequestConfigurationArgs',
+    'DeliveryStreamHttpEndpointRequestConfigurationArgsDict',
     'DeliveryStreamIcebergDestinationConfigurationArgs',
+    'DeliveryStreamIcebergDestinationConfigurationArgsDict',
     'DeliveryStreamInputFormatConfigurationArgs',
+    'DeliveryStreamInputFormatConfigurationArgsDict',
     'DeliveryStreamKinesisStreamSourceConfigurationArgs',
+    'DeliveryStreamKinesisStreamSourceConfigurationArgsDict',
     'DeliveryStreamKmsEncryptionConfigArgs',
+    'DeliveryStreamKmsEncryptionConfigArgsDict',
     'DeliveryStreamMskSourceConfigurationArgs',
+    'DeliveryStreamMskSourceConfigurationArgsDict',
     'DeliveryStreamOpenXJsonSerDeArgs',
+    'DeliveryStreamOpenXJsonSerDeArgsDict',
     'DeliveryStreamOrcSerDeArgs',
+    'DeliveryStreamOrcSerDeArgsDict',
     'DeliveryStreamOutputFormatConfigurationArgs',
+    'DeliveryStreamOutputFormatConfigurationArgsDict',
     'DeliveryStreamParquetSerDeArgs',
+    'DeliveryStreamParquetSerDeArgsDict',
     'DeliveryStreamProcessingConfigurationArgs',
+    'DeliveryStreamProcessingConfigurationArgsDict',
     'DeliveryStreamProcessorParameterArgs',
+    'DeliveryStreamProcessorParameterArgsDict',
     'DeliveryStreamProcessorArgs',
+    'DeliveryStreamProcessorArgsDict',
     'DeliveryStreamRedshiftDestinationConfigurationArgs',
+    'DeliveryStreamRedshiftDestinationConfigurationArgsDict',
     'DeliveryStreamRedshiftRetryOptionsArgs',
+    'DeliveryStreamRedshiftRetryOptionsArgsDict',
     'DeliveryStreamRetryOptionsArgs',
+    'DeliveryStreamRetryOptionsArgsDict',
     'DeliveryStreamS3DestinationConfigurationArgs',
+    'DeliveryStreamS3DestinationConfigurationArgsDict',
     'DeliveryStreamSchemaConfigurationArgs',
+    'DeliveryStreamSchemaConfigurationArgsDict',
     'DeliveryStreamSecretsManagerConfigurationArgs',
+    'DeliveryStreamSecretsManagerConfigurationArgsDict',
     'DeliveryStreamSerializerArgs',
+    'DeliveryStreamSerializerArgsDict',
     'DeliveryStreamSnowflakeBufferingHintsArgs',
+    'DeliveryStreamSnowflakeBufferingHintsArgsDict',
     'DeliveryStreamSnowflakeDestinationConfigurationArgs',
+    'DeliveryStreamSnowflakeDestinationConfigurationArgsDict',
     'DeliveryStreamSnowflakeRetryOptionsArgs',
+    'DeliveryStreamSnowflakeRetryOptionsArgsDict',
     'DeliveryStreamSnowflakeRoleConfigurationArgs',
+    'DeliveryStreamSnowflakeRoleConfigurationArgsDict',
     'DeliveryStreamSnowflakeVpcConfigurationArgs',
+    'DeliveryStreamSnowflakeVpcConfigurationArgsDict',
     'DeliveryStreamSplunkBufferingHintsArgs',
+    'DeliveryStreamSplunkBufferingHintsArgsDict',
     'DeliveryStreamSplunkDestinationConfigurationArgs',
+    'DeliveryStreamSplunkDestinationConfigurationArgsDict',
     'DeliveryStreamSplunkRetryOptionsArgs',
+    'DeliveryStreamSplunkRetryOptionsArgsDict',
     'DeliveryStreamVpcConfigurationArgs',
+    'DeliveryStreamVpcConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgsDict(TypedDict):
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        """
+        size_in_mbs: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+
+        We recommend setting this parameter to a value greater than the amount of data you typically ingest into the Firehose stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+        """
+elif False:
+    DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs:
@@ -110,6 +187,39 @@ class DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs:
     def size_in_mbs(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_in_mbs", value)
 
+
+if not MYPY:
+    class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgsDict(TypedDict):
+        index_name: pulumi.Input[str]
+        """
+        The Serverless offering for Amazon OpenSearch Service index name.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.
+        """
+        s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgsDict']]
+        """
+        The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        collection_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgsDict']]
+        """
+        The retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service. The default value is 300 (5 minutes).
+        """
+        s3_backup_mode: NotRequired[pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode']]
+        """
+        Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
+        """
+        vpc_configuration: NotRequired[pulumi.Input['DeliveryStreamVpcConfigurationArgsDict']]
+elif False:
+    DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs:
@@ -259,6 +369,15 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
+if not MYPY:
+    class DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgsDict(TypedDict):
+        duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time during which Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
+        """
+elif False:
+    DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs:
     def __init__(__self__, *,
@@ -281,6 +400,19 @@ class DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs:
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
+
+if not MYPY:
+    class DeliveryStreamAmazonopensearchserviceBufferingHintsArgsDict(TypedDict):
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
+        """
+        size_in_mbs: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.
+        """
+elif False:
+    DeliveryStreamAmazonopensearchserviceBufferingHintsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamAmazonopensearchserviceBufferingHintsArgs:
@@ -320,6 +452,67 @@ class DeliveryStreamAmazonopensearchserviceBufferingHintsArgs:
     def size_in_mbs(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_in_mbs", value)
 
+
+if not MYPY:
+    class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgsDict(TypedDict):
+        index_name: pulumi.Input[str]
+        """
+        The Amazon OpenSearch Service index name.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents.
+        """
+        s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        """
+        Describes the configuration of a destination in Amazon S3.
+        """
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamAmazonopensearchserviceBufferingHintsArgsDict']]
+        """
+        The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        """
+        Describes the Amazon CloudWatch logging options for your delivery stream.
+        """
+        cluster_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint or the DomainARN field.
+        """
+        document_id_options: NotRequired[pulumi.Input['DeliveryStreamDocumentIdOptionsArgsDict']]
+        """
+        Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.
+        """
+        domain_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Amazon OpenSearch Service domain.
+        """
+        index_rotation_period: NotRequired[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod']]
+        """
+        The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        """
+        Describes a data processing configuration.
+        """
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamAmazonopensearchserviceRetryOptionsArgsDict']]
+        """
+        The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
+        """
+        s3_backup_mode: NotRequired[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode']]
+        """
+        Defines how documents should be delivered to Amazon S3.
+        """
+        type_name: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon OpenSearch Service type name.
+        """
+        vpc_configuration: NotRequired[pulumi.Input['DeliveryStreamVpcConfigurationArgsDict']]
+        """
+        The details of the VPC of the Amazon OpenSearch Service destination.
+        """
+elif False:
+    DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs:
@@ -549,6 +742,15 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
+if not MYPY:
+    class DeliveryStreamAmazonopensearchserviceRetryOptionsArgsDict(TypedDict):
+        duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        After an initial failure to deliver to Amazon OpenSearch Service, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.
+        """
+elif False:
+    DeliveryStreamAmazonopensearchserviceRetryOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamAmazonopensearchserviceRetryOptionsArgs:
     def __init__(__self__, *,
@@ -571,6 +773,19 @@ class DeliveryStreamAmazonopensearchserviceRetryOptionsArgs:
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
+
+if not MYPY:
+    class DeliveryStreamAuthenticationConfigurationArgsDict(TypedDict):
+        connectivity: pulumi.Input['DeliveryStreamAuthenticationConfigurationConnectivity']
+        """
+        The type of connectivity used to access the Amazon MSK cluster.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the role used to access the Amazon MSK cluster.
+        """
+elif False:
+    DeliveryStreamAuthenticationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamAuthenticationConfigurationArgs:
@@ -608,6 +823,19 @@ class DeliveryStreamAuthenticationConfigurationArgs:
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
 
+
+if not MYPY:
+    class DeliveryStreamBufferingHintsArgsDict(TypedDict):
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The length of time, in seconds, that Kinesis Data Firehose buffers incoming data before delivering it to the destination. For valid values, see the `IntervalInSeconds` content for the [BufferingHints](https://docs.aws.amazon.com/firehose/latest/APIReference/API_BufferingHints.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+        size_in_mbs: NotRequired[pulumi.Input[int]]
+        """
+        The size of the buffer, in MBs, that Kinesis Data Firehose uses for incoming data before delivering it to the destination. For valid values, see the `SizeInMBs` content for the [BufferingHints](https://docs.aws.amazon.com/firehose/latest/APIReference/API_BufferingHints.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+elif False:
+    DeliveryStreamBufferingHintsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamBufferingHintsArgs:
@@ -648,6 +876,15 @@ class DeliveryStreamBufferingHintsArgs:
         pulumi.set(self, "size_in_mbs", value)
 
 
+if not MYPY:
+    class DeliveryStreamCatalogConfigurationArgsDict(TypedDict):
+        catalog_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog` .
+        """
+elif False:
+    DeliveryStreamCatalogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamCatalogConfigurationArgs:
     def __init__(__self__, *,
@@ -670,6 +907,27 @@ class DeliveryStreamCatalogConfigurationArgs:
     def catalog_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "catalog_arn", value)
 
+
+if not MYPY:
+    class DeliveryStreamCloudWatchLoggingOptionsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether CloudWatch Logs logging is enabled.
+        """
+        log_group_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the CloudWatch Logs log group that contains the log stream that Kinesis Data Firehose will use.
+
+        Conditional. If you enable logging, you must specify this property.
+        """
+        log_stream_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the CloudWatch Logs log stream that Kinesis Data Firehose uses to send logs about data delivery.
+
+        Conditional. If you enable logging, you must specify this property.
+        """
+elif False:
+    DeliveryStreamCloudWatchLoggingOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamCloudWatchLoggingOptionsArgs:
@@ -734,6 +992,23 @@ class DeliveryStreamCloudWatchLoggingOptionsArgs:
         pulumi.set(self, "log_stream_name", value)
 
 
+if not MYPY:
+    class DeliveryStreamCopyCommandArgsDict(TypedDict):
+        data_table_name: pulumi.Input[str]
+        """
+        The name of the target table. The table must already exist in the database.
+        """
+        copy_options: NotRequired[pulumi.Input[str]]
+        """
+        Parameters to use with the Amazon Redshift `COPY` command. For examples, see the `CopyOptions` content for the [CopyCommand](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+        data_table_columns: NotRequired[pulumi.Input[str]]
+        """
+        A comma-separated list of column names.
+        """
+elif False:
+    DeliveryStreamCopyCommandArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamCopyCommandArgs:
     def __init__(__self__, *,
@@ -787,6 +1062,27 @@ class DeliveryStreamCopyCommandArgs:
     def data_table_columns(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_table_columns", value)
 
+
+if not MYPY:
+    class DeliveryStreamDataFormatConversionConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `true` . Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        """
+        input_format_configuration: NotRequired[pulumi.Input['DeliveryStreamInputFormatConfigurationArgsDict']]
+        """
+        Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
+        """
+        output_format_configuration: NotRequired[pulumi.Input['DeliveryStreamOutputFormatConfigurationArgsDict']]
+        """
+        Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
+        """
+        schema_configuration: NotRequired[pulumi.Input['DeliveryStreamSchemaConfigurationArgsDict']]
+        """
+        Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
+        """
+elif False:
+    DeliveryStreamDataFormatConversionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamDataFormatConversionConfigurationArgs:
@@ -859,6 +1155,19 @@ class DeliveryStreamDataFormatConversionConfigurationArgs:
         pulumi.set(self, "schema_configuration", value)
 
 
+if not MYPY:
+    class DeliveryStreamDeserializerArgsDict(TypedDict):
+        hive_json_ser_de: NotRequired[pulumi.Input['DeliveryStreamHiveJsonSerDeArgsDict']]
+        """
+        The native Hive / HCatalog JsonSerDe. Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
+        """
+        open_x_json_ser_de: NotRequired[pulumi.Input['DeliveryStreamOpenXJsonSerDeArgsDict']]
+        """
+        The OpenX SerDe. Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
+        """
+elif False:
+    DeliveryStreamDeserializerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamDeserializerArgs:
     def __init__(__self__, *,
@@ -897,6 +1206,15 @@ class DeliveryStreamDeserializerArgs:
     def open_x_json_ser_de(self, value: Optional[pulumi.Input['DeliveryStreamOpenXJsonSerDeArgs']]):
         pulumi.set(self, "open_x_json_ser_de", value)
 
+
+if not MYPY:
+    class DeliveryStreamDestinationTableConfigurationArgsDict(TypedDict):
+        destination_database_name: pulumi.Input[str]
+        destination_table_name: pulumi.Input[str]
+        s3_error_output_prefix: NotRequired[pulumi.Input[str]]
+        unique_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DeliveryStreamDestinationTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamDestinationTableConfigurationArgs:
@@ -949,6 +1267,17 @@ class DeliveryStreamDestinationTableConfigurationArgs:
         pulumi.set(self, "unique_keys", value)
 
 
+if not MYPY:
+    class DeliveryStreamDocumentIdOptionsArgsDict(TypedDict):
+        default_document_id_format: pulumi.Input['DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat']
+        """
+        When the `FIREHOSE_DEFAULT` option is chosen, Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.
+
+        When the `NO_DOCUMENT_ID` option is chosen, Firehose does not include any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple delivery attempts, this may cause the same record to be indexed more than once with different document IDs. This option enables write-heavy operations, such as the ingestion of logs and observability data, to consume less resources in the Amazon OpenSearch Service domain, resulting in improved performance.
+        """
+elif False:
+    DeliveryStreamDocumentIdOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamDocumentIdOptionsArgs:
     def __init__(__self__, *,
@@ -974,6 +1303,19 @@ class DeliveryStreamDocumentIdOptionsArgs:
     def default_document_id_format(self, value: pulumi.Input['DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat']):
         pulumi.set(self, "default_document_id_format", value)
 
+
+if not MYPY:
+    class DeliveryStreamDynamicPartitioningConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
+        """
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamRetryOptionsArgsDict']]
+        """
+        Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
+        """
+elif False:
+    DeliveryStreamDynamicPartitioningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamDynamicPartitioningConfigurationArgs:
@@ -1014,6 +1356,19 @@ class DeliveryStreamDynamicPartitioningConfigurationArgs:
         pulumi.set(self, "retry_options", value)
 
 
+if not MYPY:
+    class DeliveryStreamElasticsearchBufferingHintsArgsDict(TypedDict):
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The length of time, in seconds, that Kinesis Data Firehose buffers incoming data before delivering it to the destination. For valid values, see the `IntervalInSeconds` content for the [BufferingHints](https://docs.aws.amazon.com/firehose/latest/APIReference/API_BufferingHints.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+        size_in_mbs: NotRequired[pulumi.Input[int]]
+        """
+        The size of the buffer, in MBs, that Kinesis Data Firehose uses for incoming data before delivering it to the destination. For valid values, see the `SizeInMBs` content for the [BufferingHints](https://docs.aws.amazon.com/firehose/latest/APIReference/API_BufferingHints.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+elif False:
+    DeliveryStreamElasticsearchBufferingHintsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamElasticsearchBufferingHintsArgs:
     def __init__(__self__, *,
@@ -1052,6 +1407,69 @@ class DeliveryStreamElasticsearchBufferingHintsArgs:
     def size_in_mbs(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_in_mbs", value)
 
+
+if not MYPY:
+    class DeliveryStreamElasticsearchDestinationConfigurationArgsDict(TypedDict):
+        index_name: pulumi.Input[str]
+        """
+        The name of the Elasticsearch index to which Kinesis Data Firehose adds data for indexing.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html) .
+        """
+        s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        """
+        The S3 bucket where Kinesis Data Firehose backs up incoming data.
+        """
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamElasticsearchBufferingHintsArgsDict']]
+        """
+        Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        """
+        The Amazon CloudWatch Logs logging options for the delivery stream.
+        """
+        cluster_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to use when communicating with the cluster. Specify either this `ClusterEndpoint` or the `DomainARN` field.
+        """
+        document_id_options: NotRequired[pulumi.Input['DeliveryStreamDocumentIdOptionsArgsDict']]
+        """
+        Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.
+        """
+        domain_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Amazon ES domain. The IAM role must have permissions for `DescribeElasticsearchDomain` , `DescribeElasticsearchDomains` , and `DescribeElasticsearchDomainConfig` after assuming the role specified in *RoleARN* .
+
+        Specify either `ClusterEndpoint` or `DomainARN` .
+        """
+        index_rotation_period: NotRequired[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod']]
+        """
+        The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        """
+        The data processing configuration for the Kinesis Data Firehose delivery stream.
+        """
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamElasticsearchRetryOptionsArgsDict']]
+        """
+        The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
+        """
+        s3_backup_mode: NotRequired[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode']]
+        """
+        The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+        type_name: NotRequired[pulumi.Input[str]]
+        """
+        The Elasticsearch type name that Amazon ES adds to documents when indexing data.
+        """
+        vpc_configuration: NotRequired[pulumi.Input['DeliveryStreamVpcConfigurationArgsDict']]
+        """
+        The details of the VPC of the Amazon ES destination.
+        """
+elif False:
+    DeliveryStreamElasticsearchDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamElasticsearchDestinationConfigurationArgs:
@@ -1285,6 +1703,15 @@ class DeliveryStreamElasticsearchDestinationConfigurationArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
+if not MYPY:
+    class DeliveryStreamElasticsearchRetryOptionsArgsDict(TypedDict):
+        duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose re-attempts delivery (including the first attempt). If Kinesis Data Firehose can't deliver the data within the specified time, it writes the data to the backup S3 bucket. For valid values, see the `DurationInSeconds` content for the [ElasticsearchRetryOptions](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchRetryOptions.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+elif False:
+    DeliveryStreamElasticsearchRetryOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamElasticsearchRetryOptionsArgs:
     def __init__(__self__, *,
@@ -1307,6 +1734,23 @@ class DeliveryStreamElasticsearchRetryOptionsArgs:
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
+
+if not MYPY:
+    class DeliveryStreamEncryptionConfigurationInputArgsDict(TypedDict):
+        key_type: pulumi.Input['DeliveryStreamEncryptionConfigurationInputKeyType']
+        """
+        Indicates the type of customer master key (CMK) to use for encryption. The default setting is `AWS_OWNED_CMK` . For more information about CMKs, see [Customer Master Keys (CMKs)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys) .
+
+        You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
+
+        > To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see [About Symmetric and Asymmetric CMKs](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html) in the AWS Key Management Service developer guide.
+        """
+        key_arn: NotRequired[pulumi.Input[str]]
+        """
+        If you set `KeyType` to `CUSTOMER_MANAGED_CMK` , you must specify the Amazon Resource Name (ARN) of the CMK. If you set `KeyType` to `AWS _OWNED_CMK` , Firehose uses a service-account CMK.
+        """
+elif False:
+    DeliveryStreamEncryptionConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamEncryptionConfigurationInputArgs:
@@ -1354,6 +1798,19 @@ class DeliveryStreamEncryptionConfigurationInputArgs:
         pulumi.set(self, "key_arn", value)
 
 
+if not MYPY:
+    class DeliveryStreamEncryptionConfigurationArgsDict(TypedDict):
+        kms_encryption_config: NotRequired[pulumi.Input['DeliveryStreamKmsEncryptionConfigArgsDict']]
+        """
+        The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
+        """
+        no_encryption_config: NotRequired[pulumi.Input['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']]
+        """
+        Disables encryption. For valid values, see the `NoEncryptionConfig` content for the [EncryptionConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+elif False:
+    DeliveryStreamEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamEncryptionConfigurationArgs:
     def __init__(__self__, *,
@@ -1392,6 +1849,71 @@ class DeliveryStreamEncryptionConfigurationArgs:
     def no_encryption_config(self, value: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']]):
         pulumi.set(self, "no_encryption_config", value)
 
+
+if not MYPY:
+    class DeliveryStreamExtendedS3DestinationConfigurationArgsDict(TypedDict):
+        bucket_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the AWS credentials. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamBufferingHintsArgsDict']]
+        """
+        The buffering option.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        """
+        The Amazon CloudWatch logging options for your Firehose stream.
+        """
+        compression_format: NotRequired[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat']]
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED` .
+        """
+        custom_time_zone: NotRequired[pulumi.Input[str]]
+        """
+        The time zone you prefer. UTC is the default.
+        """
+        data_format_conversion_configuration: NotRequired[pulumi.Input['DeliveryStreamDataFormatConversionConfigurationArgsDict']]
+        """
+        The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
+        """
+        dynamic_partitioning_configuration: NotRequired[pulumi.Input['DeliveryStreamDynamicPartitioningConfigurationArgsDict']]
+        """
+        The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+        """
+        encryption_configuration: NotRequired[pulumi.Input['DeliveryStreamEncryptionConfigurationArgsDict']]
+        """
+        The encryption configuration for the Kinesis Data Firehose delivery stream. The default value is `NoEncryption` .
+        """
+        error_output_prefix: NotRequired[pulumi.Input[str]]
+        """
+        A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
+        """
+        file_extension: NotRequired[pulumi.Input[str]]
+        """
+        Specify a file extension. It will override the default file extension
+        """
+        prefix: NotRequired[pulumi.Input[str]]
+        """
+        The `YYYY/MM/DD/HH` time format prefix is automatically used for delivered Amazon S3 files. For more information, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        """
+        The data processing configuration for the Kinesis Data Firehose delivery stream.
+        """
+        s3_backup_configuration: NotRequired[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']]
+        """
+        The configuration for backup in Amazon S3.
+        """
+        s3_backup_mode: NotRequired[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode']]
+        """
+        The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
+        """
+elif False:
+    DeliveryStreamExtendedS3DestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamExtendedS3DestinationConfigurationArgs:
@@ -1638,6 +2160,15 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
         pulumi.set(self, "s3_backup_mode", value)
 
 
+if not MYPY:
+    class DeliveryStreamHiveJsonSerDeArgsDict(TypedDict):
+        timestamp_formats: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Indicates how you want Firehose to parse the date and timestamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://docs.aws.amazon.com/https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html) . You can also use the special value `millis` to parse timestamps in epoch milliseconds. If you don't specify a format, Firehose uses `java.sql.Timestamp::valueOf` by default.
+        """
+elif False:
+    DeliveryStreamHiveJsonSerDeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamHiveJsonSerDeArgs:
     def __init__(__self__, *,
@@ -1660,6 +2191,19 @@ class DeliveryStreamHiveJsonSerDeArgs:
     def timestamp_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "timestamp_formats", value)
 
+
+if not MYPY:
+    class DeliveryStreamHttpEndpointCommonAttributeArgsDict(TypedDict):
+        attribute_name: pulumi.Input[str]
+        """
+        The name of the HTTP endpoint common attribute.
+        """
+        attribute_value: pulumi.Input[str]
+        """
+        The value of the HTTP endpoint common attribute.
+        """
+elif False:
+    DeliveryStreamHttpEndpointCommonAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamHttpEndpointCommonAttributeArgs:
@@ -1697,6 +2241,23 @@ class DeliveryStreamHttpEndpointCommonAttributeArgs:
     def attribute_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "attribute_value", value)
 
+
+if not MYPY:
+    class DeliveryStreamHttpEndpointConfigurationArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        The URL of the HTTP endpoint selected as the destination.
+        """
+        access_key: NotRequired[pulumi.Input[str]]
+        """
+        The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the HTTP endpoint selected as the destination.
+        """
+elif False:
+    DeliveryStreamHttpEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamHttpEndpointConfigurationArgs:
@@ -1751,6 +2312,51 @@ class DeliveryStreamHttpEndpointConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DeliveryStreamHttpEndpointDestinationConfigurationArgsDict(TypedDict):
+        endpoint_configuration: pulumi.Input['DeliveryStreamHttpEndpointConfigurationArgsDict']
+        """
+        The configuration of the HTTP endpoint selected as the destination.
+        """
+        s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        """
+        Describes the configuration of a destination in Amazon S3.
+        """
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamBufferingHintsArgsDict']]
+        """
+        The buffering options that can be used before data is delivered to the specified destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The SizeInMBs and IntervalInSeconds parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        """
+        Describes the Amazon CloudWatch logging options for your delivery stream.
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        """
+        Describes the data processing configuration.
+        """
+        request_configuration: NotRequired[pulumi.Input['DeliveryStreamHttpEndpointRequestConfigurationArgsDict']]
+        """
+        The configuration of the request sent to the HTTP endpoint specified as the destination.
+        """
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamRetryOptionsArgsDict']]
+        """
+        Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
+        """
+        s3_backup_mode: NotRequired[pulumi.Input[str]]
+        """
+        Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
+        """
+        secrets_manager_configuration: NotRequired[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgsDict']]
+        """
+        The configuration that defines how you access secrets for HTTP Endpoint destination.
+        """
+elif False:
+    DeliveryStreamHttpEndpointDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
@@ -1917,6 +2523,19 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
         pulumi.set(self, "secrets_manager_configuration", value)
 
 
+if not MYPY:
+    class DeliveryStreamHttpEndpointRequestConfigurationArgsDict(TypedDict):
+        common_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamHttpEndpointCommonAttributeArgsDict']]]]
+        """
+        Describes the metadata sent to the HTTP endpoint destination.
+        """
+        content_encoding: NotRequired[pulumi.Input['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding']]
+        """
+        Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
+        """
+elif False:
+    DeliveryStreamHttpEndpointRequestConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamHttpEndpointRequestConfigurationArgs:
     def __init__(__self__, *,
@@ -1955,6 +2574,32 @@ class DeliveryStreamHttpEndpointRequestConfigurationArgs:
     def content_encoding(self, value: Optional[pulumi.Input['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding']]):
         pulumi.set(self, "content_encoding", value)
 
+
+if not MYPY:
+    class DeliveryStreamIcebergDestinationConfigurationArgsDict(TypedDict):
+        catalog_configuration: pulumi.Input['DeliveryStreamCatalogConfigurationArgsDict']
+        """
+        Configuration describing where the destination Apache Iceberg Tables are persisted.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        """
+        s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamBufferingHintsArgsDict']]
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        destination_table_configuration_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamDestinationTableConfigurationArgsDict']]]]
+        """
+        Provides a list of `DestinationTableConfigurations` which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided here.
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamRetryOptionsArgsDict']]
+        s3_backup_mode: NotRequired[pulumi.Input['DeliveryStreamIcebergDestinationConfigurations3BackupMode']]
+        """
+        Describes how Firehose will backup records. Currently,S3 backup only supports `FailedDataOnly` .
+        """
+elif False:
+    DeliveryStreamIcebergDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamIcebergDestinationConfigurationArgs:
@@ -2084,6 +2729,15 @@ class DeliveryStreamIcebergDestinationConfigurationArgs:
         pulumi.set(self, "s3_backup_mode", value)
 
 
+if not MYPY:
+    class DeliveryStreamInputFormatConfigurationArgsDict(TypedDict):
+        deserializer: NotRequired[pulumi.Input['DeliveryStreamDeserializerArgsDict']]
+        """
+        Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
+        """
+elif False:
+    DeliveryStreamInputFormatConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamInputFormatConfigurationArgs:
     def __init__(__self__, *,
@@ -2106,6 +2760,19 @@ class DeliveryStreamInputFormatConfigurationArgs:
     def deserializer(self, value: Optional[pulumi.Input['DeliveryStreamDeserializerArgs']]):
         pulumi.set(self, "deserializer", value)
 
+
+if not MYPY:
+    class DeliveryStreamKinesisStreamSourceConfigurationArgsDict(TypedDict):
+        kinesis_stream_arn: pulumi.Input[str]
+        """
+        The ARN of the source Kinesis data stream.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the role that provides access to the source Kinesis data stream.
+        """
+elif False:
+    DeliveryStreamKinesisStreamSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamKinesisStreamSourceConfigurationArgs:
@@ -2144,6 +2811,15 @@ class DeliveryStreamKinesisStreamSourceConfigurationArgs:
         pulumi.set(self, "role_arn", value)
 
 
+if not MYPY:
+    class DeliveryStreamKmsEncryptionConfigArgsDict(TypedDict):
+        awskms_key_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the AWS KMS encryption key that Amazon S3 uses to encrypt data delivered by the Kinesis Data Firehose stream. The key must belong to the same region as the destination S3 bucket.
+        """
+elif False:
+    DeliveryStreamKmsEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamKmsEncryptionConfigArgs:
     def __init__(__self__, *,
@@ -2165,6 +2841,29 @@ class DeliveryStreamKmsEncryptionConfigArgs:
     def awskms_key_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "awskms_key_arn", value)
 
+
+if not MYPY:
+    class DeliveryStreamMskSourceConfigurationArgsDict(TypedDict):
+        authentication_configuration: pulumi.Input['DeliveryStreamAuthenticationConfigurationArgsDict']
+        """
+        The authentication configuration of the Amazon MSK cluster.
+        """
+        msk_cluster_arn: pulumi.Input[str]
+        """
+        The ARN of the Amazon MSK cluster.
+        """
+        topic_name: pulumi.Input[str]
+        """
+        The topic name within the Amazon MSK cluster.
+        """
+        read_from_timestamp: NotRequired[pulumi.Input[str]]
+        """
+        The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active.
+
+        If you want to create a Firehose stream with Earliest start position from SDK or CLI, you need to set the `ReadFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+        """
+elif False:
+    DeliveryStreamMskSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamMskSourceConfigurationArgs:
@@ -2238,6 +2937,25 @@ class DeliveryStreamMskSourceConfigurationArgs:
         pulumi.set(self, "read_from_timestamp", value)
 
 
+if not MYPY:
+    class DeliveryStreamOpenXJsonSerDeArgsDict(TypedDict):
+        case_insensitive: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true` , which is the default, Firehose converts JSON keys to lowercase before deserializing them.
+        """
+        column_to_json_key_mappings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Maps column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, `timestamp` is a Hive keyword. If you have a JSON key named `timestamp` , set this parameter to `{"ts": "timestamp"}` to map this key to a column named `ts` .
+        """
+        convert_dots_in_json_keys_to_underscores: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true` , specifies that the names of the keys include dots and that you want Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is "a.b", you can define the column name to be "a_b" when using this option.
+
+        The default is `false` .
+        """
+elif False:
+    DeliveryStreamOpenXJsonSerDeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamOpenXJsonSerDeArgs:
     def __init__(__self__, *,
@@ -2296,6 +3014,55 @@ class DeliveryStreamOpenXJsonSerDeArgs:
     def convert_dots_in_json_keys_to_underscores(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "convert_dots_in_json_keys_to_underscores", value)
 
+
+if not MYPY:
+    class DeliveryStreamOrcSerDeArgsDict(TypedDict):
+        block_size_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Firehose uses this value for padding calculations.
+        """
+        bloom_filter_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The column names for which you want Firehose to create bloom filters. The default is `null` .
+        """
+        bloom_filter_false_positive_probability: NotRequired[pulumi.Input[float]]
+        """
+        The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is 0.05, the minimum is 0, and the maximum is 1.
+        """
+        compression: NotRequired[pulumi.Input[str]]
+        """
+        The compression code to use over data blocks. The default is `SNAPPY` .
+        """
+        dictionary_key_threshold: NotRequired[pulumi.Input[float]]
+        """
+        Represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to 1.
+        """
+        enable_padding: NotRequired[pulumi.Input[bool]]
+        """
+        Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false` .
+        """
+        format_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the file to write. The possible values are `V0_11` and `V0_12` . The default is `V0_12` .
+        """
+        padding_tolerance: NotRequired[pulumi.Input[float]]
+        """
+        A number between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is 0.05, which means 5 percent of stripe size.
+
+        For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task.
+
+        Kinesis Data Firehose ignores this parameter when `EnablePadding` is `false` .
+        """
+        row_index_stride: NotRequired[pulumi.Input[int]]
+        """
+        The number of rows between index entries. The default is 10,000 and the minimum is 1,000.
+        """
+        stripe_size_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+        """
+elif False:
+    DeliveryStreamOrcSerDeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamOrcSerDeArgs:
@@ -2472,6 +3239,15 @@ class DeliveryStreamOrcSerDeArgs:
         pulumi.set(self, "stripe_size_bytes", value)
 
 
+if not MYPY:
+    class DeliveryStreamOutputFormatConfigurationArgsDict(TypedDict):
+        serializer: NotRequired[pulumi.Input['DeliveryStreamSerializerArgsDict']]
+        """
+        Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
+        """
+elif False:
+    DeliveryStreamOutputFormatConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamOutputFormatConfigurationArgs:
     def __init__(__self__, *,
@@ -2494,6 +3270,35 @@ class DeliveryStreamOutputFormatConfigurationArgs:
     def serializer(self, value: Optional[pulumi.Input['DeliveryStreamSerializerArgs']]):
         pulumi.set(self, "serializer", value)
 
+
+if not MYPY:
+    class DeliveryStreamParquetSerDeArgsDict(TypedDict):
+        block_size_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Firehose uses this value for padding calculations.
+        """
+        compression: NotRequired[pulumi.Input[str]]
+        """
+        The compression code to use over data blocks. The possible values are `UNCOMPRESSED` , `SNAPPY` , and `GZIP` , with the default being `SNAPPY` . Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+        """
+        enable_dictionary_compression: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to enable dictionary compression.
+        """
+        max_padding_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
+        """
+        page_size_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+        """
+        writer_version: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the version of row format to output. The possible values are `V1` and `V2` . The default is `V1` .
+        """
+elif False:
+    DeliveryStreamParquetSerDeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamParquetSerDeArgs:
@@ -2598,6 +3403,19 @@ class DeliveryStreamParquetSerDeArgs:
         pulumi.set(self, "writer_version", value)
 
 
+if not MYPY:
+    class DeliveryStreamProcessingConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether data processing is enabled (true) or disabled (false).
+        """
+        processors: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamProcessorArgsDict']]]]
+        """
+        The data processors.
+        """
+elif False:
+    DeliveryStreamProcessingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamProcessingConfigurationArgs:
     def __init__(__self__, *,
@@ -2637,6 +3455,19 @@ class DeliveryStreamProcessingConfigurationArgs:
         pulumi.set(self, "processors", value)
 
 
+if not MYPY:
+    class DeliveryStreamProcessorParameterArgsDict(TypedDict):
+        parameter_name: pulumi.Input[str]
+        """
+        The name of the parameter. Currently the following default values are supported: 3 for `NumberOfRetries` and 60 for the `BufferIntervalInSeconds` . The `BufferSizeInMBs` ranges between 0.2 MB and up to 3MB. The default buffering hint is 1MB for all destinations, except Splunk. For Splunk, the default buffering hint is 256 KB.
+        """
+        parameter_value: pulumi.Input[str]
+        """
+        The parameter value.
+        """
+elif False:
+    DeliveryStreamProcessorParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamProcessorParameterArgs:
     def __init__(__self__, *,
@@ -2673,6 +3504,19 @@ class DeliveryStreamProcessorParameterArgs:
     def parameter_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_value", value)
 
+
+if not MYPY:
+    class DeliveryStreamProcessorArgsDict(TypedDict):
+        type: pulumi.Input['DeliveryStreamProcessorType']
+        """
+        The type of processor. Valid values: `Lambda` .
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamProcessorParameterArgsDict']]]]
+        """
+        The processor parameters.
+        """
+elif False:
+    DeliveryStreamProcessorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamProcessorArgs:
@@ -2711,6 +3555,59 @@ class DeliveryStreamProcessorArgs:
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamProcessorParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DeliveryStreamRedshiftDestinationConfigurationArgsDict(TypedDict):
+        cluster_jdbcurl: pulumi.Input[str]
+        """
+        The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
+        """
+        copy_command: pulumi.Input['DeliveryStreamCopyCommandArgsDict']
+        """
+        Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
+        """
+        s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        """
+        The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        """
+        The CloudWatch logging options for your Firehose stream.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password for the Amazon Redshift user that you specified in the `Username` property.
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        """
+        The data processing configuration for the Kinesis Data Firehose delivery stream.
+        """
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamRedshiftRetryOptionsArgsDict']]
+        """
+        The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+        """
+        s3_backup_configuration: NotRequired[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']]
+        """
+        The configuration for backup in Amazon S3.
+        """
+        s3_backup_mode: NotRequired[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']]
+        """
+        The Amazon S3 backup mode. After you create a Firehose stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the Firehose stream to disable it.
+        """
+        secrets_manager_configuration: NotRequired[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgsDict']]
+        """
+        The configuration that defines how you access secrets for Amazon Redshift.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
+        """
+elif False:
+    DeliveryStreamRedshiftDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamRedshiftDestinationConfigurationArgs:
@@ -2907,6 +3804,15 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class DeliveryStreamRedshiftRetryOptionsArgsDict(TypedDict):
+        duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of `DurationInSeconds` is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        """
+elif False:
+    DeliveryStreamRedshiftRetryOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamRedshiftRetryOptionsArgs:
     def __init__(__self__, *,
@@ -2930,6 +3836,15 @@ class DeliveryStreamRedshiftRetryOptionsArgs:
         pulumi.set(self, "duration_in_seconds", value)
 
 
+if not MYPY:
+    class DeliveryStreamRetryOptionsArgsDict(TypedDict):
+        duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to the custom destination via HTTPS endpoint fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from the specified destination after each attempt.
+        """
+elif False:
+    DeliveryStreamRetryOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamRetryOptionsArgs:
     def __init__(__self__, *,
@@ -2952,6 +3867,43 @@ class DeliveryStreamRetryOptionsArgs:
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
+
+if not MYPY:
+    class DeliveryStreamS3DestinationConfigurationArgsDict(TypedDict):
+        bucket_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of an AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon S3 Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3) in the *Amazon Kinesis Data Firehose Developer Guide* .
+        """
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamBufferingHintsArgsDict']]
+        """
+        Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        """
+        The CloudWatch logging options for your Firehose stream.
+        """
+        compression_format: NotRequired[pulumi.Input['DeliveryStreamS3DestinationConfigurationCompressionFormat']]
+        """
+        The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
+        """
+        encryption_configuration: NotRequired[pulumi.Input['DeliveryStreamEncryptionConfigurationArgsDict']]
+        """
+        Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
+        """
+        error_output_prefix: NotRequired[pulumi.Input[str]]
+        """
+        A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
+        """
+        prefix: NotRequired[pulumi.Input[str]]
+        """
+        A prefix that Kinesis Data Firehose adds to the files that it delivers to the Amazon S3 bucket. The prefix helps you identify the files that Kinesis Data Firehose delivered.
+        """
+elif False:
+    DeliveryStreamS3DestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamS3DestinationConfigurationArgs:
@@ -3086,6 +4038,41 @@ class DeliveryStreamS3DestinationConfigurationArgs:
         pulumi.set(self, "prefix", value)
 
 
+if not MYPY:
+    class DeliveryStreamSchemaConfigurationArgsDict(TypedDict):
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the AWS Glue database that contains the schema for the output data.
+
+        > If the `SchemaConfiguration` request parameter is used as part of invoking the `CreateDeliveryStream` API, then the `DatabaseName` property is required and its value must be specified.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        If you don't specify an AWS Region, the default is the current Region.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The role that Firehose can use to access AWS Glue. This role must be in the same account you use for Firehose. Cross-account roles aren't allowed.
+
+        > If the `SchemaConfiguration` request parameter is used as part of invoking the `CreateDeliveryStream` API, then the `RoleARN` property is required and its value must be specified.
+        """
+        table_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+
+        > If the `SchemaConfiguration` request parameter is used as part of invoking the `CreateDeliveryStream` API, then the `TableName` property is required and its value must be specified.
+        """
+        version_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to `LATEST` , Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+        """
+elif False:
+    DeliveryStreamSchemaConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamSchemaConfigurationArgs:
     def __init__(__self__, *,
@@ -3201,6 +4188,23 @@ class DeliveryStreamSchemaConfigurationArgs:
         pulumi.set(self, "version_id", value)
 
 
+if not MYPY:
+    class DeliveryStreamSecretsManagerConfigurationArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Specifies whether you want to use the secrets manager feature. When set as `True` the secrets manager configuration overwrites the existing secrets in the destination configuration. When it's set to `False` Firehose falls back to the credentials in the destination configuration.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the role that Firehose assumes when calling the Secrets Manager API operation. When you provide the role, it overrides any destination specific role defined in the destination configuration. If you do not provide the then we use the destination specific role. This parameter is required for Splunk.
+        """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when *Enabled* is set to `True` .
+        """
+elif False:
+    DeliveryStreamSecretsManagerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamSecretsManagerConfigurationArgs:
     def __init__(__self__, *,
@@ -3255,6 +4259,19 @@ class DeliveryStreamSecretsManagerConfigurationArgs:
         pulumi.set(self, "secret_arn", value)
 
 
+if not MYPY:
+    class DeliveryStreamSerializerArgsDict(TypedDict):
+        orc_ser_de: NotRequired[pulumi.Input['DeliveryStreamOrcSerDeArgsDict']]
+        """
+        A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
+        """
+        parquet_ser_de: NotRequired[pulumi.Input['DeliveryStreamParquetSerDeArgsDict']]
+        """
+        A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+        """
+elif False:
+    DeliveryStreamSerializerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamSerializerArgs:
     def __init__(__self__, *,
@@ -3294,6 +4311,19 @@ class DeliveryStreamSerializerArgs:
         pulumi.set(self, "parquet_ser_de", value)
 
 
+if not MYPY:
+    class DeliveryStreamSnowflakeBufferingHintsArgsDict(TypedDict):
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 0.
+        """
+        size_in_mbs: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 128.
+        """
+elif False:
+    DeliveryStreamSnowflakeBufferingHintsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamSnowflakeBufferingHintsArgs:
     def __init__(__self__, *,
@@ -3332,6 +4362,85 @@ class DeliveryStreamSnowflakeBufferingHintsArgs:
     def size_in_mbs(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_in_mbs", value)
 
+
+if not MYPY:
+    class DeliveryStreamSnowflakeDestinationConfigurationArgsDict(TypedDict):
+        account_url: pulumi.Input[str]
+        """
+        URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
+        """
+        database: pulumi.Input[str]
+        """
+        All data in Snowflake is maintained in databases.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Snowflake role
+        """
+        s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        schema: pulumi.Input[str]
+        """
+        Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
+        """
+        table: pulumi.Input[str]
+        """
+        All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
+        """
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamSnowflakeBufferingHintsArgsDict']]
+        """
+        Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        content_column_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the record content column
+        """
+        data_loading_option: NotRequired[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption']]
+        """
+        Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
+        """
+        key_passphrase: NotRequired[pulumi.Input[str]]
+        """
+        Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+        """
+        meta_data_column_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the record metadata column
+        """
+        private_key: NotRequired[pulumi.Input[str]]
+        """
+        The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        """
+        Specifies configuration for Snowflake.
+        """
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamSnowflakeRetryOptionsArgsDict']]
+        """
+        The time period where Firehose will retry sending data to the chosen HTTP endpoint.
+        """
+        s3_backup_mode: NotRequired[pulumi.Input['DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode']]
+        """
+        Choose an S3 backup mode
+        """
+        secrets_manager_configuration: NotRequired[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgsDict']]
+        """
+        The configuration that defines how you access secrets for Snowflake.
+        """
+        snowflake_role_configuration: NotRequired[pulumi.Input['DeliveryStreamSnowflakeRoleConfigurationArgsDict']]
+        """
+        Optionally configure a Snowflake role. Otherwise the default user role will be used.
+        """
+        snowflake_vpc_configuration: NotRequired[pulumi.Input['DeliveryStreamSnowflakeVpcConfigurationArgsDict']]
+        """
+        The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        User login name for the Snowflake account.
+        """
+elif False:
+    DeliveryStreamSnowflakeDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamSnowflakeDestinationConfigurationArgs:
@@ -3646,6 +4755,15 @@ class DeliveryStreamSnowflakeDestinationConfigurationArgs:
         pulumi.set(self, "user", value)
 
 
+if not MYPY:
+    class DeliveryStreamSnowflakeRetryOptionsArgsDict(TypedDict):
+        duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        the time period where Firehose will retry sending data to the chosen HTTP endpoint.
+        """
+elif False:
+    DeliveryStreamSnowflakeRetryOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamSnowflakeRetryOptionsArgs:
     def __init__(__self__, *,
@@ -3668,6 +4786,19 @@ class DeliveryStreamSnowflakeRetryOptionsArgs:
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
+
+if not MYPY:
+    class DeliveryStreamSnowflakeRoleConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable Snowflake role
+        """
+        snowflake_role: NotRequired[pulumi.Input[str]]
+        """
+        The Snowflake role you wish to configure
+        """
+elif False:
+    DeliveryStreamSnowflakeRoleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamSnowflakeRoleConfigurationArgs:
@@ -3708,6 +4839,15 @@ class DeliveryStreamSnowflakeRoleConfigurationArgs:
         pulumi.set(self, "snowflake_role", value)
 
 
+if not MYPY:
+    class DeliveryStreamSnowflakeVpcConfigurationArgsDict(TypedDict):
+        private_link_vpce_id: pulumi.Input[str]
+        """
+        The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
+        """
+elif False:
+    DeliveryStreamSnowflakeVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamSnowflakeVpcConfigurationArgs:
     def __init__(__self__, *,
@@ -3729,6 +4869,19 @@ class DeliveryStreamSnowflakeVpcConfigurationArgs:
     def private_link_vpce_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "private_link_vpce_id", value)
 
+
+if not MYPY:
+    class DeliveryStreamSplunkBufferingHintsArgsDict(TypedDict):
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 60 (1 minute).
+        """
+        size_in_mbs: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        """
+elif False:
+    DeliveryStreamSplunkBufferingHintsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamSplunkBufferingHintsArgs:
@@ -3768,6 +4921,57 @@ class DeliveryStreamSplunkBufferingHintsArgs:
     def size_in_mbs(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_in_mbs", value)
 
+
+if not MYPY:
+    class DeliveryStreamSplunkDestinationConfigurationArgsDict(TypedDict):
+        hec_endpoint: pulumi.Input[str]
+        """
+        The HTTP Event Collector (HEC) endpoint to which Firehose sends your data.
+        """
+        hec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType']
+        """
+        This type can be either `Raw` or `Event` .
+        """
+        s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgsDict']
+        """
+        The configuration for the backup Amazon S3 location.
+        """
+        buffering_hints: NotRequired[pulumi.Input['DeliveryStreamSplunkBufferingHintsArgsDict']]
+        """
+        The buffering options. If no value is specified, the default values for Splunk are used.
+        """
+        cloud_watch_logging_options: NotRequired[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgsDict']]
+        """
+        The Amazon CloudWatch logging options for your Firehose stream.
+        """
+        hec_acknowledgment_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
+        """
+        hec_token: NotRequired[pulumi.Input[str]]
+        """
+        This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+        """
+        processing_configuration: NotRequired[pulumi.Input['DeliveryStreamProcessingConfigurationArgsDict']]
+        """
+        The data processing configuration.
+        """
+        retry_options: NotRequired[pulumi.Input['DeliveryStreamSplunkRetryOptionsArgsDict']]
+        """
+        The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
+        """
+        s3_backup_mode: NotRequired[pulumi.Input[str]]
+        """
+        Defines how documents should be delivered to Amazon S3. When set to `FailedEventsOnly` , Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to `AllEvents` , Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is `FailedEventsOnly` .
+
+        You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
+        """
+        secrets_manager_configuration: NotRequired[pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgsDict']]
+        """
+        The configuration that defines how you access secrets for Splunk.
+        """
+elif False:
+    DeliveryStreamSplunkDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamSplunkDestinationConfigurationArgs:
@@ -3953,6 +5157,15 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
         pulumi.set(self, "secrets_manager_configuration", value)
 
 
+if not MYPY:
+    class DeliveryStreamSplunkRetryOptionsArgsDict(TypedDict):
+        duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The total amount of time that Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Firehose waits for acknowledgment from Splunk after each attempt.
+        """
+elif False:
+    DeliveryStreamSplunkRetryOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeliveryStreamSplunkRetryOptionsArgs:
     def __init__(__self__, *,
@@ -3975,6 +5188,36 @@ class DeliveryStreamSplunkRetryOptionsArgs:
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
+
+if not MYPY:
+    class DeliveryStreamVpcConfigurationArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the IAM role that you want the delivery stream to use to create endpoints in the destination VPC. You can use your existing Kinesis Data Firehose delivery role or you can specify a new role. In either case, make sure that the role trusts the Kinesis Data Firehose service principal and that it grants the following permissions:
+
+        - `ec2:DescribeVpcs`
+        - `ec2:DescribeVpcAttribute`
+        - `ec2:DescribeSubnets`
+        - `ec2:DescribeSecurityGroups`
+        - `ec2:DescribeNetworkInterfaces`
+        - `ec2:CreateNetworkInterface`
+        - `ec2:CreateNetworkInterfacePermission`
+        - `ec2:DeleteNetworkInterface`
+
+        If you revoke these permissions after you create the delivery stream, Kinesis Data Firehose can't scale out by creating more ENIs when necessary. You might therefore see a degradation in performance.
+        """
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The IDs of the security groups that you want Kinesis Data Firehose to use when it creates ENIs in the VPC of the Amazon ES destination. You can use the same security group that the Amazon ES domain uses or different ones. If you specify different security groups here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic from the security groups specified here. If you use the same security group for both your delivery stream and the Amazon ES domain, make sure the security group inbound rule allows HTTPS traffic.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in the VPC of the Amazon ES destination. Make sure that the routing tables and inbound and outbound rules allow traffic to flow from the subnets whose IDs are specified here to the subnets that have the destination Amazon ES endpoints. Kinesis Data Firehose creates at least one ENI in each of the subnets that are specified here. Do not delete or modify these ENIs.
+
+        The number of ENIs that Kinesis Data Firehose creates in the subnets specified here scales up and down automatically based on throughput. To enable Kinesis Data Firehose to scale up the number of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate the quota you need, assume that Kinesis Data Firehose can create up to three ENIs for this delivery stream for each of the subnets specified here.
+        """
+elif False:
+    DeliveryStreamVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeliveryStreamVpcConfigurationArgs:

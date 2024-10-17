@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -91,9 +96,6 @@ def get_space(domain_id: Optional[str] = None,
         space_arn=pulumi.get(__ret__, 'space_arn'),
         space_display_name=pulumi.get(__ret__, 'space_display_name'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_space)
 def get_space_output(domain_id: Optional[pulumi.Input[str]] = None,
                      space_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpaceResult]:
@@ -104,4 +106,12 @@ def get_space_output(domain_id: Optional[pulumi.Input[str]] = None,
     :param str domain_id: The ID of the associated Domain.
     :param str space_name: A name for the Space.
     """
-    ...
+    __args__ = dict()
+    __args__['domainId'] = domain_id
+    __args__['spaceName'] = space_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getSpace', __args__, opts=opts, typ=GetSpaceResult)
+    return __ret__.apply(lambda __response__: GetSpaceResult(
+        space_arn=pulumi.get(__response__, 'space_arn'),
+        space_display_name=pulumi.get(__response__, 'space_display_name'),
+        url=pulumi.get(__response__, 'url')))

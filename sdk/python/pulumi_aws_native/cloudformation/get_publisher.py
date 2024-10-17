@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -96,9 +101,6 @@ def get_publisher(publisher_id: Optional[str] = None,
         publisher_id=pulumi.get(__ret__, 'publisher_id'),
         publisher_profile=pulumi.get(__ret__, 'publisher_profile'),
         publisher_status=pulumi.get(__ret__, 'publisher_status'))
-
-
-@_utilities.lift_output_func(get_publisher)
 def get_publisher_output(publisher_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublisherResult]:
     """
@@ -107,4 +109,12 @@ def get_publisher_output(publisher_id: Optional[pulumi.Input[str]] = None,
 
     :param str publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
     """
-    ...
+    __args__ = dict()
+    __args__['publisherId'] = publisher_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getPublisher', __args__, opts=opts, typ=GetPublisherResult)
+    return __ret__.apply(lambda __response__: GetPublisherResult(
+        identity_provider=pulumi.get(__response__, 'identity_provider'),
+        publisher_id=pulumi.get(__response__, 'publisher_id'),
+        publisher_profile=pulumi.get(__response__, 'publisher_profile'),
+        publisher_status=pulumi.get(__response__, 'publisher_status')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -192,9 +197,6 @@ def get_object_type(domain_name: Optional[str] = None,
         source_last_updated_timestamp_format=pulumi.get(__ret__, 'source_last_updated_timestamp_format'),
         tags=pulumi.get(__ret__, 'tags'),
         template_id=pulumi.get(__ret__, 'template_id'))
-
-
-@_utilities.lift_output_func(get_object_type)
 def get_object_type_output(domain_name: Optional[pulumi.Input[str]] = None,
                            object_type_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectTypeResult]:
@@ -205,4 +207,20 @@ def get_object_type_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: The unique name of the domain.
     :param str object_type_name: The name of the profile object type.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['objectTypeName'] = object_type_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getObjectType', __args__, opts=opts, typ=GetObjectTypeResult)
+    return __ret__.apply(lambda __response__: GetObjectTypeResult(
+        allow_profile_creation=pulumi.get(__response__, 'allow_profile_creation'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        encryption_key=pulumi.get(__response__, 'encryption_key'),
+        expiration_days=pulumi.get(__response__, 'expiration_days'),
+        fields=pulumi.get(__response__, 'fields'),
+        keys=pulumi.get(__response__, 'keys'),
+        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        source_last_updated_timestamp_format=pulumi.get(__response__, 'source_last_updated_timestamp_format'),
+        tags=pulumi.get(__response__, 'tags'),
+        template_id=pulumi.get(__response__, 'template_id')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -172,9 +177,6 @@ def get_subnet(subnet_id: Optional[str] = None,
         private_dns_name_options_on_launch=pulumi.get(__ret__, 'private_dns_name_options_on_launch'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_subnet)
 def get_subnet_output(subnet_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
     """
@@ -185,4 +187,17 @@ def get_subnet_output(subnet_id: Optional[pulumi.Input[str]] = None,
 
     :param str subnet_id: The ID of the subnet.
     """
-    ...
+    __args__ = dict()
+    __args__['subnetId'] = subnet_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSubnet', __args__, opts=opts, typ=GetSubnetResult)
+    return __ret__.apply(lambda __response__: GetSubnetResult(
+        assign_ipv6_address_on_creation=pulumi.get(__response__, 'assign_ipv6_address_on_creation'),
+        enable_dns64=pulumi.get(__response__, 'enable_dns64'),
+        ipv6_cidr_block=pulumi.get(__response__, 'ipv6_cidr_block'),
+        ipv6_cidr_blocks=pulumi.get(__response__, 'ipv6_cidr_blocks'),
+        map_public_ip_on_launch=pulumi.get(__response__, 'map_public_ip_on_launch'),
+        network_acl_association_id=pulumi.get(__response__, 'network_acl_association_id'),
+        private_dns_name_options_on_launch=pulumi.get(__response__, 'private_dns_name_options_on_launch'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags')))

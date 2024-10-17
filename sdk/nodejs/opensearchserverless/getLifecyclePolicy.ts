@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Amazon OpenSearchServerless lifecycle policy resource
  */
 export function getLifecyclePolicy(args: GetLifecyclePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opensearchserverless:getLifecyclePolicy", {
         "name": args.name,
@@ -44,7 +43,11 @@ export interface GetLifecyclePolicyResult {
  * Amazon OpenSearchServerless lifecycle policy resource
  */
 export function getLifecyclePolicyOutput(args: GetLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecyclePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getLifecyclePolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getLifecyclePolicy", {
+        "name": args.name,
+        "type": args.type,
+    }, opts);
 }
 
 export interface GetLifecyclePolicyOutputArgs {

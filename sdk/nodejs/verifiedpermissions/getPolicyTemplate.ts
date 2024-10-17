@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
  */
 export function getPolicyTemplate(args: GetPolicyTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:verifiedpermissions:getPolicyTemplate", {
         "policyStoreId": args.policyStoreId,
@@ -45,7 +44,11 @@ export interface GetPolicyTemplateResult {
  * Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
  */
 export function getPolicyTemplateOutput(args: GetPolicyTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:verifiedpermissions:getPolicyTemplate", {
+        "policyStoreId": args.policyStoreId,
+        "policyTemplateId": args.policyTemplateId,
+    }, opts);
 }
 
 export interface GetPolicyTemplateOutputArgs {

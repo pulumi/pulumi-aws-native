@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
  */
 export function getVpceConfiguration(args: GetVpceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpceConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:devicefarm:getVpceConfiguration", {
         "arn": args.arn,
@@ -59,7 +58,10 @@ export interface GetVpceConfigurationResult {
  * AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
  */
 export function getVpceConfigurationOutput(args: GetVpceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpceConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getVpceConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:devicefarm:getVpceConfiguration", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetVpceConfigurationOutputArgs {

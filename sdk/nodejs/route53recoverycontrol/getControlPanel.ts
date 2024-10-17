@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * AWS Route53 Recovery Control Control Panel resource schema .
  */
 export function getControlPanel(args: GetControlPanelArgs, opts?: pulumi.InvokeOptions): Promise<GetControlPanelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53recoverycontrol:getControlPanel", {
         "controlPanelArn": args.controlPanelArn,
@@ -51,7 +50,10 @@ export interface GetControlPanelResult {
  * AWS Route53 Recovery Control Control Panel resource schema .
  */
 export function getControlPanelOutput(args: GetControlPanelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlPanelResult> {
-    return pulumi.output(args).apply((a: any) => getControlPanel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:route53recoverycontrol:getControlPanel", {
+        "controlPanelArn": args.controlPanelArn,
+    }, opts);
 }
 
 export interface GetControlPanelOutputArgs {

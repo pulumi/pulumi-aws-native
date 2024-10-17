@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::SES::MailManagerRuleSet Resource Type
  */
 export function getMailManagerRuleSet(args: GetMailManagerRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetMailManagerRuleSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getMailManagerRuleSet", {
         "ruleSetId": args.ruleSetId,
@@ -51,7 +50,10 @@ export interface GetMailManagerRuleSetResult {
  * Definition of AWS::SES::MailManagerRuleSet Resource Type
  */
 export function getMailManagerRuleSetOutput(args: GetMailManagerRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerRuleSetResult> {
-    return pulumi.output(args).apply((a: any) => getMailManagerRuleSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerRuleSet", {
+        "ruleSetId": args.ruleSetId,
+    }, opts);
 }
 
 export interface GetMailManagerRuleSetOutputArgs {

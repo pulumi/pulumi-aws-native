@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataBrew::Recipe.
  */
 export function getRecipe(args: GetRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetRecipeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:databrew:getRecipe", {
         "name": args.name,
@@ -39,7 +38,10 @@ export interface GetRecipeResult {
  * Resource schema for AWS::DataBrew::Recipe.
  */
 export function getRecipeOutput(args: GetRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecipeResult> {
-    return pulumi.output(args).apply((a: any) => getRecipe(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:databrew:getRecipe", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetRecipeOutputArgs {

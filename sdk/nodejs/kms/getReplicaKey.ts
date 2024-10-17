@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
  */
 export function getReplicaKey(args: GetReplicaKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kms:getReplicaKey", {
         "keyId": args.keyId,
@@ -63,7 +62,10 @@ export interface GetReplicaKeyResult {
  * The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
  */
 export function getReplicaKeyOutput(args: GetReplicaKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaKeyResult> {
-    return pulumi.output(args).apply((a: any) => getReplicaKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:kms:getReplicaKey", {
+        "keyId": args.keyId,
+    }, opts);
 }
 
 export interface GetReplicaKeyOutputArgs {

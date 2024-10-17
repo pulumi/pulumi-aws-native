@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -63,9 +68,6 @@ def get_security_key(association_id: Optional[str] = None,
 
     return AwaitableGetSecurityKeyResult(
         association_id=pulumi.get(__ret__, 'association_id'))
-
-
-@_utilities.lift_output_func(get_security_key)
 def get_security_key_output(association_id: Optional[pulumi.Input[str]] = None,
                             instance_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityKeyResult]:
@@ -80,4 +82,10 @@ def get_security_key_output(association_id: Optional[pulumi.Input[str]] = None,
            
            *Maximum* : `100`
     """
-    ...
+    __args__ = dict()
+    __args__['associationId'] = association_id
+    __args__['instanceId'] = instance_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getSecurityKey', __args__, opts=opts, typ=GetSecurityKeyResult)
+    return __ret__.apply(lambda __response__: GetSecurityKeyResult(
+        association_id=pulumi.get(__response__, 'association_id')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -73,9 +78,6 @@ def get_aggregation_authorization(authorized_account_id: Optional[str] = None,
     return AwaitableGetAggregationAuthorizationResult(
         aggregation_authorization_arn=pulumi.get(__ret__, 'aggregation_authorization_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_aggregation_authorization)
 def get_aggregation_authorization_output(authorized_account_id: Optional[pulumi.Input[str]] = None,
                                          authorized_aws_region: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAggregationAuthorizationResult]:
@@ -86,4 +88,11 @@ def get_aggregation_authorization_output(authorized_account_id: Optional[pulumi.
     :param str authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
     :param str authorized_aws_region: The region authorized to collect aggregated data.
     """
-    ...
+    __args__ = dict()
+    __args__['authorizedAccountId'] = authorized_account_id
+    __args__['authorizedAwsRegion'] = authorized_aws_region
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getAggregationAuthorization', __args__, opts=opts, typ=GetAggregationAuthorizationResult)
+    return __ret__.apply(lambda __response__: GetAggregationAuthorizationResult(
+        aggregation_authorization_arn=pulumi.get(__response__, 'aggregation_authorization_arn'),
+        tags=pulumi.get(__response__, 'tags')))

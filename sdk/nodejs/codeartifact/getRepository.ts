@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The resource schema to create a CodeArtifact repository.
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codeartifact:getRepository", {
         "arn": args.arn,
@@ -61,7 +60,10 @@ export interface GetRepositoryResult {
  * The resource schema to create a CodeArtifact repository.
  */
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
-    return pulumi.output(args).apply((a: any) => getRepository(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:codeartifact:getRepository", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetRepositoryOutputArgs {

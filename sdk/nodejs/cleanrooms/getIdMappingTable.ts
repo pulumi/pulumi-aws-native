@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Represents an association between an ID mapping workflow and a collaboration
  */
 export function getIdMappingTable(args: GetIdMappingTableArgs, opts?: pulumi.InvokeOptions): Promise<GetIdMappingTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cleanrooms:getIdMappingTable", {
         "idMappingTableIdentifier": args.idMappingTableIdentifier,
@@ -60,7 +59,11 @@ export interface GetIdMappingTableResult {
  * Represents an association between an ID mapping workflow and a collaboration
  */
 export function getIdMappingTableOutput(args: GetIdMappingTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdMappingTableResult> {
-    return pulumi.output(args).apply((a: any) => getIdMappingTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getIdMappingTable", {
+        "idMappingTableIdentifier": args.idMappingTableIdentifier,
+        "membershipIdentifier": args.membershipIdentifier,
+    }, opts);
 }
 
 export interface GetIdMappingTableOutputArgs {

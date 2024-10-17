@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -96,9 +101,6 @@ def get_scraper(arn: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         scraper_id=pulumi.get(__ret__, 'scraper_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_scraper)
 def get_scraper_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScraperResult]:
     """
@@ -107,4 +109,12 @@ def get_scraper_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Scraper ARN.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:aps:getScraper', __args__, opts=opts, typ=GetScraperResult)
+    return __ret__.apply(lambda __response__: GetScraperResult(
+        arn=pulumi.get(__response__, 'arn'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        scraper_id=pulumi.get(__response__, 'scraper_id'),
+        tags=pulumi.get(__response__, 'tags')))

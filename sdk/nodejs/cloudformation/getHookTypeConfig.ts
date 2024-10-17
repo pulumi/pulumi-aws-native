@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Specifies the configuration data for a registered hook in CloudFormation Registry.
  */
 export function getHookTypeConfig(args: GetHookTypeConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetHookTypeConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getHookTypeConfig", {
         "configurationArn": args.configurationArn,
@@ -46,7 +45,10 @@ export interface GetHookTypeConfigResult {
  * Specifies the configuration data for a registered hook in CloudFormation Registry.
  */
 export function getHookTypeConfigOutput(args: GetHookTypeConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHookTypeConfigResult> {
-    return pulumi.output(args).apply((a: any) => getHookTypeConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudformation:getHookTypeConfig", {
+        "configurationArn": args.configurationArn,
+    }, opts);
 }
 
 export interface GetHookTypeConfigOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource type definition for AWS::WorkSpacesThinClient::Environment.
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesthinclient:getEnvironment", {
         "id": args.id,
@@ -103,7 +102,10 @@ export interface GetEnvironmentResult {
  * Resource type definition for AWS::WorkSpacesThinClient::Environment.
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:workspacesthinclient:getEnvironment", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetEnvironmentOutputArgs {

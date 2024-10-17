@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElastiCache::SubnetGroup
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticache:getSubnetGroup", {
         "cacheSubnetGroupName": args.cacheSubnetGroupName,
@@ -43,7 +42,10 @@ export interface GetSubnetGroupResult {
  * Resource Type definition for AWS::ElastiCache::SubnetGroup
  */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:elasticache:getSubnetGroup", {
+        "cacheSubnetGroupName": args.cacheSubnetGroupName,
+    }, opts);
 }
 
 export interface GetSubnetGroupOutputArgs {

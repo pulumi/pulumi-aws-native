@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -97,9 +102,6 @@ def get_hook_default_version(arn: Optional[str] = None,
         type_name=pulumi.get(__ret__, 'type_name'),
         type_version_arn=pulumi.get(__ret__, 'type_version_arn'),
         version_id=pulumi.get(__ret__, 'version_id'))
-
-
-@_utilities.lift_output_func(get_hook_default_version)
 def get_hook_default_version_output(arn: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHookDefaultVersionResult]:
     """
@@ -108,4 +110,12 @@ def get_hook_default_version_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a HookDefaultVersion
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getHookDefaultVersion', __args__, opts=opts, typ=GetHookDefaultVersionResult)
+    return __ret__.apply(lambda __response__: GetHookDefaultVersionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        type_name=pulumi.get(__response__, 'type_name'),
+        type_version_arn=pulumi.get(__response__, 'type_version_arn'),
+        version_id=pulumi.get(__response__, 'version_id')))

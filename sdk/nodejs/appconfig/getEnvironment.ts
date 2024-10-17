@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppConfig::Environment
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getEnvironment", {
         "applicationId": args.applicationId,
@@ -56,7 +55,11 @@ export interface GetEnvironmentResult {
  * Resource Type definition for AWS::AppConfig::Environment
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:appconfig:getEnvironment", {
+        "applicationId": args.applicationId,
+        "environmentId": args.environmentId,
+    }, opts);
 }
 
 export interface GetEnvironmentOutputArgs {

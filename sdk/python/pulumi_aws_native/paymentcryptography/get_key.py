@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -143,12 +148,21 @@ def get_key(key_identifier: Optional[str] = None,
         key_origin=pulumi.get(__ret__, 'key_origin'),
         key_state=pulumi.get(__ret__, 'key_state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_key)
 def get_key_output(key_identifier: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
     Definition of AWS::PaymentCryptography::Key Resource Type
     """
-    ...
+    __args__ = dict()
+    __args__['keyIdentifier'] = key_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:paymentcryptography:getKey', __args__, opts=opts, typ=GetKeyResult)
+    return __ret__.apply(lambda __response__: GetKeyResult(
+        enabled=pulumi.get(__response__, 'enabled'),
+        exportable=pulumi.get(__response__, 'exportable'),
+        key_attributes=pulumi.get(__response__, 'key_attributes'),
+        key_check_value_algorithm=pulumi.get(__response__, 'key_check_value_algorithm'),
+        key_identifier=pulumi.get(__response__, 'key_identifier'),
+        key_origin=pulumi.get(__response__, 'key_origin'),
+        key_state=pulumi.get(__response__, 'key_state'),
+        tags=pulumi.get(__response__, 'tags')))

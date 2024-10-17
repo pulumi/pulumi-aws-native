@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -100,9 +105,6 @@ def get_custom_db_engine_version(engine: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_custom_db_engine_version)
 def get_custom_db_engine_version_output(engine: Optional[pulumi.Input[str]] = None,
                                         engine_version: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDbEngineVersionResult]:
@@ -113,4 +115,13 @@ def get_custom_db_engine_version_output(engine: Optional[pulumi.Input[str]] = No
     :param str engine: The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
     :param str engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
     """
-    ...
+    __args__ = dict()
+    __args__['engine'] = engine
+    __args__['engineVersion'] = engine_version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getCustomDbEngineVersion', __args__, opts=opts, typ=GetCustomDbEngineVersionResult)
+    return __ret__.apply(lambda __response__: GetCustomDbEngineVersionResult(
+        db_engine_version_arn=pulumi.get(__response__, 'db_engine_version_arn'),
+        description=pulumi.get(__response__, 'description'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -274,9 +279,6 @@ def get_association(association_id: Optional[str] = None,
         schedule_offset=pulumi.get(__ret__, 'schedule_offset'),
         sync_compliance=pulumi.get(__ret__, 'sync_compliance'),
         targets=pulumi.get(__ret__, 'targets'))
-
-
-@_utilities.lift_output_func(get_association)
 def get_association_output(association_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationResult]:
     """
@@ -285,4 +287,25 @@ def get_association_output(association_id: Optional[pulumi.Input[str]] = None,
 
     :param str association_id: Unique identifier of the association.
     """
-    ...
+    __args__ = dict()
+    __args__['associationId'] = association_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getAssociation', __args__, opts=opts, typ=GetAssociationResult)
+    return __ret__.apply(lambda __response__: GetAssociationResult(
+        apply_only_at_cron_interval=pulumi.get(__response__, 'apply_only_at_cron_interval'),
+        association_id=pulumi.get(__response__, 'association_id'),
+        association_name=pulumi.get(__response__, 'association_name'),
+        automation_target_parameter_name=pulumi.get(__response__, 'automation_target_parameter_name'),
+        calendar_names=pulumi.get(__response__, 'calendar_names'),
+        compliance_severity=pulumi.get(__response__, 'compliance_severity'),
+        document_version=pulumi.get(__response__, 'document_version'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        max_concurrency=pulumi.get(__response__, 'max_concurrency'),
+        max_errors=pulumi.get(__response__, 'max_errors'),
+        name=pulumi.get(__response__, 'name'),
+        output_location=pulumi.get(__response__, 'output_location'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        schedule_expression=pulumi.get(__response__, 'schedule_expression'),
+        schedule_offset=pulumi.get(__response__, 'schedule_offset'),
+        sync_compliance=pulumi.get(__response__, 'sync_compliance'),
+        targets=pulumi.get(__response__, 'targets')))

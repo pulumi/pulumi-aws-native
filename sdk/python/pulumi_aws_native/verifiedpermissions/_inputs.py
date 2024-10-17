@@ -4,31 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'IdentitySourceCognitoGroupConfigurationArgs',
+    'IdentitySourceCognitoGroupConfigurationArgsDict',
     'IdentitySourceCognitoUserPoolConfigurationArgs',
+    'IdentitySourceCognitoUserPoolConfigurationArgsDict',
     'IdentitySourceConfiguration0PropertiesArgs',
+    'IdentitySourceConfiguration0PropertiesArgsDict',
     'IdentitySourceConfiguration1PropertiesArgs',
+    'IdentitySourceConfiguration1PropertiesArgsDict',
     'IdentitySourceOpenIdConnectAccessTokenConfigurationArgs',
+    'IdentitySourceOpenIdConnectAccessTokenConfigurationArgsDict',
     'IdentitySourceOpenIdConnectConfigurationArgs',
+    'IdentitySourceOpenIdConnectConfigurationArgsDict',
     'IdentitySourceOpenIdConnectGroupConfigurationArgs',
+    'IdentitySourceOpenIdConnectGroupConfigurationArgsDict',
     'IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs',
+    'IdentitySourceOpenIdConnectIdentityTokenConfigurationArgsDict',
     'IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs',
+    'IdentitySourceOpenIdConnectTokenSelection0PropertiesArgsDict',
     'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs',
+    'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgsDict',
     'PolicyDefinition0PropertiesArgs',
+    'PolicyDefinition0PropertiesArgsDict',
     'PolicyDefinition1PropertiesArgs',
+    'PolicyDefinition1PropertiesArgsDict',
     'PolicyEntityIdentifierArgs',
+    'PolicyEntityIdentifierArgsDict',
     'PolicyStaticPolicyDefinitionArgs',
+    'PolicyStaticPolicyDefinitionArgsDict',
     'PolicyStoreSchemaDefinitionArgs',
+    'PolicyStoreSchemaDefinitionArgsDict',
     'PolicyStoreValidationSettingsArgs',
+    'PolicyStoreValidationSettingsArgsDict',
     'PolicyTemplateLinkedPolicyDefinitionArgs',
+    'PolicyTemplateLinkedPolicyDefinitionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IdentitySourceCognitoGroupConfigurationArgsDict(TypedDict):
+        group_entity_type: pulumi.Input[str]
+elif False:
+    IdentitySourceCognitoGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentitySourceCognitoGroupConfigurationArgs:
@@ -45,6 +75,14 @@ class IdentitySourceCognitoGroupConfigurationArgs:
     def group_entity_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_entity_type", value)
 
+
+if not MYPY:
+    class IdentitySourceCognitoUserPoolConfigurationArgsDict(TypedDict):
+        user_pool_arn: pulumi.Input[str]
+        client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        group_configuration: NotRequired[pulumi.Input['IdentitySourceCognitoGroupConfigurationArgsDict']]
+elif False:
+    IdentitySourceCognitoUserPoolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentitySourceCognitoUserPoolConfigurationArgs:
@@ -86,6 +124,12 @@ class IdentitySourceCognitoUserPoolConfigurationArgs:
         pulumi.set(self, "group_configuration", value)
 
 
+if not MYPY:
+    class IdentitySourceConfiguration0PropertiesArgsDict(TypedDict):
+        cognito_user_pool_configuration: pulumi.Input['IdentitySourceCognitoUserPoolConfigurationArgsDict']
+elif False:
+    IdentitySourceConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentitySourceConfiguration0PropertiesArgs:
     def __init__(__self__, *,
@@ -102,6 +146,12 @@ class IdentitySourceConfiguration0PropertiesArgs:
         pulumi.set(self, "cognito_user_pool_configuration", value)
 
 
+if not MYPY:
+    class IdentitySourceConfiguration1PropertiesArgsDict(TypedDict):
+        open_id_connect_configuration: pulumi.Input['IdentitySourceOpenIdConnectConfigurationArgsDict']
+elif False:
+    IdentitySourceConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentitySourceConfiguration1PropertiesArgs:
     def __init__(__self__, *,
@@ -117,6 +167,13 @@ class IdentitySourceConfiguration1PropertiesArgs:
     def open_id_connect_configuration(self, value: pulumi.Input['IdentitySourceOpenIdConnectConfigurationArgs']):
         pulumi.set(self, "open_id_connect_configuration", value)
 
+
+if not MYPY:
+    class IdentitySourceOpenIdConnectAccessTokenConfigurationArgsDict(TypedDict):
+        audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        principal_id_claim: NotRequired[pulumi.Input[str]]
+elif False:
+    IdentitySourceOpenIdConnectAccessTokenConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentitySourceOpenIdConnectAccessTokenConfigurationArgs:
@@ -146,6 +203,15 @@ class IdentitySourceOpenIdConnectAccessTokenConfigurationArgs:
     def principal_id_claim(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id_claim", value)
 
+
+if not MYPY:
+    class IdentitySourceOpenIdConnectConfigurationArgsDict(TypedDict):
+        issuer: pulumi.Input[str]
+        token_selection: pulumi.Input[Union['IdentitySourceOpenIdConnectTokenSelection0PropertiesArgsDict', 'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgsDict']]
+        entity_id_prefix: NotRequired[pulumi.Input[str]]
+        group_configuration: NotRequired[pulumi.Input['IdentitySourceOpenIdConnectGroupConfigurationArgsDict']]
+elif False:
+    IdentitySourceOpenIdConnectConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentitySourceOpenIdConnectConfigurationArgs:
@@ -198,6 +264,13 @@ class IdentitySourceOpenIdConnectConfigurationArgs:
         pulumi.set(self, "group_configuration", value)
 
 
+if not MYPY:
+    class IdentitySourceOpenIdConnectGroupConfigurationArgsDict(TypedDict):
+        group_claim: pulumi.Input[str]
+        group_entity_type: pulumi.Input[str]
+elif False:
+    IdentitySourceOpenIdConnectGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentitySourceOpenIdConnectGroupConfigurationArgs:
     def __init__(__self__, *,
@@ -224,6 +297,13 @@ class IdentitySourceOpenIdConnectGroupConfigurationArgs:
     def group_entity_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_entity_type", value)
 
+
+if not MYPY:
+    class IdentitySourceOpenIdConnectIdentityTokenConfigurationArgsDict(TypedDict):
+        client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        principal_id_claim: NotRequired[pulumi.Input[str]]
+elif False:
+    IdentitySourceOpenIdConnectIdentityTokenConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs:
@@ -254,6 +334,12 @@ class IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs:
         pulumi.set(self, "principal_id_claim", value)
 
 
+if not MYPY:
+    class IdentitySourceOpenIdConnectTokenSelection0PropertiesArgsDict(TypedDict):
+        access_token_only: pulumi.Input['IdentitySourceOpenIdConnectAccessTokenConfigurationArgsDict']
+elif False:
+    IdentitySourceOpenIdConnectTokenSelection0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs:
     def __init__(__self__, *,
@@ -269,6 +355,12 @@ class IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs:
     def access_token_only(self, value: pulumi.Input['IdentitySourceOpenIdConnectAccessTokenConfigurationArgs']):
         pulumi.set(self, "access_token_only", value)
 
+
+if not MYPY:
+    class IdentitySourceOpenIdConnectTokenSelection1PropertiesArgsDict(TypedDict):
+        identity_token_only: pulumi.Input['IdentitySourceOpenIdConnectIdentityTokenConfigurationArgsDict']
+elif False:
+    IdentitySourceOpenIdConnectTokenSelection1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs:
@@ -286,6 +378,12 @@ class IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs:
         pulumi.set(self, "identity_token_only", value)
 
 
+if not MYPY:
+    class PolicyDefinition0PropertiesArgsDict(TypedDict):
+        static: pulumi.Input['PolicyStaticPolicyDefinitionArgsDict']
+elif False:
+    PolicyDefinition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyDefinition0PropertiesArgs:
     def __init__(__self__, *,
@@ -302,6 +400,12 @@ class PolicyDefinition0PropertiesArgs:
         pulumi.set(self, "static", value)
 
 
+if not MYPY:
+    class PolicyDefinition1PropertiesArgsDict(TypedDict):
+        template_linked: pulumi.Input['PolicyTemplateLinkedPolicyDefinitionArgsDict']
+elif False:
+    PolicyDefinition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyDefinition1PropertiesArgs:
     def __init__(__self__, *,
@@ -317,6 +421,13 @@ class PolicyDefinition1PropertiesArgs:
     def template_linked(self, value: pulumi.Input['PolicyTemplateLinkedPolicyDefinitionArgs']):
         pulumi.set(self, "template_linked", value)
 
+
+if not MYPY:
+    class PolicyEntityIdentifierArgsDict(TypedDict):
+        entity_id: pulumi.Input[str]
+        entity_type: pulumi.Input[str]
+elif False:
+    PolicyEntityIdentifierArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyEntityIdentifierArgs:
@@ -344,6 +455,13 @@ class PolicyEntityIdentifierArgs:
     def entity_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "entity_type", value)
 
+
+if not MYPY:
+    class PolicyStaticPolicyDefinitionArgsDict(TypedDict):
+        statement: pulumi.Input[str]
+        description: NotRequired[pulumi.Input[str]]
+elif False:
+    PolicyStaticPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyStaticPolicyDefinitionArgs:
@@ -373,6 +491,15 @@ class PolicyStaticPolicyDefinitionArgs:
         pulumi.set(self, "description", value)
 
 
+if not MYPY:
+    class PolicyStoreSchemaDefinitionArgsDict(TypedDict):
+        cedar_json: NotRequired[pulumi.Input[str]]
+        """
+        A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
+        """
+elif False:
+    PolicyStoreSchemaDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyStoreSchemaDefinitionArgs:
     def __init__(__self__, *,
@@ -395,6 +522,22 @@ class PolicyStoreSchemaDefinitionArgs:
     def cedar_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cedar_json", value)
 
+
+if not MYPY:
+    class PolicyStoreValidationSettingsArgsDict(TypedDict):
+        mode: pulumi.Input['PolicyStoreValidationMode']
+        """
+        The validation mode currently configured for this policy store. The valid values are:
+
+        - *OFF* – Neither Verified Permissions nor Cedar perform any validation on policies. No validation errors are reported by either service.
+        - *STRICT* – Requires a schema to be present in the policy store. Cedar performs validation on all submitted new or updated static policies and policy templates. Any that fail validation are rejected and Cedar doesn't store them in the policy store.
+
+        > If `Mode=STRICT` and the policy store doesn't contain a schema, Verified Permissions rejects all static policies and policy templates because there is no schema to validate against.
+        > 
+        > To submit a static policy or policy template without a schema, you must turn off validation.
+        """
+elif False:
+    PolicyStoreValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyStoreValidationSettingsArgs:
@@ -431,6 +574,14 @@ class PolicyStoreValidationSettingsArgs:
     def mode(self, value: pulumi.Input['PolicyStoreValidationMode']):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class PolicyTemplateLinkedPolicyDefinitionArgsDict(TypedDict):
+        policy_template_id: pulumi.Input[str]
+        principal: NotRequired[pulumi.Input['PolicyEntityIdentifierArgsDict']]
+        resource: NotRequired[pulumi.Input['PolicyEntityIdentifierArgsDict']]
+elif False:
+    PolicyTemplateLinkedPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyTemplateLinkedPolicyDefinitionArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -83,9 +88,6 @@ def get_vdm_attributes(vdm_attributes_resource_id: Optional[str] = None,
         dashboard_attributes=pulumi.get(__ret__, 'dashboard_attributes'),
         guardian_attributes=pulumi.get(__ret__, 'guardian_attributes'),
         vdm_attributes_resource_id=pulumi.get(__ret__, 'vdm_attributes_resource_id'))
-
-
-@_utilities.lift_output_func(get_vdm_attributes)
 def get_vdm_attributes_output(vdm_attributes_resource_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVdmAttributesResult]:
     """
@@ -94,4 +96,11 @@ def get_vdm_attributes_output(vdm_attributes_resource_id: Optional[pulumi.Input[
 
     :param str vdm_attributes_resource_id: Unique identifier for this resource
     """
-    ...
+    __args__ = dict()
+    __args__['vdmAttributesResourceId'] = vdm_attributes_resource_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getVdmAttributes', __args__, opts=opts, typ=GetVdmAttributesResult)
+    return __ret__.apply(lambda __response__: GetVdmAttributesResult(
+        dashboard_attributes=pulumi.get(__response__, 'dashboard_attributes'),
+        guardian_attributes=pulumi.get(__response__, 'guardian_attributes'),
+        vdm_attributes_resource_id=pulumi.get(__response__, 'vdm_attributes_resource_id')))

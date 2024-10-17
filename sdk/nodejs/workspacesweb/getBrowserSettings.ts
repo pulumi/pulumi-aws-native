@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
  */
 export function getBrowserSettings(args: GetBrowserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetBrowserSettingsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:workspacesweb:getBrowserSettings", {
         "browserSettingsArn": args.browserSettingsArn,
@@ -47,7 +46,10 @@ export interface GetBrowserSettingsResult {
  * Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
  */
 export function getBrowserSettingsOutput(args: GetBrowserSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrowserSettingsResult> {
-    return pulumi.output(args).apply((a: any) => getBrowserSettings(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getBrowserSettings", {
+        "browserSettingsArn": args.browserSettingsArn,
+    }, opts);
 }
 
 export interface GetBrowserSettingsOutputArgs {

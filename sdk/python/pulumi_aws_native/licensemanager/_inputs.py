@@ -4,20 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LicenseBorrowConfigurationArgs',
+    'LicenseBorrowConfigurationArgsDict',
     'LicenseConsumptionConfigurationArgs',
+    'LicenseConsumptionConfigurationArgsDict',
     'LicenseEntitlementArgs',
+    'LicenseEntitlementArgsDict',
     'LicenseIssuerDataArgs',
+    'LicenseIssuerDataArgsDict',
     'LicenseMetadataArgs',
+    'LicenseMetadataArgsDict',
     'LicenseProvisionalConfigurationArgs',
+    'LicenseProvisionalConfigurationArgsDict',
     'LicenseValidityDateFormatArgs',
+    'LicenseValidityDateFormatArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LicenseBorrowConfigurationArgsDict(TypedDict):
+        allow_early_check_in: pulumi.Input[bool]
+        """
+        Indicates whether early check-ins are allowed.
+        """
+        max_time_to_live_in_minutes: pulumi.Input[int]
+        """
+        Maximum time for the borrow configuration, in minutes.
+        """
+elif False:
+    LicenseBorrowConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LicenseBorrowConfigurationArgs:
@@ -55,6 +82,23 @@ class LicenseBorrowConfigurationArgs:
     def max_time_to_live_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_time_to_live_in_minutes", value)
 
+
+if not MYPY:
+    class LicenseConsumptionConfigurationArgsDict(TypedDict):
+        borrow_configuration: NotRequired[pulumi.Input['LicenseBorrowConfigurationArgsDict']]
+        """
+        Details about a borrow configuration.
+        """
+        provisional_configuration: NotRequired[pulumi.Input['LicenseProvisionalConfigurationArgsDict']]
+        """
+        Details about a provisional configuration.
+        """
+        renew_type: NotRequired[pulumi.Input[str]]
+        """
+        Renewal frequency.
+        """
+elif False:
+    LicenseConsumptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LicenseConsumptionConfigurationArgs:
@@ -110,6 +154,35 @@ class LicenseConsumptionConfigurationArgs:
     def renew_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "renew_type", value)
 
+
+if not MYPY:
+    class LicenseEntitlementArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Entitlement name.
+        """
+        unit: pulumi.Input[str]
+        """
+        Entitlement unit.
+        """
+        allow_check_in: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether check-ins are allowed.
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        Maximum entitlement count. Use if the unit is not None.
+        """
+        overage: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether overages are allowed.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Entitlement resource. Use only if the unit is None.
+        """
+elif False:
+    LicenseEntitlementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LicenseEntitlementArgs:
@@ -212,6 +285,19 @@ class LicenseEntitlementArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class LicenseIssuerDataArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Issuer name.
+        """
+        sign_key: NotRequired[pulumi.Input[str]]
+        """
+        Asymmetric KMS key from AWS Key Management Service . The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        """
+elif False:
+    LicenseIssuerDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LicenseIssuerDataArgs:
     def __init__(__self__, *,
@@ -250,6 +336,19 @@ class LicenseIssuerDataArgs:
         pulumi.set(self, "sign_key", value)
 
 
+if not MYPY:
+    class LicenseMetadataArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The key name.
+        """
+        value: pulumi.Input[str]
+        """
+        The value.
+        """
+elif False:
+    LicenseMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LicenseMetadataArgs:
     def __init__(__self__, *,
@@ -287,6 +386,15 @@ class LicenseMetadataArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class LicenseProvisionalConfigurationArgsDict(TypedDict):
+        max_time_to_live_in_minutes: pulumi.Input[int]
+        """
+        Maximum time for the provisional configuration, in minutes.
+        """
+elif False:
+    LicenseProvisionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LicenseProvisionalConfigurationArgs:
     def __init__(__self__, *,
@@ -308,6 +416,19 @@ class LicenseProvisionalConfigurationArgs:
     def max_time_to_live_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_time_to_live_in_minutes", value)
 
+
+if not MYPY:
+    class LicenseValidityDateFormatArgsDict(TypedDict):
+        begin: pulumi.Input[str]
+        """
+        Validity begin date for the license.
+        """
+        end: pulumi.Input[str]
+        """
+        Validity begin date for the license.
+        """
+elif False:
+    LicenseValidityDateFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LicenseValidityDateFormatArgs:

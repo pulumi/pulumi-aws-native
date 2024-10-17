@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
  */
 export function getProtectionGroup(args: GetProtectionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:shield:getProtectionGroup", {
         "protectionGroupArn": args.protectionGroupArn,
@@ -58,7 +57,10 @@ export interface GetProtectionGroupResult {
  * A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
  */
 export function getProtectionGroupOutput(args: GetProtectionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionGroupResult> {
-    return pulumi.output(args).apply((a: any) => getProtectionGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:shield:getProtectionGroup", {
+        "protectionGroupArn": args.protectionGroupArn,
+    }, opts);
 }
 
 export interface GetProtectionGroupOutputArgs {

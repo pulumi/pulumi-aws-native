@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -137,9 +142,6 @@ def get_cluster(cluster_arn: Optional[str] = None,
         instance_groups=pulumi.get(__ret__, 'instance_groups'),
         node_recovery=pulumi.get(__ret__, 'node_recovery'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -148,4 +150,15 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_arn: The Amazon Resource Name (ARN) of the HyperPod Cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterArn'] = cluster_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        cluster_arn=pulumi.get(__response__, 'cluster_arn'),
+        cluster_status=pulumi.get(__response__, 'cluster_status'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        failure_message=pulumi.get(__response__, 'failure_message'),
+        instance_groups=pulumi.get(__response__, 'instance_groups'),
+        node_recovery=pulumi.get(__response__, 'node_recovery'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -162,9 +167,6 @@ def get_partnership(partnership_id: Optional[str] = None,
         partnership_id=pulumi.get(__ret__, 'partnership_id'),
         tags=pulumi.get(__ret__, 'tags'),
         trading_partner_id=pulumi.get(__ret__, 'trading_partner_id'))
-
-
-@_utilities.lift_output_func(get_partnership)
 def get_partnership_output(partnership_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnershipResult]:
     """
@@ -173,4 +175,17 @@ def get_partnership_output(partnership_id: Optional[pulumi.Input[str]] = None,
 
     :param str partnership_id: Returns the unique, system-generated identifier for a partnership.
     """
-    ...
+    __args__ = dict()
+    __args__['partnershipId'] = partnership_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:b2bi:getPartnership', __args__, opts=opts, typ=GetPartnershipResult)
+    return __ret__.apply(lambda __response__: GetPartnershipResult(
+        capabilities=pulumi.get(__response__, 'capabilities'),
+        capability_options=pulumi.get(__response__, 'capability_options'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        name=pulumi.get(__response__, 'name'),
+        partnership_arn=pulumi.get(__response__, 'partnership_arn'),
+        partnership_id=pulumi.get(__response__, 'partnership_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        trading_partner_id=pulumi.get(__response__, 'trading_partner_id')))

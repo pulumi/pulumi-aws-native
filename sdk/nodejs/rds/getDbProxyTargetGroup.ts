@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::RDS::DBProxyTargetGroup
  */
 export function getDbProxyTargetGroup(args: GetDbProxyTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDbProxyTargetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDbProxyTargetGroup", {
         "targetGroupArn": args.targetGroupArn,
@@ -47,7 +46,10 @@ export interface GetDbProxyTargetGroupResult {
  * Resource schema for AWS::RDS::DBProxyTargetGroup
  */
 export function getDbProxyTargetGroupOutput(args: GetDbProxyTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbProxyTargetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDbProxyTargetGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:rds:getDbProxyTargetGroup", {
+        "targetGroupArn": args.targetGroupArn,
+    }, opts);
 }
 
 export interface GetDbProxyTargetGroupOutputArgs {

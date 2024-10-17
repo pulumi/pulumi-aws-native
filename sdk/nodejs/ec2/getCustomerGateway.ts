@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Specifies a customer gateway.
  */
 export function getCustomerGateway(args: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getCustomerGateway", {
         "customerGatewayId": args.customerGatewayId,
@@ -39,7 +38,10 @@ export interface GetCustomerGatewayResult {
  * Specifies a customer gateway.
  */
 export function getCustomerGatewayOutput(args: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getCustomerGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getCustomerGateway", {
+        "customerGatewayId": args.customerGatewayId,
+    }, opts);
 }
 
 export interface GetCustomerGatewayOutputArgs {

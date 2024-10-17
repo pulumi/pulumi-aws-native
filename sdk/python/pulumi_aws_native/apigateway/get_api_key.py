@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -123,9 +128,6 @@ def get_api_key(api_key_id: Optional[str] = None,
         enabled=pulumi.get(__ret__, 'enabled'),
         stage_keys=pulumi.get(__ret__, 'stage_keys'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_api_key)
 def get_api_key_output(api_key_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
@@ -134,4 +136,14 @@ def get_api_key_output(api_key_id: Optional[pulumi.Input[str]] = None,
 
     :param str api_key_id: The ID for the API key. For example: `abc123` .
     """
-    ...
+    __args__ = dict()
+    __args__['apiKeyId'] = api_key_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getApiKey', __args__, opts=opts, typ=GetApiKeyResult)
+    return __ret__.apply(lambda __response__: GetApiKeyResult(
+        api_key_id=pulumi.get(__response__, 'api_key_id'),
+        customer_id=pulumi.get(__response__, 'customer_id'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        stage_keys=pulumi.get(__response__, 'stage_keys'),
+        tags=pulumi.get(__response__, 'tags')))

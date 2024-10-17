@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::CachePolicy
  */
 export function getCachePolicy(args: GetCachePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCachePolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getCachePolicy", {
         "id": args.id,
@@ -43,7 +42,10 @@ export interface GetCachePolicyResult {
  * Resource Type definition for AWS::CloudFront::CachePolicy
  */
 export function getCachePolicyOutput(args: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCachePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getCachePolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getCachePolicy", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetCachePolicyOutputArgs {

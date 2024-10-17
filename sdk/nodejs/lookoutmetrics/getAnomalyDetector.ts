@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * An Amazon Lookout for Metrics Detector
  */
 export function getAnomalyDetector(args: GetAnomalyDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalyDetectorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lookoutmetrics:getAnomalyDetector", {
         "arn": args.arn,
@@ -51,7 +50,10 @@ export interface GetAnomalyDetectorResult {
  * An Amazon Lookout for Metrics Detector
  */
 export function getAnomalyDetectorOutput(args: GetAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyDetectorResult> {
-    return pulumi.output(args).apply((a: any) => getAnomalyDetector(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:lookoutmetrics:getAnomalyDetector", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetAnomalyDetectorOutputArgs {

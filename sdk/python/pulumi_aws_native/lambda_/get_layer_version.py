@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -56,9 +61,6 @@ def get_layer_version(layer_version_arn: Optional[str] = None,
 
     return AwaitableGetLayerVersionResult(
         layer_version_arn=pulumi.get(__ret__, 'layer_version_arn'))
-
-
-@_utilities.lift_output_func(get_layer_version)
 def get_layer_version_output(layer_version_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLayerVersionResult]:
     """
@@ -67,4 +69,9 @@ def get_layer_version_output(layer_version_arn: Optional[pulumi.Input[str]] = No
 
     :param str layer_version_arn: The ARN of the layer version.
     """
-    ...
+    __args__ = dict()
+    __args__['layerVersionArn'] = layer_version_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult)
+    return __ret__.apply(lambda __response__: GetLayerVersionResult(
+        layer_version_arn=pulumi.get(__response__, 'layer_version_arn')))

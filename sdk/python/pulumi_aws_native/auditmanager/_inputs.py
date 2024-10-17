@@ -4,20 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AssessmentAwsAccountArgs',
+    'AssessmentAwsAccountArgsDict',
     'AssessmentAwsServiceArgs',
+    'AssessmentAwsServiceArgsDict',
     'AssessmentDelegationArgs',
+    'AssessmentDelegationArgsDict',
     'AssessmentReportsDestinationArgs',
+    'AssessmentReportsDestinationArgsDict',
     'AssessmentRoleArgs',
+    'AssessmentRoleArgsDict',
     'AssessmentScopeArgs',
+    'AssessmentScopeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssessmentAwsAccountArgsDict(TypedDict):
+        """
+        The AWS account associated with the assessment.
+        """
+        email_address: NotRequired[pulumi.Input[str]]
+        """
+        The email address that's associated with the AWS account .
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier for the AWS account .
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the AWS account .
+        """
+elif False:
+    AssessmentAwsAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentAwsAccountArgs:
@@ -75,6 +108,18 @@ class AssessmentAwsAccountArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class AssessmentAwsServiceArgsDict(TypedDict):
+        """
+        An AWS service such as Amazon S3, AWS CloudTrail, and so on.
+        """
+        service_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the AWS service .
+        """
+elif False:
+    AssessmentAwsServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssessmentAwsServiceArgs:
     def __init__(__self__, *,
@@ -98,6 +143,70 @@ class AssessmentAwsServiceArgs:
     def service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_name", value)
 
+
+if not MYPY:
+    class AssessmentDelegationArgsDict(TypedDict):
+        """
+        The assignment of a control set to a delegate for review.
+        """
+        assessment_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier for the assessment that's associated with the delegation.
+        """
+        assessment_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the assessment that's associated with the delegation.
+        """
+        comment: NotRequired[pulumi.Input[str]]
+        """
+        The comment that's related to the delegation.
+        """
+        control_set_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier for the control set that's associated with the delegation.
+        """
+        created_by: NotRequired[pulumi.Input[str]]
+        """
+        The user or role that created the delegation.
+
+        *Minimum* : `1`
+
+        *Maximum* : `100`
+
+        *Pattern* : `^[a-zA-Z0-9-_()\\\\[\\\\]\\\\s]+$`
+        """
+        creation_time: NotRequired[pulumi.Input[float]]
+        """
+        Specifies when the delegation was created.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The unique identifier for the delegation.
+        """
+        last_updated: NotRequired[pulumi.Input[float]]
+        """
+        Specifies when the delegation was last updated.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the IAM role.
+        """
+        role_type: NotRequired[pulumi.Input['AssessmentRoleType']]
+        """
+        The type of customer persona.
+
+        > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+        > 
+        > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+        > 
+        > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+        """
+        status: NotRequired[pulumi.Input['AssessmentDelegationStatus']]
+        """
+        The status of the delegation.
+        """
+elif False:
+    AssessmentDelegationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentDelegationArgs:
@@ -307,6 +416,22 @@ class AssessmentDelegationArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class AssessmentReportsDestinationArgsDict(TypedDict):
+        """
+        The destination in which evidence reports are stored for the specified assessment.
+        """
+        destination: NotRequired[pulumi.Input[str]]
+        """
+        The destination bucket where Audit Manager stores assessment reports.
+        """
+        destination_type: NotRequired[pulumi.Input['AssessmentReportDestinationType']]
+        """
+        The destination type, such as Amazon S3.
+        """
+elif False:
+    AssessmentReportsDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssessmentReportsDestinationArgs:
     def __init__(__self__, *,
@@ -346,6 +471,28 @@ class AssessmentReportsDestinationArgs:
     def destination_type(self, value: Optional[pulumi.Input['AssessmentReportDestinationType']]):
         pulumi.set(self, "destination_type", value)
 
+
+if not MYPY:
+    class AssessmentRoleArgsDict(TypedDict):
+        """
+        The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the IAM role.
+        """
+        role_type: NotRequired[pulumi.Input['AssessmentRoleType']]
+        """
+        The type of customer persona.
+
+        > In `CreateAssessment` , `roleType` can only be `PROCESS_OWNER` .
+        > 
+        > In `UpdateSettings` , `roleType` can only be `PROCESS_OWNER` .
+        > 
+        > In `BatchCreateDelegationByAssessment` , `roleType` can only be `RESOURCE_OWNER` .
+        """
+elif False:
+    AssessmentRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentRoleArgs:
@@ -398,6 +545,22 @@ class AssessmentRoleArgs:
     def role_type(self, value: Optional[pulumi.Input['AssessmentRoleType']]):
         pulumi.set(self, "role_type", value)
 
+
+if not MYPY:
+    class AssessmentScopeArgsDict(TypedDict):
+        """
+        The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
+        """
+        aws_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsAccountArgsDict']]]]
+        """
+        The AWS accounts included in scope.
+        """
+        aws_services: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssessmentAwsServiceArgsDict']]]]
+        """
+        The AWS services included in scope.
+        """
+elif False:
+    AssessmentScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentScopeArgs:

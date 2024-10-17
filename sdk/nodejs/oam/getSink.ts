@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Oam::Sink
  */
 export function getSink(args: GetSinkArgs, opts?: pulumi.InvokeOptions): Promise<GetSinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:oam:getSink", {
         "arn": args.arn,
@@ -42,7 +41,10 @@ export interface GetSinkResult {
  * Resource Type definition for AWS::Oam::Sink
  */
 export function getSinkOutput(args: GetSinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSinkResult> {
-    return pulumi.output(args).apply((a: any) => getSink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:oam:getSink", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetSinkOutputArgs {

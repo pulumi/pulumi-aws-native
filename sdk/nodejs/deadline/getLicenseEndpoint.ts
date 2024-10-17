@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Deadline::LicenseEndpoint Resource Type
  */
 export function getLicenseEndpoint(args: GetLicenseEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:deadline:getLicenseEndpoint", {
         "arn": args.arn,
@@ -55,7 +54,10 @@ export interface GetLicenseEndpointResult {
  * Definition of AWS::Deadline::LicenseEndpoint Resource Type
  */
 export function getLicenseEndpointOutput(args: GetLicenseEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getLicenseEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:deadline:getLicenseEndpoint", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetLicenseEndpointOutputArgs {

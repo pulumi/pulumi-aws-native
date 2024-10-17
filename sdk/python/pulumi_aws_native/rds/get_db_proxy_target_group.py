@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -96,9 +101,6 @@ def get_db_proxy_target_group(target_group_arn: Optional[str] = None,
         db_cluster_identifiers=pulumi.get(__ret__, 'db_cluster_identifiers'),
         db_instance_identifiers=pulumi.get(__ret__, 'db_instance_identifiers'),
         target_group_arn=pulumi.get(__ret__, 'target_group_arn'))
-
-
-@_utilities.lift_output_func(get_db_proxy_target_group)
 def get_db_proxy_target_group_output(target_group_arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbProxyTargetGroupResult]:
     """
@@ -107,4 +109,12 @@ def get_db_proxy_target_group_output(target_group_arn: Optional[pulumi.Input[str
 
     :param str target_group_arn: The Amazon Resource Name (ARN) representing the target group.
     """
-    ...
+    __args__ = dict()
+    __args__['targetGroupArn'] = target_group_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbProxyTargetGroup', __args__, opts=opts, typ=GetDbProxyTargetGroupResult)
+    return __ret__.apply(lambda __response__: GetDbProxyTargetGroupResult(
+        connection_pool_configuration_info=pulumi.get(__response__, 'connection_pool_configuration_info'),
+        db_cluster_identifiers=pulumi.get(__response__, 'db_cluster_identifiers'),
+        db_instance_identifiers=pulumi.get(__response__, 'db_instance_identifiers'),
+        target_group_arn=pulumi.get(__response__, 'target_group_arn')))

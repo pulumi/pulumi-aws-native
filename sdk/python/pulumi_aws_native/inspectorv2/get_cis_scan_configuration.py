@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -123,9 +128,6 @@ def get_cis_scan_configuration(arn: Optional[str] = None,
         security_level=pulumi.get(__ret__, 'security_level'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
-
-
-@_utilities.lift_output_func(get_cis_scan_configuration)
 def get_cis_scan_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCisScanConfigurationResult]:
     """
@@ -134,4 +136,14 @@ def get_cis_scan_configuration_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: CIS Scan configuration unique identifier
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:inspectorv2:getCisScanConfiguration', __args__, opts=opts, typ=GetCisScanConfigurationResult)
+    return __ret__.apply(lambda __response__: GetCisScanConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        scan_name=pulumi.get(__response__, 'scan_name'),
+        schedule=pulumi.get(__response__, 'schedule'),
+        security_level=pulumi.get(__response__, 'security_level'),
+        tags=pulumi.get(__response__, 'tags'),
+        targets=pulumi.get(__response__, 'targets')))

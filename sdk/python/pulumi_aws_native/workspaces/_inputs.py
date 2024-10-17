@@ -4,17 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'WorkspacesPoolApplicationSettingsArgs',
+    'WorkspacesPoolApplicationSettingsArgsDict',
     'WorkspacesPoolCapacityArgs',
+    'WorkspacesPoolCapacityArgsDict',
     'WorkspacesPoolTimeoutSettingsArgs',
+    'WorkspacesPoolTimeoutSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class WorkspacesPoolApplicationSettingsArgsDict(TypedDict):
+        status: pulumi.Input['WorkspacesPoolApplicationSettingsStatus']
+        """
+        Enables or disables persistent application settings for users during their pool sessions.
+        """
+        settings_group: NotRequired[pulumi.Input[str]]
+        """
+        The path prefix for the S3 bucket where users’ persistent application settings are stored.
+        """
+elif False:
+    WorkspacesPoolApplicationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspacesPoolApplicationSettingsArgs:
@@ -54,6 +77,15 @@ class WorkspacesPoolApplicationSettingsArgs:
         pulumi.set(self, "settings_group", value)
 
 
+if not MYPY:
+    class WorkspacesPoolCapacityArgsDict(TypedDict):
+        desired_user_sessions: pulumi.Input[int]
+        """
+        The desired number of user sessions for the WorkSpaces in the pool.
+        """
+elif False:
+    WorkspacesPoolCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspacesPoolCapacityArgs:
     def __init__(__self__, *,
@@ -75,6 +107,23 @@ class WorkspacesPoolCapacityArgs:
     def desired_user_sessions(self, value: pulumi.Input[int]):
         pulumi.set(self, "desired_user_sessions", value)
 
+
+if not MYPY:
+    class WorkspacesPoolTimeoutSettingsArgsDict(TypedDict):
+        disconnect_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within the time set, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+        """
+        idle_disconnect_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in seconds a connection will stay active while idle.
+        """
+        max_user_duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum amount of time, in seconds, that a streaming session can remain active. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+        """
+elif False:
+    WorkspacesPoolTimeoutSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspacesPoolTimeoutSettingsArgs:

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * AWS Ground Station config resource type for CloudFormation.
  */
 export function getConfig(args: GetConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:groundstation:getConfig", {
         "arn": args.arn,
@@ -55,7 +54,10 @@ export interface GetConfigResult {
  * AWS Ground Station config resource type for CloudFormation.
  */
 export function getConfigOutput(args: GetConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigResult> {
-    return pulumi.output(args).apply((a: any) => getConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:groundstation:getConfig", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetConfigOutputArgs {

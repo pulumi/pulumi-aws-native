@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -71,9 +76,6 @@ def get_replication_configuration(registry_id: Optional[str] = None,
     return AwaitableGetReplicationConfigurationResult(
         registry_id=pulumi.get(__ret__, 'registry_id'),
         replication_configuration=pulumi.get(__ret__, 'replication_configuration'))
-
-
-@_utilities.lift_output_func(get_replication_configuration)
 def get_replication_configuration_output(registry_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationConfigurationResult]:
     """
@@ -82,4 +84,10 @@ def get_replication_configuration_output(registry_id: Optional[pulumi.Input[str]
 
     :param str registry_id: The RegistryId associated with the aws account.
     """
-    ...
+    __args__ = dict()
+    __args__['registryId'] = registry_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ecr:getReplicationConfiguration', __args__, opts=opts, typ=GetReplicationConfigurationResult)
+    return __ret__.apply(lambda __response__: GetReplicationConfigurationResult(
+        registry_id=pulumi.get(__response__, 'registry_id'),
+        replication_configuration=pulumi.get(__response__, 'replication_configuration')))

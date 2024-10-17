@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Creates or updates the auth policy.
  */
 export function getAuthPolicy(args: GetAuthPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:vpclattice:getAuthPolicy", {
         "resourceIdentifier": args.resourceIdentifier,
@@ -41,7 +40,10 @@ export interface GetAuthPolicyResult {
  * Creates or updates the auth policy.
  */
 export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getAuthPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:vpclattice:getAuthPolicy", {
+        "resourceIdentifier": args.resourceIdentifier,
+    }, opts);
 }
 
 export interface GetAuthPolicyOutputArgs {

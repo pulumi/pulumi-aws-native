@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SSMContacts::Contact
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssmcontacts:getContact", {
         "arn": args.arn,
@@ -36,7 +35,10 @@ export interface GetContactResult {
  * Resource Type definition for AWS::SSMContacts::Contact
  */
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
-    return pulumi.output(args).apply((a: any) => getContact(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ssmcontacts:getContact", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetContactOutputArgs {

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -136,9 +141,6 @@ def get_in_app_template(template_name: Optional[str] = None,
         layout=pulumi.get(__ret__, 'layout'),
         tags=pulumi.get(__ret__, 'tags'),
         template_description=pulumi.get(__ret__, 'template_description'))
-
-
-@_utilities.lift_output_func(get_in_app_template)
 def get_in_app_template_output(template_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInAppTemplateResult]:
     """
@@ -147,4 +149,14 @@ def get_in_app_template_output(template_name: Optional[pulumi.Input[str]] = None
 
     :param str template_name: The name of the in-app message template.
     """
-    ...
+    __args__ = dict()
+    __args__['templateName'] = template_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:pinpoint:getInAppTemplate', __args__, opts=opts, typ=GetInAppTemplateResult)
+    return __ret__.apply(lambda __response__: GetInAppTemplateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        content=pulumi.get(__response__, 'content'),
+        custom_config=pulumi.get(__response__, 'custom_config'),
+        layout=pulumi.get(__response__, 'layout'),
+        tags=pulumi.get(__response__, 'tags'),
+        template_description=pulumi.get(__response__, 'template_description')))

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::ARCZonalShift::AutoshiftObserverNotificationStatus Resource Type
  */
 export function getAutoshiftObserverNotificationStatus(args: GetAutoshiftObserverNotificationStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoshiftObserverNotificationStatusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", {
         "accountId": args.accountId,
@@ -29,7 +28,11 @@ export interface GetAutoshiftObserverNotificationStatusResult {
  * Definition of AWS::ARCZonalShift::AutoshiftObserverNotificationStatus Resource Type
  */
 export function getAutoshiftObserverNotificationStatusOutput(args: GetAutoshiftObserverNotificationStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoshiftObserverNotificationStatusResult> {
-    return pulumi.output(args).apply((a: any) => getAutoshiftObserverNotificationStatus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", {
+        "accountId": args.accountId,
+        "region": args.region,
+    }, opts);
 }
 
 export interface GetAutoshiftObserverNotificationStatusOutputArgs {

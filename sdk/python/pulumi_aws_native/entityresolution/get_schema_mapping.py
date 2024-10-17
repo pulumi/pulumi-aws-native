@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -125,9 +130,6 @@ def get_schema_mapping(schema_name: Optional[str] = None,
         schema_arn=pulumi.get(__ret__, 'schema_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_schema_mapping)
 def get_schema_mapping_output(schema_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaMappingResult]:
     """
@@ -136,4 +138,15 @@ def get_schema_mapping_output(schema_name: Optional[pulumi.Input[str]] = None,
 
     :param str schema_name: The name of the SchemaMapping
     """
-    ...
+    __args__ = dict()
+    __args__['schemaName'] = schema_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:entityresolution:getSchemaMapping', __args__, opts=opts, typ=GetSchemaMappingResult)
+    return __ret__.apply(lambda __response__: GetSchemaMappingResult(
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        has_workflows=pulumi.get(__response__, 'has_workflows'),
+        mapped_input_fields=pulumi.get(__response__, 'mapped_input_fields'),
+        schema_arn=pulumi.get(__response__, 'schema_arn'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

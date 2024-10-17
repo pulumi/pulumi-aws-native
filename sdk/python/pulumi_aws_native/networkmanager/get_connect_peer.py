@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -136,9 +141,6 @@ def get_connect_peer(connect_peer_id: Optional[str] = None,
         edge_location=pulumi.get(__ret__, 'edge_location'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_connect_peer)
 def get_connect_peer_output(connect_peer_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectPeerResult]:
     """
@@ -147,4 +149,15 @@ def get_connect_peer_output(connect_peer_id: Optional[pulumi.Input[str]] = None,
 
     :param str connect_peer_id: The ID of the Connect peer.
     """
-    ...
+    __args__ = dict()
+    __args__['connectPeerId'] = connect_peer_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getConnectPeer', __args__, opts=opts, typ=GetConnectPeerResult)
+    return __ret__.apply(lambda __response__: GetConnectPeerResult(
+        configuration=pulumi.get(__response__, 'configuration'),
+        connect_peer_id=pulumi.get(__response__, 'connect_peer_id'),
+        core_network_id=pulumi.get(__response__, 'core_network_id'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        edge_location=pulumi.get(__response__, 'edge_location'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

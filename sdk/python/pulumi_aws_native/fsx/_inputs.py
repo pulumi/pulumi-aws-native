@@ -4,17 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DataRepositoryAssociationAutoExportPolicyArgs',
+    'DataRepositoryAssociationAutoExportPolicyArgsDict',
     'DataRepositoryAssociationAutoImportPolicyArgs',
+    'DataRepositoryAssociationAutoImportPolicyArgsDict',
     'DataRepositoryAssociationS3Args',
+    'DataRepositoryAssociationS3ArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataRepositoryAssociationAutoExportPolicyArgsDict(TypedDict):
+        """
+        Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+         The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        """
+        events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]
+        """
+        The ``AutoExportPolicy`` can have the following event values:
+          +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
+          +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
+          +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+          
+         You can define any combination of event types for your ``AutoExportPolicy``.
+        """
+elif False:
+    DataRepositoryAssociationAutoExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataRepositoryAssociationAutoExportPolicyArgs:
@@ -50,6 +78,24 @@ class DataRepositoryAssociationAutoExportPolicyArgs:
         pulumi.set(self, "events", value)
 
 
+if not MYPY:
+    class DataRepositoryAssociationAutoImportPolicyArgsDict(TypedDict):
+        """
+        Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+         The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        """
+        events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]
+        """
+        The ``AutoImportPolicy`` can have the following event values:
+          +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+          +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+          +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+          
+         You can define any combination of event types for your ``AutoImportPolicy``.
+        """
+elif False:
+    DataRepositoryAssociationAutoImportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataRepositoryAssociationAutoImportPolicyArgs:
     def __init__(__self__, *,
@@ -83,6 +129,24 @@ class DataRepositoryAssociationAutoImportPolicyArgs:
     def events(self, value: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]):
         pulumi.set(self, "events", value)
 
+
+if not MYPY:
+    class DataRepositoryAssociationS3ArgsDict(TypedDict):
+        """
+        The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+        """
+        auto_export_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgsDict']]
+        """
+        Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+         The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        """
+        auto_import_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgsDict']]
+        """
+        Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+         The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        """
+elif False:
+    DataRepositoryAssociationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataRepositoryAssociationS3Args:

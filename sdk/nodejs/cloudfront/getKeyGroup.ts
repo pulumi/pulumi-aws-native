@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::KeyGroup
  */
 export function getKeyGroup(args: GetKeyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getKeyGroup", {
         "id": args.id,
@@ -43,7 +42,10 @@ export interface GetKeyGroupResult {
  * Resource Type definition for AWS::CloudFront::KeyGroup
  */
 export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyGroupResult> {
-    return pulumi.output(args).apply((a: any) => getKeyGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:cloudfront:getKeyGroup", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetKeyGroupOutputArgs {

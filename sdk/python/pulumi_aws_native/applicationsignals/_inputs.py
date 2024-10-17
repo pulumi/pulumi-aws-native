@@ -4,27 +4,68 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ServiceLevelObjectiveCalendarIntervalArgs',
+    'ServiceLevelObjectiveCalendarIntervalArgsDict',
     'ServiceLevelObjectiveDimensionArgs',
+    'ServiceLevelObjectiveDimensionArgsDict',
     'ServiceLevelObjectiveGoalArgs',
+    'ServiceLevelObjectiveGoalArgsDict',
     'ServiceLevelObjectiveIntervalArgs',
+    'ServiceLevelObjectiveIntervalArgsDict',
     'ServiceLevelObjectiveMetricDataQueryArgs',
+    'ServiceLevelObjectiveMetricDataQueryArgsDict',
     'ServiceLevelObjectiveMetricStatArgs',
+    'ServiceLevelObjectiveMetricStatArgsDict',
     'ServiceLevelObjectiveMetricArgs',
+    'ServiceLevelObjectiveMetricArgsDict',
     'ServiceLevelObjectiveMonitoredRequestCountMetricArgs',
+    'ServiceLevelObjectiveMonitoredRequestCountMetricArgsDict',
     'ServiceLevelObjectiveRequestBasedSliMetricArgs',
+    'ServiceLevelObjectiveRequestBasedSliMetricArgsDict',
     'ServiceLevelObjectiveRequestBasedSliArgs',
+    'ServiceLevelObjectiveRequestBasedSliArgsDict',
     'ServiceLevelObjectiveRollingIntervalArgs',
+    'ServiceLevelObjectiveRollingIntervalArgsDict',
     'ServiceLevelObjectiveSliMetricArgs',
+    'ServiceLevelObjectiveSliMetricArgsDict',
     'ServiceLevelObjectiveSliArgs',
+    'ServiceLevelObjectiveSliArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ServiceLevelObjectiveCalendarIntervalArgsDict(TypedDict):
+        """
+        If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
+        """
+        duration: pulumi.Input[int]
+        """
+        Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
+        """
+        duration_unit: pulumi.Input['ServiceLevelObjectiveDurationUnit']
+        """
+        Specifies the calendar interval unit.
+        """
+        start_time: pulumi.Input[int]
+        """
+        Epoch time in seconds you want the first interval to start. Be sure to choose a time that configures the intervals the way that you want. For example, if you want weekly intervals starting on Mondays at 6 a.m., be sure to specify a start time that is a Monday at 6 a.m.
+        As soon as one calendar interval ends, another automatically begins.
+        """
+elif False:
+    ServiceLevelObjectiveCalendarIntervalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelObjectiveCalendarIntervalArgs:
@@ -81,6 +122,22 @@ class ServiceLevelObjectiveCalendarIntervalArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class ServiceLevelObjectiveDimensionArgsDict(TypedDict):
+        """
+        A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish `InstanceId` as a dimension name, and the actual instance ID as the value for that dimension. You can assign up to 30 dimensions to a metric.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the dimension. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:). ASCII control characters are not supported as part of dimension names.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the dimension. Dimension values must contain only ASCII characters and must include at least one non-whitespace character. ASCII control characters are not supported as part of dimension values
+        """
+elif False:
+    ServiceLevelObjectiveDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelObjectiveDimensionArgs:
     def __init__(__self__, *,
@@ -118,6 +175,29 @@ class ServiceLevelObjectiveDimensionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ServiceLevelObjectiveGoalArgsDict(TypedDict):
+        """
+        A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
+        """
+        attainment_goal: NotRequired[pulumi.Input[float]]
+        """
+        The threshold that determines if the goal is being met. An attainment goal is the ratio of good periods that meet the threshold requirements to the total periods within the interval. For example, an attainment goal of 99.9% means that within your interval, you are targeting 99.9% of the periods to be in healthy state.
+        If you omit this parameter, 99 is used to represent 99% as the attainment goal.
+        """
+        interval: NotRequired[pulumi.Input['ServiceLevelObjectiveIntervalArgsDict']]
+        """
+        The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+
+        If you omit this parameter, a rolling interval of 7 days is used.
+        """
+        warning_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The percentage of remaining budget over total budget that you want to get warnings for. If you omit this parameter, the default of 50.0 is used.
+        """
+elif False:
+    ServiceLevelObjectiveGoalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelObjectiveGoalArgs:
@@ -181,6 +261,23 @@ class ServiceLevelObjectiveGoalArgs:
         pulumi.set(self, "warning_threshold", value)
 
 
+if not MYPY:
+    class ServiceLevelObjectiveIntervalArgsDict(TypedDict):
+        """
+        The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.
+        If you omit this parameter, a rolling interval of 7 days is used.
+        """
+        calendar_interval: NotRequired[pulumi.Input['ServiceLevelObjectiveCalendarIntervalArgsDict']]
+        """
+        If the interval is a calendar interval, this structure contains the interval specifications.
+        """
+        rolling_interval: NotRequired[pulumi.Input['ServiceLevelObjectiveRollingIntervalArgsDict']]
+        """
+        If the interval is a rolling interval, this structure contains the interval specifications.
+        """
+elif False:
+    ServiceLevelObjectiveIntervalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelObjectiveIntervalArgs:
     def __init__(__self__, *,
@@ -221,6 +318,35 @@ class ServiceLevelObjectiveIntervalArgs:
     def rolling_interval(self, value: Optional[pulumi.Input['ServiceLevelObjectiveRollingIntervalArgs']]):
         pulumi.set(self, "rolling_interval", value)
 
+
+if not MYPY:
+    class ServiceLevelObjectiveMetricDataQueryArgsDict(TypedDict):
+        """
+        Use this structure to define a metric or metric math expression that you want to use as for a service level objective.
+        Each `MetricDataQuery` in the `MetricDataQueries` array specifies either a metric to retrieve, or a metric math expression to be performed on retrieved metrics. A single `MetricDataQueries` array can include as many as 20 `MetricDataQuery` structures in the array. The 20 structures can include as many as 10 structures that contain a `MetricStat` parameter to retrieve a metric, and as many as 10 structures that contain the `Expression` parameter to perform a math expression. Of those Expression structures, exactly one must have true as the value for `ReturnData`. The result of this expression used for the SLO.
+        """
+        id: pulumi.Input[str]
+        """
+        A short name used to tie this object to the results in the response.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the account where the metrics are located, if this is a cross-account alarm.
+        """
+        expression: NotRequired[pulumi.Input[str]]
+        """
+        The math expression to be performed on the returned data.
+        """
+        metric_stat: NotRequired[pulumi.Input['ServiceLevelObjectiveMetricStatArgsDict']]
+        """
+        A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery, you must specify either Expression or MetricStat but not both.
+        """
+        return_data: NotRequired[pulumi.Input[bool]]
+        """
+        This option indicates whether to return the timestamps and raw data values of this metric.
+        """
+elif False:
+    ServiceLevelObjectiveMetricDataQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelObjectiveMetricDataQueryArgs:
@@ -310,6 +436,27 @@ class ServiceLevelObjectiveMetricDataQueryArgs:
         pulumi.set(self, "return_data", value)
 
 
+if not MYPY:
+    class ServiceLevelObjectiveMetricStatArgsDict(TypedDict):
+        """
+        A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery object, you must specify either Expression or MetricStat but not both.
+        """
+        metric: pulumi.Input['ServiceLevelObjectiveMetricArgsDict']
+        period: pulumi.Input[int]
+        """
+        The granularity, in seconds, to be used for the metric.
+        """
+        stat: pulumi.Input[str]
+        """
+        The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        If you omit Unit then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
+        """
+elif False:
+    ServiceLevelObjectiveMetricStatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelObjectiveMetricStatArgs:
     def __init__(__self__, *,
@@ -375,6 +522,26 @@ class ServiceLevelObjectiveMetricStatArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class ServiceLevelObjectiveMetricArgsDict(TypedDict):
+        """
+        This structure defines the metric used for a service level indicator, including the metric name, namespace, and dimensions.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveDimensionArgsDict']]]]
+        """
+        An array of one or more dimensions to use to define the metric that you want to use.
+        """
+        metric_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the metric to use.
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        The namespace of the metric.
+        """
+elif False:
+    ServiceLevelObjectiveMetricArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelObjectiveMetricArgs:
     def __init__(__self__, *,
@@ -431,6 +598,22 @@ class ServiceLevelObjectiveMetricArgs:
         pulumi.set(self, "namespace", value)
 
 
+if not MYPY:
+    class ServiceLevelObjectiveMonitoredRequestCountMetricArgsDict(TypedDict):
+        """
+        This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+        """
+        bad_count_metric: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgsDict']]]]
+        """
+        If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
+        """
+        good_count_metric: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgsDict']]]]
+        """
+        If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
+        """
+elif False:
+    ServiceLevelObjectiveMonitoredRequestCountMetricArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelObjectiveMonitoredRequestCountMetricArgs:
     def __init__(__self__, *,
@@ -470,6 +653,40 @@ class ServiceLevelObjectiveMonitoredRequestCountMetricArgs:
     def good_count_metric(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgs']]]]):
         pulumi.set(self, "good_count_metric", value)
 
+
+if not MYPY:
+    class ServiceLevelObjectiveRequestBasedSliMetricArgsDict(TypedDict):
+        """
+        This structure contains the information about the metric that is used for a request-based SLO.
+        """
+        key_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        This is a string-to-string map that contains information about the type of object that this SLO is related to. It can include the following fields.
+
+        - `Type` designates the type of object that this SLO is related to.
+        - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+        - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        """
+        metric_type: NotRequired[pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricMetricType']]
+        """
+        If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+        """
+        monitored_request_count_metric: NotRequired[pulumi.Input['ServiceLevelObjectiveMonitoredRequestCountMetricArgsDict']]
+        """
+        Use this structure to define the metric that you want to use as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` will be divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+        """
+        operation_name: NotRequired[pulumi.Input[str]]
+        """
+        If the SLO monitors a specific operation of the service, this field displays that operation name.
+        """
+        total_request_count_metric: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgsDict']]]]
+        """
+        This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
+        """
+elif False:
+    ServiceLevelObjectiveRequestBasedSliMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelObjectiveRequestBasedSliMetricArgs:
@@ -571,6 +788,26 @@ class ServiceLevelObjectiveRequestBasedSliMetricArgs:
         pulumi.set(self, "total_request_count_metric", value)
 
 
+if not MYPY:
+    class ServiceLevelObjectiveRequestBasedSliArgsDict(TypedDict):
+        """
+        This structure contains information about the performance metric that a request-based SLO monitors.
+        """
+        request_based_sli_metric: pulumi.Input['ServiceLevelObjectiveRequestBasedSliMetricArgsDict']
+        """
+        A structure that contains information about the metric that the SLO monitors.
+        """
+        comparison_operator: NotRequired[pulumi.Input['ServiceLevelObjectiveRequestBasedSliComparisonOperator']]
+        """
+        The arithmetic operation used when comparing the specified metric to the threshold.
+        """
+        metric_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The value that the SLI metric is compared to.
+        """
+elif False:
+    ServiceLevelObjectiveRequestBasedSliArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelObjectiveRequestBasedSliArgs:
     def __init__(__self__, *,
@@ -626,6 +863,22 @@ class ServiceLevelObjectiveRequestBasedSliArgs:
         pulumi.set(self, "metric_threshold", value)
 
 
+if not MYPY:
+    class ServiceLevelObjectiveRollingIntervalArgsDict(TypedDict):
+        """
+        If the interval is a calendar interval, this structure contains the interval specifications.
+        """
+        duration: pulumi.Input[int]
+        """
+        Specifies the duration of each rolling interval. For example, if `Duration` is `7` and `DurationUnit` is `DAY` , each rolling interval is seven days.
+        """
+        duration_unit: pulumi.Input['ServiceLevelObjectiveDurationUnit']
+        """
+        Specifies the rolling interval unit.
+        """
+elif False:
+    ServiceLevelObjectiveRollingIntervalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceLevelObjectiveRollingIntervalArgs:
     def __init__(__self__, *,
@@ -663,6 +916,46 @@ class ServiceLevelObjectiveRollingIntervalArgs:
     def duration_unit(self, value: pulumi.Input['ServiceLevelObjectiveDurationUnit']):
         pulumi.set(self, "duration_unit", value)
 
+
+if not MYPY:
+    class ServiceLevelObjectiveSliMetricArgsDict(TypedDict):
+        """
+        A structure that contains information about the metric that the SLO monitors.
+        """
+        key_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        If this SLO is related to a metric collected by Application Signals, you must use this field to specify which service the SLO metric is related to. To do so, you must specify at least the `Type` , `Name` , and `Environment` attributes.
+
+        This is a string-to-string map. It can include the following fields.
+
+        - `Type` designates the type of object this is.
+        - `ResourceType` specifies the type of the resource. This field is used only when the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Name` specifies the name of the object. This is used only if the value of the `Type` field is `Service` , `RemoteService` , or `AWS::Service` .
+        - `Identifier` identifies the resource objects of this resource. This is used only if the value of the `Type` field is `Resource` or `AWS::Resource` .
+        - `Environment` specifies the location where this object is hosted, or what it belongs to.
+        """
+        metric_data_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveMetricDataQueryArgsDict']]]]
+        """
+        If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, use this structure to specify that metric or expression.
+        """
+        metric_type: NotRequired[pulumi.Input['ServiceLevelObjectiveSliMetricMetricType']]
+        """
+        If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+        """
+        operation_name: NotRequired[pulumi.Input[str]]
+        """
+        If the SLO monitors a specific operation of the service, this field displays that operation name.
+        """
+        period_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds to use as the period for SLO evaluation. Your application's performance is compared to the SLI during each period. For each period, the application is determined to have either achieved or not achieved the necessary performance.
+        """
+        statistic: NotRequired[pulumi.Input[str]]
+        """
+        The statistic to use for comparison to the threshold. It can be any CloudWatch statistic or extended statistic
+        """
+elif False:
+    ServiceLevelObjectiveSliMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelObjectiveSliMetricArgs:
@@ -783,6 +1076,26 @@ class ServiceLevelObjectiveSliMetricArgs:
     def statistic(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "statistic", value)
 
+
+if not MYPY:
+    class ServiceLevelObjectiveSliArgsDict(TypedDict):
+        """
+        This structure contains information about the performance metric that an SLO monitors.
+        """
+        comparison_operator: pulumi.Input['ServiceLevelObjectiveSliComparisonOperator']
+        """
+        The arithmetic operation used when comparing the specified metric to the threshold.
+        """
+        metric_threshold: pulumi.Input[float]
+        """
+        The value that the SLI metric is compared to.
+        """
+        sli_metric: pulumi.Input['ServiceLevelObjectiveSliMetricArgsDict']
+        """
+        Use this structure to specify the metric to be used for the SLO.
+        """
+elif False:
+    ServiceLevelObjectiveSliArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLevelObjectiveSliArgs:

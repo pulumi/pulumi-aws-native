@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type schema for AWS::Batch::SchedulingPolicy
  */
 export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulingPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:batch:getSchedulingPolicy", {
         "arn": args.arn,
@@ -39,7 +38,10 @@ export interface GetSchedulingPolicyResult {
  * Resource Type schema for AWS::Batch::SchedulingPolicy
  */
 export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulingPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getSchedulingPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:batch:getSchedulingPolicy", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetSchedulingPolicyOutputArgs {

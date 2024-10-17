@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -163,9 +168,6 @@ def get_storage_system(storage_system_arn: Optional[str] = None,
         storage_system_arn=pulumi.get(__ret__, 'storage_system_arn'),
         system_type=pulumi.get(__ret__, 'system_type'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_storage_system)
 def get_storage_system_output(storage_system_arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageSystemResult]:
     """
@@ -174,4 +176,17 @@ def get_storage_system_output(storage_system_arn: Optional[pulumi.Input[str]] = 
 
     :param str storage_system_arn: The ARN of the on-premises storage system added to DataSync Discovery.
     """
-    ...
+    __args__ = dict()
+    __args__['storageSystemArn'] = storage_system_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getStorageSystem', __args__, opts=opts, typ=GetStorageSystemResult)
+    return __ret__.apply(lambda __response__: GetStorageSystemResult(
+        agent_arns=pulumi.get(__response__, 'agent_arns'),
+        cloud_watch_log_group_arn=pulumi.get(__response__, 'cloud_watch_log_group_arn'),
+        connectivity_status=pulumi.get(__response__, 'connectivity_status'),
+        name=pulumi.get(__response__, 'name'),
+        secrets_manager_arn=pulumi.get(__response__, 'secrets_manager_arn'),
+        server_configuration=pulumi.get(__response__, 'server_configuration'),
+        storage_system_arn=pulumi.get(__response__, 'storage_system_arn'),
+        system_type=pulumi.get(__response__, 'system_type'),
+        tags=pulumi.get(__response__, 'tags')))

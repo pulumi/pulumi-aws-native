@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Route53Resolver::ResolverRule
  */
 export function getResolverRule(args: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getResolverRule", {
         "resolverRuleId": args.resolverRuleId,
@@ -59,7 +58,10 @@ export interface GetResolverRuleResult {
  * Resource Type definition for AWS::Route53Resolver::ResolverRule
  */
 export function getResolverRuleOutput(args: GetResolverRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleResult> {
-    return pulumi.output(args).apply((a: any) => getResolverRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:route53resolver:getResolverRule", {
+        "resolverRuleId": args.resolverRuleId,
+    }, opts);
 }
 
 export interface GetResolverRuleOutputArgs {

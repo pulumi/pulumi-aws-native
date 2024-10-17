@@ -4,20 +4,46 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ProfileAttributeMappingArgs',
+    'ProfileAttributeMappingArgsDict',
     'ProfileMappingRuleArgs',
+    'ProfileMappingRuleArgsDict',
     'TrustAnchorNotificationSettingArgs',
+    'TrustAnchorNotificationSettingArgsDict',
     'TrustAnchorSourceData0PropertiesArgs',
+    'TrustAnchorSourceData0PropertiesArgsDict',
     'TrustAnchorSourceData1PropertiesArgs',
+    'TrustAnchorSourceData1PropertiesArgsDict',
     'TrustAnchorSourceArgs',
+    'TrustAnchorSourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ProfileAttributeMappingArgsDict(TypedDict):
+        certificate_field: pulumi.Input['ProfileCertificateField']
+        """
+        Fields (x509Subject, x509Issuer and x509SAN) within X.509 certificates.
+        """
+        mapping_rules: pulumi.Input[Sequence[pulumi.Input['ProfileMappingRuleArgsDict']]]
+        """
+        A list of mapping entries for every supported specifier or sub-field.
+        """
+elif False:
+    ProfileAttributeMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProfileAttributeMappingArgs:
@@ -56,6 +82,15 @@ class ProfileAttributeMappingArgs:
         pulumi.set(self, "mapping_rules", value)
 
 
+if not MYPY:
+    class ProfileMappingRuleArgsDict(TypedDict):
+        specifier: pulumi.Input[str]
+        """
+        Specifier within a certificate field, such as CN, OU, or UID from the Subject field.
+        """
+elif False:
+    ProfileMappingRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProfileMappingRuleArgs:
     def __init__(__self__, *,
@@ -77,6 +112,29 @@ class ProfileMappingRuleArgs:
     def specifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "specifier", value)
 
+
+if not MYPY:
+    class TrustAnchorNotificationSettingArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Indicates whether the notification setting is enabled.
+        """
+        event: pulumi.Input['TrustAnchorNotificationEvent']
+        """
+        The event to which this notification setting is applied.
+        """
+        channel: NotRequired[pulumi.Input['TrustAnchorNotificationChannel']]
+        """
+        The specified channel of notification. IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and AWS Health Dashboard to notify for an event.
+
+        > In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.
+        """
+        threshold: NotRequired[pulumi.Input[float]]
+        """
+        The number of days before a notification event. This value is required for a notification setting that is enabled.
+        """
+elif False:
+    TrustAnchorNotificationSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrustAnchorNotificationSettingArgs:
@@ -151,6 +209,12 @@ class TrustAnchorNotificationSettingArgs:
         pulumi.set(self, "threshold", value)
 
 
+if not MYPY:
+    class TrustAnchorSourceData0PropertiesArgsDict(TypedDict):
+        x509_certificate_data: pulumi.Input[str]
+elif False:
+    TrustAnchorSourceData0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrustAnchorSourceData0PropertiesArgs:
     def __init__(__self__, *,
@@ -167,6 +231,12 @@ class TrustAnchorSourceData0PropertiesArgs:
         pulumi.set(self, "x509_certificate_data", value)
 
 
+if not MYPY:
+    class TrustAnchorSourceData1PropertiesArgsDict(TypedDict):
+        acm_pca_arn: pulumi.Input[str]
+elif False:
+    TrustAnchorSourceData1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrustAnchorSourceData1PropertiesArgs:
     def __init__(__self__, *,
@@ -182,6 +252,19 @@ class TrustAnchorSourceData1PropertiesArgs:
     def acm_pca_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "acm_pca_arn", value)
 
+
+if not MYPY:
+    class TrustAnchorSourceArgsDict(TypedDict):
+        source_data: NotRequired[pulumi.Input[Union['TrustAnchorSourceData0PropertiesArgsDict', 'TrustAnchorSourceData1PropertiesArgsDict']]]
+        """
+        A union object representing the data field of the TrustAnchor depending on its type
+        """
+        source_type: NotRequired[pulumi.Input['TrustAnchorType']]
+        """
+        The type of the TrustAnchor.
+        """
+elif False:
+    TrustAnchorSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrustAnchorSourceArgs:

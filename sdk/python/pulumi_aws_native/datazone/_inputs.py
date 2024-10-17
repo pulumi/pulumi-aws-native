@@ -4,36 +4,74 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DataSourceConfigurationInput0PropertiesArgs',
+    'DataSourceConfigurationInput0PropertiesArgsDict',
     'DataSourceConfigurationInput1PropertiesArgs',
+    'DataSourceConfigurationInput1PropertiesArgsDict',
     'DataSourceFilterExpressionArgs',
+    'DataSourceFilterExpressionArgsDict',
     'DataSourceFormInputArgs',
+    'DataSourceFormInputArgsDict',
     'DataSourceGlueRunConfigurationInputArgs',
+    'DataSourceGlueRunConfigurationInputArgsDict',
     'DataSourceRecommendationConfigurationArgs',
+    'DataSourceRecommendationConfigurationArgsDict',
     'DataSourceRedshiftClusterStorageArgs',
+    'DataSourceRedshiftClusterStorageArgsDict',
     'DataSourceRedshiftCredentialConfigurationArgs',
+    'DataSourceRedshiftCredentialConfigurationArgsDict',
     'DataSourceRedshiftRunConfigurationInputArgs',
+    'DataSourceRedshiftRunConfigurationInputArgsDict',
     'DataSourceRedshiftServerlessStorageArgs',
+    'DataSourceRedshiftServerlessStorageArgsDict',
     'DataSourceRedshiftStorage0PropertiesArgs',
+    'DataSourceRedshiftStorage0PropertiesArgsDict',
     'DataSourceRedshiftStorage1PropertiesArgs',
+    'DataSourceRedshiftStorage1PropertiesArgsDict',
     'DataSourceRelationalFilterConfigurationArgs',
+    'DataSourceRelationalFilterConfigurationArgsDict',
     'DataSourceScheduleConfigurationArgs',
+    'DataSourceScheduleConfigurationArgsDict',
     'DomainSingleSignOnArgs',
+    'DomainSingleSignOnArgsDict',
     'EnvironmentActionsAwsConsoleLinkParametersArgs',
+    'EnvironmentActionsAwsConsoleLinkParametersArgsDict',
     'EnvironmentBlueprintConfigurationRegionalParameterArgs',
+    'EnvironmentBlueprintConfigurationRegionalParameterArgsDict',
     'EnvironmentParameterArgs',
+    'EnvironmentParameterArgsDict',
     'EnvironmentProfileEnvironmentParameterArgs',
+    'EnvironmentProfileEnvironmentParameterArgsDict',
     'ProjectMembershipMember0PropertiesArgs',
+    'ProjectMembershipMember0PropertiesArgsDict',
     'ProjectMembershipMember1PropertiesArgs',
+    'ProjectMembershipMember1PropertiesArgsDict',
     'SubscriptionTargetFormArgs',
+    'SubscriptionTargetFormArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataSourceConfigurationInput0PropertiesArgsDict(TypedDict):
+        """
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        """
+        glue_run_configuration: NotRequired[pulumi.Input['DataSourceGlueRunConfigurationInputArgsDict']]
+elif False:
+    DataSourceConfigurationInput0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceConfigurationInput0PropertiesArgs:
@@ -55,6 +93,15 @@ class DataSourceConfigurationInput0PropertiesArgs:
         pulumi.set(self, "glue_run_configuration", value)
 
 
+if not MYPY:
+    class DataSourceConfigurationInput1PropertiesArgsDict(TypedDict):
+        """
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        """
+        redshift_run_configuration: NotRequired[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgsDict']]
+elif False:
+    DataSourceConfigurationInput1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceConfigurationInput1PropertiesArgs:
     def __init__(__self__, *,
@@ -74,6 +121,16 @@ class DataSourceConfigurationInput1PropertiesArgs:
     def redshift_run_configuration(self, value: Optional[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgs']]):
         pulumi.set(self, "redshift_run_configuration", value)
 
+
+if not MYPY:
+    class DataSourceFilterExpressionArgsDict(TypedDict):
+        """
+        The search filter expression.
+        """
+        expression: pulumi.Input[str]
+        type: pulumi.Input['DataSourceFilterExpressionType']
+elif False:
+    DataSourceFilterExpressionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceFilterExpressionArgs:
@@ -104,6 +161,30 @@ class DataSourceFilterExpressionArgs:
     def type(self, value: pulumi.Input['DataSourceFilterExpressionType']):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DataSourceFormInputArgsDict(TypedDict):
+        """
+        The details of a metadata form.
+        """
+        form_name: pulumi.Input[str]
+        """
+        The name of the metadata form.
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        The content of the metadata form.
+        """
+        type_identifier: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the metadata form type.
+        """
+        type_revision: NotRequired[pulumi.Input[str]]
+        """
+        The revision of the metadata form type.
+        """
+elif False:
+    DataSourceFormInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceFormInputArgs:
@@ -176,6 +257,23 @@ class DataSourceFormInputArgs:
         pulumi.set(self, "type_revision", value)
 
 
+if not MYPY:
+    class DataSourceGlueRunConfigurationInputArgsDict(TypedDict):
+        relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgsDict']]]
+        """
+        The relational filter configurations included in the configuration details of the AWS Glue data source.
+        """
+        auto_import_data_quality_result: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to automatically import data quality metrics as part of the data source run.
+        """
+        data_access_role: NotRequired[pulumi.Input[str]]
+        """
+        The data access role included in the configuration details of the AWS Glue data source.
+        """
+elif False:
+    DataSourceGlueRunConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceGlueRunConfigurationInputArgs:
     def __init__(__self__, *,
@@ -230,6 +328,18 @@ class DataSourceGlueRunConfigurationInputArgs:
         pulumi.set(self, "data_access_role", value)
 
 
+if not MYPY:
+    class DataSourceRecommendationConfigurationArgsDict(TypedDict):
+        """
+        The recommendation to be updated as part of the UpdateDataSource action.
+        """
+        enable_business_name_generation: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.
+        """
+elif False:
+    DataSourceRecommendationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceRecommendationConfigurationArgs:
     def __init__(__self__, *,
@@ -254,6 +364,18 @@ class DataSourceRecommendationConfigurationArgs:
         pulumi.set(self, "enable_business_name_generation", value)
 
 
+if not MYPY:
+    class DataSourceRedshiftClusterStorageArgsDict(TypedDict):
+        """
+        The name of an Amazon Redshift cluster.
+        """
+        cluster_name: pulumi.Input[str]
+        """
+        The name of an Amazon Redshift cluster.
+        """
+elif False:
+    DataSourceRedshiftClusterStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceRedshiftClusterStorageArgs:
     def __init__(__self__, *,
@@ -277,6 +399,18 @@ class DataSourceRedshiftClusterStorageArgs:
         pulumi.set(self, "cluster_name", value)
 
 
+if not MYPY:
+    class DataSourceRedshiftCredentialConfigurationArgsDict(TypedDict):
+        """
+        The ARN of a secret manager for an Amazon Redshift cluster.
+        """
+        secret_manager_arn: pulumi.Input[str]
+        """
+        The ARN of a secret manager for an Amazon Redshift cluster.
+        """
+elif False:
+    DataSourceRedshiftCredentialConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceRedshiftCredentialConfigurationArgs:
     def __init__(__self__, *,
@@ -299,6 +433,27 @@ class DataSourceRedshiftCredentialConfigurationArgs:
     def secret_manager_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_manager_arn", value)
 
+
+if not MYPY:
+    class DataSourceRedshiftRunConfigurationInputArgsDict(TypedDict):
+        """
+        The configuration details of the Amazon Redshift data source.
+        """
+        redshift_credential_configuration: pulumi.Input['DataSourceRedshiftCredentialConfigurationArgsDict']
+        """
+        The details of the credentials required to access an Amazon Redshift cluster.
+        """
+        redshift_storage: pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgsDict', 'DataSourceRedshiftStorage1PropertiesArgsDict']]
+        """
+        The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+        """
+        relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgsDict']]]
+        data_access_role: NotRequired[pulumi.Input[str]]
+        """
+        The data access role included in the configuration details of the Amazon Redshift data source.
+        """
+elif False:
+    DataSourceRedshiftRunConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceRedshiftRunConfigurationInputArgs:
@@ -365,6 +520,18 @@ class DataSourceRedshiftRunConfigurationInputArgs:
         pulumi.set(self, "data_access_role", value)
 
 
+if not MYPY:
+    class DataSourceRedshiftServerlessStorageArgsDict(TypedDict):
+        """
+        The details of the Amazon Redshift Serverless workgroup storage.
+        """
+        workgroup_name: pulumi.Input[str]
+        """
+        The name of the Amazon Redshift Serverless workgroup.
+        """
+elif False:
+    DataSourceRedshiftServerlessStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceRedshiftServerlessStorageArgs:
     def __init__(__self__, *,
@@ -388,6 +555,15 @@ class DataSourceRedshiftServerlessStorageArgs:
         pulumi.set(self, "workgroup_name", value)
 
 
+if not MYPY:
+    class DataSourceRedshiftStorage0PropertiesArgsDict(TypedDict):
+        """
+        The details of the Amazon Redshift cluster source.
+        """
+        redshift_cluster_source: pulumi.Input['DataSourceRedshiftClusterStorageArgsDict']
+elif False:
+    DataSourceRedshiftStorage0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceRedshiftStorage0PropertiesArgs:
     def __init__(__self__, *,
@@ -407,6 +583,15 @@ class DataSourceRedshiftStorage0PropertiesArgs:
         pulumi.set(self, "redshift_cluster_source", value)
 
 
+if not MYPY:
+    class DataSourceRedshiftStorage1PropertiesArgsDict(TypedDict):
+        """
+        The details of the Amazon Redshift Serverless workgroup source.
+        """
+        redshift_serverless_source: pulumi.Input['DataSourceRedshiftServerlessStorageArgsDict']
+elif False:
+    DataSourceRedshiftStorage1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceRedshiftStorage1PropertiesArgs:
     def __init__(__self__, *,
@@ -425,6 +610,26 @@ class DataSourceRedshiftStorage1PropertiesArgs:
     def redshift_serverless_source(self, value: pulumi.Input['DataSourceRedshiftServerlessStorageArgs']):
         pulumi.set(self, "redshift_serverless_source", value)
 
+
+if not MYPY:
+    class DataSourceRelationalFilterConfigurationArgsDict(TypedDict):
+        """
+        The relational filter configuration for the data source.
+        """
+        database_name: pulumi.Input[str]
+        """
+        The database name specified in the relational filter configuration for the data source.
+        """
+        filter_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSourceFilterExpressionArgsDict']]]]
+        """
+        The filter expressions specified in the relational filter configuration for the data source.
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        The schema name specified in the relational filter configuration for the data source.
+        """
+elif False:
+    DataSourceRelationalFilterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceRelationalFilterConfigurationArgs:
@@ -481,6 +686,22 @@ class DataSourceRelationalFilterConfigurationArgs:
         pulumi.set(self, "schema_name", value)
 
 
+if not MYPY:
+    class DataSourceScheduleConfigurationArgsDict(TypedDict):
+        """
+        The schedule of the data source runs.
+        """
+        schedule: NotRequired[pulumi.Input[str]]
+        """
+        The schedule of the data source runs.
+        """
+        timezone: NotRequired[pulumi.Input[str]]
+        """
+        The timezone of the data source run.
+        """
+elif False:
+    DataSourceScheduleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceScheduleConfigurationArgs:
     def __init__(__self__, *,
@@ -520,6 +741,22 @@ class DataSourceScheduleConfigurationArgs:
     def timezone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timezone", value)
 
+
+if not MYPY:
+    class DomainSingleSignOnArgsDict(TypedDict):
+        """
+        The single-sign on configuration of the Amazon DataZone domain.
+        """
+        type: NotRequired[pulumi.Input['DomainAuthType']]
+        """
+        The type of single sign-on in Amazon DataZone.
+        """
+        user_assignment: NotRequired[pulumi.Input['DomainUserAssignment']]
+        """
+        The single sign-on user assignment in Amazon DataZone.
+        """
+elif False:
+    DomainSingleSignOnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainSingleSignOnArgs:
@@ -561,6 +798,18 @@ class DomainSingleSignOnArgs:
         pulumi.set(self, "user_assignment", value)
 
 
+if not MYPY:
+    class EnvironmentActionsAwsConsoleLinkParametersArgsDict(TypedDict):
+        """
+        The parameters of the console link specified as part of the environment action
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the console link specified as part of the environment action.
+        """
+elif False:
+    EnvironmentActionsAwsConsoleLinkParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentActionsAwsConsoleLinkParametersArgs:
     def __init__(__self__, *,
@@ -584,6 +833,19 @@ class EnvironmentActionsAwsConsoleLinkParametersArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class EnvironmentBlueprintConfigurationRegionalParameterArgsDict(TypedDict):
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A string to string map containing parameters for the region.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The region specified in the environment parameter.
+        """
+elif False:
+    EnvironmentBlueprintConfigurationRegionalParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentBlueprintConfigurationRegionalParameterArgs:
@@ -623,6 +885,22 @@ class EnvironmentBlueprintConfigurationRegionalParameterArgs:
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
 
+
+if not MYPY:
+    class EnvironmentParameterArgsDict(TypedDict):
+        """
+        The parameter details of an environment.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of an environment parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of an environment parameter.
+        """
+elif False:
+    EnvironmentParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentParameterArgs:
@@ -664,6 +942,22 @@ class EnvironmentParameterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EnvironmentProfileEnvironmentParameterArgsDict(TypedDict):
+        """
+        The parameter details of an environment profile.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of an environment profile parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of an environment profile parameter.
+        """
+elif False:
+    EnvironmentProfileEnvironmentParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentProfileEnvironmentParameterArgs:
     def __init__(__self__, *,
@@ -704,6 +998,12 @@ class EnvironmentProfileEnvironmentParameterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ProjectMembershipMember0PropertiesArgsDict(TypedDict):
+        user_identifier: pulumi.Input[str]
+elif False:
+    ProjectMembershipMember0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProjectMembershipMember0PropertiesArgs:
     def __init__(__self__, *,
@@ -720,6 +1020,12 @@ class ProjectMembershipMember0PropertiesArgs:
         pulumi.set(self, "user_identifier", value)
 
 
+if not MYPY:
+    class ProjectMembershipMember1PropertiesArgsDict(TypedDict):
+        group_identifier: pulumi.Input[str]
+elif False:
+    ProjectMembershipMember1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProjectMembershipMember1PropertiesArgs:
     def __init__(__self__, *,
@@ -735,6 +1041,22 @@ class ProjectMembershipMember1PropertiesArgs:
     def group_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_identifier", value)
 
+
+if not MYPY:
+    class SubscriptionTargetFormArgsDict(TypedDict):
+        """
+        The details of the subscription target configuration.
+        """
+        content: pulumi.Input[str]
+        """
+        The content of the subscription target configuration.
+        """
+        form_name: pulumi.Input[str]
+        """
+        The form name included in the subscription target configuration.
+        """
+elif False:
+    SubscriptionTargetFormArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionTargetFormArgs:

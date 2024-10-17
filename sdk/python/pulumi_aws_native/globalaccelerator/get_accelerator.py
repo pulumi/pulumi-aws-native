@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -177,9 +182,6 @@ def get_accelerator(accelerator_arn: Optional[str] = None,
         ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_accelerator)
 def get_accelerator_output(accelerator_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
@@ -188,4 +190,18 @@ def get_accelerator_output(accelerator_arn: Optional[pulumi.Input[str]] = None,
 
     :param str accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
     """
-    ...
+    __args__ = dict()
+    __args__['acceleratorArn'] = accelerator_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:globalaccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult)
+    return __ret__.apply(lambda __response__: GetAcceleratorResult(
+        accelerator_arn=pulumi.get(__response__, 'accelerator_arn'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        dual_stack_dns_name=pulumi.get(__response__, 'dual_stack_dns_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        ip_addresses=pulumi.get(__response__, 'ip_addresses'),
+        ipv4_addresses=pulumi.get(__response__, 'ipv4_addresses'),
+        ipv6_addresses=pulumi.get(__response__, 'ipv6_addresses'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

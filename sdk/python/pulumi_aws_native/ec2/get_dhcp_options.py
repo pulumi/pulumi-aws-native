@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -70,9 +75,6 @@ def get_dhcp_options(dhcp_options_id: Optional[str] = None,
     return AwaitableGetDhcpOptionsResult(
         dhcp_options_id=pulumi.get(__ret__, 'dhcp_options_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_dhcp_options)
 def get_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDhcpOptionsResult]:
     """
@@ -81,4 +83,10 @@ def get_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[str]] = None,
 
     :param str dhcp_options_id: The ID of the DHCP options set.
     """
-    ...
+    __args__ = dict()
+    __args__['dhcpOptionsId'] = dhcp_options_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getDhcpOptions', __args__, opts=opts, typ=GetDhcpOptionsResult)
+    return __ret__.apply(lambda __response__: GetDhcpOptionsResult(
+        dhcp_options_id=pulumi.get(__response__, 'dhcp_options_id'),
+        tags=pulumi.get(__response__, 'tags')))

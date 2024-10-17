@@ -4,33 +4,75 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs',
+    'LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict',
     'LogDeliveryConfigurationPropertiesArgs',
+    'LogDeliveryConfigurationPropertiesArgsDict',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgsDict',
     'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict',
     'MagneticStoreWritePropertiesPropertiesArgs',
+    'MagneticStoreWritePropertiesPropertiesArgsDict',
     'RetentionPropertiesPropertiesArgs',
+    'RetentionPropertiesPropertiesArgsDict',
     'ScheduledQueryDimensionMappingArgs',
+    'ScheduledQueryDimensionMappingArgsDict',
     'ScheduledQueryErrorReportConfigurationArgs',
+    'ScheduledQueryErrorReportConfigurationArgsDict',
     'ScheduledQueryMixedMeasureMappingArgs',
+    'ScheduledQueryMixedMeasureMappingArgsDict',
     'ScheduledQueryMultiMeasureAttributeMappingArgs',
+    'ScheduledQueryMultiMeasureAttributeMappingArgsDict',
     'ScheduledQueryMultiMeasureMappingsArgs',
+    'ScheduledQueryMultiMeasureMappingsArgsDict',
     'ScheduledQueryNotificationConfigurationArgs',
+    'ScheduledQueryNotificationConfigurationArgsDict',
     'ScheduledQueryS3ConfigurationArgs',
+    'ScheduledQueryS3ConfigurationArgsDict',
     'ScheduledQueryScheduleConfigurationArgs',
+    'ScheduledQueryScheduleConfigurationArgsDict',
     'ScheduledQuerySnsConfigurationArgs',
+    'ScheduledQuerySnsConfigurationArgsDict',
     'ScheduledQueryTargetConfigurationArgs',
+    'ScheduledQueryTargetConfigurationArgsDict',
     'ScheduledQueryTimestreamConfigurationArgs',
+    'ScheduledQueryTimestreamConfigurationArgsDict',
     'SchemaPropertiesArgs',
+    'SchemaPropertiesArgsDict',
     'TablePartitionKeyArgs',
+    'TablePartitionKeyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict(TypedDict):
+        """
+        S3 configuration for sending logs to customer account from the InfluxDB instance.
+        """
+        bucket_name: pulumi.Input[str]
+        """
+        The bucket name for logs to be sent from the InfluxDB instance
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Specifies whether logging to customer specified bucket is enabled.
+        """
+elif False:
+    LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs:
@@ -70,6 +112,18 @@ class LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class LogDeliveryConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Configuration for sending logs to customer account from the InfluxDB instance.
+        """
+        s3_configuration: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict']
+        """
+        S3 configuration for sending logs to customer account from the InfluxDB instance.
+        """
+elif False:
+    LogDeliveryConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogDeliveryConfigurationPropertiesArgs:
     def __init__(__self__, *,
@@ -92,6 +146,30 @@ class LogDeliveryConfigurationPropertiesArgs:
     def s3_configuration(self, value: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']):
         pulumi.set(self, "s3_configuration", value)
 
+
+if not MYPY:
+    class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgsDict(TypedDict):
+        """
+        S3 configuration for location to store rejections from magnetic store writes
+        """
+        bucket_name: pulumi.Input[str]
+        """
+        The bucket name used to store the data.
+        """
+        encryption_option: pulumi.Input[str]
+        """
+        Either SSE_KMS or SSE_S3.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        Must be provided if SSE_KMS is specified as the encryption option
+        """
+        object_key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        String used to prefix all data in the bucket.
+        """
+elif False:
+    MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs:
@@ -163,6 +241,18 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
         pulumi.set(self, "object_key_prefix", value)
 
 
+if not MYPY:
+    class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict(TypedDict):
+        """
+        Location to store information about records that were asynchronously rejected during magnetic store writes.
+        """
+        s3_configuration: NotRequired[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgsDict']]
+        """
+        S3 configuration for location to store rejections from magnetic store writes
+        """
+elif False:
+    MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs:
     def __init__(__self__, *,
@@ -186,6 +276,22 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
     def s3_configuration(self, value: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']]):
         pulumi.set(self, "s3_configuration", value)
 
+
+if not MYPY:
+    class MagneticStoreWritePropertiesPropertiesArgsDict(TypedDict):
+        """
+        The properties that determine whether magnetic store writes are enabled.
+        """
+        enable_magnetic_store_writes: pulumi.Input[bool]
+        """
+        Boolean flag indicating whether magnetic store writes are enabled.
+        """
+        magnetic_store_rejected_data_location: NotRequired[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict']]
+        """
+        Location to store information about records that were asynchronously rejected during magnetic store writes.
+        """
+elif False:
+    MagneticStoreWritePropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MagneticStoreWritePropertiesPropertiesArgs:
@@ -225,6 +331,22 @@ class MagneticStoreWritePropertiesPropertiesArgs:
     def magnetic_store_rejected_data_location(self, value: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']]):
         pulumi.set(self, "magnetic_store_rejected_data_location", value)
 
+
+if not MYPY:
+    class RetentionPropertiesPropertiesArgsDict(TypedDict):
+        """
+        The retention duration of the memory store and the magnetic store.
+        """
+        magnetic_store_retention_period_in_days: NotRequired[pulumi.Input[str]]
+        """
+        The duration for which data must be stored in the magnetic store.
+        """
+        memory_store_retention_period_in_hours: NotRequired[pulumi.Input[str]]
+        """
+        The duration for which data must be stored in the memory store.
+        """
+elif False:
+    RetentionPropertiesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RetentionPropertiesPropertiesArgs:
@@ -266,6 +388,16 @@ class RetentionPropertiesPropertiesArgs:
         pulumi.set(self, "memory_store_retention_period_in_hours", value)
 
 
+if not MYPY:
+    class ScheduledQueryDimensionMappingArgsDict(TypedDict):
+        """
+        This type is used to map column(s) from the query result to a dimension in the destination table.
+        """
+        dimension_value_type: pulumi.Input['ScheduledQueryDimensionValueType']
+        name: pulumi.Input[str]
+elif False:
+    ScheduledQueryDimensionMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryDimensionMappingArgs:
     def __init__(__self__, *,
@@ -296,6 +428,18 @@ class ScheduledQueryDimensionMappingArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ScheduledQueryErrorReportConfigurationArgsDict(TypedDict):
+        """
+        Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
+        """
+        s3_configuration: pulumi.Input['ScheduledQueryS3ConfigurationArgsDict']
+        """
+        The S3 configuration for the error reports.
+        """
+elif False:
+    ScheduledQueryErrorReportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryErrorReportConfigurationArgs:
     def __init__(__self__, *,
@@ -318,6 +462,19 @@ class ScheduledQueryErrorReportConfigurationArgs:
     def s3_configuration(self, value: pulumi.Input['ScheduledQueryS3ConfigurationArgs']):
         pulumi.set(self, "s3_configuration", value)
 
+
+if not MYPY:
+    class ScheduledQueryMixedMeasureMappingArgsDict(TypedDict):
+        """
+        MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
+        """
+        measure_value_type: pulumi.Input['ScheduledQueryMixedMeasureMappingMeasureValueType']
+        measure_name: NotRequired[pulumi.Input[str]]
+        multi_measure_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgsDict']]]]
+        source_column: NotRequired[pulumi.Input[str]]
+        target_measure_name: NotRequired[pulumi.Input[str]]
+elif False:
+    ScheduledQueryMixedMeasureMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryMixedMeasureMappingArgs:
@@ -386,6 +543,17 @@ class ScheduledQueryMixedMeasureMappingArgs:
         pulumi.set(self, "target_measure_name", value)
 
 
+if not MYPY:
+    class ScheduledQueryMultiMeasureAttributeMappingArgsDict(TypedDict):
+        """
+        An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
+        """
+        measure_value_type: pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingMeasureValueType']
+        source_column: pulumi.Input[str]
+        target_multi_measure_attribute_name: NotRequired[pulumi.Input[str]]
+elif False:
+    ScheduledQueryMultiMeasureAttributeMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryMultiMeasureAttributeMappingArgs:
     def __init__(__self__, *,
@@ -428,6 +596,22 @@ class ScheduledQueryMultiMeasureAttributeMappingArgs:
         pulumi.set(self, "target_multi_measure_attribute_name", value)
 
 
+if not MYPY:
+    class ScheduledQueryMultiMeasureMappingsArgsDict(TypedDict):
+        """
+        Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+        """
+        multi_measure_attribute_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgsDict']]]
+        """
+        Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
+        """
+        target_multi_measure_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
+        """
+elif False:
+    ScheduledQueryMultiMeasureMappingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryMultiMeasureMappingsArgs:
     def __init__(__self__, *,
@@ -467,6 +651,18 @@ class ScheduledQueryMultiMeasureMappingsArgs:
         pulumi.set(self, "target_multi_measure_name", value)
 
 
+if not MYPY:
+    class ScheduledQueryNotificationConfigurationArgsDict(TypedDict):
+        """
+        Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
+        """
+        sns_configuration: pulumi.Input['ScheduledQuerySnsConfigurationArgsDict']
+        """
+        Details on SNS configuration.
+        """
+elif False:
+    ScheduledQueryNotificationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryNotificationConfigurationArgs:
     def __init__(__self__, *,
@@ -489,6 +685,26 @@ class ScheduledQueryNotificationConfigurationArgs:
     def sns_configuration(self, value: pulumi.Input['ScheduledQuerySnsConfigurationArgs']):
         pulumi.set(self, "sns_configuration", value)
 
+
+if not MYPY:
+    class ScheduledQueryS3ConfigurationArgsDict(TypedDict):
+        """
+        Details on S3 location for error reports that result from running a query.
+        """
+        bucket_name: pulumi.Input[str]
+        """
+        Name of the S3 bucket under which error reports will be created.
+        """
+        encryption_option: NotRequired[pulumi.Input['ScheduledQueryEncryptionOption']]
+        """
+        Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
+        """
+        object_key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
+        """
+elif False:
+    ScheduledQueryS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryS3ConfigurationArgs:
@@ -545,6 +761,18 @@ class ScheduledQueryS3ConfigurationArgs:
         pulumi.set(self, "object_key_prefix", value)
 
 
+if not MYPY:
+    class ScheduledQueryScheduleConfigurationArgsDict(TypedDict):
+        """
+        Configuration for when the scheduled query is executed.
+        """
+        schedule_expression: pulumi.Input[str]
+        """
+        An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
+        """
+elif False:
+    ScheduledQueryScheduleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryScheduleConfigurationArgs:
     def __init__(__self__, *,
@@ -567,6 +795,18 @@ class ScheduledQueryScheduleConfigurationArgs:
     def schedule_expression(self, value: pulumi.Input[str]):
         pulumi.set(self, "schedule_expression", value)
 
+
+if not MYPY:
+    class ScheduledQuerySnsConfigurationArgsDict(TypedDict):
+        """
+        SNS configuration for notification upon scheduled query execution.
+        """
+        topic_arn: pulumi.Input[str]
+        """
+        SNS topic ARN that the scheduled query status notifications will be sent to.
+        """
+elif False:
+    ScheduledQuerySnsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQuerySnsConfigurationArgs:
@@ -591,6 +831,18 @@ class ScheduledQuerySnsConfigurationArgs:
         pulumi.set(self, "topic_arn", value)
 
 
+if not MYPY:
+    class ScheduledQueryTargetConfigurationArgsDict(TypedDict):
+        """
+        Configuration of target store where scheduled query results are written to.
+        """
+        timestream_configuration: pulumi.Input['ScheduledQueryTimestreamConfigurationArgsDict']
+        """
+        Configuration needed to write data into the Timestream database and table.
+        """
+elif False:
+    ScheduledQueryTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryTargetConfigurationArgs:
     def __init__(__self__, *,
@@ -613,6 +865,42 @@ class ScheduledQueryTargetConfigurationArgs:
     def timestream_configuration(self, value: pulumi.Input['ScheduledQueryTimestreamConfigurationArgs']):
         pulumi.set(self, "timestream_configuration", value)
 
+
+if not MYPY:
+    class ScheduledQueryTimestreamConfigurationArgsDict(TypedDict):
+        """
+        Configuration needed to write data into the Timestream database and table.
+        """
+        database_name: pulumi.Input[str]
+        """
+        Name of Timestream database to which the query result will be written.
+        """
+        dimension_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryDimensionMappingArgsDict']]]
+        """
+        This is to allow mapping column(s) from the query result to the dimension in the destination table.
+        """
+        table_name: pulumi.Input[str]
+        """
+        Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
+        """
+        time_column: pulumi.Input[str]
+        """
+        Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
+        """
+        measure_name_column: NotRequired[pulumi.Input[str]]
+        """
+        Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
+        """
+        mixed_measure_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgsDict']]]]
+        """
+        Specifies how to map measures to multi-measure records.
+        """
+        multi_measure_mappings: NotRequired[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgsDict']]
+        """
+        Multi-measure mappings.
+        """
+elif False:
+    ScheduledQueryTimestreamConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryTimestreamConfigurationArgs:
@@ -730,6 +1018,18 @@ class ScheduledQueryTimestreamConfigurationArgs:
         pulumi.set(self, "multi_measure_mappings", value)
 
 
+if not MYPY:
+    class SchemaPropertiesArgsDict(TypedDict):
+        """
+        A Schema specifies the expected data model of the table.
+        """
+        composite_partition_key: NotRequired[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgsDict']]]]
+        """
+        A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
+        """
+elif False:
+    SchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchemaPropertiesArgs:
     def __init__(__self__, *,
@@ -753,6 +1053,17 @@ class SchemaPropertiesArgs:
     def composite_partition_key(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]]):
         pulumi.set(self, "composite_partition_key", value)
 
+
+if not MYPY:
+    class TablePartitionKeyArgsDict(TypedDict):
+        """
+        An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+        """
+        type: pulumi.Input['TablePartitionKeyType']
+        enforcement_in_record: NotRequired[pulumi.Input['TablePartitionKeyEnforcementLevel']]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    TablePartitionKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TablePartitionKeyArgs:

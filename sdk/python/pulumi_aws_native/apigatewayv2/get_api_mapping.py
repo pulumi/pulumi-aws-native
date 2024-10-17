@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -98,9 +103,6 @@ def get_api_mapping(api_mapping_id: Optional[str] = None,
         api_mapping_id=pulumi.get(__ret__, 'api_mapping_id'),
         api_mapping_key=pulumi.get(__ret__, 'api_mapping_key'),
         stage=pulumi.get(__ret__, 'stage'))
-
-
-@_utilities.lift_output_func(get_api_mapping)
 def get_api_mapping_output(api_mapping_id: Optional[pulumi.Input[str]] = None,
                            domain_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiMappingResult]:
@@ -111,4 +113,13 @@ def get_api_mapping_output(api_mapping_id: Optional[pulumi.Input[str]] = None,
     :param str api_mapping_id: The API mapping resource ID.
     :param str domain_name: The domain name.
     """
-    ...
+    __args__ = dict()
+    __args__['apiMappingId'] = api_mapping_id
+    __args__['domainName'] = domain_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getApiMapping', __args__, opts=opts, typ=GetApiMappingResult)
+    return __ret__.apply(lambda __response__: GetApiMappingResult(
+        api_id=pulumi.get(__response__, 'api_id'),
+        api_mapping_id=pulumi.get(__response__, 'api_mapping_id'),
+        api_mapping_key=pulumi.get(__response__, 'api_mapping_key'),
+        stage=pulumi.get(__response__, 'stage')))
