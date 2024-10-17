@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -132,9 +137,6 @@ def get_server(server_name: Optional[str] = None,
         endpoint=pulumi.get(__ret__, 'endpoint'),
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'))
-
-
-@_utilities.lift_output_func(get_server)
 def get_server_output(server_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
@@ -143,4 +145,14 @@ def get_server_output(server_name: Optional[pulumi.Input[str]] = None,
 
     :param str server_name: The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
     """
-    ...
+    __args__ = dict()
+    __args__['serverName'] = server_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:opsworkscm:getServer', __args__, opts=opts, typ=GetServerResult)
+    return __ret__.apply(lambda __response__: GetServerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        backup_retention_count=pulumi.get(__response__, 'backup_retention_count'),
+        disable_automated_backup=pulumi.get(__response__, 'disable_automated_backup'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window')))

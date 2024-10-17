@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -174,9 +179,6 @@ def get_api(api_id: Optional[str] = None,
         route_selection_expression=pulumi.get(__ret__, 'route_selection_expression'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_api)
 def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
     """
@@ -185,4 +187,18 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
 
     :param str api_id: The API identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getApi', __args__, opts=opts, typ=GetApiResult)
+    return __ret__.apply(lambda __response__: GetApiResult(
+        api_endpoint=pulumi.get(__response__, 'api_endpoint'),
+        api_id=pulumi.get(__response__, 'api_id'),
+        api_key_selection_expression=pulumi.get(__response__, 'api_key_selection_expression'),
+        cors_configuration=pulumi.get(__response__, 'cors_configuration'),
+        description=pulumi.get(__response__, 'description'),
+        disable_execute_api_endpoint=pulumi.get(__response__, 'disable_execute_api_endpoint'),
+        name=pulumi.get(__response__, 'name'),
+        route_selection_expression=pulumi.get(__response__, 'route_selection_expression'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

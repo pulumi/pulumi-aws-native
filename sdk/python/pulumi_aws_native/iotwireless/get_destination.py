@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -123,9 +128,6 @@ def get_destination(name: Optional[str] = None,
         expression_type=pulumi.get(__ret__, 'expression_type'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_destination)
 def get_destination_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDestinationResult]:
     """
@@ -134,4 +136,14 @@ def get_destination_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Unique name of destination
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getDestination', __args__, opts=opts, typ=GetDestinationResult)
+    return __ret__.apply(lambda __response__: GetDestinationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        expression=pulumi.get(__response__, 'expression'),
+        expression_type=pulumi.get(__response__, 'expression_type'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        tags=pulumi.get(__response__, 'tags')))

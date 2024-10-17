@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -84,9 +89,6 @@ def get_key_pair(key_name: Optional[str] = None,
     return AwaitableGetKeyPairResult(
         key_fingerprint=pulumi.get(__ret__, 'key_fingerprint'),
         key_pair_id=pulumi.get(__ret__, 'key_pair_id'))
-
-
-@_utilities.lift_output_func(get_key_pair)
 def get_key_pair_output(key_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyPairResult]:
     """
@@ -102,4 +104,10 @@ def get_key_pair_output(key_name: Optional[pulumi.Input[str]] = None,
     :param str key_name: A unique name for the key pair.
             Constraints: Up to 255 ASCII characters
     """
-    ...
+    __args__ = dict()
+    __args__['keyName'] = key_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getKeyPair', __args__, opts=opts, typ=GetKeyPairResult)
+    return __ret__.apply(lambda __response__: GetKeyPairResult(
+        key_fingerprint=pulumi.get(__response__, 'key_fingerprint'),
+        key_pair_id=pulumi.get(__response__, 'key_pair_id')))

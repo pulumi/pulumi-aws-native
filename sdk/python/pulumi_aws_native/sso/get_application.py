@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -124,9 +129,6 @@ def get_application(application_arn: Optional[str] = None,
         portal_options=pulumi.get(__ret__, 'portal_options'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -135,4 +137,14 @@ def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
 
     :param str application_arn: The Application ARN that is returned upon creation of the Identity Center (SSO) Application
     """
-    ...
+    __args__ = dict()
+    __args__['applicationArn'] = application_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:sso:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        application_arn=pulumi.get(__response__, 'application_arn'),
+        description=pulumi.get(__response__, 'description'),
+        name=pulumi.get(__response__, 'name'),
+        portal_options=pulumi.get(__response__, 'portal_options'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

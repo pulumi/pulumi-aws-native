@@ -4,17 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AnomalyMonitorResourceTagArgs',
+    'AnomalyMonitorResourceTagArgsDict',
     'AnomalySubscriptionResourceTagArgs',
+    'AnomalySubscriptionResourceTagArgsDict',
     'AnomalySubscriptionSubscriberArgs',
+    'AnomalySubscriptionSubscriberArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnomalyMonitorResourceTagArgsDict(TypedDict):
+        """
+        A key-value pair to associate with a resource.
+        """
+        key: pulumi.Input[str]
+        """
+        The key name for the tag.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the tag.
+        """
+elif False:
+    AnomalyMonitorResourceTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnomalyMonitorResourceTagArgs:
@@ -54,6 +80,22 @@ class AnomalyMonitorResourceTagArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AnomalySubscriptionResourceTagArgsDict(TypedDict):
+        """
+        A key-value pair to associate with a resource.
+        """
+        key: pulumi.Input[str]
+        """
+        The key name for the tag.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the tag.
+        """
+elif False:
+    AnomalySubscriptionResourceTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnomalySubscriptionResourceTagArgs:
     def __init__(__self__, *,
@@ -91,6 +133,23 @@ class AnomalySubscriptionResourceTagArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AnomalySubscriptionSubscriberArgsDict(TypedDict):
+        address: pulumi.Input[str]
+        """
+        The email address or SNS Topic Amazon Resource Name (ARN), depending on the `Type` .
+        """
+        type: pulumi.Input['AnomalySubscriptionSubscriberType']
+        """
+        The notification delivery channel.
+        """
+        status: NotRequired[pulumi.Input['AnomalySubscriptionSubscriberStatus']]
+        """
+        Indicates if the subscriber accepts the notifications.
+        """
+elif False:
+    AnomalySubscriptionSubscriberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnomalySubscriptionSubscriberArgs:

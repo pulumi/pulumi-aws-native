@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -429,9 +434,6 @@ def get_environment(name: Optional[str] = None,
         webserver_url=pulumi.get(__ret__, 'webserver_url'),
         webserver_vpc_endpoint_service=pulumi.get(__ret__, 'webserver_vpc_endpoint_service'),
         weekly_maintenance_window_start=pulumi.get(__ret__, 'weekly_maintenance_window_start'))
-
-
-@_utilities.lift_output_func(get_environment)
 def get_environment_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
@@ -440,4 +442,35 @@ def get_environment_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of your Amazon MWAA environment.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:mwaa:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentResult(
+        airflow_configuration_options=pulumi.get(__response__, 'airflow_configuration_options'),
+        airflow_version=pulumi.get(__response__, 'airflow_version'),
+        arn=pulumi.get(__response__, 'arn'),
+        celery_executor_queue=pulumi.get(__response__, 'celery_executor_queue'),
+        dag_s3_path=pulumi.get(__response__, 'dag_s3_path'),
+        database_vpc_endpoint_service=pulumi.get(__response__, 'database_vpc_endpoint_service'),
+        environment_class=pulumi.get(__response__, 'environment_class'),
+        execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
+        logging_configuration=pulumi.get(__response__, 'logging_configuration'),
+        max_webservers=pulumi.get(__response__, 'max_webservers'),
+        max_workers=pulumi.get(__response__, 'max_workers'),
+        min_webservers=pulumi.get(__response__, 'min_webservers'),
+        min_workers=pulumi.get(__response__, 'min_workers'),
+        network_configuration=pulumi.get(__response__, 'network_configuration'),
+        plugins_s3_object_version=pulumi.get(__response__, 'plugins_s3_object_version'),
+        plugins_s3_path=pulumi.get(__response__, 'plugins_s3_path'),
+        requirements_s3_object_version=pulumi.get(__response__, 'requirements_s3_object_version'),
+        requirements_s3_path=pulumi.get(__response__, 'requirements_s3_path'),
+        schedulers=pulumi.get(__response__, 'schedulers'),
+        source_bucket_arn=pulumi.get(__response__, 'source_bucket_arn'),
+        startup_script_s3_object_version=pulumi.get(__response__, 'startup_script_s3_object_version'),
+        startup_script_s3_path=pulumi.get(__response__, 'startup_script_s3_path'),
+        tags=pulumi.get(__response__, 'tags'),
+        webserver_access_mode=pulumi.get(__response__, 'webserver_access_mode'),
+        webserver_url=pulumi.get(__response__, 'webserver_url'),
+        webserver_vpc_endpoint_service=pulumi.get(__response__, 'webserver_vpc_endpoint_service'),
+        weekly_maintenance_window_start=pulumi.get(__response__, 'weekly_maintenance_window_start')))

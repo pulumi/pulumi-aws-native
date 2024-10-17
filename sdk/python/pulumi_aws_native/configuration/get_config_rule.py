@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -176,9 +181,6 @@ def get_config_rule(config_rule_name: Optional[str] = None,
         maximum_execution_frequency=pulumi.get(__ret__, 'maximum_execution_frequency'),
         scope=pulumi.get(__ret__, 'scope'),
         source=pulumi.get(__ret__, 'source'))
-
-
-@_utilities.lift_output_func(get_config_rule)
 def get_config_rule_output(config_rule_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigRuleResult]:
     """
@@ -195,4 +197,17 @@ def get_config_rule_output(config_rule_name: Optional[pulumi.Input[str]] = None,
 
     :param str config_rule_name: A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
     """
-    ...
+    __args__ = dict()
+    __args__['configRuleName'] = config_rule_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getConfigRule', __args__, opts=opts, typ=GetConfigRuleResult)
+    return __ret__.apply(lambda __response__: GetConfigRuleResult(
+        arn=pulumi.get(__response__, 'arn'),
+        compliance=pulumi.get(__response__, 'compliance'),
+        config_rule_id=pulumi.get(__response__, 'config_rule_id'),
+        description=pulumi.get(__response__, 'description'),
+        evaluation_modes=pulumi.get(__response__, 'evaluation_modes'),
+        input_parameters=pulumi.get(__response__, 'input_parameters'),
+        maximum_execution_frequency=pulumi.get(__response__, 'maximum_execution_frequency'),
+        scope=pulumi.get(__response__, 'scope'),
+        source=pulumi.get(__response__, 'source')))

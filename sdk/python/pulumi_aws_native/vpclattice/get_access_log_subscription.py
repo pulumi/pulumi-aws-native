@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -122,9 +127,6 @@ def get_access_log_subscription(arn: Optional[str] = None,
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_access_log_subscription)
 def get_access_log_subscription_output(arn: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessLogSubscriptionResult]:
     """
@@ -133,4 +135,14 @@ def get_access_log_subscription_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the access log subscription.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getAccessLogSubscription', __args__, opts=opts, typ=GetAccessLogSubscriptionResult)
+    return __ret__.apply(lambda __response__: GetAccessLogSubscriptionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        destination_arn=pulumi.get(__response__, 'destination_arn'),
+        id=pulumi.get(__response__, 'id'),
+        resource_arn=pulumi.get(__response__, 'resource_arn'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        tags=pulumi.get(__response__, 'tags')))

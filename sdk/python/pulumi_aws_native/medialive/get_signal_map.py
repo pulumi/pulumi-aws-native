@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -261,12 +266,31 @@ def get_signal_map(identifier: Optional[str] = None,
         monitor_deployment=pulumi.get(__ret__, 'monitor_deployment'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_signal_map)
 def get_signal_map_output(identifier: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalMapResult]:
     """
     Definition of AWS::MediaLive::SignalMap Resource Type
     """
-    ...
+    __args__ = dict()
+    __args__['identifier'] = identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getSignalMap', __args__, opts=opts, typ=GetSignalMapResult)
+    return __ret__.apply(lambda __response__: GetSignalMapResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cloud_watch_alarm_template_group_ids=pulumi.get(__response__, 'cloud_watch_alarm_template_group_ids'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        discovery_entry_point_arn=pulumi.get(__response__, 'discovery_entry_point_arn'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        event_bridge_rule_template_group_ids=pulumi.get(__response__, 'event_bridge_rule_template_group_ids'),
+        failed_media_resource_map=pulumi.get(__response__, 'failed_media_resource_map'),
+        id=pulumi.get(__response__, 'id'),
+        identifier=pulumi.get(__response__, 'identifier'),
+        last_discovered_at=pulumi.get(__response__, 'last_discovered_at'),
+        last_successful_monitor_deployment=pulumi.get(__response__, 'last_successful_monitor_deployment'),
+        media_resource_map=pulumi.get(__response__, 'media_resource_map'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        monitor_changes_pending_deployment=pulumi.get(__response__, 'monitor_changes_pending_deployment'),
+        monitor_deployment=pulumi.get(__response__, 'monitor_deployment'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status')))

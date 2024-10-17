@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -83,9 +88,6 @@ def get_user_pool_domain(id: Optional[str] = None,
         cloud_front_distribution=pulumi.get(__ret__, 'cloud_front_distribution'),
         custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_user_pool_domain)
 def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolDomainResult]:
     """
@@ -94,4 +96,11 @@ def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The resource ID.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolDomain', __args__, opts=opts, typ=GetUserPoolDomainResult)
+    return __ret__.apply(lambda __response__: GetUserPoolDomainResult(
+        cloud_front_distribution=pulumi.get(__response__, 'cloud_front_distribution'),
+        custom_domain_config=pulumi.get(__response__, 'custom_domain_config'),
+        id=pulumi.get(__response__, 'id')))

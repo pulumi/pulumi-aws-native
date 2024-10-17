@@ -4,18 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ClusterEndpointArgs',
+    'ClusterEndpointArgsDict',
     'ClusterLoggingPropertiesArgs',
+    'ClusterLoggingPropertiesArgsDict',
     'ClusterParameterGroupParameterArgs',
+    'ClusterParameterGroupParameterArgsDict',
     'ScheduledActionTypeArgs',
+    'ScheduledActionTypeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterEndpointArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The DNS address of the cluster. This property is read only.
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        The port that the database engine is listening on. This property is read only.
+        """
+elif False:
+    ClusterEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterEndpointArgs:
@@ -55,6 +79,34 @@ class ClusterEndpointArgs:
     def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class ClusterLoggingPropertiesArgsDict(TypedDict):
+        bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of an existing S3 bucket where the log files are to be stored.
+
+        Constraints:
+
+        - Must be in the same region as the cluster
+        - The cluster must have read bucket and put object permissions
+        """
+        log_destination_type: NotRequired[pulumi.Input[str]]
+        """
+        The log destination type. An enum with possible values of `s3` and `cloudwatch` .
+        """
+        log_exports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
+        """
+        s3_key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix applied to the log file names.
+
+        Valid characters are any letter from any language, any whitespace character, any numeric character, and the following characters: underscore ( `_` ), period ( `.` ), colon ( `:` ), slash ( `/` ), equal ( `=` ), plus ( `+` ), backslash ( `\\` ), hyphen ( `-` ), at symbol ( `@` ).
+        """
+elif False:
+    ClusterLoggingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterLoggingPropertiesArgs:
@@ -141,6 +193,19 @@ class ClusterLoggingPropertiesArgs:
         pulumi.set(self, "s3_key_prefix", value)
 
 
+if not MYPY:
+    class ClusterParameterGroupParameterArgsDict(TypedDict):
+        parameter_name: pulumi.Input[str]
+        """
+        The name of the parameter.
+        """
+        parameter_value: pulumi.Input[str]
+        """
+        The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
+        """
+elif False:
+    ClusterParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterParameterGroupParameterArgs:
     def __init__(__self__, *,
@@ -177,6 +242,12 @@ class ClusterParameterGroupParameterArgs:
     def parameter_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_value", value)
 
+
+if not MYPY:
+    class ScheduledActionTypeArgsDict(TypedDict):
+        pass
+elif False:
+    ScheduledActionTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledActionTypeArgs:

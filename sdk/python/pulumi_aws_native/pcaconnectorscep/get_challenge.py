@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -66,9 +71,6 @@ def get_challenge(challenge_arn: Optional[str] = None,
     return AwaitableGetChallengeResult(
         challenge_arn=pulumi.get(__ret__, 'challenge_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_challenge)
 def get_challenge_output(challenge_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChallengeResult]:
     """
@@ -77,4 +79,10 @@ def get_challenge_output(challenge_arn: Optional[pulumi.Input[str]] = None,
 
     :param str challenge_arn: The Amazon Resource Name (ARN) of the challenge.
     """
-    ...
+    __args__ = dict()
+    __args__['challengeArn'] = challenge_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:pcaconnectorscep:getChallenge', __args__, opts=opts, typ=GetChallengeResult)
+    return __ret__.apply(lambda __response__: GetChallengeResult(
+        challenge_arn=pulumi.get(__response__, 'challenge_arn'),
+        tags=pulumi.get(__response__, 'tags')))

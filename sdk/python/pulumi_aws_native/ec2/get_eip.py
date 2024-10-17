@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -117,9 +122,6 @@ def get_eip(allocation_id: Optional[str] = None,
         public_ip=pulumi.get(__ret__, 'public_ip'),
         public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_eip)
 def get_eip_output(allocation_id: Optional[pulumi.Input[str]] = None,
                    public_ip: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipResult]:
@@ -132,4 +134,14 @@ def get_eip_output(allocation_id: Optional[pulumi.Input[str]] = None,
     :param str allocation_id: The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
     :param str public_ip: The Elastic IP address.
     """
-    ...
+    __args__ = dict()
+    __args__['allocationId'] = allocation_id
+    __args__['publicIp'] = public_ip
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEip', __args__, opts=opts, typ=GetEipResult)
+    return __ret__.apply(lambda __response__: GetEipResult(
+        allocation_id=pulumi.get(__response__, 'allocation_id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        public_ip=pulumi.get(__response__, 'public_ip'),
+        public_ipv4_pool=pulumi.get(__response__, 'public_ipv4_pool'),
+        tags=pulumi.get(__response__, 'tags')))

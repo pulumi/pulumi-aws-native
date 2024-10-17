@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -89,9 +94,6 @@ def get_service(application_identifier: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         service_identifier=pulumi.get(__ret__, 'service_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(application_identifier: Optional[pulumi.Input[str]] = None,
                        environment_identifier: Optional[pulumi.Input[str]] = None,
                        service_identifier: Optional[pulumi.Input[str]] = None,
@@ -104,4 +106,13 @@ def get_service_output(application_identifier: Optional[pulumi.Input[str]] = Non
     :param str environment_identifier: The unique identifier of the environment.
     :param str service_identifier: The unique identifier of the service.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationIdentifier'] = application_identifier
+    __args__['environmentIdentifier'] = environment_identifier
+    __args__['serviceIdentifier'] = service_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:refactorspaces:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        service_identifier=pulumi.get(__response__, 'service_identifier'),
+        tags=pulumi.get(__response__, 'tags')))

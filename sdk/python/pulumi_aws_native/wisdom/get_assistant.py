@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_assistant(assistant_id: Optional[str] = None,
     return AwaitableGetAssistantResult(
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         assistant_id=pulumi.get(__ret__, 'assistant_id'))
-
-
-@_utilities.lift_output_func(get_assistant)
 def get_assistant_output(assistant_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssistantResult]:
     """
@@ -80,4 +82,10 @@ def get_assistant_output(assistant_id: Optional[pulumi.Input[str]] = None,
 
     :param str assistant_id: The ID of the Wisdom assistant.
     """
-    ...
+    __args__ = dict()
+    __args__['assistantId'] = assistant_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getAssistant', __args__, opts=opts, typ=GetAssistantResult)
+    return __ret__.apply(lambda __response__: GetAssistantResult(
+        assistant_arn=pulumi.get(__response__, 'assistant_arn'),
+        assistant_id=pulumi.get(__response__, 'assistant_id')))

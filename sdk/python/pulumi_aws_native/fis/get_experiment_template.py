@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -149,9 +154,6 @@ def get_experiment_template(id: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         stop_conditions=pulumi.get(__ret__, 'stop_conditions'),
         targets=pulumi.get(__ret__, 'targets'))
-
-
-@_utilities.lift_output_func(get_experiment_template)
 def get_experiment_template_output(id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentTemplateResult]:
     """
@@ -160,4 +162,16 @@ def get_experiment_template_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the experiment template.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:fis:getExperimentTemplate', __args__, opts=opts, typ=GetExperimentTemplateResult)
+    return __ret__.apply(lambda __response__: GetExperimentTemplateResult(
+        actions=pulumi.get(__response__, 'actions'),
+        description=pulumi.get(__response__, 'description'),
+        experiment_options=pulumi.get(__response__, 'experiment_options'),
+        id=pulumi.get(__response__, 'id'),
+        log_configuration=pulumi.get(__response__, 'log_configuration'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        stop_conditions=pulumi.get(__response__, 'stop_conditions'),
+        targets=pulumi.get(__response__, 'targets')))

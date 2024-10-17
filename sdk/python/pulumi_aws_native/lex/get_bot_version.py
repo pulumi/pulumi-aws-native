@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -72,9 +77,6 @@ def get_bot_version(bot_id: Optional[str] = None,
     return AwaitableGetBotVersionResult(
         bot_version=pulumi.get(__ret__, 'bot_version'),
         description=pulumi.get(__ret__, 'description'))
-
-
-@_utilities.lift_output_func(get_bot_version)
 def get_bot_version_output(bot_id: Optional[pulumi.Input[str]] = None,
                            bot_version: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotVersionResult]:
@@ -85,4 +87,11 @@ def get_bot_version_output(bot_id: Optional[pulumi.Input[str]] = None,
     :param str bot_id: The unique identifier of the bot.
     :param str bot_version: The version of the bot.
     """
-    ...
+    __args__ = dict()
+    __args__['botId'] = bot_id
+    __args__['botVersion'] = bot_version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lex:getBotVersion', __args__, opts=opts, typ=GetBotVersionResult)
+    return __ret__.apply(lambda __response__: GetBotVersionResult(
+        bot_version=pulumi.get(__response__, 'bot_version'),
+        description=pulumi.get(__response__, 'description')))

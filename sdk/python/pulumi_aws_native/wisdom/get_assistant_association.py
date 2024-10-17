@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -85,9 +90,6 @@ def get_assistant_association(assistant_association_id: Optional[str] = None,
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         assistant_association_arn=pulumi.get(__ret__, 'assistant_association_arn'),
         assistant_association_id=pulumi.get(__ret__, 'assistant_association_id'))
-
-
-@_utilities.lift_output_func(get_assistant_association)
 def get_assistant_association_output(assistant_association_id: Optional[pulumi.Input[str]] = None,
                                      assistant_id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssistantAssociationResult]:
@@ -98,4 +100,12 @@ def get_assistant_association_output(assistant_association_id: Optional[pulumi.I
     :param str assistant_association_id: The ID of the association.
     :param str assistant_id: The identifier of the Wisdom assistant.
     """
-    ...
+    __args__ = dict()
+    __args__['assistantAssociationId'] = assistant_association_id
+    __args__['assistantId'] = assistant_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getAssistantAssociation', __args__, opts=opts, typ=GetAssistantAssociationResult)
+    return __ret__.apply(lambda __response__: GetAssistantAssociationResult(
+        assistant_arn=pulumi.get(__response__, 'assistant_arn'),
+        assistant_association_arn=pulumi.get(__response__, 'assistant_association_arn'),
+        assistant_association_id=pulumi.get(__response__, 'assistant_association_id')))

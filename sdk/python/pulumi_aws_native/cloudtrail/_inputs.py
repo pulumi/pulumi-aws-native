@@ -4,23 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ChannelDestinationArgs',
+    'ChannelDestinationArgsDict',
     'EventDataStoreAdvancedEventSelectorArgs',
+    'EventDataStoreAdvancedEventSelectorArgsDict',
     'EventDataStoreAdvancedFieldSelectorArgs',
+    'EventDataStoreAdvancedFieldSelectorArgsDict',
     'EventDataStoreInsightSelectorArgs',
+    'EventDataStoreInsightSelectorArgsDict',
     'TrailAdvancedEventSelectorArgs',
+    'TrailAdvancedEventSelectorArgsDict',
     'TrailAdvancedFieldSelectorArgs',
+    'TrailAdvancedFieldSelectorArgsDict',
     'TrailDataResourceArgs',
+    'TrailDataResourceArgsDict',
     'TrailEventSelectorArgs',
+    'TrailEventSelectorArgsDict',
     'TrailInsightSelectorArgs',
+    'TrailInsightSelectorArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ChannelDestinationArgsDict(TypedDict):
+        """
+        The resource that receives events arriving from a channel.
+        """
+        location: pulumi.Input[str]
+        """
+        The ARN of a resource that receives events from a channel.
+        """
+        type: pulumi.Input['ChannelDestinationType']
+        """
+        The type of destination for events arriving from a channel.
+        """
+elif False:
+    ChannelDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ChannelDestinationArgs:
@@ -60,6 +92,22 @@ class ChannelDestinationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class EventDataStoreAdvancedEventSelectorArgsDict(TypedDict):
+        """
+        Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+        """
+        field_selectors: pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedFieldSelectorArgsDict']]]
+        """
+        Contains all selector statements in an advanced event selector.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
+        """
+elif False:
+    EventDataStoreAdvancedEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventDataStoreAdvancedEventSelectorArgs:
     def __init__(__self__, *,
@@ -98,6 +146,42 @@ class EventDataStoreAdvancedEventSelectorArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class EventDataStoreAdvancedFieldSelectorArgsDict(TypedDict):
+        """
+        A single selector statement in an advanced event selector.
+        """
+        field: pulumi.Input[str]
+        """
+        A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
+        """
+        ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
+        """
+        not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+        """
+        not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+        """
+elif False:
+    EventDataStoreAdvancedFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventDataStoreAdvancedFieldSelectorArgs:
@@ -218,6 +302,18 @@ class EventDataStoreAdvancedFieldSelectorArgs:
         pulumi.set(self, "starts_with", value)
 
 
+if not MYPY:
+    class EventDataStoreInsightSelectorArgsDict(TypedDict):
+        """
+        A string that contains Insights types that are logged on an event data store.
+        """
+        insight_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of Insights to log on an event data store.
+        """
+elif False:
+    EventDataStoreInsightSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventDataStoreInsightSelectorArgs:
     def __init__(__self__, *,
@@ -241,6 +337,22 @@ class EventDataStoreInsightSelectorArgs:
     def insight_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "insight_type", value)
 
+
+if not MYPY:
+    class TrailAdvancedEventSelectorArgsDict(TypedDict):
+        """
+        Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+        """
+        field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedFieldSelectorArgsDict']]]
+        """
+        Contains all selector statements in an advanced event selector.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
+        """
+elif False:
+    TrailAdvancedEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrailAdvancedEventSelectorArgs:
@@ -280,6 +392,42 @@ class TrailAdvancedEventSelectorArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TrailAdvancedFieldSelectorArgsDict(TypedDict):
+        """
+        A single selector statement in an advanced event selector.
+        """
+        field: pulumi.Input[str]
+        """
+        A field in an event record on which to filter events to be logged. Supported fields include readOnly, eventCategory, eventSource (for management events), eventName, resources.type, and resources.ARN.
+        """
+        ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that includes events that match the exact value of the event record field specified as the value of Field. This is the only valid operator that you can use with the readOnly, eventCategory, and resources.type fields.
+        """
+        not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+        """
+        not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+        """
+elif False:
+    TrailAdvancedFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrailAdvancedFieldSelectorArgs:
@@ -400,6 +548,22 @@ class TrailAdvancedFieldSelectorArgs:
         pulumi.set(self, "starts_with", value)
 
 
+if not MYPY:
+    class TrailDataResourceArgsDict(TypedDict):
+        """
+        CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+        """
+        type: pulumi.Input[str]
+        """
+        The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
+        """
+elif False:
+    TrailDataResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrailDataResourceArgs:
     def __init__(__self__, *,
@@ -438,6 +602,34 @@ class TrailDataResourceArgs:
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class TrailEventSelectorArgsDict(TypedDict):
+        """
+        The type of email sending events to publish to the event destination.
+        """
+        data_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrailDataResourceArgsDict']]]]
+        """
+        CloudTrail supports data event logging for Amazon S3 objects in standard S3 buckets, AWS Lambda functions, and Amazon DynamoDB tables with basic event selectors. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+
+        For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide* .
+
+        > To log data events for all other resource types including objects stored in [directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html) , you must use [AdvancedEventSelectors](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html) . You must also use `AdvancedEventSelectors` if you want to filter on the `eventName` field.
+        """
+        exclude_management_event_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
+        """
+        include_management_events: NotRequired[pulumi.Input[bool]]
+        """
+        Specify if you want your event selector to include management events for your trail.
+        """
+        read_write_type: NotRequired[pulumi.Input['TrailEventSelectorReadWriteType']]
+        """
+        Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
+        """
+elif False:
+    TrailEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrailEventSelectorArgs:
@@ -518,6 +710,18 @@ class TrailEventSelectorArgs:
     def read_write_type(self, value: Optional[pulumi.Input['TrailEventSelectorReadWriteType']]):
         pulumi.set(self, "read_write_type", value)
 
+
+if not MYPY:
+    class TrailInsightSelectorArgsDict(TypedDict):
+        """
+        A string that contains insight types that are logged on a trail.
+        """
+        insight_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of insight to log on a trail.
+        """
+elif False:
+    TrailInsightSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrailInsightSelectorArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -135,9 +140,6 @@ def get_environment(environment_arn: Optional[str] = None,
         instance_type=pulumi.get(__ret__, 'instance_type'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_environment)
 def get_environment_output(environment_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
@@ -146,4 +148,15 @@ def get_environment_output(environment_arn: Optional[pulumi.Input[str]] = None,
 
     :param str environment_arn: The Amazon Resource Name (ARN) of the runtime environment.
     """
-    ...
+    __args__ = dict()
+    __args__['environmentArn'] = environment_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:m2:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentResult(
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        environment_arn=pulumi.get(__response__, 'environment_arn'),
+        environment_id=pulumi.get(__response__, 'environment_id'),
+        high_availability_config=pulumi.get(__response__, 'high_availability_config'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -110,9 +115,6 @@ def get_url(function_arn: Optional[str] = None,
         function_arn=pulumi.get(__ret__, 'function_arn'),
         function_url=pulumi.get(__ret__, 'function_url'),
         invoke_mode=pulumi.get(__ret__, 'invoke_mode'))
-
-
-@_utilities.lift_output_func(get_url)
 def get_url_output(function_arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUrlResult]:
     """
@@ -121,4 +123,13 @@ def get_url_output(function_arn: Optional[pulumi.Input[str]] = None,
 
     :param str function_arn: The full Amazon Resource Name (ARN) of the function associated with the Function URL.
     """
-    ...
+    __args__ = dict()
+    __args__['functionArn'] = function_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getUrl', __args__, opts=opts, typ=GetUrlResult)
+    return __ret__.apply(lambda __response__: GetUrlResult(
+        auth_type=pulumi.get(__response__, 'auth_type'),
+        cors=pulumi.get(__response__, 'cors'),
+        function_arn=pulumi.get(__response__, 'function_arn'),
+        function_url=pulumi.get(__response__, 'function_url'),
+        invoke_mode=pulumi.get(__response__, 'invoke_mode')))

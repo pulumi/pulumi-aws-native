@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -95,9 +100,6 @@ def get_metered_product(arn: Optional[str] = None,
         family=pulumi.get(__ret__, 'family'),
         port=pulumi.get(__ret__, 'port'),
         vendor=pulumi.get(__ret__, 'vendor'))
-
-
-@_utilities.lift_output_func(get_metered_product)
 def get_metered_product_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMeteredProductResult]:
     """
@@ -106,4 +108,12 @@ def get_metered_product_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: The Amazon Resource Name (ARN) of the metered product.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getMeteredProduct', __args__, opts=opts, typ=GetMeteredProductResult)
+    return __ret__.apply(lambda __response__: GetMeteredProductResult(
+        arn=pulumi.get(__response__, 'arn'),
+        family=pulumi.get(__response__, 'family'),
+        port=pulumi.get(__response__, 'port'),
+        vendor=pulumi.get(__response__, 'vendor')))

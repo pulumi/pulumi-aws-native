@@ -4,16 +4,69 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'FirewallRuleGroupFirewallRuleArgs',
+    'FirewallRuleGroupFirewallRuleArgsDict',
     'ResolverRuleTargetAddressArgs',
+    'ResolverRuleTargetAddressArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FirewallRuleGroupFirewallRuleArgsDict(TypedDict):
+        """
+        Firewall Rule associating the Rule Group to a Domain List
+        """
+        action: pulumi.Input['FirewallRuleGroupFirewallRuleAction']
+        """
+        Rule Action
+        """
+        firewall_domain_list_id: pulumi.Input[str]
+        """
+        ResourceId
+        """
+        priority: pulumi.Input[int]
+        """
+        Rule Priority
+        """
+        block_override_dns_type: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']]
+        """
+        BlockOverrideDnsType
+        """
+        block_override_domain: NotRequired[pulumi.Input[str]]
+        """
+        BlockOverrideDomain
+        """
+        block_override_ttl: NotRequired[pulumi.Input[int]]
+        """
+        BlockOverrideTtl
+        """
+        block_response: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']]
+        """
+        BlockResponse
+        """
+        firewall_domain_redirection_action: NotRequired[pulumi.Input['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']]
+        """
+        FirewallDomainRedirectionAction
+        """
+        qtype: NotRequired[pulumi.Input[str]]
+        """
+        Qtype
+        """
+elif False:
+    FirewallRuleGroupFirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallRuleGroupFirewallRuleArgs:
@@ -163,6 +216,31 @@ class FirewallRuleGroupFirewallRuleArgs:
     def qtype(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "qtype", value)
 
+
+if not MYPY:
+    class ResolverRuleTargetAddressArgsDict(TypedDict):
+        ip: NotRequired[pulumi.Input[str]]
+        """
+        One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
+        """
+        ipv6: NotRequired[pulumi.Input[str]]
+        """
+        One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        The port at Ip that you want to forward DNS queries to. 
+        """
+        protocol: NotRequired[pulumi.Input['ResolverRuleTargetAddressProtocol']]
+        """
+        The protocol that you want to use to forward DNS queries. 
+        """
+        server_name_indication: NotRequired[pulumi.Input[str]]
+        """
+        The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+        """
+elif False:
+    ResolverRuleTargetAddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResolverRuleTargetAddressArgs:

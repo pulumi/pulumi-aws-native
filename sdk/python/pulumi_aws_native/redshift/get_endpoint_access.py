@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -135,9 +140,6 @@ def get_endpoint_access(endpoint_name: Optional[str] = None,
         vpc_endpoint=pulumi.get(__ret__, 'vpc_endpoint'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
-
-
-@_utilities.lift_output_func(get_endpoint_access)
 def get_endpoint_access_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointAccessResult]:
     """
@@ -146,4 +148,15 @@ def get_endpoint_access_output(endpoint_name: Optional[pulumi.Input[str]] = None
 
     :param str endpoint_name: The name of the endpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointName'] = endpoint_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getEndpointAccess', __args__, opts=opts, typ=GetEndpointAccessResult)
+    return __ret__.apply(lambda __response__: GetEndpointAccessResult(
+        address=pulumi.get(__response__, 'address'),
+        endpoint_create_time=pulumi.get(__response__, 'endpoint_create_time'),
+        endpoint_status=pulumi.get(__response__, 'endpoint_status'),
+        port=pulumi.get(__response__, 'port'),
+        vpc_endpoint=pulumi.get(__response__, 'vpc_endpoint'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids'),
+        vpc_security_groups=pulumi.get(__response__, 'vpc_security_groups')))

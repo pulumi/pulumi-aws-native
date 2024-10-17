@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -228,9 +233,6 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
         snowflake_destination_configuration=pulumi.get(__ret__, 'snowflake_destination_configuration'),
         splunk_destination_configuration=pulumi.get(__ret__, 'splunk_destination_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_delivery_stream)
 def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryStreamResult]:
     """
@@ -239,4 +241,20 @@ def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]]
 
     :param str delivery_stream_name: The name of the Firehose stream.
     """
-    ...
+    __args__ = dict()
+    __args__['deliveryStreamName'] = delivery_stream_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:kinesisfirehose:getDeliveryStream', __args__, opts=opts, typ=GetDeliveryStreamResult)
+    return __ret__.apply(lambda __response__: GetDeliveryStreamResult(
+        amazon_open_search_serverless_destination_configuration=pulumi.get(__response__, 'amazon_open_search_serverless_destination_configuration'),
+        amazonopensearchservice_destination_configuration=pulumi.get(__response__, 'amazonopensearchservice_destination_configuration'),
+        arn=pulumi.get(__response__, 'arn'),
+        delivery_stream_encryption_configuration_input=pulumi.get(__response__, 'delivery_stream_encryption_configuration_input'),
+        elasticsearch_destination_configuration=pulumi.get(__response__, 'elasticsearch_destination_configuration'),
+        extended_s3_destination_configuration=pulumi.get(__response__, 'extended_s3_destination_configuration'),
+        http_endpoint_destination_configuration=pulumi.get(__response__, 'http_endpoint_destination_configuration'),
+        redshift_destination_configuration=pulumi.get(__response__, 'redshift_destination_configuration'),
+        s3_destination_configuration=pulumi.get(__response__, 's3_destination_configuration'),
+        snowflake_destination_configuration=pulumi.get(__response__, 'snowflake_destination_configuration'),
+        splunk_destination_configuration=pulumi.get(__response__, 'splunk_destination_configuration'),
+        tags=pulumi.get(__response__, 'tags')))

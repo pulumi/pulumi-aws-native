@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -153,9 +158,6 @@ def get_budgets_action(action_id: Optional[str] = None,
         notification_type=pulumi.get(__ret__, 'notification_type'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         subscribers=pulumi.get(__ret__, 'subscribers'))
-
-
-@_utilities.lift_output_func(get_budgets_action)
 def get_budgets_action_output(action_id: Optional[pulumi.Input[str]] = None,
                               budget_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetsActionResult]:
@@ -166,4 +168,17 @@ def get_budgets_action_output(action_id: Optional[pulumi.Input[str]] = None,
     :param str action_id: A system-generated universally unique identifier (UUID) for the action.
     :param str budget_name: A string that represents the budget name. ":" and "\\" characters aren't allowed.
     """
-    ...
+    __args__ = dict()
+    __args__['actionId'] = action_id
+    __args__['budgetName'] = budget_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:budgets:getBudgetsAction', __args__, opts=opts, typ=GetBudgetsActionResult)
+    return __ret__.apply(lambda __response__: GetBudgetsActionResult(
+        action_id=pulumi.get(__response__, 'action_id'),
+        action_threshold=pulumi.get(__response__, 'action_threshold'),
+        approval_model=pulumi.get(__response__, 'approval_model'),
+        definition=pulumi.get(__response__, 'definition'),
+        execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
+        notification_type=pulumi.get(__response__, 'notification_type'),
+        resource_tags=pulumi.get(__response__, 'resource_tags'),
+        subscribers=pulumi.get(__response__, 'subscribers')))

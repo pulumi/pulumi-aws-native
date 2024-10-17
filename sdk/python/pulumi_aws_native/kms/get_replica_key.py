@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 
@@ -130,9 +135,6 @@ def get_replica_key(key_id: Optional[str] = None,
         key_id=pulumi.get(__ret__, 'key_id'),
         key_policy=pulumi.get(__ret__, 'key_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_replica_key)
 def get_replica_key_output(key_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicaKeyResult]:
     """
@@ -143,4 +145,14 @@ def get_replica_key_output(key_id: Optional[pulumi.Input[str]] = None,
            
            Related multi-Region keys have the same key ID. For information about the key IDs of multi-Region keys, see [How multi-Region keys work](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-how-it-works) in the *AWS Key Management Service Developer Guide* .
     """
-    ...
+    __args__ = dict()
+    __args__['keyId'] = key_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:kms:getReplicaKey', __args__, opts=opts, typ=GetReplicaKeyResult)
+    return __ret__.apply(lambda __response__: GetReplicaKeyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        key_policy=pulumi.get(__response__, 'key_policy'),
+        tags=pulumi.get(__response__, 'tags')))

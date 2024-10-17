@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -109,9 +114,6 @@ def get_channel(id: Optional[str] = None,
         egress_access_logs=pulumi.get(__ret__, 'egress_access_logs'),
         hls_ingest=pulumi.get(__ret__, 'hls_ingest'),
         ingress_access_logs=pulumi.get(__ret__, 'ingress_access_logs'))
-
-
-@_utilities.lift_output_func(get_channel)
 def get_channel_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
@@ -120,4 +122,13 @@ def get_channel_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the Channel.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackage:getChannel', __args__, opts=opts, typ=GetChannelResult)
+    return __ret__.apply(lambda __response__: GetChannelResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        egress_access_logs=pulumi.get(__response__, 'egress_access_logs'),
+        hls_ingest=pulumi.get(__response__, 'hls_ingest'),
+        ingress_access_logs=pulumi.get(__response__, 'ingress_access_logs')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -202,9 +207,6 @@ def get_location_hdfs(location_arn: Optional[str] = None,
         replication_factor=pulumi.get(__ret__, 'replication_factor'),
         simple_user=pulumi.get(__ret__, 'simple_user'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_location_hdfs)
 def get_location_hdfs_output(location_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationHdfsResult]:
     """
@@ -213,4 +215,20 @@ def get_location_hdfs_output(location_arn: Optional[pulumi.Input[str]] = None,
 
     :param str location_arn: The Amazon Resource Name (ARN) of the HDFS location.
     """
-    ...
+    __args__ = dict()
+    __args__['locationArn'] = location_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationHdfs', __args__, opts=opts, typ=GetLocationHdfsResult)
+    return __ret__.apply(lambda __response__: GetLocationHdfsResult(
+        agent_arns=pulumi.get(__response__, 'agent_arns'),
+        authentication_type=pulumi.get(__response__, 'authentication_type'),
+        block_size=pulumi.get(__response__, 'block_size'),
+        kerberos_principal=pulumi.get(__response__, 'kerberos_principal'),
+        kms_key_provider_uri=pulumi.get(__response__, 'kms_key_provider_uri'),
+        location_arn=pulumi.get(__response__, 'location_arn'),
+        location_uri=pulumi.get(__response__, 'location_uri'),
+        name_nodes=pulumi.get(__response__, 'name_nodes'),
+        qop_configuration=pulumi.get(__response__, 'qop_configuration'),
+        replication_factor=pulumi.get(__response__, 'replication_factor'),
+        simple_user=pulumi.get(__response__, 'simple_user'),
+        tags=pulumi.get(__response__, 'tags')))

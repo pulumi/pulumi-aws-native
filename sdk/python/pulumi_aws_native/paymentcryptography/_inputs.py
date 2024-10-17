@@ -4,16 +4,48 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'KeyAttributesArgs',
+    'KeyAttributesArgsDict',
     'KeyModesOfUseArgs',
+    'KeyModesOfUseArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class KeyAttributesArgsDict(TypedDict):
+        key_algorithm: pulumi.Input['KeyAlgorithm']
+        """
+        The key algorithm to be use during creation of an AWS Payment Cryptography key.
+
+        For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
+        """
+        key_class: pulumi.Input['KeyClass']
+        """
+        The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
+        """
+        key_modes_of_use: pulumi.Input['KeyModesOfUseArgsDict']
+        """
+        The list of cryptographic operations that you can perform using the key.
+        """
+        key_usage: pulumi.Input['KeyUsage']
+        """
+        The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
+        """
+elif False:
+    KeyAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyAttributesArgs:
@@ -85,6 +117,44 @@ class KeyAttributesArgs:
     def key_usage(self, value: pulumi.Input['KeyUsage']):
         pulumi.set(self, "key_usage", value)
 
+
+if not MYPY:
+    class KeyModesOfUseArgsDict(TypedDict):
+        decrypt: NotRequired[pulumi.Input[bool]]
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to decrypt data.
+        """
+        derive_key: NotRequired[pulumi.Input[bool]]
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to derive new keys.
+        """
+        encrypt: NotRequired[pulumi.Input[bool]]
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to encrypt data.
+        """
+        generate: NotRequired[pulumi.Input[bool]]
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
+        """
+        no_restrictions: NotRequired[pulumi.Input[bool]]
+        """
+        Speciﬁes whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by `KeyUsage` .
+        """
+        sign: NotRequired[pulumi.Input[bool]]
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used for signing.
+        """
+        unwrap: NotRequired[pulumi.Input[bool]]
+        verify: NotRequired[pulumi.Input[bool]]
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to verify signatures.
+        """
+        wrap: NotRequired[pulumi.Input[bool]]
+        """
+        Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
+        """
+elif False:
+    KeyModesOfUseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyModesOfUseArgs:

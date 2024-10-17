@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -164,9 +169,6 @@ def get_user(user_name: Optional[str] = None,
         permissions_boundary=pulumi.get(__ret__, 'permissions_boundary'),
         policies=pulumi.get(__ret__, 'policies'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -180,4 +182,16 @@ def get_user_output(user_name: Optional[pulumi.Input[str]] = None,
             If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
              Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``{"Fn::Join": ["", [{"Ref": "AWS::Region"}, {"Ref": "MyResourceName"}]]}``.
     """
-    ...
+    __args__ = dict()
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        arn=pulumi.get(__response__, 'arn'),
+        groups=pulumi.get(__response__, 'groups'),
+        login_profile=pulumi.get(__response__, 'login_profile'),
+        managed_policy_arns=pulumi.get(__response__, 'managed_policy_arns'),
+        path=pulumi.get(__response__, 'path'),
+        permissions_boundary=pulumi.get(__response__, 'permissions_boundary'),
+        policies=pulumi.get(__response__, 'policies'),
+        tags=pulumi.get(__response__, 'tags')))

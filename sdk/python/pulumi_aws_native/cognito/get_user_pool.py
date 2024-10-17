@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -441,9 +446,6 @@ def get_user_pool(user_pool_id: Optional[str] = None,
         username_attributes=pulumi.get(__ret__, 'username_attributes'),
         username_configuration=pulumi.get(__ret__, 'username_configuration'),
         verification_message_template=pulumi.get(__ret__, 'verification_message_template'))
-
-
-@_utilities.lift_output_func(get_user_pool)
 def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResult]:
     """
@@ -452,4 +454,37 @@ def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
 
     :param str user_pool_id: The ID of the user pool.
     """
-    ...
+    __args__ = dict()
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPool', __args__, opts=opts, typ=GetUserPoolResult)
+    return __ret__.apply(lambda __response__: GetUserPoolResult(
+        account_recovery_setting=pulumi.get(__response__, 'account_recovery_setting'),
+        admin_create_user_config=pulumi.get(__response__, 'admin_create_user_config'),
+        alias_attributes=pulumi.get(__response__, 'alias_attributes'),
+        arn=pulumi.get(__response__, 'arn'),
+        auto_verified_attributes=pulumi.get(__response__, 'auto_verified_attributes'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
+        device_configuration=pulumi.get(__response__, 'device_configuration'),
+        email_authentication_message=pulumi.get(__response__, 'email_authentication_message'),
+        email_authentication_subject=pulumi.get(__response__, 'email_authentication_subject'),
+        email_configuration=pulumi.get(__response__, 'email_configuration'),
+        email_verification_message=pulumi.get(__response__, 'email_verification_message'),
+        email_verification_subject=pulumi.get(__response__, 'email_verification_subject'),
+        lambda_config=pulumi.get(__response__, 'lambda_config'),
+        mfa_configuration=pulumi.get(__response__, 'mfa_configuration'),
+        policies=pulumi.get(__response__, 'policies'),
+        provider_name=pulumi.get(__response__, 'provider_name'),
+        provider_url=pulumi.get(__response__, 'provider_url'),
+        schema=pulumi.get(__response__, 'schema'),
+        sms_authentication_message=pulumi.get(__response__, 'sms_authentication_message'),
+        sms_configuration=pulumi.get(__response__, 'sms_configuration'),
+        sms_verification_message=pulumi.get(__response__, 'sms_verification_message'),
+        user_attribute_update_settings=pulumi.get(__response__, 'user_attribute_update_settings'),
+        user_pool_add_ons=pulumi.get(__response__, 'user_pool_add_ons'),
+        user_pool_id=pulumi.get(__response__, 'user_pool_id'),
+        user_pool_name=pulumi.get(__response__, 'user_pool_name'),
+        user_pool_tags=pulumi.get(__response__, 'user_pool_tags'),
+        username_attributes=pulumi.get(__response__, 'username_attributes'),
+        username_configuration=pulumi.get(__response__, 'username_configuration'),
+        verification_message_template=pulumi.get(__response__, 'verification_message_template')))

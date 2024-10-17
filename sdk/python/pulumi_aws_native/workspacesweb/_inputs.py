@@ -4,17 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'IpAccessSettingsIpRuleArgs',
+    'IpAccessSettingsIpRuleArgsDict',
     'UserSettingsCookieSpecificationArgs',
+    'UserSettingsCookieSpecificationArgsDict',
     'UserSettingsCookieSynchronizationConfigurationArgs',
+    'UserSettingsCookieSynchronizationConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IpAccessSettingsIpRuleArgsDict(TypedDict):
+        ip_range: pulumi.Input[str]
+        """
+        A single IP address or an IP address range in CIDR notation
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the IP rule.
+        """
+elif False:
+    IpAccessSettingsIpRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IpAccessSettingsIpRuleArgs:
@@ -53,6 +76,23 @@ class IpAccessSettingsIpRuleArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class UserSettingsCookieSpecificationArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        """
+        The domain of the cookie.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the cookie.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path of the cookie.
+        """
+elif False:
+    UserSettingsCookieSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserSettingsCookieSpecificationArgs:
@@ -107,6 +147,19 @@ class UserSettingsCookieSpecificationArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class UserSettingsCookieSynchronizationConfigurationArgsDict(TypedDict):
+        allowlist: pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgsDict']]]
+        """
+        The list of cookie specifications that are allowed to be synchronized to the remote browser.
+        """
+        blocklist: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgsDict']]]]
+        """
+        The list of cookie specifications that are blocked from being synchronized to the remote browser.
+        """
+elif False:
+    UserSettingsCookieSynchronizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserSettingsCookieSynchronizationConfigurationArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -84,9 +89,6 @@ def get_cluster(cluster_arn: Optional[str] = None,
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         cluster_endpoints=pulumi.get(__ret__, 'cluster_endpoints'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -95,4 +97,11 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_arn: The Amazon Resource Name (ARN) of the cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterArn'] = cluster_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoverycontrol:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        cluster_arn=pulumi.get(__response__, 'cluster_arn'),
+        cluster_endpoints=pulumi.get(__response__, 'cluster_endpoints'),
+        status=pulumi.get(__response__, 'status')))

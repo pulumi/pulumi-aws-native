@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -204,9 +209,6 @@ def get_mission_profile(arn: Optional[str] = None,
         streams_kms_role=pulumi.get(__ret__, 'streams_kms_role'),
         tags=pulumi.get(__ret__, 'tags'),
         tracking_config_arn=pulumi.get(__ret__, 'tracking_config_arn'))
-
-
-@_utilities.lift_output_func(get_mission_profile)
 def get_mission_profile_output(arn: Optional[pulumi.Input[str]] = None,
                                id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMissionProfileResult]:
@@ -217,4 +219,21 @@ def get_mission_profile_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: The ARN of the mission profile, such as `arn:aws:groundstation:us-east-2:1234567890:mission-profile/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
     :param str id: The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:groundstation:getMissionProfile', __args__, opts=opts, typ=GetMissionProfileResult)
+    return __ret__.apply(lambda __response__: GetMissionProfileResult(
+        arn=pulumi.get(__response__, 'arn'),
+        contact_post_pass_duration_seconds=pulumi.get(__response__, 'contact_post_pass_duration_seconds'),
+        contact_pre_pass_duration_seconds=pulumi.get(__response__, 'contact_pre_pass_duration_seconds'),
+        dataflow_edges=pulumi.get(__response__, 'dataflow_edges'),
+        id=pulumi.get(__response__, 'id'),
+        minimum_viable_contact_duration_seconds=pulumi.get(__response__, 'minimum_viable_contact_duration_seconds'),
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
+        streams_kms_key=pulumi.get(__response__, 'streams_kms_key'),
+        streams_kms_role=pulumi.get(__response__, 'streams_kms_role'),
+        tags=pulumi.get(__response__, 'tags'),
+        tracking_config_arn=pulumi.get(__response__, 'tracking_config_arn')))

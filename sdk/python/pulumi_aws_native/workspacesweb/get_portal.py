@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
 from ._enums import *
@@ -304,9 +309,6 @@ def get_portal(portal_arn: Optional[str] = None,
         trust_store_arn=pulumi.get(__ret__, 'trust_store_arn'),
         user_access_logging_settings_arn=pulumi.get(__ret__, 'user_access_logging_settings_arn'),
         user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'))
-
-
-@_utilities.lift_output_func(get_portal)
 def get_portal_output(portal_arn: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortalResult]:
     """
@@ -315,4 +317,27 @@ def get_portal_output(portal_arn: Optional[pulumi.Input[str]] = None,
 
     :param str portal_arn: The ARN of the web portal.
     """
-    ...
+    __args__ = dict()
+    __args__['portalArn'] = portal_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getPortal', __args__, opts=opts, typ=GetPortalResult)
+    return __ret__.apply(lambda __response__: GetPortalResult(
+        authentication_type=pulumi.get(__response__, 'authentication_type'),
+        browser_settings_arn=pulumi.get(__response__, 'browser_settings_arn'),
+        browser_type=pulumi.get(__response__, 'browser_type'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        ip_access_settings_arn=pulumi.get(__response__, 'ip_access_settings_arn'),
+        max_concurrent_sessions=pulumi.get(__response__, 'max_concurrent_sessions'),
+        network_settings_arn=pulumi.get(__response__, 'network_settings_arn'),
+        portal_arn=pulumi.get(__response__, 'portal_arn'),
+        portal_endpoint=pulumi.get(__response__, 'portal_endpoint'),
+        portal_status=pulumi.get(__response__, 'portal_status'),
+        renderer_type=pulumi.get(__response__, 'renderer_type'),
+        service_provider_saml_metadata=pulumi.get(__response__, 'service_provider_saml_metadata'),
+        status_reason=pulumi.get(__response__, 'status_reason'),
+        tags=pulumi.get(__response__, 'tags'),
+        trust_store_arn=pulumi.get(__response__, 'trust_store_arn'),
+        user_access_logging_settings_arn=pulumi.get(__response__, 'user_access_logging_settings_arn'),
+        user_settings_arn=pulumi.get(__response__, 'user_settings_arn')))

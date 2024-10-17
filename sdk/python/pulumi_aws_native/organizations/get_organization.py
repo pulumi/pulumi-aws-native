@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -135,9 +140,6 @@ def get_organization(id: Optional[str] = None,
         management_account_email=pulumi.get(__ret__, 'management_account_email'),
         management_account_id=pulumi.get(__ret__, 'management_account_id'),
         root_id=pulumi.get(__ret__, 'root_id'))
-
-
-@_utilities.lift_output_func(get_organization)
 def get_organization_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
     """
@@ -146,4 +148,15 @@ def get_organization_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The unique identifier (ID) of an organization.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:organizations:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
+    return __ret__.apply(lambda __response__: GetOrganizationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        feature_set=pulumi.get(__response__, 'feature_set'),
+        id=pulumi.get(__response__, 'id'),
+        management_account_arn=pulumi.get(__response__, 'management_account_arn'),
+        management_account_email=pulumi.get(__response__, 'management_account_email'),
+        management_account_id=pulumi.get(__response__, 'management_account_id'),
+        root_id=pulumi.get(__response__, 'root_id')))

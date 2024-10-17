@@ -4,27 +4,91 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'As2ConfigPropertiesArgs',
+    'As2ConfigPropertiesArgsDict',
     'SftpConfigPropertiesArgs',
+    'SftpConfigPropertiesArgsDict',
     'WorkflowEfsInputFileLocationArgs',
+    'WorkflowEfsInputFileLocationArgsDict',
     'WorkflowInputFileLocationArgs',
+    'WorkflowInputFileLocationArgsDict',
     'WorkflowS3FileLocationArgs',
+    'WorkflowS3FileLocationArgsDict',
     'WorkflowS3InputFileLocationArgs',
+    'WorkflowS3InputFileLocationArgsDict',
     'WorkflowS3TagArgs',
+    'WorkflowS3TagArgsDict',
     'WorkflowStepCopyStepDetailsPropertiesArgs',
+    'WorkflowStepCopyStepDetailsPropertiesArgsDict',
     'WorkflowStepCustomStepDetailsPropertiesArgs',
+    'WorkflowStepCustomStepDetailsPropertiesArgsDict',
     'WorkflowStepDecryptStepDetailsPropertiesArgs',
+    'WorkflowStepDecryptStepDetailsPropertiesArgsDict',
     'WorkflowStepDeleteStepDetailsPropertiesArgs',
+    'WorkflowStepDeleteStepDetailsPropertiesArgsDict',
     'WorkflowStepTagStepDetailsPropertiesArgs',
+    'WorkflowStepTagStepDetailsPropertiesArgsDict',
     'WorkflowStepArgs',
+    'WorkflowStepArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class As2ConfigPropertiesArgsDict(TypedDict):
+        """
+        Configuration for an AS2 connector.
+        """
+        basic_auth_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+        """
+        compression: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']]
+        """
+        Compression setting for this AS2 connector configuration.
+        """
+        encryption_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]
+        """
+        Encryption algorithm for this AS2 connector configuration.
+        """
+        local_profile_id: NotRequired[pulumi.Input[str]]
+        """
+        A unique identifier for the local profile.
+        """
+        mdn_response: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']]
+        """
+        MDN Response setting for this AS2 connector configuration.
+        """
+        mdn_signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]
+        """
+        MDN Signing algorithm for this AS2 connector configuration.
+        """
+        message_subject: NotRequired[pulumi.Input[str]]
+        """
+        The message subject for this AS2 connector configuration.
+        """
+        partner_profile_id: NotRequired[pulumi.Input[str]]
+        """
+        A unique identifier for the partner profile.
+        """
+        signing_algorithm: NotRequired[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]
+        """
+        Signing algorithm for this AS2 connector configuration.
+        """
+elif False:
+    As2ConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class As2ConfigPropertiesArgs:
@@ -178,6 +242,22 @@ class As2ConfigPropertiesArgs:
         pulumi.set(self, "signing_algorithm", value)
 
 
+if not MYPY:
+    class SftpConfigPropertiesArgsDict(TypedDict):
+        """
+        Configuration for an SFTP connector.
+        """
+        trusted_host_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of public host keys, for the external server to which you are connecting.
+        """
+        user_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
+        """
+elif False:
+    SftpConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SftpConfigPropertiesArgs:
     def __init__(__self__, *,
@@ -217,6 +297,22 @@ class SftpConfigPropertiesArgs:
     def user_secret_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_secret_id", value)
 
+
+if not MYPY:
+    class WorkflowEfsInputFileLocationArgsDict(TypedDict):
+        """
+        Specifies the details for an EFS file.
+        """
+        file_system_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the EFS filesystem that contains the file.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
+        """
+elif False:
+    WorkflowEfsInputFileLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowEfsInputFileLocationArgs:
@@ -258,6 +354,16 @@ class WorkflowEfsInputFileLocationArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class WorkflowInputFileLocationArgsDict(TypedDict):
+        """
+        Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
+        """
+        efs_file_location: NotRequired[pulumi.Input['WorkflowEfsInputFileLocationArgsDict']]
+        s3_file_location: NotRequired[pulumi.Input['WorkflowS3InputFileLocationArgsDict']]
+elif False:
+    WorkflowInputFileLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowInputFileLocationArgs:
     def __init__(__self__, *,
@@ -290,6 +396,18 @@ class WorkflowInputFileLocationArgs:
         pulumi.set(self, "s3_file_location", value)
 
 
+if not MYPY:
+    class WorkflowS3FileLocationArgsDict(TypedDict):
+        """
+        Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+        """
+        s3_file_location: NotRequired[pulumi.Input['WorkflowS3InputFileLocationArgsDict']]
+        """
+        Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
+        """
+elif False:
+    WorkflowS3FileLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowS3FileLocationArgs:
     def __init__(__self__, *,
@@ -313,6 +431,22 @@ class WorkflowS3FileLocationArgs:
     def s3_file_location(self, value: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']]):
         pulumi.set(self, "s3_file_location", value)
 
+
+if not MYPY:
+    class WorkflowS3InputFileLocationArgsDict(TypedDict):
+        """
+        Specifies the details for a S3 file.
+        """
+        bucket: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the S3 bucket that contains the file.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+        """
+elif False:
+    WorkflowS3InputFileLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowS3InputFileLocationArgs:
@@ -354,6 +488,22 @@ class WorkflowS3InputFileLocationArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class WorkflowS3TagArgsDict(TypedDict):
+        """
+        Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
+        """
+        key: pulumi.Input[str]
+        """
+        The name assigned to the tag that you create.
+        """
+        value: pulumi.Input[str]
+        """
+        The value that corresponds to the key.
+        """
+elif False:
+    WorkflowS3TagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowS3TagArgs:
     def __init__(__self__, *,
@@ -391,6 +541,27 @@ class WorkflowS3TagArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WorkflowStepCopyStepDetailsPropertiesArgsDict(TypedDict):
+        """
+        Details for a step that performs a file copy.
+        """
+        destination_file_location: NotRequired[pulumi.Input['WorkflowS3FileLocationArgsDict']]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the step, used as an identifier.
+        """
+        overwrite_existing: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']]
+        """
+        A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+        """
+        source_file_location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+elif False:
+    WorkflowStepCopyStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowStepCopyStepDetailsPropertiesArgs:
@@ -459,6 +630,30 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
     def source_file_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_file_location", value)
 
+
+if not MYPY:
+    class WorkflowStepCustomStepDetailsPropertiesArgsDict(TypedDict):
+        """
+        Details for a step that invokes a lambda function.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the step, used as an identifier.
+        """
+        source_file_location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        The ARN for the lambda function that is being called.
+        """
+        timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Timeout, in seconds, for the step.
+        """
+elif False:
+    WorkflowStepCustomStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowStepCustomStepDetailsPropertiesArgs:
@@ -531,6 +726,31 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
     def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
+
+if not MYPY:
+    class WorkflowStepDecryptStepDetailsPropertiesArgsDict(TypedDict):
+        """
+        Details for a step that performs a file decryption.
+        """
+        destination_file_location: pulumi.Input['WorkflowInputFileLocationArgsDict']
+        type: pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']
+        """
+        Specifies which encryption method to use.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the step, used as an identifier.
+        """
+        overwrite_existing: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]
+        """
+        A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+        """
+        source_file_location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+elif False:
+    WorkflowStepDecryptStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowStepDecryptStepDetailsPropertiesArgs:
@@ -614,6 +834,22 @@ class WorkflowStepDecryptStepDetailsPropertiesArgs:
         pulumi.set(self, "source_file_location", value)
 
 
+if not MYPY:
+    class WorkflowStepDeleteStepDetailsPropertiesArgsDict(TypedDict):
+        """
+        Details for a step that deletes the file.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the step, used as an identifier.
+        """
+        source_file_location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+elif False:
+    WorkflowStepDeleteStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowStepDeleteStepDetailsPropertiesArgs:
     def __init__(__self__, *,
@@ -653,6 +889,26 @@ class WorkflowStepDeleteStepDetailsPropertiesArgs:
     def source_file_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_file_location", value)
 
+
+if not MYPY:
+    class WorkflowStepTagStepDetailsPropertiesArgsDict(TypedDict):
+        """
+        Details for a step that creates one or more tags.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the step, used as an identifier.
+        """
+        source_file_location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgsDict']]]]
+        """
+        Array that contains from 1 to 10 key/value pairs.
+        """
+elif False:
+    WorkflowStepTagStepDetailsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowStepTagStepDetailsPropertiesArgs:
@@ -709,6 +965,35 @@ class WorkflowStepTagStepDetailsPropertiesArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class WorkflowStepArgsDict(TypedDict):
+        """
+        The basic building block of a workflow.
+        """
+        copy_step_details: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgsDict']]
+        """
+        Details for a step that performs a file copy.
+        """
+        custom_step_details: NotRequired[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgsDict']]
+        """
+        Details for a step that invokes a lambda function.
+        """
+        decrypt_step_details: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgsDict']]
+        """
+        Details for a step that performs a file decryption.
+        """
+        delete_step_details: NotRequired[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgsDict']]
+        """
+        Details for a step that deletes the file.
+        """
+        tag_step_details: NotRequired[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgsDict']]
+        """
+        Details for a step that creates one or more tags.
+        """
+        type: NotRequired[pulumi.Input['WorkflowStepType']]
+elif False:
+    WorkflowStepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowStepArgs:

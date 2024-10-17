@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -71,9 +76,6 @@ def get_subscriber_notification(subscriber_arn: Optional[str] = None,
     return AwaitableGetSubscriberNotificationResult(
         notification_configuration=pulumi.get(__ret__, 'notification_configuration'),
         subscriber_endpoint=pulumi.get(__ret__, 'subscriber_endpoint'))
-
-
-@_utilities.lift_output_func(get_subscriber_notification)
 def get_subscriber_notification_output(subscriber_arn: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriberNotificationResult]:
     """
@@ -82,4 +84,10 @@ def get_subscriber_notification_output(subscriber_arn: Optional[pulumi.Input[str
 
     :param str subscriber_arn: The ARN for the subscriber
     """
-    ...
+    __args__ = dict()
+    __args__['subscriberArn'] = subscriber_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:securitylake:getSubscriberNotification', __args__, opts=opts, typ=GetSubscriberNotificationResult)
+    return __ret__.apply(lambda __response__: GetSubscriberNotificationResult(
+        notification_configuration=pulumi.get(__response__, 'notification_configuration'),
+        subscriber_endpoint=pulumi.get(__response__, 'subscriber_endpoint')))

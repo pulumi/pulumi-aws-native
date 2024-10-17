@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -203,12 +208,25 @@ def get_job_definition(id: Optional[str] = None,
         scheduling_priority=pulumi.get(__ret__, 'scheduling_priority'),
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_job_definition)
 def get_job_definition_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Resource Type definition for AWS::Batch::JobDefinition
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
+    return __ret__.apply(lambda __response__: GetJobDefinitionResult(
+        container_properties=pulumi.get(__response__, 'container_properties'),
+        ecs_properties=pulumi.get(__response__, 'ecs_properties'),
+        eks_properties=pulumi.get(__response__, 'eks_properties'),
+        id=pulumi.get(__response__, 'id'),
+        node_properties=pulumi.get(__response__, 'node_properties'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        platform_capabilities=pulumi.get(__response__, 'platform_capabilities'),
+        propagate_tags=pulumi.get(__response__, 'propagate_tags'),
+        retry_strategy=pulumi.get(__response__, 'retry_strategy'),
+        scheduling_priority=pulumi.get(__response__, 'scheduling_priority'),
+        timeout=pulumi.get(__response__, 'timeout'),
+        type=pulumi.get(__response__, 'type')))

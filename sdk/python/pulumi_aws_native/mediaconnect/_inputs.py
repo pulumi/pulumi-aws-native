@@ -4,54 +4,110 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'BridgeEgressGatewayBridgeArgs',
+    'BridgeEgressGatewayBridgeArgsDict',
     'BridgeFailoverConfigArgs',
+    'BridgeFailoverConfigArgsDict',
     'BridgeFlowSourceArgs',
+    'BridgeFlowSourceArgsDict',
     'BridgeIngressGatewayBridgeArgs',
+    'BridgeIngressGatewayBridgeArgsDict',
     'BridgeNetworkOutputArgs',
+    'BridgeNetworkOutputArgsDict',
     'BridgeNetworkSourceArgs',
+    'BridgeNetworkSourceArgsDict',
     'BridgeOutputResourceBridgeNetworkOutputArgs',
+    'BridgeOutputResourceBridgeNetworkOutputArgsDict',
     'BridgeOutputArgs',
+    'BridgeOutputArgsDict',
     'BridgeSourceBridgeFlowSourceArgs',
+    'BridgeSourceBridgeFlowSourceArgsDict',
     'BridgeSourceBridgeNetworkSourceArgs',
+    'BridgeSourceBridgeNetworkSourceArgsDict',
     'BridgeSourcePriorityArgs',
+    'BridgeSourcePriorityArgsDict',
     'BridgeSourceVpcInterfaceAttachmentArgs',
+    'BridgeSourceVpcInterfaceAttachmentArgsDict',
     'BridgeSourceArgs',
+    'BridgeSourceArgsDict',
     'BridgeVpcInterfaceAttachmentArgs',
+    'BridgeVpcInterfaceAttachmentArgsDict',
     'FlowEncryptionArgs',
+    'FlowEncryptionArgsDict',
     'FlowEntitlementEncryptionArgs',
+    'FlowEntitlementEncryptionArgsDict',
     'FlowFailoverConfigSourcePriorityPropertiesArgs',
+    'FlowFailoverConfigSourcePriorityPropertiesArgsDict',
     'FlowFailoverConfigArgs',
+    'FlowFailoverConfigArgsDict',
     'FlowFmtpArgs',
+    'FlowFmtpArgsDict',
     'FlowGatewayBridgeSourceArgs',
+    'FlowGatewayBridgeSourceArgsDict',
     'FlowInputConfigurationArgs',
+    'FlowInputConfigurationArgsDict',
     'FlowInterfaceArgs',
+    'FlowInterfaceArgsDict',
     'FlowMaintenanceArgs',
+    'FlowMaintenanceArgsDict',
     'FlowMediaStreamAttributesArgs',
+    'FlowMediaStreamAttributesArgsDict',
     'FlowMediaStreamSourceConfigurationArgs',
+    'FlowMediaStreamSourceConfigurationArgsDict',
     'FlowMediaStreamArgs',
+    'FlowMediaStreamArgsDict',
     'FlowOutputDestinationConfigurationArgs',
+    'FlowOutputDestinationConfigurationArgsDict',
     'FlowOutputEncodingParametersArgs',
+    'FlowOutputEncodingParametersArgsDict',
     'FlowOutputEncryptionArgs',
+    'FlowOutputEncryptionArgsDict',
     'FlowOutputInterfaceArgs',
+    'FlowOutputInterfaceArgsDict',
     'FlowOutputMediaStreamOutputConfigurationArgs',
+    'FlowOutputMediaStreamOutputConfigurationArgsDict',
     'FlowOutputVpcInterfaceAttachmentArgs',
+    'FlowOutputVpcInterfaceAttachmentArgsDict',
     'FlowSourceEncryptionArgs',
+    'FlowSourceEncryptionArgsDict',
     'FlowSourceGatewayBridgeSourceArgs',
+    'FlowSourceGatewayBridgeSourceArgsDict',
     'FlowSourceMonitoringConfigArgs',
+    'FlowSourceMonitoringConfigArgsDict',
     'FlowSourceVpcInterfaceAttachmentArgs',
+    'FlowSourceVpcInterfaceAttachmentArgsDict',
     'FlowSourceArgs',
+    'FlowSourceArgsDict',
     'FlowVpcInterfaceAttachmentArgs',
+    'FlowVpcInterfaceAttachmentArgsDict',
     'FlowVpcInterfaceArgs',
+    'FlowVpcInterfaceArgsDict',
     'GatewayNetworkArgs',
+    'GatewayNetworkArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BridgeEgressGatewayBridgeArgsDict(TypedDict):
+        max_bitrate: pulumi.Input[int]
+        """
+        The maximum expected bitrate of the egress bridge.
+        """
+elif False:
+    BridgeEgressGatewayBridgeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BridgeEgressGatewayBridgeArgs:
@@ -74,6 +130,26 @@ class BridgeEgressGatewayBridgeArgs:
     def max_bitrate(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_bitrate", value)
 
+
+if not MYPY:
+    class BridgeFailoverConfigArgsDict(TypedDict):
+        """
+        The settings for source failover.
+        """
+        failover_mode: pulumi.Input['BridgeFailoverModeEnum']
+        """
+        The type of failover you choose for this flow. FAILOVER allows switching between different streams.
+        """
+        source_priority: NotRequired[pulumi.Input['BridgeSourcePriorityArgsDict']]
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        state: NotRequired[pulumi.Input['BridgeFailoverConfigStateEnum']]
+        """
+        The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+        """
+elif False:
+    BridgeFailoverConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BridgeFailoverConfigArgs:
@@ -130,6 +206,26 @@ class BridgeFailoverConfigArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class BridgeFlowSourceArgsDict(TypedDict):
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        """
+        flow_arn: pulumi.Input[str]
+        """
+        The ARN of the cloud flow used as a source of this bridge.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the flow source.
+        """
+        flow_vpc_interface_attachment: NotRequired[pulumi.Input['BridgeVpcInterfaceAttachmentArgsDict']]
+        """
+        The name of the VPC interface attachment to use for this source.
+        """
+elif False:
+    BridgeFlowSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BridgeFlowSourceArgs:
     def __init__(__self__, *,
@@ -184,6 +280,19 @@ class BridgeFlowSourceArgs:
         pulumi.set(self, "flow_vpc_interface_attachment", value)
 
 
+if not MYPY:
+    class BridgeIngressGatewayBridgeArgsDict(TypedDict):
+        max_bitrate: pulumi.Input[int]
+        """
+        The maximum expected bitrate of the ingress bridge.
+        """
+        max_outputs: pulumi.Input[int]
+        """
+        The maximum number of outputs on the ingress bridge.
+        """
+elif False:
+    BridgeIngressGatewayBridgeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BridgeIngressGatewayBridgeArgs:
     def __init__(__self__, *,
@@ -220,6 +329,38 @@ class BridgeIngressGatewayBridgeArgs:
     def max_outputs(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_outputs", value)
 
+
+if not MYPY:
+    class BridgeNetworkOutputArgsDict(TypedDict):
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        """
+        ip_address: pulumi.Input[str]
+        """
+        The network output IP Address.
+        """
+        name: pulumi.Input[str]
+        """
+        The network output name.
+        """
+        network_name: pulumi.Input[str]
+        """
+        The network output's gateway network name.
+        """
+        port: pulumi.Input[int]
+        """
+        The network output port.
+        """
+        protocol: pulumi.Input['BridgeProtocolEnum']
+        """
+        The network output protocol.
+        """
+        ttl: pulumi.Input[int]
+        """
+        The network output TTL.
+        """
+elif False:
+    BridgeNetworkOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BridgeNetworkOutputArgs:
@@ -319,6 +460,34 @@ class BridgeNetworkOutputArgs:
         pulumi.set(self, "ttl", value)
 
 
+if not MYPY:
+    class BridgeNetworkSourceArgsDict(TypedDict):
+        """
+        The source of the bridge. A network source originates at your premises.
+        """
+        multicast_ip: pulumi.Input[str]
+        """
+        The network source multicast IP.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the network source.
+        """
+        network_name: pulumi.Input[str]
+        """
+        The network source's gateway network name.
+        """
+        port: pulumi.Input[int]
+        """
+        The network source port.
+        """
+        protocol: pulumi.Input['BridgeProtocolEnum']
+        """
+        The network source protocol.
+        """
+elif False:
+    BridgeNetworkSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BridgeNetworkSourceArgs:
     def __init__(__self__, *,
@@ -401,6 +570,34 @@ class BridgeNetworkSourceArgs:
     def protocol(self, value: pulumi.Input['BridgeProtocolEnum']):
         pulumi.set(self, "protocol", value)
 
+
+if not MYPY:
+    class BridgeOutputResourceBridgeNetworkOutputArgsDict(TypedDict):
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        """
+        ip_address: pulumi.Input[str]
+        """
+        The network output IP Address.
+        """
+        network_name: pulumi.Input[str]
+        """
+        The network output's gateway network name.
+        """
+        port: pulumi.Input[int]
+        """
+        The network output port.
+        """
+        protocol: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol']
+        """
+        The network output protocol.
+        """
+        ttl: pulumi.Input[int]
+        """
+        The network output TTL.
+        """
+elif False:
+    BridgeOutputResourceBridgeNetworkOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BridgeOutputResourceBridgeNetworkOutputArgs:
@@ -485,6 +682,18 @@ class BridgeOutputResourceBridgeNetworkOutputArgs:
         pulumi.set(self, "ttl", value)
 
 
+if not MYPY:
+    class BridgeOutputArgsDict(TypedDict):
+        """
+        The output of the bridge.
+        """
+        network_output: NotRequired[pulumi.Input['BridgeNetworkOutputArgsDict']]
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        """
+elif False:
+    BridgeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BridgeOutputArgs:
     def __init__(__self__, *,
@@ -508,6 +717,22 @@ class BridgeOutputArgs:
     def network_output(self, value: Optional[pulumi.Input['BridgeNetworkOutputArgs']]):
         pulumi.set(self, "network_output", value)
 
+
+if not MYPY:
+    class BridgeSourceBridgeFlowSourceArgsDict(TypedDict):
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        """
+        flow_arn: pulumi.Input[str]
+        """
+        The ARN of the cloud flow used as a source of this bridge.
+        """
+        flow_vpc_interface_attachment: NotRequired[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgsDict']]
+        """
+        The name of the VPC interface attachment to use for this source.
+        """
+elif False:
+    BridgeSourceBridgeFlowSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BridgeSourceBridgeFlowSourceArgs:
@@ -547,6 +772,30 @@ class BridgeSourceBridgeFlowSourceArgs:
     def flow_vpc_interface_attachment(self, value: Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']]):
         pulumi.set(self, "flow_vpc_interface_attachment", value)
 
+
+if not MYPY:
+    class BridgeSourceBridgeNetworkSourceArgsDict(TypedDict):
+        """
+        The source of the bridge. A network source originates at your premises.
+        """
+        multicast_ip: pulumi.Input[str]
+        """
+        The network source multicast IP.
+        """
+        network_name: pulumi.Input[str]
+        """
+        The network source's gateway network name.
+        """
+        port: pulumi.Input[int]
+        """
+        The network source port.
+        """
+        protocol: pulumi.Input['BridgeSourceProtocolEnum']
+        """
+        The network source protocol.
+        """
+elif False:
+    BridgeSourceBridgeNetworkSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BridgeSourceBridgeNetworkSourceArgs:
@@ -616,6 +865,18 @@ class BridgeSourceBridgeNetworkSourceArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class BridgeSourcePriorityArgsDict(TypedDict):
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        primary_source: NotRequired[pulumi.Input[str]]
+        """
+        The name of the source you choose as the primary source for this flow.
+        """
+elif False:
+    BridgeSourcePriorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BridgeSourcePriorityArgs:
     def __init__(__self__, *,
@@ -640,6 +901,18 @@ class BridgeSourcePriorityArgs:
         pulumi.set(self, "primary_source", value)
 
 
+if not MYPY:
+    class BridgeSourceVpcInterfaceAttachmentArgsDict(TypedDict):
+        """
+        The settings for attaching a VPC interface to an resource.
+        """
+        vpc_interface_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the VPC interface to use for this resource.
+        """
+elif False:
+    BridgeSourceVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BridgeSourceVpcInterfaceAttachmentArgs:
     def __init__(__self__, *,
@@ -663,6 +936,22 @@ class BridgeSourceVpcInterfaceAttachmentArgs:
     def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_interface_name", value)
 
+
+if not MYPY:
+    class BridgeSourceArgsDict(TypedDict):
+        """
+        The bridge's source.
+        """
+        flow_source: NotRequired[pulumi.Input['BridgeFlowSourceArgsDict']]
+        """
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        """
+        network_source: NotRequired[pulumi.Input['BridgeNetworkSourceArgsDict']]
+        """
+        The source of the bridge. A network source originates at your premises.
+        """
+elif False:
+    BridgeSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BridgeSourceArgs:
@@ -704,6 +993,18 @@ class BridgeSourceArgs:
         pulumi.set(self, "network_source", value)
 
 
+if not MYPY:
+    class BridgeVpcInterfaceAttachmentArgsDict(TypedDict):
+        """
+        The settings for attaching a VPC interface to an resource.
+        """
+        vpc_interface_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the VPC interface to use for this resource.
+        """
+elif False:
+    BridgeVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BridgeVpcInterfaceAttachmentArgs:
     def __init__(__self__, *,
@@ -727,6 +1028,50 @@ class BridgeVpcInterfaceAttachmentArgs:
     def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_interface_name", value)
 
+
+if not MYPY:
+    class FlowEncryptionArgsDict(TypedDict):
+        """
+        Information about the encryption of the flow.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        """
+        algorithm: NotRequired[pulumi.Input['FlowEncryptionAlgorithm']]
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        constant_initialization_vector: NotRequired[pulumi.Input[str]]
+        """
+        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+        """
+        device_id: NotRequired[pulumi.Input[str]]
+        """
+        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        key_type: NotRequired[pulumi.Input['FlowEncryptionKeyType']]
+        """
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+elif False:
+    FlowEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowEncryptionArgs:
@@ -879,6 +1224,50 @@ class FlowEncryptionArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class FlowEntitlementEncryptionArgsDict(TypedDict):
+        """
+        Information about the encryption of the flow.
+        """
+        algorithm: pulumi.Input['FlowEntitlementEncryptionAlgorithm']
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        """
+        constant_initialization_vector: NotRequired[pulumi.Input[str]]
+        """
+        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+        """
+        device_id: NotRequired[pulumi.Input[str]]
+        """
+        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        key_type: NotRequired[pulumi.Input['FlowEntitlementEncryptionKeyType']]
+        """
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+elif False:
+    FlowEntitlementEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowEntitlementEncryptionArgs:
     def __init__(__self__, *,
@@ -1029,6 +1418,18 @@ class FlowEntitlementEncryptionArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class FlowFailoverConfigSourcePriorityPropertiesArgsDict(TypedDict):
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        primary_source: pulumi.Input[str]
+        """
+        The name of the source you choose as the primary source for this flow.
+        """
+elif False:
+    FlowFailoverConfigSourcePriorityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowFailoverConfigSourcePriorityPropertiesArgs:
     def __init__(__self__, *,
@@ -1051,6 +1452,30 @@ class FlowFailoverConfigSourcePriorityPropertiesArgs:
     def primary_source(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_source", value)
 
+
+if not MYPY:
+    class FlowFailoverConfigArgsDict(TypedDict):
+        """
+        The settings for source failover
+        """
+        failover_mode: NotRequired[pulumi.Input['FlowFailoverConfigFailoverMode']]
+        """
+        The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+        """
+        recovery_window: NotRequired[pulumi.Input[int]]
+        """
+        Search window time to look for dash-7 packets
+        """
+        source_priority: NotRequired[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgsDict']]
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        state: NotRequired[pulumi.Input['FlowFailoverConfigState']]
+        """
+        The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+        """
+elif False:
+    FlowFailoverConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowFailoverConfigArgs:
@@ -1123,6 +1548,42 @@ class FlowFailoverConfigArgs:
     def state(self, value: Optional[pulumi.Input['FlowFailoverConfigState']]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class FlowFmtpArgsDict(TypedDict):
+        """
+        A set of parameters that define the media stream.
+        """
+        channel_order: NotRequired[pulumi.Input[str]]
+        """
+        The format of the audio channel.
+        """
+        colorimetry: NotRequired[pulumi.Input['FlowFmtpColorimetry']]
+        """
+        The format used for the representation of color.
+        """
+        exact_framerate: NotRequired[pulumi.Input[str]]
+        """
+        The frame rate for the video stream, in frames/second. For example: 60000/1001.
+        """
+        par: NotRequired[pulumi.Input[str]]
+        """
+        The pixel aspect ratio (PAR) of the video.
+        """
+        range: NotRequired[pulumi.Input['FlowFmtpRange']]
+        """
+        The encoding range of the video.
+        """
+        scan_mode: NotRequired[pulumi.Input['FlowFmtpScanMode']]
+        """
+        The type of compression that was used to smooth the video's appearance.
+        """
+        tcs: NotRequired[pulumi.Input['FlowFmtpTcs']]
+        """
+        The transfer characteristic system (TCS) that is used in the video.
+        """
+elif False:
+    FlowFmtpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowFmtpArgs:
@@ -1244,6 +1705,22 @@ class FlowFmtpArgs:
         pulumi.set(self, "tcs", value)
 
 
+if not MYPY:
+    class FlowGatewayBridgeSourceArgsDict(TypedDict):
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        """
+        bridge_arn: pulumi.Input[str]
+        """
+        The ARN of the bridge feeding this flow.
+        """
+        vpc_interface_attachment: NotRequired[pulumi.Input['FlowVpcInterfaceAttachmentArgsDict']]
+        """
+        The name of the VPC interface attachment to use for this bridge source.
+        """
+elif False:
+    FlowGatewayBridgeSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowGatewayBridgeSourceArgs:
     def __init__(__self__, *,
@@ -1283,6 +1760,22 @@ class FlowGatewayBridgeSourceArgs:
         pulumi.set(self, "vpc_interface_attachment", value)
 
 
+if not MYPY:
+    class FlowInputConfigurationArgsDict(TypedDict):
+        """
+        The transport parameters associated with an incoming media stream.
+        """
+        input_port: pulumi.Input[int]
+        """
+        The port that the flow listens on for an incoming media stream.
+        """
+        interface: pulumi.Input['FlowInterfaceArgsDict']
+        """
+        The VPC interface where the media stream comes in from.
+        """
+elif False:
+    FlowInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowInputConfigurationArgs:
     def __init__(__self__, *,
@@ -1321,6 +1814,18 @@ class FlowInputConfigurationArgs:
         pulumi.set(self, "interface", value)
 
 
+if not MYPY:
+    class FlowInterfaceArgsDict(TypedDict):
+        """
+        The VPC interface that you want to use for the media stream associated with the output.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the VPC interface that you want to use for the media stream associated with the output.
+        """
+elif False:
+    FlowInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowInterfaceArgs:
     def __init__(__self__, *,
@@ -1343,6 +1848,22 @@ class FlowInterfaceArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class FlowMaintenanceArgsDict(TypedDict):
+        """
+        The maintenance setting of a flow.
+        """
+        maintenance_day: pulumi.Input['FlowMaintenanceMaintenanceDay']
+        """
+        A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+        """
+        maintenance_start_hour: pulumi.Input[str]
+        """
+        UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+        """
+elif False:
+    FlowMaintenanceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowMaintenanceArgs:
@@ -1381,6 +1902,22 @@ class FlowMaintenanceArgs:
     def maintenance_start_hour(self, value: pulumi.Input[str]):
         pulumi.set(self, "maintenance_start_hour", value)
 
+
+if not MYPY:
+    class FlowMediaStreamAttributesArgsDict(TypedDict):
+        """
+        Attributes that are related to the media stream.
+        """
+        fmtp: NotRequired[pulumi.Input['FlowFmtpArgsDict']]
+        """
+        A set of parameters that define the media stream.
+        """
+        lang: NotRequired[pulumi.Input[str]]
+        """
+        The audio language, in a format that is recognized by the receiver.
+        """
+elif False:
+    FlowMediaStreamAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowMediaStreamAttributesArgs:
@@ -1421,6 +1958,26 @@ class FlowMediaStreamAttributesArgs:
     def lang(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lang", value)
 
+
+if not MYPY:
+    class FlowMediaStreamSourceConfigurationArgsDict(TypedDict):
+        """
+        The media stream that is associated with the source, and the parameters for that association.
+        """
+        encoding_name: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']
+        """
+        The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+        """
+        media_stream_name: pulumi.Input[str]
+        """
+        A name that helps you distinguish one media stream from another.
+        """
+        input_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgsDict']]]]
+        """
+        The media streams that you want to associate with the source.
+        """
+elif False:
+    FlowMediaStreamSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowMediaStreamSourceConfigurationArgs:
@@ -1475,6 +2032,46 @@ class FlowMediaStreamSourceConfigurationArgs:
     def input_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgs']]]]):
         pulumi.set(self, "input_configurations", value)
 
+
+if not MYPY:
+    class FlowMediaStreamArgsDict(TypedDict):
+        """
+        A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+        """
+        media_stream_id: pulumi.Input[int]
+        """
+        A unique identifier for the media stream.
+        """
+        media_stream_name: pulumi.Input[str]
+        """
+        A name that helps you distinguish one media stream from another.
+        """
+        media_stream_type: pulumi.Input['FlowMediaStreamMediaStreamType']
+        """
+        The type of media stream.
+        """
+        attributes: NotRequired[pulumi.Input['FlowMediaStreamAttributesArgsDict']]
+        """
+        Attributes that are related to the media stream.
+        """
+        clock_rate: NotRequired[pulumi.Input[int]]
+        """
+        The sample rate for the stream. This value in measured in kHz.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description that can help you quickly identify what your media stream is used for.
+        """
+        fmt: NotRequired[pulumi.Input[int]]
+        """
+        The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+        """
+        video_format: NotRequired[pulumi.Input['FlowMediaStreamVideoFormat']]
+        """
+        The resolution of the video.
+        """
+elif False:
+    FlowMediaStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowMediaStreamArgs:
@@ -1609,6 +2206,26 @@ class FlowMediaStreamArgs:
         pulumi.set(self, "video_format", value)
 
 
+if not MYPY:
+    class FlowOutputDestinationConfigurationArgsDict(TypedDict):
+        """
+        The definition of a media stream that is associated with the output.
+        """
+        destination_ip: pulumi.Input[str]
+        """
+        The IP address where contents of the media stream will be sent.
+        """
+        destination_port: pulumi.Input[int]
+        """
+        The port to use when the content of the media stream is distributed to the output.
+        """
+        interface: pulumi.Input['FlowOutputInterfaceArgsDict']
+        """
+        The VPC interface that is used for the media stream associated with the output.
+        """
+elif False:
+    FlowOutputDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowOutputDestinationConfigurationArgs:
     def __init__(__self__, *,
@@ -1662,6 +2279,22 @@ class FlowOutputDestinationConfigurationArgs:
         pulumi.set(self, "interface", value)
 
 
+if not MYPY:
+    class FlowOutputEncodingParametersArgsDict(TypedDict):
+        """
+        A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+        """
+        compression_factor: pulumi.Input[float]
+        """
+        A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+        """
+        encoder_profile: NotRequired[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']]
+        """
+        A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+        """
+elif False:
+    FlowOutputEncodingParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowOutputEncodingParametersArgs:
     def __init__(__self__, *,
@@ -1700,6 +2333,30 @@ class FlowOutputEncodingParametersArgs:
     def encoder_profile(self, value: Optional[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']]):
         pulumi.set(self, "encoder_profile", value)
 
+
+if not MYPY:
+    class FlowOutputEncryptionArgsDict(TypedDict):
+        """
+        Information about the encryption of the flow.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        """
+        secret_arn: pulumi.Input[str]
+        """
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        """
+        algorithm: NotRequired[pulumi.Input['FlowOutputEncryptionAlgorithm']]
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        key_type: NotRequired[pulumi.Input['FlowOutputEncryptionKeyType']]
+        """
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        """
+elif False:
+    FlowOutputEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowOutputEncryptionArgs:
@@ -1771,6 +2428,18 @@ class FlowOutputEncryptionArgs:
         pulumi.set(self, "key_type", value)
 
 
+if not MYPY:
+    class FlowOutputInterfaceArgsDict(TypedDict):
+        """
+        The VPC interface that you want to use for the media stream associated with the output.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the VPC interface that you want to use for the media stream associated with the output.
+        """
+elif False:
+    FlowOutputInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowOutputInterfaceArgs:
     def __init__(__self__, *,
@@ -1793,6 +2462,30 @@ class FlowOutputInterfaceArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class FlowOutputMediaStreamOutputConfigurationArgsDict(TypedDict):
+        """
+        The media stream that is associated with the output, and the parameters for that association.
+        """
+        encoding_name: pulumi.Input['FlowOutputMediaStreamOutputConfigurationEncodingName']
+        """
+        The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+        """
+        media_stream_name: pulumi.Input[str]
+        """
+        A name that helps you distinguish one media stream from another.
+        """
+        destination_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgsDict']]]]
+        """
+        The media streams that you want to associate with the output.
+        """
+        encoding_parameters: NotRequired[pulumi.Input['FlowOutputEncodingParametersArgsDict']]
+        """
+        A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+        """
+elif False:
+    FlowOutputMediaStreamOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowOutputMediaStreamOutputConfigurationArgs:
@@ -1864,6 +2557,18 @@ class FlowOutputMediaStreamOutputConfigurationArgs:
         pulumi.set(self, "encoding_parameters", value)
 
 
+if not MYPY:
+    class FlowOutputVpcInterfaceAttachmentArgsDict(TypedDict):
+        """
+        The settings for attaching a VPC interface to an output.
+        """
+        vpc_interface_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the VPC interface to use for this output.
+        """
+elif False:
+    FlowOutputVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowOutputVpcInterfaceAttachmentArgs:
     def __init__(__self__, *,
@@ -1887,6 +2592,50 @@ class FlowOutputVpcInterfaceAttachmentArgs:
     def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_interface_name", value)
 
+
+if not MYPY:
+    class FlowSourceEncryptionArgsDict(TypedDict):
+        """
+        Information about the encryption of the flow.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        """
+        algorithm: NotRequired[pulumi.Input['FlowSourceEncryptionAlgorithm']]
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        constant_initialization_vector: NotRequired[pulumi.Input[str]]
+        """
+        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+        """
+        device_id: NotRequired[pulumi.Input[str]]
+        """
+        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        key_type: NotRequired[pulumi.Input['FlowSourceEncryptionKeyType']]
+        """
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+elif False:
+    FlowSourceEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowSourceEncryptionArgs:
@@ -2039,6 +2788,22 @@ class FlowSourceEncryptionArgs:
         pulumi.set(self, "url", value)
 
 
+if not MYPY:
+    class FlowSourceGatewayBridgeSourceArgsDict(TypedDict):
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        """
+        bridge_arn: pulumi.Input[str]
+        """
+        The ARN of the bridge feeding this flow.
+        """
+        vpc_interface_attachment: NotRequired[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgsDict']]
+        """
+        The name of the VPC interface attachment to use for this bridge source.
+        """
+elif False:
+    FlowSourceGatewayBridgeSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowSourceGatewayBridgeSourceArgs:
     def __init__(__self__, *,
@@ -2078,6 +2843,18 @@ class FlowSourceGatewayBridgeSourceArgs:
         pulumi.set(self, "vpc_interface_attachment", value)
 
 
+if not MYPY:
+    class FlowSourceMonitoringConfigArgsDict(TypedDict):
+        """
+        The settings for source monitoring.
+        """
+        thumbnail_state: pulumi.Input['FlowSourceMonitoringConfigThumbnailState']
+        """
+        The state of thumbnail monitoring.
+        """
+elif False:
+    FlowSourceMonitoringConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowSourceMonitoringConfigArgs:
     def __init__(__self__, *,
@@ -2100,6 +2877,18 @@ class FlowSourceMonitoringConfigArgs:
     def thumbnail_state(self, value: pulumi.Input['FlowSourceMonitoringConfigThumbnailState']):
         pulumi.set(self, "thumbnail_state", value)
 
+
+if not MYPY:
+    class FlowSourceVpcInterfaceAttachmentArgsDict(TypedDict):
+        """
+        The settings for attaching a VPC interface to an resource.
+        """
+        vpc_interface_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the VPC interface to use for this resource.
+        """
+elif False:
+    FlowSourceVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowSourceVpcInterfaceAttachmentArgs:
@@ -2124,6 +2913,102 @@ class FlowSourceVpcInterfaceAttachmentArgs:
     def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_interface_name", value)
 
+
+if not MYPY:
+    class FlowSourceArgsDict(TypedDict):
+        """
+        The settings for the source of the flow.
+        """
+        decryption: NotRequired[pulumi.Input['FlowEncryptionArgsDict']]
+        """
+        The type of decryption that is used on the content ingested from this source.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+        """
+        entitlement_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+        """
+        gateway_bridge_source: NotRequired[pulumi.Input['FlowGatewayBridgeSourceArgsDict']]
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+        """
+        ingest_ip: NotRequired[pulumi.Input[str]]
+        """
+        The IP address that the flow will be listening on for incoming content.
+        """
+        ingest_port: NotRequired[pulumi.Input[int]]
+        """
+        The port that the flow will be listening on for incoming content.
+        """
+        max_bitrate: NotRequired[pulumi.Input[int]]
+        """
+        The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+        """
+        max_latency: NotRequired[pulumi.Input[int]]
+        """
+        The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        """
+        max_sync_buffer: NotRequired[pulumi.Input[int]]
+        """
+        The size of the buffer (in milliseconds) to use to sync incoming source data.
+        """
+        media_stream_source_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgsDict']]]]
+        """
+        The media stream that is associated with the source, and the parameters for that association.
+        """
+        min_latency: NotRequired[pulumi.Input[int]]
+        """
+        The minimum latency in milliseconds.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the source.
+        """
+        protocol: NotRequired[pulumi.Input['FlowSourceProtocol']]
+        """
+        The protocol that is used by the source.
+        """
+        sender_control_port: NotRequired[pulumi.Input[int]]
+        """
+        The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        sender_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        source_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the source.
+        """
+        source_ingest_port: NotRequired[pulumi.Input[str]]
+        """
+        The port that the flow will be listening on for incoming content.(ReadOnly)
+        """
+        source_listener_address: NotRequired[pulumi.Input[str]]
+        """
+        Source IP or domain name for SRT-caller protocol.
+        """
+        source_listener_port: NotRequired[pulumi.Input[int]]
+        """
+        Source port for SRT-caller protocol.
+        """
+        stream_id: NotRequired[pulumi.Input[str]]
+        """
+        The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        """
+        vpc_interface_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the VPC Interface this Source is configured with.
+        """
+        whitelist_cidr: NotRequired[pulumi.Input[str]]
+        """
+        The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        """
+elif False:
+    FlowSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowSourceArgs:
@@ -2485,6 +3370,18 @@ class FlowSourceArgs:
         pulumi.set(self, "whitelist_cidr", value)
 
 
+if not MYPY:
+    class FlowVpcInterfaceAttachmentArgsDict(TypedDict):
+        """
+        The settings for attaching a VPC interface to an resource.
+        """
+        vpc_interface_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the VPC interface to use for this resource.
+        """
+elif False:
+    FlowVpcInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowVpcInterfaceAttachmentArgs:
     def __init__(__self__, *,
@@ -2508,6 +3405,38 @@ class FlowVpcInterfaceAttachmentArgs:
     def vpc_interface_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_interface_name", value)
 
+
+if not MYPY:
+    class FlowVpcInterfaceArgsDict(TypedDict):
+        """
+        The details of a VPC interface.
+        """
+        name: pulumi.Input[str]
+        """
+        Immutable and has to be a unique against other VpcInterfaces in this Flow.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        Role Arn MediaConnect can assume to create ENIs in customer's account.
+        """
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Security Group IDs to be used on ENI.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        Subnet must be in the AZ of the Flow
+        """
+        network_interface_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IDs of the network interfaces created in customer's account by MediaConnect.
+        """
+        network_interface_type: NotRequired[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']]
+        """
+        The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+        """
+elif False:
+    FlowVpcInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowVpcInterfaceArgs:
@@ -2608,6 +3537,22 @@ class FlowVpcInterfaceArgs:
     def network_interface_type(self, value: Optional[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']]):
         pulumi.set(self, "network_interface_type", value)
 
+
+if not MYPY:
+    class GatewayNetworkArgsDict(TypedDict):
+        """
+        The network settings for a gateway.
+        """
+        cidr_block: pulumi.Input[str]
+        """
+        A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+        """
+elif False:
+    GatewayNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayNetworkArgs:

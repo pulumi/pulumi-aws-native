@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -137,9 +142,6 @@ def get_location_smb(location_arn: Optional[str] = None,
         mount_options=pulumi.get(__ret__, 'mount_options'),
         tags=pulumi.get(__ret__, 'tags'),
         user=pulumi.get(__ret__, 'user'))
-
-
-@_utilities.lift_output_func(get_location_smb)
 def get_location_smb_output(location_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationSmbResult]:
     """
@@ -148,4 +150,15 @@ def get_location_smb_output(location_arn: Optional[pulumi.Input[str]] = None,
 
     :param str location_arn: The Amazon Resource Name (ARN) of the SMB location that is created.
     """
-    ...
+    __args__ = dict()
+    __args__['locationArn'] = location_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationSmb', __args__, opts=opts, typ=GetLocationSmbResult)
+    return __ret__.apply(lambda __response__: GetLocationSmbResult(
+        agent_arns=pulumi.get(__response__, 'agent_arns'),
+        domain=pulumi.get(__response__, 'domain'),
+        location_arn=pulumi.get(__response__, 'location_arn'),
+        location_uri=pulumi.get(__response__, 'location_uri'),
+        mount_options=pulumi.get(__response__, 'mount_options'),
+        tags=pulumi.get(__response__, 'tags'),
+        user=pulumi.get(__response__, 'user')))

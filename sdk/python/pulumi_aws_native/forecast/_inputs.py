@@ -4,17 +4,40 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'DatasetAttributesItemPropertiesArgs',
+    'DatasetAttributesItemPropertiesArgsDict',
     'EncryptionConfigPropertiesArgs',
+    'EncryptionConfigPropertiesArgsDict',
     'SchemaPropertiesArgs',
+    'SchemaPropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatasetAttributesItemPropertiesArgsDict(TypedDict):
+        attribute_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the dataset field
+        """
+        attribute_type: NotRequired[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']]
+        """
+        Data type of the field
+        """
+elif False:
+    DatasetAttributesItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetAttributesItemPropertiesArgs:
@@ -54,6 +77,24 @@ class DatasetAttributesItemPropertiesArgs:
     def attribute_type(self, value: Optional[pulumi.Input['DatasetAttributesItemPropertiesAttributeType']]):
         pulumi.set(self, "attribute_type", value)
 
+
+if not MYPY:
+    class EncryptionConfigPropertiesArgsDict(TypedDict):
+        """
+        A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the KMS key.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+
+        Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
+        """
+elif False:
+    EncryptionConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EncryptionConfigPropertiesArgs:
@@ -98,6 +139,18 @@ class EncryptionConfigPropertiesArgs:
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
 
+
+if not MYPY:
+    class SchemaPropertiesArgsDict(TypedDict):
+        """
+        The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
+        """
+        attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetAttributesItemPropertiesArgsDict']]]]
+        """
+        An array of attributes specifying the name and type of each field in a dataset.
+        """
+elif False:
+    SchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaPropertiesArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -82,9 +87,6 @@ def get_observability_configuration(observability_configuration_arn: Optional[st
         latest=pulumi.get(__ret__, 'latest'),
         observability_configuration_arn=pulumi.get(__ret__, 'observability_configuration_arn'),
         observability_configuration_revision=pulumi.get(__ret__, 'observability_configuration_revision'))
-
-
-@_utilities.lift_output_func(get_observability_configuration)
 def get_observability_configuration_output(observability_configuration_arn: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObservabilityConfigurationResult]:
     """
@@ -93,4 +95,11 @@ def get_observability_configuration_output(observability_configuration_arn: Opti
 
     :param str observability_configuration_arn: The Amazon Resource Name (ARN) of this ObservabilityConfiguration
     """
-    ...
+    __args__ = dict()
+    __args__['observabilityConfigurationArn'] = observability_configuration_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:apprunner:getObservabilityConfiguration', __args__, opts=opts, typ=GetObservabilityConfigurationResult)
+    return __ret__.apply(lambda __response__: GetObservabilityConfigurationResult(
+        latest=pulumi.get(__response__, 'latest'),
+        observability_configuration_arn=pulumi.get(__response__, 'observability_configuration_arn'),
+        observability_configuration_revision=pulumi.get(__response__, 'observability_configuration_revision')))

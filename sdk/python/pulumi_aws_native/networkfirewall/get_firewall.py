@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -179,9 +184,6 @@ def get_firewall(firewall_arn: Optional[str] = None,
         subnet_change_protection=pulumi.get(__ret__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_firewall)
 def get_firewall_output(firewall_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
     """
@@ -190,4 +192,18 @@ def get_firewall_output(firewall_arn: Optional[pulumi.Input[str]] = None,
 
     :param str firewall_arn: The Amazon Resource Name (ARN) of the `Firewall` .
     """
-    ...
+    __args__ = dict()
+    __args__['firewallArn'] = firewall_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
+    return __ret__.apply(lambda __response__: GetFirewallResult(
+        delete_protection=pulumi.get(__response__, 'delete_protection'),
+        description=pulumi.get(__response__, 'description'),
+        endpoint_ids=pulumi.get(__response__, 'endpoint_ids'),
+        firewall_arn=pulumi.get(__response__, 'firewall_arn'),
+        firewall_id=pulumi.get(__response__, 'firewall_id'),
+        firewall_policy_arn=pulumi.get(__response__, 'firewall_policy_arn'),
+        firewall_policy_change_protection=pulumi.get(__response__, 'firewall_policy_change_protection'),
+        subnet_change_protection=pulumi.get(__response__, 'subnet_change_protection'),
+        subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
+        tags=pulumi.get(__response__, 'tags')))

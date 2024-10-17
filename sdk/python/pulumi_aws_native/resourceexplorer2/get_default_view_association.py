@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -69,9 +74,6 @@ def get_default_view_association(associated_aws_principal: Optional[str] = None,
     return AwaitableGetDefaultViewAssociationResult(
         associated_aws_principal=pulumi.get(__ret__, 'associated_aws_principal'),
         view_arn=pulumi.get(__ret__, 'view_arn'))
-
-
-@_utilities.lift_output_func(get_default_view_association)
 def get_default_view_association_output(associated_aws_principal: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultViewAssociationResult]:
     """
@@ -80,4 +82,10 @@ def get_default_view_association_output(associated_aws_principal: Optional[pulum
 
     :param str associated_aws_principal: The AWS principal that the default view is associated with, used as the unique identifier for this resource.
     """
-    ...
+    __args__ = dict()
+    __args__['associatedAwsPrincipal'] = associated_aws_principal
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:resourceexplorer2:getDefaultViewAssociation', __args__, opts=opts, typ=GetDefaultViewAssociationResult)
+    return __ret__.apply(lambda __response__: GetDefaultViewAssociationResult(
+        associated_aws_principal=pulumi.get(__response__, 'associated_aws_principal'),
+        view_arn=pulumi.get(__response__, 'view_arn')))

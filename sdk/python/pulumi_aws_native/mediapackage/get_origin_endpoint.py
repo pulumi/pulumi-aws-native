@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
@@ -241,9 +246,6 @@ def get_origin_endpoint(id: Optional[str] = None,
         time_delay_seconds=pulumi.get(__ret__, 'time_delay_seconds'),
         url=pulumi.get(__ret__, 'url'),
         whitelist=pulumi.get(__ret__, 'whitelist'))
-
-
-@_utilities.lift_output_func(get_origin_endpoint)
 def get_origin_endpoint_output(id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginEndpointResult]:
     """
@@ -252,4 +254,23 @@ def get_origin_endpoint_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the OriginEndpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackage:getOriginEndpoint', __args__, opts=opts, typ=GetOriginEndpointResult)
+    return __ret__.apply(lambda __response__: GetOriginEndpointResult(
+        arn=pulumi.get(__response__, 'arn'),
+        authorization=pulumi.get(__response__, 'authorization'),
+        channel_id=pulumi.get(__response__, 'channel_id'),
+        cmaf_package=pulumi.get(__response__, 'cmaf_package'),
+        dash_package=pulumi.get(__response__, 'dash_package'),
+        description=pulumi.get(__response__, 'description'),
+        hls_package=pulumi.get(__response__, 'hls_package'),
+        manifest_name=pulumi.get(__response__, 'manifest_name'),
+        mss_package=pulumi.get(__response__, 'mss_package'),
+        origination=pulumi.get(__response__, 'origination'),
+        startover_window_seconds=pulumi.get(__response__, 'startover_window_seconds'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_delay_seconds=pulumi.get(__response__, 'time_delay_seconds'),
+        url=pulumi.get(__response__, 'url'),
+        whitelist=pulumi.get(__response__, 'whitelist')))

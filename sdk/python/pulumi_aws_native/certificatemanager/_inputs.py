@@ -4,14 +4,31 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountExpiryEventsConfigurationArgs',
+    'AccountExpiryEventsConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountExpiryEventsConfigurationArgsDict(TypedDict):
+        days_before_expiry: NotRequired[pulumi.Input[int]]
+        """
+        This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
+        """
+elif False:
+    AccountExpiryEventsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountExpiryEventsConfigurationArgs:
