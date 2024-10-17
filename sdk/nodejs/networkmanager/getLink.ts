@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * The AWS::NetworkManager::Link type describes a link.
  */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getLink", {
         "globalNetworkId": args.globalNetworkId,
@@ -72,7 +71,11 @@ export interface GetLinkResult {
  * The AWS::NetworkManager::Link type describes a link.
  */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
-    return pulumi.output(args).apply((a: any) => getLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:networkmanager:getLink", {
+        "globalNetworkId": args.globalNetworkId,
+        "linkId": args.linkId,
+    }, opts);
 }
 
 export interface GetLinkOutputArgs {

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Events::Archive
  */
 export function getArchive(args: GetArchiveArgs, opts?: pulumi.InvokeOptions): Promise<GetArchiveResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:events:getArchive", {
         "archiveName": args.archiveName,
@@ -46,7 +45,10 @@ export interface GetArchiveResult {
  * Resource Type definition for AWS::Events::Archive
  */
 export function getArchiveOutput(args: GetArchiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchiveResult> {
-    return pulumi.output(args).apply((a: any) => getArchive(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:events:getArchive", {
+        "archiveName": args.archiveName,
+    }, opts);
 }
 
 export interface GetArchiveOutputArgs {

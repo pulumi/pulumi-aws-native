@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Location::RouteCalculator Resource Type
  */
 export function getRouteCalculator(args: GetRouteCalculatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteCalculatorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:location:getRouteCalculator", {
         "calculatorName": args.calculatorName,
@@ -71,7 +70,10 @@ export interface GetRouteCalculatorResult {
  * Definition of AWS::Location::RouteCalculator Resource Type
  */
 export function getRouteCalculatorOutput(args: GetRouteCalculatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteCalculatorResult> {
-    return pulumi.output(args).apply((a: any) => getRouteCalculator(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:location:getRouteCalculator", {
+        "calculatorName": args.calculatorName,
+    }, opts);
 }
 
 export interface GetRouteCalculatorOutputArgs {

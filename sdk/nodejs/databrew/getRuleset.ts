@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataBrew::Ruleset.
  */
 export function getRuleset(args: GetRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:databrew:getRuleset", {
         "name": args.name,
@@ -39,7 +38,10 @@ export interface GetRulesetResult {
  * Resource schema for AWS::DataBrew::Ruleset.
  */
 export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
-    return pulumi.output(args).apply((a: any) => getRuleset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:databrew:getRuleset", {
+        "name": args.name,
+    }, opts);
 }
 
 export interface GetRulesetOutputArgs {

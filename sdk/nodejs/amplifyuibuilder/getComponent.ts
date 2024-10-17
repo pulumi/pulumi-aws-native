@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::AmplifyUIBuilder::Component Resource Type
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amplifyuibuilder:getComponent", {
         "appId": args.appId,
@@ -101,7 +100,12 @@ export interface GetComponentResult {
  * Definition of AWS::AmplifyUIBuilder::Component Resource Type
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
-    return pulumi.output(args).apply((a: any) => getComponent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:amplifyuibuilder:getComponent", {
+        "appId": args.appId,
+        "environmentName": args.environmentName,
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetComponentOutputArgs {

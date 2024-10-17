@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getResource", {
         "resourceId": args.resourceId,
@@ -37,7 +36,11 @@ export interface GetResourceResult {
  * The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
  */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
-    return pulumi.output(args).apply((a: any) => getResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigateway:getResource", {
+        "resourceId": args.resourceId,
+        "restApiId": args.restApiId,
+    }, opts);
 }
 
 export interface GetResourceOutputArgs {

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::EC2::NetworkInsightsAnalysis
  */
 export function getNetworkInsightsAnalysis(args: GetNetworkInsightsAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsAnalysisResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNetworkInsightsAnalysis", {
         "networkInsightsAnalysisId": args.networkInsightsAnalysisId,
@@ -83,7 +82,10 @@ export interface GetNetworkInsightsAnalysisResult {
  * Resource schema for AWS::EC2::NetworkInsightsAnalysis
  */
 export function getNetworkInsightsAnalysisOutput(args: GetNetworkInsightsAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsAnalysisResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkInsightsAnalysis(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getNetworkInsightsAnalysis", {
+        "networkInsightsAnalysisId": args.networkInsightsAnalysisId,
+    }, opts);
 }
 
 export interface GetNetworkInsightsAnalysisOutputArgs {

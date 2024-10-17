@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::Location::APIKey Resource Type
  */
 export function getApiKey(args: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:location:getApiKey", {
         "keyName": args.keyName,
@@ -69,7 +68,10 @@ export interface GetApiKeyResult {
  * Definition of AWS::Location::APIKey Resource Type
  */
 export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
-    return pulumi.output(args).apply((a: any) => getApiKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:location:getApiKey", {
+        "keyName": args.keyName,
+    }, opts);
 }
 
 export interface GetApiKeyOutputArgs {

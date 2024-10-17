@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationObjectStorage.
  */
 export function getLocationObjectStorage(args: GetLocationObjectStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationObjectStorageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationObjectStorage", {
         "locationArn": args.locationArn,
@@ -63,7 +62,10 @@ export interface GetLocationObjectStorageResult {
  * Resource schema for AWS::DataSync::LocationObjectStorage.
  */
 export function getLocationObjectStorageOutput(args: GetLocationObjectStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationObjectStorageResult> {
-    return pulumi.output(args).apply((a: any) => getLocationObjectStorage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationObjectStorage", {
+        "locationArn": args.locationArn,
+    }, opts);
 }
 
 export interface GetLocationObjectStorageOutputArgs {

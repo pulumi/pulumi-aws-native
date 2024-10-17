@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for StateMachine
  */
 export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:stepfunctions:getStateMachine", {
         "arn": args.arn,
@@ -83,7 +82,10 @@ export interface GetStateMachineResult {
  * Resource schema for StateMachine
  */
 export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
-    return pulumi.output(args).apply((a: any) => getStateMachine(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:stepfunctions:getStateMachine", {
+        "arn": args.arn,
+    }, opts);
 }
 
 export interface GetStateMachineOutputArgs {

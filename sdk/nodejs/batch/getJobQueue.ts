@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Batch::JobQueue
  */
 export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:batch:getJobQueue", {
         "jobQueueArn": args.jobQueueArn,
@@ -57,7 +56,10 @@ export interface GetJobQueueResult {
  * Resource Type definition for AWS::Batch::JobQueue
  */
 export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobQueueResult> {
-    return pulumi.output(args).apply((a: any) => getJobQueue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:batch:getJobQueue", {
+        "jobQueueArn": args.jobQueueArn,
+    }, opts);
 }
 
 export interface GetJobQueueOutputArgs {

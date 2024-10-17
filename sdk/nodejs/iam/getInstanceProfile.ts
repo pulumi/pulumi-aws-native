@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *   For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getInstanceProfile", {
         "instanceProfileName": args.instanceProfileName,
@@ -43,7 +42,10 @@ export interface GetInstanceProfileResult {
  *   For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
  */
 export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
-    return pulumi.output(args).apply((a: any) => getInstanceProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:iam:getInstanceProfile", {
+        "instanceProfileName": args.instanceProfileName,
+    }, opts);
 }
 
 export interface GetInstanceProfileOutputArgs {

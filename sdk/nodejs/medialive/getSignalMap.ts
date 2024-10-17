@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::MediaLive::SignalMap Resource Type
  */
 export function getSignalMap(args: GetSignalMapArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalMapResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:medialive:getSignalMap", {
         "identifier": args.identifier,
@@ -85,7 +84,10 @@ export interface GetSignalMapResult {
  * Definition of AWS::MediaLive::SignalMap Resource Type
  */
 export function getSignalMapOutput(args: GetSignalMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalMapResult> {
-    return pulumi.output(args).apply((a: any) => getSignalMap(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:medialive:getSignalMap", {
+        "identifier": args.identifier,
+    }, opts);
 }
 
 export interface GetSignalMapOutputArgs {

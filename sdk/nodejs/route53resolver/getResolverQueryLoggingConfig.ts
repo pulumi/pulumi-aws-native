@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
  */
 export function getResolverQueryLoggingConfig(args: GetResolverQueryLoggingConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverQueryLoggingConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getResolverQueryLoggingConfig", {
         "id": args.id,
@@ -63,7 +62,10 @@ export interface GetResolverQueryLoggingConfigResult {
  * Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
  */
 export function getResolverQueryLoggingConfigOutput(args: GetResolverQueryLoggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverQueryLoggingConfigResult> {
-    return pulumi.output(args).apply((a: any) => getResolverQueryLoggingConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:route53resolver:getResolverQueryLoggingConfig", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetResolverQueryLoggingConfigOutputArgs {

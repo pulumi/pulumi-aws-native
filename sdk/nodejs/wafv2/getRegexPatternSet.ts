@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
  */
 export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafv2:getRegexPatternSet", {
         "id": args.id,
@@ -63,7 +62,12 @@ export interface GetRegexPatternSetResult {
  * Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
  */
 export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegexPatternSetResult> {
-    return pulumi.output(args).apply((a: any) => getRegexPatternSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:wafv2:getRegexPatternSet", {
+        "id": args.id,
+        "name": args.name,
+        "scope": args.scope,
+    }, opts);
 }
 
 export interface GetRegexPatternSetOutputArgs {

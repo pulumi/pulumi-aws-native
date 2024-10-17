@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getCarrierGateway(args: GetCarrierGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCarrierGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getCarrierGateway", {
         "carrierGatewayId": args.carrierGatewayId,
@@ -47,7 +46,10 @@ export interface GetCarrierGatewayResult {
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getCarrierGatewayOutput(args: GetCarrierGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCarrierGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getCarrierGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:ec2:getCarrierGateway", {
+        "carrierGatewayId": args.carrierGatewayId,
+    }, opts);
 }
 
 export interface GetCarrierGatewayOutputArgs {

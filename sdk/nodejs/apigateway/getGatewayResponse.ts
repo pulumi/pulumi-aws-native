@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
  */
 export function getGatewayResponse(args: GetGatewayResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResponseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getGatewayResponse", {
         "id": args.id,
@@ -44,7 +43,10 @@ export interface GetGatewayResponseResult {
  * The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
  */
 export function getGatewayResponseOutput(args: GetGatewayResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResponseResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayResponse(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:apigateway:getGatewayResponse", {
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetGatewayResponseOutputArgs {

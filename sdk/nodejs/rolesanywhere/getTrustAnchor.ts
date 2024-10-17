@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
  */
 export function getTrustAnchor(args: GetTrustAnchorArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustAnchorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rolesanywhere:getTrustAnchor", {
         "trustAnchorId": args.trustAnchorId,
@@ -59,7 +58,10 @@ export interface GetTrustAnchorResult {
  * Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
  */
 export function getTrustAnchorOutput(args: GetTrustAnchorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustAnchorResult> {
-    return pulumi.output(args).apply((a: any) => getTrustAnchor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:rolesanywhere:getTrustAnchor", {
+        "trustAnchorId": args.trustAnchorId,
+    }, opts);
 }
 
 export interface GetTrustAnchorOutputArgs {

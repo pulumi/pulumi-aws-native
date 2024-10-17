@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SecurityLake::SubscriberNotification
  */
 export function getSubscriberNotification(args: GetSubscriberNotificationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriberNotificationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securitylake:getSubscriberNotification", {
         "subscriberArn": args.subscriberArn,
@@ -39,7 +38,10 @@ export interface GetSubscriberNotificationResult {
  * Resource Type definition for AWS::SecurityLake::SubscriberNotification
  */
 export function getSubscriberNotificationOutput(args: GetSubscriberNotificationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriberNotificationResult> {
-    return pulumi.output(args).apply((a: any) => getSubscriberNotification(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:securitylake:getSubscriberNotification", {
+        "subscriberArn": args.subscriberArn,
+    }, opts);
 }
 
 export interface GetSubscriberNotificationOutputArgs {

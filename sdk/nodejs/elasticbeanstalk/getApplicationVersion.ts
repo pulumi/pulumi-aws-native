@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
  */
 export function getApplicationVersion(args: GetApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticbeanstalk:getApplicationVersion", {
         "applicationName": args.applicationName,
@@ -35,7 +34,11 @@ export interface GetApplicationVersionResult {
  * Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
  */
 export function getApplicationVersionOutput(args: GetApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationVersionResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:elasticbeanstalk:getApplicationVersion", {
+        "applicationName": args.applicationName,
+        "id": args.id,
+    }, opts);
 }
 
 export interface GetApplicationVersionOutputArgs {

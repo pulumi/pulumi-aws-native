@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MSK::ClusterPolicy
  */
 export function getClusterPolicy(args: GetClusterPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:msk:getClusterPolicy", {
         "clusterArn": args.clusterArn,
@@ -38,7 +37,10 @@ export interface GetClusterPolicyResult {
  * Resource Type definition for AWS::MSK::ClusterPolicy
  */
 export function getClusterPolicyOutput(args: GetClusterPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getClusterPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws-native:msk:getClusterPolicy", {
+        "clusterArn": args.clusterArn,
+    }, opts);
 }
 
 export interface GetClusterPolicyOutputArgs {
