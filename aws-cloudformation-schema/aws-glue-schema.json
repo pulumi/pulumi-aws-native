@@ -1,6 +1,14 @@
 {
   "typeName" : "AWS::Glue::Schema",
   "description" : "This resource represents a schema of Glue Schema Registry.",
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "glue:GetTags", "glue:TagResource", "glue:UntagResource" ]
+  },
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-glue.git",
   "definitions" : {
     "Registry" : {
@@ -114,14 +122,14 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "Name", "DataFormat", "SchemaDefinition", "Compatibility" ],
+  "required" : [ "Name", "DataFormat", "Compatibility" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/InitialSchemaVersionId" ],
   "createOnlyProperties" : [ "/properties/Registry", "/properties/Name", "/properties/DataFormat", "/properties/SchemaDefinition" ],
   "writeOnlyProperties" : [ "/properties/SchemaDefinition" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "glue:CreateSchema" ]
+      "permissions" : [ "glue:CreateSchema", "glue:TagResource" ]
     },
     "read" : {
       "permissions" : [ "glue:GetSchemaVersion", "glue:GetSchema", "glue:GetTags" ]

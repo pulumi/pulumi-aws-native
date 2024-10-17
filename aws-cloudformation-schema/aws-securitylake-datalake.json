@@ -148,7 +148,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "securitylake:TagResource", "securitylake:UntagResource", "securitylake:ListTagsForResource" ]
   },
   "replacementStrategy" : "delete_then_create",
   "handlers" : {

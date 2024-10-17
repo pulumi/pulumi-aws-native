@@ -9,7 +9,7 @@
   },
   "$schema" : "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "typeName" : "AWS::GameLift::ContainerGroupDefinition",
-  "readOnlyProperties" : [ "/properties/ContainerGroupDefinitionArn", "/properties/CreationTime", "/properties/ContainerDefinitions/*/ResolvedImageDigest" ],
+  "readOnlyProperties" : [ "/properties/ContainerGroupDefinitionArn", "/properties/CreationTime", "/properties/ContainerDefinitions/*/ResolvedImageDigest", "/properties/Status", "/properties/StatusReason" ],
   "description" : "The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.",
   "createOnlyProperties" : [ "/properties/Name", "/properties/SchedulingStrategy", "/properties/TotalMemoryLimit", "/properties/TotalCpuLimit", "/properties/ContainerDefinitions", "/properties/OperatingSystem" ],
   "primaryIdentifier" : [ "/properties/Name" ],
@@ -58,6 +58,33 @@
         }
       },
       "required" : [ "FromPort", "Protocol", "ToPort" ]
+    },
+    "ContainerMountPoint" : {
+      "description" : "Defines the mount point configuration within a container.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "InstancePath" : {
+          "minLength" : 1,
+          "pattern" : "^\\/[\\s\\S]*$",
+          "description" : "The path on the host that will be mounted in the container.",
+          "type" : "string",
+          "maxLength" : 1024
+        },
+        "ContainerPath" : {
+          "minLength" : 1,
+          "pattern" : "^(\\/+[^\\/]+\\/*)+$",
+          "description" : "The path inside the container where the mount is accessible.",
+          "type" : "string",
+          "maxLength" : 1024
+        },
+        "AccessLevel" : {
+          "description" : "The access permissions for the mounted path.",
+          "type" : "string",
+          "enum" : [ "READ_ONLY", "READ_AND_WRITE" ]
+        }
+      },
+      "required" : [ "InstancePath" ]
     },
     "MemoryLimits" : {
       "description" : "Specifies how much memory is available to the container.",
@@ -314,10 +341,19 @@
     }
   },
   "properties" : {
+    "Status" : {
+      "description" : "A string indicating ContainerGroupDefinition status.",
+      "type" : "string",
+      "enum" : [ "READY", "COPYING", "FAILED" ]
+    },
     "OperatingSystem" : {
       "description" : "The operating system of the container group",
       "type" : "string",
       "enum" : [ "AMAZON_LINUX_2023" ]
+    },
+    "StatusReason" : {
+      "description" : "A string indicating the reason for ContainerGroupDefinition status.",
+      "type" : "string"
     },
     "Name" : {
       "minLength" : 1,
@@ -359,6 +395,11 @@
         "$ref" : "#/definitions/ContainerDefinition"
       }
     },
+    "SourceVersionNumber" : {
+      "description" : "A specific ContainerGroupDefinition version to be updated",
+      "type" : "integer",
+      "minimum" : 0
+    },
     "Tags" : {
       "minItems" : 0,
       "maxItems" : 200,
@@ -369,6 +410,15 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "SupportContainerDefinitions" : {
+      "minItems" : 1,
+      "maxItems" : 10,
+      "uniqueItems" : true,
+      "description" : "A collection of support container definitions that define the containers in this group.",
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : { }
     },
     "TotalCpuLimit" : {
       "description" : "The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)",
