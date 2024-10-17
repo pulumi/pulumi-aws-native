@@ -113,7 +113,7 @@ import (
 //					Pseudonym:                  pulumi.String("string"),
 //					GenerationQualifier:        pulumi.String("DBG"),
 //				},
-//				RevocationConfiguration: nil,
+//				RevocationConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationArgs{},
 //				Tags:                    aws.TagArray{},
 //			})
 //			if err != nil {
